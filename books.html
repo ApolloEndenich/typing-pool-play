@@ -1,0 +1,120 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The books — The Typing Pool</title>
+<style>
+ :root{--paper:#FFFFFF;--ink:#101010;--faint:#5A5A5A;--rule:#9A9A9A;--hair:#DCDCDC;
+       --wash:#F4F4F4;--red:#B3261E;--good:#1E6B2F;
+       --tw:"Courier New",ui-monospace,monospace}
+ *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+ body{background:var(--paper);color:var(--ink);font-family:var(--tw);
+      padding:16px 12px 48px;display:flex;justify-content:center}
+ .wrap{width:100%;max-width:760px;display:flex;flex-direction:column;gap:16px}
+ header{border-bottom:2px solid var(--ink);padding-bottom:10px;display:flex;
+        justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
+ h1{font-size:17px;letter-spacing:.2em;text-transform:uppercase}
+ h1 a{color:var(--ink);text-decoration:none}
+ .sub{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:5px}
+ h2{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    border-bottom:1px solid var(--hair);padding-bottom:3px;margin-bottom:9px}
+ p{font-size:12.5px;line-height:1.65;margin-bottom:9px}
+ .lede{border:1px solid var(--ink);border-left:4px solid var(--ink);padding:10px 12px;
+       font-size:12px;line-height:1.65}
+ .book{border:1px solid var(--rule);padding:11px 12px;margin-bottom:8px}
+ .book .band{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+ .book h3{font-size:14px;margin:3px 0 1px}
+ .book .st{font-size:10.5px;color:var(--faint);font-style:italic;margin-bottom:6px}
+ .book p{font-size:11.5px;margin-bottom:6px}
+ .book .en{color:var(--faint);font-size:10.5px;line-height:1.6}
+ .book .facts{font-size:9.5px;color:var(--faint);letter-spacing:.03em;
+              border-top:1px solid var(--hair);padding-top:5px;margin-top:6px}
+ .book a{color:var(--ink)}
+ .book.slot{border-style:dashed;color:var(--faint);background:var(--wash)}
+ .book.slot h3{font-size:12px;color:var(--faint)}
+ .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px}
+ a.link{display:block;border:2px solid var(--ink);padding:9px 11px;text-decoration:none;color:var(--ink)}
+ a.link:hover{background:var(--ink);color:var(--paper)}
+ a.link:hover small{color:var(--paper)}
+ a.link b{font-size:11.5px;letter-spacing:.06em;display:block}
+ a.link small{display:block;font-size:9.5px;color:var(--faint);margin-top:3px}
+ .note{font-size:10.5px;color:var(--faint);line-height:1.6;border-top:1px solid var(--hair);
+       padding-top:8px}
+ footer{font-size:9.5px;color:var(--faint);line-height:1.7;border-top:1px solid var(--hair);padding-top:9px}
+</style>
+<div class="wrap">
+ <header>
+  <div>
+   <h1><a href="index.html">The Typing Pool</a></h1>
+   <div class="sub">the books the dog came from</div>
+  </div>
+  <div class="sub"><a href="index.html" style="color:var(--ink)">&larr; back to the game</a></div>
+ </header>
+
+ <div class="lede" id="lede"></div>
+
+ <div><h2 id="seriesTitle"></h2><div id="series"></div></div>
+ <div id="alsoWrap" hidden><h2 id="alsoTitle"></h2><div id="alsoNote" class="note"
+      style="border:0;padding:0;margin-bottom:9px"></div><div id="also"></div></div>
+ <div><h2>Where to find them</h2><div class="links" id="links"></div></div>
+ <div><h2>About the author</h2><p id="about"></p></div>
+ <footer id="foot"></footer>
+</div>
+
+<script id="booksdata" type="application/json">{"_note":"The books page is built from this file. Everything with \"checked\": true was read off a publisher or retailer page in September 2026; everything with \"checked\": false is a slot waiting for the real thing and says so on the page. Do not promote a slot to checked without looking it up — a made-up ISBN next to a real one poisons both.","author":{"name":"Gudrun Leyendecker","born":"Bonn, 19 May 1948","since":1995,"note":"Fourth child of the art historian Ernst Lang and the pianist Margarethe Lang. Trained as a bookbinder, wanted to act, and has been writing since 1995 — esoteric books first, then novels, crime, children's books, poetry and guides. Well over a hundred titles.","links":[{"label":"Her books at the publisher (BoD)","href":"https://buchshop.bod.de/","kind":"publisher"},{"label":"Author page at LovelyBooks","href":"https://www.lovelybooks.de/autor/Gudrun-Leyendecker/","kind":"author"},{"label":"Wikipedia (DE)","href":"https://de.wikipedia.org/wiki/Gudrun_Leyendecker","kind":"author"},{"label":"Search Indigo (Canada)","href":"https://www.indigo.ca/en-ca/search?q=Gudrun%20Leyendecker","kind":"shop"},{"label":"Search Amazon.de","href":"https://www.amazon.de/s?k=Gudrun+Leyendecker","kind":"shop"}]},"series":{"title":"Schmiss und Wessen","blurb":"Bonn, 1969. Sarah Wessen is a private detective with a mind of her own; Kommissar Mauser is the police. And Schmiss is the dog, who tells the whole thing — he understands rather less than he thinks and is quietly unimpressed by everybody.","books":[{"band":3,"checked":true,"title":"Schmiss und Wessen","subtitle":"Humorvoller Krimi von einem Hund erzählt","blurb":"Ein Schuss auf dem Bonner Venusberg, und Politik und private Abgründe geraten durcheinander. Kommissar Mauser ermittelt, Sarah Wessen geht ihrer eigenen Spur nach — und immer dabei: Schmiss, der mehr versteht, als man ihm zutraut.","blurb_en":"A shot on the Bonner Venusberg, and politics and private business come apart together. Kommissar Mauser investigates; Sarah Wessen follows her own trail; and Schmiss, who understands more than anyone credits him with, is always there.","isbn":"978-3-695-18724-9","published":"5 September 2025","pages":376,"publisher":"Books on Demand","href":"https://buchshop.bod.de/schmiss-und-wessen-gudrun-leyendecker-9783695187249"},{"band":1,"checked":false},{"band":2,"checked":false},{"band":4,"checked":false},{"band":5,"checked":false},{"band":6,"checked":false},{"band":7,"checked":false}]},"also":{"title":"Other Bonn crime novels","note":"Found under her name and set in Bonn, but I could not confirm from any page I read whether these belong to the Schmiss und Wessen series or stand on their own. They are listed apart for that reason.","books":[{"title":"Heiße Nächte im alten Bonn","subtitle":"Ein fesselnder Krimi mit einer starken Heldin","isbn":"978-3-8370-1216-3","href":"https://buchshop.bod.de/heisse-naechte-im-alten-bonn-gudrun-leyendecker-9783837012163","checked":true},{"title":"Casanovas sind tabu","subtitle":"Kriminalroman aus dem alten Bonn","isbn":"3-7693-2710-1","href":"https://www.amazon.de/dp/3769327101","checked":true},{"title":"Im Rausch des Ruhmes","subtitle":"Mord verjährt nicht: ein atmosphärischer Whodunnit-Krimi","isbn":"3-7693-1087-X","href":"https://www.amazon.de/dp/376931087X","checked":true}]}}</script>
+<script>
+"use strict";
+const B = JSON.parse(document.getElementById("booksdata").textContent);
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+
+$("lede").innerHTML = `<b>${esc(B.series.title)}.</b> ${esc(B.series.blurb)}`;
+$("seriesTitle").textContent = B.series.title;
+
+/* A book with nothing checked behind it is drawn as an empty slot and says so.
+   The alternative — filling the gap with a plausible title and a plausible
+   ISBN — would put invention next to fact on the same page and make the fact
+   worth less. */
+function card(b){
+ if (!b.checked){
+  return `<div class="book slot"><div class="band">Band ${b.band}</div>`
+   + `<h3>not filled in yet</h3>`
+   + `<p>I could not find this volume's details on any publisher or shop page, `
+   + `and I will not invent a title and an ISBN to fill a gap. Add it to `
+   + `<code>books.json</code> and it appears here.</p></div>`;
+ }
+ const facts = [b.publisher, b.published, b.pages ? b.pages + " pages" : null,
+                b.isbn ? "ISBN " + b.isbn : null].filter(Boolean).join(" · ");
+ return `<div class="book">`
+  + (b.band ? `<div class="band">Band ${b.band}</div>` : "")
+  + `<h3>${esc(b.title)}</h3>`
+  + (b.subtitle ? `<div class="st">${esc(b.subtitle)}</div>` : "")
+  + (b.blurb ? `<p>${esc(b.blurb)}</p>` : "")
+  + (b.blurb_en ? `<p class="en">${esc(b.blurb_en)}</p>` : "")
+  + `<div class="facts">${esc(facts)}`
+  + (b.href ? ` &nbsp;·&nbsp; <a href="${b.href}">at the publisher</a>` : "")
+  + `</div></div>`;
+}
+
+$("series").innerHTML = B.series.books
+ .slice().sort((x, y) => (x.band || 99) - (y.band || 99)).map(card).join("");
+
+if (B.also && B.also.books && B.also.books.length){
+ $("alsoWrap").hidden = false;
+ $("alsoTitle").textContent = B.also.title;
+ $("alsoNote").textContent = B.also.note;
+ $("also").innerHTML = B.also.books.map(card).join("");
+}
+
+$("links").innerHTML = B.author.links.map(l =>
+ `<a class="link" href="${l.href}"><b>${esc(l.label)}</b>`
+ + `<small>${l.kind === "shop" ? "a shop — availability varies by country"
+    : l.kind === "publisher" ? "the publisher's own shop"
+    : "about her and her work"}</small></a>`).join("");
+
+$("about").textContent = `${B.author.name}, born ${B.author.born}, writing since `
+ + `${B.author.since}. ${B.author.note}`;
+
+$("foot").innerHTML = `Everything on this page with a publisher, a date or an ISBN `
+ + `against it was read off a publisher or retailer page. Anything that could not be `
+ + `checked is shown as an empty slot rather than filled in. `
+ + `The game is at <a href="index.html" style="color:var(--ink)">the front page</a>.`;
+</script>

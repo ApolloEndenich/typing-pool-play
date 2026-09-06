@@ -26,6 +26,27 @@
  .meta b.late{color:var(--red)}
  .brief{border:1px solid var(--ink);border-left:4px solid var(--ink);
         padding:8px 9px;font-size:11px;line-height:1.5}
+ details.howto{border:1px solid var(--rule);padding:7px 9px;font-size:10.5px;
+               line-height:1.55}
+ details.howto summary{cursor:pointer;font-size:9px;letter-spacing:.16em;
+                       text-transform:uppercase;color:var(--ink)}
+ details.howto[open] summary{margin-bottom:7px;border-bottom:1px solid var(--hair);
+                             padding-bottom:4px}
+ details.howto dl{display:grid;grid-template-columns:auto 1fr;gap:4px 9px;align-items:baseline}
+ details.howto dt{font-weight:700;white-space:nowrap;color:var(--ink)}
+ details.howto dd{color:var(--faint)}
+ details.howto dd b{color:var(--ink);font-weight:400}
+ details.howto .kbd{border:1px solid var(--rule);padding:0 4px;font-size:9.5px}
+
+ /* The clock. A digital readout in the corner said the time and nothing else;
+    a round face on the wall is the thing you glance at without meaning to,
+    which is what a deadline should be. Every office and every station in the
+    country had one. */
+ .clockwrap{display:flex;align-items:center;gap:7px}
+ .clockwrap svg{flex:none}
+ .clockwrap .digits{font-size:9px;color:var(--faint);line-height:1.4;text-align:right}
+ .clockwrap .digits b{color:var(--ink);font-weight:700;font-size:11px;display:block}
+ .clockwrap .digits b.late{color:var(--red)}
  .who{display:flex;align-items:center;gap:8px}
  .who img{width:32px;height:32px;object-fit:contain;border:1px solid var(--ink);
           background:var(--cell)}
@@ -214,9 +235,10 @@
     order; wide layout is a grid, so they swap by area. Both, because which
     one you want beside the board depends on whether you are choosing a door
     or reading what came through the last one. */
- .a-hdr{order:1}.a-brief{order:2}.a-board{order:3}.a-map{order:4}.a-clues{order:5}
- .a-name{order:6}.a-notes{order:7}.a-verdict{order:8}.a-settings{order:9}
- body.swap .a-map{order:5} body.swap .a-clues{order:4}
+ .a-hdr{order:1}.a-brief{order:2}.a-howto{order:3}.a-board{order:4}.a-map{order:5}
+ .a-clues{order:6}
+ .a-name{order:7}.a-notes{order:8}.a-verdict{order:9}.a-settings{order:10}
+ body.swap .a-map{order:6} body.swap .a-clues{order:5}
 
  /* On anything wider than a phone held upright — a laptop, or a phone turned
     on its side — the sheet stops being a column. The board keeps the left,
@@ -229,6 +251,7 @@
         grid-template-areas:
           "hdr      hdr"
           "brief    brief"
+          "howto    howto"
           "board    rtop"
           "board    rbot"
           "name     rbot"
@@ -238,6 +261,7 @@
   .a-hdr{grid-area:hdr} .a-brief{grid-area:brief} .a-board{grid-area:board}
   .a-map{grid-area:rtop} .a-clues{grid-area:rbot} .a-name{grid-area:name}
   .a-notes{grid-area:notes} .a-verdict{grid-area:verdict} .a-settings{grid-area:settings}
+  .a-howto{grid-area:howto}
   body.swap .a-map{grid-area:rbot} body.swap .a-clues{grid-area:rtop}
   .pool img{transform-origin:bottom center}
   .c{flex:0 1 50px;height:32px;font-size:15px}
@@ -249,9 +273,12 @@
   <div class="who"><img id="wessen" alt="Wessen">
    <h1><a href="index.html" title="back to the front page">The Typing Pool</a></h1>
   </div>
-  <div class="meta" id="meta"></div>
+  <div class="clockwrap"><svg id="clock" width="46" height="46"
+       viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg>
+   <div class="digits" id="meta"></div></div>
  </div>
  <div class="brief a-brief" id="brief"></div>
+ <div class="a-howto" id="howtoWrap"></div>
 
  <div class="a-board">
   <h2>The pool</h2>
@@ -1178,10 +1205,36 @@ function acc(){
  });
 }
 
+/* A round face, drawn once and then moved. Bars for the hours, a long hand
+   and a short one, and the whole thing goes red when the post has gone —
+   which is the only thing the clock has to be able to say from across a
+   room. */
+function drawClock(){
+ const svg = $("clock"), late = clock > POST;
+ const mins = clock % (12 * 60);
+ const hour = (mins / 60) * 30, minute = (clock % 60) * 6;
+ const ink = late ? "#B3261E" : "#101010";
+ const bars = [];
+ for (let i = 0; i < 12; i++){
+  const long = i % 3 === 0;
+  bars.push(`<rect x="${49 - (long ? 2.4 : 1.2)}" y="6" width="${long ? 4.8 : 2.4}" `
+    + `height="${long ? 13 : 8}" fill="${ink}" transform="rotate(${i * 30} 50 50)"/>`);
+ }
+ const hand = (deg, len, w) => `<rect x="${50 - w / 2}" y="${50 - len}" width="${w}" `
+   + `height="${len + 6}" rx="${w / 2}" fill="${ink}" transform="rotate(${deg} 50 50)"/>`;
+ svg.innerHTML = `<circle cx="50" cy="50" r="47" fill="#FFFFFF" stroke="${ink}" stroke-width="3"/>`
+   + bars.join("")
+   + hand(hour, 24, 6.5) + hand(minute, 36, 4.5)
+   + `<circle cx="50" cy="50" r="4" fill="${ink}"/>`;
+ svg.setAttribute("aria-label", hhmm(clock));
+}
+
 function meta(){
  const late = clock > POST;
- $("meta").innerHTML = `case <b>${C.id}</b><br>${C.grade.technique}<br>`
-   + `<b class="${late ? "late" : ""}">${hhmm(clock)}</b>${late ? " · collection gone" : ""}`;
+ drawClock();
+ $("meta").innerHTML = `<b class="${late ? "late" : ""}">${hhmm(clock)}</b>`
+   + `${late ? "collection gone" : "last collection " + hhmm(POST)}<br>`
+   + `${C.grade.technique}`;
  const shape = `${C.cast.typists.length} typists, ${C.cast.machines.length} machines, `
    + `${C.layout.floors.length} floors`
    + (C.layout.caps.some(c => c > 1) ? ", and at least one floor with more than one desk — "
@@ -1195,8 +1248,49 @@ function meta(){
    + shape + " Find who sits where, and on what." + staff;
 }
 
+/* What the sheet can do, said once, where somebody learning it will look.
+   None of this is in the rules of the puzzle — it is all in the paper — and a
+   player who never finds the swap or never turns the arcs off is playing a
+   worse game than the one that was built. It rides with the lessons and stays
+   shut on an ordinary case. */
+const HOWTO = [
+ ["Tap a line", "It becomes your <b>pen</b>. Every mark you then make on the "
+  + "grid is stamped with that line's letter, so you can see later which line "
+  + "put it there. After a call the pen goes to the first thing you were just told."],
+ ["Tap a cell", "It turns: empty &rarr; <b>&#10007; ruled out</b> &rarr; "
+  + "<b>? could be</b> &rarr; <b>&#10003; certain</b> &rarr; empty."],
+ ["swap", "Both panel headings carry it. It exchanges <b>the building</b> and "
+  + "<b>the lines</b>, so whichever you are working with sits beside the grid. "
+  + "Choosing a door swaps to the lines by itself."],
+ ["arcs", "Under <i>Case and drawing</i>. The dashed curves show every position "
+  + "a spacing or ordering line still allows, once there are four or fewer. "
+  + "Turning them off is a <b>difficulty setting</b>: you slide the pair along "
+  + "the building in your head instead."],
+ ["&#10003; on a line", "Retires it to the bottom of the list when you have "
+  + "finished with it. <b>&#8634;</b> brings it back. A line whose people are "
+  + "all placed retires itself after a moment — and returns on its own if you "
+  + "undo a mark and it has work in it again."],
+ ["scenes", "The little scene at each door can be switched off for good, and "
+  + "switched back on from the notice that appears when it is off."],
+ ["Schmiss", "His tallies draw a <b>rule across the building</b> at the line "
+  + "he is talking about. Turning the arcs off does not hide those: they are "
+  + "the clue itself, not a deduction made for you."],
+ ["The clock", "Every call costs twenty-five minutes and the last collection "
+  + "is at eight. Being late changes how the report lands; it never stops you "
+  + "finishing."],
+ ["Working", "A box for chains of reasoning that will not fit on the grid."]
+];
+
+function howto(){
+ const box = $("howtoWrap");
+ if (!C.lesson){ box.innerHTML = ""; return; }
+ box.innerHTML = `<details class="howto" open><summary>How the sheet works</summary>`
+  + `<dl>${HOWTO.map(([k, v]) => `<dt><span class="kbd">${k}</span></dt><dd>${v}</dd>`)
+       .join("")}</dl></details>`;
+}
+
 function draw(){
- meta(); pool(); showDossier(); board(); drawMap(); paintPlaces(); clues(); acc();
+ meta(); howto(); pool(); showDossier(); board(); drawMap(); paintPlaces(); clues(); acc();
  requestAnimationFrame(arcs);
 }
 
