@@ -2833,6 +2833,26 @@ function drawMap(){
  const yOf = f => M.top + (nf - 1 - f) * M.fh;
  const gy = yOf(0) + M.fh;                      // the pavement
 
+ /* THE POOL IS BEHIND A LOCKED DOOR, and the whole puzzle rests on it: she
+    walks the corridor, knocks on doors, and cannot see which machine stands
+    on which desk. The map used to draw the desks in the open with the
+    informants' pins standing among them — with three desks the cluster ran
+    39.5 to 88.5 and the janitor's cupboard was inside the typing pool — which
+    said the exact opposite of the premise.
+
+    So a floor is a room and a corridor. Desks are the far side of a partition
+    with a shut door in it; the pins, and Wessen, are on the near side. One
+    room width for the whole building, taken from the busiest floor, because
+    rooms in a building stack; and never so wide that the corridor cannot take
+    her, which is what the floor of the min() is for. */
+ const DESK = 11, DGAP = 4, RPAD = 4;
+ const busiest = Math.max(1, ...Array.from({length: nf}, (_, f) =>
+   order.filter(d => floorOf(d) === f).length));
+ const roomW = Math.min(M.w - 34,
+                        busiest * DESK + (busiest - 1) * DGAP + 2 * RPAD);
+ const roomX1 = M.x + roomW;                   // the partition
+ const corW = M.x + M.w - roomX1;              // what is left to walk in
+
  /* Which floor a band actually names. It used to be spelled out again inside
     `band`, once per case, which was fine until a second thing needed the same
     answer: a pin is drawn at the middle of a wall and a person stands on the
@@ -2868,15 +2888,29 @@ function drawMap(){
   svg.appendChild(svgEl("rect", {
    x: M.x, y, width: M.w, height: M.fh,
    fill: "#FFFFFF", stroke: "#101010", "stroke-width": ".8"}));
+  // The room, a shade off the corridor so the partition reads as a wall
+  // between two places rather than a line drawn across one.
+  svg.appendChild(svgEl("rect", {x: M.x, y, width: roomW, height: M.fh,
+   fill: "#F7F7F7"}));
   // The desks stand on the boards now, like she does, rather than floating
   // four units above them the way a black block could get away with.
   const on = order.filter(d => floorOf(d) === f);
+  const tot = on.length * DESK + (on.length - 1) * DGAP;
   on.forEach((d, i) => {
-   const bw = 13, gap = 5, tot = on.length * bw + (on.length - 1) * gap;
-   svg.appendChild(desk(M.x + (M.w - tot) / 2 + i * (bw + gap), y + M.fh, bw));
+   svg.appendChild(desk(M.x + (roomW - tot) / 2 + i * (DESK + DGAP),
+                        y + M.fh, DESK));
   });
+  // the wall she cannot see through, and the door she cannot open: the leaf
+  // edge-on in the thickness of the wall, and a handle on HER side of it
+  svg.appendChild(svgEl("line", {x1: roomX1, y1: y, x2: roomX1, y2: y + M.fh,
+   stroke: "#101010", "stroke-width": "1.1"}));
+  svg.appendChild(svgEl("rect", {x: roomX1 - 1.2, y: y + M.fh - 11,
+   width: 2.4, height: 11, fill: "#FFFFFF", stroke: "#101010",
+   "stroke-width": ".7"}));
+  svg.appendChild(svgEl("circle", {cx: roomX1 + 2.6, cy: y + M.fh - 5.5,
+   r: .8, fill: "#101010"}));
   svg.appendChild(svgEl("text", {
-   x: M.x + 3, y: y + 8, "font-size": "5.6",
+   x: roomX1 + 3, y: y + 8, "font-size": "5.6",
    "font-family": "Courier New, monospace", fill: "#5A5A5A"}, floorName(f)));
  }
 
@@ -2903,9 +2937,11 @@ function drawMap(){
 
  C.sources.forEach((s, n) => {
   const y = band(s.place.at);
+  // Spread across the CORRIDOR now, not the whole frontage: a door onto the
+  // typing pool's own floor space was never a door she could knock on.
   const x = s.place.at === "lift" ? lx
     : s.place.at === "basement" ? M.x + 20
-    : M.x + 14 + ((hash(s.place.name) % 4) * 20);
+    : roomX1 + 8 + ((hash(s.place.name) % 4) * ((corW - 16) / 3));
   const g = svgEl("g", {style: "cursor:pointer"});
   const dot = svgEl("circle", {cx: x, cy: y, r: 6.5,
    fill: s.visited ? "#DCDCDC" : "#FFFFFF", stroke: "#101010", "stroke-width": ".9"});
@@ -2933,8 +2969,11 @@ function drawMap(){
      not, and clamped to the strip either way. The lift is the one door that
      is not on the frontage, so it gets the shaft to stand next to. */
   const wide = WALK_H * (ART.walkSize ? ART.walkSize[0] / ART.walkSize[1] : .6);
-  const rEdge = s.place.at === "lift" ? M.x + M.w + M.dx + 4 : M.x + M.w - 1;
-  const lEdge = M.x + 1;
+  // The corridor is her strip, and the partition is its left-hand end: she
+  // cannot get into the pool room either. The cellar has no pool in it, so
+  // down there the whole width is hers.
+  const rEdge = M.x + M.w - 1;
+  const lEdge = s.place.at === "basement" ? M.x + 1 : roomX1 + 1;
   let hx = x + 6;
   if (hx + wide > rEdge) hx = x - 7 - wide;
   hx = Math.max(lEdge, Math.min(hx, rEdge - wide));
