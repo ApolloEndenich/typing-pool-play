@@ -370,6 +370,28 @@
    knows two languages while the front page knows six, and a reader who chose
    French keeps French on the pages that have it. */
 
+/* TODAY, AS THE VIEWER'S OWN CALENDAR HAS IT.
+
+   Every page that says "today" has to ask the browser, not the build. A date
+   baked in at build time is right for one day and wrong until somebody runs
+   a script, which is not what a daily is.
+
+   `toISOString()` is UTC and would hand a reader in Toronto yesterday's
+   puzzle all evening, so the parts come off the LOCAL date instead. */
+function todayISO(d){
+ d = d || new Date();
+ const p = n => String(n).padStart(2, "0");
+ return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+}
+
+/* Monday 0 through Sunday 6, which is how daily.py's WEEK is indexed and
+   therefore how the notes in strings.js are ordered. JavaScript starts its
+   week on Sunday; the roster does not. Noon, so that no timezone shift can
+   move the date across midnight on the way through Date(). */
+function weekdayIndex(iso){
+ return (new Date(iso + "T12:00:00").getDay() + 6) % 7;
+}
+
 let UILANG = "en";
 
 function uiRecall(){
@@ -796,6 +818,7 @@ const SHEET = {
 /* ------------------------------------------------------------------ English */
 en: {
  title: "The Typing Pool", locale: "en-GB",
+ name: "English (UK)",
  back: "back to the front page",
  pool: "The pool",
  building: "The building — where to ask",
@@ -1083,6 +1106,7 @@ en: {
 /* ------------------------------------------------------------------- German */
 de: {
  title: "Der Schreibsaal", locale: "de-DE",
+ name: "Deutsch",
  back: "zurück zur Startseite",
  pool: "Der Saal",
  building: "Das Haus — wo man fragen kann",
@@ -1365,6 +1389,7 @@ de: {
 /* ------------------------------------------------------------------- French */
 fr: {
  title: "Le Pool des Dactylos", locale: "fr-FR",
+ name: "Français",
  back: "retour à la page d'accueil",
  pool: "Le pool",
  building: "L'immeuble — où demander",
@@ -1632,6 +1657,7 @@ fr: {
 /* ------------------------------------------------------------------ Italian */
 it: {
  title: "La Sala Dattilografe", locale: "it-IT",
+ name: "Italiano",
  back: "torna alla pagina iniziale",
  pool: "La sala",
  building: "L'edificio — dove chiedere",
@@ -1896,6 +1922,7 @@ it: {
 /* ------------------------------------------------------------------ Spanish */
 es: {
  title: "La Sala de Mecanógrafas", locale: "es-ES",
+ name: "Español",
  back: "volver a la portada",
  pool: "La sala",
  building: "El edificio — dónde preguntar",
@@ -2167,6 +2194,7 @@ es: {
    The dossiers below are prose and name the women the same way. */
 zh: {
  title: "打字室", locale: "zh-CN",
+ name: "中文",
  back: "回到首页",
  pool: "打字室",
  building: "这座楼——去哪里问",
@@ -2397,6 +2425,16 @@ zh: {
 }
 
 };
+
+/* English again, counting floors from one. It is the SAME sheet — every word
+   of it — so it is a copy of `en` with a different name on it, not a seventh
+   translation to keep in step. What actually differs lives in phrase.js,
+   where the floors are named; see the note over `english()` there.
+
+   Its use is that it counts the way Chinese counts, so a reader with no
+   Chinese can check the Chinese floors against an English they can read. */
+SHEET["en-NA"] = Object.assign({}, SHEET.en, {
+ name: "English (North America)", locale: "en-CA"});
 
 /* Which languages the SHEET can offer. A table has to be complete to count —
    the front page may know six languages while this file knows two, and a
@@ -3083,71 +3121,93 @@ const NUM = ["none", "one", "two", "three", "four", "five"];
       `C.layout` from inside a sentence; that is what makes a language
       impossible to add later. */
 
-const EN = {
- // floor 0 first, ground floor first. See note 2 above before touching these.
- floors: ["ground", "first", "second", "third", "fourth", "fifth"],
- seats:  ["by the window", "by the door", "in the corner", "by the stove"],
- // the word for a title key. English keeps the German words: the office is in
- // Bonn in 1969, and "Miss Bühl" is a translation nobody asked for.
- titles: {fraeulein: "Fräulein", frau: "Frau"},
- num:    ["none", "one", "two", "three", "four", "five"],
+/* ENGLISH, TWICE, because a floor is not counted the same on both sides of
+   the Atlantic. What the British call the ground floor an American calls the
+   first, and every storey above it is one higher for the rest of the way up.
+   The game is full of sentences like "not on the second floor", so the two
+   are not the same page with a different spelling: they disagree about which
+   storey a clue is talking about.
 
- /* A typist as a clue names her — with her title. `c` is a grammatical case
-    for languages that inflect; English has no use for it. */
- t: (i, c) => {
-  const key = (C.cast.titles || [])[i];
-  const title = key ? EN.titles[key] + " " : "";
-  return title + C.cast.typists[i];
- },
- /* Three of them in a list, and deliberately WITHOUT titles: "of Fräulein
-    Wenzel, Fräulein Ostrowski, Fräulein Bühl, one came from above the ground
-    floor" is a sentence nobody can read. The prototypes made the same call,
-    and it suits the dog, who does most of this counting and does not stand
-    on ceremony. */
- trio: xs => {
-  const n = xs.map(x => C.cast.typists[x]);
-  return n.length > 1 ? n.slice(0, -1).join(", ") + " and " + n[n.length - 1]
-                      : n[0];
- },
- m:    (i, c) => C.cast.machines[i],
- f:    (i, c) => EN.floors[i],
- // A machine named on its own, article included — "the Olympia", "die
- // Olympia". The sheet needs this wherever it lists a machine outside a
- // sentence: the report, the naming form, the map labels. It was writing
- // "the " + name itself, which is English grammar on a German page.
- named: i => "the " + C.cast.machines[i],
- // "by the window on the second FLOOR". It read "on the second" until the
- // German table was written beside it: German ends `im zweiten Stock`, which
- // is a whole phrase, and the gap showed up as soon as the two were read
- // together. Every other English template says "floor"; this one now does too.
- seat: (f, s) => `${EN.seats[s]} on the ${EN.floorName(f)}`,
- // "the ground floor" — the whole page uses this, not just the clues
- floorName: f => EN.f(f) + " floor",
+   Chinese counts the American way — 一楼 is the ground floor — so this is
+   also the only way a reader with no Chinese can check that the Chinese
+   table is right. Set the language to English (North America), read a clue,
+   set it to 中文, read it again: the floor should be the same storey and the
+   same NUMBER. Against British English it should be the same storey and a
+   number one lower. That is a test somebody can actually run.
 
- line: {
-  not_t:    a => `${EN.t(a[0])} is not on the ${EN.f(a[1])} floor`,
-  not_m:    a => `the ${EN.m(a[0])} is not on the ${EN.f(a[1])} floor`,
-  above:    a => `${EN.t(a[0])} works above ${EN.t(a[1])}`,
-  apart:    a => `the ${EN.m(a[0])} sits `
-    + `${Math.abs(a[2]) === 1 ? "one floor" : EN.num[Math.abs(a[2])] + " floors"} `
-    + `${a[2] > 0 ? "above" : "below"} the ${EN.m(a[1], "dat")}`,
-  share:    a => `${EN.t(a[0])} shares a floor with ${EN.t(a[1], "dat")}`,
-  notshare: a => `${EN.t(a[0])} and ${EN.t(a[1])} are on different floors`,
-  uses:     a => `${EN.t(a[0])} types on the ${EN.m(a[1], "dat")}`,
-  at_seat:  a => `${EN.t(a[0])} sits ${EN.seat(a[2], a[1])}`,
-  not_seat: a => `${EN.t(a[0])} does not sit ${EN.seat(a[2], a[1])}`,
-  count:    a => `of ${EN.trio(a[0])}, ${EN.num[a[2]]} came from above the `
-    + `${EN.f(a[1])} floor`,
-  trail:    a => `the trail of ${EN.trio(a[0])} stops at the ${EN.f(a[1])} floor`,
-  // one floor is not "one different floors". The English said exactly that
-  // until the German table gave the case of one a sentence of its own and
-  // made the hole visible; the reference in general.py had the same hole, so
-  // both renderings agreed and the test was happy.
-  distinct: a => a[1] === 1
-    ? `${EN.trio(a[0])} all came off the same floor`
-    : `${EN.trio(a[0])} came off ${EN.num[a[1]]} different floors`
+   One factory, not two tables, because the only difference is the list of
+   names: two copies of ninety lines would drift the first time a template
+   was edited, and the drift would be silent. */
+function english(floors){
+ const T = {
+  // Floor 0 first, whichever name floor 0 goes by — the list arrives from
+  // outside now, because that list IS the difference between the two
+  // Englishes. See note 2 above before touching the order.
+  floors,
+  seats:  ["by the window", "by the door", "in the corner", "by the stove"],
+  // the word for a title key. English keeps the German words: the office is in
+  // Bonn in 1969, and "Miss Bühl" is a translation nobody asked for.
+  titles: {fraeulein: "Fräulein", frau: "Frau"},
+  num:    ["none", "one", "two", "three", "four", "five"],
+
+  /* A typist as a clue names her — with her title. `c` is a grammatical case
+     for languages that inflect; English has no use for it. */
+  t: (i, c) => {
+   const key = (C.cast.titles || [])[i];
+   const title = key ? T.titles[key] + " " : "";
+   return title + C.cast.typists[i];
+  },
+  /* Three of them in a list, and deliberately WITHOUT titles: "of Fräulein
+     Wenzel, Fräulein Ostrowski, Fräulein Bühl, one came from above the ground
+     floor" is a sentence nobody can read. The prototypes made the same call,
+     and it suits the dog, who does most of this counting and does not stand
+     on ceremony. */
+  trio: xs => {
+   const n = xs.map(x => C.cast.typists[x]);
+   return n.length > 1 ? n.slice(0, -1).join(", ") + " and " + n[n.length - 1]
+                       : n[0];
+  },
+  m:    (i, c) => C.cast.machines[i],
+  f:    (i, c) => T.floors[i],
+  // A machine named on its own, article included — "the Olympia", "die
+  // Olympia". The sheet needs this wherever it lists a machine outside a
+  // sentence: the report, the naming form, the map labels. It was writing
+  // "the " + name itself, which is English grammar on a German page.
+  named: i => "the " + C.cast.machines[i],
+  // "by the window on the second FLOOR". It read "on the second" until the
+  // German table was written beside it: German ends `im zweiten Stock`, which
+  // is a whole phrase, and the gap showed up as soon as the two were read
+  // together. Every other English template says "floor"; this one now does too.
+  seat: (f, s) => `${T.seats[s]} on the ${T.floorName(f)}`,
+  // "the ground floor" — the whole page uses this, not just the clues
+  floorName: f => T.f(f) + " floor",
+
+  line: {
+   not_t:    a => `${T.t(a[0])} is not on the ${T.f(a[1])} floor`,
+   not_m:    a => `the ${T.m(a[0])} is not on the ${T.f(a[1])} floor`,
+   above:    a => `${T.t(a[0])} works above ${T.t(a[1])}`,
+   apart:    a => `the ${T.m(a[0])} sits `
+     + `${Math.abs(a[2]) === 1 ? "one floor" : T.num[Math.abs(a[2])] + " floors"} `
+     + `${a[2] > 0 ? "above" : "below"} the ${T.m(a[1], "dat")}`,
+   share:    a => `${T.t(a[0])} shares a floor with ${T.t(a[1], "dat")}`,
+   notshare: a => `${T.t(a[0])} and ${T.t(a[1])} are on different floors`,
+   uses:     a => `${T.t(a[0])} types on the ${T.m(a[1], "dat")}`,
+   at_seat:  a => `${T.t(a[0])} sits ${T.seat(a[2], a[1])}`,
+   not_seat: a => `${T.t(a[0])} does not sit ${T.seat(a[2], a[1])}`,
+   count:    a => `of ${T.trio(a[0])}, ${T.num[a[2]]} came from above the `
+     + `${T.f(a[1])} floor`,
+   trail:    a => `the trail of ${T.trio(a[0])} stops at the ${T.f(a[1])} floor`,
+   // one floor is not "one different floors". The English said exactly that
+   // until the German table gave the case of one a sentence of its own and
+   // made the hole visible; the reference in general.py had the same hole, so
+   // both renderings agreed and the test was happy.
+   distinct: a => a[1] === 1
+     ? `${T.trio(a[0])} all came off the same floor`
+     : `${T.trio(a[0])} came off ${T.num[a[1]]} different floors`
+  }
+  };
+  return T;
  }
-};
 
 /* ------------------------------------------------------------------ German
 
@@ -3532,7 +3592,18 @@ const ZH = {
  }
 };
 
-const PHRASE = {en: EN, de: DE, fr: FR, it: IT, es: ES, zh: ZH};
+/* Ground first, the British way, and the table every other language is
+   checked against — `phrase-test.js` holds THIS one against general.py
+   character for character. */
+const EN = english(["ground", "first", "second", "third", "fourth", "fifth"]);
+
+/* The same English counting from one, the way North America and China both
+   do it. Nothing else about it differs, and nothing in the Python has to
+   know it exists: the character-for-character check runs against `en`, and
+   every other check in phrase-test.js is language-independent. */
+const EN_NA = english(["first", "second", "third", "fourth", "fifth", "sixth"]);
+
+const PHRASE = {en: EN, "en-NA": EN_NA, de: DE, fr: FR, it: IT, es: ES, zh: ZH};
 let LANG = "en";
 
 function words(lang){ return PHRASE[lang || LANG] || EN; }
@@ -4047,7 +4118,12 @@ function chrome(){
  const lw = $("langwrap");
  if (lw && lw.innerHTML !== undefined){
   lw.innerHTML = "";
-  lw.appendChild(langPicker(sheetLangs(), l => SHEET[l].title, SLANG, switchLang, t.lang));
+  /* By NAME, not by title. The picker used to label each language with the
+     game's name in it — "Der Schreibsaal", "打字室" — which was a nice way to
+     show a reader the language in the language. It stopped working the moment
+     there were two Englishes: both are called The Typing Pool. */
+  lw.appendChild(langPicker(sheetLangs(), l => SHEET[l].name || SHEET[l].title,
+                            SLANG, switchLang, t.lang));
  }
 }
 
@@ -4226,10 +4302,16 @@ function pickList(){
  // rebuilt when the language changes, so keep whatever is selected rather
  // than snapping back to the case the URL asked for
  const was = $("pick").value;
- const dated = CASES.map((c, i) => ({c, i})).filter(x => x.c.daily);
- const rows = dated.length === CASES.length
-   ? dated.slice().sort((a, b) => a.c.daily.date < b.c.daily.date ? 1 : -1)
-   : CASES.map((c, i) => ({c, i}));
+ /* Is this a pack of DAYS? Every case carrying a date says yes, and that has
+    to be asked of the whole pack before anything is hidden — asking it of the
+    visible ones instead meant a daily pack with sealed days in it did not
+    look like a daily pack at all, and the list fell back to showing every
+    case, sealed ones included. Which is the one thing it must not do. */
+ const all = CASES.map((c, i) => ({c, i}));
+ const rows = all.every(x => x.c.daily)
+   ? all.filter(x => !sealed(x.c))
+        .sort((a, b) => a.c.daily.date < b.c.daily.date ? 1 : -1)
+   : all;
  $("pick").innerHTML = rows.map(({c, i}) =>
    `<option value="${i}">${c.daily
       ? uiDate(c.daily.date, S().locale, {weekday: "short", day: "numeric", month: "short"})
@@ -4242,11 +4324,40 @@ $("pick").onchange = () => { $("verdict").className = "verdict a-verdict"; load(
 /* A link can name a case: duty-sheet-general.html?case=69fffef6ae. That is
    how the front page points at the tutorial and at today's, without either of
    them needing to be a separate copy of this program. */
+/* A DAY THAT HAS NOT ARRIVED IS NOT OPEN.
+
+   The pack is built months ahead so that nobody has to run anything daily,
+   which means the file holds days that have not happened. Those are sealed
+   here rather than left out of the file: the picker will not list one, a
+   link naming one will not open it, and the front page asks for "today" by
+   name instead of carrying a case id that goes stale overnight.
+
+   This is a curtain, not a lock. The cases are in the page and anyone who
+   reads the source can read them — the same as the solutions, and written
+   down in publish.py for the same reason. It stops the game handing out next
+   month; it does not stop somebody determined to go and look. */
+function sealed(c){ return Boolean(c.daily) && c.daily.date > todayISO(); }
+
+// today's if it is here, else the newest day that has arrived
+function todayIndex(){
+ const t = todayISO();
+ let best = -1, on = "";
+ CASES.forEach((c, i) => {
+  if (!c.daily || c.daily.date > t) return;
+  if (c.daily.date > on){ on = c.daily.date; best = i; }
+ });
+ return best >= 0 ? best : 0;
+}
+
 function wanted(){
- const m = /[?&]case=([A-Za-z0-9]+)/.exec(location.search || "");
- if (!m) return 0;
+ const q = location.search || "";
+ // how the front page points here without baking in a case id
+ if (/[?&]day=today\b/.test(q)) return todayIndex();
+ const m = /[?&]case=([A-Za-z0-9]+)/.exec(q);
+ if (!m) return CASES.length && sealed(CASES[0]) ? todayIndex() : 0;
  const i = CASES.findIndex(c => c.id === m[1]);
- return i < 0 ? 0 : i;
+ if (i < 0) return 0;
+ return sealed(CASES[i]) ? todayIndex() : i;
 }
 
 function artPicker(el, kind, current){
