@@ -2770,7 +2770,21 @@ function arcs(){
    It is built once per case. Hovering only changes attributes on markers that
    are already there: rebuilding the SVG under the cursor destroyed the node
    between mousedown and mouseup, and no click ever arrived. */
-const MAP = {x: 16, w: 96, fh: 22, dx: 16, dy: -10, top: 14};
+/* `top` is the headroom above the top floor, and it is the number that stops
+   Wessen being decapitated. She is drawn UPWARDS from the pin she stands at,
+   and the pin on the top floor sits only `top + fh/2` below the ceiling of the
+   drawing — so at 14 her head was outside the viewBox and simply never
+   painted. It has to be at least her height less half a floor (32 - 11 = 21);
+   26 leaves a margin, and the frame is that much taller all round. */
+const MAP = {x: 16, w: 96, fh: 22, dx: 16, dy: -10, top: 26};
+
+/* Her drawing is 200 x 562, so the box has to be that shape or `meet` pads it
+   and she drifts off the pin. Height stays what it was — about a floor and a
+   half — because that reads right against the building, and it is the one
+   number to change if she should be bigger. Ceil rather than round: a box one
+   part narrower than she is makes `meet` fit her by WIDTH and quietly shave
+   the height, which is the thing being held constant. */
+const HER_H = 32, HER_W = Math.ceil(HER_H * 200 / 562);
 
 function svgEl(tag, attrs, text){
  const e = document.createElementNS(SVGNS, tag);
@@ -2858,7 +2872,11 @@ function drawMap(){
    "font-family": "Courier New, monospace", fill: "#101010",
    style: "pointer-events:none"}, String(n + 1)));
   // hovering puts Wessen at the door, so you can see where you would be going
-  const her = image(ART.wessen, x + 6, y - 32, 26, 32);
+  /* The full-length drawing, the one the cut scenes already use. The map had
+     the bust, which is cropped at her hands — which is exactly why her hand
+     used to land so well on the pin, and also why she had no legs. Standing
+     her at the same height means her feet now rest where her hands did. */
+  const her = image(ART.wessen_full || ART.wessen, x + 6, y - HER_H, HER_W, HER_H);
   her.setAttribute("visibility", "hidden");
   her.setAttribute("style", "pointer-events:none");
   g.appendChild(her);
@@ -3600,6 +3618,15 @@ function showCurtain(){
   + `<span><button id="cskip">${S().scene.skip}</button> `
   + `<button id="cshut">${more ? S().scene.straight : S().scene.back}</button></span>`
   + `</div></div></div>`;
+ /* Every beat rebuilds the card, and a fresh element starts at scrollTop 0 —
+    so on a long call the beat just added, and the buttons under it, sat below
+    the fold, and the scene read as though it had jumped back to the top. The
+    card is the scroller (max-height 88vh, overflow auto), so send it to the
+    bottom: the line just spoken is the one to read and `goOn` is the thing to
+    press. When the whole scene fits, scrollHeight equals clientHeight and this
+    does nothing at all. */
+ const card = box.querySelector(".card");
+ card.scrollTop = card.scrollHeight;
  // "click anywhere" has to mean anywhere. The card was stopping the click
  // from reaching the curtain, and the card is most of what is on the screen,
  // so the only place that worked was the strip of grey down the sides. Only
@@ -3741,6 +3768,14 @@ function clues(){
     delete pending[c.id];
     retired = [c.id].concat(retired.filter(x => x !== c.id));
     auto = auto.filter(x => x !== c.id);   // ticked by hand: it stays put
+    /* Ticking off the line you were writing with used to take the pen down
+       with it: the pen follows an id, that id had just gone to the top of the
+       FINISHED pile, and the next line had to be tapped by hand before you
+       could mark anything. Letting go of the pen here hands the choice back
+       to the block below, which puts it on the newest working line — the one
+       you have in fact moved on to. Ticking off a line that was NOT the pen
+       leaves the pen where it is, because that was not a change of subject. */
+    if (pen === c.id) pen = null;
    }
    clues();
   };
@@ -4071,8 +4106,8 @@ $("file").onclick = () => {
 $("reset").onclick = () => { $("verdict").className = "verdict a-verdict"; load(+$("pick").value); };
 
 /* Every case in the pack, and on the daily sheet that means every DAY in it —
-   about a month back, because `daily.py --keep 30` leaves thirty behind. That
-   was already true and unusable: the picker labelled a day by its shape, so
+   about a month back, because `daily.py --back 30` reaches thirty days in.
+   That was already true and unusable: the picker labelled a day by its shape, so
    "2-1-1-1-1 · counting" was the only way a past Sunday announced itself and
    nobody would guess a date was behind it. A dated case is labelled by its
    date, in the reader's language, newest first — which is the order somebody
