@@ -2853,6 +2853,13 @@ function drawMap(){
  const roomX1 = M.x + roomW;                   // the partition
  const corW = M.x + M.w - roomX1;              // what is left to walk in
 
+ /* A door has to be taller than the person who cannot get through it, or it
+    reads as a hatch. Off WALK_H rather than a number of its own, so it stays
+    a door if she is ever resized; three units over her head, and what is left
+    of the floor above that. The handle sits at half its height, which is
+    about where a handle is and comfortably above her hanging hand. */
+ const DOORH = Math.min(M.fh - 3, WALK_H + 3);
+
  /* Which floor a band actually names. It used to be spelled out again inside
     `band`, once per case, which was fine until a second thing needed the same
     answer: a pin is drawn at the middle of a wall and a person stands on the
@@ -2904,10 +2911,10 @@ function drawMap(){
   // edge-on in the thickness of the wall, and a handle on HER side of it
   svg.appendChild(svgEl("line", {x1: roomX1, y1: y, x2: roomX1, y2: y + M.fh,
    stroke: "#101010", "stroke-width": "1.1"}));
-  svg.appendChild(svgEl("rect", {x: roomX1 - 1.2, y: y + M.fh - 11,
-   width: 2.4, height: 11, fill: "#FFFFFF", stroke: "#101010",
+  svg.appendChild(svgEl("rect", {x: roomX1 - 1.2, y: y + M.fh - DOORH,
+   width: 2.4, height: DOORH, fill: "#FFFFFF", stroke: "#101010",
    "stroke-width": ".7"}));
-  svg.appendChild(svgEl("circle", {cx: roomX1 + 2.6, cy: y + M.fh - 5.5,
+  svg.appendChild(svgEl("circle", {cx: roomX1 + 2.6, cy: y + M.fh - DOORH * .5,
    r: .8, fill: "#101010"}));
   svg.appendChild(svgEl("text", {
    x: roomX1 + 3, y: y + 8, "font-size": "5.6",
