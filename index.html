@@ -610,6 +610,12 @@ en: {
   + "business tangled together.",
  moreBooks: "more of her books",
  allBooks: "all of the Schmiss und Wessen books →",
+ /* The link in the footer of the front and books pages. It says PROBLEM and
+    not "issue" or "report" on purpose: the sheet already spends the word
+    report on filing a case, and two meanings of it on one game is a way to
+    have somebody file a bug instead of an answer. The address is the PUBLIC
+    play repo, which is the one a stranger can reach — never the engine. */
+ report: "Report a problem",
  foot: "Characters and Schmiss's asides from the novels of Gudrun "
   + "Leyendecker, quoted and used with her permission. Puzzle engine and sheet built for this "
   + "game; every case is constructed and proved solvable without guessing "
@@ -727,6 +733,7 @@ de: {
   + "Geschäfte ineinander verheddert.",
  moreBooks: "mehr von ihren Büchern",
  allBooks: "alle Schmiss-und-Wessen-Bände →",
+ report: "Ein Problem melden",
  foot: "Figuren und Schmiss' Bemerkungen aus den Romanen von Gudrun "
   + "Leyendecker, mit ihrer Erlaubnis zitiert und verwendet. Rätselmaschine und Bogen für "
   + "dieses Spiel gebaut; jeder Fall wird konstruiert und vor der Auslieferung "
@@ -842,6 +849,7 @@ fr: {
   + "affaires privées emmêlées.",
  moreBooks: "d'autres de ses livres",
  allBooks: "tous les volumes de Schmiss und Wessen →",
+ report: "Signaler un problème",
  foot: "Personnages et remarques de Schmiss tirés des romans de Gudrun "
   + "Leyendecker, cités et utilisés avec sa permission. Moteur d'énigmes et grille "
   + "construits pour ce jeu ; chaque affaire est construite et prouvée soluble "
@@ -955,6 +963,7 @@ it: {
   + "aggrovigliati insieme.",
  moreBooks: "altri suoi libri",
  allBooks: "tutti i volumi di Schmiss und Wessen →",
+ report: "Segnala un problema",
  foot: "Personaggi e osservazioni di Schmiss dai romanzi di Gudrun "
   + "Leyendecker, citati e usati con il suo permesso. Motore e scheda costruiti per questo "
   + "gioco; ogni caso è costruito e dimostrato risolvibile senza tirare a "
@@ -1068,6 +1077,7 @@ es: {
   + "negocios privados enredados entre sí.",
  moreBooks: "más libros suyos",
  allBooks: "todos los volúmenes de Schmiss und Wessen →",
+ report: "Informar de un problema",
  foot: "Personajes y comentarios de Schmiss de las novelas de Gudrun "
   + "Leyendecker, citados y usados con su permiso. Motor y hoja construidos para este "
   + "juego; cada caso se construye y se demuestra resoluble sin adivinar antes "
@@ -1162,6 +1172,7 @@ zh: {
  bookLine: "波恩，1969年：维纳斯山上的一声枪响，政治与私人生意搅在一起。",
  moreBooks: "她的更多作品",
  allBooks: "全部《Schmiss und Wessen》系列 →",
+ report: "报告问题",
  foot: "人物与施密斯的旁白出自 Gudrun Leyendecker 的小说，经她许可引用和使用。"
   + "谜题引擎与记录表为本游戏所建；每个案子在发布前都经过构造并证明无需猜测即可解出。"
   + "构建于 {date}。",
@@ -1286,7 +1297,8 @@ function redraw(){
   + `<a href="books.html"><b>${t.allBooks}</b></a></p>`
   + `<p>${t.about[1]}</p>`;
 
- $("foot").innerHTML = fill(t.foot, {date: pageDate(IX.built)});
+ $("foot").innerHTML = fill(t.foot, {date: pageDate(IX.built)})
+   + ` &nbsp;·&nbsp; <a href="https://github.com/ApolloEndenich/typing-pool-play/issues" target="_blank" rel="noopener">${T().report}</a>`;
 
  $("langwrap").innerHTML = "";
  $("langwrap").appendChild(langPicker(uiLangs(), uiName, UILANG, redraw, t.lang));
