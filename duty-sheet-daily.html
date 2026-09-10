@@ -945,7 +945,7 @@ en: {
    + "<b>the clues<\/b>, so whichever you are working with sits beside the grid. "
    + "Choosing a door swaps to the clues by itself."],
   ["arcs", "Under <i>Case and drawing<\/i>. The dashed curves show every position "
-   + "a spacing or ordering clue still allows, once there are four or fewer. "
+   + "a spacing or ordering clue still allows, however many that is. "
    + "Turning them off is a <b>difficulty setting<\/b>: you slide the pair along "
    + "the building in your head instead."],
   ["&#10003; on a clue", "Retires it to the bottom of the list when you have "
@@ -1228,8 +1228,8 @@ de: {
    + "<b>die Hinweise<\/b>, damit das, womit Sie gerade arbeiten, neben dem "
    + "Raster steht. Eine Tür zu wählen tauscht von selbst auf die Hinweise."],
   ["Bögen", "Unter <i>Fall und Zeichnung<\/i>. Die gestrichelten Bögen zeigen "
-   + "jede Lage, die ein Abstands- oder Reihenfolgehinweis noch zulässt, sobald "
-   + "es vier oder weniger sind. Sie abzuschalten ist eine "
+   + "jede Lage, die ein Abstands- oder Reihenfolgehinweis noch zulässt, wie "
+   + "viele es auch sind. Sie abzuschalten ist eine "
    + "<b>Schwierigkeitseinstellung<\/b>: Sie schieben das Paar dann im Kopf durch "
    + "das Haus."],
   ["&#10003; am Hinweis", "Legt ihn ans Ende der Liste, wenn Sie mit ihm fertig "
@@ -1512,8 +1512,8 @@ fr: {
    + "<b>les indices<\/b>, pour que celui avec lequel vous travaillez soit à "
    + "côté de la grille. Choisir une porte permute vers les indices tout seul."],
   ["arcs", "Sous <i>Affaire et dessin<\/i>. Les courbes en pointillé montrent "
-   + "chaque position qu'un indice d'écart ou d'ordre autorise encore, dès "
-   + "qu'il n'en reste que quatre ou moins. Les désactiver est un <b>réglage "
+   + "chaque position qu'un indice d'écart ou d'ordre autorise encore, quel "
+   + "qu'en soit le nombre. Les désactiver est un <b>réglage "
    + "de difficulté<\/b> : vous faites glisser la paire le long de l'immeuble "
    + "dans votre tête."],
   ["&#10003; sur un indice", "Le met à la retraite au bas de la liste quand "
@@ -1780,8 +1780,8 @@ it: {
    + "<b>gli indizi<\/b>, così quello con cui sta lavorando sta accanto alla "
    + "griglia. Scegliere una porta passa agli indizi da sé."],
   ["archi", "Sotto <i>Caso e disegno<\/i>. Le curve tratteggiate mostrano ogni "
-   + "posizione che un indizio di distanza o di ordine consente ancora, quando "
-   + "ne restano quattro o meno. Disattivarli è una <b>impostazione di "
+   + "posizione che un indizio di distanza o di ordine consente ancora, per "
+   + "quante ne siano. Disattivarli è una <b>impostazione di "
    + "difficoltà<\/b>: la coppia la fa scorrere lungo l'edificio con la testa."],
   ["&#10003; su un indizio", "Lo manda in pensione in fondo alla lista quando "
    + "ha finito con lui. <b>&#8634;<\/b> lo richiama. Un indizio le cui persone "
@@ -2046,8 +2046,8 @@ es: {
    + "y <b>las pistas<\/b>, para que aquello con lo que está trabajando quede "
    + "junto a la cuadrícula. Elegir una puerta cambia a las pistas por sí solo."],
   ["arcos", "Bajo <i>Caso y dibujo<\/i>. Las curvas de trazos muestran cada "
-   + "posición que una pista de distancia o de orden todavía permite, en cuanto "
-   + "quedan cuatro o menos. Desactivarlos es un <b>ajuste de dificultad<\/b>: "
+   + "posición que una pista de distancia o de orden todavía permite, sean "
+   + "las que sean. Desactivarlos es un <b>ajuste de dificultad<\/b>: "
    + "la pareja la desliza usted por el edificio de cabeza."],
   ["&#10003; en una pista", "La jubila al final de la lista cuando ha terminado "
    + "con ella. <b>&#8634;<\/b> la trae de vuelta. Una pista cuyas personas están "
@@ -2310,7 +2310,7 @@ zh: {
   ["对调", "两个栏目的标题上都有。它把<b>这座楼<\/b>和<b>线索<\/b>对调，让你正在用的那一边"
    + "紧挨着格子。选了一扇门，它会自己换到线索那边。"],
   ["弧线", "在<i>案子与图<\/i>下面。虚线弧标出一条间距或先后的线索目前还允许的每一个位置，"
-   + "前提是只剩四个或更少。把它关掉是一种<b>难度设置<\/b>：那一对机器就得你自己在脑子里"
+   + "有多少画多少。把它关掉是一种<b>难度设置<\/b>：那一对机器就得你自己在脑子里"
    + "沿着楼上下推。"],
   ["线索上的 &#10003;", "用完之后把它退到列表末尾。<b>&#8634;<\/b> 把它叫回来。"
    + "一条线索牵涉的人全都定好位置之后，过一会儿它会自己退下——而如果你撤销了一个记号，"
@@ -2506,7 +2506,7 @@ const ART = JSON.parse(document.getElementById("castart").textContent);
 
 const $ = id => document.getElementById(id);
 const SVGNS = "http://www.w3.org/2000/svg";
-const LET = "abcdefgh";
+const LET = "abcdefghijklmnopqrstuvwxyz";
 /* After five. The typists went home at five, which is the only reason you can
    walk the floors at all and the only reason nobody can simply be asked; and
    everybody else in the building is still in, because the day's clearing up is
@@ -2779,6 +2779,12 @@ function label(ov, x, y, colour, text){
  ov.appendChild(t);
 }
 
+function lift(taken, x, y){
+ while (taken.some(q => Math.abs(q[0] - x) < 12 && Math.abs(q[1] - y) < 9)) y -= 9;
+ taken.push([x, y]);
+ return y;
+}
+
 function arcs(){
  const ov = $("ov"), b = $("board");
  ov.innerHTML = "";
@@ -2790,9 +2796,25 @@ function arcs(){
   const r = el.getBoundingClientRect();
   return [r.left - R.left + r.width / 2, r.top - R.top + r.height / 2];
  };
+ /* Every arc of one line runs between the same two columns, so all its labels
+    want the same x and only the row pair moves them up and down — and row
+    pairs collide (0-3 and 1-2 have one midpoint between them). Uncapped that
+    is a stack of haloes with nothing legible in it, so a label that lands on
+    one already placed steps up until it is clear. It leaves its own arc by a
+    few pixels, which is the cheaper of the two confusions. */
+ const taken = [];
 
- /* Dashed arcs: only once a line is down to four surviving placements, so the
-    board stays a board and does not become a cat's cradle.
+ /* Dashed arcs: every surviving placement of every line you hold, however
+    many that is.
+
+    There used to be a cap — nothing drawn until a line was down to four
+    placements — so that the board stayed a board and did not become a cat's
+    cradle. The cap was worse than the tangle. A fresh `above` starts at six
+    or nine placements and a fresh `uses` at five or six, so the commonest
+    thing that happened on turning the arcs on was NOTHING, and nothing is
+    indistinguishable from broken: the first hint of a daily was `above`, the
+    overlay stayed empty, and the sheet looked like it had failed to draw.
+    Silence is a bad way to say "too many".
 
     They can also be switched off, and that is a difficulty setting rather than
     a display one. Drawing the surviving positions of a spacing clue is doing a
@@ -2801,7 +2823,7 @@ function arcs(){
     on the working pad, which is how it was done on paper. */
  if (arcsOn) told.map(i => allLines()[i]).forEach(c => {
   const p = places(c);
-  if (!p || !p.pairs.length || p.pairs.length > 4) return;
+  if (!p || !p.pairs.length) return;
   p.pairs.forEach((pr, n) => {
    const u = at(pr[0]), v = at(pr[1]);
    if (!u || !v) return;
@@ -2813,7 +2835,7 @@ function arcs(){
    path.setAttribute("stroke-width", "1.4");
    path.setAttribute("stroke-dasharray", "3 3");
    ov.appendChild(path);
-   label(ov, mx, my - 2, p.colour, c.id + (LET[n] || ""));
+   label(ov, mx, lift(taken, mx, my - 2), p.colour, c.id + (LET[n] || ""));
   });
  });
 
@@ -2831,7 +2853,7 @@ function arcs(){
   l.setAttribute("stroke", "#1E6B2F"); l.setAttribute("stroke-width", "1.4");
   l.setAttribute("stroke-dasharray", "6 4");
   ov.appendChild(l);
-  label(ov, R.width / 2, y - 3, "#1E6B2F",
+  label(ov, R.width / 2, lift(taken, R.width / 2, y - 3), "#1E6B2F",
     fill(S().ruleLabel, {id: c.id, n: c.args[2], who: words().trio(c.args[0])}));
  });
 }
@@ -3007,15 +3029,12 @@ function drawMap(){
  svg.appendChild(svgEl("line", {x1: lx, y1: yOf(nf - 1) + M.dy, x2: lx, y2: gy,
    stroke: "#101010", "stroke-width": ".8", "stroke-dasharray": "3 2"}));
 
- // Schmiss stands at the line his latest tally speaks of — the boundary, not
- // a floor, because that is exactly what he told you about
- const lastCount = heard.length ? C.dog[heard[heard.length - 1]] : null;
- if (lastCount && lastCount.kind === "count"){
-  const y = yOf(lastCount.args[1]);
-  svg.appendChild(svgEl("line", {x1: M.x - 6, y1: y, x2: M.x + M.w + M.dx + 4, y2: y,
-    stroke: "#1E6B2F", "stroke-width": "1.2", "stroke-dasharray": "4 3"}));
-  svg.appendChild(image(ART.schmiss, M.x + M.w + M.dx - 6, y - 13, 26, 26));
- }
+ /* Schmiss used to stand at the line his latest tally speaks of, with the cut
+    drawn across the cutaway beside him. Both are gone. The cut is already a
+    rule across the grid, drawn for every tally he has given rather than only
+    the last, so the cutaway was repeating one of them; and there is no ledge
+    at a storey boundary, so the only place he could stand to mark it was in
+    the air outside the building, which read as a joke rather than as a clue. */
 
  C.sources.forEach((s, n) => {
   const y = band(s.place.at);
