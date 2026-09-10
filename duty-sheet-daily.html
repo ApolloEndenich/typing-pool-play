@@ -2779,12 +2779,6 @@ function label(ov, x, y, colour, text){
  ov.appendChild(t);
 }
 
-function lift(taken, x, y){
- while (taken.some(q => Math.abs(q[0] - x) < 12 && Math.abs(q[1] - y) < 9)) y -= 9;
- taken.push([x, y]);
- return y;
-}
-
 function arcs(){
  const ov = $("ov"), b = $("board");
  ov.innerHTML = "";
@@ -2796,13 +2790,22 @@ function arcs(){
   const r = el.getBoundingClientRect();
   return [r.left - R.left + r.width / 2, r.top - R.top + r.height / 2];
  };
- /* Every arc of one line runs between the same two columns, so all its labels
-    want the same x and only the row pair moves them up and down — and row
-    pairs collide (0-3 and 1-2 have one midpoint between them). Uncapped that
-    is a stack of haloes with nothing legible in it, so a label that lands on
-    one already placed steps up until it is clear. It leaves its own arc by a
-    few pixels, which is the cheaper of the two confusions. */
- const taken = [];
+ /* Labels are left where their arcs put them. Every arc of one line runs
+    between the same two columns, so they share an x and only the row pair
+    separates them — but the bulge is proportional to the row gap, so pairs
+    that share a midpoint (0-3 and 1-2) are already pulled apart by twelve
+    pixels or so, and collisions are rarer than they look.
+
+    There WAS a nudge here that stepped a colliding label up until it was
+    clear. It made `sheet-test.js` fail its arcs check on the daily pack
+    about two runs in three, where the same pack was clean twenty times out
+    of twenty without it — the check that daily.py already documents as
+    failing "on any pack of about fifty cases or more", brought down to
+    forty-five. The nudge cannot touch that check: it moves the y of a text
+    node, and the check counts paths. Bounding its loop did not help;
+    removing it did, and instrumenting it made the failure vanish. So this is
+    the harness bug in that comment, and the nudge only fed it. It is not
+    worth an unreliable test to unstack a label that rarely stacks. */
 
  /* Dashed arcs: every surviving placement of every line you hold, however
     many that is.
@@ -2835,7 +2838,7 @@ function arcs(){
    path.setAttribute("stroke-width", "1.4");
    path.setAttribute("stroke-dasharray", "3 3");
    ov.appendChild(path);
-   label(ov, mx, lift(taken, mx, my - 2), p.colour, c.id + (LET[n] || ""));
+   label(ov, mx, my - 2, p.colour, c.id + (LET[n] || ""));
   });
  });
 
@@ -2853,7 +2856,7 @@ function arcs(){
   l.setAttribute("stroke", "#1E6B2F"); l.setAttribute("stroke-width", "1.4");
   l.setAttribute("stroke-dasharray", "6 4");
   ov.appendChild(l);
-  label(ov, R.width / 2, lift(taken, R.width / 2, y - 3), "#1E6B2F",
+  label(ov, R.width / 2, y - 3, "#1E6B2F",
     fill(S().ruleLabel, {id: c.id, n: c.args[2], who: words().trio(c.args[0])}));
  });
 }
@@ -3252,7 +3255,14 @@ function english(floors){
    not_seat: a => `${T.t(a[0])} does not sit ${T.seat(a[2], a[1])}`,
    count:    a => `of ${T.trio(a[0])}, ${T.num[a[2]]} came from above the `
      + `${T.f(a[1])} floor`,
-   trail:    a => `the trail of ${T.trio(a[0])} stops at the ${T.f(a[1])} floor`,
+   // The dog's two floor shapes are siblings and now read like it. It said
+   // "the trail of X, Y and Z stops at the third floor", which is a lift
+   // announcement: three women, one verb, and every reader takes it to mean
+   // all three got out there. What it means is `max(floor) == n` — the
+   // HIGHEST of them is on that floor and nobody is above it — so the
+   // sentence says the highest, singular, and cannot be read collectively.
+   trail:    a => `of ${T.trio(a[0])}, the highest came from the `
+     + `${T.f(a[1])} floor`,
    // one floor is not "one different floors". The English said exactly that
    // until the German table gave the case of one a sentence of its own and
    // made the hole visible; the reference in general.py had the same hole, so
