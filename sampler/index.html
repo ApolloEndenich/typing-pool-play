@@ -1,0 +1,264 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>The Typing Pool</title>
+<link rel="stylesheet" href="app.css">
+
+<!--
+  The whole front end. It knows how to read a case and how to mark an answer
+  sheet, and nothing whatever about how a case is made or proved: that lives
+  in the Python, and between them is one JSON file.
+
+  It is plain HTML with no build step on purpose. This file opens in a
+  browser today, it is what the free web version serves, and Tauri wraps this
+  same directory for Steam -- so the funnel and the product can never drift
+  apart, because they are the same code.
+-->
+
+<header>
+  <div class="topbar">
+    <h1 id="title">The Typing Pool</h1>
+    <span class="tools">
+      <button type="button" id="openmanual">How to play</button>
+      <button type="button" id="openfeedback">Feedback</button>
+      <button type="button" id="opensettings">Settings</button>
+    </span>
+  </div>
+  <p id="subtitle"></p>
+  <nav id="cases"></nav>
+</header>
+
+<main>
+  <section id="brief" hidden>
+    <p id="preamble"></p>
+    <p class="q" id="question"></p>
+  </section>
+
+  <!-- Walking the building (walk.js), for a chapter that can be walked.
+       The map, the room with whoever is in it, and the conversation. What
+       is heard here lands in the evenings below, under its own heading. -->
+  <section id="walk" hidden>
+    <p class="readnote" id="readnote" hidden>You are reading the whole file.
+      <button type="button" id="backtowalk">Walk the building instead</button></p>
+    <div id="walkbody">
+      <p class="cover" id="cover"></p>
+      <div class="clockbar"><span id="clock"></span>
+        <button id="nextphase" type="button"></button></div>
+      <div class="walkgrid">
+        <div id="map"></div>
+        <div class="stage" id="stage">
+          <button id="theatreclose" type="button" title="Back to the map (Esc)">← the map</button>
+          <div id="scene"></div>
+          <h3 id="placename"></h3>
+          <p id="placetext"></p>
+          <ul id="sees" class="sees"></ul>
+          <p id="notebook" class="notebook"></p>
+        </div>
+      </div>
+      <div id="talk" hidden></div>
+    </div>
+  </section>
+
+  <!-- The evenings. A player holds one at a time and what he has read
+       before stays readable, because forgetting is not the difficulty
+       anybody wants. -->
+  <section id="evenings" hidden>
+    <div class="tabs" id="daytabs"></div>
+    <p class="note" id="daynote"></p>
+    <div id="sections"></div>
+  </section>
+
+  <!-- Who these people are: character, and nothing that places anybody.
+       Nothing here is markable, because nothing here is evidence. -->
+  <section id="people" hidden></section>
+
+  <!-- The report: sentences with blanks, in parts.
+
+       TWO WAYS OF FILLING IT IN, and the switch is here so they can be
+       compared by playing rather than argued about.
+
+       TYPED (the default). Nothing in the prose is marked. You read, you
+       notice, and you type what you noticed into the form -- which is what
+       the women in this building actually do all day, and what the game is
+       named after. What you may type is anything standing in a page you have
+       already read, so the gate is the prose you hold and not a list you
+       ticked.
+
+       COLLECTED (parked, not deleted). Every word is a button in the line,
+       clicking picks it up, and a blank offers what you picked up. It works,
+       it is what was built first, and the objection to it is that the finding
+       has been done for you: you click things that are already glowing. -->
+  <div id="desk" hidden>
+    <!-- The player's own working, beside the lines rather than under them,
+         so that it can be written while reading. The duty sheet has the same
+         box; nothing reads it but the player. -->
+    <section id="notepad">
+      <h2>Notes</h2>
+      <textarea id="notes" spellcheck="false"
+        placeholder="Your own working. Nothing here is marked and nobody reads it."></textarea>
+    </section>
+
+    <aside id="sheet">
+      <h2>The report</h2>
+      <p class="mode">
+        <button id="modeswitch" type="button"></button>
+        <span class="count" id="count"></span>
+      </p>
+      <div id="parts"></div>
+      <p class="count" id="asked"></p>
+      <p class="invite" id="invite" hidden>This is an early version, and you are
+        one of the first to finish it. <button type="button" id="invitefeedback">Tell
+        us how it went</button></p>
+    </aside>
+  </div>
+</main>
+
+<!-- THE MANUAL. For a player, not for us: how to get about, how to talk to
+     people, how the report is marked. It says nothing about how to weigh what
+     anybody says -- the handoff's rule: nobody is ever told that witnesses may
+     lie or that objects are true. If the game changes, this changes with it. -->
+<div id="manual" class="sheet-modal" hidden>
+  <div class="paper" role="dialog" aria-modal="true" aria-labelledby="manualtitle">
+    <button class="closer" type="button" data-close="manual" title="Close (Esc)">×</button>
+    <h2 id="manualtitle">How to play</h2>
+
+    <p>Bonn, 1969. Sarah Wessen is a private detective (Privatdetektivin).
+    Kommissar Mauser of the Kriminalpolizei is how she gets through the door of
+    a federal ministry, and each chapter is something he sends her to look
+    into. You go where she goes, hear what she hears, and at the end you write
+    her report to him.</p>
+
+    <h3>Getting about</h3>
+    <p>The map shows the building floor by floor, and on some evenings the
+    town. Click a room to walk into it; it fills the screen. <b>← the map</b>
+    or <kbd>Esc</kbd> takes you back out. A small number on a room says how
+    many people are in it.</p>
+    <p>The bar above the map says when it is. People come and go with the time
+    of day: <b>Stay until after five</b> moves the afternoon on, and <b>Go
+    home; come back tomorrow</b> starts the next day. Some chapters are a few
+    fixed evenings instead, and once you have moved on to the next evening
+    there is no going back.</p>
+
+    <h3>Looking</h3>
+    <p>When you walk into a room, what is there to be noticed is written
+    under the picture. A thing in a <span class="read">dashed box</span> is
+    something Sarah can look at: click it. What it says is only noted once she
+    has looked, and it goes into her notebook, where you can look at it again at
+    any time.</p>
+
+    <h3>Talking</h3>
+    <p>Click somebody to talk to them. The first time Sarah goes up to a
+    person, they will usually say something of their own accord.</p>
+    <p>After that, you choose what Sarah does. Under <b>Raise</b> are the
+    subjects she can bring up, each with the words she will use; a subject
+    appears once something you have read or heard gives her a reason to
+    mention it. Under <b>Show or mention</b> are the things in her notebook: a
+    thing she has with her she puts in front of them, and a thing that stays
+    where it is, like the porter's book, she tells them about.</p>
+    <p>People have only so much time for her. The dots beside a name are their
+    patience, what is left of it: every answer uses one, and a question somebody cannot answer
+    costs nothing. Their time comes back the next day, or on the next evening.
+    Everybody has time enough for everything they know, so nothing can be lost
+    by asking the wrong thing.</p>
+
+    <h3>What you have heard</h3>
+    <p>Everything Sarah has heard or seen is collected below the map, under
+    the place or the person it came from. Tick a line <b>✓</b> when you are
+    done with it, and <b>↺</b> brings it back. A German word with a dotted
+    line under it explains itself when you point at it, and so does a name.</p>
+    <p><b>Notes</b> is your own; nothing in it is read or marked.</p>
+
+    <h3>The report</h3>
+    <p>The report is a set of sentences with blanks. Each blank takes a word
+    that stands somewhere in what you have heard: type it in, or change the
+    setting at the top of the report to pick words up by clicking them in the
+    lines. When a part is filled in, <b>Sign</b> it. You are told whether the
+    part holds, never which blank is wrong.</p>
+    <p>Some reports also ask for evidence. Press <b>＋ cite</b> under a part,
+    then <b>＋</b> beside the lines that bear it out, and sign. Kommissar
+    Mauser marks it in pencil in the margin.</p>
+    <p>A person ruled out by something a signed part already shows may cite
+    that part instead: press <b>＋ cite</b> under their name, then <b>＋ cite
+    this part</b> beside the part. It counts only while the part holds.</p>
+
+    <h3>Reading the whole file</h3>
+    <p>Under <b>Settings</b> you can put every line of a chapter on the page at
+    once, without walking or asking. It is there for reading a chapter
+    through, or for handing it to somebody to review; it is not how the game is
+    meant to be played. What you have heard on your walk is kept, and you can
+    switch back at any time.</p>
+
+    <h3>Telling us how it went</h3>
+    <p>This is an early version. <b>Feedback</b>, at the top of the page, asks a
+    few questions about how you got on, at any point, finished or not: what
+    stopped you is worth as much to us as how you solved it. Nothing is sent
+    by itself. You copy what you wrote, or send it by email or on GitHub, and
+    you see everything, the play log included, before it goes.</p>
+
+    <h3>The pictures</h3>
+    <p>The rooms and the people are generated with AI from
+    written descriptions, and they are drafts. What a picture shows is never
+    evidence unless a line says so.</p>
+
+    <h3>Saving</h3>
+    <p>Where you are, what you have heard, your notes and your report are kept
+    in this browser, for each chapter separately. <b>Start every walk over</b>,
+    under Settings, sends Sarah back to the beginning and keeps your notes.</p>
+  </div>
+</div>
+
+<!-- SETTINGS. Out of the way on purpose: reading the whole file is for review,
+     not for play, and a button beside the map invited players to leave the
+     game by accident. -->
+<div id="settings" class="sheet-modal" hidden>
+  <div class="paper" role="dialog" aria-modal="true" aria-labelledby="settingstitle">
+    <button class="closer" type="button" data-close="settings" title="Close (Esc)">×</button>
+    <h2 id="settingstitle">Settings</h2>
+    <label class="setting">
+      <input type="checkbox" id="readall">
+      <span><b>Read the whole file</b><br>
+      Every line of the chapter on the page at once, with no walking and no
+      asking. For reading a chapter through, or for review. Your walk is kept,
+      and you can switch back at any time.</span>
+    </label>
+    <p class="setting"><button type="button" id="startover">Start every walk over</button>
+      <span>Forgets where Sarah has been, what she has heard and seen, and what
+      she has asked. Your notes and your report are kept.</span></p>
+  </div>
+</div>
+
+<!-- THE QUESTIONNAIRE (feedback.js). Asks, and sends nothing by itself. -->
+<div id="feedback" class="sheet-modal" hidden>
+  <div class="paper" role="dialog" aria-modal="true" aria-labelledby="feedbacktitle">
+    <button class="closer" type="button" data-close="feedback" title="Close (Esc)">×</button>
+    <h2 id="feedbacktitle">How it went</h2>
+    <p>You are one of the first people to play this, and what you say decides
+    what gets fixed. Answer as much or as little as you like; every question
+    can be left empty. What you write is kept in this browser until you send it.</p>
+    <div id="fbform"></div>
+    <p class="fbsend">
+      <button type="button" id="copyfeedback">Copy it</button>
+      <button type="button" id="mailfeedback" hidden>Send it by email</button>
+      <button type="button" id="postfeedback">Post it on GitHub</button>
+      <span id="fbsaid" class="fbsaid"></span></p>
+    <p class="fbnote">A GitHub post is public and needs a GitHub account; leave out
+    anything that would give the case away.</p>
+  </div>
+</div>
+
+<!-- A document Sarah holds, set in type (walk.js). -->
+<div id="doc" hidden>
+  <div class="paper" role="dialog" aria-modal="true" aria-labelledby="doctitle">
+    <button id="docclose" type="button" onclick="closeDoc()" title="Put it down (Esc)">×</button>
+    <h3 id="doctitle"></h3>
+    <div id="docbody"></div>
+  </div>
+</div>
+
+<!-- One floating note, for a German term or a person. Never collectable. -->
+<div id="tip" hidden></div>
+
+<script src="walk.js"></script>
+<script src="feedback.js"></script>
+<script src="app.js"></script>

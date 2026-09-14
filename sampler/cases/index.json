@@ -1,0 +1,110 @@
+[
+ {
+  "id": "dienstweg",
+  "n": 0,
+  "title": "Der Dienstweg",
+  "stated": "November 1968",
+  "built": false,
+  "opens": false
+ },
+ {
+  "id": "stellenplan",
+  "n": 1,
+  "title": "Der Stellenplan",
+  "stated": "March 1969",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "braunstift",
+  "n": 2,
+  "title": "Die Braunstift-Akte",
+  "stated": "September 1969",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "rueckstand",
+  "n": null,
+  "title": "Der Rückstand",
+  "stated": "Tuesday 14 October 1969",
+  "built": true,
+  "subtitle": "The Outstanding File",
+  "opens": true
+ },
+ {
+  "id": "schublade",
+  "n": 3,
+  "title": "Die dritte Schublade",
+  "stated": "Friday 14 November 1969",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "dreinamen",
+  "n": 4,
+  "title": "Die drei Namen",
+  "stated": "January 1970",
+  "built": false,
+  "opens": false
+ },
+ {
+  "id": "brief",
+  "n": 5,
+  "title": "Der verschlossene Brief",
+  "stated": "Spring 1970",
+  "built": false,
+  "opens": false
+ },
+ {
+  "id": "nichts",
+  "n": 6,
+  "title": "Was nicht geschehen ist",
+  "stated": "Autumn 1970",
+  "built": false,
+  "opens": false
+ },
+ {
+  "id": "dienstweg2",
+  "n": 7,
+  "title": "Der Dienstweg, noch einmal",
+  "stated": "December 1970",
+  "built": false,
+  "opens": false
+ },
+ {
+  "id": "woche",
+  "n": 8,
+  "title": "Die unmögliche Woche",
+  "stated": "May 1971",
+  "built": false,
+  "opens": false
+ },
+ {
+  "id": "erste",
+  "n": 9,
+  "title": "Welches ist das Erste?",
+  "stated": "Autumn 1971",
+  "built": false,
+  "opens": false
+ },
+ {
+  "id": "wiederaufnahme",
+  "n": 10,
+  "title": "Die Wiederaufnahme",
+  "stated": "Spring 1972",
+  "built": false,
+  "opens": false
+ },
+ {
+  "id": "ungezählt",
+  "n": 11,
+  "title": "Der, den niemand gezählt hat",
+  "stated": "Autumn 1972",
+  "built": false,
+  "opens": false
+ }
+]

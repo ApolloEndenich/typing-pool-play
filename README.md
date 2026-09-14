@@ -5,8 +5,9 @@ A deduction game. Bonn, 1969, a quarter past five.
 **▶ [Play it](https://apolloendenich.github.io/typing-pool-play/)**
 
 This repository holds the game and only the game: four self-contained pages
-with the cases and the artwork baked in. It will run from a memory stick with
-no network at all. The engine that builds and proves the cases is not here.
+with the cases and the artwork baked in, and in `sampler/` a free sample of
+the longer game those pages grew out of. The engine that builds and proves the
+cases is not here.
 
 Sarah Wessen and Schmiss are from the crime novels of **Gudrun Leyendecker**
 and are used here with her permission. The game is not the books: it borrows
@@ -16,3 +17,6 @@ quoted from Band 1. If you like the pair of them, the novels are where they
 actually live.
 
 *Schmiss und Wessen* — Books on Demand, 2025, ISBN 978-3-695-18724-9.
+
+The pictures in `sampler/` are generated with AI and are
+drafts.
