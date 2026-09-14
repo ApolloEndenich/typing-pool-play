@@ -28,6 +28,13 @@
   </div>
   <p id="subtitle"></p>
   <nav id="cases"></nav>
+  <!-- Two tabs while a chapter is walked (walk.js, setView): the building,
+       and what Sarah has heard with the report. Reading the whole file shows
+       everything on one page and has no tabs. -->
+  <nav id="views" class="tabs views" aria-label="View">
+    <button type="button" data-view="building">The building</button>
+    <button type="button" data-view="notebook">Notebook and report <span class="fresh" id="freshcount"></span></button>
+  </nav>
 </header>
 
 <main>
@@ -50,7 +57,7 @@
         <div id="map"></div>
         <div class="stage" id="stage">
           <button id="theatreclose" type="button" title="Back to the map (Esc)">← the map</button>
-          <button id="tonotebook" type="button" title="What Sarah has heard, and the report">↓ notebook and report</button>
+          <button id="tonotebook" type="button" title="What Sarah has heard, and the report">Notebook and report <span class="fresh" id="freshroom"></span></button>
           <div id="scene"></div>
           <h3 id="placename"></h3>
           <p id="placetext"></p>
@@ -165,8 +172,11 @@
     by asking the wrong thing.</p>
 
     <h3>What you have heard</h3>
-    <p>Everything Sarah has heard or seen is collected below the map, under
-    the place or the person it came from. Tick a line <b>✓</b> when you are
+    <p>The page has two tabs at the top. <b>The building</b> is the map and
+    the rooms. <b>Notebook and report</b> collects everything Sarah has heard
+    or seen, under the place or the person it came from, beside your notes and
+    the report; it says how many lines are new since you last looked. The
+    button of the same name in a room takes you there. Tick a line <b>✓</b> when you are
     done with it, and <b>↺</b> brings it back. A German word with a dotted
     line under it explains itself when you point at it, and so does a name.</p>
     <p><b>Notes</b> is your own; nothing in it is read or marked.</p>

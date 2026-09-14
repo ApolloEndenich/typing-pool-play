@@ -1758,7 +1758,8 @@
    {
     "id": "registratur",
     "label": "how a file gets back to the Registratur",
-    "ask": "Sarah asks how a file gets back to the Registratur from the rest of the building.",
+    "ask": "\"How does a file get back to the Registratur from the rest of the building?\" asks Sarah.",
+    "ask_of": {},
     "always": true,
     "raised_by": [
      "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it.",
@@ -1773,7 +1774,8 @@
    {
     "id": "asked",
     "label": "whether anybody was asked about the file",
-    "ask": "Sarah asks whether anybody was ever asked about the file that came back mended.",
+    "ask": "\"Was anybody ever asked about the file that came back mended?\" asks Sarah.",
+    "ask_of": {},
     "always": true,
     "raised_by": [
      "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand.",
@@ -1787,7 +1789,10 @@
    {
     "id": "simon",
     "label": "Herr Simon",
-    "ask": "Sarah asks what sort of man Herr Simon is.",
+    "ask": "\"What sort of man is Herr Simon?\" asks Sarah.",
+    "ask_of": {
+     "Simon": "\"And what sort of man would you say you are, Herr Simon?\" asks Sarah."
+    },
     "always": true,
     "raised_by": [
      "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
@@ -1804,7 +1809,8 @@
    {
     "id": "week",
     "label": "who was in the Schreibsaal that week",
-    "ask": "Sarah asks who was in the Schreibsaal in the week the typists were asked about the file.",
+    "ask": "\"Who was in the Schreibsaal in the week the typists were asked about the file?\" asks Sarah.",
+    "ask_of": {},
     "always": false,
     "raised_by": [
      "Simon: Once, and I asked the proper person. I stopped Frau Pohlmann in the corridor in the last week of September and asked whether 117/64 had ever come back to her, and she said she would ask the typists, since it was the Schreibsaal she had passed it to. What she asked them, and how, you will have to ask her.",
@@ -1817,7 +1823,8 @@
    {
     "id": "machines",
     "label": "the pool's typewriters",
-    "ask": "Sarah says she keeps hearing about the pool's typewriters, the old ones and the new.",
+    "ask": "\"I keep hearing about the pool's typewriters,\" says Sarah, \"the old ones and the new.\"",
+    "ask_of": {},
     "always": true,
     "raised_by": [
      "A drafted request, in the drawer of the desk in the corner behind the door: for new machines, costed to the Pfennig against what the last lot came to in 1964, finished, unsigned, and never sent up.",
@@ -1829,7 +1836,8 @@
    {
     "id": "lastdesk",
     "label": "the drafted request in the desk drawer",
-    "ask": "Sarah asks about the drafted request for new machines she saw in a desk drawer in the Schreibsaal.",
+    "ask": "\"I saw a drafted request for new machines in a desk drawer in the Schreibsaal,\" says Sarah. \"What can you tell me about it?\"",
+    "ask_of": {},
     "always": false,
     "raised_by": [
      "A drafted request, in the drawer of the desk in the corner behind the door: for new machines, costed to the Pfennig against what the last lot came to in 1964, finished, unsigned, and never sent up."
@@ -1838,7 +1846,8 @@
    {
     "id": "afternoon",
     "label": "the Tuesday afternoon the file came back",
-    "ask": "Sarah asks what went on in the building on the Tuesday afternoon the file came back.",
+    "ask": "\"What went on in the building on the Tuesday afternoon the file came back?\" asks Sarah.",
+    "ask_of": {},
     "always": true,
     "raised_by": [
      "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
@@ -1848,7 +1857,8 @@
    {
     "id": "gone",
     "label": "who is about once the pool has gone home",
-    "ask": "Sarah asks who is about in the Schreibsaal once the pool has gone home.",
+    "ask": "\"Who is about in the Schreibsaal once the pool has gone home?\" asks Sarah.",
+    "ask_of": {},
     "always": false,
     "raised_by": [
      "the porter: Once the pool has gone, this building is mine, and I know who is in it. The cleaning women come in by the side door and I let them in myself, and not one of them goes up before the last of the pool has gone out past me. I see to that.",
@@ -1858,7 +1868,10 @@
    {
     "id": "younger",
     "label": "her younger boy",
-    "ask": "Sarah asks after Frau Adam's younger boy.",
+    "ask": "\"How is Frau Adam's younger boy getting on?\" asks Sarah.",
+    "ask_of": {
+     "Adam": "\"And how is your younger boy getting on?\" asks Sarah."
+    },
     "always": false,
     "raised_by": [
      "Adam: Sit down, sit down, nobody here will mind. My elder boy is to be an engineer and the younger one already knows he will not be, and I brought cake in on Tuesday and it did not turn out."

@@ -49,7 +49,32 @@ function walkStart() {
   HEARD = new Set(recall(CASE.id, "heard", []));
   TALKING = null;
   $("backtowalk").onclick = () => setReadAll(false);
+  $("views").querySelectorAll("[data-view]").forEach(b =>
+    b.onclick = () => { setView(b.dataset.view); window.scrollTo(0, 0); });
+  setView(recall(CASE.id, "view", "building"));
   enter(W.at, true);
+}
+
+/* TWO TABS (the user, 14 September 2026): the building -- map, room, talk --
+   and Sarah's notebook with the report. Which one is open is kept per chapter;
+   the notebook's tab counts the lines heard since it was last open. */
+function setView(v) {
+  remember(CASE.id, "view", v);
+  document.body.classList.toggle("view-building", v === "building");
+  document.body.classList.toggle("view-notebook", v === "notebook");
+  $("views").querySelectorAll("[data-view]").forEach(b =>
+    b.classList.toggle("on", b.dataset.view === v));
+  if (v === "notebook") remember(CASE.id, "noted", HEARD.size);
+  freshCount();
+}
+
+function freshCount() {
+  const onNotebook = document.body.classList.contains("view-notebook");
+  if (onNotebook) remember(CASE.id, "noted", HEARD.size);
+  const n = Math.max(0, HEARD.size - recall(CASE.id, "noted", 0));
+  const text = n ? `(${n} new)` : "";
+  $("freshcount").textContent = text;
+  $("freshroom").textContent = text;
 }
 
 function save() {
@@ -109,6 +134,9 @@ function enter(id, quiet) {
   if (!quiet || fresh) { draw(); report(); }
 }
 
+/* what Sarah says raising a topic with this person (meetings.py, ask_of) */
+const askOf = (t, who) => (t.ask_of || {})[who] || t.ask;
+
 function note(who, kind, text) {
   (W.log[who] || (W.log[who] = [])).push([kind, text, phase().name]);
 }
@@ -138,7 +166,7 @@ function act(kind, what) {
   if (asked(p.id, key) || spent(p.id) >= p.patience) return;
   (W.asked[p.id] || (W.asked[p.id] = [])).push(key);
   if (kind === "topic") {
-    note(p.id, "sarah", WALK.topics.find(x => x.id === what).ask);
+    note(p.id, "sarah", askOf(WALK.topics.find(x => x.id === what), p.id));
   } else {
     note(p.id, "sarah", carried(what)
       ? `Sarah puts ${thingName(what)} in front of ${p.name}.`
@@ -199,6 +227,7 @@ function walkDraw() {
   $("walkbody").hidden = !on;
   document.body.classList.toggle("walks", on);
   if (!on) return;
+  freshCount();
 
   const ph = phase();
   $("clock").innerHTML = WALK.repeat
@@ -344,7 +373,8 @@ function scene() {
   $("theatreclose").onclick = () => theatre(false);
   $("tonotebook").onclick = () => {
     theatre(false);
-    ($("evenings").hidden ? $("desk") : $("evenings")).scrollIntoView({block: "start"});
+    setView("notebook");
+    window.scrollTo(0, 0);
   };
 }
 
@@ -390,6 +420,7 @@ function closeDoc() { $("doc").hidden = true; }
    Walking into a room fills the screen with it: the painting, the people in
    it, and the conversation over the foot of it. The map is one step back. */
 function theatre(on) {
+  if (on && !document.body.classList.contains("view-building")) setView("building");
   document.body.classList.toggle("theatre", on);
   if (on) $("theatreclose").focus();
 }
@@ -426,7 +457,7 @@ function conversation() {
   /* asked already sinks to the end (the user, 14 September 2026) */
   const later = (kind, id) => asked(p.id, askKey(kind, id)) ? 1 : 0;
   const topics = offered().slice().sort((a, b) => later("topic", a.id) - later("topic", b.id))
-    .map(t => chip("topic", t.id, t.label, t.ask)).join("");
+    .map(t => chip("topic", t.id, t.label, askOf(t, p.id))).join("");
   const things = held().slice().sort((a, b) => later("show", a) - later("show", b))
     .map(t => chip("show", t, thingName(t), carried(t)
     ? `Put ${thingName(t)} in front of ${p.name}.`

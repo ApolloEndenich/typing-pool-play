@@ -78,7 +78,7 @@ function sheets() {
 function startOver() {
   try {
     for (const k of Object.keys(localStorage))
-      if (/^faelle\.[^.]+\.(walk|heard|days|aside)$/.test(k)) localStorage.removeItem(k);
+      if (/^faelle\.[^.]+\.(walk|heard|days|aside|noted)$/.test(k)) localStorage.removeItem(k);
   } catch (e) {}
   location.reload();
 }
