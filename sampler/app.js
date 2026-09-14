@@ -50,11 +50,17 @@ const esc = s => String(s).replace(/[&<>"]/g, c =>
 function sheets() {
   const show = id => { $(id).hidden = false; $(id).querySelector(".closer").focus(); };
   $("openmanual").onclick = () => show("manual");
-  $("opensettings").onclick = () => {
-    $("readall").checked = !!recall("_", "readall", false);
-    show("settings");
-  };
-  $("readall").onchange = () => setReadAll($("readall").checked);
+  $("opensettings").onclick = () => show("settings");
+  /* READING THE WHOLE FILE IS NOT A WAY TO PLAY (the user, 14 September
+     2026), so it is no longer in Settings or the manual. Ctrl+Shift+F turns it
+     on and off, for us and for review; the cold-read packets are the file for
+     strangers. */
+  document.addEventListener("keydown", e => {
+    if (e.ctrlKey && e.shiftKey && (e.key === "F" || e.key === "f")) {
+      e.preventDefault();
+      setReadAll(!recall("_", "readall", false));
+    }
+  });
   document.querySelectorAll(".sheet-modal").forEach(m => {
     m.onclick = e => { if (e.target === m) m.hidden = true; };
     m.querySelector(".closer").onclick = () => { m.hidden = true; };
@@ -90,7 +96,7 @@ async function boot() {
   $("startover").onclick = () => {
     if (confirm("Start every walk over? What Sarah has heard and asked is forgotten; your notes and report are kept.")) startOver();
   };
-  document.addEventListener("click", untip);
+  document.addEventListener("click", e => { if (!$("tip").contains(e.target)) untip(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") untip(); });
   window.addEventListener("scroll", untip, true);
 
@@ -100,6 +106,7 @@ async function boot() {
   $("cases").innerHTML = index.map(c =>
     `<button data-id="${c.id}"${c.built ? "" : " disabled"} class="${c.built ? "" : "tocome"}">` +
     `<span class="num">${c.n === null ? "·" : c.n}</span>${esc(c.title)}` +
+    (c.german ? ` <i class="de">${esc(c.german)}</i>` : "") +
     `<small>${esc(c.stated)}${c.built ? "" : c.held ? " · not in this sample" : " · not yet written"}</small></button>`
   ).join("");
   $("cases").querySelectorAll("button:not([disabled])").forEach(b =>
@@ -116,6 +123,14 @@ async function load(id) {
   FOUND = new Set(recall(id, "words", []).filter(w => known.has(w)));
   ASIDE = recall(id, "aside", []);
   CITE = recall(id, "cites", {});
+  /* A line rewritten since it was cited (the voices, 14 September 2026) would
+     match no seal and quietly count for nothing; drop it, so the report never
+     shows a chip that cannot earn a mark. */
+  {
+    const lines = new Set(CASE.days.flatMap(d => d.sections.flatMap(s => s.lines)));
+    for (const k of Object.keys(CITE))
+      CITE[k] = CITE[k].filter(t => t.startsWith("part:") || lines.has(t));
+  }
   citing(null);
   $("notes").value = recall(id, "notes", "");
   $("notes").oninput = () => remember(id, "notes", $("notes").value);
@@ -134,8 +149,9 @@ async function load(id) {
   }
   GMATCH = Object.keys(GLOSS).length ? matcher(Object.keys(GLOSS)) : null;
   NMATCH = Object.keys(WHO).length ? matcher(Object.keys(WHO)) : null;
-  $("title").textContent = CASE.title;
-  $("subtitle").textContent = CASE.subtitle || "";
+  /* the English name first, the German one under it (14 September 2026) */
+  $("title").textContent = CASE.subtitle || CASE.title;
+  $("subtitle").textContent = CASE.subtitle ? CASE.title : "";
   $("preamble").innerHTML = marked(CASE.preamble, false);
   $("question").innerHTML = marked(CASE.question, false);
   annotate($("brief"));
@@ -257,14 +273,27 @@ function tip(el) {
   box.style.left = Math.max(8, Math.min(window.innerWidth - w - 8,
                                         r.left)) + "px";
   box.style.top = (r.bottom + 6) + "px";
+  /* The card stays while the pointer is on it, and a name or a German word
+     inside it can be hovered in turn (the user, 14 September 2026: hovering
+     Herr Simon and then "Registratur" in his card closed it at once). */
+  clearTimeout(TIPCLOSE);
+  box.onmouseenter = () => clearTimeout(TIPCLOSE);
+  box.onmouseleave = untipSoon;
+  box.querySelectorAll(".term,.who").forEach(inner => {
+    inner.onmouseenter = () => { clearTimeout(TIPCLOSE); tip(inner); };
+    inner.onclick = e => { e.stopPropagation(); tip(inner); };
+  });
 }
 
-const untip = () => { $("tip").hidden = true; };
+let TIPCLOSE = null;
+const untip = () => { clearTimeout(TIPCLOSE); $("tip").hidden = true; };
+/* leaving a word gives the pointer a moment to reach the card */
+const untipSoon = () => { clearTimeout(TIPCLOSE); TIPCLOSE = setTimeout(untip, 250); };
 
 function annotate(root) {
   root.querySelectorAll(".term,.who").forEach(el => {
     el.onmouseenter = () => tip(el);
-    el.onmouseleave = untip;
+    el.onmouseleave = untipSoon;
     el.onclick = e => { e.stopPropagation(); tip(el); };
   });
 }
@@ -598,7 +627,9 @@ function memo() {
       const lines = leaning(raw, CITE, VERDICT);
       const v = raw.length && !lines.length ? "proof"
         : await citations(r.id, r, lines);
-      say(`row${i}`, marks[v], v === "holds" ? "good" : "bad");
+      const whose = v === "own" ? `: something cited here is ${r.label}'s own word`
+        : v === "ring" ? `: something cited here rests on somebody ${r.label} clears in turn` : "";
+      say(`row${i}`, marks[v] + whose, v === "holds" ? "good" : "bad");
     }
   });
 }

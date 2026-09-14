@@ -48,7 +48,7 @@ function walkStart() {
                      spent: {}, asked: {}, log: {}}, recall(CASE.id, "walk", {}));
   HEARD = new Set(recall(CASE.id, "heard", []));
   TALKING = null;
-  $("backtowalk").onclick = () => { $("readall").checked = false; setReadAll(false); };
+  $("backtowalk").onclick = () => setReadAll(false);
   enter(W.at, true);
 }
 
@@ -161,6 +161,9 @@ function act(kind, what) {
   }
   if (any && spent(p.id) >= p.patience) note(p.id, "tired", p.tired);
   save(); walkDraw(); draw(); report();
+  $("talk").scrollTop = 0;
+  if (!document.body.classList.contains("theatre") && $("talk").scrollIntoView)
+    $("talk").scrollIntoView({block: "nearest"});
 }
 
 const lastPhase = () => W.phase + 1 >= WALK.phases.length;
@@ -316,7 +319,7 @@ function scene() {
       `<span class="label">${esc(x.name)}</span></button>`;
   }).join("");
   $("scene").innerHTML =
-    `<div class="fig sarah" style="left:4%;height:${tall(WALK.sarah_height)}"><img src="${esc(WALK.sarah)}" alt=""><span class="label">Sarah</span></div>` +
+    `<div class="fig sarah" style="left:9%;height:${tall(WALK.sarah_height)}"><img src="${esc(WALK.sarah)}" alt=""><span class="label">Sarah</span></div>` +
     figs;
   $("scene").querySelectorAll("[data-meet]").forEach(b => b.onclick = () => {
     meet(b.dataset.meet);
@@ -339,6 +342,10 @@ function scene() {
     : "";
   $("stage").querySelectorAll(".read").forEach(b => b.onclick = () => readThing(b.dataset.thing));
   $("theatreclose").onclick = () => theatre(false);
+  $("tonotebook").onclick = () => {
+    theatre(false);
+    ($("evenings").hidden ? $("desk") : $("evenings")).scrollIntoView({block: "start"});
+  };
 }
 
 /* ------------------------------------------------------------ documents
@@ -416,8 +423,12 @@ function conversation() {
       `data-what="${esc(what)}" title="${esc(says)}"${done || tired ? " disabled" : ""}>` +
       `<b>${esc(label)}</b><span class="says">${esc(says)}</span></button>`;
   };
-  const topics = offered().map(t => chip("topic", t.id, t.label, t.ask)).join("");
-  const things = held().map(t => chip("show", t, thingName(t), carried(t)
+  /* asked already sinks to the end (the user, 14 September 2026) */
+  const later = (kind, id) => asked(p.id, askKey(kind, id)) ? 1 : 0;
+  const topics = offered().slice().sort((a, b) => later("topic", a.id) - later("topic", b.id))
+    .map(t => chip("topic", t.id, t.label, t.ask)).join("");
+  const things = held().slice().sort((a, b) => later("show", a) - later("show", b))
+    .map(t => chip("show", t, thingName(t), carried(t)
     ? `Put ${thingName(t)} in front of ${p.name}.`
     : `Tell ${p.name} what she saw in ${thingName(t)}.`)).join("");
   const when = WALK.reset === "phase" ? "this evening" : "today";
@@ -428,10 +439,14 @@ function conversation() {
     `<p class="costs">Each answer takes a little of ${esc(p.name)}'s time ${when}. ` +
     `A question nobody can answer costs nothing.</p>` +
     (tired ? `<p class="spent">${esc(cap(p.name))} has given you all the time there is ${when}.</p>` : "") +
-    `<div class="ask"><span>Raise</span>${topics || '<i>nothing yet</i>'}</div>` +
-    `<div class="ask"><span>Show or mention</span>${things || '<i>nothing in your notebook</i>'}</div>`;
+    `<div class="asks"><div class="ask"><span>Raise</span>${topics || '<i>nothing yet</i>'}</div>` +
+    `<div class="ask"><span>Show or mention</span>${things || '<i>nothing in your notebook</i>'}</div></div>`;
   box.querySelector(".close").onclick = () => { TALKING = null; walkDraw(); };
   box.querySelectorAll(".chip").forEach(b => b.onclick = () => act(b.dataset.kind, b.dataset.what));
   const ol = box.querySelector(".log");
   ol.scrollTop = ol.scrollHeight;
+  const asks = ol.querySelectorAll ? ol.querySelectorAll("li.sarah") : [];
+  const lastAsk = asks[asks.length - 1];
+  if (lastAsk && ol.scrollHeight - lastAsk.offsetTop > ol.clientHeight)
+    ol.scrollTop = lastAsk.offsetTop;
 }

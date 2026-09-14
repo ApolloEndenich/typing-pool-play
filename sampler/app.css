@@ -163,7 +163,9 @@ input.blank:focus { outline: none; border-bottom-width: 2px; }
 .who  { border-bottom: 1px solid currentColor; cursor: pointer; opacity: .9; }
 
 #tip {
-  position: fixed; z-index: 50; max-width: 32em;
+  /* above the document (60) and the manual (70): a word explained under the
+     book it stands in could not be read (the user, 14 September 2026) */
+  position: fixed; z-index: 90; max-width: 32em;
   padding: .6em .8em; font: inherit; font-size: .95em;
   background: Canvas; color: CanvasText;
   border: 1px solid currentColor; border-radius: 3px;
@@ -267,6 +269,9 @@ body.walks #people { grid-row:4 }
   flex-direction:column; align-items:center; font:inherit;
 }
 #scene .fig.sarah { transform:none; cursor:default }
+/* mirrored, so that she looks at whoever she is talking to (the user, 14
+   September 2026); the drawing had her head turned away from them */
+#scene .fig.sarah img { transform:scaleX(-1) }
 #scene .fig img { height:100%; width:auto; filter:drop-shadow(0 3px 2px rgba(0,0,0,.25)) }
 #scene .fig .label {
   position:absolute; bottom:-2px; font-size:10px; letter-spacing:.06em; white-space:nowrap;
@@ -305,7 +310,7 @@ body.walks #people { grid-row:4 }
 #talk .chip.show { border-style:dashed }
 #talk .chip:hover:not(:disabled) { background:var(--hi) }
 #talk .chip.done { text-decoration:line-through; opacity:.45; cursor:default }
-#talk .chip:disabled { cursor:default }
+#talk .chip:disabled { cursor:default; opacity:.45 }
 #talk .log li.earlier { opacity:.55 }
 
 /* a thing in the room, or in the notebook, that can be picked up and read */
@@ -337,20 +342,31 @@ body.walks #people { grid-row:4 }
             background:none; border:0 }
 
 /* full screen: the room fills the window, the conversation over its foot */
-#theatreclose { display:none }
+#theatreclose, #tonotebook { display:none }
 body.theatre { overflow:hidden }
 body.theatre #stage { position:fixed; inset:0; z-index:40; margin:0; padding:10px 16px 0;
                       background:var(--wash); color:var(--ink); overflow:auto }
+body.theatre #tonotebook { display:inline-block; font:inherit; font-size:12px; cursor:pointer;
+                           margin:0 0 8px 6px; padding:3px 10px; background:none; color:var(--ink); border:1px solid var(--ink) }
 body.theatre #theatreclose { display:inline-block; font:inherit; font-size:12px; cursor:pointer;
                              margin:0 0 8px; padding:3px 10px; background:var(--hi); color:var(--ink); border:1px solid var(--ink) }
 body.theatre #scene { width:min(100%, calc((100vh - 60px) * 16 / 9)); margin:0 auto }
 body.theatre .stage h3, body.theatre .stage p, body.theatre .sees, body.theatre .notebook {
   max-width:min(100%, calc((100vh - 60px) * 16 / 9)); margin-left:auto; margin-right:auto }
 body.theatre .notebook > span { color:var(--faint) }
+/* The box holds still: its heading and patience stay at the top, the log takes
+   the room it needs, and only the questions scroll (the user, 14 September
+   2026: the dots were scrolled out of sight and a spent person seemed to
+   ignore the click). */
 body.theatre #talk { position:fixed; left:50%; transform:translateX(-50%); bottom:12px; z-index:45;
-                     width:min(960px, calc(100% - 32px)); max-height:52vh; overflow:auto;
+                     width:min(960px, calc(100% - 32px)); max-height:62vh; overflow:hidden;
+                     display:flex; flex-direction:column;
                      box-shadow:0 8px 30px rgba(0,0,0,.5) }
-body.theatre #talk .log { max-height:14em }
+body.theatre #talk header, body.theatre #talk .costs, body.theatre #talk .spent { flex:none }
+body.theatre #talk .log { flex:1 1 auto; min-height:9em; max-height:none; position:relative }
+body.theatre #talk .asks { flex:0 1 auto; overflow-y:auto; max-height:40% }
+#talk .log { position:relative }
+#cases i.de { font-size:.85em; opacity:.7 }
 #talk .log li.shrug { color:var(--faint) }
 #talk .costs { font-size:11px; color:var(--faint); margin:0 0 6px }
 

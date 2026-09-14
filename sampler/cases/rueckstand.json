@@ -15,7 +15,7 @@
      "where": "the Registratur",
      "lines": [
       "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand.",
-      "The book: Sachakte 117/64, Beschaffung von Schreibmaschinen, out to Zimmer 407 on 12 May, and nothing written under it since.",
+      "The book: Sachakte 117/64, Beschaffung von Schreibmaschinen (the file on buying typewriters), out to Zimmer 407 on 12 May, and nothing written under it since.",
       "The Rückstandsliste: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every Referat holding one of them."
      ]
     },
@@ -339,7 +339,6 @@
     "need": "3b38b8a5e8b4a9158013b4e2685ec3e8d48ee6553d8ab1305e9944a93dccf722",
     "marks": [
      "0c274af48252c50ebc55a255e977a1b4707e062d3ab5bf807681578bd4098bc8",
-     "134ff9a170c5fa5cc59e1a0b14ed8143d1f144b466496102c1e550ff9da56e41",
      "22c4007ce798a24031edb54cc9522beddb5b8c26a502d9aa172bafcea94f72cd",
      "287b8005a224096fe0ddcd650898d90a929af0712d8a0e65df36d2dc11d999d0",
      "2c53c14854601b0e25860b7ce8ababbae743640c863a39e7cd69f92a3724f318",
@@ -360,6 +359,7 @@
      "c10a11b8f010b164af3996a51a9c07a15fd08f7b8c579488315a8285d7ed5ed7",
      "c53849d3ee3eee7033c23b18de805e2768a5b5c795631ff2cd9ee92a75476cc5",
      "c93a5159b15f50e5320611804e695913f00b411b5319454b39478731ce44a85b",
+     "e93b0f34afac3ce3bfb8addb62481846019598e9786105cbf77ae186cccf9138",
      "f1d879ab5e48fe19eb7b10ec7dfae7d1f23d901a1f5158570231a25013a6b822",
      "f88d16073808d6132eb9f83538383a52e2c6d1bfa7992999d5c302f221dec716"
     ]
@@ -473,11 +473,11 @@
      "89dde57b50bd38a0ecad9b9d827fb2af2032caea0efcca81c1118bc29ed36b6d",
      "99f4f4f660ff942da06542fc960d397076f90e279c604d54cf828f60d76416d7",
      "aa5f993635a882f7a7e5bfe746d6a7b7c669741603b9fb56b01b3abec285f650",
-     "ad7b7bb5aae6b0a7d5bbf5adfcff77964b88180cb79b4ac333cae502194185ca",
      "b56cf1302790533cd8881df9df4f60014c6c5856846e28594718f33f532c6220",
      "b851bff64f79bdcf61c96e1b348cb04e6ace2282edb50543ca641d39c3813742",
      "be689ed20e0a1986044f2f640a566b96fa28fe31124a97f681d68bfa2828ff79",
      "d3679161153615f4d74d5e381087c8abcba61f327435786dfbe71431d8f69926",
+     "ddb32f9aa3d50d6dbb5537ffd9b5a6071967df1e91fde0e5aa9ca87e44fc3ebf",
      "e2b44ccf4d1b4ed2ec6c59dcbdba0fae31e75c77ee7a16f83dc21919b3360383",
      "e69a8d32f3046fc72b32447488089423501816536efbc164802b0312f5821873",
      "f5344d73ccbdd0a2e6aa455350daf3478248e5ff48ed2cde2293321266e6b2c6",
@@ -1093,7 +1093,7 @@
       "phase": null
      },
      {
-      "text": "The book: Sachakte 117/64, Beschaffung von Schreibmaschinen, out to Zimmer 407 on 12 May, and nothing written under it since.",
+      "text": "The book: Sachakte 117/64, Beschaffung von Schreibmaschinen (the file on buying typewriters), out to Zimmer 407 on 12 May, and nothing written under it since.",
       "phase": null
      },
      {
@@ -1873,7 +1873,7 @@
    },
    {
     "thing": "The book",
-    "line": "The book: Sachakte 117/64, Beschaffung von Schreibmaschinen, out to Zimmer 407 on 12 May, and nothing written under it since.",
+    "line": "The book: Sachakte 117/64, Beschaffung von Schreibmaschinen (the file on buying typewriters), out to Zimmer 407 on 12 May, and nothing written under it since.",
     "portable": false
    },
    {

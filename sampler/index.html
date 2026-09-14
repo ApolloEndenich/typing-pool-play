@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>The Typing Pool</title>
+<link rel="icon" href="art/favicon.png" type="image/png">
 <link rel="stylesheet" href="app.css">
 
 <!--
@@ -49,6 +50,7 @@
         <div id="map"></div>
         <div class="stage" id="stage">
           <button id="theatreclose" type="button" title="Back to the map (Esc)">← the map</button>
+          <button id="tonotebook" type="button" title="What Sarah has heard, and the report">↓ notebook and report</button>
           <div id="scene"></div>
           <h3 id="placename"></h3>
           <p id="placetext"></p>
@@ -182,13 +184,6 @@
     that part instead: press <b>＋ cite</b> under their name, then <b>＋ cite
     this part</b> beside the part. It counts only while the part holds.</p>
 
-    <h3>Reading the whole file</h3>
-    <p>Under <b>Settings</b> you can put every line of a chapter on the page at
-    once, without walking or asking. It is there for reading a chapter
-    through, or for handing it to somebody to review; it is not how the game is
-    meant to be played. What you have heard on your walk is kept, and you can
-    switch back at any time.</p>
-
     <h3>Telling us how it went</h3>
     <p>This is an early version. <b>Feedback</b>, at the top of the page, asks a
     few questions about how you got on, at any point, finished or not: what
@@ -215,13 +210,6 @@
   <div class="paper" role="dialog" aria-modal="true" aria-labelledby="settingstitle">
     <button class="closer" type="button" data-close="settings" title="Close (Esc)">×</button>
     <h2 id="settingstitle">Settings</h2>
-    <label class="setting">
-      <input type="checkbox" id="readall">
-      <span><b>Read the whole file</b><br>
-      Every line of the chapter on the page at once, with no walking and no
-      asking. For reading a chapter through, or for review. Your walk is kept,
-      and you can switch back at any time.</span>
-    </label>
     <p class="setting"><button type="button" id="startover">Start every walk over</button>
       <span>Forgets where Sarah has been, what she has heard and seen, and what
       she has asked. Your notes and your report are kept.</span></p>
