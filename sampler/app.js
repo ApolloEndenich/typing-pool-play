@@ -96,7 +96,7 @@ async function boot() {
   $("startover").onclick = () => {
     if (confirm("Start every walk over? What Sarah has heard and asked is forgotten; your notes and report are kept.")) startOver();
   };
-  document.addEventListener("click", e => { if (!$("tip").contains(e.target)) untip(); });
+  document.addEventListener("click", e => { if (!tipBoxes().some(b => b.contains(e.target))) untip(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") untip(); });
   window.addEventListener("scroll", untip, true);
 
@@ -133,14 +133,6 @@ async function load(id) {
   FOUND = new Set(recall(id, "words", []).filter(w => known.has(w)));
   ASIDE = recall(id, "aside", []);
   CITE = recall(id, "cites", {});
-  /* A line rewritten since it was cited (the voices, 14 September 2026) would
-     match no seal and quietly count for nothing; drop it, so the report never
-     shows a chip that cannot earn a mark. */
-  {
-    const lines = new Set(CASE.days.flatMap(d => d.sections.flatMap(s => s.lines)));
-    for (const k of Object.keys(CITE))
-      CITE[k] = CITE[k].filter(t => t.startsWith("part:") || lines.has(t));
-  }
   citing(null);
   $("notes").value = recall(id, "notes", "");
   $("notes").oninput = () => remember(id, "notes", $("notes").value);
@@ -176,6 +168,18 @@ async function load(id) {
   /* walk.js, when the chapter can be walked: it decides which lines have
      reached the player, so it has to be told before anything is drawn */
   if (typeof walkStart === "function") walkStart();
+  /* A line rewritten since it was cited (the voices, 14 September 2026) would
+     match no seal and quietly count for nothing; drop it, so the report never
+     shows a chip that cannot earn a mark. What people said besides stays
+     (walk.js, said), and so does nothing of the old "cite this part", which
+     rule 2 does by itself now. After walkStart, which knows what was said. */
+  {
+    const lines = new Set(CASE.days.flatMap(d => d.sections.flatMap(s => s.lines)));
+    const spoken = typeof W !== "undefined" && W
+      ? new Set(Object.values(W.log).flat().map(([, t]) => t)) : new Set();
+    for (const k of Object.keys(CITE))
+      CITE[k] = CITE[k].filter(t => lines.has(t) || spoken.has(t));
+  }
   report();
   draw();
 }
@@ -271,35 +275,56 @@ function marked(text, collectable = true) {
 /* One floating note for both kinds. It is shown on hover and on click, because
    hover is not a thing on a tablet, and it never contains anything collectable
    -- a dossier that could be mined would be evidence by the back door. */
-function tip(el) {
+/* A CARD ON A CARD (the user, 14 September 2026: "Oberregierungsrat" in Grau's
+   card opened a card that vanished at once, and took his with it). There was
+   one box: the inner word rewrote it and moved it out from under the pointer,
+   which is leaving it. Now a word inside a card opens the next card up, and
+   every card stays until the pointer has left all of them. */
+function tipBox(level) {
+  if (level === 0) return $("tip");
+  let b = $(`tip${level}`);
+  if (!b) {
+    b = document.createElement("div");
+    b.id = `tip${level}`;
+    b.className = "tipcard";
+    b.hidden = true;
+    document.body.appendChild(b);
+  }
+  return b;
+}
+const tipBoxes = () => [$("tip"), ...document.querySelectorAll(".tipcard")];
+
+function tip(el, level = 0) {
   const k = el.dataset.k;
   const g = el.classList.contains("term") ? GLOSS[k] : null;
   const d = el.classList.contains("who") ? WHO[k] : null;
   if (!g && !d) return;
-  const box = $("tip");
+  for (const b of tipBoxes()) if (b !== $("tip") && +b.id.slice(3) > level) b.hidden = true;
+  const box = tipBox(level);
   box.innerHTML = g
     ? `<b>${esc(g.term)}</b> <i>${esc(g.short)}</i><p>${esc(g.long)}</p>`
     : `<b>${esc(d.who)}</b>${portrait(d)}`;
   const r = el.getBoundingClientRect();
+  box.style.zIndex = 90 + level;
   box.hidden = false;
-  const w = box.offsetWidth;
+  const w = box.offsetWidth, h = box.offsetHeight;
   box.style.left = Math.max(8, Math.min(window.innerWidth - w - 8,
-                                        r.left)) + "px";
-  box.style.top = (r.bottom + 6) + "px";
-  /* The card stays while the pointer is on it, and a name or a German word
-     inside it can be hovered in turn (the user, 14 September 2026: hovering
-     Herr Simon and then "Registratur" in his card closed it at once). */
+                                        r.left + (level ? 12 : 0))) + "px";
+  /* under the word if it fits, else over it, else as low as the window allows */
+  const below = r.bottom + 6, above = r.top - h - 6;
+  box.style.top = (below + h <= window.innerHeight - 8 ? below
+    : above >= 8 ? above : Math.max(8, window.innerHeight - h - 8)) + "px";
   clearTimeout(TIPCLOSE);
   box.onmouseenter = () => clearTimeout(TIPCLOSE);
   box.onmouseleave = untipSoon;
   box.querySelectorAll(".term,.who").forEach(inner => {
-    inner.onmouseenter = () => { clearTimeout(TIPCLOSE); tip(inner); };
-    inner.onclick = e => { e.stopPropagation(); tip(inner); };
+    inner.onmouseenter = () => { clearTimeout(TIPCLOSE); tip(inner, level + 1); };
+    inner.onclick = e => { e.stopPropagation(); tip(inner, level + 1); };
   });
 }
 
 let TIPCLOSE = null;
-const untip = () => { clearTimeout(TIPCLOSE); $("tip").hidden = true; };
+const untip = () => { clearTimeout(TIPCLOSE); tipBoxes().forEach(b => b.hidden = true); };
 /* leaving a word gives the pointer a moment to reach the card */
 const untipSoon = () => { clearTimeout(TIPCLOSE); TIPCLOSE = setTimeout(untip, 250); };
 
@@ -561,11 +586,7 @@ function slot(key) {
   const f = CASE.memo.form;
   const chips = (CITE[key] || []).map((t, j) => {
     const out = `<button class="unchip" data-slot="${esc(key)}" data-j="${j}" ` +
-      `title="Take it out">×</button></span>`;
-    const leant = CASE.parts.find(p => t === `part:${p.id}`);
-    if (leant)
-      return `<span class="chip" title="Everything cited under this part"><b>Part</b> ${
-        esc(leant.title)} ${out}`;
+      `title="Take it out" aria-label="Take this out">× take out</button></span>`;
     /* a line of the page opens with its source; what somebody said besides
        does not, and shows its first words */
     const m = /^([^:"]{1,40}): (.*)$/.exec(t);
@@ -594,11 +615,9 @@ function memo() {
     const sentence = bits.map((bit, n) =>
       n < bits.length - 1 ? bit + blank(p, n) : bit).join("");
     const v = VERDICT[p.id] || ["", ""];
-    const lean = ACTIVE && ACTIVE.startsWith("row") && v[1] === "good"
-      ? ` <button class="lean" data-part="${p.id}" title="Cite this signed part as evidence">＋ cite this part</button>`
-      : "";
-    return `<div class="part"><h3>${esc(p.title)}${lean}</h3><p>${sentence}</p>
-      ${slot(p.id)}<button class="sign" data-part="${p.id}">Sign</button>
+    /* a part cites nothing: its words are its proof (memo.py, rule 1) */
+    return `<div class="part"><h3>${esc(p.title)}</h3><p>${sentence}</p>
+      <button class="sign" data-part="${p.id}">Sign</button>
       <p class="verdict ${v[1]}" id="verdict-${p.id}">${esc(v[0])}</p></div>`;
   };
   const row = (r, i) => {
@@ -624,14 +643,6 @@ function memo() {
     citing(ACTIVE === b.dataset.slot ? null : b.dataset.slot);
     memo();
   });
-  $("parts").querySelectorAll(".lean").forEach(b => b.onclick = () => {
-    const list = CITE[ACTIVE] || (CITE[ACTIVE] = []);
-    const t = `part:${b.dataset.part}`;
-    if (!list.includes(t)) list.push(t);
-    remember(CASE.id, "cites", CITE);
-    say(ACTIVE, "", "");
-    memo();
-  });
   $("parts").querySelectorAll(".unchip").forEach(b => b.onclick = () => {
     CITE[b.dataset.slot].splice(+b.dataset.j, 1);
     remember(CASE.id, "cites", CITE);
@@ -645,14 +656,15 @@ function memo() {
       const held = await wordsHold(id);
       if (held === null) return;
       if (!held) return say(id, marks.words, "bad");
-      const v = await citations(id, m.cite[id], CITE[id] || []);
-      say(id, marks[v], v === "holds" ? "good" : "bad");
+      /* rule 3: the result waits for everybody else to be ruled out */
+      /* its words are right, so what its lines prove still counts for the
+         rows (a result that credits nothing while it waits would wait for
+         ever: the cover and the order clear Herr Simon and Frau Litt) */
+      if (res.has(id) && unruled(named(id)).length) return say(id, marks.others, "wait");
+      say(id, marks.holds, "good");
     } else {
       const i = +b.dataset.row, r = m.rows[i];
-      const raw = CITE[`row${i}`] || [];
-      const lines = leaning(raw, CITE, VERDICT);
-      const v = raw.length && !lines.length ? "proof"
-        : await citations(r.id, r, lines);
+      const v = await citations(r.id, r, CITE[`row${i}`] || []);
       const whose = v === "own" ? `: something cited here is ${r.label}'s own word`
         : v === "ring" ? `: something cited here rests on somebody ${r.label} clears in turn` : "";
       say(`row${i}`, marks[v] + whose, v === "holds" ? "good" : "bad");
@@ -660,31 +672,52 @@ function memo() {
   });
 }
 
-/* A ROW MAY LEAN ON A SIGNED PART (chapters/memo.py). "part:<id>" in a row's
-   evidence stands for every line cited under that part, and only while the
-   part holds; the lines are then marked for the row as if it had quoted
-   them, so a part resting on somebody's own word is still their own word. */
-function leaning(cited, cites, verdicts) {
-  const out = [];
-  for (const t of cited) {
-    const m = /^part:(.+)$/.exec(t);
-    const add = !m ? [t]
-      : (verdicts[m[1]] || [])[1] === "good" ? (cites[m[1]] || []) : [];
-    for (const x of add) if (!out.includes(x)) out.push(x);
-  }
-  return out;
+/* THE REPORT, COMPRESSED (chapters/memo.py, 15 September 2026). A part cites
+   nothing; what a signed part proves counts for every row it clears; and the
+   result holds only once everybody else is ruled out. */
+const holding = cls => cls === "good" || cls === "wait";
+const signedParts = (verdicts = VERDICT) =>
+  CASE.parts.filter(p => holding((verdicts[p.id] || [])[1])).map(p => p.id);
+
+/* the person words typed into a part, as the word list spells them */
+function named(id) {
+  const p = CASE.parts.find(x => x.id === id);
+  return p.kinds.map((k, n) => {
+    if (k !== "person") return null;
+    const v = $(`b-${id}-${n}`).value.trim().toLowerCase();
+    const w = CASE.words.find(x => x.text.toLowerCase() === v);
+    return w ? w.text : null;
+  }).filter(Boolean);
+}
+
+/* Rule 3: the rows not yet holding, leaving out the row of the person the
+   part names -- found from the words, which have already been checked. The
+   same match as memo.named_rows. */
+function unruled(people, verdicts = VERDICT) {
+  const re = w => new RegExp(`(?<![\\p{L}\\p{N}_])${
+    w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\p{L}\\p{N}_])`, "iu");
+  return CASE.memo.rows
+    .map((r, i) => [r, `row${i}`])
+    .filter(([r]) => !people.some(w => re(w).test(r.id)))
+    .filter(([, k]) => (verdicts[k] || [])[1] !== "good")
+    .map(([r]) => r.label);
 }
 
 /* "holds", "own", "ring", "proof" or "empty", for what was cited under one
-   key. How many separate things must be proved is sealed too, so it is found
-   by trying, and the answer's row needs a number nothing can meet. */
-async function citations(key, sealed, cited) {
-  if (!cited.length) return "empty";
+   row. How many separate things must be proved is sealed too, so it is found
+   by trying, and the answer's row needs a number nothing can meet. What the
+   signed parts prove for the row is credited first (rule 2), so a row with
+   nothing left to prove holds with nothing cited. */
+async function citations(key, sealed, cited, signed = signedParts()) {
   const marks = new Set(sealed.marks);
   let need = 0;
   for (let n = 1; n <= CASE.memo.max_need; n++)
     if (await seal(["need", key, n]) === sealed.need) { need = n; break; }
   const covered = new Set();
+  for (const pid of signed)
+    for (let i = 0; i < need; i++)
+      if (marks.has(await seal(["by", key, pid, i]))) covered.add(i);
+  if (!cited.length) return need && covered.size === need ? "holds" : "empty";
   let own = false, ring = false;
   for (const t of cited) {
     const id = (await seal(["line", t])).slice(0, 16);
@@ -700,13 +733,24 @@ async function citations(key, sealed, cited) {
 
 
 function say(id, text, cls) {
+  const was = (VERDICT[id] || [])[1];
   VERDICT[id] = [text, cls];
   const el = $(`verdict-${id}`);
   if (el) { el.textContent = text; el.className = "verdict " + cls; }
-  if (cls !== "good" && !id.startsWith("row"))
-    for (const [k, list] of Object.entries(CITE))
-      if (k.startsWith("row") && list.includes(`part:${id}`) && (VERDICT[k] || [])[1])
-        say(k, "", "");
+  /* something that held no longer does: a row may have been credited by this
+     part, and the result may have been waiting on this row, so their marks
+     are taken back until they are signed again */
+  if (CASE && CASE.memo && (was === "good" || was === "wait") && !holding(cls)) {
+    const result = new Set(CASE.memo.result);
+    for (const k of Object.keys(VERDICT)) {
+      if (k === id || !(VERDICT[k] || [])[1]) continue;
+      if (!id.startsWith("row") && k.startsWith("row")) say(k, "", "");
+      /* its words are still right: back to waiting, which keeps its credit
+         and so does not take every row down with it */
+      else if (result.has(k) && VERDICT[k][1] === "good")
+        say(k, CASE.memo.marks.others, "wait");
+    }
+  }
   tally();
 }
 
