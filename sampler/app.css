@@ -71,11 +71,17 @@ main {
   border:1px solid var(--rule);
 }
 .tick:hover { background:var(--hi); color:var(--ink); border-color:var(--ink) }
-.where.aside { margin-top:24px }
+.asides { margin-top:24px }
+.asidehead { font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+             color:var(--ink); margin:0 0 8px }
 .where.aside li { opacity:.45 }
 .where.aside li:hover { opacity:.8 }
-.where.aside li small { font-size:10px; letter-spacing:.1em; text-transform:uppercase;
-                        color:var(--faint) }
+/* a heading folds away; folded, it says how many lines are under it */
+.fold { font:inherit; font-size:10px; line-height:1; width:1.6em; margin:0 4px 0 -3px; padding:0;
+        cursor:pointer; background:none; border:0; color:var(--ink) }
+.fold:hover { background:var(--hi) }
+.where.folded h3 { margin-bottom:0 }
+.nfold { letter-spacing:0; text-transform:none }
 
 #brief { grid-column:1/-1; border-left:5px solid var(--ink); padding:2px 0 2px 12px }
 #brief p { margin:0 0 6px }
@@ -348,6 +354,11 @@ body.walks.view-notebook #people { grid-row:3 }
 #talk .ask i { color:var(--faint) }
 /* the label on a line of its own, the chips under it (the user, 14 September 2026) */
 #talk .ask > span { flex-basis:100% }
+/* swap, as on the duty sheet's panel headings */
+#talk .swapask { font:inherit; font-size:9px; letter-spacing:.1em; text-transform:uppercase;
+                 margin-left:8px; padding:0 6px; cursor:pointer; background:none;
+                 color:var(--faint); border:1px solid var(--rule) }
+#talk .swapask:hover { background:var(--hi); color:var(--ink); border-color:var(--ink) }
 #talk .chip { font:inherit; font-size:12px; cursor:pointer; padding:2px 8px; margin:0;
               background:var(--wash); color:var(--ink); border:1px solid var(--ink); border-radius:2px }
 #talk .chip.show { border-style:dashed }
@@ -430,6 +441,10 @@ body.theatre #talk .asks { flex:0 1 auto; overflow-y:auto; max-height:40% }
 .sheet-modal kbd { font:inherit; border:1px solid var(--rule); padding:0 4px }
 .sheet-modal .closer { position:absolute; top:8px; right:10px; font:inherit; font-size:18px;
                        cursor:pointer; background:none; border:0; color:var(--ink) }
+.sheet-modal .closefoot { text-align:right; margin:18px 0 0 }
+.sheet-modal .closer-foot { font:inherit; font-size:13px; cursor:pointer; padding:4px 14px;
+                            background:var(--wash); color:var(--ink); border:1px solid var(--ink) }
+.sheet-modal .closer-foot:hover { background:var(--hi) }
 .setting { display:flex; gap:10px; align-items:flex-start; font-size:13px; cursor:pointer }
 /* the questionnaire */
 .fbq { display:block; border:0; margin:0 0 12px; padding:0; font-size:13px }

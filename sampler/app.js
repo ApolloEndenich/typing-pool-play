@@ -11,7 +11,7 @@
 
 const $ = id => document.getElementById(id);
 let CASE = null, DAY = 1, SEEN = new Set(), FOUND = new Set(), MATCH = null;
-let VERDICT = {}, VISIBLE = new Set(), ASIDE = [];
+let VERDICT = {}, VISIBLE = new Set(), ASIDE = [], FOLD = {};
 /* The memo's evidence: slot key -> the lines cited in it, as the page shows
    them. ACTIVE is the slot a line's cite button currently adds to. */
 let CITE = {}, ACTIVE = null;
@@ -70,7 +70,9 @@ function sheets() {
   });
   document.querySelectorAll(".sheet-modal").forEach(m => {
     m.onclick = e => { if (e.target === m) m.hidden = true; };
-    m.querySelector(".closer").onclick = () => { m.hidden = true; };
+    /* the × at the top, and at the foot of a long sheet a Close, so nobody
+       scrolls back up for it (the user, 15 September 2026) */
+    m.querySelectorAll(".closer, .closer-foot").forEach(b => b.onclick = () => { m.hidden = true; });
   });
   if (!recall("_", "manualseen", false)) {
     remember("_", "manualseen", true);
@@ -85,7 +87,7 @@ function sheets() {
 function startOver() {
   try {
     for (const k of Object.keys(localStorage))
-      if (/^faelle\.[^.]+\.(walk|heard|days|aside|noted)$/.test(k)) localStorage.removeItem(k);
+      if (/^faelle\.[^.]+\.(walk|heard|days|aside|noted|fold)$/.test(k)) localStorage.removeItem(k);
   } catch (e) {}
   location.reload();
 }
@@ -139,6 +141,7 @@ async function load(id) {
   const known = new Set(CASE.words.map(w => w.text));
   FOUND = new Set(recall(id, "words", []).filter(w => known.has(w)));
   ASIDE = recall(id, "aside", []);
+  FOLD = recall(id, "fold", {});
   CITE = recall(id, "cites", {});
   citing(null);
   $("notes").value = recall(id, "notes", "");
@@ -379,12 +382,11 @@ function draw() {
   $("daynote").textContent = day.note || "";
 
   /* Ticking a line off, as on the duty sheet. A line you have finished with
-     leaves its section for a pile at the foot of the evening, newest-ticked
-     first, and ↺ brings it back to where it stood. In the pile it carries the
-     heading it came from, because a line lifted out from under "Herr Simon"
-     has lost its mouth otherwise. Nothing ticks itself off here: the duty
-     sheet can see when a line is spent, and this page knows nothing about
-     what a line means. */
+     leaves its section for "Done with" at the foot of the evening, under the
+     same heading it stood under (the user, 15 September 2026: the done lines
+     keep their places and people, as the open ones do), and ↺ brings it back.
+     Nothing ticks itself off here: the duty sheet can see when a line is
+     spent, and this page knows nothing about what a line means. */
   const off = new Set(ASIDE);
   const tick = (t, done) =>
     `<button class="tick" data-t="${esc(t)}" title="${done
@@ -407,17 +409,36 @@ function draw() {
   const shows = t => holds(t) || spoken.has(t);
   const live = sections.map(s => [s, s.lines.filter(t => !off.has(t) && shows(t))])
     .filter(([, ls]) => ls.length);
-  const from = {};
-  for (const s of sections) for (const t of s.lines) from[t] = s.where;
-  const gone = ASIDE.filter(t => t in from && shows(t));
-  $("sections").innerHTML = live.map(([s, ls]) =>
-    `<section class="where"><h3>${marked(s.where)}</h3><ul>${
-      ls.map(t => `<li>${cite(t)}${tick(t, false)}${marked(t)}</li>`).join("")}</ul></section>`)
-    .join("") + (gone.length
-      ? `<section class="where aside"><h3>Done with (${gone.length})</h3><ul>${
-          gone.map(t => `<li>${cite(t)}${tick(t, true)}<small>${marked(from[t])}</small> ${
-            marked(t)}</li>`).join("")}</ul></section>`
-      : "");
+  const gone = sections.map(s => [s, s.lines.filter(t => off.has(t) && shows(t))])
+    .filter(([, ls]) => ls.length);
+  /* FOLDING A HEADING AWAY (the user, 15 September 2026). Every heading is
+     open until it is folded, and a folded one opens again by itself as soon
+     as a line stands under it that did not when it was folded: FOLD keeps,
+     per evening and heading, the lines it held then. */
+  const underIt = {};
+  const group = (key, where, ls, done) => {
+    underIt[key] = ls;
+    const was = FOLD[key];
+    const shut = !!was && ls.every(t => was.includes(t));
+    if (was && !shut) delete FOLD[key];
+    return `<section class="where${done ? " aside" : ""}${shut ? " folded" : ""}"><h3>` +
+      `<button class="fold" data-k="${esc(key)}" aria-expanded="${!shut}" title="${
+        shut ? "Open" : "Fold away"}">${shut ? "▶" : "▼"}</button>${marked(where)}${
+        shut ? ` <span class="nfold">(${ls.length})</span>` : ""}</h3>${shut ? "" : `<ul>${
+      ls.map(t => `<li>${cite(t)}${tick(t, done)}${marked(t)}</li>`).join("")}</ul>`}</section>`;
+  };
+  const goneN = gone.reduce((n, [, ls]) => n + ls.length, 0);
+  $("sections").innerHTML =
+    live.map(([s, ls]) => group(`${DAY}:${s.where}`, s.where, ls, false)).join("") +
+    (goneN ? `<div class="asides"><h3 class="asidehead">Done with (${goneN})</h3>${
+      gone.map(([s, ls]) => group(`${DAY}:done:${s.where}`, s.where, ls, true)).join("")}</div>` : "");
+  remember(CASE.id, "fold", FOLD);
+  $("sections").querySelectorAll(".fold").forEach(b => b.onclick = () => {
+    const k = b.dataset.k;
+    if (FOLD[k]) delete FOLD[k]; else FOLD[k] = underIt[k];
+    remember(CASE.id, "fold", FOLD);
+    draw();
+  });
   $("sections").querySelectorAll(".word").forEach(b =>
     b.onclick = () => pick(b.dataset.w));
   $("sections").querySelectorAll(".tick").forEach(b => b.onclick = () => {
@@ -510,8 +531,8 @@ function report() {
   $("parts").querySelectorAll("select,input.blank").forEach(s => kept[s.id] = s.value);
   VISIBLE = typing() ? onPagesRead() : FOUND;
   $("count").textContent = typing()
-    ? `${VISIBLE.size} words stand in what you have read so far`
-    : `Words found: ${FOUND.size} of ${CASE.words.length}`;
+    ? `Words in what you have read so far: ${VISIBLE.size}`
+    : `Words picked up: ${FOUND.size} of ${CASE.words.length}`;
   $("parts").innerHTML = (typing() ? datalists() : "") + CASE.parts.map(p => {
     const bits = esc(p.text).split("___");
     const sentence = bits.map((bit, n) =>
@@ -630,8 +651,8 @@ function memo() {
   $("parts").querySelectorAll("input.blank,select").forEach(s => kept[s.id] = s.value);
   VISIBLE = typing() ? onPagesRead() : FOUND;
   $("count").textContent = typing()
-    ? `${VISIBLE.size} words stand in what you have read so far`
-    : `Words found: ${FOUND.size} of ${CASE.words.length}`;
+    ? `Words in what you have read so far: ${VISIBLE.size}`
+    : `Words picked up: ${FOUND.size} of ${CASE.words.length}`;
   const m = CASE.memo, f = m.form, res = new Set(m.result);
   const level = m.levels.find(l => l.id === levelOf());
   const part = p => {
@@ -685,7 +706,7 @@ function memo() {
       if (level.id === "notes")
         remember(CASE.id, "signatures", recall(CASE.id, "signatures", 0) + 1);
       if (!held) return say(id, marks.words, "bad");
-      say(id, ...await partMark(id, named(id)));
+      say(id, ...await partMark(id, resultPeople()));
     } else {
       const i = +b.dataset.row;
       say(`row${i}`, ...await rowMark(m.rows[i], CITE[`row${i}`] || []));
@@ -710,6 +731,10 @@ function named(id) {
     return w ? w.text : null;
   }).filter(Boolean);
 }
+
+/* The person words of the whole result: in Die dritte Schublade it is two
+   parts, and only the first names her (memo.result_people). */
+const resultPeople = () => CASE.memo.result.flatMap(named);
 
 /* Rule 3: the rows not yet holding, leaving out the row of the person the
    part names -- found from the words, which have already been checked. The
@@ -806,7 +831,7 @@ async function remarked(verdicts, cited, names, level = levelOf()) {
 let REMARKING = 0;
 async function remark() {
   const run = ++REMARKING;
-  const next = await remarked(VERDICT, CITE, named);
+  const next = await remarked(VERDICT, CITE, resultPeople);
   if (run !== REMARKING) return;   /* something was signed meanwhile */
   for (const [k, v] of Object.entries(next)) {
     const was = VERDICT[k] || ["", ""];

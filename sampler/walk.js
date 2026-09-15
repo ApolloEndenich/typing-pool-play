@@ -500,6 +500,14 @@ function conversation() {
     .map(t => chip("show", t, thingName(t), carried(t)
     ? `Put ${thingName(t)} in front of ${p.name}.`
     : `Tell ${p.name} what she saw in ${thingName(t)}.`)).join("");
+  /* Which list comes first is the player's, as the building and the clues
+     swap on the duty sheet (the user, 15 September 2026); remembered for the
+     whole game. */
+  const swap = `<button class="swapask" type="button" title="Put the other list first">swap</button>`;
+  const lists = [
+    `<div class="ask"><span>Raise ${swap}</span>${topics || '<i>nothing yet</i>'}</div>`,
+    `<div class="ask"><span>Show or mention ${swap}</span>${things || '<i>nothing in your notebook</i>'}</div>`];
+  if (recall("_", "askswap", false)) lists.reverse();
   const when = WALK.reset === "phase" ? "this evening" : "today";
   box.innerHTML =
     `<header><b>${esc(cap(p.name))}</b><span class="pips" title="Patience: ${left} of ${p.patience} left ${when}">${pips}</span>` +
@@ -508,9 +516,12 @@ function conversation() {
     `<p class="costs">Each answer takes a little of ${esc(p.name)}'s time ${when}. ` +
     `A question nobody can answer costs nothing.</p>` +
     (tired ? `<p class="spent">${esc(cap(p.name))} has given you all the time there is ${when}.</p>` : "") +
-    `<div class="asks"><div class="ask"><span>Raise</span>${topics || '<i>nothing yet</i>'}</div>` +
-    `<div class="ask"><span>Show or mention</span>${things || '<i>nothing in your notebook</i>'}</div></div>`;
+    `<div class="asks">${lists.join("")}</div>`;
   box.querySelector(".close").onclick = () => { TALKING = null; walkDraw(); };
+  box.querySelectorAll(".swapask").forEach(b => b.onclick = () => {
+    remember("_", "askswap", !recall("_", "askswap", false));
+    conversation();
+  });
   box.querySelectorAll(".chip").forEach(b => b.onclick = () => act(b.dataset.kind, b.dataset.what));
   const ol = box.querySelector(".log");
   ol.scrollTop = ol.scrollHeight;

@@ -15,7 +15,7 @@
      "where": "the Registratur",
      "lines": [
       "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand.",
-      "The loan book: subject file (Sachakte) 117/64, on buying typewriters (Beschaffung von Schreibmaschinen), out to Zimmer 407 on 12 May, and nothing written under it since.",
+      "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and nothing written under it since.",
       "The Rückstandsliste: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every section (Referat) holding one of them."
      ]
     },
@@ -269,7 +269,7 @@
   {
    "id": "arrears",
    "title": "The Arrears",
-   "text": "Sachakte ___ went out to Zimmer 407 in the spring; ___ for the quarter still carried it in September, and no line for its return had been written in ___.",
+   "text": "Sachakte ___ went out to Room 407 in the spring; ___ for the quarter still carried it in September, and no line for its return had been written in ___.",
    "kinds": [
     "thing",
     "thing",
@@ -365,11 +365,11 @@
      "a02aa0285839b61b94ea03d93e8a3108d974ae957998ed247cec95f0941153b2",
      "a37bbe46e2bb2d0e7b426c7b0aba9fdfbaa0be63981bcd42ac77029c5a92caf0",
      "a4f2939e1b92d3950d8c355ac0b8ea0333a5e22b4d44ac08ac1044c6b93d697f",
+     "a9fdaa76a9de086a11a89588c1acf201674969e5fa056008a297a948caf2487f",
      "abf024aa772791616663d92776e01a744ee11a5883f625f72599a653e2e63fa1",
      "b125a94e85b0ac1fd7d991ec99622afb4751c765c52ffbab730ae488080cc477",
      "c12fd75381c50cab1b9719f7fb721b996dfd87b312883c4cd57a8d94ac902f3a",
      "c53849d3ee3eee7033c23b18de805e2768a5b5c795631ff2cd9ee92a75476cc5",
-     "c5fb4380c6f702a3dc7778d5eb89607153d87e3d5b803f03a9e4a78f51044a79",
      "c93a5159b15f50e5320611804e695913f00b411b5319454b39478731ce44a85b",
      "cd7a3047f3d6caedaa4ec3c3dab2df8cc43f2215c0acaeca0058ed92f6ce4485",
      "cfb51ab0e68265e0e875f09b3ec91eeac43461448250d30d1214e88820eed618",
@@ -549,7 +549,6 @@
      "a687b4de560c6bf26a32a294b7c04138c9a43b124deaffe852544eed1f2ff4b4",
      "aa5f993635a882f7a7e5bfe746d6a7b7c669741603b9fb56b01b3abec285f650",
      "aee5880e904d7f33d91599ecf5b4533ad0f7dde37aa2f9f1106ca3230f6c1f90",
-     "b04cd8e3b5a9ee1e5acc9d07c82951f02a8afaa54558c6262162c75a095e79d8",
      "b434bca3570799ed926488e27c430713f3afa84c08d4d6d45d779e34ec6b089b",
      "b56cf1302790533cd8881df9df4f60014c6c5856846e28594718f33f532c6220",
      "b5f1b18f198178c0fe05f979bb6a91d3f59d3c94dd6024500f888e10415ed605",
@@ -560,6 +559,7 @@
      "d3679161153615f4d74d5e381087c8abcba61f327435786dfbe71431d8f69926",
      "dd6aa66bd39d937e673bbf457369a087d9968dfb2dddf9c8e4eb1a29196e1bf5",
      "e69a8d32f3046fc72b32447488089423501816536efbc164802b0312f5821873",
+     "ecb76353248cb70f35166c4d2035b32b4d0c256278f3ddf81ee14303ccfbd3dd",
      "ece4670608cdf9e4be53151dad0f0b2f17d6af211e272beb6cf530defb17c102",
      "f5344d73ccbdd0a2e6aa455350daf3478248e5ff48ed2cde2293321266e6b2c6",
      "f946fa664d10d0e09a1da13bed52e537f21167a03e0c460a16684a4a472fd507"
@@ -1370,7 +1370,7 @@
       "phase": null
      },
      {
-      "text": "The loan book: subject file (Sachakte) 117/64, on buying typewriters (Beschaffung von Schreibmaschinen), out to Zimmer 407 on 12 May, and nothing written under it since.",
+      "text": "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and nothing written under it since.",
       "phase": null
      },
      {
@@ -1425,7 +1425,7 @@
    },
    {
     "id": "z407",
-    "name": "Zimmer 407",
+    "name": "Room 407",
     "floor": 4,
     "links": [
      "vorzimmer"
@@ -2163,7 +2163,7 @@
    },
    {
     "thing": "The loan book",
-    "line": "The loan book: subject file (Sachakte) 117/64, on buying typewriters (Beschaffung von Schreibmaschinen), out to Zimmer 407 on 12 May, and nothing written under it since.",
+    "line": "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and nothing written under it since.",
     "portable": false
    },
    {
@@ -2388,12 +2388,6 @@
    ],
    "short": "the outer office",
    "long": "The room in front of a senior man's own, where his secretary sits and through which everything reaching him passes."
-  },
-  {
-   "term": "Zimmer",
-   "also": [],
-   "short": "room",
-   "long": "Room. Zimmer 407 is room 407, on the fourth floor."
   }
  ]
 }
