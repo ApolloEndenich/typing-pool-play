@@ -81,7 +81,7 @@ function playLog() {
     `chapter: ${CASE.title} (${CASE.id})`,
     `first played: ${recall(CASE.id, "started", "today")}`,
     `minutes with the page open: about ${recall(CASE.id, "minutes", 0)}`,
-    walked && W ? `day ${W.day}, ${phase().name}; ${questions()} questions asked` : "read the whole file, without walking",
+    walked && W ? `day ${W.day}, ${phase().name}; ${questions()} questions asked, ${shrugs()} shrugged off` : "read the whole file, without walking",
     walked ? `lines heard: ${HEARD.size} of ${total}` : "",
     ...parts,
     rows ? `people ruled out and signed: ${rowsHeld} of ${rows}` : "",

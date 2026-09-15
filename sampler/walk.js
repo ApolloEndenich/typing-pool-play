@@ -66,14 +66,17 @@ function setView(v) {
   document.body.classList.toggle("view-notebook", v === "notebook");
   $("views").querySelectorAll("[data-view]").forEach(b =>
     b.classList.toggle("on", b.dataset.view === v));
-  if (v === "notebook") remember(CASE.id, "noted", HEARD.size);
   freshCount();
 }
 
+/* what the notebook holds: the lines heard and everything said, so an answer
+   that is only talk counts as new like any other */
+const inNotebook = () => HEARD.size + saidCount();
+
 function freshCount() {
   const onNotebook = document.body.classList.contains("view-notebook");
-  if (onNotebook) remember(CASE.id, "noted", HEARD.size);
-  const n = Math.max(0, HEARD.size - recall(CASE.id, "noted", 0));
+  if (onNotebook) remember(CASE.id, "noted", inNotebook());
+  const n = Math.max(0, inNotebook() - recall(CASE.id, "noted", 0));
   const text = n ? `(${n} new)` : "";
   $("freshcount").textContent = text;
   $("freshroom").textContent = text;
@@ -105,6 +108,39 @@ const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
 /* Every question Sarah has put, shrugs included: the score, and nothing else
    reads it. It is a challenge, not a cost (the user, 14 September 2026). */
 const questions = () => W ? Object.values(W.asked).reduce((n, a) => n + a.length, 0) : 0;
+/* ...and how many of them got a shrug: counted, never shown in the notebook
+   (the user, 14 September 2026: "record everything people say into the
+   notebook, but not shrugs, but do count them"). */
+const shrugs = () => W ? (W.shrugs || 0) : 0;
+const questionsSaid = () => {
+  const q = questions(), s = shrugs();
+  if (q === 1) return s ? "1 question, and it was shrugged off" : "1 question";
+  return `${q} questions` + (q ? `, ${s === q ? "all" : s || "none"} of them shrugged off` : "");
+};
+
+/* EVERYTHING PEOPLE SAY GOES IN THE NOTEBOOK (the user, 14 September 2026).
+   It used to hold only the chapter's lines, so an answer that cost patience
+   and left nothing behind told the player it was of no use. Now the chat and
+   the evasions stand there too, under whoever said them, and can be cited
+   like anything else; citing them proves nothing, as citing anything that
+   proves nothing does. Shrugs, the tired line and a nod are not said to
+   Sarah about anything, and stay out. For one evening, or for the chapter
+   when its days are not evenings. */
+function said(dayN) {
+  if (!W) return [];
+  const out = [];
+  for (const p of WALK.people)
+    for (const [kind, text, ph] of W.log[p.id] || []) {
+      if (kind !== "talk" && kind !== "evade") continue;
+      if (/ nods\.$/.test(text)) continue;          /* a nod saved before it had its own kind */
+      const d = (WALK.phases.find(x => x.name === ph) || {}).day || 1;
+      if (d === dayN && !out.some(o => o.text === text)) out.push({who: p.name, text});
+    }
+  return out;
+}
+const saidCount = () => W ? new Set(Object.values(W.log).flat()
+  .filter(([k, t]) => (k === "talk" || k === "evade") && !/ nods\.$/.test(t))
+  .map(([, t]) => t)).size : 0;
 /* "The porter's book" is how the sampler names an exhibit at the head of a
    line; inside a sentence it is "the porter's book". */
 const thingName = t => t.replace(/^(The|A|An) /, m => m.toLowerCase());
@@ -151,7 +187,7 @@ function meet(id) {
     W.met.push(key);
     const hello = p.hello.filter(now);
     for (const h of hello) { hear(h.text); note(id, "line", h.text); }
-    if (!hello.length) note(id, "talk", `${cap(p.name)} nods.`);
+    if (!hello.length) note(id, "nod", `${cap(p.name)} nods.`);
     save(); draw(); report();
   }
   walkDraw();
@@ -181,6 +217,7 @@ function act(kind, what) {
     if (r.evade) { note(p.id, "evade", r.evade); any = true; }
     if (r.talk) { note(p.id, "talk", r.talk); any = true; }
   }
+  if (!any) W.shrugs = (W.shrugs || 0) + 1;
   if (any) W.spent[p.id] = spent(p.id) + 1;
   else if (kind !== "topic" && p.looked) note(p.id, "shrug", p.looked);
   else {
@@ -236,8 +273,7 @@ function walkDraw() {
     ? `<b>Day ${W.day}</b> · ${esc(ph.name)}` +
       (W.day > WALK.days ? ` <small>(the chapter is planned for ${WALK.days})</small>` : "")
     : `<b>${esc(cap(ph.name))}</b> <small>· evening ${W.phase + 1} of ${WALK.phases.length}</small>`;
-  const q = questions();
-  $("clock").innerHTML += ` <small>· ${q} question${q === 1 ? "" : "s"}</small>`;
+  $("clock").innerHTML += ` <small>· ${questionsSaid()}</small>`;
   const next = $("nextphase");
   if (!lastPhase()) {
     next.hidden = false;

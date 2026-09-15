@@ -362,11 +362,22 @@ function draw() {
   const cite = t => CASE.memo
     ? `<button class="cite" data-t="${esc(t)}" title="Cite this line as evidence">＋</button>`
     : "";
-  const live = day.sections.map(s => [s, s.lines.filter(t => !off.has(t) && holds(t))])
+  /* the chapter's lines, and what people said besides, under whoever said it
+     (walk.js, said) */
+  const talk = typeof said === "function" && walking() ? said(DAY) : [];
+  const spoken = new Set(talk.map(x => x.text));
+  const sections = day.sections.map(s => ({where: s.where, lines: s.lines.slice()}));
+  for (const x of talk) {
+    let s = sections.find(s => s.where.toLowerCase() === x.who.toLowerCase());
+    if (!s) sections.push(s = {where: x.who.charAt(0).toUpperCase() + x.who.slice(1), lines: []});
+    s.lines.push(x.text);
+  }
+  const shows = t => holds(t) || spoken.has(t);
+  const live = sections.map(s => [s, s.lines.filter(t => !off.has(t) && shows(t))])
     .filter(([, ls]) => ls.length);
   const from = {};
-  for (const s of day.sections) for (const t of s.lines) from[t] = s.where;
-  const gone = ASIDE.filter(t => t in from && holds(t));
+  for (const s of sections) for (const t of s.lines) from[t] = s.where;
+  const gone = ASIDE.filter(t => t in from && shows(t));
   $("sections").innerHTML = live.map(([s, ls]) =>
     `<section class="where"><h3>${marked(s.where)}</h3><ul>${
       ls.map(t => `<li>${cite(t)}${tick(t, false)}${marked(t)}</li>`).join("")}</ul></section>`)
@@ -555,9 +566,11 @@ function slot(key) {
     if (leant)
       return `<span class="chip" title="Everything cited under this part"><b>Part</b> ${
         esc(leant.title)} ${out}`;
-    const [src, ...rest] = t.split(": ");
-    const words = rest.join(": ").split(/\s+/).slice(0, 6).join(" ");
-    return `<span class="chip" title="${esc(t)}"><b>${esc(src)}</b> ${
+    /* a line of the page opens with its source; what somebody said besides
+       does not, and shows its first words */
+    const m = /^([^:"]{1,40}): (.*)$/.exec(t);
+    const words = (m ? m[2] : t).split(/\s+/).slice(0, 6).join(" ");
+    return `<span class="chip" title="${esc(t)}">${m ? `<b>${esc(m[1])}</b> ` : ""}${
       esc(words)}… ${out}`;
   }).join("");
   const open = ACTIVE === key;
@@ -707,14 +720,13 @@ function tally() {
   if (!el) return;
   const walk = CASE && CASE.walk;
   if (!walk || typeof questions !== "function" || !walking()) { el.textContent = ""; return; }
-  const q = questions();
   const keys = CASE.parts.map(p => p.id)
     .concat(CASE.memo ? CASE.memo.rows.map((_, i) => `row${i}`) : []);
   const solved = keys.length && keys.every(k => (VERDICT[k] || [])[1] === "good");
-  const asked = `${q} question${q === 1 ? "" : "s"}`;
+  const asked = questionsSaid();
   el.textContent = solved && walk.fewest
     ? `Every part holds. Sarah asked ${asked}; all the evidence in this chapter can be had with ${walk.fewest}.`
-    : `Sarah has asked ${asked} so far.`;
+    : `So far Sarah has asked ${asked}.`;
   $("invite").hidden = !solved;
 }
 
