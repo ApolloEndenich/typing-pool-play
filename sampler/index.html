@@ -115,6 +115,7 @@
       <h2>The report</h2>
       <p class="mode">
         <button id="modeswitch" type="button"></button>
+        <select id="levelswitch" aria-label="How much evidence the report asks for" hidden></select>
         <span class="count" id="count"></span>
       </p>
       <div id="parts"></div>
@@ -196,15 +197,27 @@
     lines. When a part is filled in, <b>Sign</b> it. You are told whether the
     part holds, never which blank is wrong.</p>
     <p>Some reports also have a section for the people ruled out, each with
-    their own evidence. The numbered parts need none: their words are enough.
-    Under a person, press <b>＋ cite</b>, then <b>＋</b> beside the lines that
-    rule them out, and sign. Whatever the parts you have signed already show
-    about somebody counts for them by itself, so cite only the rest; sign a
-    person even when there is nothing left to cite. <b>× take out</b> on a
-    cited line removes it again. Kommissar Mauser marks each in pencil in the
-    margin.</p>
-    <p>The result is the last thing he accepts: it stands only once everybody
-    else has been ruled out.</p>
+    their own evidence. How much evidence they ask for is the setting beside
+    the report's other one, and it holds for every chapter:</p>
+    <ul>
+      <li><b>Sarah's notes.</b> Only the blanks; nobody has to be ruled out in
+      writing. Every time you sign, it is counted.</li>
+      <li><b>Report to Mauser.</b> The numbered parts need no evidence: their
+      words are enough. Under a person, press <b>＋ cite</b>, then <b>＋</b>
+      beside the lines that rule them out, and sign. Whatever the parts you
+      have signed already show about somebody counts for them by itself, so
+      cite only the rest; sign a person even when there is nothing left to
+      cite.</li>
+      <li><b>Mauser's file for the court.</b> Every part cites its evidence
+      too, and every person all of theirs: nothing counts for you by
+      itself.</li>
+    </ul>
+    <p><b>× take out</b> on a cited line removes it again. Kommissar Mauser
+    marks each in pencil in the margin, and marks it again whenever what you
+    have signed changes: a person signed early counts what you sign later.
+    Changing the setting starts the marks afresh.</p>
+    <p>Where people are ruled out, the result is the last thing he accepts: it
+    stands only once everybody else has been ruled out.</p>
 
     <h3>Telling us how it went</h3>
     <p>This is an early version. <b>Feedback</b>, at the top of the page, asks a

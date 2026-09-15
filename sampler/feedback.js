@@ -72,7 +72,8 @@ function playLog() {
     const v = (VERDICT[p.id] || [])[1];
     return `${p.title}: ${v === "good" ? "holds" : v === "bad" ? "does not hold yet" : "not signed"}`;
   });
-  const rows = CASE.memo ? CASE.memo.rows.length : 0;
+  const notes = CASE.memo && levelOf() === "notes";
+  const rows = CASE.memo && !notes ? CASE.memo.rows.length : 0;
   const rowsHeld = CASE.memo
     ? CASE.memo.rows.filter((_, i) => (VERDICT[`row${i}`] || [])[1] === "good").length : 0;
   const total = CASE.days.reduce((n, d) => n + d.sections.reduce((m, s) => m + s.lines.length, 0), 0);
@@ -84,6 +85,8 @@ function playLog() {
     walked && W ? `day ${W.day}, ${phase().name}; ${questions()} questions asked, ${shrugs()} shrugged off` : "read the whole file, without walking",
     walked ? `lines heard: ${HEARD.size} of ${total}` : "",
     ...parts,
+    CASE.memo ? `the report asks for: ${CASE.memo.levels.find(l => l.id === levelOf()).name}` : "",
+    notes ? `signatures: ${recall(CASE.id, "signatures", 0)}` : "",
     rows ? `people ruled out and signed: ${rowsHeld} of ${rows}` : "",
     `filling in: ${MODE}; screen ${window.innerWidth}x${window.innerHeight}; ${navigator.language}`,
   ].filter(Boolean).join("\n");

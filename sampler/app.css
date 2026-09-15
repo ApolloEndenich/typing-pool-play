@@ -154,6 +154,12 @@ input.blank:focus { outline: none; border-bottom-width: 2px; }
   padding: .1em .5em; opacity: .75;
 }
 #modeswitch:hover { opacity: 1; }
+#levelswitch {
+  font: inherit; color: inherit; background: transparent;
+  border: 1px solid currentColor; border-radius: 2px;
+  padding: .05em .3em; opacity: .75; max-width: 100%;
+}
+#levelswitch:hover, #levelswitch:focus { opacity: 1; }
 
 /* A German term keeps its German and explains itself on hover. A person's
    name opens who they are. Neither is collectable and neither may look like

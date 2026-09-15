@@ -32,6 +32,13 @@ let GMATCH = null, NMATCH = null, GLOSS = {}, WHO = {};
 let MODE = recall("_", "mode", "type");
 const typing = () => MODE === "type";
 
+/* HOW MUCH EVIDENCE THE REPORT ASKS FOR (chapters/memo.py, LEVELS): "notes",
+   "report" or "court". One setting for the whole game, and it only means
+   anything in a chapter whose report has people to rule out. */
+let LEVEL = recall("_", "level", "report");
+const levelOf = () => (CASE && CASE.memo &&
+  CASE.memo.levels.find(l => l.id === LEVEL)) ? LEVEL : "report";
+
 /* Same construction as the seal in export_cases.py. The solution is not in
    the file that ships; only its hash is, so it cannot be read off the disk
    by anybody who thinks of opening the case folder. */
@@ -456,6 +463,22 @@ function modeswitch() {
     remember("_", "mode", MODE);
     modeswitch(); draw(); report();
   };
+  /* the level: a changed level marks nothing that was marked under the old
+     one, since the marks meant something else there */
+  const s = $("levelswitch");
+  s.hidden = !(CASE && CASE.memo);
+  if (s.hidden) return;
+  s.innerHTML = CASE.memo.levels.map(l =>
+    `<option value="${l.id}" title="${esc(l.says)}">${esc(l.name)}</option>`).join("");
+  s.value = levelOf();
+  s.title = CASE.memo.levels.find(l => l.id === levelOf()).says;
+  s.onchange = () => {
+    LEVEL = s.value;
+    remember("_", "level", LEVEL);
+    VERDICT = {};
+    citing(null);
+    modeswitch(); report(); tally();
+  };
 }
 
 const unlocked = () => Math.min(CASE.days.length, Math.max(...SEEN, 1) + 1);
@@ -610,14 +633,16 @@ function memo() {
     ? `${VISIBLE.size} words stand in what you have read so far`
     : `Words found: ${FOUND.size} of ${CASE.words.length}`;
   const m = CASE.memo, f = m.form, res = new Set(m.result);
+  const level = m.levels.find(l => l.id === levelOf());
   const part = p => {
     const bits = esc(p.text).split("___");
     const sentence = bits.map((bit, n) =>
       n < bits.length - 1 ? bit + blank(p, n) : bit).join("");
     const v = VERDICT[p.id] || ["", ""];
-    /* a part cites nothing: its words are its proof (memo.py, rule 1) */
+    /* a part cites nothing, its words are its proof (memo.py, rule 1); only
+       the court's file asks a part for its lines */
     return `<div class="part"><h3>${esc(p.title)}</h3><p>${sentence}</p>
-      <button class="sign" data-part="${p.id}">Sign</button>
+      ${level.id === "court" ? slot(p.id) : ""}<button class="sign" data-part="${p.id}">Sign</button>
       <p class="verdict ${v[1]}" id="verdict-${p.id}">${esc(v[0])}</p></div>`;
   };
   const row = (r, i) => {
@@ -627,12 +652,12 @@ function memo() {
       <p class="verdict ${v[1]}" id="verdict-${key}">${esc(v[0])}</p></div>`;
   };
   $("parts").innerHTML = (typing() ? datalists() : "") +
-    `<div class="form"><div>${esc(f.office)}</div><div>${esc(f.kind)} · to ${
-      esc(f.to)} · from ${esc(f.by)}</div><div class="subject">Subject: ${
-      esc(m.subject)}</div></div>` +
+    `<div class="form"><div>${esc(f.office)}</div><div>${esc(level.head)
+      }</div><div class="subject">Subject: ${esc(m.subject)}</div></div>` +
     `<h3 class="sec">${esc(f.facts)}</h3>` +
     CASE.parts.filter(p => !res.has(p.id)).map(part).join("") +
-    `<h3 class="sec">${esc(f.excluded)}</h3>` + m.rows.map(row).join("") +
+    (level.id === "notes" ? ""
+      : `<h3 class="sec">${esc(f.excluded)}</h3>` + m.rows.map(row).join("")) +
     `<h3 class="sec">${esc(f.result)}</h3>` +
     CASE.parts.filter(p => res.has(p.id)).map(part).join("");
   $("parts").querySelectorAll("input.blank,select").forEach(i => {
@@ -655,19 +680,15 @@ function memo() {
       const id = b.dataset.part;
       const held = await wordsHold(id);
       if (held === null) return;
+      /* Sarah's notes rule nobody out, so a name can be tried: every
+         signature that gets a mark is counted */
+      if (level.id === "notes")
+        remember(CASE.id, "signatures", recall(CASE.id, "signatures", 0) + 1);
       if (!held) return say(id, marks.words, "bad");
-      /* rule 3: the result waits for everybody else to be ruled out */
-      /* its words are right, so what its lines prove still counts for the
-         rows (a result that credits nothing while it waits would wait for
-         ever: the cover and the order clear Herr Simon and Frau Litt) */
-      if (res.has(id) && unruled(named(id)).length) return say(id, marks.others, "wait");
-      say(id, marks.holds, "good");
+      say(id, ...await partMark(id, named(id)));
     } else {
-      const i = +b.dataset.row, r = m.rows[i];
-      const v = await citations(r.id, r, CITE[`row${i}`] || []);
-      const whose = v === "own" ? `: something cited here is ${r.label}'s own word`
-        : v === "ring" ? `: something cited here rests on somebody ${r.label} clears in turn` : "";
-      say(`row${i}`, marks[v] + whose, v === "holds" ? "good" : "bad");
+      const i = +b.dataset.row;
+      say(`row${i}`, ...await rowMark(m.rows[i], CITE[`row${i}`] || []));
     }
   });
 }
@@ -732,25 +753,78 @@ async function citations(key, sealed, cited, signed = signedParts()) {
 }
 
 
-function say(id, text, cls) {
-  const was = (VERDICT[id] || [])[1];
+/* A part's mark once its words hold. The court's file wants its lines as
+   well, a line from each group, and credits nothing. And rule 3: the result
+   waits for everybody else to be ruled out, in every level that rules anybody
+   out. While it waits it still credits the rows (a result that credits
+   nothing while it waits would wait for ever: the cover and the order clear
+   Herr Simon and Frau Litt). */
+async function partMark(id, people, verdicts = VERDICT, cited = CITE, level = levelOf()) {
+  const m = CASE.memo;
+  if (level === "court") {
+    const v = await citations(id, m.cite[id], cited[id] || [], []);
+    if (v !== "holds") return [m.marks[v], "bad"];
+  }
+  if (level !== "notes" && m.result.includes(id) && unruled(people, verdicts).length)
+    return [m.marks.others, "wait"];
+  return [m.marks.holds, "good"];
+}
+
+/* A row's mark, and whose word spoiled it when somebody's did. The court's
+   file credits nothing a part shows. */
+async function rowMark(r, cited, signed = levelOf() === "court" ? [] : signedParts()) {
+  const v = await citations(r.id, r, cited, signed);
+  const whose = v === "own" ? `: something cited here is ${r.label}'s own word`
+    : v === "ring" ? `: something cited here rests on somebody ${r.label} clears in turn` : "";
+  return [CASE.memo.marks[v] + whose, v === "holds" ? "good" : "bad"];
+}
+
+/* EVERY MARK SAYS WHAT THE REPORT SAYS NOW (the user, 15 September 2026,
+   playing: "Nobody" kept the "Proof?" it got before the result was signed,
+   though the waiting result credited it by then). A mark used to be what the
+   report said when the button was pressed, and was only ever taken back, never
+   given. Now every signed row is marked again against the parts as they stand,
+   and then every result that holds against the rows: a row depends on the
+   parts, a result on the rows, and a waiting result credits exactly what a
+   holding one does, so one pass in that order settles it. Unsigned things stay
+   unsigned; a part's words are never judged again, since nothing else changes
+   them. Pure, so report-test drives it. */
+async function remarked(verdicts, cited, names, level = levelOf()) {
+  const m = CASE.memo, out = { ...verdicts };
+  const signed = level === "court" ? [] : signedParts(out);
+  if (level !== "notes")
+    for (const [i, r] of m.rows.entries()) {
+      const k = `row${i}`;
+      if ((out[k] || [])[1]) out[k] = await rowMark(r, cited[k] || [], signed);
+    }
+  for (const pid of m.result)
+    if (holding((out[pid] || [])[1]))
+      out[pid] = await partMark(pid, names(pid), out, cited, level);
+  return out;
+}
+
+let REMARKING = 0;
+async function remark() {
+  const run = ++REMARKING;
+  const next = await remarked(VERDICT, CITE, named);
+  if (run !== REMARKING) return;   /* something was signed meanwhile */
+  for (const [k, v] of Object.entries(next)) {
+    const was = VERDICT[k] || ["", ""];
+    if (was[0] !== v[0] || was[1] !== v[1]) setVerdict(k, ...v);
+  }
+  tally();
+}
+
+function setVerdict(id, text, cls) {
   VERDICT[id] = [text, cls];
   const el = $(`verdict-${id}`);
   if (el) { el.textContent = text; el.className = "verdict " + cls; }
-  /* something that held no longer does: a row may have been credited by this
-     part, and the result may have been waiting on this row, so their marks
-     are taken back until they are signed again */
-  if (CASE && CASE.memo && (was === "good" || was === "wait") && !holding(cls)) {
-    const result = new Set(CASE.memo.result);
-    for (const k of Object.keys(VERDICT)) {
-      if (k === id || !(VERDICT[k] || [])[1]) continue;
-      if (!id.startsWith("row") && k.startsWith("row")) say(k, "", "");
-      /* its words are still right: back to waiting, which keeps its credit
-         and so does not take every row down with it */
-      else if (result.has(k) && VERDICT[k][1] === "good")
-        say(k, CASE.memo.marks.others, "wait");
-    }
-  }
+}
+
+function say(id, text, cls) {
+  const was = VERDICT[id] || ["", ""];
+  setVerdict(id, text, cls);
+  if (CASE && CASE.memo && (was[0] !== text || was[1] !== cls)) remark();
   tally();
 }
 
@@ -764,13 +838,16 @@ function tally() {
   if (!el) return;
   const walk = CASE && CASE.walk;
   if (!walk || typeof questions !== "function" || !walking()) { el.textContent = ""; return; }
+  const notes = CASE.memo && levelOf() === "notes";
   const keys = CASE.parts.map(p => p.id)
-    .concat(CASE.memo ? CASE.memo.rows.map((_, i) => `row${i}`) : []);
+    .concat(CASE.memo && !notes ? CASE.memo.rows.map((_, i) => `row${i}`) : []);
   const solved = keys.length && keys.every(k => (VERDICT[k] || [])[1] === "good");
   const asked = questionsSaid();
-  el.textContent = solved && walk.fewest
+  const n = recall(CASE.id, "signatures", 0);
+  const signed = notes ? ` The notes have been signed ${n === 1 ? "once" : `${n} times`}.` : "";
+  el.textContent = (solved && walk.fewest
     ? `Every part holds. Sarah asked ${asked}; all the evidence in this chapter can be had with ${walk.fewest}.`
-    : `So far Sarah has asked ${asked}.`;
+    : `So far Sarah has asked ${asked}.`) + signed;
   $("invite").hidden = !solved;
 }
 
