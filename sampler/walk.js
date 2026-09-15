@@ -59,7 +59,9 @@ function walkStart() {
    and Sarah's notebook with the report. Which one is open is kept per chapter;
    the notebook's tab counts the lines heard since it was last open. */
 function setView(v) {
-  remember(CASE.id, "view", v);
+  /* the chapters page is somewhere to go, not somewhere a chapter reopens */
+  if (v !== "chapters") remember(CASE.id, "view", v);
+  document.body.classList.toggle("view-chapters", v === "chapters");
   document.body.classList.toggle("view-building", v === "building");
   document.body.classList.toggle("view-notebook", v === "notebook");
   $("views").querySelectorAll("[data-view]").forEach(b =>

@@ -114,6 +114,16 @@ async function boot() {
   load((index.find(c => c.opens) || index.find(c => c.built)).id);
 }
 
+/* The introduction folds away, per chapter, and the question stays (the user,
+   14 September 2026: "so that I can actually work on the notebook and the
+   report"). The walk's cover note folds with it. */
+function briefShut(shut) {
+  remember(CASE.id, "briefshut", shut);
+  document.body.classList.toggle("brief-shut", shut);
+  $("brieftoggle").textContent = shut ? "Show the introduction" : "Hide the introduction";
+  $("brieftoggle").setAttribute("aria-expanded", String(!shut));
+}
+
 async function load(id) {
   CASE = await (await fetch(`cases/${id}.json`)).json();
   DAY = 1;
@@ -153,6 +163,9 @@ async function load(id) {
   $("title").textContent = CASE.subtitle || CASE.title;
   $("subtitle").textContent = CASE.subtitle ? CASE.title : "";
   $("preamble").innerHTML = marked(CASE.preamble, false);
+  briefShut(recall(CASE.id, "briefshut", false));
+  $("brieftoggle").onclick = () =>
+    briefShut(!document.body.classList.contains("brief-shut"));
   $("question").innerHTML = marked(CASE.question, false);
   annotate($("brief"));
   $("cases").querySelectorAll("button").forEach(b =>

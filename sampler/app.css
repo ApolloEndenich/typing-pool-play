@@ -229,6 +229,23 @@ body.walks #people { grid-row:4 }
    and the report in the rows the walk had. */
 #views { display:none; margin:10px 0 0 }
 body.walks #views { display:flex }
+/* The chapters tab is the main page: the title and the series. On the other
+   two the header is one row, the tabs and the tools, and nothing else. */
+body.walks header { display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px }
+body.walks header .topbar { order:2; flex:1 1 100% }
+body.walks:not(.view-chapters) header .topbar { flex:0 0 auto; margin-left:auto }
+body.walks #views { order:1; margin:0; flex:1 1 auto }
+body.walks.view-chapters #views { flex-basis:100% }
+body.walks #subtitle { order:3; flex-basis:100% }
+body.walks #cases { order:4; flex-basis:100% }
+body.walks:not(.view-chapters) #title, body.walks:not(.view-chapters) #subtitle,
+body.walks:not(.view-chapters) #cases { display:none }
+body.walks.view-chapters main { display:none }
+/* The introduction folds away; the question stays. */
+.brieftoggle { float:right; font:inherit; font-size:11px; cursor:pointer; padding:1px 8px;
+               margin:0 0 4px 12px; background:none; color:var(--ink); border:1px solid var(--rule) }
+.brieftoggle:hover { background:var(--hi) }
+body.brief-shut #preamble, body.brief-shut #cover { display:none }
 #views .fresh { font-size:11px; color:var(--faint) }
 body.walks.view-notebook #walk { display:none }
 body.walks.view-building #evenings, body.walks.view-building #people,

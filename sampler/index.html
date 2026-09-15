@@ -28,10 +28,12 @@
   </div>
   <p id="subtitle"></p>
   <nav id="cases"></nav>
-  <!-- Two tabs while a chapter is walked (walk.js, setView): the building,
-       and what Sarah has heard with the report. Reading the whole file shows
+  <!-- The tabs while a chapter is walked (walk.js, setView): the chapters,
+       the building, and what Sarah has heard with the report. The title and
+       the chapter list stand only on the first. Reading the whole file shows
        everything on one page and has no tabs. -->
   <nav id="views" class="tabs views" aria-label="View">
+    <button type="button" data-view="chapters">Chapters</button>
     <button type="button" data-view="building">The building</button>
     <button type="button" data-view="notebook">Notebook and report <span class="fresh" id="freshcount"></span></button>
   </nav>
@@ -39,6 +41,7 @@
 
 <main>
   <section id="brief" hidden>
+    <button type="button" id="brieftoggle" class="brieftoggle" aria-expanded="true">Hide the introduction</button>
     <p id="preamble"></p>
     <p class="q" id="question"></p>
   </section>
@@ -172,11 +175,14 @@
     by asking the wrong thing.</p>
 
     <h3>What you have heard</h3>
-    <p>The page has two tabs at the top. <b>The building</b> is the map and
+    <p>The page has three tabs at the top. <b>Chapters</b> lists the
+    chapters of the series. <b>The building</b> is the map and
     the rooms. <b>Notebook and report</b> collects everything Sarah has heard
     or seen, under the place or the person it came from, beside your notes and
     the report; it says how many lines are new since you last looked. The
-    button of the same name in a room takes you there. Tick a line <b>✓</b> when you are
+    button of the same name in a room takes you there. <b>Hide the
+    introduction</b> folds the chapter's opening away and leaves its
+    question. Tick a line <b>✓</b> when you are
     done with it, and <b>↺</b> brings it back. A German word with a dotted
     line under it explains itself when you point at it, and so does a name.</p>
     <p><b>Notes</b> is your own; nothing in it is read or marked.</p>
