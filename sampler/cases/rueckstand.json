@@ -66,7 +66,7 @@
      "where": "Frau Pohlmann",
      "lines": [
       "Pohlmann: Through me. Nothing passes between the Registratur and the Referatsleiter himself except across this desk, in both directions, and it has been so for eleven years and three Referatsleiter.",
-      "Pohlmann: Yes. I did it myself, because it was mine to do. I asked the typists myself, once, over lunch at the long table in the canteen in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
+      "Pohlmann: Yes. I did it myself, because it was mine to do. I went down to the canteen for it, which I do not do, and asked the typists myself, once, over lunch at the long table in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
       "Pohlmann: In a desk drawer? No. Nobody in this Referat has asked for new machines to be costed, this year or any other. A request like that would have come across this desk, and none has.",
       "Pohlmann: Please. Herr Grau is not to be disturbed, but I can give you a moment. I remember 117/64 coming up in May and I remember passing it to the Schreibsaal, and the Schreibsaal is where it stopped being anything I could account for.",
       "Pohlmann: A careful man, and a fair one. Herr Simon is not angry about 117/64 and has said so to me twice, which is how the building knows that he is. What he keeps coming back to is that a line in the book would have cost nobody anything.",
@@ -118,7 +118,7 @@
      "where": "Fräulein Ostrowski",
      "lines": [
       "Ostrowski: You are the one looking into the file. Good; somebody should. I own my own copy of the Geschäftsordnung, issued to me and not the pool's, and I have read it twice. I can tell you what it says about a file that comes back and exactly where the line goes.",
-      "Ostrowski: Once. Frau Pohlmann asked us once, over lunch at the long table in the canteen in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
+      "Ostrowski: Once. Frau Pohlmann came down to the canteen, which she never does, and asked us once, over lunch at the long table in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
      ]
     },
     {
@@ -444,6 +444,7 @@
      "47814b7a6edb97c8ddb564f5aa2d735c91eb1a80fc62a00a66a5766192509051",
      "4975d778007be17d4dbf6bad968220d08920103a3177a1eaf0ec530b186b1445",
      "49d7e1152f05cb322635c8dcda8490bbc72b9160b39e439626782711efd1cab3",
+     "4afce4396d21268cc21997dd57e3b2d4737706c5fdf5071fa65333aa6770bd37",
      "5f4d4e64609acd4a4deac7199ab76dca88e8bb43d25beb67451df6e63d102636",
      "73219ff1ebcd21b991ef41d8beff426ce14faa925e44fb9e3c1fa72dcda2c1a8",
      "82a1ef4e0a501424afefb60d98ded6549cb091bbf5a1588ce3359e83cca0a436",
@@ -464,7 +465,6 @@
      "cdfdfd9cb402270c46c046a10545cefbd166e4eaaa9af818efd9e284d3250a28",
      "ce9863ba5b94a777669c8b215352fd581bd6d6b0c922db968a6338a0523f9e12",
      "d1efe113378e0bcadc66bb53171e08ab210232341d4995e6616e9941d9e3db4e",
-     "e4cc65d3a792765015f6dff9993bdf3cacf8b91ce5e2dbc286278d60af449905",
      "eb3690059cc6f881787f01ce98515e79f02b24d3ada97e583ca86f0747d3d91b",
      "ec6a30e23a4fbbed01fb91e02b32e0a308e496ccc65d74da1b43ec9169cc0da7",
      "f20f8a212f23650d4f6dfef431418dcfea03aae2bb7cfeaf946f09553932ab98",
@@ -760,7 +760,6 @@
     "marks": [
      "07eaa623a224f71a12e5f7fc677ade5af983ff0c840af987b247ca4cdd4f7344",
      "0973b0d61e06cea7b3ceb639a19901879c3a92d909ddeeb3252b6e03f0ce2f58",
-     "0d02bd34a297fa6cc855dd00d036dce0f45cb939cbe1fd48e36cc633d0494ef0",
      "120bd9d9af7a1418cfb6776b4e65809d648c3f20a83f83753e82d3c4abcf902e",
      "1299717084c12a53d0a33f2f7c4d0ef8384fab4c0cf7ad4c83bdd56c970eb6e0",
      "1390d5aa20aed715516d4113f729ee240cb882be3c0be50a0c20b745a3d986b3",
@@ -778,11 +777,12 @@
      "6037441284da37f9c079a2fe134ed552ee5eb169efed586cff4e382adfe2b95f",
      "6d9390ea1a813588a7a634c200ca46a61d9f70a8ef105cbb6102e13d8ac20f10",
      "6f4f0a67d6e84eff2c1c268dbe201133fe6689922974e40af079df86331d3dc6",
-     "76ebe8546e29ecb03838a47a17c6ef303f42efb264e662e54df9ad2fd08e958f",
+     "76b323bad03c8aec03f22366aca38bb439724ea2b36c0c758403b2137792969c",
      "78cd656c8dce815489f7fd363866a9ead84bfa8d56cf8a92f9a7e5afad5f8dd9",
      "7a0293603063fa7f6619bdf93d3a17fd1dff3470614ce00bee3d8a2dddf6a324",
      "852581b787beaa2036c20d0866917e147912886388ff3e7cd70048138a44a318",
      "97ee7bcc133c64b8264a18bf1464caf4ab636ccbfb9a5e5bdc5dcb752ae84916",
+     "98d24699ad200fff10f55ea2195bf646e71899f69b5c93f7bfb08d7ed8b92a01",
      "9c82aaa3515c2435993a206b1387c0cf4b4a6e4e31b6d7285f5363a6e52f609f",
      "b44e15939631fce54a73829bbe6cc59a199a38e47b51f8719e0bf67349b16fce",
      "b5a0096c73c54df79f91021ef9e797862b77af250e1870dfc029ceb5f61c0f37",
@@ -1000,7 +1000,6 @@
      "1f5d12f829e0ae173226ca4443dc3e772c171204f2cb7101507013c62dbb6ed0",
      "2f55544e172675c6d85481777142ad0f42d446728f5f9b56ee2106df89293145",
      "36987b20dda0bb8d861c631ae8b8e91083c28ce752859b187fcafccc2bb0ea05",
-     "421ddbbdb2f311e32907e4a5df0ff67c7f85c019cdc73df70520698a37cce683",
      "4428dcded9b355591d69964b4435c1953d50ce7eba4a1b8ae71da08d890a35f2",
      "4eac6efadd5d233ebcc9f3dc9e98201753f2f1f1a072540539ca3fa43bd8bc73",
      "4ff704b206f2c71e9c580eed997448d97ba133fd8105e1a99eb2027567bb8326",
@@ -1008,6 +1007,7 @@
      "53fcf173eca447f70e8dc3d7abf236e8486868c5de332912740fb86bb4699cbe",
      "63314e87dc531b05a28ce415eae597e4b4195dc7143d80833913d190eac2e7c9",
      "634263340b862e12946868e381e2277863f5897aa5d15fdd4a92d9f5ef91e62c",
+     "747d7a9d739a395a86ec8a69b464c0eb3ac8b7a5b11ca480359939b2313931c7",
      "8069f06eb0de70df1c5289a87c36655ba9fdbbe3a431f2b590b2683dfa3b1816",
      "84b2625a3c97d9c3aa193670efd26890034ec7912345da03d8d6244d826d0ac0",
      "897a7244f14933ac2624d84973556c37625be1ef34620e78b0d4d8a86c6ecc9f",
@@ -1015,10 +1015,10 @@
      "8d67868f875567b30702422d86da4e4608b6cd1c60a6bfa70b4bdba3b33cd981",
      "9282fc083a82ee2e5f78d91ae2d90cc47a1263733cd1c9afa1ac6b5b588743c2",
      "94b1149eb83b42abf7595d504e08de3df71362dbf9a5e7074bce6f2c30ffdbaf",
+     "9b8407bc133a13db938fc1d59153a8ab04aa5485a7ea6cc42e06f63387b69b8a",
      "9c12bae633eedc0ef57a1db1d8e1d8c7158cbd43c1409c63fb3e5da80ffc0699",
      "9c2584db7118939a42e2051ebfa85b7d011ae0f5c2f0485d58fa0bfdf88b5f30",
      "9d846a9013820f1fac2245152b1061817dd35c33099b64822d3a695eb816c7e3",
-     "9fc3c6136fe1b57fbb6963730ac4fea0a1bef8855f1322c7fec856f15144bafc",
      "acf2d6ab8c1313c8ddfb138aee3393318c6e8e43823fe6f42f8be8aa488fd27e",
      "aff8c199c0cf19f3fff4c060d98515b0f0aba29c48d2351176581942ecdb70e3",
      "ba58aa370df09e9cc2ce67b489d483eacf8d7d0558afd8a358e8b4a04d6975f4",
@@ -1553,7 +1553,7 @@
      "asked": {
       "lines": [
        {
-        "text": "Pohlmann: Yes. I did it myself, because it was mine to do. I asked the typists myself, once, over lunch at the long table in the canteen in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
+        "text": "Pohlmann: Yes. I did it myself, because it was mine to do. I went down to the canteen for it, which I do not do, and asked the typists myself, once, over lunch at the long table in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
         "phase": null
        }
       ],
@@ -1887,7 +1887,7 @@
      "asked": {
       "lines": [
        {
-        "text": "Ostrowski: Once. Frau Pohlmann asked us once, over lunch at the long table in the canteen in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway.",
+        "text": "Ostrowski: Once. Frau Pohlmann came down to the canteen, which she never does, and asked us once, over lunch at the long table in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway.",
         "phase": null
        }
       ],
@@ -2057,10 +2057,10 @@
     "raised_by": [
      "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand.",
      "Simon: Once, and I asked the proper person. I stopped Frau Pohlmann in the corridor in the last week of September and asked whether 117/64 had ever come back to her, and she said she would ask the typists, since it was the Schreibsaal she had passed it to. What she asked them, and how, you will have to ask her.",
-     "Pohlmann: Yes. I did it myself, because it was mine to do. I asked the typists myself, once, over lunch at the long table in the canteen in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
+     "Pohlmann: Yes. I did it myself, because it was mine to do. I went down to the canteen for it, which I do not do, and asked the typists myself, once, over lunch at the long table in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
      "Pohlmann: In a desk drawer? No. Nobody in this Referat has asked for new machines to be costed, this year or any other. A request like that would have come across this desk, and none has.",
      "Bühl: If it is the pencil you are looking at, you want Fräulein Ostrowski. Fräulein Ostrowski corrects other people's commas in pencil, very lightly, so that it can be rubbed out again, and she does it whether or not anybody has asked her to read the sheet.",
-     "Ostrowski: Once. Frau Pohlmann asked us once, over lunch at the long table in the canteen in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
+     "Ostrowski: Once. Frau Pohlmann came down to the canteen, which she never does, and asked us once, over lunch at the long table in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
     ]
    },
    {
@@ -2091,10 +2091,10 @@
     "always": false,
     "raised_by": [
      "Simon: Once, and I asked the proper person. I stopped Frau Pohlmann in the corridor in the last week of September and asked whether 117/64 had ever come back to her, and she said she would ask the typists, since it was the Schreibsaal she had passed it to. What she asked them, and how, you will have to ask her.",
-     "Pohlmann: Yes. I did it myself, because it was mine to do. I asked the typists myself, once, over lunch at the long table in the canteen in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
+     "Pohlmann: Yes. I did it myself, because it was mine to do. I went down to the canteen for it, which I do not do, and asked the typists myself, once, over lunch at the long table in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
      "Litt: That week I can tell you about. Frau Adam was not in this room at all in the last week of September, and we have not stopped telling her about it since, because she is the one who always knows.",
      "Kern: I remember that week. Frau Adam was away the whole of the last week of September. I had her machine that week, because mine had gone to be repaired, and nobody sat at it but me.",
-     "Ostrowski: Once. Frau Pohlmann asked us once, over lunch at the long table in the canteen in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
+     "Ostrowski: Once. Frau Pohlmann came down to the canteen, which she never does, and asked us once, over lunch at the long table in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
     ]
    },
    {
