@@ -19,4 +19,6 @@ actually live.
 *Schmiss und Wessen* — Books on Demand, 2025, ISBN 978-3-695-18724-9.
 
 The pictures in `sampler/` are generated with AI and are
-drafts.
+drafts, except for the documents: their paper and light are generated, and
+their ruling and every mark on them are drawn by `art/tools/scribble.py`.
+No handwriting anywhere in them spells anything.

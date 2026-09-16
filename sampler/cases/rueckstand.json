@@ -1180,7 +1180,7 @@
   "phases": [
    {
     "name": "the working day",
-    "light": "spring",
+    "light": "autumn",
     "day": null,
     "start": "lodge",
     "open": [
@@ -1264,7 +1264,7 @@
     "text": "The top of the stair, a plain table against the wall, notices pinned beside it, and a narrow back stair going down.",
     "passage": false,
     "art": {
-     "the working day": "art/rooms/landing-spring.jpeg",
+     "the working day": "art/rooms/landing-autumn.jpeg",
      "after five": "art/rooms/landing-friday.jpeg"
     },
     "sees": []
@@ -1317,7 +1317,7 @@
     "text": "Six desks in rows towards the tall windows, and the noise of six machines when the room is working.",
     "passage": false,
     "art": {
-     "the working day": "art/rooms/pool-spring.jpeg",
+     "the working day": "art/rooms/pool-autumn.jpeg",
      "after five": "art/rooms/pool-friday.jpeg"
     },
     "sees": [
@@ -1341,7 +1341,7 @@
     "text": "Sorting tables, pigeonholes, and the outgoing trays.",
     "passage": false,
     "art": {
-     "the working day": "art/rooms/poststelle-spring.jpeg",
+     "the working day": "art/rooms/poststelle-autumn.jpeg",
      "after five": "art/rooms/poststelle-friday.jpeg"
     },
     "sees": [
@@ -1361,7 +1361,7 @@
     "text": "A counter across the room, shelves of files to the ceiling behind it, and a steel cupboard behind the clerk's chair.",
     "passage": false,
     "art": {
-     "the working day": "art/rooms/registratur-spring.jpeg",
+     "the working day": "art/rooms/registratur-autumn.jpeg",
      "after five": "art/rooms/registratur-friday.jpeg"
     },
     "sees": [
@@ -1398,7 +1398,7 @@
     "text": "The secretary's desk, and beyond it a shut wooden door.",
     "passage": false,
     "art": {
-     "the working day": "art/rooms/vorzimmer-spring.jpeg",
+     "the working day": "art/rooms/vorzimmer-autumn.jpeg",
      "after five": "art/rooms/vorzimmer-friday.jpeg"
     },
     "sees": [
@@ -1433,7 +1433,7 @@
     "text": "The Referatsleiter's office: a large desk, and beside it an old steel card index.",
     "passage": false,
     "art": {
-     "the working day": "art/rooms/z407-spring.jpeg",
+     "the working day": "art/rooms/z407-autumn.jpeg",
      "after five": "art/rooms/z407-friday.jpeg"
     },
     "sees": []
@@ -2278,6 +2278,18 @@
      ]
     ]
    }
+  },
+  "pictures": {
+   "The porter's book": "art/documents/porters-book.jpeg",
+   "The shelf for Z A 4": "art/documents/shelf-z-a-4.jpeg",
+   "The loan book": "art/documents/loan-book.jpeg",
+   "The Rückstandsliste": "art/documents/rueckstandsliste.jpeg",
+   "The file, its cover": "art/documents/file-cover.jpeg",
+   "The file, its contents": "art/documents/file-contents.jpeg",
+   "The Poststelle's outgoing book": "art/documents/poststelle-outgoing-book.jpeg",
+   "The outer office's list of what went down": "art/documents/outer-office-list.jpeg",
+   "The Geschäftsordnung on Fräulein Ostrowski's desk": "art/documents/geschaeftsordnung.jpeg",
+   "A drafted request, in the drawer of the desk in the corner behind the door": "art/documents/drafted-request.jpeg"
   },
   "sarah": "art/people/sarah.png",
   "sarah_height": 172

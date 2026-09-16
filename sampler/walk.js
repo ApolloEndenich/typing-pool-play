@@ -441,15 +441,44 @@ function readThing(thing) {
     : c.scrawl ? `<span class="scrawl" aria-label="a signature"></span>`
     : c.sign ? `<span class="signature">${esc(c.sign)}</span>`
     : esc(c.shown);
+  /* The object above, its words below. A picture of a document shows what
+     the thing IS -- its paper, its ruling, its marks -- and never what it
+     says; every time, number, name and count stays in the type underneath.
+     Drawn by art/tools/scribble.py, held by meetings.py check 12. */
+  const pic = (WALK.pictures || {})[thing];
   $("doctitle").textContent = cap(thingName(thing));
+  $("docpic").innerHTML = pic
+    ? `<img src="${esc(pic)}" alt="${esc(cap(thingName(thing)))}" loading="lazy">`
+    : "";
+  $("docpic").hidden = !pic;
   $("docbody").innerHTML = doc && doc.kind === "ledger"
     ? `<table class="ledger"><thead><tr>${doc.columns.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead>` +
       `<tbody>${doc.rows.map(r => `<tr>${r.map(c => `<td>${cell(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>` +
       `<p class="noted">Noted with what you have heard.</p>`
+    : doc && doc.kind === "tree" ? orgTree(doc) + `<p class="noted">Noted with what you have heard.</p>`
     : lines.map(l => `<p>${marked(l, false)}</p>`).join("");
   $("doc").hidden = false;
   if (typeof annotate === "function") annotate($("doc"));
   $("docclose").focus();
+}
+
+/* THE CHAIN OF COMMAND AS A PAGE (the user, 15 September 2026: "who is whose
+   boss and what is supposed to travel where and who is using which colours").
+   A tree the chapter draws for a thing, its levels carrying their pencil;
+   meetings.py check 12 holds every box, name, colour and step to the lines. */
+function orgTree(doc) {
+  const mark = m => !m ? "" : m === "initials"
+    ? `<span class="mark initials">initials</span>`
+    : `<span class="mark" data-pencil="${esc(m)}"><i></i>${esc(m)}</span>`;
+  const nodes = ns => ns.length ? `<ul>${ns.map(n =>
+    `<li><div class="node"${n.mark && n.mark !== "initials" ? ` data-pencil="${esc(n.mark)}"` : ""}>` +
+    `<b>${marked(n.label, false)}</b>${n.who ? `<span class="who">${marked(n.who, false)}</span>` : ""}${mark(n.mark)}</div>` +
+    nodes(n.children || []) + `</li>`).join("")}</ul>` : "";
+  const sections = (doc.sections || []).map(s =>
+    `<h4>${esc(s.title)}</h4><p class="house">${s.items.map(i => marked(i, false)).join(" · ")}</p>`).join("");
+  const routes = (doc.routes || []).map(r =>
+    `<h4>${esc(r.title)}</h4><p class="route">${r.steps.map(x => `<span>${marked(x, false)}</span>`).join(" → ")}</p>`).join("");
+  return `<div class="orgtree">${nodes(doc.nodes || [])}${sections}${routes}</div>`;
 }
 
 function closeDoc() { $("doc").hidden = true; }

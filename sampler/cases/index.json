@@ -6,7 +6,8 @@
   "german": "Der Dienstweg",
   "stated": "November 1968",
   "built": false,
-  "opens": false
+  "opens": false,
+  "held": true
  },
  {
   "id": "stellenplan",
