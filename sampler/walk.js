@@ -8,7 +8,7 @@
    evening, citable, tickable, its words typable -- but only once Sarah has
    heard it or seen it.
 
-   This file decides nothing about the case. chapters/meetings.py and the
+   This file decides nothing about the case. The case's own rules and the
    chapter's walk file decided which line comes out of which question or
    object, on which evening, and checked it; this deals what the JSON says.
    What is counted here is only the player's: what has been heard, and how
@@ -172,7 +172,7 @@ function enter(id, quiet) {
   if (!quiet || fresh) { draw(); report(); }
 }
 
-/* what Sarah says raising a topic with this person (meetings.py, ask_of) */
+/* what Sarah says raising a topic with this person (the case's own ask_of) */
 const askOf = (t, who) => (t.ask_of || {})[who] || t.ask;
 
 function note(who, kind, text) {
@@ -185,7 +185,11 @@ function meet(id) {
   const key = `${id}@${phase().name}`;
   if (!W.met.includes(key)) {
     W.met.push(key);
-    const hello = p.hello.filter(now);
+    /* A greeting is said once. It was keyed by phase, so the porter, at the
+       lodge all day and after five, said his whole piece about being
+       greeted a second time in the evening (the user, 17 September 2026).
+       One already heard is a nod now. */
+    const hello = p.hello.filter(h => now(h) && !HEARD.has(h.text));
     for (const h of hello) { hear(h.text); note(id, "line", h.text); }
     if (!hello.length) note(id, "nod", `${cap(p.name)} nods.`);
     save(); draw(); report();
@@ -196,7 +200,7 @@ function meet(id) {
 /* Raising something, or putting something down. An answer -- a line, an
    evasion, chat -- costs one of the person's patience; a question they cannot
    answer costs nothing (the user's ruling, 13 September 2026), so a player can
-   never be locked out by asking the wrong things, and meetings.py check 8
+   never be locked out by asking the wrong things, and the case's own check
    proves that asking everything fits. */
 function act(kind, what) {
   const p = person(TALKING);
@@ -426,8 +430,8 @@ const thingOf = text => (WALK.exhibits.find(e => e.line === text) || {}).thing;
 const seenThing = thing => WALK.exhibits.some(e => e.thing === thing && HEARD.has(e.line));
 
 /* Looking at a thing: whatever of it lies in this room now is heard, and it
-   opens as a page -- a ledger where the chapter draws one (meetings.py check
-   12 keeps every cell to what the line says), otherwise its lines set in type. */
+   opens as a page -- a ledger where the chapter draws one (the rule that a document
+   never says more than its own lines keeps every cell to what the line says), otherwise its lines set in type. */
 function readThing(thing) {
   let fresh = false;
   for (const s of place(W.at).sees || [])
@@ -444,7 +448,7 @@ function readThing(thing) {
   /* The object above, its words below. A picture of a document shows what
      the thing IS -- its paper, its ruling, its marks -- and never what it
      says; every time, number, name and count stays in the type underneath.
-     Drawn by art/tools/scribble.py, held by meetings.py check 12. */
+     Every mark on it is drawn, and held to what the lines say. */
   const pic = (WALK.pictures || {})[thing];
   $("doctitle").textContent = cap(thingName(thing));
   $("docpic").innerHTML = pic
@@ -465,7 +469,7 @@ function readThing(thing) {
 /* THE CHAIN OF COMMAND AS A PAGE (the user, 15 September 2026: "who is whose
    boss and what is supposed to travel where and who is using which colours").
    A tree the chapter draws for a thing, its levels carrying their pencil;
-   meetings.py check 12 holds every box, name, colour and step to the lines. */
+   every box, name, colour and step is held to what the lines say. */
 function orgTree(doc) {
   const mark = m => !m ? "" : m === "initials"
     ? `<span class="mark initials">initials</span>`
@@ -481,6 +485,9 @@ function orgTree(doc) {
   return `<div class="orgtree">${nodes(doc.nodes || [])}${sections}${routes}</div>`;
 }
 
+/* Three ways out of a document, because a player who has finished looking
+   should not have to hunt: the x in the corner, Close at the foot, and the
+   dark outside the paper. Esc is wired with the rest of the keys. */
 function closeDoc() { $("doc").hidden = true; }
 
 /* ------------------------------------------------------------ full screen

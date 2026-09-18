@@ -75,6 +75,38 @@ main {
 .asidehead { font-size:11px; letter-spacing:.14em; text-transform:uppercase;
              color:var(--ink); margin:0 0 8px }
 .where.aside li { opacity:.45 }
+/* The desk: the lines a player has laid out by hand, anywhere on it. A card is
+   moved by its heading only, so the rest of it scrolls the page on a phone. */
+#deskwrap { margin-bottom:18px }
+.deskhead { font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+            color:var(--ink); margin:0 0 6px }
+#desk { position:relative; min-height:64px; background:var(--wash);
+        border:2px dashed var(--rule) }
+#desk .empty { position:absolute; inset:0; display:flex; align-items:center;
+               justify-content:center; padding:0 12px; text-align:center;
+               color:var(--faint); font-size:12px }
+.card { position:absolute; width:clamp(150px, 46%, 320px); background:var(--paper);
+        border:1px solid var(--rule); box-shadow:1px 2px 0 var(--hair);
+        font-size:12px; line-height:1.45 }
+.card .grip { display:flex; align-items:center; gap:4px; padding:3px 4px 3px 7px;
+              border-bottom:1px solid var(--hair); cursor:grab; touch-action:none;
+              user-select:none; -webkit-user-select:none; font-size:9px;
+              letter-spacing:.12em; text-transform:uppercase; color:var(--faint) }
+.card .grip span { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.card.lifted { box-shadow:3px 5px 0 var(--rule); z-index:5 }
+.card.lifted .grip { cursor:grabbing }
+.card p { margin:0; padding:5px 7px 6px }
+.card button.deskbtn { font:inherit; font-size:11px; line-height:1.2; padding:1px 6px;
+                       cursor:pointer; background:none; color:var(--faint);
+                       border:1px solid var(--rule); letter-spacing:0 }
+.card button.deskbtn:hover { background:var(--hi); color:var(--ink); border-color:var(--ink) }
+.card .cite { position:static }
+.pin { position:absolute; right:30px; top:0; font:inherit; font-size:11px; line-height:1.2;
+       padding:1px 6px; cursor:pointer; background:none; color:var(--faint);
+       border:1px solid var(--rule) }
+.pin:hover { background:var(--hi); color:var(--ink); border-color:var(--ink) }
+.where li { padding-right:60px }
+body.citing .where li .cite { right:60px }
 .where.aside li:hover { opacity:.8 }
 /* a heading folds away; folded, it says how many lines are under it */
 .fold { font:inherit; font-size:10px; line-height:1; width:1.6em; margin:0 4px 0 -3px; padding:0;
@@ -107,7 +139,7 @@ main {
 .where li { margin-bottom:5px }
 
 /* A word in a line: marked, not shouted. It has to sit in the talk as often
-   as in the evidence, or the marks become the pointer (sheet.py, rule 7). */
+   as in the evidence, or the marks become the pointer (rule 7 of the answer sheet). */
 .word {
   font:inherit; color:inherit; background:none; border:0; padding:0;
   border-bottom:1px dotted var(--rule); cursor:pointer; text-transform:inherit;
@@ -223,7 +255,7 @@ input.blank:focus { outline: none; border-bottom-width: 2px; }
         line-height: 1.2; padding: 1px 6px; cursor: pointer; background: var(--paper);
         color: var(--ink); border: 1px solid var(--ink); }
 body.citing .cite { display: block; }
-body.citing .where li { padding-right: 62px; }
+body.citing .where li { padding-right: 92px; }
 /* Kommissar Mauser's pencil */
 #sheet .verdict { font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
                   font-size: 13px; color: #4a4a4a; transform: rotate(-1.5deg); }
@@ -392,12 +424,21 @@ body.walks.view-notebook #people { grid-row:3 }
               font:15px/28px "Courier New", ui-monospace, monospace }
 #doc h3 { margin:0 0 14px; font-size:12px; letter-spacing:.18em; text-transform:uppercase }
 #doc p { margin:0 0 14px }
+/* The way out, said in a word rather than a glyph. The x in the corner stays
+   for the mouse that is already up there. */
+#doc .closer-foot { margin-top:18px; text-align:right }
 /* The picture of a thing, above its words. It is the object and never its
    words, so it is there to be looked at and not to be read: no zoom, no click,
    nothing in it that the type below does not already say. */
-#doc #docpic { margin:0 0 16px }
-#doc #docpic img { display:block; width:100%; height:auto; background:#FFFDF6;
-  border:1px solid rgba(0,0,0,.18) }
+/* Small on purpose. There is nothing in one of these to recognise -- every
+   time, number and name is in the type below it -- so it is here for the look
+   of the thing, and it must not push the words off the screen. Capped by
+   HEIGHT rather than width, because these run from a wide ledger to a tall
+   sheet and only a height cap makes them cost the same amount of scrolling. */
+#doc #docpic { margin:0 0 16px; text-align:center }
+#doc #docpic img { display:inline-block; max-width:100%; max-height:190px;
+  width:auto; height:auto; background:#FFFDF6; border:1px solid rgba(0,0,0,.18) }
+@media (max-height: 700px) { #doc #docpic img { max-height:130px } }
 #docclose { position:absolute; top:8px; right:10px; font:inherit; font-size:18px; cursor:pointer;
             background:none; border:0 }
 

@@ -16,13 +16,13 @@
      "lines": [
       "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand.",
       "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and nothing written under it since.",
-      "The Rückstandsliste: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every section (Referat) holding one of them."
+      "The Rückstandsliste, the arrears list: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every section (Referat) holding one of them."
      ]
     },
     {
      "where": "the returns counter",
      "lines": [
-      "The file, its cover: a new Aktendeckel cut and folded by hand, and the number, 117/64, copied on to the front in ordinary pencil.",
+      "The file, its cover: a new file cover (Aktendeckel) cut and folded by hand, and the number, 117/64, copied on to the front in ordinary pencil.",
       "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it."
      ]
     },
@@ -47,7 +47,7 @@
     {
      "where": "the Schreibsaal",
      "lines": [
-      "The Geschäftsordnung on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
+      "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
       "A drafted request, in the drawer of the desk in the corner behind the door: for new machines, costed to the Pfennig against what the last lot came to in 1964, finished, unsigned, and never sent up."
      ]
     },
@@ -70,7 +70,7 @@
       "Pohlmann: In a desk drawer? No. Nobody in this Referat has asked for new machines to be costed, this year or any other. A request like that would have come across this desk, and none has.",
       "Pohlmann: Please. Herr Grau is not to be disturbed, but I can give you a moment. I remember 117/64 coming up in May and I remember passing it to the Schreibsaal, and the Schreibsaal is where it stopped being anything I could account for.",
       "Pohlmann: A careful man, and a fair one. Herr Simon is not angry about 117/64 and has said so to me twice, which is how the building knows that he is. What he keeps coming back to is that a line in the book would have cost nobody anything.",
-      "Pohlmann: Oh, that list. The Rückstandsliste was on Herr Grau's desk in September and he initialled it and I sent it back out, and he could not tell you today a single number that stood on it."
+      "Pohlmann: Oh, that list. The Rückstandsliste, the arrears list was on Herr Grau's desk in September and he initialled it and I sent it back out, and he could not tell you today a single number that stood on it."
      ]
     },
     {
@@ -82,7 +82,7 @@
     {
      "where": "Frau Litt",
      "lines": [
-      "Litt: Back to the Registratur? Not one of us has ever had to sign a thing back into the Registratur. What reaches this room comes through the outer office and goes back the same way, and most of the girls could not tell you where in the Registratur the book is kept.",
+      "Litt: Back to the Registratur? Not one of us has ever had to sign a thing back into the Registratur. What reaches this room comes through the outer office and goes back the same way, and most of the girls have never had reason to put a hand on the loan book at all.",
       "Litt: That week I can tell you about. Frau Adam was not in this room at all in the last week of September, and we have not stopped telling her about it since, because she is the one who always knows.",
       "Litt: Now that is a thing I could tell you about. I have never thrown away a sheet that could still be saved. I keep the gummed linen in my own drawer, and I have mended more covers than the Registratur has issued.",
       "Litt: Do not start me on the machines. I can tell you what the machines before these ones cost and what they cost to keep, and I have been saying it since the summer to anybody at the long table in the canteen who would listen.",
@@ -325,7 +325,7 @@
   "marks": {
    "holds": "✓ M.",
    "words": "? — it does not hold",
-   "proof": "Proof?",
+   "proof": "More evidence available?",
    "own": "Their own statement",
    "ring": "They vouch for each other",
    "empty": "Nothing cited",
@@ -368,12 +368,12 @@
      "a9fdaa76a9de086a11a89588c1acf201674969e5fa056008a297a948caf2487f",
      "abf024aa772791616663d92776e01a744ee11a5883f625f72599a653e2e63fa1",
      "b125a94e85b0ac1fd7d991ec99622afb4751c765c52ffbab730ae488080cc477",
+     "b68ba3cfbd7e58ee915f03415e5e4204236f4ce745dee24035c443d015255b1f",
      "c12fd75381c50cab1b9719f7fb721b996dfd87b312883c4cd57a8d94ac902f3a",
      "c53849d3ee3eee7033c23b18de805e2768a5b5c795631ff2cd9ee92a75476cc5",
      "c93a5159b15f50e5320611804e695913f00b411b5319454b39478731ce44a85b",
      "cd7a3047f3d6caedaa4ec3c3dab2df8cc43f2215c0acaeca0058ed92f6ce4485",
      "cfb51ab0e68265e0e875f09b3ec91eeac43461448250d30d1214e88820eed618",
-     "d8f7df1ed3c678fbad394346d9aaa9bc0dd3a2443abebfd096793d5c73f9c60b",
      "ed8b06ac81bfae5ce511f04cbdc62b545c084bd6f3b166e12aba15b9cc61cfb8",
      "f1d879ab5e48fe19eb7b10ec7dfae7d1f23d901a1f5158570231a25013a6b822",
      "f88d16073808d6132eb9f83538383a52e2c6d1bfa7992999d5c302f221dec716",
@@ -474,7 +474,6 @@
    "hand": {
     "need": "89f2af49f94bcce4d74472e71b2d05332354e53f77edc3747bad5e4f3deb42ae",
     "marks": [
-     "078b57e3d64bda2780c35b3ff4f4608c660e0cdef9d4462c19cb22317aae4e3b",
      "0cb4f226ca003f7803ef8e5a5f4cd57031c0c03916d670c5f48462c3dc24a0c0",
      "1130161835a74824b2f48d826485d414f66ff42fe5b49e2eb1f5fcb8eae4c20f",
      "1489a5a5446e278b4fee0c135a90d62a0c7c9ce8c37423be1ee2d0605102f618",
@@ -501,6 +500,7 @@
      "982b6d182334688e851287f5951e6878cad16ab74f1604b2482ea07bc0ec1ae5",
      "9cf8ae23852e7c3ff1702b294ea328bdbbd7e48bf7a0d7bbaf3998f60443cf39",
      "a19bc142944376d95673bf716d5ba6009308abd52530712dff58c2922fe926bc",
+     "a22920e1f11a3f686a6af752f6f6d953ae9da0a02f0c17bfc3241b4f99d83ddb",
      "a7162eca6efe8cdd4a529180a9d0ab238d7152e4360aa998692dd24447f5dccf",
      "ab753202d9e53bf1495c69aa96144a00632f16ec8f0ab7ff70bd3a5d0078f7e6",
      "cb4e248b6f74e0e05fcb4369e8e3691c878620153fd4000eb9d95555ba2b0444",
@@ -537,8 +537,8 @@
      "3eb14c255c261decc1fdaf57f17e48a47e37aa7ab0266b8543da701ff9f6b120",
      "4feb5dc04d1e6056fab922836d6ebfad224710eea5aca50c8c4140a6b5257a35",
      "561c4f5030485a4226a771578ec4601b70b31b2b538ae3d32cbeb10eaabd3bbc",
+     "5f6c78598a3b477e264dafc0611bafdbfe2209bc67e5d057d2af95ca88199d05",
      "63c5260b9180bb9ee13fa17f820680e2231af033cf303fb8758222067e0c1f4b",
-     "740393f62274d8f91c9993a02b3e16776255353b8db14fbe183021305b4e7466",
      "7bd724d696e1357a699326ff65534252451a9de522a42e8d8704818160385a1f",
      "7c30347e63af1133386d2fc07cf2b0cb9d5d706dd98940673e7f853b86672396",
      "7c571ae0793528b5543c910de65d4807a4a69558086c1a7b77ef3b7ae9825eca",
@@ -546,13 +546,13 @@
      "860d5d62880f67101c3a7073df07bce4e684ef6018cc8f544bfdd639fd248614",
      "89dde57b50bd38a0ecad9b9d827fb2af2032caea0efcca81c1118bc29ed36b6d",
      "99f4f4f660ff942da06542fc960d397076f90e279c604d54cf828f60d76416d7",
+     "a5d91c1c108bf99829aa182344f853f1bfa0326ff5237814c4a94f98896b39e9",
      "a687b4de560c6bf26a32a294b7c04138c9a43b124deaffe852544eed1f2ff4b4",
      "aa5f993635a882f7a7e5bfe746d6a7b7c669741603b9fb56b01b3abec285f650",
      "aee5880e904d7f33d91599ecf5b4533ad0f7dde37aa2f9f1106ca3230f6c1f90",
      "b434bca3570799ed926488e27c430713f3afa84c08d4d6d45d779e34ec6b089b",
      "b56cf1302790533cd8881df9df4f60014c6c5856846e28594718f33f532c6220",
      "b5f1b18f198178c0fe05f979bb6a91d3f59d3c94dd6024500f888e10415ed605",
-     "b851bff64f79bdcf61c96e1b348cb04e6ace2282edb50543ca641d39c3813742",
      "be689ed20e0a1986044f2f640a566b96fa28fe31124a97f681d68bfa2828ff79",
      "c3e6856d661be049e4b298f1f7eeaeeba656b34d647a4253b5b94778a1515f33",
      "c86c3513f7ae41566ff09dcc3b1460ab4b45f98dfa7d801ad64d877dfc3e2a92",
@@ -571,6 +571,7 @@
     "need": "5d2e3c62ea9ec041685b064176ef5d8b875222129e84f351ed0bf4aaeff85417",
     "marks": [
      "01ec5b236a48a99ec6b99a821d2c23ee9ce25b169a2e5a9c4bc630bda76b68ca",
+     "0b194e84e022a4c6ebdb2a007b6aa0d26569cd08dffd98ef98e2af2ca2d3607b",
      "0ce3d223a35d1065efff553b216795aa64a65efed20db5ab07a9aebc75dd4549",
      "0dee1bbd1f5d264c40326885e425c0a84ecbe04cc094ddcc9268b01d9632f081",
      "10efd49431bd7081328619ab8625ea418df78fc70caa5d47d8e26e0f0cd5c379",
@@ -599,7 +600,6 @@
      "a9eba343368f3fb6f50f218e1d0ebc951323ce20171ed0dbad8f60f53733c36d",
      "b88669387f38a590cae9e79100294e3b640869eba6e105fbc1206bf6b1ae4b77",
      "ba199a0ae2d3e9adab136fa301c1c2ffa6aafc5c83dd6c8ea87ba17db05ea92c",
-     "c6288f1ca50cad8e65caba2153828f27ffcfbedb3cbf6e06d3e7a29b39787441",
      "ccffd1b51bab367967bcb134a535620b0d015c83c360a188141ca70e8ffa4ed4",
      "d44b2b8c71bf0560a434fd6954bda16cc707b8451d2cf0594a68eff1f151ff2a",
      "d9ef27afde2332f3b33922da2afb0c1ef12803c169adfb5c7685611b8782c7e8",
@@ -900,8 +900,8 @@
     "need": "20c6eb27bb06d7f9ed317c5e32af3556c8d853d7cd796a50be29611ce66e2894",
     "marks": [
      "0bd93faf103bde05fbd2e8f54c10ef3c238ef86bc6748c4725d416c4d7ff1cf9",
+     "14737ad4dcf7c439a1f9769dae9f640970d00f6218f21d642a65402bf1058187",
      "16ed4a141dda418726d61da00a1561aa1bbe85a28620889bdce044c8590d6d49",
-     "18505c4a4a8592d95e5b85f49535e54ece3aa2eee22955072402ba67b9714708",
      "1a26596ada458a53f74a32592bd49577e46fd466421f7fc98c3d573eab815ac6",
      "1bdebb2512ddeb40ea514839347b354f8d33dbe7501fa2a32b67d999e9c366d8",
      "323406fabb6677fa63ea53328221b5f2031cfefe09d71a46cf9438c043ff71a2",
@@ -917,6 +917,7 @@
      "62c1061673b35b4821b14bc3484db2bd5bbece52c6f42c0f10c2c5f5bdbff726",
      "66a1e68c096a389be42aab17fef37b4c217afd0a280062bd3d5ac6b6e21031a2",
      "6a774729f8e3ed941eb2b05c23bd4039d5d9109820de573db866d21db3b705a9",
+     "6d0f800b63e3180e05a6548c85c879a5c02b943dfc8dc78eb60fbfc842f98116",
      "736e0cf10b15a9cfebe77ff404926d78d23aa6d02297c4dceeb3eedd584acea2",
      "73b70332910c34e0889bbc1e1b5a77d59895d15ab9daf65e964f10a66bcf5a01",
      "764ac9135c570d739907cfdfedc7af6c3a6f9e15bd35db06e21cbc06896d5ecd",
@@ -927,7 +928,6 @@
      "9fb17e9693ba20192af9b8b4876a4ef692bb4d518729ea28fac2851c9b5e73f4",
      "a31d635d9292d1a74fe86d065d9f2f4ecce08db51ebd3180de452e9a5e77837d",
      "a35c1c6a5bcf9491b3c4cfa4049273fc11dbbff39369ec72ab31abd673d417cf",
-     "ba2c88d22219cab96758814251b7fadd7169a904815356c85981b4498d8903ea",
      "bbd96384f19fe2dc6eb2bc5f1081d0469da595a204e52ffe570863ea99fbb461",
      "ccc1869f2396917a451b79cabb1a8b3290ca35ee44078fd85174835e12ce9e65",
      "d1074ae151345c01da894d306e9a352b978e38e501234c50ec393353f1d324b0",
@@ -1171,6 +1171,18 @@
    "de": "Putzfrau, Anfang fünfzig, seit Jahren im Haus und für die meisten hier ein Geräusch im Flur. Sie sieht mehr als alle anderen und macht sich nichts daraus, weil es sie nichts angeht und weil es, ehrlich gesagt, meistens nichts ist. Sie redet gern, wenn jemand stehen bleibt, und das tut fast nie jemand. Sie hat zwei erwachsene Kinder, von denen sie spricht wie von entfernten Bekannten, auf die sie stolz ist.",
    "en": "The charwoman, in her early fifties, years in the building and to most of the people here a sound in the corridor. She sees more than anybody and makes nothing of it, because it is not her business and because, to be honest, it is usually nothing. She likes talking when somebody stops, and almost nobody stops. She has two grown children she speaks of the way you speak of distant acquaintances you are proud of.",
    "sprite": "art/people/the-charwoman.png"
+  },
+  {
+   "who": "Sarah Wessen",
+   "de": "Sarah Wessen, Privatdetektivin in Bonn. Ein schlichter Wollmantel mit einem großen Knopf am Hals, die Sonnenbrille auch drinnen. Im Laden an der Ecke ruft man ihr „die Detektivin mit dem Schnüffler“ hinterher. Sie lächelt charmant wie ein Fräulein vom Filmfunk, wenn es nützt, und sie hat ein zweites Lächeln, das heißt: Ich habe das schon zu Ende gedacht. Mit Leuten, die nicht reden wollen, geht sie um wie eine ältere Schwester, die den kleinen Bruder zum Reden bringen will. Ob jemand unschuldig ist, weiß sie nach ihrem eigenen untrüglichen Gefühl, lange bevor sie es belegen kann.",
+   "en": "Sarah Wessen, private detective in Bonn. A plain wool coat with one big button at the throat, and the sunglasses stay on indoors. In the shop on the corner they call after her: the detective with the sniffer. She smiles charmingly, like a young lady off the film pages, when it is useful, and she has a second smile that means: I have already thought this through to the end. With people who would rather not talk she works the way an older sister works on a younger brother. Whether somebody is innocent she knows by her own unerring feeling, long before she can show it.",
+   "sprite": "art/people/sarah.png"
+  },
+  {
+   "who": "Kommissar Mauser",
+   "de": "Kommissar Friedrich Mauser von der Bonner Kriminalpolizei. Ein Mann, der seine Brille etwa siebzehnmal in der Stunde zurechtrückt und über den Rand hinwegsieht, wenn ihm etwas nicht passt. Das Hemd zerknittert, das Jackett rückt er sich zurecht, als säße eine Wespe darin. Hinter dem Schreibtisch sitzt er wie ein grummeliger Wachhund, und die Falten auf seiner Stirn werden tiefer, je länger man redet. Auf dem Tisch ein eingetrockneter Kaffeefleck, ein wachsender Papierstapel und ein Notizblock, der längst aussieht wie ein Kunstprojekt aus Tinte und Kaffeespuren. Wenn nichts anliegt, nimmt er sich alte ungelöste Akten noch einmal vor. Über gewisse Formulierungen sagt er, sie röchen noch deutlich nach der alten Zeit.",
+   "en": "Kommissar Friedrich Mauser of the Bonn criminal police. A man who straightens his glasses about seventeen times an hour and looks at you over the rim of them when something does not suit him. The shirt creased, the jacket tugged straight as though a wasp were sitting in it. Behind his desk he sits like a grumpy watchdog, and the furrows on his forehead deepen the longer you talk. On the desk a coffee stain two days dry, a growing pile of paper, and a notepad long since like an art project made of ink and coffee marks. When nothing is on, he goes back through the old unsolved files. Of certain turns of phrase he says you can still smell the old regime on them.",
+   "sprite": "art/people/mauser.png"
   }
  ],
  "walk": {
@@ -1322,12 +1334,12 @@
     },
     "sees": [
      {
-      "text": "The Geschäftsordnung on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
+      "text": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
       "phase": null
      },
      {
       "text": "A drafted request, in the drawer of the desk in the corner behind the door: for new machines, costed to the Pfennig against what the last lot came to in 1964, finished, unsigned, and never sent up.",
-      "phase": null
+      "phase": "after five"
      }
     ]
    },
@@ -1374,11 +1386,11 @@
       "phase": null
      },
      {
-      "text": "The Rückstandsliste: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every section (Referat) holding one of them.",
+      "text": "The Rückstandsliste, the arrears list: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every section (Referat) holding one of them.",
       "phase": null
      },
      {
-      "text": "The file, its cover: a new Aktendeckel cut and folded by hand, and the number, 117/64, copied on to the front in ordinary pencil.",
+      "text": "The file, its cover: a new file cover (Aktendeckel) cut and folded by hand, and the number, 117/64, copied on to the front in ordinary pencil.",
       "phase": null
      },
      {
@@ -1582,10 +1594,10 @@
       "talk": null,
       "evade": null
      },
-     "The Rückstandsliste": {
+     "The Rückstandsliste, the arrears list": {
       "lines": [
        {
-        "text": "Pohlmann: Oh, that list. The Rückstandsliste was on Herr Grau's desk in September and he initialled it and I sent it back out, and he could not tell you today a single number that stood on it.",
+        "text": "Pohlmann: Oh, that list. The Rückstandsliste, the arrears list was on Herr Grau's desk in September and he initialled it and I sent it back out, and he could not tell you today a single number that stood on it.",
         "phase": null
        }
       ],
@@ -1651,7 +1663,7 @@
      "registratur": {
       "lines": [
        {
-        "text": "Litt: Back to the Registratur? Not one of us has ever had to sign a thing back into the Registratur. What reaches this room comes through the outer office and goes back the same way, and most of the girls could not tell you where in the Registratur the book is kept.",
+        "text": "Litt: Back to the Registratur? Not one of us has ever had to sign a thing back into the Registratur. What reaches this room comes through the outer office and goes back the same way, and most of the girls have never had reason to put a hand on the loan book at all.",
         "phase": null
        }
       ],
@@ -2041,10 +2053,10 @@
     "raised_by": [
      "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it.",
      "The outer office's list of what went down: written before the paper leaves and initialled at the foot, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
-     "The Geschäftsordnung on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
+     "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
      "Simon: Open it yourself; you will see it better than I can tell it. Open a file in this room and the oldest sheet is the one facing you and the newest is at the back: that is the Registratur's order, and it is what a file leaves in and what I expect it back in. Open one in the Schreibsaal and they have turned it round, newest facing, because that is the sheet they are working on.",
      "Pohlmann: Through me. Nothing passes between the Registratur and the Referatsleiter himself except across this desk, in both directions, and it has been so for eleven years and three Referatsleiter.",
-     "Litt: Back to the Registratur? Not one of us has ever had to sign a thing back into the Registratur. What reaches this room comes through the outer office and goes back the same way, and most of the girls could not tell you where in the Registratur the book is kept.",
+     "Litt: Back to the Registratur? Not one of us has ever had to sign a thing back into the Registratur. What reaches this room comes through the outer office and goes back the same way, and most of the girls have never had reason to put a hand on the loan book at all.",
      "Litt: Now that is a thing I could tell you about. I have never thrown away a sheet that could still be saved. I keep the gummed linen in my own drawer, and I have mended more covers than the Registratur has issued."
     ]
    },
@@ -2167,13 +2179,13 @@
     "portable": false
    },
    {
-    "thing": "The Rückstandsliste",
-    "line": "The Rückstandsliste: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every section (Referat) holding one of them.",
+    "thing": "The Rückstandsliste, the arrears list",
+    "line": "The Rückstandsliste, the arrears list: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every section (Referat) holding one of them.",
     "portable": false
    },
    {
     "thing": "The file, its cover",
-    "line": "The file, its cover: a new Aktendeckel cut and folded by hand, and the number, 117/64, copied on to the front in ordinary pencil.",
+    "line": "The file, its cover: a new file cover (Aktendeckel) cut and folded by hand, and the number, 117/64, copied on to the front in ordinary pencil.",
     "portable": true
    },
    {
@@ -2197,8 +2209,8 @@
     "portable": false
    },
    {
-    "thing": "The Geschäftsordnung on Fräulein Ostrowski's desk",
-    "line": "The Geschäftsordnung on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
+    "thing": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk",
+    "line": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
     "portable": false
    },
    {
@@ -2283,12 +2295,12 @@
    "The porter's book": "art/documents/porters-book.jpeg",
    "The shelf for Z A 4": "art/documents/shelf-z-a-4.jpeg",
    "The loan book": "art/documents/loan-book.jpeg",
-   "The Rückstandsliste": "art/documents/rueckstandsliste.jpeg",
+   "The Rückstandsliste, the arrears list": "art/documents/rueckstandsliste.jpeg",
    "The file, its cover": "art/documents/file-cover.jpeg",
    "The file, its contents": "art/documents/file-contents.jpeg",
    "The Poststelle's outgoing book": "art/documents/poststelle-outgoing-book.jpeg",
    "The outer office's list of what went down": "art/documents/outer-office-list.jpeg",
-   "The Geschäftsordnung on Fräulein Ostrowski's desk": "art/documents/geschaeftsordnung.jpeg",
+   "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk": "art/documents/geschaeftsordnung.jpeg",
    "A drafted request, in the drawer of the desk in the corner behind the door": "art/documents/drafted-request.jpeg"
   },
   "sarah": "art/people/sarah.png",

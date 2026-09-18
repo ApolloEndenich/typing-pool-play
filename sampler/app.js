@@ -4,14 +4,14 @@
 
    It reads a case, shows one evening at a time, lets a player pick up the
    words that stand in its lines, and marks the report against hashes. It has
-   no idea what a channel or a pin or an alibi is -- those live in the Python
+   no idea what a channel or a pin or an alibi is -- those live in how a case is made
    that proved the case -- and it must stay that way, because the moment this
    file knows how a case works there are two models of the same thing and
    they will disagree. */
 
 const $ = id => document.getElementById(id);
 let CASE = null, DAY = 1, SEEN = new Set(), FOUND = new Set(), MATCH = null;
-let VERDICT = {}, VISIBLE = new Set(), ASIDE = [], FOLD = {};
+let VERDICT = {}, VISIBLE = new Set(), ASIDE = [], FOLD = {}, DESK = [];
 /* The memo's evidence: slot key -> the lines cited in it, as the page shows
    them. ACTIVE is the slot a line's cite button currently adds to. */
 let CITE = {}, ACTIVE = null;
@@ -32,14 +32,14 @@ let GMATCH = null, NMATCH = null, GLOSS = {}, WHO = {};
 let MODE = recall("_", "mode", "type");
 const typing = () => MODE === "type";
 
-/* HOW MUCH EVIDENCE THE REPORT ASKS FOR (chapters/memo.py, LEVELS): "notes",
+/* HOW MUCH EVIDENCE THE REPORT ASKS FOR (the three levels): "notes",
    "report" or "court". One setting for the whole game, and it only means
    anything in a chapter whose report has people to rule out. */
 let LEVEL = recall("_", "level", "report");
 const levelOf = () => (CASE && CASE.memo &&
   CASE.memo.levels.find(l => l.id === LEVEL)) ? LEVEL : "report";
 
-/* Same construction as the seal in export_cases.py. The solution is not in
+/* Same construction as the seal in the case builder. The solution is not in
    the file that ships; only its hash is, so it cannot be read off the disk
    by anybody who thinks of opening the case folder. */
 async function seal(parts) {
@@ -87,7 +87,7 @@ function sheets() {
 function startOver() {
   try {
     for (const k of Object.keys(localStorage))
-      if (/^faelle\.[^.]+\.(walk|heard|days|aside|noted|fold)$/.test(k)) localStorage.removeItem(k);
+      if (/^faelle\.[^.]+\.(walk|heard|days|aside|noted|fold|desk)$/.test(k)) localStorage.removeItem(k);
   } catch (e) {}
   location.reload();
 }
@@ -108,6 +108,7 @@ async function boot() {
   document.addEventListener("click", e => { if (!tipBoxes().some(b => b.contains(e.target))) untip(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") untip(); });
   window.addEventListener("scroll", untip, true);
+  window.addEventListener("resize", () => { if (DESKPLACE) DESKPLACE(); });
 
   const index = await (await fetch("cases/index.json")).json();
   /* The series in its order, with the chapters that are only a name so far
@@ -142,6 +143,7 @@ async function load(id) {
   FOUND = new Set(recall(id, "words", []).filter(w => known.has(w)));
   ASIDE = recall(id, "aside", []);
   FOLD = recall(id, "fold", {});
+  DESK = recall(id, "desk", []);
   CITE = recall(id, "cites", {});
   citing(null);
   $("notes").value = recall(id, "notes", "");
@@ -199,7 +201,7 @@ async function load(id) {
 const holds = t => typeof walking !== "function" || !walking() || HEARD.has(t);
 
 /* The dossiers. Character, never a clue -- so the words in them are NOT
-   marked and cannot be picked up: chapters/dossiers.py refuses a dossier that
+   marked and cannot be picked up: the dossier rules refuses a dossier that
    places somebody, dates them, or contains an answer, and a page that let a
    player collect out of one would make it evidence by the back door. */
 function people(){
@@ -224,7 +226,7 @@ function portrait(d) {
 
 /* A word is found where it stands: whole words, any case, the longest first
    so that a short word never splits a long one. The same rule as occurs() in
-   chapters/sheet.py, which is the page the checks read. */
+   the answer sheet itself, which is the page the checks read. */
 function matcher(texts) {
   const re = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const alts = [...texts].sort((a, b) => b.length - a.length).map(re).join("|");
@@ -259,7 +261,7 @@ function spans(text, collectable) {
 }
 
 /* `collectable` is false for the preamble, the question and the dossiers.
-   A word is only ever picked up out of a dealt line -- sheet.py decides what
+   A word is only ever picked up out of a dealt line -- the answer sheet decides what
    is found where, and it looks at the dealt lines and nothing else -- so a
    word button anywhere else would be a word the checks do not know exists.
    The glosses and the people still go everywhere, because explaining what a
@@ -407,7 +409,8 @@ function draw() {
     s.lines.push(x.text);
   }
   const shows = t => holds(t) || spoken.has(t);
-  const live = sections.map(s => [s, s.lines.filter(t => !off.has(t) && shows(t))])
+  const onDesk = new Set(DESK.map(c => c.t));
+  const live = sections.map(s => [s, s.lines.filter(t => !off.has(t) && !onDesk.has(t) && shows(t))])
     .filter(([, ls]) => ls.length);
   const gone = sections.map(s => [s, s.lines.filter(t => off.has(t) && shows(t))])
     .filter(([, ls]) => ls.length);
@@ -416,6 +419,8 @@ function draw() {
      as a line stands under it that did not when it was folded: FOLD keeps,
      per evening and heading, the lines it held then. */
   const underIt = {};
+  const pin = (t, where) => `<button class="pin" data-t="${esc(t)}" data-w="${
+    esc(where)}" title="Put this line on the desk">⇡</button>`;
   const group = (key, where, ls, done) => {
     underIt[key] = ls;
     const was = FOLD[key];
@@ -425,7 +430,8 @@ function draw() {
       `<button class="fold" data-k="${esc(key)}" aria-expanded="${!shut}" title="${
         shut ? "Open" : "Fold away"}">${shut ? "▶" : "▼"}</button>${marked(where)}${
         shut ? ` <span class="nfold">(${ls.length})</span>` : ""}</h3>${shut ? "" : `<ul>${
-      ls.map(t => `<li>${cite(t)}${tick(t, done)}${marked(t)}</li>`).join("")}</ul>`}</section>`;
+      ls.map(t => `<li>${cite(t)}${done ? "" : pin(t, where)}${tick(t, done)}${
+        marked(t)}</li>`).join("")}</ul>`}</section>`;
   };
   const goneN = gone.reduce((n, [, ls]) => n + ls.length, 0);
   $("sections").innerHTML =
@@ -439,6 +445,12 @@ function draw() {
     remember(CASE.id, "fold", FOLD);
     draw();
   });
+  $("sections").querySelectorAll(".pin").forEach(b => b.onclick = () => {
+    DESK.push({t: b.dataset.t, w: b.dataset.w, x: 0, y: deskFloor()});
+    remember(CASE.id, "desk", DESK);
+    draw();
+  });
+  desk(cite);
   $("sections").querySelectorAll(".word").forEach(b =>
     b.onclick = () => pick(b.dataset.w));
   $("sections").querySelectorAll(".tick").forEach(b => b.onclick = () => {
@@ -469,6 +481,90 @@ function draw() {
      word he has just read. */
   if (SEEN.size !== before) report();
 }
+
+/* THE DESK (the user, 17 September 2026): the lines a player lays out by hand,
+   from any evening, where they put them -- the registry's book beside the
+   porter's, one person's word beside another's. Nothing on it is read by the
+   game; it is the notebook's lists rearranged, and a line on the desk is off
+   its list until ⇣ puts it back. x is a fraction of the desk's width, so a
+   layout survives a narrower window; y is in pixels, and the desk grows to hold
+   its lowest card. The last card in DESK lies on top. */
+const deskCards = () => [...$("desk").querySelectorAll(".card")];
+
+/* where a newly laid card goes: under everything already there */
+function deskFloor() {
+  return deskCards().reduce((m, c) => Math.max(m, c.offsetTop + c.offsetHeight + 8), 8);
+}
+
+function desk(cite) {
+  const box = $("desk");
+  const shows = t => holds(t) || (typeof said === "function" && walking()
+    && CASE.days.some(d => said(d.n).some(x => x.text === t)));
+  DESK = DESK.filter(c => shows(c.t) && !ASIDE.includes(c.t));
+  box.innerHTML = DESK.length ? DESK.map((c, i) =>
+    `<div class="card" data-i="${i}">` +
+    `<div class="grip" title="Drag to move it"><span>${esc(c.w)}</span>${cite(c.t)}` +
+    `<button class="deskbtn back" title="Put it back in the list">⇣</button>` +
+    `<button class="deskbtn done" title="Done with this line">✓</button></div>` +
+    `<p>${marked(c.t)}</p></div>`).join("")
+    : `<div class="empty">⇡ beside a line lays it here, beside lines from any evening.</div>`;
+  const place = () => {
+    const W = box.clientWidth;
+    let bottom = 64;
+    deskCards().forEach(el => {
+      const c = DESK[+el.dataset.i];
+      const w = el.offsetWidth;
+      el.style.left = Math.max(0, Math.min(W - w, c.x * W)) + "px";
+      el.style.top = Math.max(0, c.y) + "px";
+      bottom = Math.max(bottom, c.y + el.offsetHeight + 8);
+    });
+    box.style.height = bottom + "px";
+  };
+  place();
+  DESKPLACE = place;
+  const save = () => remember(CASE.id, "desk", DESK);
+  deskCards().forEach(el => {
+    const i = +el.dataset.i, c = DESK[i];
+    el.querySelector(".back").onclick = () => { DESK.splice(i, 1); save(); draw(); };
+    el.querySelector(".done").onclick = () => {
+      DESK.splice(i, 1); ASIDE = [c.t, ...ASIDE];
+      remember(CASE.id, "aside", ASIDE); save(); draw();
+    };
+    const grip = el.querySelector(".grip");
+    grip.onpointerdown = e => {
+      if (e.target.closest("button")) return;
+      e.preventDefault();
+      grip.setPointerCapture(e.pointerId);
+      el.classList.add("lifted");
+      const W = box.clientWidth, x0 = e.clientX, y0 = e.clientY;
+      const left0 = el.offsetLeft, top0 = el.offsetTop;
+      grip.onpointermove = m => {
+        const left = Math.max(0, Math.min(W - el.offsetWidth, left0 + m.clientX - x0));
+        const top = Math.max(0, top0 + m.clientY - y0);
+        el.style.left = left + "px"; el.style.top = top + "px";
+        box.style.height = Math.max(box.offsetHeight - 4, top + el.offsetHeight + 8) + "px";
+      };
+      grip.onpointerup = grip.onpointercancel = () => {
+        grip.onpointermove = grip.onpointerup = grip.onpointercancel = null;
+        c.x = W ? el.offsetLeft / W : 0; c.y = el.offsetTop;
+        /* the card handled last lies on top */
+        DESK.splice(i, 1); DESK.push(c);
+        save(); draw();
+      };
+    };
+  });
+  box.querySelectorAll(".cite").forEach(b => b.onclick = () => {
+    if (!ACTIVE) return;
+    const list = CITE[ACTIVE] || (CITE[ACTIVE] = []);
+    if (!list.includes(b.dataset.t)) list.push(b.dataset.t);
+    remember(CASE.id, "cites", CITE);
+    say(ACTIVE, "", "");
+    report();
+  });
+  box.querySelectorAll(".word").forEach(b => b.onclick = () => pick(b.dataset.w));
+  annotate(box);
+}
+let DESKPLACE = null;
 
 /* A SETTING, not an experiment: some players want the help and some want the
    page to stay silent, and the difference is how much of the finding the game
@@ -508,7 +604,7 @@ function pick(w) {
   if (FOUND.has(w)) return;
   FOUND.add(w);
   remember(CASE.id, "words", [...FOUND]);
-  $("sections").querySelectorAll(".word").forEach(b =>
+  document.querySelectorAll("#sections .word, #desk .word").forEach(b =>
     b.classList.toggle("got", FOUND.has(b.dataset.w)));
   report();
 }
@@ -607,7 +703,7 @@ async function wordsHold(id) {
   /* A part holds or it does not, and nothing says which blank is wrong.
      Per-blank marks turn a deduction into a search. A part is marked whole,
      and the checks make sure no part has so few fillings that trying them
-     all is quicker than thinking (sheet.py, rule 4). */
+     all is quicker than thinking (rule 4 of the answer sheet). */
   return await seal([id, ...picked]) === p.sealed;
 }
 
@@ -615,11 +711,11 @@ async function wordsHold(id) {
    The report as a police report: every part cites its evidence, and every
    person ruled out has their own row. It is marked the way Kommissar Mauser
    would mark it, in pencil in the margin, and the marking is the witness
-   rule (chapters/memo.py): a citation to somebody's own statement comes back
+   rule: a citation to somebody's own statement comes back
    as that, and so does one to two people who clear each other. It never
    says which blank or which citation is wrong, only which kind of wrong.
 
-   Like the words, nothing here knows the answer. Python sealed every
+   Like the words, nothing here knows the answer. the case builder sealed every
    verdict a citation can earn; this hashes what was cited and looks. */
 function citing(key) {
   ACTIVE = key;
@@ -660,7 +756,7 @@ function memo() {
     const sentence = bits.map((bit, n) =>
       n < bits.length - 1 ? bit + blank(p, n) : bit).join("");
     const v = VERDICT[p.id] || ["", ""];
-    /* a part cites nothing, its words are its proof (memo.py, rule 1); only
+    /* a part cites nothing, its words are its proof (rule 1); only
        the court's file asks a part for its lines */
     return `<div class="part"><h3>${esc(p.title)}</h3><p>${sentence}</p>
       ${level.id === "court" ? slot(p.id) : ""}<button class="sign" data-part="${p.id}">Sign</button>
@@ -714,7 +810,7 @@ function memo() {
   });
 }
 
-/* THE REPORT, COMPRESSED (chapters/memo.py, 15 September 2026). A part cites
+/* THE REPORT, COMPRESSED (15 September 2026). A part cites
    nothing; what a signed part proves counts for every row it clears; and the
    result holds only once everybody else is ruled out. */
 const holding = cls => cls === "good" || cls === "wait";
@@ -805,7 +901,7 @@ async function rowMark(r, cited, signed = levelOf() === "court" ? [] : signedPar
 }
 
 /* EVERY MARK SAYS WHAT THE REPORT SAYS NOW (the user, 15 September 2026,
-   playing: "Nobody" kept the "Proof?" it got before the result was signed,
+   playing: "Nobody" kept the "More evidence available?" it got before the result was signed,
    though the waiting result credited it by then). A mark used to be what the
    report said when the button was pressed, and was only ever taken back, never
    given. Now every signed row is marked again against the parts as they stand,
@@ -855,7 +951,7 @@ function say(id, text, cls) {
 
 /* THE SCORE. How many questions Sarah has asked, under the report; and once
    every part holds, the fewest that bring out all the evidence beside it
-   (meetings.py `fewest_questions`). The fewest is kept back until then: it is
+   (the case's own fewest). The fewest is kept back until then: it is
    a number about the chapter, and a player still working should not be
    counting against it. */
 function tally() {

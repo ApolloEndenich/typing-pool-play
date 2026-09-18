@@ -956,7 +956,7 @@ en: {
   ["swap", "Both panel headings carry it. It exchanges <b>the building<\/b> and "
    + "<b>the clues<\/b>, so whichever you are working with sits beside the grid. "
    + "Choosing a door swaps to the clues by itself."],
-  ["arcs", "Under <i>Case and drawing<\/i>. The dashed curves show every position "
+  ["arcs", "Under <i>Case and drawing<\/i>. The curves (dotted between two typists, dashed where a machine is in it) show every position "
    + "a spacing or ordering clue still allows, however many that is. "
    + "Turning them off is a <b>difficulty setting<\/b>: you slide the pair along "
    + "the building in your head instead."],
@@ -1254,7 +1254,7 @@ de: {
   ["tauschen", "Steht in beiden Überschriften. Es vertauscht <b>das Haus<\/b> und "
    + "<b>die Hinweise<\/b>, damit das, womit Sie gerade arbeiten, neben dem "
    + "Raster steht. Eine Tür zu wählen tauscht von selbst auf die Hinweise."],
-  ["Bögen", "Unter <i>Fall und Zeichnung<\/i>. Die gestrichelten Bögen zeigen "
+  ["Bögen", "Unter <i>Fall und Zeichnung<\/i>. Die Bögen (gepunktet zwischen zwei Schreibkräften, gestrichelt, wo eine Maschine dabei ist) zeigen "
    + "jede Lage, die ein Abstands- oder Reihenfolgehinweis noch zulässt, wie "
    + "viele es auch sind. Sie abzuschalten ist eine "
    + "<b>Schwierigkeitseinstellung<\/b>: Sie schieben das Paar dann im Kopf durch "
@@ -1548,7 +1548,7 @@ fr: {
   ["permuter", "Les deux en-têtes le portent. Il échange <b>l'immeuble<\/b> et "
    + "<b>les indices<\/b>, pour que celui avec lequel vous travaillez soit à "
    + "côté de la grille. Choisir une porte permute vers les indices tout seul."],
-  ["arcs", "Sous <i>Affaire et dessin<\/i>. Les courbes en pointillé montrent "
+  ["arcs", "Sous <i>Affaire et dessin<\/i>. Les courbes (en points entre deux dactylos, en tirets quand une machine y figure) montrent "
    + "chaque position qu'un indice d'écart ou d'ordre autorise encore, quel "
    + "qu'en soit le nombre. Les désactiver est un <b>réglage "
    + "de difficulté<\/b> : vous faites glisser la paire le long de l'immeuble "
@@ -1826,7 +1826,7 @@ it: {
   ["scambia", "Lo portano entrambe le intestazioni. Scambia <b>l'edificio<\/b> e "
    + "<b>gli indizi<\/b>, così quello con cui sta lavorando sta accanto alla "
    + "griglia. Scegliere una porta passa agli indizi da sé."],
-  ["archi", "Sotto <i>Caso e disegno<\/i>. Le curve tratteggiate mostrano ogni "
+  ["archi", "Sotto <i>Caso e disegno<\/i>. Le curve (a puntini tra due dattilografe, tratteggiate dove c'è una macchina) mostrano ogni "
    + "posizione che un indizio di distanza o di ordine consente ancora, per "
    + "quante ne siano. Disattivarli è una <b>impostazione di "
    + "difficoltà<\/b>: la coppia la fa scorrere lungo l'edificio con la testa."],
@@ -2102,7 +2102,7 @@ es: {
   ["intercambiar", "Lo llevan ambos encabezados. Intercambia <b>el edificio<\/b> "
    + "y <b>las pistas<\/b>, para que aquello con lo que está trabajando quede "
    + "junto a la cuadrícula. Elegir una puerta cambia a las pistas por sí solo."],
-  ["arcos", "Bajo <i>Caso y dibujo<\/i>. Las curvas de trazos muestran cada "
+  ["arcos", "Bajo <i>Caso y dibujo<\/i>. Las curvas (de puntos entre dos mecanógrafas, de trazos donde entra una máquina) muestran cada "
    + "posición que una pista de distancia o de orden todavía permite, sean "
    + "las que sean. Desactivarlos es un <b>ajuste de dificultad<\/b>: "
    + "la pareja la desliza usted por el edificio de cabeza."],
@@ -2376,7 +2376,7 @@ zh: {
    + "<b>? 有可能<\/b> &rarr; <b>&#10003; 确定<\/b> &rarr; 空。"],
   ["对调", "两个栏目的标题上都有。它把<b>这座楼<\/b>和<b>线索<\/b>对调，让你正在用的那一边"
    + "紧挨着格子。选了一扇门，它会自己换到线索那边。"],
-  ["弧线", "在<i>案子与图<\/i>下面。虚线弧标出一条间距或先后的线索目前还允许的每一个位置，"
+  ["弧线", "在<i>案子与图<\/i>下面。弧线（两位打字员之间为点线，涉及打字机时为虚线）标出一条间距或先后的线索目前还允许的每一个位置，"
    + "有多少画多少。把它关掉是一种<b>难度设置<\/b>：那一对机器就得你自己在脑子里"
    + "沿着楼上下推。"],
   ["线索上的 &#10003;", "用完之后把它退到列表末尾。<b>&#8634;<\/b> 把它叫回来。"
@@ -2828,7 +2828,10 @@ function places(c){
   if (!open(sideA, A, a) || !open(sideB, B, b)) continue;
   if (rel(a, b)) out.push([[sideA, A, a], [sideB, B, b]]);
  }
- return { pairs: out, colour: (sideA === "m" || sideB === "m") ? "#8A6A00" : "#1E6B2F" };
+ /* Colour alone did not tell them apart on a phone (the user, 17 Sep 2026):
+    two typists are green and dotted, anything with a machine gold and dashed. */
+ const gold = sideA === "m" || sideB === "m";
+ return { pairs: out, colour: gold ? "#8A6A00" : "#1E6B2F", dash: gold ? "4 3" : "0.1 3", round: !gold };
 }
 
 function label(ov, x, y, colour, text){
@@ -2903,7 +2906,8 @@ function arcs(){
    path.setAttribute("fill", "none");
    path.setAttribute("stroke", p.colour);
    path.setAttribute("stroke-width", "1.4");
-   path.setAttribute("stroke-dasharray", "3 3");
+   path.setAttribute("stroke-dasharray", p.dash);
+   if (p.round) path.setAttribute("stroke-linecap", "round");
    ov.appendChild(path);
    label(ov, mx, my - 2, p.colour, c.id + (LET[n] || ""));
   });

@@ -9,7 +9,8 @@
    no server, and it stays that way: the player copies what they wrote, or
    opens an email with it already in, or posts it on GitHub. FEEDBACK_TO is the
    address the email goes to; while it is null there is no email button, which
-   is the honest thing for a page that has nobody to write to yet.
+   is the honest thing for a page that has nobody to write to. It has one now,
+   an address of the game's own and nobody's personal one.
 
    WHAT IT ASKS, AND WHAT IT DOES NOT. What stopped a player, what confused
    them, whom they suspected and what changed their mind, whether citing felt
@@ -24,7 +25,7 @@
    line, so a log is safe to post where others read it. The player sees all of
    it before sending, and can leave it out. */
 
-const FEEDBACK_TO = null;          // an email address, when there is one
+const FEEDBACK_TO = "typingpool1969@gmail.com";   // the game's own, 17 September 2026
 const FEEDBACK_ISSUES = "https://github.com/ApolloEndenich/typing-pool-play/issues/new";
 
 const ASK = [

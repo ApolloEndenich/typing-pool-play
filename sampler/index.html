@@ -8,13 +8,7 @@
 
 <!--
   The whole front end. It knows how to read a case and how to mark an answer
-  sheet, and nothing whatever about how a case is made or proved: that lives
-  in the Python, and between them is one JSON file.
-
-  It is plain HTML with no build step on purpose. This file opens in a
-  browser today, it is what the free web version serves, and Tauri wraps this
-  same directory for Steam -- so the funnel and the product can never drift
-  apart, because they are the same code.
+  sheet, and nothing whatever about how a case is made or proved.
 -->
 
 <header>
@@ -76,6 +70,9 @@
        before stays readable, because forgetting is not the difficulty
        anybody wants. -->
   <section id="evenings" hidden>
+    <!-- The desk (the user, 17 September 2026): lines laid out by hand, any
+         evening's, wherever the player puts them. -->
+    <div id="deskwrap"><h3 class="deskhead">On the desk</h3><div id="desk"></div></div>
     <div class="tabs" id="daytabs"></div>
     <p class="note" id="daynote"></p>
     <div id="sections"></div>
@@ -203,7 +200,12 @@
     introduction</b> folds the chapter's opening away and leaves its
     question. Tick a line <b>✓</b> when you are
     done with it: it moves down to <b>Done with</b>, under the same place or
-    person, and <b>↺</b> brings it back. <b>▼</b> beside a heading folds it
+    person, and <b>↺</b> brings it back. <b>⇡</b> puts a line on <b>the
+    desk</b> above the evenings, where it can lie beside lines from any
+    evening; drag it by its heading to wherever you want it (a tap on the
+    heading brings a card that lies under another to the top), <b>⇣</b> puts it
+    back in its place in the list, and <b>✓</b> is done with it from there
+    too. <b>▼</b> beside a heading folds it
     away, and it opens again by itself when something new stands under it. A German word with a dotted
     line under it explains itself when you point at it, and so does a name.</p>
     <p><b>Notes</b> is your own; nothing in it is read or marked.</p>
@@ -241,8 +243,9 @@
     <p>This is an early version. <b>Feedback</b>, at the top of the page, asks a
     few questions about how you got on, at any point, finished or not: what
     stopped you is worth as much to us as how you solved it. Nothing is sent
-    by itself. You copy what you wrote, or send it by email or on GitHub, and
-    you see everything, the play log included, before it goes.</p>
+    by itself. You copy what you wrote, or send it by email (to
+    typingpool1969@gmail.com) or on GitHub, and you see everything, the play
+    log included, before it goes.</p>
 
     <h3>The pictures</h3>
     <p>The rooms and the people are generated with AI from
@@ -294,12 +297,13 @@
 </div>
 
 <!-- A document Sarah holds, set in type (walk.js). -->
-<div id="doc" hidden>
+<div id="doc" hidden onclick="if (event.target === this) closeDoc()">
   <div class="paper" role="dialog" aria-modal="true" aria-labelledby="doctitle">
     <button id="docclose" type="button" onclick="closeDoc()" title="Put it down (Esc)">×</button>
     <h3 id="doctitle"></h3>
     <figure id="docpic" hidden></figure>
     <div id="docbody"></div>
+    <p class="closer-foot"><button type="button" onclick="closeDoc()">Close</button></p>
   </div>
 </div>
 
