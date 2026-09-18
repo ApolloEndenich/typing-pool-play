@@ -79,10 +79,13 @@ main {
    moved by its heading only, so the rest of it scrolls the page on a phone. */
 #deskwrap { margin-bottom:18px }
 .deskhead { font-size:11px; letter-spacing:.14em; text-transform:uppercase;
-            color:var(--ink); margin:0 0 6px }
-#desk { position:relative; min-height:64px; background:var(--wash);
+            color:var(--ink); margin:0 0 6px; display:flex; align-items:center; gap:10px }
+#squeeze { font:inherit; font-size:10px; letter-spacing:.06em; text-transform:none; padding:1px 7px;
+           cursor:pointer; background:none; color:var(--ink); border:1px solid var(--rule) }
+#squeeze:hover { background:var(--hi); border-color:var(--ink) }
+#sarahsdesk { position:relative; min-height:64px; background:var(--wash);
         border:2px dashed var(--rule) }
-#desk .empty { position:absolute; inset:0; display:flex; align-items:center;
+#sarahsdesk .empty { position:absolute; inset:0; display:flex; align-items:center;
                justify-content:center; padding:0 12px; text-align:center;
                color:var(--faint); font-size:12px }
 .card { position:absolute; width:clamp(150px, 46%, 320px); background:var(--paper);
@@ -520,6 +523,11 @@ body.theatre #talk .asks { flex:0 1 auto; overflow-y:auto; max-height:40% }
 /* the series at the top: numbered, and the chapters still to come shut */
 #cases .num { display:inline-block; min-width:1.6em; font-weight:700 }
 #cases button.tocome { opacity:.45; cursor:default; border-style:dashed }
+#cases .season { flex:1 1 100%; margin:0 0 6px }
+#cases .season h3 { font-size:10px; letter-spacing:.16em; text-transform:uppercase; margin:6px 0 5px;
+                    border-bottom:1px solid var(--hair); padding-bottom:3px }
+#cases .season h3 span { color:var(--faint); letter-spacing:.08em; margin-left:6px }
+#cases .seasoncases { display:flex; flex-wrap:wrap; gap:8px }
 
 /* a ledger page */
 /* the chain of command: each level in its own pencil (GGO § 18), a Referent's

@@ -113,12 +113,22 @@ async function boot() {
   const index = await (await fetch("cases/index.json")).json();
   /* The series in its order, with the chapters that are only a name so far
      standing in their places, shut. The sampler has no number. */
-  $("cases").innerHTML = index.map(c =>
+  /* THREE SEASONS (the user, 17 September 2026), by the year a chapter is set
+     in: 1968-69, 1970, 1971-72. */
+  const SEASONS = [["Season one", "1968–1969", y => y <= 1969],
+                   ["Season two", "1970", y => y === 1970],
+                   ["Season three", "1971–1972", y => y >= 1971]];
+  const yearOf = c => +((String(c.stated).match(/\d{4}/g) || ["0"]).pop());
+  const button = c =>
     `<button data-id="${c.id}"${c.built ? "" : " disabled"} class="${c.built ? "" : "tocome"}">` +
     `<span class="num">${c.n === null ? "·" : c.n}</span>${esc(c.title)}` +
     (c.german ? ` <i class="de">${esc(c.german)}</i>` : "") +
-    `<small>${esc(c.stated)}${c.built ? "" : c.held ? " · not in this sample" : " · not yet written"}</small></button>`
-  ).join("");
+    `<small>${esc(c.stated)}${c.built ? "" : c.held ? " · not in this sample" : " · not yet written"}</small></button>`;
+  $("cases").innerHTML = SEASONS.map(([name, years, has]) => {
+    const cs = index.filter(c => has(yearOf(c)));
+    return cs.length ? `<div class="season"><h3>${name} <span>${years}</span></h3>` +
+      `<div class="seasoncases">${cs.map(button).join("")}</div></div>` : "";
+  }).join("");
   $("cases").querySelectorAll("button:not([disabled])").forEach(b =>
     b.onclick = () => load(b.dataset.id));
   load((index.find(c => c.opens) || index.find(c => c.built)).id);
@@ -316,6 +326,7 @@ function tip(el, level = 0) {
   box.innerHTML = g
     ? `<b>${esc(g.term)}</b> <i>${esc(g.short)}</i><p>${esc(g.long)}</p>`
     : `<b>${esc(d.who)}</b>${portrait(d)}`;
+  box.dataset.k = k;
   const r = el.getBoundingClientRect();
   box.style.zIndex = 90 + level;
   box.hidden = false;
@@ -329,7 +340,12 @@ function tip(el, level = 0) {
   clearTimeout(TIPCLOSE);
   box.onmouseenter = () => clearTimeout(TIPCLOSE);
   box.onmouseleave = untipSoon;
+  /* A CARD NEVER OPENS ITSELF (the user, 17 September 2026): "Sarah Wessen"
+     in Sarah's own card opened her card again, and again. A name or a word
+     whose card is already open in the stack is plain text in the card above. */
+  const open = new Set(tipBoxes().filter(b => !b.hidden).map(b => b.dataset.k));
   box.querySelectorAll(".term,.who").forEach(inner => {
+    if (open.has(inner.dataset.k)) { inner.className = ""; return; }
     inner.onmouseenter = () => { clearTimeout(TIPCLOSE); tip(inner, level + 1); };
     inner.onclick = e => { e.stopPropagation(); tip(inner, level + 1); };
   });
@@ -489,7 +505,7 @@ function draw() {
    its list until ⇣ puts it back. x is a fraction of the desk's width, so a
    layout survives a narrower window; y is in pixels, and the desk grows to hold
    its lowest card. The last card in DESK lies on top. */
-const deskCards = () => [...$("desk").querySelectorAll(".card")];
+const deskCards = () => [...$("sarahsdesk").querySelectorAll(".card")];
 
 /* where a newly laid card goes: under everything already there */
 function deskFloor() {
@@ -497,7 +513,7 @@ function deskFloor() {
 }
 
 function desk(cite) {
-  const box = $("desk");
+  const box = $("sarahsdesk");
   const shows = t => holds(t) || (typeof said === "function" && walking()
     && CASE.days.some(d => said(d.n).some(x => x.text === t)));
   DESK = DESK.filter(c => shows(c.t) && !ASIDE.includes(c.t));
@@ -522,6 +538,24 @@ function desk(cite) {
   };
   place();
   DESKPLACE = place;
+  /* CLOSE THE GAPS (the user, 17 September 2026: a desk half empty after a few
+     cards went back). Top to bottom, every card rises until it meets a card
+     under which it lies, left and right as it was; the pile keeps its order. */
+  $("squeeze").hidden = !DESK.length;
+  $("squeeze").onclick = () => {
+    const els = deskCards(), W = box.clientWidth || 1;
+    const r = els.map(el => ({c: DESK[+el.dataset.i], l: el.offsetLeft,
+                              w: el.offsetWidth, h: el.offsetHeight}))
+      .sort((a, b) => a.c.y - b.c.y);
+    const done = [];
+    for (const k of r) {
+      k.c.y = done.filter(o => o.l < k.l + k.w && k.l < o.l + o.w)
+        .reduce((m, o) => Math.max(m, o.c.y + o.h + 8), 8);
+      k.c.x = k.l / W;
+      done.push(k);
+    }
+    save(); draw();
+  };
   const save = () => remember(CASE.id, "desk", DESK);
   deskCards().forEach(el => {
     const i = +el.dataset.i, c = DESK[i];
@@ -604,7 +638,7 @@ function pick(w) {
   if (FOUND.has(w)) return;
   FOUND.add(w);
   remember(CASE.id, "words", [...FOUND]);
-  document.querySelectorAll("#sections .word, #desk .word").forEach(b =>
+  document.querySelectorAll("#sections .word, #sarahsdesk .word").forEach(b =>
     b.classList.toggle("got", FOUND.has(b.dataset.w)));
   report();
 }

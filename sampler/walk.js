@@ -233,8 +233,16 @@ function act(kind, what) {
   if (any && spent(p.id) >= p.patience) note(p.id, "tired", p.tired);
   save(); walkDraw(); draw(); report();
   $("talk").scrollTop = 0;
-  if (!document.body.classList.contains("theatre") && $("talk").scrollIntoView)
-    $("talk").scrollIntoView({block: "nearest"});
+  /* The log, not the whole box, is what is brought into view: with a long answer
+     and both lists under it the box is taller than the window, "nearest" lined
+     up its foot, and the question just asked was above the screen (the user,
+     17 September 2026). */
+  const log = $("talk").querySelector && $("talk").querySelector(".log");
+  if (!document.body.classList.contains("theatre") && log && log.scrollIntoView) {
+    const r = log.getBoundingClientRect();
+    if (r.top < 0 || r.bottom > window.innerHeight)
+      log.scrollIntoView({block: r.height > window.innerHeight ? "start" : "nearest"});
+  }
 }
 
 const lastPhase = () => W.phase + 1 >= WALK.phases.length;
