@@ -1,5 +1,9 @@
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Typing Pool — duty sheet</title>
+<!-- Visits counted by GoatCounter (the user, 18 September 2026): no cookies, nothing personal, and localhost is not counted. -->
+<script data-goatcounter="https://typingpoolgame.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 <meta name="description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Six languages, free, no account.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Typing Pool — duty sheet">
@@ -468,6 +472,27 @@ function uiDate(iso, locale, opts){
  } catch (e) { return iso; }
 }
 
+/* TODAY, THEN (the user, 18 September 2026: the daily said "Friday, 18
+   September 2026" over a case set in a Bonn ministry in 1969). The same day of
+   the same month, on the same weekday, in the year nearest 1969 that has it:
+   the series' own years first (1968-1972), then further out. The weekday has
+   to hold, because the day of the week picks the case's shape and its note.
+   Returns the ISO date then and how many years ago that is; a 29 February
+   finds its leap year the same way. */
+function thenISO(iso){
+ const [y, m, d] = iso.split("-").map(Number);
+ const wd = new Date(Date.UTC(y, m - 1, d)).getUTCDay();
+ const near = [];
+ for (let k = 0; k <= 12; k++) near.push(1969 - k, 1969 + k);
+ const years = [...new Set([1969, 1970, 1968, 1971, 1972, ...near])];
+ for (const Y of years) {
+  const t = new Date(Date.UTC(Y, m - 1, d));
+  if (t.getUTCMonth() === m - 1 && t.getUTCDay() === wd)
+   return {iso: `${Y}-${iso.slice(5)}`, ago: y - Y};
+ }
+ return {iso, ago: 0};
+}
+
 /* One <select>, because it has to work on a phone with no network and because
    a row of flags would be claiming that a language belongs to a country. Each
    language is named in itself: somebody looking for their own is not reading
@@ -864,6 +889,7 @@ en: {
  caseAndArt: "Case and drawing",
  swap: "swap", replay: "last scene",
  fileReport: "File the report",
+ ago: "{n} years ago to the day",
  nudge: "Schmiss noses at it (−30 min)",
  fresh: "Fresh sheet",
  notesHint: "if C then B is by the door, so D cannot be…",
@@ -1171,6 +1197,7 @@ de: {
  caseAndArt: "Fall und Zeichnung",
  swap: "tauschen", replay: "letzte Szene",
  fileReport: "Bericht abgeben",
+ ago: "heute vor {n} Jahren",
  nudge: "Schmiss schnüffelt daran (−30 Min.)",
  fresh: "Neuer Bogen",
  notesHint: "wenn C, dann sitzt B an der Tür, also kann D nicht …",
@@ -1465,6 +1492,7 @@ fr: {
  caseAndArt: "Affaire et dessin",
  swap: "permuter", replay: "dernière scène",
  fileReport: "Remettre le rapport",
+ ago: "il y a {n} ans jour pour jour",
  nudge: "Schmiss y met le nez (−30 min)",
  fresh: "Feuille neuve",
  notesHint: "si C alors B est près de la porte, donc D ne peut pas être…",
@@ -1744,6 +1772,7 @@ it: {
  caseAndArt: "Caso e disegno",
  swap: "scambia", replay: "ultima scena",
  fileReport: "Consegnare il rapporto",
+ ago: "{n} anni fa, oggi",
  nudge: "Schmiss ci mette il naso (−30 min)",
  fresh: "Foglio nuovo",
  notesHint: "se C allora B è vicino alla porta, quindi D non può essere…",
@@ -2020,6 +2049,7 @@ es: {
  caseAndArt: "Caso y dibujo",
  swap: "intercambiar", replay: "última escena",
  fileReport: "Entregar el informe",
+ ago: "hace {n} años, tal día como hoy",
  nudge: "Schmiss le mete el hocico (−30 min)",
  fresh: "Hoja nueva",
  notesHint: "si C entonces B está junto a la puerta, así que D no puede ser…",
@@ -2303,6 +2333,7 @@ zh: {
  caseAndArt: "案子与图",
  swap: "对调", replay: "上一段",
  fileReport: "交报告",
+ ago: "{n}年前的今天",
  nudge: "施密斯用鼻子拱一下（−30 分钟）",
  fresh: "换张新表",
  notesHint: "若 C 则 B 靠门，所以 D 不可能是……",
@@ -4186,8 +4217,10 @@ function meta(){
  $("brief").innerHTML = (les
    ? `<b>${les.name}.</b> ${les.blurb}<br>` : "")
    + (C.daily
-      ? `<b>${uiDate(C.daily.date, t.locale, {weekday: "long"})}, `
-        + `${uiDate(C.daily.date, t.locale)}.</b> `
+      ? `<b>${uiDate(thenISO(C.daily.date).iso, t.locale, {weekday: "long"})}, `
+        + `${uiDate(thenISO(C.daily.date).iso, t.locale)}</b>`
+        + (thenISO(C.daily.date).ago ? ` · ${fill(t.ago, {n: thenISO(C.daily.date).ago})}` : "")
+        + `. `
         + `${cw.dailyNotes[C.daily.n] || ""}<br>` : "")
    + shape + t.findWho + staff;
 }

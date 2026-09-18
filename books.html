@@ -1,6 +1,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The books — The Typing Pool</title>
+<!-- Visits counted by GoatCounter (the user, 18 September 2026): no cookies, nothing personal, and localhost is not counted. -->
+<script data-goatcounter="https://typingpoolgame.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 <meta name="description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Six languages, free, no account.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The books — The Typing Pool">
@@ -156,6 +159,27 @@ function uiDate(iso, locale, opts){
  } catch (e) { return iso; }
 }
 
+/* TODAY, THEN (the user, 18 September 2026: the daily said "Friday, 18
+   September 2026" over a case set in a Bonn ministry in 1969). The same day of
+   the same month, on the same weekday, in the year nearest 1969 that has it:
+   the series' own years first (1968-1972), then further out. The weekday has
+   to hold, because the day of the week picks the case's shape and its note.
+   Returns the ISO date then and how many years ago that is; a 29 February
+   finds its leap year the same way. */
+function thenISO(iso){
+ const [y, m, d] = iso.split("-").map(Number);
+ const wd = new Date(Date.UTC(y, m - 1, d)).getUTCDay();
+ const near = [];
+ for (let k = 0; k <= 12; k++) near.push(1969 - k, 1969 + k);
+ const years = [...new Set([1969, 1970, 1968, 1971, 1972, ...near])];
+ for (const Y of years) {
+  const t = new Date(Date.UTC(Y, m - 1, d));
+  if (t.getUTCMonth() === m - 1 && t.getUTCDay() === wd)
+   return {iso: `${Y}-${iso.slice(5)}`, ago: y - Y};
+ }
+ return {iso, ago: 0};
+}
+
 /* One <select>, because it has to work on a phone with no network and because
    a row of flags would be claiming that a language belongs to a country. Each
    language is named in itself: somebody looking for their own is not reading
@@ -173,799 +197,1623 @@ function langPicker(langs, nameOf, current, onChange, label){
 }
 
 /* The prose of the static pages, one table per language.
+
    `build_start.py` bakes this into index.html and books.html at `__STRINGS__`.
+
+
 
    HOW THIS DIFFERS FROM phrase.js, AND WHY THEY ARE TWO FILES
 
+
+
    `phrase.js` renders CLUES. A clue is load-bearing: "two floors above" and
+
    "two floors below" are different puzzles, so that file is guarded by
+
    `phrase-test.js`, which holds English against the Python reference and
+
    checks in every language that two clues meaning different things do not
+
    come out as the same sentence.
 
+
+
    Nothing here is load-bearing. It is the front page, the doors, the note
+
    about the books, the footers. A clumsy sentence here is a clumsy sentence;
+
    it cannot make a case unsolvable. So this file is ordinary prose and is
+
    checked by reading it.
+
+
 
    WHAT A TRANSLATOR NEEDS TO KNOW
 
+
+
    - `intro` is an array of paragraphs. Keep the count; the page renders one
+
      <p> per entry. `<b>` and `<i>` may move to wherever the emphasis belongs
+
      in your language.
+
    - `{n}` placeholders are filled by the page: {n} counts, {date} a date
+
      already formatted for your locale, {day} a weekday name likewise.
+
    - `title` is the name of the game. It IS translated, deliberately — the
+
      thing is set in Bonn and made as a present, and "The Typing Pool" in the
+
      middle of a German page reads like an import. Put English back in one
+
      line if that turns out to be wrong.
+
    - `locale` drives date formatting through Intl. `name` is what the picker
+
      shows, and is always written in its OWN language, because a person
+
      looking for their language is not reading the one currently on screen.
 
+
+
    The German was written first and matters most: the game is a present for a
+
    German novelist, the setting is her city, and she will read it the way a
+
    writer reads. It should be gone over by a native speaker before it ships.
+
    The others are mine too and are held to a lower bar honestly stated: good
+
    enough to play in, not good enough to be proud of. */
+
+
 
 const UI = {
 
+
+
 /* ------------------------------------------------------------------ English */
+
 en: {
+
  name: "English (UK)", locale: "en-GB",
+
  title: "The Typing Pool",
+
  sub: "a deduction game · Bonn, 1969 · after five",
+
  intro: [
+
   "A letter left this building that should never have left it. Nobody signed "
+
   + "it, but the machine that typed it can be read off the page — a chipped "
+
   + "<i>e<\/i>, a carriage that rides high — so you know exactly which "
+
   + "typewriter did it. What you do not know is who was sitting at it.",
+
   "The pool was reorganised. Machines go downstairs to be serviced and come "
+
   + "back to a different desk; the women get moved along with them. The duty "
+
   + "roster by the lift is four weeks old and has been corrected in three "
+
   + "different pencils. So the question is a grid: which machine stood on "
+
   + "which desk, and who sat there.",
+
   "It is <b>a quarter past five<\/b>. The typists went home at five — which is "
+
   + "why you can walk the floors, and why not one of them can simply be "
+
   + "asked. Everyone else is still in, because clearing up after them is what "
+
   + "they are for: the charwoman is doing the desks, the night porter is "
+
   + "signing on, the canteen is between services. They watched that pool all day.",
+
   "You are <b>Sarah Wessen<\/b>, and you can knock on any door in the "
+
   + "building. Every call costs you twenty-five minutes, and the last "
+
   + "collection is at eight.",
+
   "<b>Schmiss<\/b> comes along for free, and he is the one telling you all "
+
   + "this. He never says who. He says how many of three of them have been up "
+
   + "past a particular landing, or where a trail stops, or how many different "
+
   + "floors three women came off — and none of those is a name, and all of "
+
   + "them together are."
+
  ],
+
  caption: "Sarah Wessen and Schmiss, as drawn for this game. In the novels he "
+
   + "is the narrator; here he keeps the job, as far as a crossword will let him.",
+
  start: "Where to start",
+
  doors: {
+
   learn: "Learn it",
+
   learnSub: "{n} lessons, one idea each, smallest first. Nothing in a lesson "
+
    + "that the lesson has not taught you.",
+
   today: "Today's case",
+
   todaySub: "A new building every morning. Everyone gets the same one.",
+
   rest: "The rest of them",
+
   restSub: "{n} cases, from three desks to six, easy to unpleasant."
+
  },
+
  daily: {
+
   today: "Today is {date}.",
+
+  ago: "{n} years ago to the day",
   none: "Nobody has built it yet — run daily.py. The link below opens the most "
+
    + "recent day there is.",
+
   stale: "Today has not been built yet; the link opens {day}, {date}."
+
  },
+
  sampler: {
+
   h: "Something longer",
+
   text: "<b>Der Rückstand<\/b> is a free sample of the longer game being made "
+
    + "alongside this one. A file has come back to the Registratur mended, and "
+
    + "nobody signed for it. Walk through the ministry, ask the people in it, "
+
    + "and write Sarah's report to Kommissar Mauser, with the evidence for "
-   + "every part. An early version, in English only. The pictures are "
-   + "generated with AI, and are still drafts.",
+
+   + "every part. An early version, in English only. The rooms and the "
+
+   + "people are generated with AI and are still drafts; in the documents "
+
+   + "only the paper and the light are, and every ruled line and every mark "
+
+   + "on them is drawn by a small program of our own.",
+
   link: "Open the sample →"
+
  },
+
  whose: "Whose dog is this",
+
  about: [
+
   "Wessen and Schmiss are not mine. They belong to the crime novels of "
+
   + "<b>Gudrun Leyendecker<\/b>, who was born in Bonn in 1948, has been "
+
   + "publishing since 1995, and has well over a hundred books to her name. In "
+
   + "them, Schmiss is the <i>narrator<\/i>: the story is told by the dog, who "
+
   + "notices more than anyone expects him to and reports it in his own way, "
+
   + "while Sarah Wessen works a case her own way and Kommissar Mauser works "
+
   + "it his.",
+
   "<b>The game is not the books.<\/b> It borrows two of her characters and the "
+
   + "year they live in, and then does something the books never do: it turns "
+
   + "an evening in Bonn into a grid you fill in with ticks and crosses. There "
+
   + "is no plot here and nobody is hurt. Schmiss does the telling, because "
+
   + "taking that off him seemed worse than borrowing him in the first place — "
+
   + "and everything he says between the calls is hers as well: thirteen "
+
   + "lines quoted from the first novel, with her permission. But a puzzle "
+
   + "can only give a narrator so much to do. If you like the pair "
+
   + "of them, the novels are where they actually live, and they are novels, "
+
   + "not puzzles."
+
  ],
+
  bookLine: "Bonn, 1969: a shot on the Venusberg, and politics and private "
+
   + "business tangled together.",
+
  moreBooks: "more of her books",
+
  allBooks: "all of the Schmiss und Wessen books →",
+
  /* The link in the footer of the front and books pages. It says PROBLEM and
+
     not "issue" or "report" on purpose: the sheet already spends the word
+
     report on filing a case, and two meanings of it on one game is a way to
+
     have somebody file a bug instead of an answer. The address is the PUBLIC
+
     play repo, which is the one a stranger can reach — never the engine. */
+
  report: "Report a problem",
+
  foot: "Characters and Schmiss's asides from the novels of Gudrun "
+
   + "Leyendecker, quoted and used with her permission. Puzzle engine and sheet built for this "
+
   + "game; every case is constructed and proved solvable without guessing "
+
   + "before it ships. Built {date}.",
+
  lang: "Language",
+
  books: {
+
   sub: "the books the dog came from",
+
   back: "← back to the game",
+
   find: "Where to find them",
+
   author: "About the author",
+
   band: "Band {n}",
+
   empty: "not filled in yet",
+
   emptyNote: "I could not find this volume's details on any publisher or shop "
+
    + "page, and I will not invent a title and an ISBN to fill a gap. Add it to "
+
    + "<code>books.json<\/code> and it appears here.",
+
   pages: "pages",
+
   at: "at the publisher",
+
   shop: "a shop — availability varies by country",
+
   publisher: "the publisher's own shop",
+
   aboutHer: "about her and her work",
+
   /* Editorial prose about the series and the author. It lived in
+
      books.json and so came out English under a German heading — the
+
      bibliography stays there, the sentences belong here. */
+
   seriesBlurb: "Bonn, 1969. Sarah Wessen is a private detective with a mind of her own; Kommissar Mauser is the police. And Schmiss is the dog, who tells the whole thing — he understands rather less than he thinks and is quietly unimpressed by everybody.",
+
   authorNote: "Fourth child of the art historian Ernst Lang and the pianist Margarethe Lang. Trained as a bookbinder, wanted to act, and began with esoteric books before novels, crime, children's books, poetry and guides. Well over a hundred titles.",
+
   /* The other novels: heading and note. Bibliography stays in books.json;
+
      the sentences about it belong here, like the series blurb. */
+
   alsoTitle: "Other Bonn crime novels",
+
   alsoNote: "Confirmed by the author: these are not Schmiss und Wessen — the dog is not in them. They stand on their own and tend to be more psychological. She names an earlier one, \"Nicht zu fassen\", as a humorous, madcap crime novel and a forerunner of the series; it is not listed here because no publisher page for it has been read yet.",
+
   linkLabels: {
+
    bod: "Her books at the publisher (BoD)",
+
    lovelybooks: "Author page at LovelyBooks",
+
    wikipedia: "Wikipedia (DE)",
+
    indigo: "Search Indigo (Canada)",
+
    amazon: "Search Amazon.de",
+
   },
+
   born: "{name}, born in {place} on {date}, writing since {since}.",
+
   foot: "Everything on this page with a publisher, a date or an ISBN against "
+
    + "it was read off a publisher or retailer page. Anything that could not be "
+
    + "checked is shown as an empty slot rather than filled in. The game is at "
+
    + "<a href=\"index.html\">the front page<\/a>."
+
  }
+
 },
+
+
 
 /* ------------------------------------------------------------------- German */
+
 de: {
+
  name: "Deutsch", locale: "de-DE",
+
  title: "Der Schreibsaal",
+
  sub: "ein Deduktionsspiel · Bonn, 1969 · nach fünf",
+
  intro: [
+
   "Ein Brief hat dieses Haus verlassen, der es nie hätte verlassen dürfen. "
+
   + "Unterschrieben hat ihn niemand, aber die Maschine lässt sich vom Blatt "
+
   + "ablesen — ein schartiges <i>e<\/i>, ein Wagen, der zu hoch läuft — man "
+
   + "weiß also genau, welche Schreibmaschine es war. Was man nicht weiß: wer "
+
   + "daran gesessen hat.",
+
   "Der Saal ist umgestellt worden. Maschinen gehen zur Wartung nach unten und "
+
   + "kommen an einen anderen Tisch zurück; die Frauen werden mitversetzt. Der "
+
   + "Dienstplan am Aufzug ist vier Wochen alt und in drei verschiedenen "
+
   + "Bleistiften korrigiert. Die Frage ist also ein Raster: welche Maschine "
+
   + "stand auf welchem Tisch, und wer hat dort gesessen.",
+
   "Es ist <b>Viertel nach fünf<\/b>. Die Damen sind um fünf gegangen — deshalb "
+
   + "kann man durch die Stockwerke laufen, und deshalb ist keine von ihnen "
+
   + "einfach zu fragen. Alle anderen sind noch da, weil Aufräumen nach dem "
+
   + "Saal ihre Arbeit ist: die Putzfrau macht die Tische, der Nachtpförtner "
+
   + "tritt an, die Kantine ist zwischen zwei Essen. Sie haben den Saal den "
+
   + "ganzen Tag im Blick gehabt.",
+
   "Sie sind <b>Sarah Wessen<\/b> und dürfen an jede Tür im Haus klopfen. Jeder "
+
   + "Besuch kostet fünfundzwanzig Minuten, und die letzte Leerung ist um acht.",
+
   "<b>Schmiss<\/b> kommt umsonst mit, und er ist der, der Ihnen das alles "
+
   + "erzählt. Er sagt nie, wer. Er sagt, wie viele von dreien über einem "
+
   + "bestimmten Absatz gewesen sind, oder wo eine Spur endet, oder von wie "
+
   + "vielen verschiedenen Stockwerken drei Frauen kamen — und nichts davon ist "
+
   + "ein Name, und alles zusammen ist einer."
+
  ],
+
  caption: "Sarah Wessen und Schmiss, für dieses Spiel gezeichnet. In den "
+
   + "Romanen ist er der Erzähler; hier behält er den Posten, soweit ein "
+
   + "Rätsel das zulässt.",
+
  start: "Wo man anfängt",
+
  doors: {
+
   learn: "Lernen",
+
   learnSub: "{n} Lektionen, je ein Gedanke, die kleinste zuerst. In keiner "
+
    + "Lektion steht etwas, das sie nicht vorher erklärt hat.",
+
   today: "Der Fall von heute",
+
   todaySub: "Jeden Morgen ein neues Haus. Alle bekommen dasselbe.",
+
   rest: "Alle übrigen",
+
   restSub: "{n} Fälle, von drei Tischen bis sechs, von leicht bis unangenehm."
+
  },
+
  daily: {
+
   // "Heute ist DER 6. September 2026" — the date is a dated day, not a name
+
   today: "Heute ist der {date}.",
+
+  ago: "heute vor {n} Jahren",
   none: "Es ist noch keiner gebaut worden — daily.py ausführen. Der Link unten "
+
    + "öffnet den letzten Tag, den es gibt.",
+
   stale: "Heute ist noch nicht gebaut; der Link öffnet {day}, den {date}."
+
  },
+
  sampler: {
+
   h: "Etwas Längeres",
+
   text: "<b>Der Rückstand<\/b> ist eine kostenlose Probe des längeren Spiels, "
+
    + "das neben diesem entsteht. Eine Akte ist geflickt in die Registratur "
+
    + "zurückgekommen, und niemand hat dafür unterschrieben. Gehen Sie durch "
+
    + "das Ministerium, fragen Sie die Leute darin, und schreiben Sie Sarahs "
+
    + "Bericht an Kommissar Mauser, mit dem Beleg für jeden Teil. Eine frühe "
-   + "Fassung, bisher nur auf Englisch. Die Bilder sind mit KI erzeugt und "
-   + "noch Entwürfe.",
+
+   + "Fassung, bisher nur auf Englisch. Die Räume und die Personen sind mit "
+
+   + "KI erzeugt und noch Entwürfe; bei den Schriftstücken nur das Papier und "
+
+   + "das Licht, jede Linie und jedes Zeichen darauf zieht ein kleines "
+
+   + "Programm von uns.",
+
   link: "Zur Probe →"
+
  },
+
  whose: "Wem der Hund gehört",
+
  about: [
+
   "Wessen und Schmiss gehören nicht mir. Sie gehören in die Kriminalromane "
+
   + "von <b>Gudrun Leyendecker<\/b>, 1948 in Bonn geboren, seit 1995 "
+
   + "veröffentlichend, weit über hundert Bücher. Dort ist Schmiss der "
+
   + "<i>Erzähler<\/i>: Der Hund erzählt die Geschichte, bemerkt mehr, als man "
+
   + "ihm zutraut, und berichtet es auf seine Art, während Sarah Wessen einen "
+
   + "Fall auf ihre Weise bearbeitet und Kommissar Mauser auf seine.",
+
   "<b>Das Spiel ist nicht das Buch.<\/b> Es leiht sich zwei ihrer Figuren und "
+
   + "das Jahr, in dem sie leben, und macht dann etwas, was die Romane nie tun: "
+
   + "Es verwandelt einen Abend in Bonn in ein Raster, das man mit Haken und "
+
   + "Kreuzen füllt. Es gibt hier keine Handlung, und niemand kommt zu Schaden. "
+
   + "Schmiss erzählt, weil es schlimmer schien, ihm das zu nehmen, als ihn "
+
   + "überhaupt auszuleihen — und alles, was er zwischen den Besuchen sagt, "
+
   + "ist ebenfalls von ihr: dreizehn Sätze aus dem ersten Roman, mit ihrer "
+
   + "Erlaubnis zitiert. Aber ein Rätsel kann einem Erzähler nur begrenzt "
+
   + "zu tun geben. Wenn Sie die beiden mögen: In den Romanen leben sie "
+
   + "wirklich, und das sind Romane, keine Rätsel."
+
  ],
+
  bookLine: "Bonn, 1969: ein Schuss auf dem Venusberg, und Politik und private "
+
   + "Geschäfte ineinander verheddert.",
+
  moreBooks: "mehr von ihren Büchern",
+
  allBooks: "alle Schmiss-und-Wessen-Bände →",
+
  report: "Ein Problem melden",
+
  foot: "Figuren und Schmiss' Bemerkungen aus den Romanen von Gudrun "
+
   + "Leyendecker, mit ihrer Erlaubnis zitiert und verwendet. Rätselmaschine und Bogen für "
+
   + "dieses Spiel gebaut; jeder Fall wird konstruiert und vor der Auslieferung "
+
   + "als ohne Raten lösbar bewiesen. Gebaut am {date}.",
+
  lang: "Sprache",
+
  books: {
+
   sub: "die Bücher, aus denen der Hund kommt",
+
   back: "← zurück zum Spiel",
+
   find: "Wo es sie gibt",
+
   author: "Über die Autorin",
+
   band: "Band {n}",
+
   empty: "noch nicht eingetragen",
+
   emptyNote: "Die Angaben zu diesem Band waren auf keiner Verlags- oder "
+
    + "Händlerseite zu finden, und ich erfinde keinen Titel und keine ISBN, um "
+
    + "eine Lücke zu füllen. In <code>books.json<\/code> eintragen, dann steht "
+
    + "er hier.",
+
   pages: "Seiten",
+
   at: "beim Verlag",
+
   shop: "ein Shop — die Verfügbarkeit ist von Land zu Land verschieden",
+
   publisher: "der Shop des Verlags",
+
   aboutHer: "über sie und ihre Arbeit",
+
   /* Editorial prose about the series and the author. It lived in
+
      books.json and so came out English under a German heading — the
+
      bibliography stays there, the sentences belong here. */
+
   seriesBlurb: "Bonn, 1969. Sarah Wessen ist Privatdetektivin mit eigenem Kopf; Kommissar Mauser ist die Polizei. Und Schmiss ist der Hund, der das Ganze erzählt — er versteht etwas weniger, als er glaubt, und ist von allen still unbeeindruckt.",
+
   authorNote: "Viertes Kind des Kunsthistorikers Ernst Lang und der Pianistin Margarethe Lang. Gelernte Buchbinderin, wollte zum Theater, begann mit esoterischen Büchern und kam dann zu Romanen, Krimis, Kinderbüchern, Lyrik und Ratgebern. Weit über hundert Titel.",
+
   alsoTitle: "Weitere Bonner Kriminalromane",
+
   alsoNote: "Von der Autorin bestätigt: Das sind keine Schmiss-und-Wessen-Bände — der Hund kommt darin nicht vor. Sie stehen für sich und sind in der Regel eher psychologisch. Sie nennt außerdem einen früheren Titel, „Nicht zu fassen“, einen humorvollen, verrückten Krimi und einen Vorläufer der Reihe; er steht hier nicht, weil dazu noch keine Verlagsseite gelesen wurde.",
+
   linkLabels: {
+
    bod: "Ihre Bücher beim Verlag (BoD)",
+
    lovelybooks: "Autorenseite bei LovelyBooks",
+
    wikipedia: "Wikipedia (DE)",
+
    indigo: "Bei Indigo suchen (Kanada)",
+
    amazon: "Bei Amazon.de suchen",
+
   },
+
   born: "{name}, geboren am {date} in {place}, schreibt seit {since}.",
+
   foot: "Alles auf dieser Seite, wo ein Verlag, ein Datum oder eine ISBN "
+
    + "steht, ist von einer Verlags- oder Händlerseite abgelesen. Was sich "
+
    + "nicht prüfen ließ, steht als leeres Feld da, statt ausgefüllt zu sein. "
+
    + "Das Spiel ist auf <a href=\"index.html\">der Startseite<\/a>."
+
  }
+
 },
+
+
 
 /* ------------------------------------------------------------------- French */
+
 fr: {
+
  name: "Français", locale: "fr-FR",
+
  title: "Le Pool des Dactylos",
+
  sub: "un jeu de déduction · Bonn, 1969 · après cinq heures",
+
  intro: [
+
   "Une lettre est sortie de cet immeuble alors qu'elle n'aurait jamais dû en "
+
   + "sortir. Personne ne l'a signée, mais la machine se lit sur la page — un "
+
   + "<i>e<\/i> ébréché, un chariot qui monte trop haut — on sait donc "
+
   + "exactement quelle machine à écrire l'a tapée. Ce qu'on ne sait pas, c'est "
+
   + "qui était assise devant.",
+
   "Le pool a été réorganisé. Les machines descendent à l'entretien et "
+
   + "reviennent à un autre bureau ; on déplace les femmes avec elles. Le "
+
   + "tableau de service près de l'ascenseur date de quatre semaines et a été "
+
   + "corrigé à trois crayons différents. La question est donc une grille : "
+
   + "quelle machine se trouvait sur quel bureau, et qui y était assise.",
+
   "Il est <b>cinq heures et quart<\/b>. Les dactylos sont parties à cinq heures "
+
   + "— c'est pourquoi on peut parcourir les étages, et pourquoi aucune d'elles "
+
   + "ne peut être interrogée. Tous les autres sont encore là, parce que ranger "
+
   + "derrière elles est précisément leur travail : la femme de ménage fait les "
+
   + "bureaux, le gardien de nuit prend son service, la cantine est entre deux "
+
   + "services. Ils ont eu le pool sous les yeux toute la journée.",
+
   "Vous êtes <b>Sarah Wessen<\/b>, et vous pouvez frapper à n'importe quelle "
+
   + "porte de l'immeuble. Chaque visite vous coûte vingt-cinq minutes, et la "
+
   + "dernière levée est à huit heures.",
+
   "<b>Schmiss<\/b> vous accompagne gratuitement, et c'est lui qui vous raconte "
+
   + "tout cela. Il ne dit jamais qui. Il dit combien de trois d'entre elles "
+
   + "sont montées au-dessus d'un palier donné, ou bien où s'arrête une piste, "
+
   + "ou de combien d'étages différents venaient trois femmes — et rien de tout "
+
   + "cela n'est un nom, et tout cela ensemble en est un."
+
  ],
+
  caption: "Sarah Wessen et Schmiss, dessinés pour ce jeu. Dans les romans il "
+
   + "est le narrateur ; ici il garde le poste, autant qu'une grille le permet.",
+
  start: "Par où commencer",
+
  doors: {
+
   learn: "Apprendre",
+
   learnSub: "{n} leçons, une idée chacune, la plus petite d'abord. Rien dans "
+
    + "une leçon qu'elle ne vous ait pas déjà appris.",
+
   today: "L'affaire du jour",
+
   todaySub: "Un nouvel immeuble chaque matin. Tout le monde a le même.",
+
   rest: "Toutes les autres",
+
   restSub: "{n} affaires, de trois bureaux à six, de facile à désagréable."
+
  },
+
  daily: {
+
   today: "Nous sommes le {date}.",
+
+  ago: "il y a {n} ans jour pour jour",
   none: "Personne ne l'a encore construite — lancez daily.py. Le lien "
+
    + "ci-dessous ouvre le jour le plus récent qui existe.",
+
   stale: "Aujourd'hui n'a pas encore été construit ; le lien ouvre {day} {date}."
+
  },
+
  sampler: {
+
   h: "Quelque chose de plus long",
+
   text: "<b>Der Rückstand<\/b> est un extrait gratuit du jeu plus long qui se "
+
    + "fait à côté de celui-ci. Un dossier est revenu réparé à la Registratur, "
+
    + "et personne n'a signé pour lui. Parcourez le ministère, interrogez ceux "
+
    + "qui y travaillent, et rédigez le rapport de Sarah au commissaire Mauser, "
+
    + "avec la preuve de chaque partie. Une première version, en anglais "
-   + "seulement. Les images sont générées par IA et sont encore des ébauches.",
+
+   + "seulement. Les pièces et les personnages sont générés par IA et sont "
+
+   + "encore des ébauches ; dans les documents, seuls le papier et la lumière "
+
+   + "le sont, et chaque ligne et chaque trait y est tracé par un petit "
+
+   + "programme à nous.",
+
   link: "Ouvrir l'extrait →"
+
  },
+
  whose: "À qui est ce chien",
+
  about: [
+
   "Wessen et Schmiss ne sont pas à moi. Ils appartiennent aux romans policiers "
+
   + "de <b>Gudrun Leyendecker<\/b>, née à Bonn en 1948, qui publie depuis 1995 "
+
   + "et compte bien plus de cent livres. Chez elle, Schmiss est le "
+
   + "<i>narrateur<\/i> : c'est le chien qui raconte, qui remarque plus qu'on ne "
+
   + "l'attend de lui et le rapporte à sa manière, pendant que Sarah Wessen "
+
   + "mène une enquête à la sienne et le commissaire Mauser à la sienne.",
+
   "<b>Le jeu n'est pas les romans.<\/b> Il emprunte deux de ses personnages et "
+
   + "l'année où ils vivent, puis fait ce que les romans ne font jamais : il "
+
   + "transforme une soirée à Bonn en une grille qu'on remplit de croix et de "
+
   + "coches. Il n'y a pas d'intrigue ici et personne n'est blessé. C'est "
+
   + "Schmiss qui raconte, parce que le lui retirer semblait pire que de "
+
   + "l'emprunter — et tout ce qu'il dit entre les visites est également "
+
   + "d'elle : treize phrases citées du premier roman, avec sa permission. "
+
   + "Mais une énigme ne peut donner qu'un travail limité à un "
+
   + "narrateur. Si vous aimez ces deux-là, c'est dans les romans qu'ils vivent "
+
   + "vraiment, et ce sont des romans, pas des énigmes."
+
  ],
+
  bookLine: "Bonn, 1969 : un coup de feu sur le Venusberg, la politique et les "
+
   + "affaires privées emmêlées.",
+
  moreBooks: "d'autres de ses livres",
+
  allBooks: "tous les volumes de Schmiss und Wessen →",
+
  report: "Signaler un problème",
+
  foot: "Personnages et remarques de Schmiss tirés des romans de Gudrun "
+
   + "Leyendecker, cités et utilisés avec sa permission. Moteur d'énigmes et grille "
+
   + "construits pour ce jeu ; chaque affaire est construite et prouvée soluble "
+
   + "sans deviner avant d'être livrée. Construit le {date}.",
+
  lang: "Langue",
+
  books: {
+
   sub: "les livres d'où vient le chien",
+
   back: "← retour au jeu",
+
   find: "Où les trouver",
+
   author: "À propos de l'autrice",
+
   band: "Tome {n}",
+
   empty: "pas encore renseigné",
+
   emptyNote: "Je n'ai trouvé les détails de ce volume sur aucune page "
+
    + "d'éditeur ou de librairie, et je n'invente pas un titre et un ISBN pour "
+
    + "combler un trou. Ajoutez-le à <code>books.json<\/code> et il apparaîtra "
+
    + "ici.",
+
   pages: "pages",
+
   at: "chez l'éditeur",
+
   shop: "une librairie — la disponibilité varie selon les pays",
+
   publisher: "la boutique de l'éditeur",
+
   aboutHer: "à propos d'elle et de son travail",
+
   /* Editorial prose about the series and the author. It lived in
+
      books.json and so came out English under a German heading — the
+
      bibliography stays there, the sentences belong here. */
+
   seriesBlurb: "Bonn, 1969. Sarah Wessen est détective privée et n'en fait qu'à sa tête ; le commissaire Mauser, c'est la police. Et Schmiss est le chien qui raconte tout cela — il comprend un peu moins qu'il ne le croit et n'est impressionné par personne.",
+
   authorNote: "Quatrième enfant de l'historien de l'art Ernst Lang et de la pianiste Margarethe Lang. Relieuse de formation, elle voulait faire du théâtre ; elle a commencé par des livres ésotériques, puis sont venus les romans, les polars, les livres pour enfants, la poésie et les guides. Bien plus de cent titres.",
+
   alsoTitle: "Autres romans policiers bonnois",
+
   alsoNote: "Confirmé par l'autrice : ce ne sont pas des Schmiss und Wessen — le chien n'y figure pas. Ils sont indépendants et plutôt psychologiques. Elle cite aussi un titre antérieur, « Nicht zu fassen », un roman policier drôle et loufoque, précurseur de la série ; il ne figure pas ici, faute d'une page d'éditeur lue.",
+
   linkLabels: {
+
    bod: "Ses livres chez l'éditeur (BoD)",
+
    lovelybooks: "Page autrice sur LovelyBooks",
+
    wikipedia: "Wikipédia (DE)",
+
    indigo: "Rechercher sur Indigo (Canada)",
+
    amazon: "Rechercher sur Amazon.de",
+
   },
+
   born: "{name}, née à {place} le {date}, écrit depuis {since}.",
+
   foot: "Tout ce qui, sur cette page, porte un éditeur, une date ou un ISBN a "
+
    + "été relevé sur une page d'éditeur ou de libraire. Ce qui n'a pas pu être "
+
    + "vérifié est laissé en case vide plutôt que rempli. Le jeu est sur "
+
    + "<a href=\"index.html\">la page d'accueil<\/a>."
+
  }
+
 },
+
+
 
 /* ------------------------------------------------------------------ Italian */
+
 it: {
+
  name: "Italiano", locale: "it-IT",
+
  title: "La Sala Dattilografe",
+
  sub: "un gioco di deduzione · Bonn, 1969 · dopo le cinque",
+
  intro: [
+
   "Una lettera è uscita da questo edificio e non sarebbe mai dovuta uscire. "
+
   + "Nessuno l'ha firmata, ma la macchina si legge dalla pagina — una <i>e<\/i> "
+
   + "scheggiata, un carrello che va troppo in alto — e così si sa esattamente "
+
   + "quale macchina da scrivere l'ha battuta. Quello che non si sa è chi ci "
+
   + "fosse seduta davanti.",
+
   "La sala è stata riorganizzata. Le macchine scendono per la manutenzione e "
+
   + "tornano a un altro tavolo; le donne vengono spostate con loro. Il turno "
+
   + "di servizio accanto all'ascensore è vecchio di quattro settimane ed è "
+
   + "stato corretto con tre matite diverse. La domanda è dunque una griglia: "
+
   + "quale macchina stava su quale tavolo, e chi ci sedeva.",
+
   "Sono <b>le cinque e un quarto<\/b>. Le dattilografe sono andate a casa alle "
+
   + "cinque — per questo si possono percorrere i piani, e per questo nessuna "
+
   + "di loro può essere semplicemente interrogata. Tutti gli altri sono ancora "
+
   + "dentro, perché rassettare dopo di loro è il loro lavoro: la donna delle "
+
   + "pulizie fa i tavoli, il portiere di notte prende servizio, la mensa è tra "
+
   + "due turni. Hanno tenuto d'occhio quella sala tutto il giorno.",
+
   "Lei è <b>Sarah Wessen<\/b> e può bussare a qualsiasi porta dell'edificio. "
+
   + "Ogni visita le costa venticinque minuti, e l'ultima levata è alle otto.",
+
   "<b>Schmiss<\/b> viene gratis, ed è lui che le racconta tutto questo. Non "
+
   + "dice mai chi. Dice quante di tre di loro sono salite oltre un certo "
+
   + "pianerottolo, o dove finisce una traccia, o da quanti piani diversi "
+
   + "venivano tre donne — e niente di tutto ciò è un nome, e tutto insieme lo è."
+
  ],
+
  caption: "Sarah Wessen e Schmiss, disegnati per questo gioco. Nei romanzi è "
+
   + "lui il narratore; qui mantiene l'incarico, per quanto un rebus glielo "
+
   + "consenta.",
+
  start: "Da dove cominciare",
+
  doors: {
+
   learn: "Impararlo",
+
   learnSub: "{n} lezioni, un'idea ciascuna, la più piccola per prima. In una "
+
    + "lezione non c'è nulla che la lezione non abbia già spiegato.",
+
   today: "Il caso di oggi",
+
   todaySub: "Un edificio nuovo ogni mattina. A tutti tocca lo stesso.",
+
   rest: "Tutti gli altri",
+
   restSub: "{n} casi, da tre tavoli a sei, da facile a sgradevole."
+
  },
+
  daily: {
+
   today: "Oggi è {date}.",
+
+  ago: "{n} anni fa, oggi",
   none: "Non l'ha ancora costruito nessuno — esegui daily.py. Il link qui "
+
    + "sotto apre il giorno più recente che esista.",
+
   stale: "Oggi non è ancora stato costruito; il link apre {day} {date}."
+
  },
+
  sampler: {
+
   h: "Qualcosa di più lungo",
+
   text: "<b>Der Rückstand<\/b> è un assaggio gratuito del gioco più lungo che "
+
    + "sta nascendo accanto a questo. Un fascicolo è tornato riparato alla "
+
    + "Registratur, e nessuno ha firmato per riceverlo. Percorra il ministero, "
+
    + "interroghi chi ci lavora e scriva il rapporto di Sarah al commissario "
+
    + "Mauser, con la prova di ogni parte. Una prima versione, solo in inglese. "
-   + "Le immagini sono generate con l'IA e sono ancora bozze.",
+
+   + "Le stanze e le persone sono generate con l'IA e sono ancora bozze; nei "
+
+   + "documenti solo la carta e la luce, e ogni riga e ogni segno sopra li "
+
+   + "traccia un piccolo programma nostro.",
+
   link: "Apri l'assaggio →"
+
  },
+
  whose: "Di chi è questo cane",
+
  about: [
+
   "Wessen e Schmiss non sono miei. Appartengono ai romanzi polizieschi di "
+
   + "<b>Gudrun Leyendecker<\/b>, nata a Bonn nel 1948, che pubblica dal 1995 e "
+
   + "ha ben più di cento libri al suo attivo. Lì Schmiss è il "
+
   + "<i>narratore<\/i>: la storia la racconta il cane, che nota più di quanto "
+
   + "chiunque si aspetti e lo riferisce a modo suo, mentre Sarah Wessen "
+
   + "lavora a un caso a modo proprio e il commissario Mauser al suo.",
+
   "<b>Il gioco non sono i romanzi.<\/b> Prende in prestito due dei suoi "
+
   + "personaggi e l'anno in cui vivono, e poi fa una cosa che i romanzi non "
+
   + "fanno mai: trasforma una sera a Bonn in una griglia da riempire di segni "
+
   + "e croci. Qui non c'è trama e nessuno si fa male. È Schmiss a raccontare, "
+
   + "perché toglierglielo sembrava peggio che prenderlo in prestito — e "
+
   + "anche tutto quello che dice fra una visita e l'altra è suo: tredici "
+
   + "frasi citate dal primo romanzo, con il suo permesso. Ma un "
+
   + "rebus può dare a un narratore solo un certo lavoro. Se vi piacciono "
+
   + "questi due, è nei romanzi che vivono davvero, e sono romanzi, non rebus."
+
  ],
+
  bookLine: "Bonn, 1969: uno sparo sul Venusberg, e politica e affari privati "
+
   + "aggrovigliati insieme.",
+
  moreBooks: "altri suoi libri",
+
  allBooks: "tutti i volumi di Schmiss und Wessen →",
+
  report: "Segnala un problema",
+
  foot: "Personaggi e osservazioni di Schmiss dai romanzi di Gudrun "
+
   + "Leyendecker, citati e usati con il suo permesso. Motore e scheda costruiti per questo "
+
   + "gioco; ogni caso è costruito e dimostrato risolvibile senza tirare a "
+
   + "indovinare prima di essere pubblicato. Costruito il {date}.",
+
  lang: "Lingua",
+
  books: {
+
   sub: "i libri da cui viene il cane",
+
   back: "← torna al gioco",
+
   find: "Dove trovarli",
+
   author: "Sull'autrice",
+
   band: "Volume {n}",
+
   empty: "non ancora inserito",
+
   emptyNote: "Non ho trovato i dati di questo volume su nessuna pagina di "
+
    + "editore o libreria, e non invento un titolo e un ISBN per riempire un "
+
    + "vuoto. Inseriscilo in <code>books.json<\/code> e comparirà qui.",
+
   pages: "pagine",
+
   at: "presso l'editore",
+
   shop: "una libreria — la disponibilità varia da paese a paese",
+
   publisher: "il negozio dell'editore",
+
   aboutHer: "su di lei e sul suo lavoro",
+
   /* Editorial prose about the series and the author. It lived in
+
      books.json and so came out English under a German heading — the
+
      bibliography stays there, the sentences belong here. */
+
   seriesBlurb: "Bonn, 1969. Sarah Wessen è un'investigatrice privata con una testa tutta sua; il commissario Mauser è la polizia. E Schmiss è il cane che racconta tutto quanto — capisce un po' meno di quanto creda ed è silenziosamente poco impressionato da chiunque.",
+
   authorNote: "Quarta figlia dello storico dell'arte Ernst Lang e della pianista Margarethe Lang. Rilegatrice di formazione, voleva fare l'attrice; ha cominciato con libri esoterici, poi sono arrivati romanzi, gialli, libri per bambini, poesia e manuali. Ben più di cento titoli.",
+
   alsoTitle: "Altri gialli ambientati a Bonn",
+
   alsoNote: "Confermato dall'autrice: non sono volumi di Schmiss und Wessen — il cane non c'è. Sono indipendenti e di norma più psicologici. Cita anche un titolo precedente, «Nicht zu fassen», un giallo divertente e stravagante, precursore della serie; non è elencato qui perché non è stata letta alcuna pagina dell'editore.",
+
   linkLabels: {
+
    bod: "I suoi libri presso l'editore (BoD)",
+
    lovelybooks: "Pagina dell'autrice su LovelyBooks",
+
    wikipedia: "Wikipedia (DE)",
+
    indigo: "Cerca su Indigo (Canada)",
+
    amazon: "Cerca su Amazon.de",
+
   },
+
   born: "{name}, nata a {place} il {date}, scrive dal {since}.",
+
   foot: "Tutto ciò che su questa pagina porta un editore, una data o un ISBN è "
+
    + "stato letto da una pagina di editore o rivenditore. Ciò che non è stato "
+
    + "possibile verificare è mostrato come casella vuota invece che riempito. "
+
    + "Il gioco è sulla <a href=\"index.html\">pagina iniziale<\/a>."
+
  }
+
 },
+
+
 
 /* ------------------------------------------------------------------ Spanish */
+
 es: {
+
  name: "Español", locale: "es-ES",
+
  title: "La Sala de Mecanógrafas",
+
  sub: "un juego de deducción · Bonn, 1969 · pasadas las cinco",
+
  intro: [
+
   "Una carta salió de este edificio y nunca debió salir. No la firmó nadie, "
+
   + "pero la máquina se lee en la página — una <i>e<\/i> mellada, un carro que "
+
   + "va demasiado alto — así que se sabe exactamente qué máquina de escribir "
+
   + "la escribió. Lo que no se sabe es quién estaba sentada ante ella.",
+
   "La sala se reorganizó. Las máquinas bajan a mantenimiento y vuelven a otra "
+
   + "mesa; a las mujeres las trasladan con ellas. El cuadrante junto al "
+
   + "ascensor tiene cuatro semanas y está corregido con tres lápices "
+
   + "distintos. La pregunta es, por tanto, una cuadrícula: qué máquina estaba "
+
   + "en qué mesa, y quién se sentaba allí.",
+
   "Son <b>las cinco y cuarto<\/b>. Las mecanógrafas se fueron a las cinco — por "
+
   + "eso se puede recorrer las plantas, y por eso no se puede preguntar "
+
   + "simplemente a ninguna de ellas. Los demás siguen dentro, porque recoger "
+
   + "después de ellas es su trabajo: la mujer de la limpieza hace las mesas, "
+
   + "el portero de noche entra de servicio, la cantina está entre dos turnos. "
+
   + "Han tenido esa sala a la vista todo el día.",
+
   "Usted es <b>Sarah Wessen<\/b> y puede llamar a cualquier puerta del "
+
   + "edificio. Cada visita le cuesta veinticinco minutos, y la última "
+
   + "recogida es a las ocho.",
+
   "<b>Schmiss<\/b> va con usted gratis, y es él quien le cuenta todo esto. "
+
   + "Nunca dice quién. Dice cuántas de tres de ellas han subido más allá de un "
+
   + "rellano determinado, o dónde termina un rastro, o de cuántas plantas "
+
   + "distintas venían tres mujeres — y nada de eso es un nombre, y todo junto "
+
   + "sí lo es."
+
  ],
+
  caption: "Sarah Wessen y Schmiss, dibujados para este juego. En las novelas "
+
   + "él es el narrador; aquí conserva el puesto, hasta donde un pasatiempo se "
+
   + "lo permite.",
+
  start: "Por dónde empezar",
+
  doors: {
+
   learn: "Aprenderlo",
+
   learnSub: "{n} lecciones, una idea cada una, la más pequeña primero. En una "
+
    + "lección no hay nada que la lección no haya enseñado ya.",
+
   today: "El caso de hoy",
+
   todaySub: "Un edificio nuevo cada mañana. A todos les toca el mismo.",
+
   rest: "Todos los demás",
+
   restSub: "{n} casos, de tres mesas a seis, de fácil a desagradable."
+
  },
+
  daily: {
+
   today: "Hoy es {date}.",
+
+  ago: "hace {n} años, tal día como hoy",
   none: "Todavía no lo ha construido nadie — ejecuta daily.py. El enlace de "
+
    + "abajo abre el día más reciente que haya.",
+
   stale: "Hoy todavía no está construido; el enlace abre el {day} {date}."
+
  },
+
  sampler: {
+
   h: "Algo más largo",
+
   text: "<b>Der Rückstand<\/b> es una muestra gratuita del juego más largo que "
+
    + "se está haciendo junto a este. Un expediente ha vuelto remendado a la "
+
    + "Registratur, y nadie ha firmado por él. Recorra el ministerio, pregunte "
+
    + "a quienes trabajan allí y escriba el informe de Sarah al comisario "
+
    + "Mauser, con la prueba de cada parte. Una primera versión, solo en "
-   + "inglés. Las imágenes están generadas con IA y son todavía bocetos.",
+
+   + "inglés. Las salas y las personas están generadas con IA y son todavía "
+
+   + "bocetos; en los documentos solo el papel y la luz, y cada línea y cada "
+
+   + "trazo encima los dibuja un pequeño programa nuestro.",
+
   link: "Abrir la muestra →"
+
  },
+
  whose: "De quién es este perro",
+
  about: [
+
   "Wessen y Schmiss no son míos. Pertenecen a las novelas policíacas de "
+
   + "<b>Gudrun Leyendecker<\/b>, nacida en Bonn en 1948, que publica desde 1995 "
+
   + "y tiene bastante más de cien libros. Allí Schmiss es el <i>narrador<\/i>: "
+
   + "la historia la cuenta el perro, que se da cuenta de más de lo que nadie "
+
   + "espera de él y lo refiere a su manera, mientras Sarah Wessen lleva un "
+
   + "caso a la suya y el comisario Mauser a la suya.",
+
   "<b>El juego no son las novelas.<\/b> Toma prestados dos de sus personajes y "
+
   + "el año en que viven, y luego hace algo que las novelas no hacen nunca: "
+
   + "convierte una tarde en Bonn en una cuadrícula que se rellena con marcas y "
+
   + "aspas. Aquí no hay trama y nadie sale herido. Cuenta Schmiss, porque "
+
   + "quitarle eso parecía peor que tomarlo prestado — y todo lo que dice "
+
   + "entre visita y visita también es suyo: trece frases citadas de la "
+
   + "primera novela, con su permiso. Pero un pasatiempo solo "
+
   + "puede dar cierto trabajo a un narrador. Si le gustan los dos, es en las "
+
   + "novelas donde viven de verdad, y son novelas, no pasatiempos."
+
  ],
+
  bookLine: "Bonn, 1969: un disparo en el Venusberg, y la política y los "
+
   + "negocios privados enredados entre sí.",
+
  moreBooks: "más libros suyos",
+
  allBooks: "todos los volúmenes de Schmiss und Wessen →",
+
  report: "Informar de un problema",
+
  foot: "Personajes y comentarios de Schmiss de las novelas de Gudrun "
+
   + "Leyendecker, citados y usados con su permiso. Motor y hoja construidos para este "
+
   + "juego; cada caso se construye y se demuestra resoluble sin adivinar antes "
+
   + "de publicarse. Construido el {date}.",
+
  lang: "Idioma",
+
  books: {
+
   sub: "los libros de los que viene el perro",
+
   back: "← volver al juego",
+
   find: "Dónde encontrarlos",
+
   author: "Sobre la autora",
+
   band: "Volumen {n}",
+
   empty: "todavía sin rellenar",
+
   emptyNote: "No encontré los datos de este volumen en ninguna página de "
+
    + "editorial o librería, y no voy a inventar un título y un ISBN para "
+
    + "tapar un hueco. Añádelo a <code>books.json<\/code> y aparecerá aquí.",
+
   pages: "páginas",
+
   at: "en la editorial",
+
   shop: "una librería — la disponibilidad varía según el país",
+
   publisher: "la tienda de la editorial",
+
   aboutHer: "sobre ella y su trabajo",
+
   /* Editorial prose about the series and the author. It lived in
+
      books.json and so came out English under a German heading — the
+
      bibliography stays there, the sentences belong here. */
+
   seriesBlurb: "Bonn, 1969. Sarah Wessen es detective privada y va por libre; el comisario Mauser es la policía. Y Schmiss es el perro que lo cuenta todo — entiende algo menos de lo que cree y no le impresiona nadie.",
+
   authorNote: "Cuarta hija del historiador del arte Ernst Lang y de la pianista Margarethe Lang. Encuadernadora de formación, quiso ser actriz; empezó con libros esotéricos y luego llegaron las novelas, la novela negra, los libros infantiles, la poesía y las guías. Bastante más de cien títulos.",
+
   alsoTitle: "Otras novelas policíacas de Bonn",
+
   alsoNote: "Confirmado por la autora: no son volúmenes de Schmiss und Wessen — el perro no aparece. Son independientes y, por lo general, más psicológicos. Menciona además un título anterior, «Nicht zu fassen», una novela policíaca divertida y disparatada, precursora de la serie; no figura aquí porque no se ha leído ninguna página de la editorial.",
+
   linkLabels: {
+
    bod: "Sus libros en la editorial (BoD)",
+
    lovelybooks: "Página de la autora en LovelyBooks",
+
    wikipedia: "Wikipedia (DE)",
+
    indigo: "Buscar en Indigo (Canadá)",
+
    amazon: "Buscar en Amazon.de",
+
   },
+
   born: "{name}, nacida en {place} el {date}, escribe desde {since}.",
+
   foot: "Todo lo que en esta página lleva una editorial, una fecha o un ISBN "
+
    + "se leyó de una página de editorial o de tienda. Lo que no se pudo "
+
    + "comprobar se muestra como casilla vacía en lugar de rellenarse. El juego "
+
    + "está en <a href=\"index.html\">la página de inicio<\/a>."
+
  }
+
 },
 
+
+
 /* ------------------------------------------------------------------ Chinese */
+
 zh: {
+
  name: "中文", locale: "zh-CN",
+
  title: "打字室",
+
  sub: "推理游戏 · 波恩，1969年 · 五点以后",
+
  intro: [
+
   "有一封信离开了这座楼，而它本不该离开。没有人在上面签名，但打字机可以从纸面上读出来"
+
   + "——一个缺了口的 <i>e<\/i>，一个走得偏高的滑架——所以你确切知道是哪一台打字机打的。"
+
   + "你不知道的是，当时坐在它前面的是谁。",
+
   "打字室重新编排过。机器送下楼保养，回来时换了一张桌子；女工们也跟着机器一起挪动。"
+
   + "电梯旁的值班表已经四个星期没换，上面还有三支不同铅笔改过的痕迹。所以问题是一张表格："
+
   + "哪台机器摆在哪张桌子上，又是谁坐在那里。",
+
   "现在是<b>五点一刻<\/b>。打字员们五点就下班了——所以你可以在各层走动，也所以她们中间"
+
   + "没有一个人可以直接问。别的人都还在，因为替她们收拾正是他们的活儿：清洁女工在擦桌子，"
+
   + "夜班门房正在交接，食堂在两班之间。他们盯了那个打字室一整天。",
+
   "你是<b>莎拉·韦森<\/b>，楼里任何一扇门你都可以去敲。每走访一次要花二十五分钟，"
+
   + "最后一次收信是八点。",
+
   "<b>施密斯<\/b>白跟着来，而且这一切都是他讲给你听的。他从不说是谁。他说三个人里有几个"
+
   + "上过某一层楼梯口，或者一条气味到哪里为止，或者三个女人分别来自几个不同的楼层——"
+
   + "这些没有一条是名字，但合在一起就是一个名字。"
+
  ],
+
  caption: "莎拉·韦森与施密斯，为本游戏所绘。在小说里他是叙述者；在这里他保住了这个位置，"
+
   + "只是一道谜题所能给他的活儿有限。",
+
  start: "从哪里开始",
+
  doors: {
+
   learn: "先学一遍",
+
   learnSub: "{n} 课，每课一个想法，最小的在前。课里不会出现这一课还没教过的东西。",
+
   today: "今天的案子",
+
   todaySub: "每天早上一座新楼。所有人拿到的都一样。",
+
   rest: "其余的案子",
+
   restSub: "{n} 个案子，从三张桌子到六张，从容易到难缠。"
+
  },
+
  daily: {
+
   today: "今天是 {date}。",
+
+  ago: "{n}年前的今天",
   none: "还没有人生成——请运行 daily.py。下面的链接会打开现有最近的一天。",
+
   stale: "今天的还没有生成；链接打开的是 {date}（{day}）。"
+
  },
+
  sampler: {
+
   h: "长一点的",
+
   text: "<b>Der Rückstand<\/b>是与这个游戏同时制作中的一个更长的游戏的免费试玩。"
+
    + "一份卷宗被修补好送回了档案室（Registratur），却没有人签收。"
+
    + "在部里走一走，问问里面的人，然后替莎拉写一份给毛瑟警长的报告，每一部分都要附上证据。"
-   + "这是早期版本，目前只有英文；图片由AI生成，也还是草稿。",
+
+   + "这是早期版本，目前只有英文。房间和人物由AI生成，也还是草稿；文件里只有纸张和光线是，"
+
+   + "上面的每一条格线、每一个笔迹都由我们自己的小程序画出。",
+
   link: "打开试玩 →"
+
  },
+
  whose: "这条狗是谁的",
+
  about: [
+
   "韦森和施密斯不是我的。他们属于 <b>Gudrun Leyendecker<\/b> 的犯罪小说。她1948年生于波恩，"
+
   + "1995年开始出版，名下的书远不止一百本。在她笔下，施密斯是<i>叙述者<\/i>：故事由这条狗来讲，"
+
   + "他注意到的东西比谁都预料的要多，并且用他自己的方式讲出来；与此同时莎拉·韦森按她的路子办案，"
+
   + "毛瑟警长按他的路子办。",
+
   "<b>游戏不是那些小说。<\/b>它借用了她的两个人物和他们生活的那一年，然后做了小说从不做的事："
+
   + "把波恩的一个傍晚变成一张用对勾和叉填的表格。这里没有情节，也没有人受伤。由施密斯来讲，"
+
   + "是因为把这件事从他手里拿走，似乎比一开始就借用他更过分；而且他在两次走访之间说的每一句话"
+
   + "也都是她的：十三句引自第一部小说，经她许可。只是一道谜题能给叙述者的活儿"
+
   + "终究有限。如果你喜欢这两位，他们真正生活的地方是那些小说，而那是小说，不是谜题。"
+
  ],
+
  bookLine: "波恩，1969年：维纳斯山上的一声枪响，政治与私人生意搅在一起。",
+
  moreBooks: "她的更多作品",
+
  allBooks: "全部《Schmiss und Wessen》系列 →",
+
  report: "报告问题",
+
  foot: "人物与施密斯的旁白出自 Gudrun Leyendecker 的小说，经她许可引用和使用。"
+
   + "谜题引擎与记录表为本游戏所建；每个案子在发布前都经过构造并证明无需猜测即可解出。"
+
   + "构建于 {date}。",
+
  lang: "语言",
+
  books: {
+
   sub: "狗的出处",
+
   back: "← 回到游戏",
+
   find: "在哪里能找到",
+
   author: "关于作者",
+
   band: "第{n}卷",
+
   empty: "尚未填写",
+
   emptyNote: "我在任何出版社或书店页面上都没有找到这一卷的信息，"
+
    + "也不会为了填补空缺而编造标题和 ISBN。把它加进 <code>books.json<\/code>，它就会出现在这里。",
+
   pages: "页",
+
   at: "在出版社",
+
   shop: "一家书店——各国供货情况不同",
+
   publisher: "出版社自己的书店",
+
   aboutHer: "关于她和她的作品",
+
   /* Editorial prose about the series and the author. It lived in
+
      books.json and so came out English under a German heading — the
+
      bibliography stays there, the sentences belong here. */
+
   seriesBlurb: "波恩，1969年。莎拉·韦森是个有主见的私家侦探；毛瑟警长代表警方。而施密斯是那条狗，整件事由他来讲——他懂的比他自以为的要少，而且对谁都不太服气。",
+
   authorNote: "艺术史学者 Ernst Lang 与钢琴家 Margarethe Lang 的第四个孩子。她学的是装帧，本想当演员；先写灵修类书籍，之后是小说、犯罪小说、童书、诗歌和实用指南。作品远超一百种。",
+
   alsoTitle: "其他波恩犯罪小说",
+
   alsoNote: "作者确认：这些不是《Schmiss und Wessen》系列——狗没有出现在里面。它们各自独立，通常更偏心理描写。她还提到更早的一本《Nicht zu fassen》，是一部幽默荒诞的犯罪小说，也是这个系列的前身；这里没有收录，因为还没有读到出版社的页面。",
+
   linkLabels: {
+
    bod: "在出版社购买她的书（BoD）",
+
    lovelybooks: "LovelyBooks 作者页",
+
    wikipedia: "维基百科（德语）",
+
    indigo: "在 Indigo 搜索（加拿大）",
+
    amazon: "在 Amazon.de 搜索",
+
   },
+
   born: "{name}，{date}生于{place}，自 {since} 年起写作。",
+
   foot: "本页上凡是标有出版社、日期或 ISBN 的内容，都是从出版社或零售商页面上读来的。"
+
    + "无法核实的一律留作空位，而不是填上去。游戏在<a href=\"index.html\">首页<\/a>。"
+
  }
+
 }
+
+
 
 };
 
+
+
 /* The front and books pages in English, counting floors from one. A copy of
+
    `en` for the same reason as in sheet-strings.js: the pages say nothing
+
    about floors, so there is nothing here to translate — the difference is a
+
    floor table in phrase.js, and this exists so the choice can be MADE here
+
    and carried into the sheet, which is where it shows. */
+
 UI["en-NA"] = Object.assign({}, UI.en, {
+
  name: "English (North America)", locale: "en-CA"});
 
+
+
 /* Which language the front and books pages are in. The machinery is in
+
    lang.js; this file is the prose. Every language here is offered, because
+
    every one of them is complete — the sheet is the page that has to check. */
+
 function uiLangs(){ return Object.keys(UI); }
+
 function T(){ return UI[UILANG] || UI.en; }
+
 function uiName(l){ return (UI[l] || {}).name || l; }
 
+
+
 // the front page's own dates, in its own locale
+
 function pageDate(iso){ return uiDate(iso, T().locale); }
+
 function pageWeekday(iso){ return uiDate(iso, T().locale, {weekday: "long"}); }
 
+
+
 /* A language the browser asked for that nobody has written yet falls back to
+
    English here rather than showing a page of "undefined". */
+
 function uiStart(){ if (!UI[UILANG]) UILANG = "en"; return UILANG; }
+
 
 
 const B = JSON.parse(document.getElementById("booksdata").textContent);
