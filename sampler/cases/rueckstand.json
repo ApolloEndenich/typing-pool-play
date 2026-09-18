@@ -29,7 +29,7 @@
     {
      "where": "the Poststelle",
      "lines": [
-      "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between half past two and half past three on 14 October, nineteen of them, and two of the clerks up there put their own beside hers."
+      "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between a quarter past two and twenty to four on 14 October, twenty-three of them, and two of the clerks up there put their own beside hers."
      ]
     },
     {
@@ -131,7 +131,7 @@
      "where": "the porter",
      "lines": [
       "the porter: Where I always am. I did not leave the lodge between half past two and half past three, and my initials stand in my book against every one of the five who came to the window in that hour to say so. The afternoon is when the deliveries come, and a lodge nobody is sitting in is a lodge anybody may walk past.",
-      "the porter: And I had company for it. A parcel of paper for the Schreibsaal came at a quarter to three. Frau Kern had come down at half past two to wait for it and she was still standing here at half past three, the two of us going over the count line by line, which took longer than the delivery did.",
+      "the porter: And I had company for it. A parcel of paper for the Schreibsaal came at a quarter to three. Frau Kern had come down to the lodge at twenty past two to wait for it and she was still standing here at a quarter to four, the two of us going over the count line by line, which took longer than the delivery did.",
       "the porter: Once the pool has gone, this building is mine, and I know who is in it. The cleaning women come in by the side door and I let them in myself, and not one of them goes up before the last of the pool has gone out past me. I see to that.",
       "the porter: Good day. You notice I say good day. I should like it recorded, since you are recording things, that nobody gets past me without being greeted and that not everybody greets me back. I will name them if you ask, and you will not have to ask.",
       "the porter: Herr Simon? He says good morning, every morning, which is more than some upstairs manage. His brother kept an inn, and he will tell you about the inn if you give him an opening. He gives himself one."
@@ -410,11 +410,11 @@
      "bcccac46067c6e71ec45d78e249e8e37ff5525996453452401dc16ee88c6207a",
      "be460fd2e4e46704779c75641cf4a29085bcd78e4948ea9210ac3359c7aee82d",
      "be78623d2f65433ebfc50be45422d9cf72f642cbad3e9391499a22f70489520c",
+     "c75bedd6631a0c61fdac20441a381c9583af3a0367816273e43617db69d34dad",
      "c9a6c208ad848c20ffc613eb38ad33441f3256aa65398e890c8a683a31ba1cdf",
      "c9cd2be1d69ef5770ca8b8beb0d51987fe5c3c537c48628a752b9d50dfb10d28",
      "ccbbe226639c237240f7452b27ba9b72f756c7397bf28fb0562974ad904a9fba",
      "d2232230428fa5a8f18b7c94d8fd77373f066883d83a25fa7a59854a533ec49e",
-     "d62ebc0a5e65754da324626c17a30aebcdc6762346611ec142f870e0487d91fa",
      "dbc27880a5f889955869bda45c6c1d544de630a5be5a8fefb159e161d581727a",
      "dc5aad084c801d00a2002ab1f150407bcaed0b3a999ae0e8420914c03ce7f92f",
      "e1241dd82c9146eea25e7b332bd057deeae9f127e4fde5150654cc0f9fc75106",
@@ -805,6 +805,7 @@
     "label": "Frau Kern",
     "need": "b2c23400bb10cecc6ed18c0f843395cd8d14bbdaa1dabf80d6766bdc6fa55527",
     "marks": [
+     "03b51e8f8e43bda75733af032bca35a6411220561b5a848ed9147ccc60a8635d",
      "050febe1217226bb01147b92a1cfb38303cddfa7f15a8ceb92077b4a674cfcfc",
      "09270c8e57aae1878965465bcad971fc73bcc3f63e1a094dca9f86ae85716d24",
      "0e5c554ee11e99c5fd6d63aea81f00e2f935b912a6a648447557cca1a439451f",
@@ -823,7 +824,6 @@
      "564d4694b5c5a2063431a32b41f3dbed8cd43d17e8cf484f250d487517369ffa",
      "57eb80cc008cf5610fa0aec2b1daae761cad6807d98e6699e0ccb23183310b94",
      "5baa85d14af83f59b6c588391981a85130a22e7d44acf0f61dc55b3e707f8bef",
-     "6ba83b67024f93a98bffd41ddf06dee8fdb7e14cf09f890c6202408333fc1b84",
      "722b10b274b39f77b7710daf00431fbb8589cfea260e06e00d623f783ed35919",
      "889e58401dee0643fc8a7b892c4dae0a8cb2ae368005999f8fe5098be06b8b83",
      "900c80a7961f340e3caad895718a221d47ffe2e3ff679c6ea2c9ecf1b9f5fd85",
@@ -857,7 +857,7 @@
      "0e2de068cd2b505c9bf135ea5cd5f33ba484e397b261cbd8e84492368f00d803",
      "1042c8ded10e5c14906072a6345c86966e09831ad61cc1d58762d2308c1c3f61",
      "14908d10803ebc90bab51d219e1da12c8774ff369fd0449cf284725ca649046c",
-     "159e9f105c993313375eafa8015ba2a8dabe8f11bce56d2f8389450c7a783221",
+     "19d8f8cceb3aa9951dbbd77bbf6327f5e994351edc0ddb3064483a4492c90698",
      "1dfa7145e81e6be6ccd3362a9200c0afc4557c0b5415d077b77ddac93ddd5ab5",
      "2221db3c253e661888afdfd5ac463b156badb00decaf492a669287e4b99320a8",
      "23b886df7edd48578f44bf88c69e6f719833b7ef1723f370a698548456d62dfd",
@@ -1358,7 +1358,7 @@
     },
     "sees": [
      {
-      "text": "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between half past two and half past three on 14 October, nineteen of them, and two of the clerks up there put their own beside hers.",
+      "text": "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between a quarter past two and twenty to four on 14 October, twenty-three of them, and two of the clerks up there put their own beside hers.",
       "phase": null
      }
     ]
@@ -1976,7 +1976,7 @@
         "phase": null
        },
        {
-        "text": "the porter: And I had company for it. A parcel of paper for the Schreibsaal came at a quarter to three. Frau Kern had come down at half past two to wait for it and she was still standing here at half past three, the two of us going over the count line by line, which took longer than the delivery did.",
+        "text": "the porter: And I had company for it. A parcel of paper for the Schreibsaal came at a quarter to three. Frau Kern had come down to the lodge at twenty past two to wait for it and she was still standing here at a quarter to four, the two of us going over the count line by line, which took longer than the delivery did.",
         "phase": null
        }
       ],
@@ -2195,7 +2195,7 @@
    },
    {
     "thing": "The Poststelle's outgoing book",
-    "line": "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between half past two and half past three on 14 October, nineteen of them, and two of the clerks up there put their own beside hers.",
+    "line": "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between a quarter past two and twenty to four on 14 October, twenty-three of them, and two of the clerks up there put their own beside hers.",
     "portable": false
    },
    {
