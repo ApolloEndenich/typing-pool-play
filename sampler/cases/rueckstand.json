@@ -269,7 +269,7 @@
   {
    "id": "arrears",
    "title": "The Arrears",
-   "text": "Sachakte ___ went out to Room 407 in the spring; ___ for the quarter still carried it in September, and no line for its return had been written in ___.",
+   "text": "Subject file ___ went out to Room 407 in the spring; ___ for the quarter still carried it in September, and no line for its return had been written in ___.",
    "kinds": [
     "thing",
     "thing",
@@ -331,7 +331,7 @@
    "empty": "Nothing cited",
    "others": "And the others?"
   },
-  "subject": "The return of Sachakte 117/64 to the Registratur counter, Tuesday 14 October 1969",
+  "subject": "The return of subject file 117/64 to the Registratur counter, Tuesday 14 October 1969",
   "result": [
    "hand"
   ],
@@ -566,53 +566,6 @@
     ]
    },
    {
-    "id": "Herr Simon",
-    "label": "Herr Simon",
-    "need": "5d2e3c62ea9ec041685b064176ef5d8b875222129e84f351ed0bf4aaeff85417",
-    "marks": [
-     "01ec5b236a48a99ec6b99a821d2c23ee9ce25b169a2e5a9c4bc630bda76b68ca",
-     "0b194e84e022a4c6ebdb2a007b6aa0d26569cd08dffd98ef98e2af2ca2d3607b",
-     "0ce3d223a35d1065efff553b216795aa64a65efed20db5ab07a9aebc75dd4549",
-     "0dee1bbd1f5d264c40326885e425c0a84ecbe04cc094ddcc9268b01d9632f081",
-     "10efd49431bd7081328619ab8625ea418df78fc70caa5d47d8e26e0f0cd5c379",
-     "175d461cc9aa2a10605c22334e1cce1c67632407dde7d5e8bae35caa180f93aa",
-     "185c0909b75c13aa1481b75bf91b01c66af1e4d8d4f2ffee35f246bf80fc35c0",
-     "18a811acbb58765b42fd2560bcb75f3a4db94770e7e307c0b1aa76cb90075b64",
-     "1c17914ab556003153a2ec4afba4d60277d30136631f131c485406acf2124f94",
-     "1e21704d2790504974c2e8dcbb721eea3ccab89a6d1e6cebf4f1bc1e5857f030",
-     "269fbc46fd5aff00068d879407e8f3738308329f06b635714bb5e356becadebf",
-     "30afedaff86868f4d3939c34a071a20b8d0752276ae69e17960c41165e05f300",
-     "347783d8b5ee0dbb6dd8f579bf84d80bd81b51e7abff2bd17ca9edf2d2f67b12",
-     "37fb5017a20b584c86424f7654ae6b235882047d848acf5b8834ebc026279477",
-     "3d6ea871b05bd843767d5a73c2d79ce327d500bbcffd6c938977d445ea24215b",
-     "40e0b75145ecd84963ec74251b811aacc83c89886411e82f303a6ca493b65a97",
-     "602b83643a46326bf0b17cfbb55f9ce1e9976c6015952b4df8febfc872cac382",
-     "6bd0fc5fa9ad9a150b7b3edfe66f3e5e9b89f6bbcdba8f0a9ca2831185ab8117",
-     "8232bb35c55ba5d52bb9b88ec73b1fa06766affc0d9a8f42df1413ec2261f512",
-     "8308ed1cc48968d0ed7a24e614a6c2570922c4d7e194a21db209bc9d55e34bbc",
-     "87494d1364b420b354d265458f00454b75f7d69f000de1399ae40958c49a5bfe",
-     "89816aa61c9926b7b1119d6b6f3e0964ca24916e7dbc244c5730c89d435cd410",
-     "92ec6901e2721c2220e613fcfb89f91a44afe3033eadb8f3cc07f4868cc4e8e0",
-     "959ae3feeb5870ac9751e342f60be8c1cb2119a32e43de6104337e7fb74053c5",
-     "a7c37a3963020370aba8283d34b82e9cb01ec54451360dfbfe8f892c9652fcb1",
-     "a9606b749cdb8da872d5d529757bcdb03b2255544f76c6b55999991b3f6b0f9e",
-     "a9b471711bce34855d48f3a2ece879ff747f13f33b1cf4ce862324cc020a1a92",
-     "a9eba343368f3fb6f50f218e1d0ebc951323ce20171ed0dbad8f60f53733c36d",
-     "b88669387f38a590cae9e79100294e3b640869eba6e105fbc1206bf6b1ae4b77",
-     "ba199a0ae2d3e9adab136fa301c1c2ffa6aafc5c83dd6c8ea87ba17db05ea92c",
-     "ccffd1b51bab367967bcb134a535620b0d015c83c360a188141ca70e8ffa4ed4",
-     "d44b2b8c71bf0560a434fd6954bda16cc707b8451d2cf0594a68eff1f151ff2a",
-     "d9ef27afde2332f3b33922da2afb0c1ef12803c169adfb5c7685611b8782c7e8",
-     "dee83d768b60c4c3e5487493eaaff074ca3b94f8d7795d51098835ae0dc8039f",
-     "e14ef0c5b29b3eef9cbb5cad02da3b8fc7468976720ffa2552bb65db1d7d250d",
-     "e9593bc8b559c4ccf04edc6d5ba52e5721f4e2ee346cd7f1ade43c52d5b2f198",
-     "f041148d54bb5b04eb4c1214168bb59f867ae3e5b7a40d43dfafff0039695f63",
-     "f19516152477c94b35236e8d6199ecc72b352cd1e6f937344cb154b87171b521",
-     "f7c2e788736bb88d802c3e3eb6ffceff9ec4cf9cb0dbc5f134e0b448340e4428",
-     "fd952390797790b578d8dff60d19fc092af86535e131eff3c8849a817e991b9b"
-    ]
-   },
-   {
     "id": "Oberregierungsrat Grau",
     "label": "Oberregierungsrat Grau",
     "need": "2e7c0cbb5d9162e262e719044aad2e427f57fbc22fbb63678d85b6b9fc3a3981",
@@ -704,6 +657,53 @@
      "f8a4c106b4ee0218f95bf0d5749fd3317df2d6ded063ac627bf9712f0e5f3d3b",
      "f9221aa7e5694cfc5faa5ead360aa42660c59282ff42e93fa4bea57fb105337c",
      "fbdd65481fba19d79d5cae6e99156911c5e2bbd47a4951928915880877e524db"
+    ]
+   },
+   {
+    "id": "Herr Simon",
+    "label": "Herr Simon",
+    "need": "5d2e3c62ea9ec041685b064176ef5d8b875222129e84f351ed0bf4aaeff85417",
+    "marks": [
+     "01ec5b236a48a99ec6b99a821d2c23ee9ce25b169a2e5a9c4bc630bda76b68ca",
+     "0b194e84e022a4c6ebdb2a007b6aa0d26569cd08dffd98ef98e2af2ca2d3607b",
+     "0ce3d223a35d1065efff553b216795aa64a65efed20db5ab07a9aebc75dd4549",
+     "0dee1bbd1f5d264c40326885e425c0a84ecbe04cc094ddcc9268b01d9632f081",
+     "10efd49431bd7081328619ab8625ea418df78fc70caa5d47d8e26e0f0cd5c379",
+     "175d461cc9aa2a10605c22334e1cce1c67632407dde7d5e8bae35caa180f93aa",
+     "185c0909b75c13aa1481b75bf91b01c66af1e4d8d4f2ffee35f246bf80fc35c0",
+     "18a811acbb58765b42fd2560bcb75f3a4db94770e7e307c0b1aa76cb90075b64",
+     "1c17914ab556003153a2ec4afba4d60277d30136631f131c485406acf2124f94",
+     "1e21704d2790504974c2e8dcbb721eea3ccab89a6d1e6cebf4f1bc1e5857f030",
+     "269fbc46fd5aff00068d879407e8f3738308329f06b635714bb5e356becadebf",
+     "30afedaff86868f4d3939c34a071a20b8d0752276ae69e17960c41165e05f300",
+     "347783d8b5ee0dbb6dd8f579bf84d80bd81b51e7abff2bd17ca9edf2d2f67b12",
+     "37fb5017a20b584c86424f7654ae6b235882047d848acf5b8834ebc026279477",
+     "3d6ea871b05bd843767d5a73c2d79ce327d500bbcffd6c938977d445ea24215b",
+     "40e0b75145ecd84963ec74251b811aacc83c89886411e82f303a6ca493b65a97",
+     "602b83643a46326bf0b17cfbb55f9ce1e9976c6015952b4df8febfc872cac382",
+     "6bd0fc5fa9ad9a150b7b3edfe66f3e5e9b89f6bbcdba8f0a9ca2831185ab8117",
+     "8232bb35c55ba5d52bb9b88ec73b1fa06766affc0d9a8f42df1413ec2261f512",
+     "8308ed1cc48968d0ed7a24e614a6c2570922c4d7e194a21db209bc9d55e34bbc",
+     "87494d1364b420b354d265458f00454b75f7d69f000de1399ae40958c49a5bfe",
+     "89816aa61c9926b7b1119d6b6f3e0964ca24916e7dbc244c5730c89d435cd410",
+     "92ec6901e2721c2220e613fcfb89f91a44afe3033eadb8f3cc07f4868cc4e8e0",
+     "959ae3feeb5870ac9751e342f60be8c1cb2119a32e43de6104337e7fb74053c5",
+     "a7c37a3963020370aba8283d34b82e9cb01ec54451360dfbfe8f892c9652fcb1",
+     "a9606b749cdb8da872d5d529757bcdb03b2255544f76c6b55999991b3f6b0f9e",
+     "a9b471711bce34855d48f3a2ece879ff747f13f33b1cf4ce862324cc020a1a92",
+     "a9eba343368f3fb6f50f218e1d0ebc951323ce20171ed0dbad8f60f53733c36d",
+     "b88669387f38a590cae9e79100294e3b640869eba6e105fbc1206bf6b1ae4b77",
+     "ba199a0ae2d3e9adab136fa301c1c2ffa6aafc5c83dd6c8ea87ba17db05ea92c",
+     "ccffd1b51bab367967bcb134a535620b0d015c83c360a188141ca70e8ffa4ed4",
+     "d44b2b8c71bf0560a434fd6954bda16cc707b8451d2cf0594a68eff1f151ff2a",
+     "d9ef27afde2332f3b33922da2afb0c1ef12803c169adfb5c7685611b8782c7e8",
+     "dee83d768b60c4c3e5487493eaaff074ca3b94f8d7795d51098835ae0dc8039f",
+     "e14ef0c5b29b3eef9cbb5cad02da3b8fc7468976720ffa2552bb65db1d7d250d",
+     "e9593bc8b559c4ccf04edc6d5ba52e5721f4e2ee346cd7f1ade43c52d5b2f198",
+     "f041148d54bb5b04eb4c1214168bb59f867ae3e5b7a40d43dfafff0039695f63",
+     "f19516152477c94b35236e8d6199ecc72b352cd1e6f937344cb154b87171b521",
+     "f7c2e788736bb88d802c3e3eb6ffceff9ec4cf9cb0dbc5f134e0b448340e4428",
+     "fd952390797790b578d8dff60d19fc092af86535e131eff3c8849a817e991b9b"
     ]
    },
    {
@@ -801,53 +801,6 @@
     ]
    },
    {
-    "id": "Frau Kern",
-    "label": "Frau Kern",
-    "need": "b2c23400bb10cecc6ed18c0f843395cd8d14bbdaa1dabf80d6766bdc6fa55527",
-    "marks": [
-     "03b51e8f8e43bda75733af032bca35a6411220561b5a848ed9147ccc60a8635d",
-     "050febe1217226bb01147b92a1cfb38303cddfa7f15a8ceb92077b4a674cfcfc",
-     "09270c8e57aae1878965465bcad971fc73bcc3f63e1a094dca9f86ae85716d24",
-     "0e5c554ee11e99c5fd6d63aea81f00e2f935b912a6a648447557cca1a439451f",
-     "134cfd9135ed851a15c2c629eee5f35194cef9dd3fdcd66d500dc55da9961e71",
-     "14ecfddf99385966410906261da6acabbf56c75fcf2e1f2e85a42757e712cbc5",
-     "1dd7fc77653fa5b72dd96dfb599deafbfc1714ae7d1833baee4e5bec215d0bb1",
-     "23a45d4b9b566206c268915fc63d9fa1b1fda2657569e92fd1c575a373f4ce97",
-     "2debdbe921ce76b7f35b802322e760095a88e63f77d0a1ddede2da3dfa0b18b2",
-     "2e521799eed51b8ab5978ac1b3aa2e49ee724ac5ddec79a9e8f13514268c60d2",
-     "30d721c46d164d6d08c049fd14c5b6c0d57c8eb512f9e1a19335c17fb8e931ff",
-     "35467137317df3df33439772e2843b802d207456aab471a7e4691338aa8e0832",
-     "3ac678eb175773a070a3f826257167f55907cb50b6c1821d4ecfd3789d2c7880",
-     "43fdd282398703ab38c5327b31aa926fa7ab5c36f017226407a9fc7a5bbe8bc9",
-     "499314382ccaaa0ee535a8d3738d886f783277a6e7c29db9590d8a29c6b1e21a",
-     "4a428645c36ac37edd0ab7b8c12f7c4c99c2d5d36e53701d11332997347b8c96",
-     "564d4694b5c5a2063431a32b41f3dbed8cd43d17e8cf484f250d487517369ffa",
-     "57eb80cc008cf5610fa0aec2b1daae761cad6807d98e6699e0ccb23183310b94",
-     "5baa85d14af83f59b6c588391981a85130a22e7d44acf0f61dc55b3e707f8bef",
-     "722b10b274b39f77b7710daf00431fbb8589cfea260e06e00d623f783ed35919",
-     "889e58401dee0643fc8a7b892c4dae0a8cb2ae368005999f8fe5098be06b8b83",
-     "900c80a7961f340e3caad895718a221d47ffe2e3ff679c6ea2c9ecf1b9f5fd85",
-     "9c92f3a7fcd9678945d57da8f5f8430e95da17675c6d23c956cab4ae25705d8b",
-     "a4f7dc30773110439c80dcc46d67a63395bf7743fd589cec22ba761afa097f68",
-     "aa00660ef2e9d08702b0ccba5742c7c19e7f0d27ce8adb242334bf8192416667",
-     "aad6d37c8afea83ff823634eb643147ada633692aefb2d5b7704dff008eaf636",
-     "be395dc6f3225d54dcb44f8bd7d9c9ce87b895408ffc2da443d8cf58a4b349ff",
-     "d54e65b6d64132f525d931a2bb2bffbafc43cf0fad31e4902b8e186a887c774a",
-     "db49a161c9ed0acf8fdff481a4940a82291bacb1569ca4c6a05cb71b16e755fe",
-     "dfb669d1fe2f4d877edbf1dd42827fc5c4a761625125269d180bdda476456935",
-     "e06506df9c61a4ff397ed6ee61e4fbb83a65207601a4c4a7f9b6d04c4d170fbd",
-     "e1c648e03b7721f8c9334758a330d00ddf5288fc07b4025e4a7854f9979ea9db",
-     "ec1b1fc2ebbcb9ac6afb7a7c9ac7f74da44f0015cdc6187a6b903f8cbb3cda1f",
-     "f35c6a435db1a1b784e5322c7b77248655cdc068a6c97be90e915caacd01afb7",
-     "f7a906dee1c69571cc3a5be7bc6795053fc008558f3f589cd4ddc0ce11429fb6",
-     "f97aaeb4447bfb7c7c9a79c64721bfd18ae891a70f0fc3f2547ad448e2d88297",
-     "fbb3374a78390cca52a205005f0fecad6e2fafbca224e9d7cccc1d90bfefb536",
-     "fd6dbdc6ea987ea22de5753afb5ca42a04685cc69ddc912d870ab4d55f73b3a4",
-     "fdf4ce10b6a0de9fd55b90e44bec58be1622145ec48750c4d4aa989d8f97855d",
-     "ff9f0bbddbd1647bd19826802c5aee193b10939a5ed80f14a602e08b4b01b731"
-    ]
-   },
-   {
     "id": "Fräulein Bühl",
     "label": "Fräulein Bühl",
     "need": "63902b946b9d13f6a0d83373dc9995feb85b238df526e34702a4b31c83b55926",
@@ -895,6 +848,53 @@
     ]
    },
    {
+    "id": "Frau Kern",
+    "label": "Frau Kern",
+    "need": "b2c23400bb10cecc6ed18c0f843395cd8d14bbdaa1dabf80d6766bdc6fa55527",
+    "marks": [
+     "03b51e8f8e43bda75733af032bca35a6411220561b5a848ed9147ccc60a8635d",
+     "050febe1217226bb01147b92a1cfb38303cddfa7f15a8ceb92077b4a674cfcfc",
+     "09270c8e57aae1878965465bcad971fc73bcc3f63e1a094dca9f86ae85716d24",
+     "0e5c554ee11e99c5fd6d63aea81f00e2f935b912a6a648447557cca1a439451f",
+     "134cfd9135ed851a15c2c629eee5f35194cef9dd3fdcd66d500dc55da9961e71",
+     "14ecfddf99385966410906261da6acabbf56c75fcf2e1f2e85a42757e712cbc5",
+     "1dd7fc77653fa5b72dd96dfb599deafbfc1714ae7d1833baee4e5bec215d0bb1",
+     "23a45d4b9b566206c268915fc63d9fa1b1fda2657569e92fd1c575a373f4ce97",
+     "2debdbe921ce76b7f35b802322e760095a88e63f77d0a1ddede2da3dfa0b18b2",
+     "2e521799eed51b8ab5978ac1b3aa2e49ee724ac5ddec79a9e8f13514268c60d2",
+     "30d721c46d164d6d08c049fd14c5b6c0d57c8eb512f9e1a19335c17fb8e931ff",
+     "35467137317df3df33439772e2843b802d207456aab471a7e4691338aa8e0832",
+     "3ac678eb175773a070a3f826257167f55907cb50b6c1821d4ecfd3789d2c7880",
+     "43fdd282398703ab38c5327b31aa926fa7ab5c36f017226407a9fc7a5bbe8bc9",
+     "499314382ccaaa0ee535a8d3738d886f783277a6e7c29db9590d8a29c6b1e21a",
+     "4a428645c36ac37edd0ab7b8c12f7c4c99c2d5d36e53701d11332997347b8c96",
+     "564d4694b5c5a2063431a32b41f3dbed8cd43d17e8cf484f250d487517369ffa",
+     "57eb80cc008cf5610fa0aec2b1daae761cad6807d98e6699e0ccb23183310b94",
+     "5baa85d14af83f59b6c588391981a85130a22e7d44acf0f61dc55b3e707f8bef",
+     "722b10b274b39f77b7710daf00431fbb8589cfea260e06e00d623f783ed35919",
+     "889e58401dee0643fc8a7b892c4dae0a8cb2ae368005999f8fe5098be06b8b83",
+     "900c80a7961f340e3caad895718a221d47ffe2e3ff679c6ea2c9ecf1b9f5fd85",
+     "9c92f3a7fcd9678945d57da8f5f8430e95da17675c6d23c956cab4ae25705d8b",
+     "a4f7dc30773110439c80dcc46d67a63395bf7743fd589cec22ba761afa097f68",
+     "aa00660ef2e9d08702b0ccba5742c7c19e7f0d27ce8adb242334bf8192416667",
+     "aad6d37c8afea83ff823634eb643147ada633692aefb2d5b7704dff008eaf636",
+     "be395dc6f3225d54dcb44f8bd7d9c9ce87b895408ffc2da443d8cf58a4b349ff",
+     "d54e65b6d64132f525d931a2bb2bffbafc43cf0fad31e4902b8e186a887c774a",
+     "db49a161c9ed0acf8fdff481a4940a82291bacb1569ca4c6a05cb71b16e755fe",
+     "dfb669d1fe2f4d877edbf1dd42827fc5c4a761625125269d180bdda476456935",
+     "e06506df9c61a4ff397ed6ee61e4fbb83a65207601a4c4a7f9b6d04c4d170fbd",
+     "e1c648e03b7721f8c9334758a330d00ddf5288fc07b4025e4a7854f9979ea9db",
+     "ec1b1fc2ebbcb9ac6afb7a7c9ac7f74da44f0015cdc6187a6b903f8cbb3cda1f",
+     "f35c6a435db1a1b784e5322c7b77248655cdc068a6c97be90e915caacd01afb7",
+     "f7a906dee1c69571cc3a5be7bc6795053fc008558f3f589cd4ddc0ce11429fb6",
+     "f97aaeb4447bfb7c7c9a79c64721bfd18ae891a70f0fc3f2547ad448e2d88297",
+     "fbb3374a78390cca52a205005f0fecad6e2fafbca224e9d7cccc1d90bfefb536",
+     "fd6dbdc6ea987ea22de5753afb5ca42a04685cc69ddc912d870ab4d55f73b3a4",
+     "fdf4ce10b6a0de9fd55b90e44bec58be1622145ec48750c4d4aa989d8f97855d",
+     "ff9f0bbddbd1647bd19826802c5aee193b10939a5ed80f14a602e08b4b01b731"
+    ]
+   },
+   {
     "id": "Fräulein Ostrowski",
     "label": "Fräulein Ostrowski",
     "need": "20c6eb27bb06d7f9ed317c5e32af3556c8d853d7cd796a50be29611ce66e2894",
@@ -939,6 +939,53 @@
      "e97d52e85ca81ef57c04bf8702085eb1a9f646d971e904a4e43867e1ab346d63",
      "ef43dcf8300850fc1bcf79f10c8d8ca9c41d8a25f4778d78a499f0da3d1a928d",
      "f627531b2e9d5a8660be546ac2a62f0e89962c6f2097d12454164b6d2471bb18"
+    ]
+   },
+   {
+    "id": "Fräulein Wenzel",
+    "label": "Fräulein Wenzel",
+    "need": "5077aaefad96289105c975cfe73440f7a6ecd3afb471581133d84150779fe5d2",
+    "marks": [
+     "25fea078ae9e63723866ebeff7207d95d371884d5aac51d9c54c60c9a4f9b6d2",
+     "27a2ea424c38ecdbad32cce9ffa0b1fa7c1b0f0fa309d403afa92314fe8b2fd3",
+     "2a77f2fcc456d29b03fe17309d75aba489a03bf42199b7e0534cbc01de81346b",
+     "2d07c9bf90ed8afc87349b3570db974a34a7c632660e6a595f56434042c9c942",
+     "3172774766d47ecf517b1c9c6499e139244be63a7dbf03b337bed575cd2c6858",
+     "3ae5e5c8f61304c69ff8264c4d50aa522bca5007dc514b2b0e082ccf4e809c7c",
+     "3fd659fbfacb79f586f3635cec22d4a6621ba42f135bfd4817ef4d936fbb2dea",
+     "5c851255d3661a74e0e8f4ab569bfb03f86cbba6fc1d60d38fe6738bfb8f2c0e",
+     "5e7840aebc3fab36e5f251ad0f3a8d224051c837eb962814d73491a2d479823e",
+     "5f9e15140da64b39d346f8b0c9456600785f33df097e0aaf05c3cf6c48d2e855",
+     "67a3a9a1fdb8367614b1655720ee8fa5be04a55caa7bd6ab37e7dfae048ba831",
+     "71e222de529cda94edb42c469bd99244932c39f2431c0a8c86572b3bba72f2d5",
+     "73cadd04bfc9eb848165791521324a6d3fccf5bb6b49c22f1643eb153e033000",
+     "7883526a2de3f29305e135c9e9f518806a006eb449a5941f5d1d30da9d41d74b",
+     "7a7fba32b6798c2661f2a11f9c38874340ade4552b331332c3f2e28d8e71baa1",
+     "809855a7d49583b8410f1ba2968ff3506d2a8d724c22f1f3ac3660d75ed51d08",
+     "85c89f91f9c767b1a240a8380311e2bfaf7c3501f19e39401fba58ab67b64fe0",
+     "924e5960a02f04876e5339025b486797d0546c3c131775fb6368c82343aad2fa",
+     "95002eed7de9d7cd288218647c3c0f812ecb7bb283daf8cbacc83248cd51eb61",
+     "95bc3eeecda2a0e4056c4971cbf1f3912659359c42b11988a2bb2313d4a98c20",
+     "97c91c7f14234ec4f78632731f99f13b4f13310fa4093cd46a83965ffaa32c24",
+     "9c2a47ba9522223cf5a4473b85e8759012527f3ebc647fcac0b3a0e1a96d64ba",
+     "9f054d20b220d4f05684e116da234d467a2e256ea0bae642d6c02ed6fba35ffd",
+     "a23997ebdd5f2c1fb7f64e8c6c10e3b654c63933d0dd2a159183b011c9a95692",
+     "acc46eb0bc2be373be9fe750b9482bb2f29853d69480c36062549f97bc7c85c7",
+     "ad3c125eb63b2f1983459cdad76902853ede8732fa7290e749a0173e229a9b8e",
+     "aeb6d47f10f00353fda17ffbd67fd2f73a9125fa16c39bc501fb25240ad606f1",
+     "b355922c14aa39b2f89ca6539ff7317959ebde399c51f4c9cd2f06ab09e44f89",
+     "b7fa4ed45c3a1e81b01e117e35cbc0c71660a94a7aa5a28c43ecc49b0f8bbc9a",
+     "b9c05a6ef94425740cd88dc164a903d30c4b1e415339538907b833fe3c0c322f",
+     "bc13268750a8aef7fc2c22f12eb29142c029229053b2d946471debb072cc15fb",
+     "bc1e0b9c164589746de934abf9e40c2dd9818eb7181303a64b6812e9cd60878b",
+     "c100c0a4dafb791b3175c27f96572e081de0411f4cc906f92dff792a55da6a53",
+     "cd63044c51c3dcdb759f3994c480e56ff99271f837bccb94bba00dc9ffb7feba",
+     "db8b6354d42e8b4ffa59d7fb53556d87e03594dcf231da1afddc6462197d2886",
+     "dc3d7e13b302980b4e7bd08d8a7281acf40944a9a500f3a3e34481361fd8a01b",
+     "e8cca3a39ff3f53b50873fd4700e99232f46e4b99267b39c5f9f4a8fafa4efde",
+     "ea4983c3f580a593bf01f5563f982f3eb9d5fdc881d33c33727acbdd107b5e75",
+     "ecb6c560c7b82a3fef79ea6db50ac5c4d4990529443ff9ade89b2cdcd011466a",
+     "f59218fce045dac4aaa8a94e93e85e6c51727a07c92964c83b9be44abec6a1cf"
     ]
    },
    {
@@ -1034,53 +1081,6 @@
      "f6cb6caf310655c6a9148d7924edd14638dfdb0ae6d79e0e51769cddeb382b9a",
      "f7c1b0d5f88584b2578489c2cec82a4f1842fa6af7ee99b528a65477f8573099"
     ]
-   },
-   {
-    "id": "Fräulein Wenzel",
-    "label": "Fräulein Wenzel",
-    "need": "5077aaefad96289105c975cfe73440f7a6ecd3afb471581133d84150779fe5d2",
-    "marks": [
-     "25fea078ae9e63723866ebeff7207d95d371884d5aac51d9c54c60c9a4f9b6d2",
-     "27a2ea424c38ecdbad32cce9ffa0b1fa7c1b0f0fa309d403afa92314fe8b2fd3",
-     "2a77f2fcc456d29b03fe17309d75aba489a03bf42199b7e0534cbc01de81346b",
-     "2d07c9bf90ed8afc87349b3570db974a34a7c632660e6a595f56434042c9c942",
-     "3172774766d47ecf517b1c9c6499e139244be63a7dbf03b337bed575cd2c6858",
-     "3ae5e5c8f61304c69ff8264c4d50aa522bca5007dc514b2b0e082ccf4e809c7c",
-     "3fd659fbfacb79f586f3635cec22d4a6621ba42f135bfd4817ef4d936fbb2dea",
-     "5c851255d3661a74e0e8f4ab569bfb03f86cbba6fc1d60d38fe6738bfb8f2c0e",
-     "5e7840aebc3fab36e5f251ad0f3a8d224051c837eb962814d73491a2d479823e",
-     "5f9e15140da64b39d346f8b0c9456600785f33df097e0aaf05c3cf6c48d2e855",
-     "67a3a9a1fdb8367614b1655720ee8fa5be04a55caa7bd6ab37e7dfae048ba831",
-     "71e222de529cda94edb42c469bd99244932c39f2431c0a8c86572b3bba72f2d5",
-     "73cadd04bfc9eb848165791521324a6d3fccf5bb6b49c22f1643eb153e033000",
-     "7883526a2de3f29305e135c9e9f518806a006eb449a5941f5d1d30da9d41d74b",
-     "7a7fba32b6798c2661f2a11f9c38874340ade4552b331332c3f2e28d8e71baa1",
-     "809855a7d49583b8410f1ba2968ff3506d2a8d724c22f1f3ac3660d75ed51d08",
-     "85c89f91f9c767b1a240a8380311e2bfaf7c3501f19e39401fba58ab67b64fe0",
-     "924e5960a02f04876e5339025b486797d0546c3c131775fb6368c82343aad2fa",
-     "95002eed7de9d7cd288218647c3c0f812ecb7bb283daf8cbacc83248cd51eb61",
-     "95bc3eeecda2a0e4056c4971cbf1f3912659359c42b11988a2bb2313d4a98c20",
-     "97c91c7f14234ec4f78632731f99f13b4f13310fa4093cd46a83965ffaa32c24",
-     "9c2a47ba9522223cf5a4473b85e8759012527f3ebc647fcac0b3a0e1a96d64ba",
-     "9f054d20b220d4f05684e116da234d467a2e256ea0bae642d6c02ed6fba35ffd",
-     "a23997ebdd5f2c1fb7f64e8c6c10e3b654c63933d0dd2a159183b011c9a95692",
-     "acc46eb0bc2be373be9fe750b9482bb2f29853d69480c36062549f97bc7c85c7",
-     "ad3c125eb63b2f1983459cdad76902853ede8732fa7290e749a0173e229a9b8e",
-     "aeb6d47f10f00353fda17ffbd67fd2f73a9125fa16c39bc501fb25240ad606f1",
-     "b355922c14aa39b2f89ca6539ff7317959ebde399c51f4c9cd2f06ab09e44f89",
-     "b7fa4ed45c3a1e81b01e117e35cbc0c71660a94a7aa5a28c43ecc49b0f8bbc9a",
-     "b9c05a6ef94425740cd88dc164a903d30c4b1e415339538907b833fe3c0c322f",
-     "bc13268750a8aef7fc2c22f12eb29142c029229053b2d946471debb072cc15fb",
-     "bc1e0b9c164589746de934abf9e40c2dd9818eb7181303a64b6812e9cd60878b",
-     "c100c0a4dafb791b3175c27f96572e081de0411f4cc906f92dff792a55da6a53",
-     "cd63044c51c3dcdb759f3994c480e56ff99271f837bccb94bba00dc9ffb7feba",
-     "db8b6354d42e8b4ffa59d7fb53556d87e03594dcf231da1afddc6462197d2886",
-     "dc3d7e13b302980b4e7bd08d8a7281acf40944a9a500f3a3e34481361fd8a01b",
-     "e8cca3a39ff3f53b50873fd4700e99232f46e4b99267b39c5f9f4a8fafa4efde",
-     "ea4983c3f580a593bf01f5563f982f3eb9d5fdc881d33c33727acbdd107b5e75",
-     "ecb6c560c7b82a3fef79ea6db50ac5c4d4990529443ff9ade89b2cdcd011466a",
-     "f59218fce045dac4aaa8a94e93e85e6c51727a07c92964c83b9be44abec6a1cf"
-    ]
    }
   ],
   "max_need": 6,
@@ -1107,9 +1107,9 @@
  },
  "dossiers": [
   {
-   "who": "Herr Simon",
-   "de": "Vierundfünfzig, seit zwanzig Jahren in der Registratur, und er sagt jeden Satz so, als hätte er ihn schon zwanzig Jahre gesagt, was stimmt. Ordnung ist bei ihm keine Tugend, sondern eine Gewohnheit, die er sich nicht mehr abgewöhnen könnte. Er verwechselt nie eine Nummer und selten einen Namen. Wenn etwas nicht zurückkommt, ärgert er sich still und lange. Sein Bruder hatte eine Gastwirtschaft, und davon erzählt er einmal im Jahr.",
-   "en": "Fifty-four, twenty years in the Registratur, and he says every sentence like a man who has been saying it for twenty years, which he has. Order is not a virtue with him but a habit he could no longer break. He never mixes up a number and rarely a name. When something does not come back he is quietly and lastingly annoyed. His brother kept an inn, and he tells you about it once a year.",
+   "who": "Oberregierungsrat Grau",
+   "de": "Oberregierungsrat, Mitte fünfzig, im Haus seit dem Umzug. Er hört einem bis zum Ende zu und entscheidet dann, was er ohnehin entschieden hatte, und hält beides für dasselbe. Ein Mann, der Namen nie vergisst und Gesichter schon. Er redet über die Arbeit wie über das Wetter: sachlich, unaufhörlich und ohne dass jemand klüger wird. Zu Hause wird er anders sein, sagt das Haus, und das Haus weiß es nicht.",
+   "en": "Oberregierungsrat, in his middle fifties, in the building since the move. He hears you out and then decides what he had decided already, and considers those the same thing. A man who never forgets a name and does forget faces. He talks about work the way other people talk about weather: steadily, at length, and without anybody coming away wiser. He must be different at home, the building says, and the building does not know.",
    "sprite": "art/people/simon.png"
   },
   {
@@ -1119,9 +1119,9 @@
    "sprite": "art/people/pohlmann.png"
   },
   {
-   "who": "Oberregierungsrat Grau",
-   "de": "Oberregierungsrat, Mitte fünfzig, im Haus seit dem Umzug. Er hört einem bis zum Ende zu und entscheidet dann, was er ohnehin entschieden hatte, und hält beides für dasselbe. Ein Mann, der Namen nie vergisst und Gesichter schon. Er redet über die Arbeit wie über das Wetter: sachlich, unaufhörlich und ohne dass jemand klüger wird. Zu Hause wird er anders sein, sagt das Haus, und das Haus weiß es nicht.",
-   "en": "Oberregierungsrat, in his middle fifties, in the building since the move. He hears you out and then decides what he had decided already, and considers those the same thing. A man who never forgets a name and does forget faces. He talks about work the way other people talk about weather: steadily, at length, and without anybody coming away wiser. He must be different at home, the building says, and the building does not know.",
+   "who": "Herr Simon",
+   "de": "Vierundfünfzig, seit zwanzig Jahren in der Registratur, und er sagt jeden Satz so, als hätte er ihn schon zwanzig Jahre gesagt, was stimmt. Ordnung ist bei ihm keine Tugend, sondern eine Gewohnheit, die er sich nicht mehr abgewöhnen könnte. Er verwechselt nie eine Nummer und selten einen Namen. Wenn etwas nicht zurückkommt, ärgert er sich still und lange. Sein Bruder hatte eine Gastwirtschaft, und davon erzählt er einmal im Jahr.",
+   "en": "Fifty-four, twenty years in the Registratur, and he says every sentence like a man who has been saying it for twenty years, which he has. Order is not a virtue with him but a habit he could no longer break. He never mixes up a number and rarely a name. When something does not come back he is quietly and lastingly annoyed. His brother kept an inn, and he tells you about it once a year.",
    "sprite": "art/people/grau.png"
   },
   {
@@ -1137,15 +1137,15 @@
    "sprite": "art/people/adam.png"
   },
   {
-   "who": "Frau Kern",
-   "de": "Kam im Frühjahr herüber. Ohne Beförderung, ohne Erklärung. Auf die Frage warum sagt sie, hier sei es wärmer. Ein Ehering, kein Foto auf dem Schreibtisch. Sie schreibt schnell, sauber und ohne jede Neugier auf den Inhalt — in einem Haus wie diesem eine erlernbare Fähigkeit, und bei ihr wirkt sie sehr gut erlernt. Wenn im Raum über Vorgesetzte gesprochen wird, prüft sie ihr Farbband.",
-   "en": "Came across in the spring. No promotion, no explanation. Asked why, she says it is warmer here. A wedding ring, no photograph on the desk. She types fast, cleanly and with no curiosity whatever about the content — in a building like this one a learnable skill, and in her case a very well learned one. When the room starts talking about superiors, she checks her ribbon.",
-   "sprite": "art/people/kern.png"
-  },
-  {
    "who": "Fräulein Bühl",
    "de": "Achtundzwanzig, seit vier Jahren im Haus, verlobt seit Ostern. Geheiratet wird im Frühjahr, und was danach kommt, hat das Haus schon entschieden, ohne dass es jemand ausgesprochen hätte. Sie kleidet sich eine Gehaltsstufe über ihrer Gehaltsstufe und trägt dazu ein Gesicht, das zu einer Bemerkung einlädt. Gemacht hat sie noch niemand. Sie tippt gut und gern und redet dabei nicht, was sie für Höflichkeit hält und die anderen für Hochmut. Auf die Frage, ob sie danach bleibt, sagt sie „Mal sehen“, und zwar so, als hätte sie schon gesehen.",
    "en": "Twenty-eight, four years in the building, engaged since Easter. The wedding is in the spring, and what happens after that the building has already decided without anyone saying it aloud. She dresses one salary grade above her salary grade and wears an expression that invites a remark. Nobody has made one yet. She types well and willingly and does not talk while she does it, which she considers courtesy and the others consider airs. Asked whether she will stay on afterwards she says we'll see, in the tone of somebody who has already seen.",
+   "sprite": "art/people/kern.png"
+  },
+  {
+   "who": "Frau Kern",
+   "de": "Kam im Frühjahr herüber. Ohne Beförderung, ohne Erklärung. Auf die Frage warum sagt sie, hier sei es wärmer. Ein Ehering, kein Foto auf dem Schreibtisch. Sie schreibt schnell, sauber und ohne jede Neugier auf den Inhalt — in einem Haus wie diesem eine erlernbare Fähigkeit, und bei ihr wirkt sie sehr gut erlernt. Wenn im Raum über Vorgesetzte gesprochen wird, prüft sie ihr Farbband.",
+   "en": "Came across in the spring. No promotion, no explanation. Asked why, she says it is warmer here. A wedding ring, no photograph on the desk. She types fast, cleanly and with no curiosity whatever about the content — in a building like this one a learnable skill, and in her case a very well learned one. When the room starts talking about superiors, she checks her ribbon.",
    "sprite": "art/people/buehl.png"
   },
   {
@@ -2326,6 +2326,22 @@
    ],
    "short": "the rules of procedure",
    "long": "The Gemeinsame Geschäftsordnung der Bundesministerien: the standing rules saying who may do what, on which form, in what order, and in which colour of pencil. Most people have never read it."
+  },
+  {
+   "term": "Kommissar",
+   "also": [
+    "Kriminalkommissar"
+   ],
+   "short": "a detective inspector",
+   "long": "A rank in the German criminal police: the officer who leads an investigation."
+  },
+  {
+   "term": "Kriminalpolizei",
+   "also": [
+    "Kripo"
+   ],
+   "short": "the criminal police",
+   "long": "The plain-clothes branch of the German police that investigates crimes, as against the uniformed police on the street; each city has its own."
   },
   {
    "term": "Oberregierungsrat",

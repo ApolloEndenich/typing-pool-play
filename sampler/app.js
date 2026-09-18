@@ -155,6 +155,27 @@ async function load(id) {
   FOLD = recall(id, "fold", {});
   DESK = recall(id, "desk", []);
   CITE = recall(id, "cites", {});
+  /* The report's rows are cited by position (row0, row1 ...), and the rows
+     were put in the house's order on 18 September 2026. A save keeps the row
+     ids it was made with, and a citation follows its row to its new place; a
+     save from before that has no ids, and its row citations are dropped
+     rather than handed to whoever now stands in that position. */
+  if (CASE.memo) {
+    const ids = CASE.memo.rows.map(r => r.id);
+    const was = recall(id, "rowids", null);
+    if (JSON.stringify(was) !== JSON.stringify(ids)) {
+      const moved = {};
+      for (const [k, v] of Object.entries(CITE)) {
+        const m = /^row(\d+)$/.exec(k);
+        if (!m) { moved[k] = v; continue; }
+        const at = was ? ids.indexOf(was[+m[1]]) : -1;
+        if (at >= 0) moved[`row${at}`] = v;
+      }
+      CITE = moved;
+      remember(id, "cites", CITE);
+      remember(id, "rowids", ids);
+    }
+  }
   citing(null);
   $("notes").value = recall(id, "notes", "");
   $("notes").oninput = () => remember(id, "notes", $("notes").value);
