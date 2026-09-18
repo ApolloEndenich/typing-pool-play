@@ -2,7 +2,7 @@
 
 A deduction game. Bonn, 1969, a quarter past five.
 
-**▶ [Play it](https://apolloendenich.github.io/typing-pool-play/)**
+**▶ [Play it](https://typingpoolgame.com/)**
 
 This repository holds the game and only the game: four self-contained pages
 with the cases and the artwork baked in, and in `sampler/` a free sample of
