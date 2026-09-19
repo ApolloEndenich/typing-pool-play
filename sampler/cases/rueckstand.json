@@ -205,10 +205,6 @@
    "kind": "time"
   },
   {
-   "text": "the last week of September",
-   "kind": "time"
-  },
-  {
    "text": "117/64",
    "kind": "thing"
   },
@@ -233,7 +229,7 @@
    "kind": "thing"
   },
   {
-   "text": "the long table",
+   "text": "the canteen",
    "kind": "thing"
   },
   {
@@ -280,24 +276,24 @@
   {
    "id": "hour",
    "title": "The Open Counter",
-   "text": "The counter stood empty from ___ until ___ on the day it came back, and in that hour a delivery was signed for at ___.",
+   "text": "The counter stood empty from ___ until ___ on the day it came back, and the whole of that hour Frau ___ was downstairs, counting paper.",
    "kinds": [
     "time",
     "time",
-    "thing"
+    "person"
    ],
-   "sealed": "3ad4987850bc9f493e42b3ccedc9ddb2c1e525b8d08e9e6c2bd377340cd535cb"
+   "sealed": "837601f6fc8e2a3c9b29c376a711ce9b88c33025207bef14cc88ab59cf38fafc"
   },
   {
    "id": "asking",
    "title": "The Asking",
-   "text": "Herr ___ asked Frau ___ whether the file had ever come back, and the typists were asked once and once only, at ___.",
+   "text": "Herr ___ asked Frau ___ whether the file had ever come back, and the typists were asked once and once only, in the last week of September, over lunch in ___.",
    "kinds": [
     "person",
     "person",
     "thing"
    ],
-   "sealed": "9040dd2a6ef355c823c058c6415f0a0961f7e1d6318bd1c01b84b24267701414"
+   "sealed": "5f2391d6ef3620326e8b65a429b5970c53e2c603e683dc09a69f59ee79007872"
   },
   {
    "id": "hand",
