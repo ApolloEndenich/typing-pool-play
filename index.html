@@ -2185,10 +2185,14 @@ function redraw(){
  /* THE SAMPLER. The big game's free sample sits in its own folder beside
     these pages (publish.py, build_sampler). A door of its own would stand
     among the three doors into THIS game and read as a fourth way in, so it
-    gets a paragraph below them instead. */
+    gets a paragraph below them instead.
+
+    The link names index.html, not the folder. GitHub Pages turns "sampler/"
+    into its index.html; itch.io serves the game from a storage bucket that
+    does not, and answered the folder with a 404 (18 September 2026). */
  $("samplerH").textContent = t.sampler.h;
  $("sampler").innerHTML = `<p>${t.sampler.text}</p>`
-   + `<p><a class="door" href="sampler/"><b>${t.sampler.link}</b></a></p>`;
+   + `<p><a class="door" href="sampler/index.html"><b>${t.sampler.link}</b></a></p>`;
 
  /* Three doors, in the order a person should take them: learn it, play
     today's, then the rest. Each opens the same sheet — the tutorial is not a
