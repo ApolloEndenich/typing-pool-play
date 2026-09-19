@@ -142,6 +142,7 @@
  .beat .line{flex:1;min-width:0;font-size:12px;line-height:1.65}
  .beat .line em{font-style:normal;border-bottom:1px dotted var(--rule)}
  .beat .exact{display:block;font-size:9px;color:var(--faint);margin-top:3px}
+ .beat .had{font-size:10px;color:var(--faint)}
  .beat.dog .line{color:var(--good)}
  .beat.aside .line{color:var(--faint);font-style:italic}
  .curtain .foot{display:flex;justify-content:space-between;gap:8px;align-items:center;
@@ -962,7 +963,9 @@ en: {
   playThem: "play them",
   echo: "<b>{place}<\/b> tells you nothing you were not told already. "
     + "The call still cost you {n} minutes.",
-  echoDog: " Schmiss, at least, had something."
+  echoDog: " Schmiss, at least, had something.",
+  /* after a line the player already holds, with where they first heard it */
+  hadIt: "(you had this already: {place})"
  },
  /* Found by the audit, not by the lift: all of these are built inside a
     function rather than sitting in the page's chrome, and two of them are
@@ -996,7 +999,9 @@ en: {
    + "undo a mark and it has work in it again."],
   ["scenes", "The little scene at each door can be switched off for good, and "
    + "switched back on from the notice that appears when it is off."],
-  ["Schmiss", "His tallies draw a <b>rule across the building<\/b> at the storey "
+  ["Schmiss", "He comes along on every call, but in the first five lessons he "
+   + "keeps what he knows to himself; <b>the sixth is his<\/b>. "
+   + "His tallies draw a <b>rule across the building<\/b> at the storey "
    + "he is talking about — drawn on the building, not written in the list. "
    + "Turning the arcs off does not hide it: it is the clue itself, not a "
    + "deduction made for you."],
@@ -1263,7 +1268,8 @@ de: {
   playThem: "abspielen",
   echo: "<b>{place}<\/b> sagt Ihnen nichts, was Sie nicht schon wussten. "
     + "Der Besuch hat Sie trotzdem {n} Minuten gekostet.",
-  echoDog: " Schmiss immerhin hatte etwas."
+  echoDog: " Schmiss immerhin hatte etwas.",
+  hadIt: "(schon gehört: {place})"
  },
  nextDay: " am nächsten Tag",
  saidNothingNew: "sagte nichts Neues",
@@ -1297,7 +1303,9 @@ de: {
    + "ihm steckt."],
   ["Szenen", "Die kleine Szene an jeder Tür lässt sich dauerhaft abschalten und "
    + "über den Hinweis, der dann erscheint, wieder einschalten."],
-  ["Schmiss", "Seine Zählungen ziehen einen <b>Strich quer durchs Haus<\/b> auf "
+  ["Schmiss", "Er geht bei jedem Besuch mit, behält aber in den ersten fünf "
+   + "Lektionen für sich, was er weiß; <b>die sechste gehört ihm<\/b>. "
+   + "Seine Zählungen ziehen einen <b>Strich quer durchs Haus<\/b> auf "
    + "der Höhe, von der er spricht — gezeichnet am Haus, nicht in der Liste "
    + "geschrieben. Die Bögen abzuschalten verbirgt ihn nicht: Er ist der Hinweis "
    + "selbst und keine Schlussfolgerung, die Ihnen abgenommen wird."],
@@ -1558,7 +1566,8 @@ fr: {
   playThem: "les jouer",
   echo: "<b>{place}<\/b> ne vous apprend rien que vous ne sachiez déjà. "
     + "La visite vous a tout de même coûté {n} minutes.",
-  echoDog: " Schmiss, au moins, avait quelque chose."
+  echoDog: " Schmiss, au moins, avait quelque chose.",
+  hadIt: "(vous le saviez déjà : {place})"
  },
  nextDay: " le lendemain",
  saidNothingNew: "n'a rien dit de nouveau",
@@ -1592,7 +1601,10 @@ fr: {
    + "nouveau du travail."],
   ["scènes", "La petite scène à chaque porte peut être désactivée une fois "
    + "pour toutes, et réactivée depuis l'avis qui apparaît quand elle l'est."],
-  ["Schmiss", "Ses comptes tracent une <b>ligne en travers de l'immeuble<\/b> à "
+  ["Schmiss", "Il vous accompagne à chaque visite, mais pendant les cinq "
+   + "premières leçons il garde pour lui ce qu'il sait ; <b>la sixième est la "
+   + "sienne<\/b>. "
+   + "Ses comptes tracent une <b>ligne en travers de l'immeuble<\/b> à "
    + "l'étage dont il parle — tracée sur l'immeuble, non écrite dans la liste. "
    + "Désactiver les arcs ne la cache pas : c'est l'indice lui-même, non une "
    + "déduction faite à votre place."],
@@ -1837,7 +1849,8 @@ it: {
   playThem: "giocarle",
   echo: "<b>{place}<\/b> non le dice niente che non le fosse già stato detto. "
     + "La visita le è costata comunque {n} minuti.",
-  echoDog: " Schmiss, almeno, aveva qualcosa."
+  echoDog: " Schmiss, almeno, aveva qualcosa.",
+  hadIt: "(lo sapeva già: {place})"
  },
  nextDay: " il giorno dopo",
  saidNothingNew: "non ha detto niente di nuovo",
@@ -1869,7 +1882,9 @@ it: {
    + "lei disfa un segno e l'indizio ha di nuovo lavoro."],
   ["scene", "La scenetta a ogni porta si può disattivare per sempre, e "
    + "riattivare dall'avviso che compare quando è spenta."],
-  ["Schmiss", "I suoi conteggi tracciano una <b>riga attraverso l'edificio<\/b> "
+  ["Schmiss", "La accompagna a ogni visita, ma nelle prime cinque lezioni "
+   + "tiene per sé quello che sa; <b>la sesta è sua<\/b>. "
+   + "I suoi conteggi tracciano una <b>riga attraverso l'edificio<\/b> "
    + "al piano di cui sta parlando — tracciata sull'edificio, non scritta nella "
    + "lista. Disattivare gli archi non la nasconde: è l'indizio stesso, non una "
    + "deduzione fatta al posto suo."],
@@ -2114,7 +2129,8 @@ es: {
   playThem: "verlas",
   echo: "<b>{place}<\/b> no le dice nada que no le hubieran dicho ya. "
     + "La visita le ha costado igualmente {n} minutos.",
-  echoDog: " Schmiss, al menos, traía algo."
+  echoDog: " Schmiss, al menos, traía algo.",
+  hadIt: "(ya lo sabía: {place})"
  },
  nextDay: " al día siguiente",
  saidNothingNew: "no dijo nada nuevo",
@@ -2146,7 +2162,9 @@ es: {
    + "cuenta si usted deshace una marca y vuelve a tener trabajo."],
   ["escenas", "La escenita de cada puerta puede desactivarse para siempre, y "
    + "volver a activarse desde el aviso que aparece cuando está apagada."],
-  ["Schmiss", "Sus recuentos trazan una <b>raya a través del edificio<\/b> a la "
+  ["Schmiss", "La acompaña en cada visita, pero en las cinco primeras "
+   + "lecciones se guarda lo que sabe; <b>la sexta es suya<\/b>. "
+   + "Sus recuentos trazan una <b>raya a través del edificio<\/b> a la "
    + "altura de la que está hablando — dibujada sobre el edificio, no escrita "
    + "en la lista. Desactivar los arcos no la esconde: es la pista misma, no "
    + "una deducción hecha por usted."],
@@ -2392,7 +2410,8 @@ zh: {
   scenesOff: "过场已关闭。",
   playThem: "播放",
   echo: "<b>{place}<\/b>说的，你早就听说过了。这一趟还是花了你 {n} 分钟。",
-  echoDog: "至少施密斯带回了点东西。"
+  echoDog: "至少施密斯带回了点东西。",
+  hadIt: "（这条你已经听过：{place}）"
  },
  nextDay: "第二天",
  saidNothingNew: "没说出新东西",
@@ -2418,7 +2437,8 @@ zh: {
    + "一条线索牵涉的人全都定好位置之后，过一会儿它会自己退下——而如果你撤销了一个记号，"
    + "它又有活儿干了，它会自己回来。"],
   ["过场", "每扇门前的小段过场可以永久关掉，也可以从关掉后出现的提示里重新打开。"],
-  ["施密斯", "他数出来的数会在他所说的那一层<b>横着画一条线穿过整座楼<\/b>"
+  ["施密斯", "每次上门他都跟着，但前五课里他知道什么都不说；<b>第六课是他的<\/b>。"
+   + "他数出来的数会在他所说的那一层<b>横着画一条线穿过整座楼<\/b>"
    + "——画在楼上，不是写在列表里。关掉弧线不会把它藏起来：它本身就是线索，"
    + "不是替你做好的推理。"],
   ["钟", "每走访一次花二十五分钟，最后一次收信是八点。迟了会改变报告被怎么对待；"
@@ -2667,6 +2687,7 @@ let dossier = null, scene = null, calls = 0;
 let retired = [];   // line ids the player is finished with, newest first
 let auto = [];      // which of those retired themselves rather than being ticked
 let born = {};      // told-index -> [which call it came from, its place in that call]
+let from = {};      // clue id -> the source it was first heard at
 let pending = {};   // ids seen finished but not yet moved, and when
 let pins = [];      // the live map markers, so hovering never rebuilds them
 let locs = [];      // the live list rows, likewise
@@ -2728,7 +2749,7 @@ function load(i){
  C = CASES[i];
  D = C.layout.desks.length;
  marks = {}; pen = null; told = []; heard = []; clock = START; said = {};
- dogNext = 0; lit = null; retired = []; auto = []; pending = {}; born = {};
+ dogNext = 0; lit = null; retired = []; auto = []; pending = {}; born = {}; from = {};
  dossier = null; scene = null; calls = 0; shut();
  C.sources.forEach(s => { s.visited = false; });
  order = C.layout.desks.map(r => r.desk)
@@ -3916,7 +3937,10 @@ function beats(sc){
     line: (i === 0 ? sc.place.voice + ": " : S().andAlso)
       + (Array.isArray(r)
          ? `<em>${r[0]}</em>${S().orElse}<em>${r[1]}</em>`
-         : `<em>${r}</em>`)});
+         : `<em>${r}</em>`)
+      + (sc.had && sc.had.includes(c.id)
+         ? ` <span class="had">${fill(S().scene.hadIt,
+             {place: C.sources[from[c.id]].place.name})}</span>` : "")});
   });
  } else {
   out.push({who: "them", line: fill(S().toldNothing, {voice: sc.place.voice})});
@@ -4378,7 +4402,7 @@ function visit(i){
  s.clues.forEach(id => {
   const n = C.clues.findIndex(c => c.id === id);
   if (n >= 0 && !told.includes(n)){
-   born[n] = [calls, seq++]; told.push(n); fresh++; gained.push(id);
+   born[n] = [calls, seq++]; told.push(n); fresh++; gained.push(id); from[id] = i;
   }
  });
  // A decoy holds a line somebody else already gave you. That is the price of
@@ -4391,10 +4415,14 @@ function visit(i){
  // after the person has finished talking, so he should not be sitting on top
  // of what you actually went out and paid for.
  if (n >= 0){ heard.push(n); born[C.clues.length + n] = [calls, 99]; told.push(C.clues.length + n); }
- // and the whole call is one scene: the room, what was said, what he did
+ // and the whole call is one scene: the room, what was said, what he did.
+ // EVERY line the person knows is said, the ones you already hold as well,
+ // marked with where you first heard them (the user, 18 September 2026: a
+ // door said "2 things to say", the scene showed one, and the other read as
+ // lost). The repeat still costs the call; it just no longer vanishes.
  scene = {place: s.place, n: calls,
-          lines: s.clues.map(id => C.clues.find(c => c.id === id))
-                        .filter(c => c && gained.includes(c.id)),
+          lines: s.clues.map(id => C.clues.find(c => c.id === id)).filter(c => c),
+          had: s.clues.filter(id => !gained.includes(id) && id in from),
           dog: n >= 0 ? C.dog[n] : null};
  curtainAt = 0;
  // You went to a door to be told something; show what you were told. And the
