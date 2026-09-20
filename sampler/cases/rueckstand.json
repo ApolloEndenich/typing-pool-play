@@ -14,7 +14,7 @@
     {
      "where": "the Registratur",
      "lines": [
-      "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand.",
+      "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand, and it is Herr Simon's.",
       "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and nothing written under it since.",
       "The Rückstandsliste, the arrears list: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every section (Referat) holding one of them."
      ]
@@ -47,36 +47,15 @@
     {
      "where": "the Schreibsaal",
      "lines": [
-      "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
+      "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: Fräulein Ostrowski's name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
       "A drafted request, in the drawer of the desk in the corner behind the door: for new machines, costed to the Pfennig against what the last lot came to in 1964, finished, unsigned, and never sent up."
      ]
     },
     {
-     "where": "Herr Simon",
+     "where": "Fräulein Ostrowski",
      "lines": [
-      "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
-      "Simon: You will be the one Kommissar Mauser sent. Good. Come and stand where I stood, because this counter is where it happened. The file was not there when I went up to the Poststelle and it was there when I came down, squared off against the edge the way a thing is put down by somebody who means it to be noticed.",
-      "Simon: The way it went out. There is one way, and I have explained it more often than I can count. A file leaves on the book and it comes back on the book, and it comes back from the outer office that took it, never from the man it went up to. So you understand me: a thing lying on my counter is not back. Until somebody writes the line it is still out, whatever is sitting there.",
-      "Simon: Once, and I asked the proper person. I stopped Frau Pohlmann in the corridor in the last week of September and asked whether 117/64 had ever come back to her, and she said she would ask the typists, since it was the Schreibsaal she had passed it to. What she asked them, and how, you will have to ask her.",
-      "Simon: There. Now you see why I did not simply file it and say nothing. A cover is mine to make and the number goes on it in ink. A Referat that has torn one asks across the counter and is given another, and in twenty years I have never once refused.",
-      "Simon: Open it yourself; you will see it better than I can tell it. Open a file in this room and the oldest sheet is the one facing you and the newest is at the back: that is the Registratur's order, and it is what a file leaves in and what I expect it back in. Open one in the Schreibsaal and they have turned it round, newest facing, because that is the sheet they are working on."
-     ]
-    },
-    {
-     "where": "Frau Pohlmann",
-     "lines": [
-      "Pohlmann: Through me. Nothing passes between the Registratur and the Referatsleiter himself except across this desk, in both directions, and it has been so for eleven years and three Referatsleiter.",
-      "Pohlmann: Yes. I did it myself, because it was mine to do. I went down to the canteen for it, which I do not do, and asked the typists myself, once, over lunch at the long table in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
-      "Pohlmann: In a desk drawer? No. Nobody in this Referat has asked for new machines to be costed, this year or any other. A request like that would have come across this desk, and none has.",
-      "Pohlmann: Please. Herr Grau is not to be disturbed, but I can give you a moment. I remember 117/64 coming up in May and I remember passing it to the Schreibsaal, and the Schreibsaal is where it stopped being anything I could account for.",
-      "Pohlmann: A careful man, and a fair one. Herr Simon is not angry about 117/64 and has said so to me twice, which is how the building knows that he is. What he keeps coming back to is that a line in the book would have cost nobody anything.",
-      "Pohlmann: Oh, that list. The Rückstandsliste, the arrears list was on Herr Grau's desk in September and he initialled it and I sent it back out, and he could not tell you today a single number that stood on it."
-     ]
-    },
-    {
-     "where": "Oberregierungsrat Grau",
-     "lines": [
-      "Grau: Frau Wessen. Sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else."
+      "Ostrowski: You are the one looking into the file. Good; somebody should. I own my own copy of the Geschäftsordnung, issued to me and not the pool's, and I have read it twice. I can tell you what it says about a file that comes back and exactly where the line goes.",
+      "Ostrowski: Once. Frau Pohlmann came down to the canteen, which she never does, and asked us once, over lunch at the long table in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
      ]
     },
     {
@@ -99,6 +78,12 @@
      ]
     },
     {
+     "where": "Fräulein Wenzel",
+     "lines": [
+      "Wenzel: Wenzel. Shorthand with distinction, if nobody has told you. I take the end of the long table when we go down to eat, and it is the quietest seat in this building, and I have said so for years. Up here I have the desk in the corner behind the door, and the drawer in it is the one nobody else has any reason to open."
+     ]
+    },
+    {
      "where": "Frau Kern",
      "lines": [
       "Kern: Ask Frau Adam. Frau Adam knows who is expecting, who is moving and who is separating, and she tells it only to people who know already, and she considers that discretion.",
@@ -115,16 +100,27 @@
      ]
     },
     {
-     "where": "Fräulein Ostrowski",
+     "where": "the charwoman",
      "lines": [
-      "Ostrowski: You are the one looking into the file. Good; somebody should. I own my own copy of the Geschäftsordnung, issued to me and not the pool's, and I have read it twice. I can tell you what it says about a file that comes back and exactly where the line goes.",
-      "Ostrowski: Once. Frau Pohlmann came down to the canteen, which she never does, and asked us once, over lunch at the long table in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
+      "the charwoman: And before you ask, because they all do: I am in the Schreibsaal only when the pool has gone and the room is empty. I empty what is in the baskets and I do not open a folder left on a desk, and I have never in my life been in there while anybody was talking.",
+      "the charwoman: You stopped. I like talking when somebody stops, and almost nobody stops. I have two grown children. I do not see much of them, and I tell everybody about them."
      ]
     },
     {
-     "where": "Fräulein Wenzel",
+     "where": "Frau Pohlmann",
      "lines": [
-      "Wenzel: Wenzel. Shorthand with distinction, if nobody has told you. I take the end of the long table when we go down to eat, and it is the quietest seat in this building, and I have said so for years. Up here I have the desk in the corner behind the door, and the drawer in it is the one nobody else has any reason to open."
+      "Pohlmann: Through me. Nothing passes between the Registratur and the Referatsleiter himself except across this desk, in both directions, and it has been so for eleven years and three Referatsleiter.",
+      "Pohlmann: Yes. I did it myself, because it was mine to do. I went down to the canteen for it, which I do not do, and asked the typists myself, once, over lunch at the long table in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
+      "Pohlmann: In a desk drawer? No. Nobody in this Referat has asked for new machines to be costed, this year or any other. A request like that would have come across this desk, and none has.",
+      "Pohlmann: Please. Herr Grau is not to be disturbed, but I can give you a moment. I remember 117/64 coming up in May and I remember passing it to the Schreibsaal, and the Schreibsaal is where it stopped being anything I could account for.",
+      "Pohlmann: A careful man, and a fair one. Herr Simon is not angry about 117/64 and has said so to me twice, which is how the building knows that he is. What he keeps coming back to is that a line in the book would have cost nobody anything.",
+      "Pohlmann: Oh, that list. The Rückstandsliste, the arrears list was on Herr Grau's desk in September and he initialled it and I sent it back out, and he could not tell you today a single number that stood on it."
+     ]
+    },
+    {
+     "where": "Oberregierungsrat Grau",
+     "lines": [
+      "Grau: Frau Wessen. Sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else."
      ]
     },
     {
@@ -138,10 +134,14 @@
      ]
     },
     {
-     "where": "the charwoman",
+     "where": "Herr Simon",
      "lines": [
-      "the charwoman: And before you ask, because they all do: I am in the Schreibsaal only when the pool has gone and the room is empty. I empty what is in the baskets and I do not open a folder left on a desk, and I have never in my life been in there while anybody was talking.",
-      "the charwoman: You stopped. I like talking when somebody stops, and almost nobody stops. I have two grown children. I do not see much of them, and I tell everybody about them."
+      "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
+      "Simon: You will be the one Kommissar Mauser sent. Good. Come and stand where I stood, because this counter is where it happened. The file was not there when I went up to the Poststelle and it was there when I came down, squared off against the edge the way a thing is put down by somebody who means it to be noticed.",
+      "Simon: The way it went out. There is one way, and I have explained it more often than I can count. A file leaves on the book and it comes back on the book, and it comes back from Frau Pohlmann's outer office that took it, never from Oberregierungsrat Grau himself, whom it went up to. So you understand me: a thing lying on my counter is not back. Until somebody writes the line it is still out, whatever is sitting there.",
+      "Simon: Once, and I asked the proper person. I stopped Frau Pohlmann in the corridor in the last week of September and asked whether 117/64 had ever come back to her, and she said she would ask the typists, since it was the Schreibsaal she had passed it to. What she asked them, and how, you will have to ask her.",
+      "Simon: There. Now you see why I did not simply file it and say nothing. A cover is mine to make and the number goes on it in ink. A Referat that has torn one asks across the counter and is given another, and in twenty years I have never once refused.",
+      "Simon: Open it yourself; you will see it better than I can tell it. Open a file in this room and the oldest sheet is the one facing you and the newest is at the back: that is the Registratur's order, and it is what a file leaves in and what I expect it back in. Open one in the Schreibsaal and they have turned it round, newest facing, because that is the sheet they are working on."
      ]
     }
    ]
@@ -568,7 +568,6 @@
     "marks": [
      "00d99fe9afbaae4b03c15152900d07657f0f1152a03e031972c93c2864a02124",
      "085a9f25a2f1e5b0caf105cf85306e556ba5d9c6a0873b87b47c0bc0f2e204d6",
-     "0eeaa510fa29cde78cf141aaee3b1df288fb494454562eb89e1329a0fe3c84d9",
      "1ea65635ba25a4043a0a64aae14c62cc1301b1d49a5e06b9c7c5ef2bfb3286bd",
      "207dc98d95de149c36e90c555beb0b2857da1c966ab620608d44a5ff50532fe1",
      "244729e857ac586f069836302051d07ce34fdb4cb38e6e01aa90e5265ad688ca",
@@ -580,6 +579,7 @@
      "4d50e462733d271eb8acec2786570d7f7bde99f2965a83b07d80e66b646bf6bb",
      "525e56e4d9d07c98c9e6b1eb7a57e277d9c11d2773cf1fd633e88afd4b85dc30",
      "58ee2fc3146275ae87a5e919e29cfb327fae2829a0d98438bc32f2bac2ebf53e",
+     "5ac9747a2ad1ab9286bf7f6692630b61148b2002298d1c283b11c1b738330611",
      "6564b497b1e87ee03bc9a8797f22ee5092f05ecd0956d1b8259af8dfdf1c7c71",
      "676faecf63dc7da74179e6aa994322639ab4b7eb875b12aa4752c66a1f9b09a0",
      "7b8e5e343b43c66ff484186a7c2b6a5fa2e1b79a11d3187237c28825cdfafb6d",
@@ -621,6 +621,7 @@
      "3b6a505c82bba41d4b728a9e443e0a155f499f3c8014228839fa51ac883fd276",
      "4023c869b64019cb82a47775cb11f210227735acbb1bf39084c962e99612a00d",
      "4383282867b80206cb1eeb1b31196444897da954db20a9ebdc09563c8bfa65fd",
+     "46475bad181b52af47a52d8d08e9c74438575e58ee5b7d5406cfd582f335ffb2",
      "5305f63ad0e8a4424d4ff949501fbf559fc9c4713ea721fc04c97ab69451c88e",
      "5cd51fc8013e8f74d6cc5c5c2f090e638ce8594c47545ab332b1f1a68731c099",
      "681d1f94529f637100e55d542f248b3f5755a41b7d55d9b15954fe2e3db05425",
@@ -650,7 +651,6 @@
      "ec7ecaa65fbb29de5001688be7fe99f1f8f9d42f3f62e9190805e4598eee2fc6",
      "ed96fb2c197439c13a4c0766ba486499e51c8615abe8f1e15f45dc4bf8e62c3b",
      "f3d70a87fddc52e140c23849cbf4aa5a5cc155e26f100fc9fb4507d2e949d86f",
-     "f8a4c106b4ee0218f95bf0d5749fd3317df2d6ded063ac627bf9712f0e5f3d3b",
      "f9221aa7e5694cfc5faa5ead360aa42660c59282ff42e93fa4bea57fb105337c",
      "fbdd65481fba19d79d5cae6e99156911c5e2bbd47a4951928915880877e524db"
     ]
@@ -661,6 +661,7 @@
     "need": "5d2e3c62ea9ec041685b064176ef5d8b875222129e84f351ed0bf4aaeff85417",
     "marks": [
      "01ec5b236a48a99ec6b99a821d2c23ee9ce25b169a2e5a9c4bc630bda76b68ca",
+     "06c7d9df287b93ce7fd05e3ff1371b77c4d0c2700e1cda0df43514bd09c60d1a",
      "0b194e84e022a4c6ebdb2a007b6aa0d26569cd08dffd98ef98e2af2ca2d3607b",
      "0ce3d223a35d1065efff553b216795aa64a65efed20db5ab07a9aebc75dd4549",
      "0dee1bbd1f5d264c40326885e425c0a84ecbe04cc094ddcc9268b01d9632f081",
@@ -673,7 +674,6 @@
      "269fbc46fd5aff00068d879407e8f3738308329f06b635714bb5e356becadebf",
      "30afedaff86868f4d3939c34a071a20b8d0752276ae69e17960c41165e05f300",
      "347783d8b5ee0dbb6dd8f579bf84d80bd81b51e7abff2bd17ca9edf2d2f67b12",
-     "37fb5017a20b584c86424f7654ae6b235882047d848acf5b8834ebc026279477",
      "3d6ea871b05bd843767d5a73c2d79ce327d500bbcffd6c938977d445ea24215b",
      "40e0b75145ecd84963ec74251b811aacc83c89886411e82f303a6ca493b65a97",
      "602b83643a46326bf0b17cfbb55f9ce1e9976c6015952b4df8febfc872cac382",
@@ -896,10 +896,10 @@
     "need": "20c6eb27bb06d7f9ed317c5e32af3556c8d853d7cd796a50be29611ce66e2894",
     "marks": [
      "0bd93faf103bde05fbd2e8f54c10ef3c238ef86bc6748c4725d416c4d7ff1cf9",
-     "14737ad4dcf7c439a1f9769dae9f640970d00f6218f21d642a65402bf1058187",
      "16ed4a141dda418726d61da00a1561aa1bbe85a28620889bdce044c8590d6d49",
      "1a26596ada458a53f74a32592bd49577e46fd466421f7fc98c3d573eab815ac6",
      "1bdebb2512ddeb40ea514839347b354f8d33dbe7501fa2a32b67d999e9c366d8",
+     "2d2787eecb86e54b1158774c0d4aa2fde69178c715f5823f1576f68d39c7e2b3",
      "323406fabb6677fa63ea53328221b5f2031cfefe09d71a46cf9438c043ff71a2",
      "38dbe2b81a30136fab60f81a672a608748fa03dac813f5a63aaa6196794ff317",
      "3bbff5cff290cd3dcac819013927b82dfd07464fb3ad992425c8ded725d854b0",
@@ -1330,7 +1330,7 @@
     },
     "sees": [
      {
-      "text": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
+      "text": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: Fräulein Ostrowski's name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
       "phase": null
      },
      {
@@ -1374,7 +1374,7 @@
     },
     "sees": [
      {
-      "text": "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand.",
+      "text": "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand, and it is Herr Simon's.",
       "phase": null
      },
      {
@@ -1484,7 +1484,7 @@
      "registratur": {
       "lines": [
        {
-        "text": "Simon: The way it went out. There is one way, and I have explained it more often than I can count. A file leaves on the book and it comes back on the book, and it comes back from the outer office that took it, never from the man it went up to. So you understand me: a thing lying on my counter is not back. Until somebody writes the line it is still out, whatever is sitting there.",
+        "text": "Simon: The way it went out. There is one way, and I have explained it more often than I can count. A file leaves on the book and it comes back on the book, and it comes back from Frau Pohlmann's outer office that took it, never from Oberregierungsrat Grau himself, whom it went up to. So you understand me: a thing lying on my counter is not back. Until somebody writes the line it is still out, whatever is sitting there.",
         "phase": null
        }
       ],
@@ -2049,7 +2049,7 @@
     "raised_by": [
      "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it.",
      "The outer office's list of what went down: written before the paper leaves and initialled at the foot, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
-     "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
+     "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: Fräulein Ostrowski's name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
      "Simon: Open it yourself; you will see it better than I can tell it. Open a file in this room and the oldest sheet is the one facing you and the newest is at the back: that is the Registratur's order, and it is what a file leaves in and what I expect it back in. Open one in the Schreibsaal and they have turned it round, newest facing, because that is the sheet they are working on.",
      "Pohlmann: Through me. Nothing passes between the Registratur and the Referatsleiter himself except across this desk, in both directions, and it has been so for eleven years and three Referatsleiter.",
      "Litt: Back to the Registratur? Not one of us has ever had to sign a thing back into the Registratur. What reaches this room comes through the outer office and goes back the same way, and most of the girls have never had reason to put a hand on the loan book at all.",
@@ -2063,7 +2063,7 @@
     "ask_of": {},
     "always": true,
     "raised_by": [
-     "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand.",
+     "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand, and it is Herr Simon's.",
      "Simon: Once, and I asked the proper person. I stopped Frau Pohlmann in the corridor in the last week of September and asked whether 117/64 had ever come back to her, and she said she would ask the typists, since it was the Schreibsaal she had passed it to. What she asked them, and how, you will have to ask her.",
      "Pohlmann: Yes. I did it myself, because it was mine to do. I went down to the canteen for it, which I do not do, and asked the typists myself, once, over lunch at the long table in the last week of September, and I did not ask again. A thing asked twice becomes a thing somebody is accused of.",
      "Pohlmann: In a desk drawer? No. Nobody in this Referat has asked for new machines to be costed, this year or any other. A request like that would have come across this desk, and none has.",
@@ -2080,9 +2080,10 @@
     },
     "always": true,
     "raised_by": [
+     "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand, and it is Herr Simon's.",
      "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
      "Simon: You will be the one Kommissar Mauser sent. Good. Come and stand where I stood, because this counter is where it happened. The file was not there when I went up to the Poststelle and it was there when I came down, squared off against the edge the way a thing is put down by somebody who means it to be noticed.",
-     "Simon: The way it went out. There is one way, and I have explained it more often than I can count. A file leaves on the book and it comes back on the book, and it comes back from the outer office that took it, never from the man it went up to. So you understand me: a thing lying on my counter is not back. Until somebody writes the line it is still out, whatever is sitting there.",
+     "Simon: The way it went out. There is one way, and I have explained it more often than I can count. A file leaves on the book and it comes back on the book, and it comes back from Frau Pohlmann's outer office that took it, never from Oberregierungsrat Grau himself, whom it went up to. So you understand me: a thing lying on my counter is not back. Until somebody writes the line it is still out, whatever is sitting there.",
      "Simon: Once, and I asked the proper person. I stopped Frau Pohlmann in the corridor in the last week of September and asked whether 117/64 had ever come back to her, and she said she would ask the typists, since it was the Schreibsaal she had passed it to. What she asked them, and how, you will have to ask her.",
      "Simon: There. Now you see why I did not simply file it and say nothing. A cover is mine to make and the number goes on it in ink. A Referat that has torn one asks across the counter and is given another, and in twenty years I have never once refused.",
      "Simon: Open it yourself; you will see it better than I can tell it. Open a file in this room and the oldest sheet is the one facing you and the newest is at the back: that is the Registratur's order, and it is what a file leaves in and what I expect it back in. Open one in the Schreibsaal and they have turned it round, newest facing, because that is the sheet they are working on.",
@@ -2166,7 +2167,7 @@
   "exhibits": [
    {
     "thing": "The shelf for Z A 4",
-    "line": "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand.",
+    "line": "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand, and it is Herr Simon's.",
     "portable": false
    },
    {
@@ -2206,7 +2207,7 @@
    },
    {
     "thing": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk",
-    "line": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: her own name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
+    "line": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: Fräulein Ostrowski's name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
     "portable": false
    },
    {
