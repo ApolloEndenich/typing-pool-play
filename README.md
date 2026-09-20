@@ -5,9 +5,13 @@ A deduction game. Bonn, 1969, a quarter past five.
 **▶ [Play it](https://typingpoolgame.com/)**
 
 This repository holds the game and only the game: four self-contained pages
-with the cases and the artwork baked in, and in `sampler/` a free sample of
-the longer game those pages grew out of. The engine that builds and proves the
+with the cases and the artwork baked in. The engine that builds and proves the
 cases is not here.
+
+In `story/` is **Der Rückstand**, and it is not one of those cases. It is a
+detective case in the same building with no grid in it at all: you walk the
+ministry, ask the people in it, and write Sarah's report yourself, with the
+evidence for every part. It stands on its own. English only, and early.
 
 Sarah Wessen and Schmiss are from the crime novels of **Gudrun Leyendecker**
 and are used here with her permission. The game is not the books: it borrows
@@ -18,7 +22,7 @@ actually live.
 
 *Schmiss und Wessen* — Books on Demand, 2025, ISBN 978-3-695-18724-9.
 
-The pictures in `sampler/` are generated with AI and are
+The pictures in `story/` are generated with AI and are
 drafts, except for the documents: their paper and light are generated, and
 their ruling and every mark on them are drawn by `art/tools/scribble.py`.
 No handwriting anywhere in them spells anything.

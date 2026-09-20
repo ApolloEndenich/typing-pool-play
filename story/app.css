@@ -1,0 +1,576 @@
+/* Paper, a typewriter face, and as little else as possible. The duty sheet
+   already knows what this world looks like; this is a skeleton, not a design,
+   and it is deliberately plain so that nobody mistakes it for one. */
+
+:root {
+  --paper:#FBF9F4; --ink:#101010; --faint:#6B6B6B; --hair:#D8D4CA;
+  --rule:#B9B4A8; --good:#1E6B2F; --red:#8A2B2B; --wash:#F2EEE4;
+  /* the highlight: dark text on mustard, never light text on black */
+  --hi:#F1DD9C; --hi2:#E8C766;
+}
+:root:not([data-theme="light"]) { color-scheme: light; }
+
+* { box-sizing:border-box }
+[hidden] { display:none !important }
+body {
+  margin:0; background:var(--paper); color:var(--ink);
+  font:14px/1.55 "Courier New", ui-monospace, monospace;
+  padding:0 16px 48px;
+}
+
+header { max-width:1440px; margin:0 auto; padding-block:20px 8px }
+h1 { font-size:15px; letter-spacing:.22em; text-transform:uppercase; margin:0 0 10px }
+
+nav { display:flex; flex-wrap:wrap; gap:8px }
+nav button {
+  font:inherit; text-align:left; cursor:pointer; padding:6px 10px;
+  background:var(--wash); color:var(--ink); border:2px solid var(--hair);
+}
+nav button.on { border-color:var(--ink) }
+nav button small { display:block; font-size:10px; color:var(--faint); letter-spacing:.04em }
+
+/* The lines scroll with the page; the desk beside them -- notes and report --
+   stays in view and scrolls on its own, so a player can write while reading
+   halfway down the evening. Wide: notes and report side by side. Middling:
+   one column, notes over report. Narrow: everything in one stack. */
+main {
+  max-width:1440px; margin:0 auto;
+  display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:22px; align-items:start;
+}
+#desk {
+  grid-column:2; grid-row:2 / span 2; position:sticky; top:14px;
+  height:calc(100vh - 28px); display:grid; gap:12px;
+  grid-template-rows:minmax(140px, 36%) minmax(0,1fr);
+}
+@media (min-width:1240px) {
+  main { grid-template-columns:minmax(0,1fr) 640px }
+  #desk { grid-template-rows:minmax(0,1fr); grid-template-columns:1fr 1fr }
+}
+@media (max-width:820px) {
+  main { grid-template-columns:1fr }
+  #desk { grid-column:1; grid-row:auto; position:static; height:auto;
+          grid-template-rows:none }
+  #notes { min-height:180px }
+}
+
+#notepad { display:flex; flex-direction:column; min-height:0;
+           border:2px solid var(--rule); padding:11px 12px }
+#notepad h2 { font-size:11px; letter-spacing:.16em; text-transform:uppercase; margin:0 0 6px }
+#notes {
+  flex:1; min-height:0; width:100%; resize:none; font:inherit; font-size:12px;
+  line-height:1.5; padding:6px; background:var(--wash); color:var(--ink);
+  border:1px solid var(--hair);
+}
+#notes:focus { outline:none; border-color:var(--ink) }
+
+/* Ticked off, as on the duty sheet: faded, at the foot, and one tap back. */
+.where li { position:relative; padding-right:30px }
+.tick {
+  position:absolute; right:0; top:0; font:inherit; font-size:11px; line-height:1.2;
+  padding:1px 6px; cursor:pointer; background:none; color:var(--faint);
+  border:1px solid var(--rule);
+}
+.tick:hover { background:var(--hi); color:var(--ink); border-color:var(--ink) }
+.asides { margin-top:24px }
+.asidehead { font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+             color:var(--ink); margin:0 0 8px }
+.where.aside li { opacity:.45 }
+/* The desk: the lines a player has laid out by hand, anywhere on it. A card is
+   moved by its heading only, so the rest of it scrolls the page on a phone. */
+#deskwrap { margin-bottom:18px }
+.deskhead { font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+            color:var(--ink); margin:0 0 6px; display:flex; align-items:center; gap:10px }
+#squeeze { font:inherit; font-size:10px; letter-spacing:.06em; text-transform:none; padding:1px 7px;
+           cursor:pointer; background:none; color:var(--ink); border:1px solid var(--rule) }
+#squeeze:hover { background:var(--hi); border-color:var(--ink) }
+#sarahsdesk { position:relative; min-height:64px; background:var(--wash);
+        border:2px dashed var(--rule) }
+#sarahsdesk .empty { position:absolute; inset:0; display:flex; align-items:center;
+               justify-content:center; padding:0 12px; text-align:center;
+               color:var(--faint); font-size:12px }
+.card { position:absolute; width:clamp(150px, 46%, 320px); background:var(--paper);
+        border:1px solid var(--rule); box-shadow:1px 2px 0 var(--hair);
+        font-size:12px; line-height:1.45 }
+.card .grip { display:flex; align-items:center; gap:4px; padding:3px 4px 3px 7px;
+              border-bottom:1px solid var(--hair); cursor:grab; touch-action:none;
+              user-select:none; -webkit-user-select:none; font-size:9px;
+              letter-spacing:.12em; text-transform:uppercase; color:var(--faint) }
+.card .grip span { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+.card.lifted { box-shadow:3px 5px 0 var(--rule); z-index:5 }
+.card.lifted .grip { cursor:grabbing }
+.card p { margin:0; padding:5px 7px 6px }
+.card button.deskbtn { font:inherit; font-size:11px; line-height:1.2; padding:1px 6px;
+                       cursor:pointer; background:none; color:var(--faint);
+                       border:1px solid var(--rule); letter-spacing:0 }
+.card button.deskbtn:hover { background:var(--hi); color:var(--ink); border-color:var(--ink) }
+.card .cite { position:static }
+.pin { position:absolute; right:30px; top:0; font:inherit; font-size:11px; line-height:1.2;
+       padding:1px 6px; cursor:pointer; background:none; color:var(--faint);
+       border:1px solid var(--rule) }
+.pin:hover { background:var(--hi); color:var(--ink); border-color:var(--ink) }
+.where li { padding-right:60px }
+body.citing .where li .cite { right:60px }
+.where.aside li:hover { opacity:.8 }
+/* a heading folds away; folded, it says how many lines are under it */
+.fold { font:inherit; font-size:10px; line-height:1; width:1.6em; margin:0 4px 0 -3px; padding:0;
+        cursor:pointer; background:none; border:0; color:var(--ink) }
+.fold:hover { background:var(--hi) }
+.where.folded h3 { margin-bottom:0 }
+.nfold { letter-spacing:0; text-transform:none }
+
+#brief { grid-column:1/-1; border-left:5px solid var(--ink); padding:2px 0 2px 12px }
+#brief p { margin:0 0 6px }
+.q { font-weight:700 }
+
+.tabs { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px }
+.tabs button {
+  font:inherit; cursor:pointer; padding:5px 9px; background:none;
+  border:2px solid var(--hair); color:var(--ink); font-size:12px;
+}
+.tabs button.on { border-color:var(--ink); background:var(--wash) }
+.tabs button.shut { color:var(--faint); border-style:dashed; cursor:not-allowed }
+
+.note { color:var(--faint); font-size:12px; margin:0 0 14px }
+
+.where { margin-bottom:16px }
+.where h3 {
+  font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--faint); margin:0 0 5px; border-bottom:1px solid var(--hair);
+  padding-bottom:3px;
+}
+.where ul { margin:0; padding-left:17px }
+.where li { margin-bottom:5px }
+
+/* A word in a line: marked, not shouted. It has to sit in the talk as often
+   as in the evidence, or the marks become the pointer (rule 7 of the answer sheet). */
+.word {
+  font:inherit; color:inherit; background:none; border:0; padding:0;
+  border-bottom:1px dotted var(--rule); cursor:pointer; text-transform:inherit;
+  letter-spacing:inherit;
+}
+.word.got { background:var(--wash); border-bottom:1px solid var(--ink) }
+
+#evenings { grid-column:1 }
+#people { grid-column:1; border-top:1px solid var(--hair); padding-top:10px }
+#people h2 { font-size:11px; letter-spacing:.16em; text-transform:uppercase; margin:0 0 8px }
+#people details { border-bottom:1px solid var(--hair); padding:4px 0 }
+#people summary { cursor:pointer; font-size:12px }
+#people p { margin:6px 0 4px; font-size:12px; color:var(--faint) }
+
+#sheet { border:2px solid var(--ink); padding:11px 12px; min-height:0; overflow:auto }
+@media (max-width:820px) { #sheet { overflow:visible } }
+#sheet h2 { font-size:11px; letter-spacing:.16em; text-transform:uppercase; margin:0 0 4px }
+.count { font-size:11px; color:var(--faint); margin:0 0 10px }
+.part { border-top:1px solid var(--hair); padding-top:8px; margin-bottom:10px }
+.part h3 { font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); margin:0 0 4px }
+.part p { font-size:12px; margin:0 0 6px; line-height:1.9 }
+#sheet select {
+  font:inherit; font-size:12px; max-width:100%; padding:1px 2px;
+  background:var(--paper); color:var(--ink); border:1px solid var(--rule);
+}
+.sign {
+  font:inherit; font-size:12px; cursor:pointer; padding:4px 12px;
+  background:var(--hi); color:var(--ink); border:1px solid var(--ink); letter-spacing:.08em;
+}
+.sign:hover { background:var(--hi2) }
+.verdict { font-size:12px; margin:9px 0 0 }
+.verdict.good { color:var(--good) }
+.verdict.bad { color:var(--red) }
+
+/* The typed report. A blank is a gap in a sentence, not a form field, so it
+   is underlined and inherits the typewriter face around it rather than
+   arriving as a browser widget in somebody else's font. */
+input.blank {
+  font: inherit; color: inherit; background: transparent;
+  border: none; border-bottom: 1px solid currentColor;
+  padding: 0 .15em; margin: 0 .1em;
+}
+input.blank::placeholder { opacity: .45; font-style: italic; }
+input.blank:focus { outline: none; border-bottom-width: 2px; }
+
+.mode { display: flex; align-items: baseline; gap: .75em; flex-wrap: wrap; }
+#modeswitch {
+  font: inherit; cursor: pointer; background: transparent;
+  border: 1px solid currentColor; border-radius: 2px;
+  padding: .1em .5em; opacity: .75;
+}
+#modeswitch:hover { opacity: 1; }
+#levelswitch {
+  font: inherit; color: inherit; background: transparent;
+  border: 1px solid currentColor; border-radius: 2px;
+  padding: .05em .3em; opacity: .75; max-width: 100%;
+}
+#levelswitch:hover, #levelswitch:focus { opacity: 1; }
+
+/* A German term keeps its German and explains itself on hover. A person's
+   name opens who they are. Neither is collectable and neither may look like
+   a collectable word, so they are marked by the line under them and not by a
+   box around them. */
+.term { border-bottom: 1px dotted currentColor; cursor: help; }
+.who  { border-bottom: 1px solid currentColor; cursor: pointer; opacity: .9; }
+
+#tip, .tipcard {
+  /* above the document (60) and the manual (70): a word explained under the
+     book it stands in could not be read (the user, 14 September 2026); a card
+     opened from a card stands one higher (app.js, tip) */
+  position: fixed; z-index: 90; max-width: 32em;
+  padding: .6em .8em; font: inherit; font-size: .95em;
+  background: Canvas; color: CanvasText;
+  border: 1px solid currentColor; border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.25);
+}
+#tip b, .tipcard b { font-style: normal; }
+#tip i, .tipcard i { opacity: .8; }
+#tip p, .tipcard p { margin: .4em 0 0; }
+
+/* A person reads as a drawing beside the words, as in the duty sheet. Until
+   anything is painted the image is simply absent and the text fills the row. */
+.person { display: flex; gap: .8em; align-items: flex-start; }
+.person p { margin: 0; }
+.sprite { width: 5.5em; flex: none; image-rendering: auto; }
+#subtitle { margin: .1em 0 0; opacity: .7; font-style: italic; }
+#cases small { display: block; opacity: .7; font-size: .8em; }
+
+/* The memo: a police report form, cited evidence, and a pencil in the margin.
+   Plain on purpose, like everything else here: a skeleton, not a design. */
+.form { border-bottom: 2px solid var(--ink); padding-bottom: 8px; margin-bottom: 8px;
+        font-size: 11px; letter-spacing: .04em; }
+.form .subject { margin-top: 6px; font-size: 12px; }
+#sheet h3.sec { font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+                margin: 16px 0 6px; color: var(--ink); }
+.part.row h3 { text-transform: none; letter-spacing: 0; font-size: 12px; color: var(--ink); }
+.evidence { font-size: 11px; margin: 4px 0 6px; line-height: 1.9; }
+.evidence .elabel { color: var(--faint); }
+.evidence.open { background: var(--wash); outline: 1px dashed var(--ink); padding: 2px 4px; }
+.evidence .none, .evidence .hint { color: var(--faint); font-style: italic; }
+.chip { display: inline-block; border: 1px solid var(--rule); padding: 0 4px;
+        margin: 1px 2px 1px 0; background: var(--paper); line-height: 1.5; }
+.chip b { font-weight: 700; }
+/* taking a citation out: a button that looks like one (the user, 14 September
+   2026, could not find it as a faint cross) */
+.chip button { font: inherit; font-size: 11px; cursor: pointer; background: var(--wash);
+               border: 1px solid var(--rule); color: var(--ink); padding: 0 5px;
+               margin-left: 4px; line-height: 1.3; }
+.chip button:hover { background: var(--hi); border-color: var(--ink); }
+.attach, .lean { font: inherit; font-size: 11px; cursor: pointer; background: none;
+          border: 1px solid var(--rule); padding: 0 5px; color: var(--ink); }
+.cite { display: none; position: absolute; right: 30px; top: 0; font: inherit; font-size: 11px;
+        line-height: 1.2; padding: 1px 6px; cursor: pointer; background: var(--paper);
+        color: var(--ink); border: 1px solid var(--ink); }
+body.citing .cite { display: block; }
+body.citing .where li { padding-right: 92px; }
+/* Kommissar Mauser's pencil */
+#sheet .verdict { font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+                  font-size: 13px; color: #4a4a4a; transform: rotate(-1.5deg); }
+#sheet .verdict.good { color: #2f3f33; }
+#sheet .verdict.bad { color: #6b2a2a; }
+
+/* ------------------------------------------------------------ the walk
+   The building, the room and the conversation (walk.js). Same paper, same
+   typewriter; the painting is the only colour on the page. */
+/* The walk takes the whole width under the brief, and the desk (notes and
+   report) moves down beside the evenings instead of sharing its row. */
+#walk { grid-column:1 / -1; grid-row:2 }
+body.walks #evenings { grid-row:3 }
+body.walks #desk { grid-row:3 / span 2 }
+body.walks #people { grid-row:4 }
+@media (max-width:820px) {
+  body.walks #walk, body.walks #evenings, body.walks #desk, body.walks #people { grid-row:auto }
+}
+/* TWO TABS while walking (walk.js, setView): the building, or the notebook
+   and the report in the rows the walk had. */
+#views { display:none; margin:10px 0 0 }
+body.walks #views { display:flex }
+/* The chapters tab is the main page: the title and the series. On the other
+   two the header is one row, the tabs and the tools, and nothing else. */
+body.walks header { display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px }
+body.walks header .topbar { order:2; flex:1 1 100% }
+body.walks:not(.view-chapters) header .topbar { flex:0 0 auto; margin-left:auto }
+body.walks #views { order:1; margin:0; flex:1 1 auto }
+body.walks.view-chapters #views { flex-basis:100% }
+body.walks #subtitle { order:3; flex-basis:100% }
+body.walks #cases { order:4; flex-basis:100% }
+body.walks:not(.view-chapters) #title, body.walks:not(.view-chapters) #subtitle,
+body.walks:not(.view-chapters) #cases { display:none }
+body.walks.view-chapters main { display:none }
+/* The introduction folds away; the question stays. */
+.brieftoggle { float:right; font:inherit; font-size:11px; cursor:pointer; padding:1px 8px;
+               margin:0 0 4px 12px; background:none; color:var(--ink); border:1px solid var(--rule) }
+.brieftoggle:hover { background:var(--hi) }
+body.brief-shut #preamble, body.brief-shut #cover { display:none }
+#views .fresh { font-size:11px; color:var(--faint) }
+body.walks.view-notebook #walk { display:none }
+body.walks.view-building #evenings, body.walks.view-building #people,
+body.walks.view-building #desk { display:none }
+body.walks.view-notebook #evenings { grid-row:2 }
+body.walks.view-notebook #desk { grid-row:2 / span 2 }
+body.walks.view-notebook #people { grid-row:3 }
+@media (max-width:820px) {
+  body.walks.view-notebook #evenings, body.walks.view-notebook #desk,
+  body.walks.view-notebook #people { grid-row:auto }
+}
+.cover { font-size:12px; color:var(--faint); margin:6px 0 10px; max-width:70em }
+.clockbar { display:flex; flex-wrap:wrap; gap:10px; align-items:baseline;
+            border-top:2px solid var(--ink); border-bottom:1px solid var(--hair);
+            padding:6px 0; margin-bottom:12px }
+.clockbar small { color:var(--faint) }
+#nextphase { font:inherit; font-size:12px; cursor:pointer; padding:3px 10px;
+             background:var(--hi); color:var(--ink); border:1px solid var(--ink); letter-spacing:.06em }
+#nextphase:hover { background:var(--hi2) }
+
+.walkgrid { display:grid; grid-template-columns:minmax(0, 420px) minmax(0, 1fr);
+            gap:18px; align-items:start }
+@media (max-width:980px) { .walkgrid { grid-template-columns:1fr } }
+
+#map { border:2px solid var(--rule); padding:6px; background:var(--wash); overflow-x:auto }
+#map svg { display:block; width:100%; min-width:320px; height:auto }
+/* On a phone the whole map shrank to fit, its names came out about 7px high and
+   too small to tap; it scrolls sideways instead, at a size a thumb can use. */
+@media (max-width:820px) { #map svg { min-width:600px } }
+#map .floor { stroke:var(--hair); stroke-width:1 }
+#map .flabel { font:12px "Courier New", monospace; fill:var(--faint); letter-spacing:.08em }
+#map .stair { stroke:var(--ink); stroke-width:3; stroke-dasharray:2 3 }
+#map .link { stroke:var(--rule); stroke-width:1.5; fill:none }
+#map .room { cursor:pointer }
+#map .room rect { fill:var(--paper); stroke:var(--ink); stroke-width:1.5 }
+#map .room text { font:13px "Courier New", monospace; fill:var(--ink) }
+#map .room:hover rect, #map .room:focus rect { fill:#E9E3D3; outline:none }
+#map .room.here rect { fill:var(--hi2); stroke-width:2.5 }
+#map .room.here text { fill:var(--ink); font-weight:700 }
+#map .room circle { fill:var(--paper); stroke:var(--ink); stroke-width:1.2 }
+#map .room text.n { font-size:9px; fill:var(--ink); text-anchor:middle }
+
+.stage h3 { font-size:11px; letter-spacing:.16em; text-transform:uppercase; margin:8px 0 2px }
+.stage p { margin:0 0 6px; font-size:12px }
+#scene {
+  position:relative; width:100%; max-width:100%; aspect-ratio:16 / 9;
+  background:#DCD5C3 center / cover no-repeat; border:2px solid var(--ink); overflow:hidden;
+}
+#scene.noart { background-image:repeating-linear-gradient(45deg, var(--wash) 0 12px, var(--paper) 12px 24px) }
+#scene .fig {
+  position:absolute; bottom:2%; transform:translateX(-50%);
+  background:none; border:0; padding:0; cursor:pointer; display:flex;
+  flex-direction:column; align-items:center; font:inherit;
+}
+#scene .fig.sarah { transform:none; cursor:default }
+/* mirrored, so that she looks at whoever she is talking to (the user, 14
+   September 2026); the drawing had her head turned away from them */
+#scene .fig.sarah img { transform:scaleX(-1) }
+#scene .fig img { height:100%; width:auto; filter:drop-shadow(0 3px 2px rgba(0,0,0,.25)) }
+#scene .fig .label {
+  position:absolute; bottom:-2px; font-size:10px; letter-spacing:.06em; white-space:nowrap;
+  background:rgba(251,249,244,.9); color:var(--ink); padding:0 4px; border:1px solid var(--ink);
+}
+#scene .fig:hover img, #scene .fig:focus img { filter:drop-shadow(0 0 4px #fff) drop-shadow(0 3px 2px rgba(0,0,0,.3)) }
+#scene .fig.talking .label { background:var(--hi2); color:var(--ink); font-weight:700 }
+#scene .nofig { font-size:40px; opacity:.5 }
+.sees { margin:6px 0 0; padding-left:17px; font-size:12px }
+.sees li { margin-bottom:4px }
+
+#talk { border:2px solid var(--ink); margin-top:14px; padding:10px 12px; background:var(--paper) }
+#talk header { display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--hair);
+               padding-bottom:5px; margin-bottom:6px }
+#talk header b { font-size:12px; letter-spacing:.12em; text-transform:uppercase }
+#talk .pips { display:flex; gap:3px }
+#talk .pip { width:10px; height:10px; border:1px solid var(--ink); border-radius:50% }
+#talk .pip.on { background:var(--ink) }
+#talk .close { margin-left:auto; font:inherit; cursor:pointer; background:none;
+               border:1px solid var(--rule); padding:0 7px }
+#talk .log { list-style:none; margin:0 0 8px; padding:0; max-height:18em; overflow-y:auto; font-size:13px }
+#talk .log li { margin:0 0 6px; padding-left:10px; border-left:3px solid transparent }
+#talk .log li.sarah { font-style:italic; color:var(--faint) }
+#talk .log li.line { border-left-color:var(--ink) }
+#talk .log li.talk, #talk .log li.tired { color:#3c3c3c }
+#talk .log li.evade { border-left-color:#8A6A2B }
+#talk .spent { font-size:12px; color:var(--red); margin:0 0 6px }
+#talk .ask { display:flex; flex-wrap:wrap; gap:5px; align-items:baseline; margin-top:5px; font-size:12px }
+#talk .ask > span { font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+                    color:var(--faint); min-width:4.5em }
+#talk .ask i { color:var(--faint) }
+/* the label on a line of its own, the chips under it (the user, 14 September 2026) */
+#talk .ask > span { flex-basis:100% }
+/* swap, as on the duty sheet's panel headings */
+#talk .swapask { font:inherit; font-size:9px; letter-spacing:.1em; text-transform:uppercase;
+                 margin-left:8px; padding:0 6px; cursor:pointer; background:none;
+                 color:var(--faint); border:1px solid var(--rule) }
+#talk .swapask:hover { background:var(--hi); color:var(--ink); border-color:var(--ink) }
+#talk .chip { font:inherit; font-size:12px; cursor:pointer; padding:2px 8px; margin:0;
+              background:var(--wash); color:var(--ink); border:1px solid var(--ink); border-radius:2px }
+#talk .chip.show { border-style:dashed }
+#talk .chip:hover:not(:disabled) { background:var(--hi) }
+#talk .chip.done { text-decoration:line-through; opacity:.45; cursor:default }
+#talk .chip:disabled { cursor:default; opacity:.45 }
+#talk .log li.earlier { opacity:.55 }
+
+/* a thing in the room, or in the notebook, that can be picked up and read */
+.read { font:inherit; font-size:11px; cursor:pointer; padding:0 6px; margin-right:4px;
+        background:var(--paper); color:var(--ink); border:1px dashed var(--ink) }
+.read:hover { background:var(--hi) }
+.notebook { font-size:12px; margin:8px 0 0 }
+.notebook > span { font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+                   color:var(--faint); margin-right:8px }
+
+/* Sarah's questions: what she will say, under the subject, so a player knows
+   what the patience is being spent on */
+#talk .ask { align-items:flex-start }
+#talk .chip { text-align:left; max-width:26em; line-height:1.3; padding:4px 8px }
+#talk .chip b { display:block; font-weight:700 }
+#talk .chip .says { display:block; font-size:11px; opacity:.75; font-style:italic }
+
+/* the document: typed, on a sheet */
+#doc { position:fixed; inset:0; z-index:60; background:rgba(16,16,16,.55);
+       display:flex; align-items:center; justify-content:center; padding:16px }
+#doc .paper { position:relative; background:#FFFDF6; color:#1a1a1a; width:min(640px, 100%);
+              max-height:90vh; overflow:auto; padding:28px 32px 24px;
+              box-shadow:0 10px 40px rgba(0,0,0,.4);
+              background-image:repeating-linear-gradient(#FFFDF6 0 27px, #D9E3EC 27px 28px);
+              font:15px/28px "Courier New", ui-monospace, monospace }
+#doc h3 { margin:0 0 14px; font-size:12px; letter-spacing:.18em; text-transform:uppercase }
+#doc p { margin:0 0 14px }
+/* The way out, said in a word rather than a glyph. The x in the corner stays
+   for the mouse that is already up there. */
+#doc .closer-foot { margin-top:18px; text-align:right }
+/* The picture of a thing, above its words. It is the object and never its
+   words, so it is there to be looked at and not to be read: no zoom, no click,
+   nothing in it that the type below does not already say. */
+/* Small on purpose. There is nothing in one of these to recognise -- every
+   time, number and name is in the type below it -- so it is here for the look
+   of the thing, and it must not push the words off the screen. Capped by
+   HEIGHT rather than width, because these run from a wide ledger to a tall
+   sheet and only a height cap makes them cost the same amount of scrolling. */
+#doc #docpic { margin:0 0 16px; text-align:center }
+#doc #docpic img { display:inline-block; max-width:100%; max-height:190px;
+  width:auto; height:auto; background:#FFFDF6; border:1px solid rgba(0,0,0,.18) }
+@media (max-height: 700px) { #doc #docpic img { max-height:130px } }
+#docclose { position:absolute; top:8px; right:10px; font:inherit; font-size:18px; cursor:pointer;
+            background:none; border:0 }
+
+/* full screen: the room fills the window, the conversation over its foot */
+#theatreclose, #tonotebook { display:none }
+body.theatre { overflow:hidden }
+body.theatre #stage { position:fixed; inset:0; z-index:40; margin:0; padding:10px 16px 0;
+                      background:var(--wash); color:var(--ink); overflow:auto }
+body.theatre #tonotebook { display:inline-block; font:inherit; font-size:12px; cursor:pointer;
+                           margin:0 0 8px 6px; padding:3px 10px; background:none; color:var(--ink); border:1px solid var(--ink) }
+body.theatre #theatreclose { display:inline-block; font:inherit; font-size:12px; cursor:pointer;
+                             margin:0 0 8px; padding:3px 10px; background:var(--hi); color:var(--ink); border:1px solid var(--ink) }
+body.theatre #scene { width:min(100%, calc((100vh - 60px) * 16 / 9)); margin:0 auto }
+body.theatre .stage h3, body.theatre .stage p, body.theatre .sees, body.theatre .notebook {
+  max-width:min(100%, calc((100vh - 60px) * 16 / 9)); margin-left:auto; margin-right:auto }
+body.theatre .notebook > span { color:var(--faint) }
+/* The box holds still: its heading and patience stay at the top, the log takes
+   the room it needs, and only the questions scroll (the user, 14 September
+   2026: the dots were scrolled out of sight and a spent person seemed to
+   ignore the click). */
+body.theatre #talk { position:fixed; left:50%; transform:translateX(-50%); bottom:12px; z-index:45;
+                     width:min(960px, calc(100% - 32px)); max-height:62vh; overflow:hidden;
+                     display:flex; flex-direction:column;
+                     box-shadow:0 8px 30px rgba(0,0,0,.5) }
+body.theatre #talk header, body.theatre #talk .costs, body.theatre #talk .spent { flex:none }
+body.theatre #talk .log { flex:1 1 auto; min-height:9em; max-height:none; position:relative }
+body.theatre #talk .asks { flex:0 1 auto; overflow-y:auto; max-height:40% }
+#talk .log { position:relative }
+#cases i.de { font-size:.85em; opacity:.7 }
+#talk .log li.shrug { color:var(--faint) }
+#talk .costs { font-size:11px; color:var(--faint); margin:0 0 6px }
+
+/* ------------------------------------------------------- manual, settings */
+.topbar { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:8px }
+.tools { display:flex; gap:6px }
+.tools button { font:inherit; font-size:12px; cursor:pointer; padding:3px 10px;
+                background:none; color:var(--ink); border:1px solid var(--ink) }
+.tools button:hover { background:var(--hi) }
+.sheet-modal { position:fixed; inset:0; z-index:70; background:rgba(16,16,16,.55);
+               display:flex; align-items:flex-start; justify-content:center; padding:24px 16px; overflow:auto }
+.sheet-modal .paper { position:relative; background:var(--paper); color:var(--ink);
+                      width:min(700px, 100%); padding:26px 30px 20px; box-shadow:0 10px 40px rgba(0,0,0,.4) }
+.sheet-modal h2 { font-size:14px; letter-spacing:.2em; text-transform:uppercase; margin:0 0 14px }
+.sheet-modal h3 { font-size:11px; letter-spacing:.16em; text-transform:uppercase; margin:18px 0 4px;
+                  border-bottom:1px solid var(--hair); padding-bottom:3px }
+.sheet-modal p { margin:0 0 8px; font-size:13px }
+.sheet-modal kbd { font:inherit; border:1px solid var(--rule); padding:0 4px }
+.sheet-modal .closer { position:absolute; top:8px; right:10px; font:inherit; font-size:18px;
+                       cursor:pointer; background:none; border:0; color:var(--ink) }
+.sheet-modal .closefoot { text-align:right; margin:18px 0 0 }
+.sheet-modal .closer-foot { font:inherit; font-size:13px; cursor:pointer; padding:4px 14px;
+                            background:var(--wash); color:var(--ink); border:1px solid var(--ink) }
+.sheet-modal .closer-foot:hover { background:var(--hi) }
+.setting { display:flex; gap:10px; align-items:flex-start; font-size:13px; cursor:pointer }
+/* the questionnaire */
+.fbq { display:block; border:0; margin:0 0 12px; padding:0; font-size:13px }
+.fbq > span, .fbq legend { display:block; margin-bottom:4px; font-weight:700 }
+.fbq textarea { width:100%; font:inherit; font-size:13px; padding:5px; background:var(--wash);
+                color:var(--ink); border:1px solid var(--rule); resize:vertical }
+.fbq label { display:inline-block; margin:0 14px 4px 0; font-weight:400; cursor:pointer }
+.fblog pre { white-space:pre-wrap; font-size:11px; background:var(--wash); border:1px solid var(--hair);
+             padding:6px 8px; margin:6px 0 0; max-height:12em; overflow:auto }
+.fbsend { display:flex; flex-wrap:wrap; gap:8px; align-items:center }
+.fbsend button, .invite button { font:inherit; font-size:12px; cursor:pointer; padding:4px 12px;
+                background:var(--hi); color:var(--ink); border:1px solid var(--ink) }
+.fbsaid { font-size:12px }
+.fbnote { font-size:11px; color:var(--faint) }
+.invite { font-size:12px; margin-top:6px }
+.setting input { margin-top:4px }
+.readnote { font-size:12px; color:var(--faint); border:1px dashed var(--rule); padding:6px 10px; margin:0 0 12px }
+.readnote button { font:inherit; font-size:12px; cursor:pointer; margin-left:8px; padding:2px 8px;
+                   background:var(--hi); color:var(--ink); border:1px solid var(--ink) }
+
+/* the figure in the hover and in "who they are": tall enough to see */
+.person .sprite { width:auto; height:16em; max-width:none; flex:none }
+#tip .person .sprite, .tipcard .person .sprite { height:20em }
+#tip, .tipcard { max-width:44em }
+
+/* the series at the top: numbered, and the chapters still to come shut */
+#cases .num { display:inline-block; min-width:1.6em; font-weight:700 }
+#cases button.tocome { opacity:.45; cursor:default; border-style:dashed }
+#cases .season { flex:1 1 100%; margin:0 0 6px }
+#cases .season h3 { font-size:10px; letter-spacing:.16em; text-transform:uppercase; margin:6px 0 5px;
+                    border-bottom:1px solid var(--hair); padding-bottom:3px }
+#cases .season h3 span { color:var(--faint); letter-spacing:.08em; margin-left:6px }
+#cases .seasoncases { display:flex; flex-wrap:wrap; gap:8px }
+
+/* a ledger page */
+/* the chain of command: each level in its own pencil (GGO § 18), a Referent's
+   in plain ink with his initials */
+#doc .orgtree { font-size:13px; line-height:1.4 }
+#doc .orgtree ul { list-style:none; margin:0; padding-left:18px; border-left:1px solid #c9c2b4 }
+#doc .orgtree > ul { padding-left:0; border-left:0 }
+#doc .orgtree li { margin:6px 0 }
+#doc .orgtree .node { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px;
+                      padding:3px 8px; border-left:4px solid #1a1a1a; background:#f6f1e6 }
+#doc .orgtree .who { color:#3c3c3c }
+#doc .orgtree .mark { margin-left:auto; font-size:11px; letter-spacing:.06em; white-space:nowrap }
+#doc .orgtree .mark i { display:inline-block; width:22px; height:5px; border-radius:3px;
+                        margin-right:5px; vertical-align:middle; background:currentColor }
+#doc .orgtree .mark.initials { font-style:italic; color:#3c3c3c }
+#doc .orgtree [data-pencil="green"] { border-left-color:#3d7a3a } #doc .orgtree .mark[data-pencil="green"] { color:#3d7a3a }
+#doc .orgtree [data-pencil="red"] { border-left-color:#b3302a } #doc .orgtree .mark[data-pencil="red"] { color:#b3302a }
+#doc .orgtree [data-pencil="blue"] { border-left-color:#2c56a6 } #doc .orgtree .mark[data-pencil="blue"] { color:#2c56a6 }
+#doc .orgtree [data-pencil="brown"] { border-left-color:#7a4a22 } #doc .orgtree .mark[data-pencil="brown"] { color:#7a4a22 }
+#doc .orgtree h4 { margin:14px 0 4px; font-size:10px; letter-spacing:.14em; text-transform:uppercase }
+#doc .orgtree p.house, #doc .orgtree p.route { margin:0 0 6px }
+#doc .orgtree p.route span { white-space:nowrap }
+#doc table.ledger { border-collapse:collapse; width:100%; font-size:14px }
+#doc table.ledger th { text-align:left; font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+                       border-bottom:2px solid #6b7f92; padding:2px 6px }
+#doc table.ledger td:first-child { white-space:nowrap }
+#doc table.ledger td { border-bottom:1px solid #b9c6d3; border-right:1px solid #d9e3ec;
+                       padding:3px 6px; height:28px; vertical-align:bottom }
+#doc .signature { font-family:"Segoe Script","Bradley Hand","Brush Script MT",cursive; font-size:17px; color:#1f3a73 }
+#doc .scrawl { display:inline-block; width:5.5em; height:14px; vertical-align:middle;
+               background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 16'%3E%3Cpath d='M2 11c6-9 9 5 14-3s7 6 12-2 8 7 13-1 6 6 11-2 9 5 14-3 8 4 20-1' fill='none' stroke='%231f3a73' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") }
+#doc .noted { font-size:11px; color:#6b6b6b; margin-top:10px }
+
+/* full screen and talking: on a wide screen the conversation stands beside the
+   room, so it never covers the people in it or the floor they stand on */
+@media (min-width:1000px) {
+  body.theatre.talking #scene { width:min(calc(100vw - 480px), calc((100vh - 60px) * 16 / 9)); margin:0 }
+  body.theatre.talking .stage h3, body.theatre.talking .stage p,
+  body.theatre.talking .sees, body.theatre.talking .notebook { margin-left:0; max-width:calc(100vw - 480px) }
+  body.theatre #talk { left:auto; right:16px; transform:none; top:44px; bottom:12px;
+                       width:430px; max-height:none }
+  body.theatre #talk .log { max-height:none; height:calc(100vh - 480px); min-height:8em }
+}
+@media (max-width:999px) {
+  body.theatre #talk { max-height:42vh }
+}
