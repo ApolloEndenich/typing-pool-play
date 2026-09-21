@@ -942,11 +942,14 @@ en: {
     + "yourself and it went on the night train. It arrives a day late, and read.",
   intime: " It caught the last collection, and was on the right desk in the morning.",
   again: " Look again — nothing on this sheet is a guess.",
+  statsOne: "{t} · {n} call · graded {grade}",
   stats: "{t} · {n} calls · graded {grade}",
   fewest: "fewest possible: {p}",
   share: "Copy the result",
   copied: "Copied. Paste it wherever you like; it gives nothing away.",
+  stampRight: "done", stampWrong: "not done",
   shareRight: "every name right", shareWrong: "{n} wrong",
+  shareCallsOne: "{n} call, fewest {p}",
   shareCalls: "{n} calls, fewest {p}"
  },
  /* The cut scene. `goOn` and `done` are the small line at the foot;
@@ -1251,11 +1254,14 @@ de: {
   intime: " Er hat die letzte Leerung erwischt und lag morgens auf dem richtigen "
     + "Schreibtisch.",
   again: " Sehen Sie noch einmal nach — auf diesem Bogen ist nichts geraten.",
+  statsOne: "{t} · {n} Besuch · Grad {grade}",
   stats: "{t} · {n} Besuche · Grad {grade}",
   fewest: "wenigste mögliche: {p}",
   share: "Ergebnis kopieren",
   copied: "Kopiert. Einfügen, wo du willst; es verrät nichts.",
+  stampRight: "", stampWrong: "",
   shareRight: "alle Namen richtig", shareWrong: "{n} falsch",
+  shareCallsOne: "{n} Besuch, wenigste {p}",
   shareCalls: "{n} Besuche, wenigste {p}"
  },
  scene: {
@@ -1549,11 +1555,14 @@ fr: {
   intime: " Elle a attrapé la dernière levée, et se trouvait sur le bon bureau "
     + "au matin.",
   again: " Regardez encore — rien sur cette feuille n'est une supposition.",
+  statsOne: "{t} · {n} visite · noté {grade}",
   stats: "{t} · {n} visites · noté {grade}",
   fewest: "le moins possible : {p}",
   share: "Copier le résultat",
   copied: "Copié. Collez-le où vous voulez ; il ne dévoile rien.",
+  stampRight: "traité", stampWrong: "non traité",
   shareRight: "tous les noms justes", shareWrong: "{n} faux",
+  shareCallsOne: "{n} visite, le moins {p}",
   shareCalls: "{n} visites, le moins {p}"
  },
  scene: {
@@ -1826,17 +1835,22 @@ it: {
  orShort: "— o —",
  report: {
   allRight: "Ogni nome sulla sedia giusta.",
+  wrongOne: "{n} sbagliato",
   wrong: "{n} sbagliati",
   late: " L'ultima levata era passata alle otto; l'ha portato lei stessa alla "
     + "Bahnhof ed è partito con il treno di notte. Arriva con un giorno di "
     + "ritardo, e viene letto.",
   intime: " Ha preso l'ultima levata, ed era sulla scrivania giusta la mattina.",
   again: " Guardi di nuovo — niente su questo foglio è una supposizione.",
+  statsOne: "{t} · {n} visita · voto {grade}",
   stats: "{t} · {n} visite · voto {grade}",
   fewest: "il minimo possibile: {p}",
   share: "Copia il risultato",
   copied: "Copiato. Incollalo dove vuoi; non rivela niente.",
+  stampRight: "evaso", stampWrong: "non evaso",
+  shareWrongOne: "{n} sbagliato",
   shareRight: "tutti i nomi giusti", shareWrong: "{n} sbagliati",
+  shareCallsOne: "{n} visita, minimo {p}",
   shareCalls: "{n} visite, minimo {p}"
  },
  scene: {
@@ -2112,11 +2126,14 @@ es: {
   intime: " Alcanzó la última recogida, y por la mañana estaba en la mesa que "
     + "debía.",
   again: " Mire otra vez — nada de esta hoja es una suposición.",
+  statsOne: "{t} · {n} visita · nota {grade}",
   stats: "{t} · {n} visitas · nota {grade}",
   fewest: "el mínimo posible: {p}",
   share: "Copiar el resultado",
   copied: "Copiado. Pégalo donde quieras; no revela nada.",
+  stampRight: "tramitado", stampWrong: "sin tramitar",
   shareRight: "todos los nombres bien", shareWrong: "{n} mal",
+  shareCallsOne: "{n} visita, mínimo {p}",
   shareCalls: "{n} visitas, mínimo {p}"
  },
  scene: {
@@ -2398,6 +2415,7 @@ zh: {
   fewest: "最少可以 {p} 次",
   share: "复制结果",
   copied: "已复制。随便贴到哪里，不会泄露答案。",
+  stampRight: "已办结", stampWrong: "未办结",
   shareRight: "名字全对", shareWrong: "错了 {n} 个",
   shareCalls: "走访 {n} 次，最少 {p} 次"
  },
@@ -4489,8 +4507,11 @@ $("file").onclick = () => {
  }));
  const late = clock > POST;
  const r = S().report;
+ /* a count of one takes its own sentence where the language has one
+    (lang.js: no plural rules in code; "1 sbagliati" was the fault) */
+ const one = (k, n) => (n === 1 && r[k + "One"]) || r[k];
  const head = wrong.length === 0 ? `<b>${r.allRight}</b>`
-   : `<b class="bad">${fill(r.wrong, {n: wrong.length})}</b> — ${wrong.join(", ")}.`;
+   : `<b class="bad">${fill(one("wrong", wrong.length), {n: wrong.length})}</b> — ${wrong.join(", ")}.`;
  const tail = wrong.length === 0 ? (late ? r.late : r.intime) : r.again;
  const calls = C.sources.filter(s => s.visited).length;
  /* THE SHARED RESULT. Wordle spread because every player posted a result
@@ -4498,22 +4519,32 @@ $("file").onclick = () => {
     against the fewest that close the case (export.py `fewest_calls`, which
     plays the dog exactly as dogPick() does). A player who marks less than
     the search assumes can steer the dog to a shorter route, so a count under
-    the fewest is shown as the fewest reached, never as a fault. */
+    the fewest is shown as the fewest reached, never as a fault.
+    NOT SQUARES (the user, 21 September 2026). A row of coloured squares
+    under a title and a date is Wordle's line, and on the Thinky server it is
+    Clues by Sam's, posted daily beside ours. The ministry's own mark is the
+    rubber stamp, ERLEDIGT or NICHT ERLEDIGT, and it stays German in every
+    language because it is the stamp and not a sentence. Each call is a door
+    knocked on -- not a telephone: a call here is a visit, and the other five
+    languages already say so. */
  const p = C.fewest ? Math.min(C.fewest, calls) : null;
  flash(head + tail + `<br><span style="color:#5A5A5A;font-size:9px">`
-   + fill(r.stats, {t: hhmm(clock), n: calls, grade: C.grade.technique})
+   + fill(one("stats", calls), {t: hhmm(clock), n: calls, grade: C.grade.technique})
    + (p ? " · " + fill(r.fewest, {p}) : "") + `</span>`
    + ` <button id="share" type="button">${r.share}</button>`);
  const btn = $("verdict").querySelector("#share");
  if (btn) btn.onclick = () => {
-  const squares = Array.from({length: calls}, (_, i) =>
-    wrong.length ? "⬜" : (p && i < p ? "🟩" : "🟨")).join("");
-  const line = [S().title,
-    C.daily ? uiDate(C.daily.date, S().locale) : null,
-    wrong.length ? fill(r.shareWrong, {n: wrong.length}) : r.shareRight,
-    p ? fill(r.shareCalls, {n: calls, p}) : null].filter(Boolean).join(" · ");
+  const title = [S().title,
+    C.daily ? uiDate(C.daily.date, S().locale) : null].filter(Boolean).join(" · ");
+  /* the stamp in German, and what it means in brackets after it, as the
+     game glosses its other German words; German itself gets no gloss */
+  const gloss = g => g ? ` (${g})` : "";
+  const stamp = (wrong.length
+    ? "[ NICHT ERLEDIGT ]" + gloss(r.stampWrong) + " · " + fill(one("shareWrong", wrong.length), {n: wrong.length})
+    : "[ ERLEDIGT ]" + gloss(r.stampRight) + " · " + r.shareRight);
+  const doors = "🚪".repeat(calls) + (p ? "  " + fill(one("shareCalls", calls), {n: calls, p}) : "");
   const where = /^https?:/.test(location.href) ? "\n" + location.origin + location.pathname : "";
-  const text = line + "\n" + squares + where;
+  const text = title + "\n" + stamp + "\n" + doors + where;
   const done = () => notify(r.copied);
   if (navigator.clipboard && navigator.clipboard.writeText)
    navigator.clipboard.writeText(text).then(done, () => notify(`<textarea readonly rows="3" style="width:100%">${text}</textarea>`));
