@@ -950,7 +950,9 @@ en: {
   stampRight: "done", stampWrong: "not done",
   shareRight: "every name right", shareWrong: "{n} wrong",
   shareCallsOne: "{n} call, fewest {p}",
-  shareCalls: "{n} calls, fewest {p}"
+  shareCalls: "{n} calls, fewest {p}",
+  runOne: "{n} day running", run: "{n} days running",
+  record: "days played: {p} · ERLEDIGT: {d} · longest run: {b}"
  },
  /* The cut scene. `goOn` and `done` are the small line at the foot;
     `skip` and `straight`/`back` are its two buttons. These were missed by the
@@ -1262,7 +1264,9 @@ de: {
   stampRight: "", stampWrong: "",
   shareRight: "alle Namen richtig", shareWrong: "{n} falsch",
   shareCallsOne: "{n} Besuch, wenigste {p}",
-  shareCalls: "{n} Besuche, wenigste {p}"
+  shareCalls: "{n} Besuche, wenigste {p}",
+  runOne: "{n} Tag in Folge", run: "{n} Tage in Folge",
+  record: "Tage gespielt: {p} · ERLEDIGT: {d} · längste Folge: {b}"
  },
  scene: {
   goOn: "irgendwohin klicken, um weiterzugehen",
@@ -1563,7 +1567,9 @@ fr: {
   stampRight: "traité", stampWrong: "non traité",
   shareRight: "tous les noms justes", shareWrong: "{n} faux",
   shareCallsOne: "{n} visite, le moins {p}",
-  shareCalls: "{n} visites, le moins {p}"
+  shareCalls: "{n} visites, le moins {p}",
+  runOne: "{n} jour d'affilée", run: "{n} jours d'affilée",
+  record: "jours joués : {p} · ERLEDIGT : {d} · plus longue série : {b}"
  },
  scene: {
   goOn: "cliquez n'importe où pour continuer",
@@ -1851,7 +1857,9 @@ it: {
   shareWrongOne: "{n} sbagliato",
   shareRight: "tutti i nomi giusti", shareWrong: "{n} sbagliati",
   shareCallsOne: "{n} visita, minimo {p}",
-  shareCalls: "{n} visite, minimo {p}"
+  shareCalls: "{n} visite, minimo {p}",
+  runOne: "{n} giorno di fila", run: "{n} giorni di fila",
+  record: "giorni giocati: {p} · ERLEDIGT: {d} · serie più lunga: {b}"
  },
  scene: {
   goOn: "clicchi ovunque per continuare",
@@ -2134,7 +2142,9 @@ es: {
   stampRight: "tramitado", stampWrong: "sin tramitar",
   shareRight: "todos los nombres bien", shareWrong: "{n} mal",
   shareCallsOne: "{n} visita, mínimo {p}",
-  shareCalls: "{n} visitas, mínimo {p}"
+  shareCalls: "{n} visitas, mínimo {p}",
+  runOne: "{n} día seguido", run: "{n} días seguidos",
+  record: "días jugados: {p} · ERLEDIGT: {d} · racha más larga: {b}"
  },
  scene: {
   goOn: "haga clic en cualquier sitio para seguir",
@@ -2417,7 +2427,9 @@ zh: {
   copied: "已复制。随便贴到哪里，不会泄露答案。",
   stampRight: "已办结", stampWrong: "未办结",
   shareRight: "名字全对", shareWrong: "错了 {n} 个",
-  shareCalls: "走访 {n} 次，最少 {p} 次"
+  shareCalls: "走访 {n} 次，最少 {p} 次",
+  run: "连续 {n} 天",
+  record: "已玩 {p} 天 · ERLEDIGT {d} 天 · 最长连续 {b} 天"
  },
  scene: {
   goOn: "点任意处继续",
@@ -4498,6 +4510,39 @@ function flash(msg){ const v = $("verdict"); v.className = "verdict on a-verdict
    put there is a message delivered to somewhere the reader is not. */
 function notify(msg){ $("notice").innerHTML = msg ? `<div class="notice">${msg}</div>` : ""; }
 
+/* THE RECORD (the user, 21 September 2026): a run of days, days played,
+   days ERLEDIGT and the longest run, on screen and in the shared line. There
+   is no account and there will not be one, so it lives where the settings
+   live, in this browser, as one entry per day: `pool.days`, {"2026-09-21": 1}.
+   That is its limit and it is said plainly -- another device, a private
+   window or cleared site data starts at nothing.
+   A day counts only when it is filed ON that day, and only the first filing:
+   the picker reaches a month back, and a run that could be filled in
+   afterwards, or a stamp that could be corrected after the answer was seen,
+   would be worth nothing. A run is any filed day, right or wrong; how many
+   were right is the record's second number. */
+function diary(){
+ try { const d = JSON.parse(localStorage.getItem("pool.days") || "{}"); return d && typeof d === "object" ? d : {}; }
+ catch (e) { return {}; }
+}
+function enter(date, right){
+ const d = diary();
+ if (!(date in d)){
+  d[date] = right ? 1 : 0;
+  try { localStorage.setItem("pool.days", JSON.stringify(d)); } catch (e) {}
+ }
+ return d;
+}
+// noon, as weekdayIndex() does, so no timezone moves the date on the way
+const dayAfter = iso => { const t = new Date(iso + "T12:00:00"); t.setDate(t.getDate() + 1); return todayISO(t); };
+function tally(d, today){
+ const days = Object.keys(d).filter(k => /^\d{4}-\d\d-\d\d$/.test(k)).sort();
+ let run = 0, best = 0, prev = null;
+ days.forEach(k => { run = prev && dayAfter(prev) === k ? run + 1 : 1; best = Math.max(best, run); prev = k; });
+ return {played: days.length, done: days.filter(k => d[k]).length, best,
+   run: prev === today ? run : 0};
+}
+
 $("file").onclick = () => {
  const wrong = [];
  ["t", "m"].forEach(side => names(side).forEach((n, e) => {
@@ -4528,9 +4573,15 @@ $("file").onclick = () => {
     knocked on -- not a telephone: a call here is a visit, and the other five
     languages already say so. */
  const p = C.fewest ? Math.min(C.fewest, calls) : null;
+ const today = todayISO();
+ const rec = C.daily && C.daily.date === today
+   ? tally(enter(today, wrong.length === 0), today) : null;
+ const run = rec ? fill(one("run", rec.run), {n: rec.run}) : "";
  flash(head + tail + `<br><span style="color:#5A5A5A;font-size:9px">`
    + fill(one("stats", calls), {t: hhmm(clock), n: calls, grade: C.grade.technique})
-   + (p ? " · " + fill(r.fewest, {p}) : "") + `</span>`
+   + (p ? " · " + fill(r.fewest, {p}) : "")
+   + (rec ? `<br>${run} · ${fill(r.record, {p: rec.played, d: rec.done, b: rec.best})}` : "")
+   + `</span>`
    + ` <button id="share" type="button">${r.share}</button>`);
  const btn = $("verdict").querySelector("#share");
  if (btn) btn.onclick = () => {
@@ -4542,7 +4593,9 @@ $("file").onclick = () => {
   const stamp = (wrong.length
     ? "[ NICHT ERLEDIGT ]" + gloss(r.stampWrong) + " · " + fill(one("shareWrong", wrong.length), {n: wrong.length})
     : "[ ERLEDIGT ]" + gloss(r.stampRight) + " · " + r.shareRight);
-  const doors = "🚪".repeat(calls) + (p ? "  " + fill(one("shareCalls", calls), {n: calls, p}) : "");
+  // a run of one says nothing to anybody reading the line, so it waits for two
+  const doors = ["🚪".repeat(calls) + (p ? "  " + fill(one("shareCalls", calls), {n: calls, p}) : ""),
+    rec && rec.run > 1 ? run : ""].filter(Boolean).join(" · ");
   const where = /^https?:/.test(location.href) ? "\n" + location.origin + location.pathname : "";
   const text = title + "\n" + stamp + "\n" + doors + where;
   const done = () => notify(r.copied);
