@@ -23,7 +23,7 @@
      "where": "the returns counter",
      "lines": [
       "The file, its cover: a new file cover (Aktendeckel) cut and folded by hand, and the number, 117/64, copied on to the front in ordinary pencil.",
-      "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it."
+      "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it; and on the inside of the cover the figures of the number stand up where the pencil was pressed through the card."
      ]
     },
     {
@@ -476,7 +476,6 @@
      "1b0799dbeb003b2132df316c9b4cd13901a7df53ee1efde2dbadf6ec6ab0ca3a",
      "2da90f033200a77c78b5e0979ad3b9fe97fa4abc6d5ae8357c580cbd0d22ec87",
      "2ea282a1123687b0538559c7d3e75298c1cdc965b23597db08083a782c2b8757",
-     "2eebc904b29db20eb05f7989cb49af1746819db4d7d4c278a86b65f48cc66cf6",
      "30a52bda522db6a7a5582c29e42cd5ad451d73010ac29d1fac6e15f2898d1311",
      "4864a5b0739d12a7bea88ec2c50c14de35dc7bc907d015b762bfb5c7b4be23d0",
      "4cc96652016441c4ad28004188229d8a840d797b76b4b22885de40a8268db665",
@@ -504,6 +503,7 @@
      "d471652a1443baf20cc0988459cee9c835d8f6b064b8fb5dbfc73eebd24be862",
      "d73257382d6172e001b0a23885d5f741d59906defeed44257e8d8b702a952873",
      "dfa26dc0be8e6a9daf7c966def0f38895c6e83411d454fca7ee58abda184a1b7",
+     "e33e360e7e732a37d9f8659a4f828b599535cf06c752f8a21180a24de7bd9c9e",
      "e3d51d4544d59911d51e5b4599c4bce33f1a83d8aeac4a2b7d8010483fa0bddb",
      "ec1e0bb279e748fe4de85b04c3a9377b74adb2e99afc833bd58aaf6339cb1586",
      "f03c4b44fe1e3464940cadceca0b2f644692fc5213b9406c25171438f0108bfc",
@@ -735,6 +735,7 @@
      "c87288785ee54c4ae97d58dd4b2f1466a5951213d007d8c3738c5a03b4822458",
      "c92dc969f2bc512be32c259d562adce5824b85f60c3852843b4a78dc2a987e97",
      "cd8ba4d290fbc395a5514a1587a1775b4777cf64cbc60011e19acabb405912b9",
+     "d4786a84ce12ee2e63c821b351c8d15fa07f8461975f66f3b7ec7769f873555b",
      "dbaddf482287b95a3791c5112c96f40276bbea51a6f83fc3d8aedc46be37c752",
      "df5b90cebb6163503045024abbbfcd38ef5a49b91387fd3a7f985090726e2d26",
      "e1f338246ab89799a51dc3b5c0bf2f7e0c89a1122982aeafa4ae126b67d82123",
@@ -745,8 +746,7 @@
      "ec4015cc41424763ea210139f52de62ffca51572443bf9e07cb9652d59fb9372",
      "ee9e91b144291853b3c7aad7a035fb9c34e1f94cae65f3241eea0d6c23d44b9c",
      "f1f63614fe14864fe0520c87f81c7bc56bf6f59f27ca127b5038f39359124220",
-     "f28a1138a5bb2e8ca8c47d158636f7856261c07b2290c21944f1562836de8542",
-     "ffad6a51cb9f7cf93c78ea2a22353a25b0bec596b30857df3ea72d1d80c9dc03"
+     "f28a1138a5bb2e8ca8c47d158636f7856261c07b2290c21944f1562836de8542"
     ]
    },
    {
@@ -778,7 +778,6 @@
      "7a0293603063fa7f6619bdf93d3a17fd1dff3470614ce00bee3d8a2dddf6a324",
      "852581b787beaa2036c20d0866917e147912886388ff3e7cd70048138a44a318",
      "97ee7bcc133c64b8264a18bf1464caf4ab636ccbfb9a5e5bdc5dcb752ae84916",
-     "98d24699ad200fff10f55ea2195bf646e71899f69b5c93f7bfb08d7ed8b92a01",
      "9c82aaa3515c2435993a206b1387c0cf4b4a6e4e31b6d7285f5363a6e52f609f",
      "b44e15939631fce54a73829bbe6cc59a199a38e47b51f8719e0bf67349b16fce",
      "b5a0096c73c54df79f91021ef9e797862b77af250e1870dfc029ceb5f61c0f37",
@@ -786,6 +785,7 @@
      "c291629bb6bb2f3429202dde50deb589084c3e3a195ca129750fcae7eded540e",
      "d364dabb5153134d2628aca122033dfe7fe40d2ad63982e3ffeb26efd358ab89",
      "d40589969a04c85387d7170f128b7416df6b13211c20787f9b52d5b63e4a8c50",
+     "d7868e3c08ab0268c333f54dab2d479624252eab6f02c458f393ec414bf24870",
      "dec8332493e026426258378a677749d791ebdd1a65824a2589fc9484c75475de",
      "e501f004eb05200af88bc25685329ff1d1d7cf9d3b48c6f9f56b8296c980889f",
      "f83742d5079dd8f3bdcd1971b3a1e444e2ce25eee449032fe1d490642deb2d75",
@@ -901,20 +901,19 @@
      "1bdebb2512ddeb40ea514839347b354f8d33dbe7501fa2a32b67d999e9c366d8",
      "2d2787eecb86e54b1158774c0d4aa2fde69178c715f5823f1576f68d39c7e2b3",
      "323406fabb6677fa63ea53328221b5f2031cfefe09d71a46cf9438c043ff71a2",
+     "35911116f756fccb7359d1bf5f951d773010af76fc50cc6cbcae3ab3571a8f35",
      "38dbe2b81a30136fab60f81a672a608748fa03dac813f5a63aaa6196794ff317",
      "3bbff5cff290cd3dcac819013927b82dfd07464fb3ad992425c8ded725d854b0",
      "3d3cbad603416c210001076739d64ff397d09862e4520e03e7d0639069c748a3",
+     "3e41bcf93014c42718d526948afe363aff0abe42a6d09cec0c8cd898abcddf39",
      "43430db92b3b79cd7c5ed6b2f94606a1c4fd2d4545ea3f68d856ac2a2824b876",
      "44876f52820b8a421b5b85f7aac4b547229858c7d145871a2e421790595e1853",
      "458131b3e486decc2a8083e3926d2646fc9620bb50ab05cc573b74b3e1f210eb",
      "474de1d83931ef11ec5831e0bb03546fa1fba8465f26979187212f03322b7749",
      "4df99b71f86bfce62892f881bd49412f8e85d72801ba7beb9c75e80e2f97fdca",
-     "4e8dbd888269316dea734e456341d084f782bb0bd82cd6968cf91fca72410fb0",
      "62c1061673b35b4821b14bc3484db2bd5bbece52c6f42c0f10c2c5f5bdbff726",
      "66a1e68c096a389be42aab17fef37b4c217afd0a280062bd3d5ac6b6e21031a2",
      "6a774729f8e3ed941eb2b05c23bd4039d5d9109820de573db866d21db3b705a9",
-     "6d0f800b63e3180e05a6548c85c879a5c02b943dfc8dc78eb60fbfc842f98116",
-     "736e0cf10b15a9cfebe77ff404926d78d23aa6d02297c4dceeb3eedd584acea2",
      "73b70332910c34e0889bbc1e1b5a77d59895d15ab9daf65e964f10a66bcf5a01",
      "764ac9135c570d739907cfdfedc7af6c3a6f9e15bd35db06e21cbc06896d5ecd",
      "91afc2540213427f8d64b9894ad9a397d13dfd35a8d01e49a625e2bdbcb15fec",
@@ -932,6 +931,7 @@
      "e16cb677a351c964c0c2ef53d2442ac22702bb0794d9cfbaa389340853c791d7",
      "e404cf5c17381984baafee24a33f7d85130dfa3e677feff98a9850c5e03c39cf",
      "e804bc1fcfec05eaaf2c543ffe31f70c0648500ebb73938f00681b6475cb22bd",
+     "e9207e1d69045e69e21ba43a13614a683f50dd320a5dbccf54faafbe435189e6",
      "e97d52e85ca81ef57c04bf8702085eb1a9f646d971e904a4e43867e1ab346d63",
      "ef43dcf8300850fc1bcf79f10c8d8ca9c41d8a25f4778d78a499f0da3d1a928d",
      "f627531b2e9d5a8660be546ac2a62f0e89962c6f2097d12454164b6d2471bb18"
@@ -1043,6 +1043,7 @@
      "1f5d12f829e0ae173226ca4443dc3e772c171204f2cb7101507013c62dbb6ed0",
      "2f55544e172675c6d85481777142ad0f42d446728f5f9b56ee2106df89293145",
      "36987b20dda0bb8d861c631ae8b8e91083c28ce752859b187fcafccc2bb0ea05",
+     "36de6c77f74da47fb0d3b56ce2d3b2ed35886dbb345b25aadbc5bd8777cfb06c",
      "4428dcded9b355591d69964b4435c1953d50ce7eba4a1b8ae71da08d890a35f2",
      "4eac6efadd5d233ebcc9f3dc9e98201753f2f1f1a072540539ca3fa43bd8bc73",
      "4ff704b206f2c71e9c580eed997448d97ba133fd8105e1a99eb2027567bb8326",
@@ -1050,7 +1051,6 @@
      "53fcf173eca447f70e8dc3d7abf236e8486868c5de332912740fb86bb4699cbe",
      "63314e87dc531b05a28ce415eae597e4b4195dc7143d80833913d190eac2e7c9",
      "634263340b862e12946868e381e2277863f5897aa5d15fdd4a92d9f5ef91e62c",
-     "747d7a9d739a395a86ec8a69b464c0eb3ac8b7a5b11ca480359939b2313931c7",
      "8069f06eb0de70df1c5289a87c36655ba9fdbbe3a431f2b590b2683dfa3b1816",
      "84b2625a3c97d9c3aa193670efd26890034ec7912345da03d8d6244d826d0ac0",
      "897a7244f14933ac2624d84973556c37625be1ef34620e78b0d4d8a86c6ecc9f",
@@ -1390,7 +1390,7 @@
       "phase": null
      },
      {
-      "text": "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it.",
+      "text": "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it; and on the inside of the cover the figures of the number stand up where the pencil was pressed through the card.",
       "phase": null
      }
     ]
@@ -2047,7 +2047,7 @@
     "ask_of": {},
     "always": true,
     "raised_by": [
-     "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it.",
+     "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it; and on the inside of the cover the figures of the number stand up where the pencil was pressed through the card.",
      "The outer office's list of what went down: written before the paper leaves and initialled at the foot, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
      "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: Fräulein Ostrowski's name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
      "Simon: Open it yourself; you will see it better than I can tell it. Open a file in this room and the oldest sheet is the one facing you and the newest is at the back: that is the Registratur's order, and it is what a file leaves in and what I expect it back in. Open one in the Schreibsaal and they have turned it round, newest facing, because that is the sheet they are working on.",
@@ -2187,7 +2187,7 @@
    },
    {
     "thing": "The file, its contents",
-    "line": "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it.",
+    "line": "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it; and on the inside of the cover the figures of the number stand up where the pencil was pressed through the card.",
     "portable": true
    },
    {
