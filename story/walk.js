@@ -391,15 +391,48 @@ function scene() {
      height, and nobody's picture is stretched to anybody else's height. */
   const tall = cm => `${(72 * cm / 180).toFixed(1)}%`;
   const figs = people.map((x, i) => {
-    const left = n === 1 ? 62 : 32 + i * (60 / Math.max(1, n - 1));
+    /* alone, where the painting leaves room (chapters/props.py, STAND) */
+    /* several: spread between 32% and 92%, or between the painting's own
+       bounds where it names them (the lodge's glass box is past 62%) */
+    const [a, b] = p.spread || [32, 92];
+    const left = n === 1 ? (p.stand ? p.stand * 100 : 62) : a + i * ((b - a) / Math.max(1, n - 1));
     const img = x.sprite ? `<img src="${esc(x.sprite)}" alt="">` : `<span class="nofig">?</span>`;
     return `<button class="fig${TALKING === x.id ? " talking" : ""}" data-meet="${esc(x.id)}" ` +
       `style="left:${left}%;height:${tall(x.height)}" title="Talk to ${esc(x.name)}">${img}` +
       `<span class="label">${esc(x.name)}</span></button>`;
   }).join("");
-  $("scene").innerHTML =
-    `<div class="fig sarah" style="left:9%;height:${tall(WALK.sarah_height)}"><img src="${esc(WALK.sarah)}" alt=""><span class="label">Sarah</span></div>` +
+  /* THE PROPS (24 September 2026): what the room's list shows as a thing
+     lying here is laid on the painting where it lies, behind the people,
+     and opens the same page as its button. Shown exactly when the list
+     shows it, so the picture never holds more than the page. */
+  const lying = new Set((p.sees || []).filter(now).map(s => thingOf(s.text)).filter(Boolean));
+  /* The second way (24 September 2026): a thing made from its own room or
+     its own page, drawn once for each painting and lying on its own pixels
+     (chapters/props.py, box and files). No squash: its angle is the room's. */
+  const pct = v => `${(v * 100).toFixed(3)}%`;
+  const own = x => {
+    const [l, t, w, h] = x.box;
+    /* a built thing stands on its own cleared ground (the painted book taken
+       off the desk), which lies under it and never glints */
+    const under = x.under && x.under[art] ? `<img class="under" src="${esc(x.under[art])}" alt="">` : "";
+    return `<button class="prop placed${seenThing(x.thing) ? "" : " fresh"}" data-thing="${esc(x.thing)}" ` +
+      `style="left:${pct(l)};top:${pct(t)};width:${pct(w)};height:${pct(h)}" ` +
+      `title="Look at ${esc(thingName(x.thing))}">${under}<img src="${esc(x.files[art])}" ` +
+      `alt="${esc(cap(thingName(x.thing)))}"></button>`;
+  };
+  const props = (WALK.props || []).filter(x => lying.has(x.thing) && x.places.includes(p.id))
+    .filter(x => !x.files || x.files[art])
+    /* built things first: their cleared ground is a piece of the painting,
+       and what lies in front of them must lie on it, not under it */
+    .sort((a, b) => (b.under ? 1 : 0) - (a.under ? 1 : 0))
+    .map(x => x.files ? own(x) : `<button class="prop${seenThing(x.thing) ? "" : " fresh"}" data-thing="${esc(x.thing)}" ` +
+      `style="left:${(x.x * 100).toFixed(2)}%;top:${(x.y * 100).toFixed(2)}%;width:${(x.w * 100).toFixed(2)}%" ` +
+      `title="Look at ${esc(thingName(x.thing))}"><img src="${esc(x.file)}" alt="${esc(cap(thingName(x.thing)))}" ` +
+      `style="transform:scaleY(${x.flat})"></button>`).join("");
+  $("scene").innerHTML = props +
+    `<div class="fig sarah" style="left:${p.sarah_at ? (p.sarah_at * 100).toFixed(1) : 9}%;height:${tall(WALK.sarah_height)}"><img src="${esc(WALK.sarah)}" alt=""><span class="label">Sarah</span></div>` +
     figs;
+  $("scene").querySelectorAll(".prop").forEach(b => b.onclick = () => readThing(b.dataset.thing));
   $("scene").querySelectorAll("[data-meet]").forEach(b => b.onclick = () => {
     meet(b.dataset.meet);
     theatre(true);
@@ -412,7 +445,7 @@ function scene() {
   $("sees").innerHTML =
     sees.filter(s => !thingOf(s.text)).map(s => `<li>${marked(s.text, false)}</li>`).join("") +
     things.map(th => `<li><button class="read" data-thing="${esc(th)}" title="Look at it">` +
-      `${esc(thingName(th))}</button>${seenThing(th) ? "" : " <i>lies here</i>"}</li>`).join("");
+      `${esc(thingName(th))}</button>${seenThing(th) ? "" : " <i>is here</i>"}</li>`).join("");
   $("sees").hidden = !sees.length;
   const notebook = held();
   $("notebook").innerHTML = notebook.length
@@ -457,7 +490,11 @@ function readThing(thing) {
      the thing IS -- its paper, its ruling, its marks -- and never what it
      says; every time, number, name and count stays in the type underneath.
      Every mark on it is drawn, and held to what the lines say. */
-  const pic = (WALK.pictures || {})[thing];
+  /* A picture may wait for one of its thing's lines (the VS-Tagebuch's
+     receipt signed twice shows only once its entry is heard): then it is
+     {file, when}, and until `when` is heard the page opens without it. */
+  const pv = (WALK.pictures || {})[thing];
+  const pic = !pv ? null : typeof pv === "string" ? pv : HEARD.has(pv.when) ? pv.file : null;
   $("doctitle").textContent = cap(thingName(thing));
   $("docpic").innerHTML = pic
     ? `<img src="${esc(pic)}" alt="${esc(cap(thingName(thing)))}" loading="lazy">`

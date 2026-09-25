@@ -836,6 +836,8 @@ function memo() {
     if (kept[i.id]) i.value = kept[i.id];
     i.oninput = i.onchange = () => say(i.dataset.part, "", "");
   });
+  $("parts").querySelectorAll("p.verdict").forEach(p =>
+    mauserSays(p, (VERDICT[p.id.slice(8)] || [])[0]));
   $("parts").querySelectorAll(".attach").forEach(b => b.onclick = () => {
     citing(ACTIVE === b.dataset.slot ? null : b.dataset.slot);
     memo();
@@ -994,7 +996,31 @@ async function remark() {
 function setVerdict(id, text, cls) {
   VERDICT[id] = [text, cls];
   const el = $(`verdict-${id}`);
-  if (el) { el.textContent = text; el.className = "verdict " + cls; }
+  if (el) { el.textContent = text; el.className = "verdict " + cls; mauserSays(el, text); }
+}
+
+/* WHAT MAUSER SAYS BESIDE HIS MARK (23 September 2026). The mark is kept as
+   it is -- it says which kind of wrong and nothing more -- and under it, in
+   his voice, the author's own line for that kind (chapters/memo.py, MAUSER;
+   attic/mauser.md for every source). English, her German one click away.
+   Which line is found from the mark's own text, so nothing about the case is
+   needed and nothing new is sealed. A mark with no line says nothing more. */
+function mauserLine(say) {
+  const q = document.createElement("span");
+  q.className = "mauser";
+  q.innerHTML = `<b>Mauser</b> “${esc(say.en)}”<button class="de" type="button" ` +
+    `aria-expanded="false" title="Her German">Deutsch</button>` +
+    `<span class="orig" hidden>„${esc(say.de)}“ <cite>${esc(say.src)}</cite></span>`;
+  const b = q.querySelector(".de"), o = q.querySelector(".orig");
+  b.onclick = () => { o.hidden = !o.hidden; b.setAttribute("aria-expanded", String(!o.hidden)); };
+  return q;
+}
+
+function mauserSays(el, text) {
+  const m = CASE && CASE.memo, lines = m && m.mauser;
+  if (!lines || !text) return;
+  const kind = Object.keys(lines).find(k => m.marks[k] && text.startsWith(m.marks[k]));
+  if (kind) el.append(mauserLine(lines[kind]));
 }
 
 function say(id, text, cls) {
@@ -1024,6 +1050,8 @@ function tally() {
   el.textContent = (solved && walk.fewest
     ? `Every part holds. Sarah asked ${asked}; all the evidence in this chapter can be had with ${walk.fewest}.`
     : `So far Sarah has asked ${asked}.`) + signed;
+  const closing = solved && CASE.memo && CASE.memo.mauser && CASE.memo.mauser.solved;
+  if (closing) el.append(mauserLine(closing));
   $("invite").hidden = !solved;
 }
 

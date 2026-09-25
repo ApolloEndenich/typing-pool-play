@@ -265,6 +265,20 @@ body.citing .where li { padding-right: 92px; }
 #sheet .verdict.good { color: #2f3f33; }
 #sheet .verdict.bad { color: #6b2a2a; }
 
+/* What Mauser says beside his mark (chapters/memo.py, MAUSER): spoken, so in
+   the typewriter face and upright, under the pencil; her German one click
+   away, with the book it is from. */
+.mauser { display:block; margin-top:4px; font:12px/1.45 "Courier New", ui-monospace, monospace;
+          color:var(--ink); transform:none }
+#sheet .verdict .mauser { transform: rotate(1.5deg); }
+.mauser b { font-weight:normal; letter-spacing:.06em; text-transform:uppercase; font-size:10px; color:var(--faint) }
+.mauser .de { font:inherit; font-size:10px; cursor:pointer; margin-left:6px; padding:0 5px;
+              background:none; color:var(--faint); border:1px solid var(--hair) }
+.mauser .de[aria-expanded="true"] { color:var(--ink); border-color:var(--ink) }
+.mauser .orig { display:block; margin-top:2px; color:var(--faint) }
+.mauser .orig cite { font-style:italic; font-size:10px }
+#asked .mauser { margin-top:6px }
+
 /* ------------------------------------------------------------ the walk
    The building, the room and the conversation (walk.js). Same paper, same
    typewriter; the painting is the only colour on the page. */
@@ -364,6 +378,34 @@ body.walks.view-notebook #people { grid-row:3 }
 #scene .fig:hover img, #scene .fig:focus img { filter:drop-shadow(0 0 4px #fff) drop-shadow(0 3px 2px rgba(0,0,0,.3)) }
 #scene .fig.talking .label { background:var(--hi2); color:var(--ink); font-weight:700 }
 #scene .nofig { font-size:40px; opacity:.5 }
+/* a prop lies ON its y: the button is placed by its centre and its foot, and
+   a flat thing is squashed upright from the foot, as it would be seen from a
+   standing eye (chapters/props.py, flat) */
+#scene .prop { position:absolute; transform:translate(-50%, -100%); padding:0; border:0;
+  background:none; cursor:pointer; line-height:0 }
+#scene .prop img { width:100%; height:auto; transform-origin:50% 100%;
+  filter:drop-shadow(0 1px 1px rgba(0,0,0,.35)) }
+#scene .prop:hover img, #scene .prop:focus img {
+  filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 2px #fff) drop-shadow(0 1px 1px rgba(0,0,0,.35)) }
+/* not yet looked at: a slow glow, so a thing to notice can be noticed */
+#scene .prop.fresh img { animation:propglow 2.4s ease-in-out infinite }
+@keyframes propglow {
+  0%, 100% { filter:drop-shadow(0 1px 1px rgba(0,0,0,.35)) }
+  50% { filter:drop-shadow(0 0 4px rgba(255,248,210,.95)) drop-shadow(0 1px 1px rgba(0,0,0,.35)) } }
+@media (prefers-reduced-motion: reduce) { #scene .prop.fresh img { animation:none } }
+/* the second way: a thing made from its own room lies on its own pixels,
+   placed by its box and never moved off it (chapters/props.py) */
+#scene .prop.placed { transform:none }
+#scene .prop.placed img.under { position:absolute; inset:0; filter:none !important;
+  animation:none !important }
+#scene .prop.placed img:not(.under) { position:relative }
+/* the glint (the user, 24 September 2026: "a faint, steady glint on every
+   clickable thing, stronger on hover"): faint always, strong on the pointer,
+   and the slow glow while it has not been looked at */
+#scene .prop.placed img { width:100%; height:100%; display:block;
+  filter:drop-shadow(0 0 1.5px rgba(255,248,210,.55)) }
+#scene .prop.placed:hover img, #scene .prop.placed:focus img {
+  filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 2px #fff) }
 .sees { margin:6px 0 0; padding-left:17px; font-size:12px }
 .sees li { margin-bottom:4px }
 

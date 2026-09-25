@@ -9,13 +9,13 @@
   {
    "n": 1,
    "name": "One afternoon",
-   "note": "Ten people are ruled out here and no two of them by the same kind of argument. Some could not have been there; some never came to know; some would have left a record that is not there; and some could not have left the trace the file itself carries.",
+   "note": "Ten people are ruled out here, by four kinds of argument, and each kind rests on its own evidence. Some could not have been there; some never came to know; some would have left a record that is not there; and some could not have left the trace the file itself carries.",
    "sections": [
     {
      "where": "the Registratur",
      "lines": [
       "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand, and it is Herr Simon's.",
-      "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and nothing written under it since.",
+      "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and no return entered against it since.",
       "The Rückstandsliste, the arrears list: made up for the third quarter at the end of September, carrying 117/64 among eleven others, with a copy gone up to every section (Referat) holding one of them."
      ]
     },
@@ -29,24 +29,29 @@
     {
      "where": "the Poststelle",
      "lines": [
-      "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between a quarter past two and twenty to four on 14 October, twenty-three of them, and two of the clerks up there put their own beside hers."
+      "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between a quarter past two and twenty to four on 14 October, twenty-three of them, and two of the clerks up there put their own beside hers.",
+      "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, where it was done."
      ]
     },
     {
      "where": "the outer office of 407",
      "lines": [
-      "The outer office's list of what went down: written before the paper leaves and initialled at the foot, with the Registratur's stamp against its own side of it, and 117/64 on neither."
+      "The outer office's list of what went down: written before the paper leaves and initialled at the foot, for everything that goes down from the Referat, Herr Grau's own desk included, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
+      "The out-tray on Frau Pohlmann's desk: three files waiting to go down, every one of them with the oldest sheet facing and the newest at the back, the way everything leaves Frau Pohlmann's desk.",
+      "The minutes (Niederschrift) of the head of department's meeting of 14 October: held with his section heads (Referenten) in his own room from two o'clock until a quarter past four, Oberregierungsrat Grau among those present, and signed at the foot by the head of department (Abteilungsleiter) himself."
      ]
     },
     {
      "where": "the lodge",
      "lines": [
-      "The porter's book: entries at the lodge window at twenty to three, a quarter to three, five past three, a quarter past three and twenty-five past three, each one signed by whoever came to the window, and the porter's initials against every one."
+      "The porter's book: entries at the lodge window at twenty to three, a quarter to three, five past three, a quarter past three and twenty-five past three, each one signed by whoever came to the window, and the porter's initials against every one.",
+      "The delivery note for the paper of the typing pool (Schreibsaal): for a parcel of paper delivered at the lodge on 14 October at a quarter to three, signed for there by Frau Kern, and the count of the reams initialled at the foot by her and by the porter at twenty to four."
      ]
     },
     {
      "where": "the Schreibsaal",
      "lines": [
+      "The tray on Frau Litt's desk: every file in it with the oldest sheet facing and the newest at the back, the one desk in the room where they lie that way round.",
       "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: Fräulein Ostrowski's name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
       "A drafted request, in the drawer of the desk in the corner behind the door: for new machines, costed to the Pfennig against what the last lot came to in 1964, finished, unsigned, and never sent up."
      ]
@@ -120,7 +125,7 @@
     {
      "where": "Oberregierungsrat Grau",
      "lines": [
-      "Grau: Frau Wessen. Sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else."
+      "Grau: Fräulein Wessen. Sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else."
      ]
     },
     {
@@ -327,6 +332,43 @@
    "empty": "Nothing cited",
    "others": "And the others?"
   },
+  "mauser": {
+   "words": {
+    "en": "You think you know something, and life comes along and says: if only.",
+    "de": "Wenn man glaubt, man weiß was, kommt das Leben und sagt: 'Schön wär's.'",
+    "src": "Schmiss und Wessen ermitteln"
+   },
+   "own": {
+    "en": "They all claim something.",
+    "de": "Behaupten tun sie alle was.",
+    "src": "Schmiss und Wessen ermitteln"
+   },
+   "ring": {
+    "en": "A collective alibi. You can't fill a report with that.",
+    "de": "Kollektives Alibi. Damit kann man kein Protokoll füllen.",
+    "src": "Schmiss und Wessen ermitteln"
+   },
+   "proof": {
+    "en": "Maybe. But a little digging never hurts.",
+    "de": "Vielleicht. Aber ein bisschen recherchieren schadet nie.",
+    "src": "Schmiss und Wessen, Band 6"
+   },
+   "empty": {
+    "en": "But at least write me a report that looks like a police document.",
+    "de": "Aber schreiben Sie mir wenigstens einen Bericht, der wie ein Polizeidokument aussieht.",
+    "src": "Schmiss und Wessen ermitteln"
+   },
+   "others": {
+    "en": "Slowly. It's not that simple, I'm afraid.",
+    "de": "Langsam. So einfach ist es leider nicht.",
+    "src": "Schmiss und Wessen, Band 7"
+   },
+   "solved": {
+    "en": "Everyone has their own small truth. But in the end there's only one that counts.",
+    "de": "Und doch hat jeder seine eigene kleine Wahrheit. Aber am Ende gibt's nur eine, die zählt.",
+    "src": "Schmiss und Wessen, Band 3"
+   }
+  },
   "subject": "The return of subject file 117/64 to the Registratur counter, Tuesday 14 October 1969",
   "result": [
    "hand"
@@ -349,6 +391,7 @@
      "5b21ef6f8f99c6eec29cbc9adebc5eb40b7f3d58d314769f43f8158f94ea4c11",
      "62853b00730fe632f26e3ed20dcffeafcac59bbd0d2d66de6a0c76cd7b1cb0a9",
      "67b4b0c6b389b9233d7551de8495e3aad1f1b22f227d282c6db3d8c3de8c4739",
+     "68d46424afc5a8cebd3c27e34af29f760fa6c9fce227a84266ba26c8d430c583",
      "6e7b0d806b305b392d594a3d98bb5e3aaff024a1802dbcbe655525649ffeb738",
      "725972cd6fb2432c62a2a1ebb27fddc43c29f3920ac6bd450ed2b541b0158e81",
      "79f94308f0f8084a25ca24daef025597a63c23fb71a68394a2e04b925f1e23be",
@@ -361,7 +404,6 @@
      "a02aa0285839b61b94ea03d93e8a3108d974ae957998ed247cec95f0941153b2",
      "a37bbe46e2bb2d0e7b426c7b0aba9fdfbaa0be63981bcd42ac77029c5a92caf0",
      "a4f2939e1b92d3950d8c355ac0b8ea0333a5e22b4d44ac08ac1044c6b93d697f",
-     "a9fdaa76a9de086a11a89588c1acf201674969e5fa056008a297a948caf2487f",
      "abf024aa772791616663d92776e01a744ee11a5883f625f72599a653e2e63fa1",
      "b125a94e85b0ac1fd7d991ec99622afb4751c765c52ffbab730ae488080cc477",
      "b68ba3cfbd7e58ee915f03415e5e4204236f4ce745dee24035c443d015255b1f",
@@ -531,6 +573,7 @@
      "38e02d9234cee1d95fa8711ce667c860dde5642293b71e37c7010de5a567512b",
      "3ad6156dea9bf0b410faa9fc910694a5e1bd3c9b573a773c82d30b8f4b86f5f4",
      "3eb14c255c261decc1fdaf57f17e48a47e37aa7ab0266b8543da701ff9f6b120",
+     "42199d39e74ebe092cbc24d15acd61f0797598f8862e38cdc4c2c5697a298055",
      "4feb5dc04d1e6056fab922836d6ebfad224710eea5aca50c8c4140a6b5257a35",
      "561c4f5030485a4226a771578ec4601b70b31b2b538ae3d32cbeb10eaabd3bbc",
      "5f6c78598a3b477e264dafc0611bafdbfe2209bc67e5d057d2af95ca88199d05",
@@ -555,7 +598,6 @@
      "d3679161153615f4d74d5e381087c8abcba61f327435786dfbe71431d8f69926",
      "dd6aa66bd39d937e673bbf457369a087d9968dfb2dddf9c8e4eb1a29196e1bf5",
      "e69a8d32f3046fc72b32447488089423501816536efbc164802b0312f5821873",
-     "ecb76353248cb70f35166c4d2035b32b4d0c256278f3ddf81ee14303ccfbd3dd",
      "ece4670608cdf9e4be53151dad0f0b2f17d6af211e272beb6cf530defb17c102",
      "f5344d73ccbdd0a2e6aa455350daf3478248e5ff48ed2cde2293321266e6b2c6",
      "f946fa664d10d0e09a1da13bed52e537f21167a03e0c460a16684a4a472fd507"
@@ -564,10 +606,11 @@
    {
     "id": "Oberregierungsrat Grau",
     "label": "Oberregierungsrat Grau",
-    "need": "2e7c0cbb5d9162e262e719044aad2e427f57fbc22fbb63678d85b6b9fc3a3981",
+    "need": "1ff40a1fe2612d44984102e8e36276015446586631847e2c6f047117d3cef61a",
     "marks": [
      "00d99fe9afbaae4b03c15152900d07657f0f1152a03e031972c93c2864a02124",
      "085a9f25a2f1e5b0caf105cf85306e556ba5d9c6a0873b87b47c0bc0f2e204d6",
+     "0e3cd6666715e6961a75e38737dc73953e5b83cd3940d88dc5b73389f80a157c",
      "1ea65635ba25a4043a0a64aae14c62cc1301b1d49a5e06b9c7c5ef2bfb3286bd",
      "207dc98d95de149c36e90c555beb0b2857da1c966ab620608d44a5ff50532fe1",
      "244729e857ac586f069836302051d07ce34fdb4cb38e6e01aa90e5265ad688ca",
@@ -576,14 +619,15 @@
      "2d4ad7e64fd3eecfba9d1a8546787381766c4d059a4380a17b8a39981f55b130",
      "3bb17b512d2cf2aa3e588698d0f824d52dd0f19355681d3a07db770047aace22",
      "46587762466a1fd8691df8304e8cf24aaee3067da46faa5e354f4e098d652a67",
+     "46f16c1c5a750d97541ea595e0530a6ed016a02c1d4566febf96f8ab658c2098",
      "4d50e462733d271eb8acec2786570d7f7bde99f2965a83b07d80e66b646bf6bb",
      "525e56e4d9d07c98c9e6b1eb7a57e277d9c11d2773cf1fd633e88afd4b85dc30",
      "58ee2fc3146275ae87a5e919e29cfb327fae2829a0d98438bc32f2bac2ebf53e",
-     "5ac9747a2ad1ab9286bf7f6692630b61148b2002298d1c283b11c1b738330611",
      "6564b497b1e87ee03bc9a8797f22ee5092f05ecd0956d1b8259af8dfdf1c7c71",
      "676faecf63dc7da74179e6aa994322639ab4b7eb875b12aa4752c66a1f9b09a0",
+     "78e8d4d0bae42821ff66035352432fdce46382f5a40e98b05d9e17f75fc15749",
      "7b8e5e343b43c66ff484186a7c2b6a5fa2e1b79a11d3187237c28825cdfafb6d",
-     "804712d93cd41510ab71972e25cc5f23644225d83fe63ded33dfc6cef7566479",
+     "81d4f2e345a336c11beaee2c89889acf2b367f6b00c9fb2941e9792514040f29",
      "82b2c71a8920573d360decccf2fa1ef7dc76682227c0a29e45a91c7ac8ee6128",
      "90510697f1e78423fe469fe0bd055ea71252eeb264abee47826d431cc23ef4a0",
      "9c897b73171cd76046d81c8cb318d865ad9b5918b2fe915d145029a44c7e551f",
@@ -594,14 +638,12 @@
      "b438d778238ff1a9e4fed50a663e8aad5936f134b9f2cff45e222b7e4ca73cf6",
      "b659de8a1e6e1ee1e165b0488f381a4e216840426e10e108be20e3fcd9003f34",
      "b93eba4cace1200f7b56354311963740ba6fd844601651b6180579deb4eef305",
-     "bd23ffbf86d46382e087f41cbba16b9e849b36a26f56a2ce2730814ad54db251",
+     "c638a1e21b5ffa0c43dfa88abf156507d8f06b90019f06cf195dbffeeb5a1a05",
      "cdd086ce4cb8d0b95a783342a6726639a6c46d5b865462bb414bfd9509a7338b",
      "d495a714442b37f20a51f0951d5ed75f430213af68661088f620b293e07c2218",
      "d73c3514a7dafd91ceadec8e85ddeb2a26e64405f85d80f0659f7f8001339eea",
      "de67b7d1f6cefb793c1f310b7722dac6c17ff254533d330f7da51fccf30796dc",
      "eca9c8e6b89a85874a404ad1444853bd30fe3c39711c01cfc5e9a05b231d4f70",
-     "f3817776ef55452fb6b56ce8582e93442d97ccb535ed30bc2bec52e0a743a0ca",
-     "f3f93dfa8628a20e34eaad86e5cc575c79f8c3086dbf15e09305a8ecfde3f537",
      "f7fcddc976e6e2d4ce2a4d481f5113a125836e8058378892f2de3bb357f83307",
      "fc535702ba6b3406e2cc5ad4f8d96df0311781b9a7171c8e961138e17b167c9c",
      "fe0c037c3cbd94447eebd7c4d0c80e518b55f4f63cbd3dde99fafd71f4ffe1a9",
@@ -613,6 +655,7 @@
     "label": "Frau Pohlmann",
     "need": "4350f90a0ed1345c2244db853ee3b334fbde6154d0f641dc4bad6217bb223079",
     "marks": [
+     "154f5decc335010848c659c8f8bd06c42a29d53c39b7a26a9aee8c07fd6029d4",
      "1bda1df3da08e8dcfa82971667bbe0518495e5e1524257ede60be1d91b45a53a",
      "20ddc0c2acff2d91c34e3e8c24672d607234e4c7378847925155ea69b8e011eb",
      "2208cc975a06171f26676c4195b2e38522054297a45bef2c5187b1a88e9fc6d5",
@@ -621,7 +664,6 @@
      "3b6a505c82bba41d4b728a9e443e0a155f499f3c8014228839fa51ac883fd276",
      "4023c869b64019cb82a47775cb11f210227735acbb1bf39084c962e99612a00d",
      "4383282867b80206cb1eeb1b31196444897da954db20a9ebdc09563c8bfa65fd",
-     "46475bad181b52af47a52d8d08e9c74438575e58ee5b7d5406cfd582f335ffb2",
      "5305f63ad0e8a4424d4ff949501fbf559fc9c4713ea721fc04c97ab69451c88e",
      "5cd51fc8013e8f74d6cc5c5c2f090e638ce8594c47545ab332b1f1a68731c099",
      "681d1f94529f637100e55d542f248b3f5755a41b7d55d9b15954fe2e3db05425",
@@ -635,20 +677,20 @@
      "95f55a5474f7f45860faa13c5d2fcb637bd7e3046379c2658a07c1f47123d6f3",
      "98126ea1ecfe6bba36d993073d0f1ae31426a36bb283a56ba87d3808ee34d46d",
      "a30b3db51f921a3e2f4c5a42992d6ec7ca719f40ab6d8160c97ace558d970d54",
-     "a58b63752696ef164c9b0cccd1e56b90473a54fcd6aa3f72b2ff61ed5c3239af",
      "a63a4921cbe1ec5bf767e72a15af01e73cab3ed6efe641d2f6503d78648b8026",
      "ac503677c24f844bccd7a55d79a0638b21064d6db722b25aaa6cc446ca54d322",
      "b5bf33ce89f4dc4d717eb96ead43ced0ad6cf38aa7579d9109aa50063e36d061",
      "bc7afce459e150117e4c6a7f63c8e40221483fe9fd125c9898607d5ac7cb4fc5",
      "bd5a358366cd7c59acc9ec44690322eedd5d3a887c9fdab0c7598f65ee0ee3ef",
      "c1e9628922f34fc27fb9a077a988ff9a74bddd5b45d31506a9f0ac0b6c505cb8",
+     "c77d71e7be0ba86271e522e4f5e8b2cb286f5016bf3a5428f37ee8034ac17efb",
      "d21470dadda8b2ac3b3a1d58f9e4d12ddc833a6bd39d6adf7c141a65529e7f6b",
+     "d233d0f8c83e8040717ff1f4c74a2d4fc8efe7fbd17697fb5ca6a2a2641c5123",
      "d3053c34ac955ddc422169655791639ae1e555a061357b28bac08838261221df",
      "d4c3086f16fdca77a1b2953b12516c43d787ed42183e8510ea82116d8bc91270",
      "d68bab88e7e7c99519d5989d0cb924380fe05a2b99876dc85f569ef5bd7212a7",
      "e50ab8dc2d26404342f0e7eadbf804187665989a1f4a666c08cf0f358eedcae7",
      "e5b72b93fde1e095d1e9c37e9d4d922610b68eb51b2406e5ca0fe17d9dd45a8e",
-     "ec7ecaa65fbb29de5001688be7fe99f1f8f9d42f3f62e9190805e4598eee2fc6",
      "ed96fb2c197439c13a4c0766ba486499e51c8615abe8f1e15f45dc4bf8e62c3b",
      "f3d70a87fddc52e140c23849cbf4aa5a5cc155e26f100fc9fb4507d2e949d86f",
      "f9221aa7e5694cfc5faa5ead360aa42660c59282ff42e93fa4bea57fb105337c",
@@ -736,7 +778,6 @@
      "c92dc969f2bc512be32c259d562adce5824b85f60c3852843b4a78dc2a987e97",
      "cd8ba4d290fbc395a5514a1587a1775b4777cf64cbc60011e19acabb405912b9",
      "d4786a84ce12ee2e63c821b351c8d15fa07f8461975f66f3b7ec7769f873555b",
-     "dbaddf482287b95a3791c5112c96f40276bbea51a6f83fc3d8aedc46be37c752",
      "df5b90cebb6163503045024abbbfcd38ef5a49b91387fd3a7f985090726e2d26",
      "e1f338246ab89799a51dc3b5c0bf2f7e0c89a1122982aeafa4ae126b67d82123",
      "e5ca228259028a349d0cef648b6ac26574c1ed0d9ba027201ef3eda9ab3de525",
@@ -746,6 +787,7 @@
      "ec4015cc41424763ea210139f52de62ffca51572443bf9e07cb9652d59fb9372",
      "ee9e91b144291853b3c7aad7a035fb9c34e1f94cae65f3241eea0d6c23d44b9c",
      "f1f63614fe14864fe0520c87f81c7bc56bf6f59f27ca127b5038f39359124220",
+     "f212e97c4c5ec5168b5bf78141af0ac2d366391e638190ced80c2bcc3faee7cf",
      "f28a1138a5bb2e8ca8c47d158636f7856261c07b2290c21944f1562836de8542"
     ]
    },
@@ -759,8 +801,8 @@
      "120bd9d9af7a1418cfb6776b4e65809d648c3f20a83f83753e82d3c4abcf902e",
      "1299717084c12a53d0a33f2f7c4d0ef8384fab4c0cf7ad4c83bdd56c970eb6e0",
      "1390d5aa20aed715516d4113f729ee240cb882be3c0be50a0c20b745a3d986b3",
-     "16e865197940f01d0bc84f782f421b13cb335874196c6b32ad95496375a1adc2",
      "17555ee9c6fb8f9d6a06c9a71ba8382a8e85d71e8f5d4a38e15fea19c1e41ac1",
+     "200a124de2534ec820d6eb3f0b74f6886d6095ba9accec2514f4aa51d9511273",
      "26494cd530ca54880f2f20081cc3104077442a08f2ded047b3b55d01cfac4cd3",
      "40e5ce20c10124df8588a6c1dd6fcad23b06bc83c3a8407ea795b3d7cadba0f2",
      "454f854a2642f3083121a3d07fd48ba1e072119917b7a962f34fbf3e2597c86f",
@@ -823,10 +865,10 @@
      "86587b4005fa4961efcb05f7ad1d3069706d99b6b8a32f1de20d54a411369666",
      "88664255e0e5e3cedde3a7cd7f5f78c2cf35cf98aed42a1c261e8bea4799a7c2",
      "890d39461d2923a6ea9e9398586a0cb156fccb34579b01e46f0a0e55bf9361a8",
-     "8961db7bc97c74ee50b688f71c711294ad2d3f4e276bb94fcabcdb1a7558510a",
      "8bed1810d1665840b19bbb488fa716ebecdd45077e13f1c4ae61f161556ec2d2",
      "92325e6d9f6620d1da8047b7c4360694f46ba47549f754bf8d0e52f3a3408def",
      "92f140cca3be48e45aca3cc3cf17bf99c9bc71709d1acf7f0202a480164923a3",
+     "9dacc4957472b9d1f910f335f6321d06214d30142bde095ba6dcf651f5491371",
      "b346e86aa132a7b8802a2b52d99835fb591e17adbbb05d89dbfd927b980b6666",
      "b69981796ab4b9579c5dc1d9e74a9d22f8bee7cf676d7f9f81db8c7d82fd2f7e",
      "b90c1b90452b13b0e2cb77c0a7be718293be82bafc351f63d6a46e85988093d3",
@@ -852,10 +894,10 @@
      "050febe1217226bb01147b92a1cfb38303cddfa7f15a8ceb92077b4a674cfcfc",
      "09270c8e57aae1878965465bcad971fc73bcc3f63e1a094dca9f86ae85716d24",
      "0e5c554ee11e99c5fd6d63aea81f00e2f935b912a6a648447557cca1a439451f",
-     "134cfd9135ed851a15c2c629eee5f35194cef9dd3fdcd66d500dc55da9961e71",
      "14ecfddf99385966410906261da6acabbf56c75fcf2e1f2e85a42757e712cbc5",
      "1dd7fc77653fa5b72dd96dfb599deafbfc1714ae7d1833baee4e5bec215d0bb1",
      "23a45d4b9b566206c268915fc63d9fa1b1fda2657569e92fd1c575a373f4ce97",
+     "28242ae973470b79858ac1b5f7fc9ccf002ac609fff3f124dfd0da001c87da71",
      "2debdbe921ce76b7f35b802322e760095a88e63f77d0a1ddede2da3dfa0b18b2",
      "2e521799eed51b8ab5978ac1b3aa2e49ee724ac5ddec79a9e8f13514268c60d2",
      "30d721c46d164d6d08c049fd14c5b6c0d57c8eb512f9e1a19335c17fb8e931ff",
@@ -870,11 +912,11 @@
      "722b10b274b39f77b7710daf00431fbb8589cfea260e06e00d623f783ed35919",
      "889e58401dee0643fc8a7b892c4dae0a8cb2ae368005999f8fe5098be06b8b83",
      "900c80a7961f340e3caad895718a221d47ffe2e3ff679c6ea2c9ecf1b9f5fd85",
-     "9c92f3a7fcd9678945d57da8f5f8430e95da17675c6d23c956cab4ae25705d8b",
      "a4f7dc30773110439c80dcc46d67a63395bf7743fd589cec22ba761afa097f68",
      "aa00660ef2e9d08702b0ccba5742c7c19e7f0d27ce8adb242334bf8192416667",
      "aad6d37c8afea83ff823634eb643147ada633692aefb2d5b7704dff008eaf636",
      "be395dc6f3225d54dcb44f8bd7d9c9ce87b895408ffc2da443d8cf58a4b349ff",
+     "cf173677fd035b8953666998b2cd583d83d83a4e67702b216d4191a0c6a1e481",
      "d54e65b6d64132f525d931a2bb2bffbafc43cf0fad31e4902b8e186a887c774a",
      "db49a161c9ed0acf8fdff481a4940a82291bacb1569ca4c6a05cb71b16e755fe",
      "dfb669d1fe2f4d877edbf1dd42827fc5c4a761625125269d180bdda476456935",
@@ -1023,9 +1065,9 @@
      "cce44471e0f110eab8b81b91ab34993b0582ab0a5e76571181d5e62044082e98",
      "cddac2053ea9637535083e8e1a2f5239dab1a8a0c5351e9dbd0c75420e500d7f",
      "d1d63619c7bd0e3d5c191ccc26fc75bdbc9ae267a6cf75fbc8cc4ad80f379257",
+     "d53f98446151fbc13562bb56bded84d1ecfe2c11eafefa1538005b9f1fac5611",
      "d6c344877555237963bf28664ddb926d89761e9e701affd7801874d786c833f6",
      "d7652b87ddb533c8ebc7a74b09ff9fc6385fc83683db4c0448c70209fb8f94e9",
-     "ed1aa1a284d9a11ae54085f13fbe2bab45f39c411a3c60da37ffc16bcb19e410",
      "ef99d3753e895b068abd496a34d3268b0e80cc1f9ecb1b70e05ddad812362772",
      "f952b5e1df4197e08f48fc7d274ac0d832b1b2e7b0298f16d27081817acb1ffb",
      "fc6e859afb658ca1b6ad076af699866dd8191b3ffc7c18982044e9a5d18bb5f7"
@@ -1240,6 +1282,9 @@
      "the working day": "art/rooms/canteen-friday.jpeg",
      "after five": "art/rooms/canteen-friday.jpeg"
     },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
     "sees": []
    },
    {
@@ -1258,6 +1303,9 @@
      "the working day": null,
      "after five": null
     },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
     "sees": []
    },
    {
@@ -1275,6 +1323,9 @@
      "the working day": "art/rooms/landing-autumn.jpeg",
      "after five": "art/rooms/landing-friday.jpeg"
     },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
     "sees": []
    },
    {
@@ -1291,9 +1342,19 @@
      "the working day": "art/rooms/lodge-friday.jpeg",
      "after five": "art/rooms/lodge-friday.jpeg"
     },
+    "stand": null,
+    "sarah_at": null,
+    "spread": [
+     32,
+     58
+    ],
     "sees": [
      {
       "text": "The porter's book: entries at the lodge window at twenty to three, a quarter to three, five past three, a quarter past three and twenty-five past three, each one signed by whoever came to the window, and the porter's initials against every one.",
+      "phase": null
+     },
+     {
+      "text": "The delivery note for the paper of the typing pool (Schreibsaal): for a parcel of paper delivered at the lodge on 14 October at a quarter to three, signed for there by Frau Kern, and the count of the reams initialled at the foot by her and by the porter at twenty to four.",
       "phase": null
      }
     ]
@@ -1313,6 +1374,9 @@
      "the working day": "art/rooms/paternoster-sunday.jpeg",
      "after five": "art/rooms/paternoster-sunday.jpeg"
     },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
     "sees": []
    },
    {
@@ -1322,13 +1386,20 @@
     "links": [
      "hall2"
     ],
-    "text": "Six desks in rows towards the tall windows, and the noise of six machines when the room is working.",
+    "text": "Six desks in rows towards the tall windows, a machine on each, and the noise of them when the room is working.",
     "passage": false,
     "art": {
      "the working day": "art/rooms/pool-autumn.jpeg",
      "after five": "art/rooms/pool-friday.jpeg"
     },
+    "stand": null,
+    "sarah_at": 0.12,
+    "spread": null,
     "sees": [
+     {
+      "text": "The tray on Frau Litt's desk: every file in it with the oldest sheet facing and the newest at the back, the one desk in the room where they lie that way round.",
+      "phase": "after five"
+     },
      {
       "text": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: Fräulein Ostrowski's name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
       "phase": null
@@ -1352,9 +1423,16 @@
      "the working day": "art/rooms/poststelle-autumn.jpeg",
      "after five": "art/rooms/poststelle-friday.jpeg"
     },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
     "sees": [
      {
       "text": "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between a quarter past two and twenty to four on 14 October, twenty-three of them, and two of the clerks up there put their own beside hers.",
+      "phase": null
+     },
+     {
+      "text": "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, where it was done.",
       "phase": null
      }
     ]
@@ -1372,13 +1450,16 @@
      "the working day": "art/rooms/registratur-autumn.jpeg",
      "after five": "art/rooms/registratur-friday.jpeg"
     },
+    "stand": 0.4,
+    "sarah_at": null,
+    "spread": null,
     "sees": [
      {
       "text": "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand, and it is Herr Simon's.",
       "phase": null
      },
      {
-      "text": "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and nothing written under it since.",
+      "text": "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and no return entered against it since.",
       "phase": null
      },
      {
@@ -1409,9 +1490,20 @@
      "the working day": "art/rooms/vorzimmer-autumn.jpeg",
      "after five": "art/rooms/vorzimmer-friday.jpeg"
     },
+    "stand": 0.5,
+    "sarah_at": null,
+    "spread": null,
     "sees": [
      {
-      "text": "The outer office's list of what went down: written before the paper leaves and initialled at the foot, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
+      "text": "The outer office's list of what went down: written before the paper leaves and initialled at the foot, for everything that goes down from the Referat, Herr Grau's own desk included, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
+      "phase": null
+     },
+     {
+      "text": "The minutes (Niederschrift) of the head of department's meeting of 14 October: held with his section heads (Referenten) in his own room from two o'clock until a quarter past four, Oberregierungsrat Grau among those present, and signed at the foot by the head of department (Abteilungsleiter) himself.",
+      "phase": null
+     },
+     {
+      "text": "The out-tray on Frau Pohlmann's desk: three files waiting to go down, every one of them with the oldest sheet facing and the newest at the back, the way everything leaves Frau Pohlmann's desk.",
       "phase": null
      }
     ]
@@ -1429,6 +1521,9 @@
      "the working day": "art/rooms/washroom-friday.jpeg",
      "after five": "art/rooms/washroom-friday.jpeg"
     },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
     "sees": []
    },
    {
@@ -1444,6 +1539,9 @@
      "the working day": "art/rooms/z407-autumn.jpeg",
      "after five": "art/rooms/z407-friday.jpeg"
     },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
     "sees": []
    }
   ],
@@ -1620,7 +1718,7 @@
     "sprite": "art/people/grau.png",
     "hello": [
      {
-      "text": "Grau: Frau Wessen. Sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else.",
+      "text": "Grau: Fräulein Wessen. Sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else.",
       "phase": null
      }
     ],
@@ -2048,7 +2146,7 @@
     "always": true,
     "raised_by": [
      "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it; and on the inside of the cover the figures of the number stand up where the pencil was pressed through the card.",
-     "The outer office's list of what went down: written before the paper leaves and initialled at the foot, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
+     "The outer office's list of what went down: written before the paper leaves and initialled at the foot, for everything that goes down from the Referat, Herr Grau's own desk included, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
      "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk: Fräulein Ostrowski's name inside the cover, and the paragraph on a file coming back to the Registratur underlined, lightly, in pencil.",
      "Simon: Open it yourself; you will see it better than I can tell it. Open a file in this room and the oldest sheet is the one facing you and the newest is at the back: that is the Registratur's order, and it is what a file leaves in and what I expect it back in. Open one in the Schreibsaal and they have turned it round, newest facing, because that is the sheet they are working on.",
      "Pohlmann: Through me. Nothing passes between the Registratur and the Referatsleiter himself except across this desk, in both directions, and it has been so for eleven years and three Referatsleiter.",
@@ -2081,6 +2179,7 @@
     "always": true,
     "raised_by": [
      "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand, and it is Herr Simon's.",
+     "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, where it was done.",
      "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
      "Simon: You will be the one Kommissar Mauser sent. Good. Come and stand where I stood, because this counter is where it happened. The file was not there when I went up to the Poststelle and it was there when I came down, squared off against the edge the way a thing is put down by somebody who means it to be noticed.",
      "Simon: The way it went out. There is one way, and I have explained it more often than I can count. A file leaves on the book and it comes back on the book, and it comes back from Frau Pohlmann's outer office that took it, never from Oberregierungsrat Grau himself, whom it went up to. So you understand me: a thing lying on my counter is not back. Until somebody writes the line it is still out, whatever is sitting there.",
@@ -2111,7 +2210,7 @@
     "label": "the pool's typewriters",
     "ask": "\"I keep hearing about the pool's typewriters,\" says Sarah, \"the old ones and the new.\"",
     "ask_of": {},
-    "always": true,
+    "always": false,
     "raised_by": [
      "A drafted request, in the drawer of the desk in the corner behind the door: for new machines, costed to the Pfennig against what the last lot came to in 1964, finished, unsigned, and never sent up.",
      "Pohlmann: In a desk drawer? No. Nobody in this Referat has asked for new machines to be costed, this year or any other. A request like that would have come across this desk, and none has.",
@@ -2172,7 +2271,7 @@
    },
    {
     "thing": "The loan book",
-    "line": "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and nothing written under it since.",
+    "line": "The loan book: subject file (Sachakte) 117/64, on the procurement of typewriters (Beschaffung von Schreibmaschinen), out to Room 407 on 12 May, and no return entered against it since.",
     "portable": false
    },
    {
@@ -2196,13 +2295,38 @@
     "portable": false
    },
    {
+    "thing": "The Poststelle's outgoing book",
+    "line": "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, where it was done.",
+    "portable": false
+   },
+   {
     "thing": "The outer office's list of what went down",
-    "line": "The outer office's list of what went down: written before the paper leaves and initialled at the foot, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
+    "line": "The outer office's list of what went down: written before the paper leaves and initialled at the foot, for everything that goes down from the Referat, Herr Grau's own desk included, with the Registratur's stamp against its own side of it, and 117/64 on neither.",
+    "portable": false
+   },
+   {
+    "thing": "The out-tray on Frau Pohlmann's desk",
+    "line": "The out-tray on Frau Pohlmann's desk: three files waiting to go down, every one of them with the oldest sheet facing and the newest at the back, the way everything leaves Frau Pohlmann's desk.",
+    "portable": false
+   },
+   {
+    "thing": "The minutes (Niederschrift) of the head of department's meeting of 14 October",
+    "line": "The minutes (Niederschrift) of the head of department's meeting of 14 October: held with his section heads (Referenten) in his own room from two o'clock until a quarter past four, Oberregierungsrat Grau among those present, and signed at the foot by the head of department (Abteilungsleiter) himself.",
     "portable": false
    },
    {
     "thing": "The porter's book",
     "line": "The porter's book: entries at the lodge window at twenty to three, a quarter to three, five past three, a quarter past three and twenty-five past three, each one signed by whoever came to the window, and the porter's initials against every one.",
+    "portable": false
+   },
+   {
+    "thing": "The delivery note for the paper of the typing pool (Schreibsaal)",
+    "line": "The delivery note for the paper of the typing pool (Schreibsaal): for a parcel of paper delivered at the lodge on 14 October at a quarter to three, signed for there by Frau Kern, and the count of the reams initialled at the foot by her and by the porter at twenty to four.",
+    "portable": false
+   },
+   {
+    "thing": "The tray on Frau Litt's desk",
+    "line": "The tray on Frau Litt's desk: every file in it with the oldest sheet facing and the newest at the back, the one desk in the room where they lie that way round.",
     "portable": false
    },
    {
@@ -2290,7 +2414,7 @@
   },
   "pictures": {
    "The porter's book": "art/documents/porters-book.jpeg",
-   "The shelf for Z A 4": "art/documents/shelf-z-a-4.jpeg",
+   "The shelf for Z A 4": "art/documents/shelf-z-a-4-room.jpeg",
    "The loan book": "art/documents/loan-book.jpeg",
    "The Rückstandsliste, the arrears list": "art/documents/rueckstandsliste.jpeg",
    "The file, its cover": "art/documents/file-cover.jpeg",
@@ -2298,12 +2422,218 @@
    "The Poststelle's outgoing book": "art/documents/poststelle-outgoing-book.jpeg",
    "The outer office's list of what went down": "art/documents/outer-office-list.jpeg",
    "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk": "art/documents/geschaeftsordnung.jpeg",
-   "A drafted request, in the drawer of the desk in the corner behind the door": "art/documents/drafted-request.jpeg"
+   "A drafted request, in the drawer of the desk in the corner behind the door": "art/documents/drafted-request.jpeg",
+   "The out-tray on Frau Pohlmann's desk": "art/documents/out-tray-cut.png",
+   "The minutes (Niederschrift) of the head of department's meeting of 14 October": "art/documents/minutes-cut.png",
+   "The delivery note for the paper of the typing pool (Schreibsaal)": "art/documents/delivery-note-cut.png",
+   "The tray on Frau Litt's desk": "art/documents/litt-basket-cut.png"
   },
+  "props": [
+   {
+    "thing": "The Rückstandsliste, the arrears list",
+    "prop": "P16",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/rueckstandsliste-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/rueckstandsliste-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/rueckstandsliste-spring.png"
+    },
+    "box": [
+     0.69995,
+     0.51042,
+     0.04028,
+     0.01562
+    ],
+    "under": null
+   },
+   {
+    "thing": "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk",
+    "prop": "P17",
+    "places": [
+     "pool"
+    ],
+    "files": {
+     "art/rooms/pool-autumn.jpeg": "art/props/geschaeftsordnung-autumn.png",
+     "art/rooms/pool-friday.jpeg": "art/props/geschaeftsordnung-friday.png",
+     "art/rooms/pool-spring.jpeg": "art/props/geschaeftsordnung-spring.png",
+     "art/rooms/pool-sunday.jpeg": "art/props/geschaeftsordnung-sunday.png"
+    },
+    "box": [
+     0.36963,
+     0.65755,
+     0.04102,
+     0.01562
+    ],
+    "under": null
+   },
+   {
+    "thing": "The shelf for Z A 4",
+    "prop": "P19",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/shelf-gap-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/shelf-gap-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/shelf-gap-spring.png"
+    },
+    "box": [
+     0.90137,
+     0.25391,
+     0.06152,
+     0.07943
+    ],
+    "under": null
+   },
+   {
+    "thing": "The minutes (Niederschrift) of the head of department's meeting of 14 October",
+    "prop": "P21",
+    "places": [
+     "vorzimmer"
+    ],
+    "files": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/minutes-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/minutes-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/minutes-spring.png"
+    },
+    "box": [
+     0.61206,
+     0.62109,
+     0.04102,
+     0.01562
+    ],
+    "under": null
+   },
+   {
+    "thing": "The out-tray on Frau Pohlmann's desk",
+    "prop": "P22",
+    "places": [
+     "vorzimmer"
+    ],
+    "files": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/out-tray-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/out-tray-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/out-tray-spring.png"
+    },
+    "box": [
+     0.61865,
+     0.5599,
+     0.09155,
+     0.08464
+    ],
+    "under": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/out-tray-under-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/out-tray-under-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/out-tray-under-spring.png"
+    }
+   },
+   {
+    "thing": "The outer office's list of what went down",
+    "prop": "P23",
+    "places": [
+     "vorzimmer"
+    ],
+    "files": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/outer-office-list-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/outer-office-list-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/outer-office-list-spring.png"
+    },
+    "box": [
+     0.5835,
+     0.60938,
+     0.03589,
+     0.01432
+    ],
+    "under": null
+   },
+   {
+    "thing": "The porter's book",
+    "prop": "P24",
+    "places": [
+     "lodge"
+    ],
+    "files": {
+     "art/rooms/lodge-friday.jpeg": "art/props/painted-p24-friday.png",
+     "art/rooms/lodge-sunday.jpeg": "art/props/painted-p24-sunday.png"
+    },
+    "box": [
+     0.75635,
+     0.63672,
+     0.12744,
+     0.07422
+    ],
+    "under": null
+   },
+   {
+    "thing": "The loan book",
+    "prop": "P25",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/painted-p25-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/painted-p25-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/painted-p25-spring.png"
+    },
+    "box": [
+     0.56226,
+     0.47135,
+     0.12964,
+     0.05599
+    ],
+    "under": null
+   },
+   {
+    "thing": "The delivery note for the paper of the typing pool (Schreibsaal)",
+    "prop": "P28",
+    "places": [
+     "lodge"
+    ],
+    "files": {
+     "art/rooms/lodge-friday.jpeg": "art/props/delivery-note-friday.png",
+     "art/rooms/lodge-sunday.jpeg": "art/props/delivery-note-sunday.png"
+    },
+    "box": [
+     0.89038,
+     0.67448,
+     0.03589,
+     0.03125
+    ],
+    "under": null
+   },
+   {
+    "thing": "The tray on Frau Litt's desk",
+    "prop": "P29",
+    "places": [
+     "pool"
+    ],
+    "files": {
+     "art/rooms/pool-autumn.jpeg": "art/props/painted-p29-autumn.png",
+     "art/rooms/pool-friday.jpeg": "art/props/painted-p29-friday.png",
+     "art/rooms/pool-spring.jpeg": "art/props/painted-p29-spring.png",
+     "art/rooms/pool-sunday.jpeg": "art/props/painted-p29-sunday.png"
+    },
+    "box": [
+     0.22681,
+     0.63802,
+     0.04688,
+     0.05208
+    ],
+    "under": null
+   }
+  ],
   "sarah": "art/people/sarah.png",
   "sarah_height": 172
  },
  "glossary": [
+  {
+   "term": "Abteilungsleiter",
+   "also": [],
+   "short": "head of department",
+   "long": "The head of an Abteilung, a department: several Referate under one man. Above an Unterabteilungsleiter, below the Staatssekretär. The blue pencil is his."
+  },
   {
    "term": "Aktendeckel",
    "also": [],
