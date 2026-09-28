@@ -12,6 +12,7 @@
 const $ = id => document.getElementById(id);
 let CASE = null, DAY = 1, SEEN = new Set(), FOUND = new Set(), MATCH = null;
 let VERDICT = {}, VISIBLE = new Set(), ASIDE = [], FOLD = {}, DESK = [];
+let HL = {}, STRINGS = [], TYING = null;
 /* The memo's evidence: slot key -> the lines cited in it, as the page shows
    them. ACTIVE is the slot a line's cite button currently adds to. */
 let CITE = {}, ACTIVE = null;
@@ -93,6 +94,8 @@ function startOver() {
 }
 
 async function boot() {
+  /* the language first: everything drawn after it is drawn in it (i18n.js) */
+  await chooseLanguage();
   sheets();
   const feedback = feedbackSheet();
   $("invitefeedback").onclick = feedback;
@@ -103,27 +106,33 @@ async function boot() {
     }
   });
   $("startover").onclick = () => {
-    if (confirm("Start every walk over? What Sarah has heard and asked is forgotten; your notes and report are kept.")) startOver();
+    if (confirm(tx("Start every walk over? What Sarah has heard and asked is forgotten; your notes and report are kept."))) startOver();
   };
   document.addEventListener("click", e => { if (!tipBoxes().some(b => b.contains(e.target))) untip(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") untip(); });
   window.addEventListener("scroll", untip, true);
   window.addEventListener("resize", () => { if (DESKPLACE) DESKPLACE(); });
 
-  const index = await (await fetch("cases/index.json")).json();
+  const index = await (await fetch(casePath("index.json"))).json();
   /* The series in its order, with the chapters that are only a name so far
      standing in their places, shut. The sampler has no number. */
   /* THREE SEASONS (the user, 17 September 2026), by the year a chapter is set
      in: 1968-69, 1970, 1971-72. */
-  const SEASONS = [["Season one", "1968–1969", y => y <= 1969],
-                   ["Season two", "1970", y => y === 1970],
-                   ["Season three", "1971–1972", y => y >= 1971]];
+  const SEASONS = [[tx("Season one"), "1968–1969", y => y <= 1969],
+                   [tx("Season two"), "1970", y => y === 1970],
+                   [tx("Season three"), "1971–1972", y => y >= 1971]];
   const yearOf = c => +((String(c.stated).match(/\d{4}/g) || ["0"]).pop());
+  /* NOT "NOT YET WRITTEN" (the user, the night chapter 4 was built: it looks
+     better, and a series should look like one): season two is being written,
+     season three is sketched. */
+  const shut = c => c.untranslated ? tx("not yet in this language")
+    : c.held ? tx("not in this sample")
+    : yearOf(c) >= 1971 ? tx("sketched") : tx("in progress");
   const button = c =>
     `<button data-id="${c.id}"${c.built ? "" : " disabled"} class="${c.built ? "" : "tocome"}">` +
     `<span class="num">${c.n === null ? "·" : c.n}</span>${esc(c.title)}` +
     (c.german ? ` <i class="de">${esc(c.german)}</i>` : "") +
-    `<small>${esc(c.stated)}${c.built ? "" : c.held ? " · not in this sample" : " · not yet written"}</small></button>`;
+    `<small>${esc(c.stated)}${c.built ? "" : " · " + shut(c)}</small></button>`;
   $("cases").innerHTML = SEASONS.map(([name, years, has]) => {
     const cs = index.filter(c => has(yearOf(c)));
     return cs.length ? `<div class="season"><h3>${name} <span>${years}</span></h3>` +
@@ -140,12 +149,12 @@ async function boot() {
 function briefShut(shut) {
   remember(CASE.id, "briefshut", shut);
   document.body.classList.toggle("brief-shut", shut);
-  $("brieftoggle").textContent = shut ? "Show the introduction" : "Hide the introduction";
+  $("brieftoggle").textContent = shut ? tx("Show the introduction") : tx("Hide the introduction");
   $("brieftoggle").setAttribute("aria-expanded", String(!shut));
 }
 
 async function load(id) {
-  CASE = await (await fetch(`cases/${id}.json`)).json();
+  CASE = await (await fetch(casePath(`${id}.json`))).json();
   DAY = 1;
   VERDICT = {};
   SEEN = new Set(recall(id, "days", [1]));
@@ -154,6 +163,9 @@ async function load(id) {
   ASIDE = recall(id, "aside", []);
   FOLD = recall(id, "fold", {});
   DESK = recall(id, "desk", []);
+  HL = recall(id, "highlights", {});
+  STRINGS = recall(id, "strings", []);
+  TYING = null;
   CITE = recall(id, "cites", {});
   /* The report's rows are cited by position (row0, row1 ...), and the rows
      were put in the house's order on 18 September 2026. A save keeps the row
@@ -239,7 +251,7 @@ function people(){
   const who = CASE.dossiers || [];
   $("people").hidden = !who.length;
   $("people").innerHTML = who.length
-    ? `<h2>Who they are</h2>` + who.map(d =>
+    ? `<h2>${tx("Who they are")}</h2>` + who.map(d =>
         `<details><summary>${esc(d.who)}</summary>${portrait(d)}</details>`)
         .join("")
     : "";
@@ -252,16 +264,21 @@ function people(){
 function portrait(d) {
   const img = d.sprite
     ? `<img class="sprite" src="${esc(d.sprite)}" alt="">` : "";
-  return `<div class="person">${img}<p>${marked(d.en, false)}</p></div>`;
+  /* the dossier in the page's language (chapters/i18n.py), else the English */
+  return `<div class="person">${img}<p>${marked(d.text || d.en, false)}</p></div>`;
 }
 
 /* A word is found where it stands: whole words, any case, the longest first
    so that a short word never splits a long one. The same rule as occurs() in
-   the answer sheet itself, which is the page the checks read. */
+   the answer sheet itself, which is the page the checks read. In a script
+   with no spaces there is no whole word, and a word is found anywhere
+   (i18n.js, bounded). */
 function matcher(texts) {
   const re = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const alts = [...texts].sort((a, b) => b.length - a.length).map(re).join("|");
-  return new RegExp(`(?<![\\p{L}\\p{N}_])(${alts})(?![\\p{L}\\p{N}_])`, "giu");
+  return bounded()
+    ? new RegExp(`(?<![\\p{L}\\p{N}_])(${alts})(?![\\p{L}\\p{N}_])`, "giu")
+    : new RegExp(`(${alts})`, "giu");
 }
 
 const canon = t => CASE.words.find(w => w.text.toLowerCase() === t.toLowerCase()).text;
@@ -429,11 +446,11 @@ function draw() {
   const off = new Set(ASIDE);
   const tick = (t, done) =>
     `<button class="tick" data-t="${esc(t)}" title="${done
-      ? "Bring this line back" : "Done with this line"}">${done ? "↺" : "✓"}</button>`;
+      ? tx("Bring this line back") : tx("Done with this line")}">${done ? "↺" : "✓"}</button>`;
   /* Citing, when the report is a memo: while an evidence slot is open every
      line carries a button that puts it in that slot. */
   const cite = t => CASE.memo
-    ? `<button class="cite" data-t="${esc(t)}" title="Cite this line as evidence">＋</button>`
+    ? `<button class="cite" data-t="${esc(t)}" title="${tx("Cite this line as evidence")}">＋</button>`
     : "";
   /* the chapter's lines, and what people said besides, under whoever said it
      (walk.js, said) */
@@ -457,7 +474,7 @@ function draw() {
      per evening and heading, the lines it held then. */
   const underIt = {};
   const pin = (t, where) => `<button class="pin" data-t="${esc(t)}" data-w="${
-    esc(where)}" title="Put this line on the desk">⇡</button>`;
+    esc(where)}" title="${tx("Put this line on the desk")}">⇡</button>`;
   const group = (key, where, ls, done) => {
     underIt[key] = ls;
     const was = FOLD[key];
@@ -465,15 +482,15 @@ function draw() {
     if (was && !shut) delete FOLD[key];
     return `<section class="where${done ? " aside" : ""}${shut ? " folded" : ""}"><h3>` +
       `<button class="fold" data-k="${esc(key)}" aria-expanded="${!shut}" title="${
-        shut ? "Open" : "Fold away"}">${shut ? "▶" : "▼"}</button>${marked(where)}${
+        shut ? tx("Open") : tx("Fold away")}">${shut ? "▶" : "▼"}</button>${marked(where)}${
         shut ? ` <span class="nfold">(${ls.length})</span>` : ""}</h3>${shut ? "" : `<ul>${
-      ls.map(t => `<li>${cite(t)}${done ? "" : pin(t, where)}${tick(t, done)}${
-        marked(t)}</li>`).join("")}</ul>`}</section>`;
+      ls.map(t => `<li>${cite(t)}${done ? "" : pin(t, where)}${tick(t, done)}<span class="ln" data-t="${
+        esc(t)}">${marked(t)}</span></li>`).join("")}</ul>`}</section>`;
   };
   const goneN = gone.reduce((n, [, ls]) => n + ls.length, 0);
   $("sections").innerHTML =
     live.map(([s, ls]) => group(`${DAY}:${s.where}`, s.where, ls, false)).join("") +
-    (goneN ? `<div class="asides"><h3 class="asidehead">Done with (${goneN})</h3>${
+    (goneN ? `<div class="asides"><h3 class="asidehead">${tx("Done with ({n})", {n: goneN})}</h3>${
       gone.map(([s, ls]) => group(`${DAY}:done:${s.where}`, s.where, ls, true)).join("")}</div>` : "");
   remember(CASE.id, "fold", FOLD);
   $("sections").querySelectorAll(".fold").forEach(b => b.onclick = () => {
@@ -505,6 +522,7 @@ function draw() {
     report();
   });
   annotate($("sections"));
+  highlights($("sections"));
 
   /* Reading an evening is what opens the next one. There is no clock here
      yet and no cost to asking -- that is the duty sheet's mechanic and it
@@ -538,13 +556,47 @@ function desk(cite) {
   const shows = t => holds(t) || (typeof said === "function" && walking()
     && CASE.days.some(d => said(d.n).some(x => x.text === t)));
   DESK = DESK.filter(c => shows(c.t) && !ASIDE.includes(c.t));
-  box.innerHTML = DESK.length ? DESK.map((c, i) =>
-    `<div class="card" data-i="${i}">` +
-    `<div class="grip" title="Drag to move it"><span>${esc(c.w)}</span>${cite(c.t)}` +
-    `<button class="deskbtn back" title="Put it back in the list">⇣</button>` +
-    `<button class="deskbtn done" title="Done with this line">✓</button></div>` +
-    `<p>${marked(c.t)}</p></div>`).join("")
-    : `<div class="empty">⇡ beside a line lays it here, beside lines from any evening.</div>`;
+  box.innerHTML = DESK.length ? `<svg class="strings" aria-hidden="true"></svg>` + DESK.map((c, i) =>
+    `<div class="card${TYING === c.t ? " tying" : ""}" data-i="${i}">` +
+    `<div class="grip" title="${tx("Drag to move it")}"><span>${esc(c.w)}</span>${cite(c.t)}` +
+    `<button class="deskbtn tie" title="${tx("Tie a string from this card to another")}">⌇</button>` +
+    `<button class="deskbtn back" title="${tx("Put it back in the list")}">⇣</button>` +
+    `<button class="deskbtn done" title="${tx("Done with this line")}">✓</button></div>` +
+    `<p class="ln" data-t="${esc(c.t)}">${marked(c.t)}</p></div>`).join("")
+    : `<div class="empty">${tx("⇡ beside a line lays it here, beside lines from any evening.")}</div>`;
+  /* STRINGS BETWEEN CARDS (the user, 27 September 2026): a red thread
+     between two cards, pinned where the line from one card's middle to the
+     other's leaves each card, so it runs over the desk between them and never
+     across their text; drawn again whenever a card moves. A string whose card
+     is off the desk waits, and comes back with it. A click cuts it. */
+  const edge = (el, tx_, ty) => {
+    const w = el.offsetWidth / 2, h = el.offsetHeight / 2;
+    const cx = el.offsetLeft + w, cy = el.offsetTop + h;
+    const dx = tx_ - cx, dy = ty - cy;
+    const t = Math.min(dx ? w / Math.abs(dx) : Infinity, dy ? h / Math.abs(dy) : Infinity, 1);
+    return [cx + dx * t, cy + dy * t];
+  };
+  const threads = () => {
+    const svg = box.querySelector("svg.strings");
+    if (!svg) return;
+    const at = {};
+    deskCards().forEach(el => at[DESK[+el.dataset.i].t] = el);
+    const mid = el => [el.offsetLeft + el.offsetWidth / 2, el.offsetTop + el.offsetHeight / 2];
+    svg.innerHTML = STRINGS.map(([a, b], k) => {
+      const A = at[a], B = at[b];
+      if (!A || !B) return "";
+      const [x1, y1] = edge(A, ...mid(B)), [x2, y2] = edge(B, ...mid(A));
+      return `<g data-k="${k}"><title>${esc(tx("Cut this string"))}</title>` +
+        `<line class="thread" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>` +
+        `<circle class="knot" cx="${x1}" cy="${y1}" r="3"/><circle class="knot" cx="${x2}" cy="${y2}" r="3"/>` +
+        `<line class="hit" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/></g>`;
+    }).join("");
+    svg.querySelectorAll("g").forEach(g => g.onclick = () => {
+      STRINGS.splice(+g.dataset.k, 1);
+      remember(CASE.id, "strings", STRINGS);
+      threads();
+    });
+  };
   const place = () => {
     const W = box.clientWidth;
     let bottom = 64;
@@ -556,6 +608,7 @@ function desk(cite) {
       bottom = Math.max(bottom, c.y + el.offsetHeight + 8);
     });
     box.style.height = bottom + "px";
+    threads();
   };
   place();
   DESKPLACE = place;
@@ -581,6 +634,20 @@ function desk(cite) {
   deskCards().forEach(el => {
     const i = +el.dataset.i, c = DESK[i];
     el.querySelector(".back").onclick = () => { DESK.splice(i, 1); save(); draw(); };
+    /* the first ⌇ picks a card up by its string, the second ties it to
+       another card; the same card again lets go */
+    el.querySelector(".tie").onclick = () => {
+      if (!TYING || TYING === c.t) TYING = TYING ? null : c.t;
+      else {
+        const pair = [TYING, c.t];
+        if (!STRINGS.some(([a, b]) => (a === pair[0] && b === pair[1]) ||
+                                      (a === pair[1] && b === pair[0])))
+          STRINGS.push(pair);
+        remember(CASE.id, "strings", STRINGS);
+        TYING = null;
+      }
+      draw();
+    };
     el.querySelector(".done").onclick = () => {
       DESK.splice(i, 1); ASIDE = [c.t, ...ASIDE];
       remember(CASE.id, "aside", ASIDE); save(); draw();
@@ -598,6 +665,7 @@ function desk(cite) {
         const top = Math.max(0, top0 + m.clientY - y0);
         el.style.left = left + "px"; el.style.top = top + "px";
         box.style.height = Math.max(box.offsetHeight - 4, top + el.offsetHeight + 8) + "px";
+        threads();
       };
       grip.onpointerup = grip.onpointercancel = () => {
         grip.onpointermove = grip.onpointerup = grip.onpointercancel = null;
@@ -618,18 +686,116 @@ function desk(cite) {
   });
   box.querySelectorAll(".word").forEach(b => b.onclick = () => pick(b.dataset.w));
   annotate(box);
+  highlights(box);
 }
 let DESKPLACE = null;
+
+/* HIGHLIGHTS (the user, 27 September 2026: "jedes Blatt glatt und in der
+   Ordnung des Schreibsaals, das neueste vorn" wanted marking inside its line,
+   in the notebook and on the desk, because notes cannot be cited). Kept per
+   line, by the line's own text, as [start, end) character ranges, so a line
+   shows its marks wherever it stands. Nothing reads them; citing stays whole
+   lines. The marks are laid over the finished line, text node by text node,
+   so the words, glosses and names inside it keep working. */
+function highlights(root) {
+  root.querySelectorAll(".ln").forEach(ln => {
+    const ranges = HL[ln.dataset.t];
+    if (!ranges || !ranges.length) return;
+    const walker = document.createTreeWalker(ln, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    for (let at = 0, n; (n = walker.nextNode()); at += n.length) nodes.push([n, at]);
+    for (const [node, at] of nodes.reverse()) {
+      const end = at + node.length;
+      for (const [s, e] of ranges.slice().sort((a, b) => b[0] - a[0])) {
+        const a = Math.max(s, at), b = Math.min(e, end);
+        if (a >= b) continue;
+        const r = document.createRange();
+        r.setStart(node, a - at);
+        r.setEnd(node, b - at);
+        const m = document.createElement("mark");
+        m.className = "hl";
+        r.surroundContents(m);
+      }
+    }
+  });
+}
+
+/* where a selection point falls in a line's own text */
+function lineOffset(ln, node, off) {
+  const r = document.createRange();
+  r.setStart(ln, 0);
+  r.setEnd(node, off);
+  return r.toString().length;
+}
+
+/* [s, e) ranges merged, or with [s, e) taken out of them */
+function hlAdd(rs, s, e) {
+  const all = [...rs, [s, e]].sort((a, b) => a[0] - b[0]), out = [];
+  for (const [a, b] of all) {
+    if (out.length && a <= out[out.length - 1][1])
+      out[out.length - 1][1] = Math.max(out[out.length - 1][1], b);
+    else out.push([a, b]);
+  }
+  return out;
+}
+const hlCut = (rs, s, e) => rs.flatMap(([a, b]) =>
+  [[a, Math.min(b, s)], [Math.max(a, e), b]].filter(([x, y]) => y > x));
+
+/* A selection inside one line offers one button: mark it, or, where it
+   touches a mark already there, take the mark off. */
+function hlSelection() {
+  let btn = $("hlbtn");
+  if (!btn) {
+    btn = document.createElement("button");
+    btn.id = "hlbtn";
+    btn.type = "button";
+    btn.hidden = true;
+    document.body.appendChild(btn);
+    /* pressing the button must not clear the selection it acts on */
+    btn.onmousedown = e => e.preventDefault();
+  }
+  const sel = window.getSelection();
+  const hide = () => { btn.hidden = true; };
+  if (!CASE || !sel || sel.isCollapsed || !sel.rangeCount) return hide();
+  const r = sel.getRangeAt(0);
+  const el = n => n.nodeType === 1 ? n : n.parentElement;
+  const ln = el(r.startContainer) && el(r.startContainer).closest(".ln");
+  if (!ln || !ln.contains(r.endContainer)) return hide();
+  const s = lineOffset(ln, r.startContainer, r.startOffset);
+  const e = lineOffset(ln, r.endContainer, r.endOffset);
+  if (e <= s) return hide();
+  const t = ln.dataset.t, have = HL[t] || [];
+  const touches = have.some(([a, b]) => a < e && s < b);
+  btn.textContent = touches ? tx("Remove highlight") : tx("Highlight");
+  const box = r.getBoundingClientRect();
+  btn.hidden = false;
+  btn.style.left = Math.max(8, Math.min(window.innerWidth - btn.offsetWidth - 8, box.left)) + "px";
+  btn.style.top = (box.top > 40 ? box.top - btn.offsetHeight - 6 : box.bottom + 6) + "px";
+  btn.onclick = () => {
+    const next = touches ? hlCut(have, s, e) : hlAdd(have, s, e);
+    if (next.length) HL[t] = next; else delete HL[t];
+    remember(CASE.id, "highlights", HL);
+    sel.removeAllRanges();
+    hide();
+    draw();
+  };
+}
+/* (the tests run this file against a page with no events) */
+if (typeof document.addEventListener === "function")
+  document.addEventListener("selectionchange", () => {
+    clearTimeout(hlSelection.t);
+    hlSelection.t = setTimeout(hlSelection, 120);
+  });
 
 /* A SETTING, not an experiment: some players want the help and some want the
    page to stay silent, and the difference is how much of the finding the game
    does for you. It is remembered across cases. */
 function modeswitch() {
   const b = $("modeswitch");
-  b.textContent = typing() ? "Typing the report" : "Collecting words";
+  b.textContent = typing() ? tx("Typing the report") : tx("Collecting words");
   b.title = typing()
-    ? "Nothing in the prose is marked. Switch to have every word made clickable."
-    : "Every word is clickable. Switch to read for them yourself and type them in.";
+    ? tx("Nothing in the prose is marked. Switch to have every word made clickable.")
+    : tx("Every word is clickable. Switch to read for them yourself and type them in.");
   b.onclick = () => {
     MODE = typing() ? "collect" : "type";
     remember("_", "mode", MODE);
@@ -681,16 +847,14 @@ function report() {
   const kept = {};
   $("parts").querySelectorAll("select,input.blank").forEach(s => kept[s.id] = s.value);
   VISIBLE = typing() ? onPagesRead() : FOUND;
-  $("count").textContent = typing()
-    ? `Words in what you have read so far: ${VISIBLE.size}`
-    : `Words picked up: ${FOUND.size} of ${CASE.words.length}`;
+  $("count").textContent = wordCount();
   $("parts").innerHTML = (typing() ? datalists() : "") + CASE.parts.map(p => {
     const bits = esc(p.text).split("___");
     const sentence = bits.map((bit, n) =>
       n < bits.length - 1 ? bit + blank(p, n) : bit).join("");
     const v = VERDICT[p.id] || ["", ""];
     return `<div class="part"><h3>${esc(p.title)}</h3><p>${sentence}</p>
-      <button class="sign" data-id="${p.id}">Sign</button>
+      <button class="sign" data-id="${p.id}">${tx("Sign")}</button>
       <p class="verdict ${v[1]}" id="verdict-${p.id}">${v[0]}</p></div>`;
   }).join("");
   $("parts").querySelectorAll("select").forEach(s => {
@@ -706,24 +870,33 @@ function report() {
     b.onclick = () => sign(b.dataset.id));
 }
 
+const wordCount = () => typing()
+  ? tx("Words in what you have read so far: {n}", {n: VISIBLE.size})
+  : tx("Words picked up: {n} of {all}", {n: FOUND.size, all: CASE.words.length});
+
 function blank(p, n) {
-  const kind = p.kinds[n];
+  const kind = p.kinds[n], name = esc(kindName(kind));
+  /* as wide as the longest word of its kind, every word of it and not only
+     the answer (the user, 27 September 2026: "Rückstandsliste" lost its last
+     letter in a blank of 16); three more for the list's arrow */
+  const size = Math.max(kind === "time" ? 14 : 16, kindName(kind).length,
+    ...CASE.words.filter(w => w.kind === kind).map(w => w.text.length)) + 3;
   if (typing())
     return `<input class="blank" id="b-${p.id}-${n}" data-part="${p.id}" ` +
-      `list="dl-${kind}" placeholder="${kind}" aria-label="${kind}" ` +
-      `autocomplete="off" spellcheck="false" size="${kind === "time" ? 14 : 16}">`;
+      `list="dl-${kind}" placeholder="${name}" aria-label="${name}" ` +
+      `autocomplete="off" spellcheck="false" size="${size}">`;
   const opts = CASE.words.filter(w => w.kind === kind && FOUND.has(w.text))
     .map(w => w.text).sort((a, b) => a.localeCompare(b));
-  return `<select id="b-${p.id}-${n}" data-part="${p.id}" aria-label="${kind}">
-    <option value="">${kind}</option>${
+  return `<select id="b-${p.id}-${n}" data-part="${p.id}" aria-label="${name}">
+    <option value="">${name}</option>${
     opts.map(o => `<option>${esc(o)}</option>`).join("")}</select>`;
 }
 
 async function sign(id) {
   const held = await wordsHold(id);
   if (held === null) return;
-  say(id, held ? "This part of the report stands."
-               : "It does not hold. Something in it is wrong.", held ? "good" : "bad");
+  say(id, held ? tx("This part of the report stands.")
+               : tx("It does not hold. Something in it is wrong."), held ? "good" : "bad");
 }
 
 /* true or false for a part's words, or null when the typing itself was the
@@ -732,7 +905,7 @@ async function wordsHold(id) {
   const p = CASE.parts.find(x => x.id === id);
   let picked = p.kinds.map((_, n) => $(`b-${id}-${n}`).value.trim());
   if (picked.some(v => !v)) {
-    say(id, "Every blank in it has to be filled in.", "");
+    say(id, tx("Every blank in it has to be filled in."), "");
     return null;
   }
 
@@ -744,13 +917,14 @@ async function wordsHold(id) {
   if (typing()) {
     const wrong = [];
     picked = picked.map((v, n) => {
-      const w = CASE.words.find(x => x.text.toLowerCase() === v.toLowerCase());
+      const w = wordTyped(v);
       if (!w || !VISIBLE.has(w.text)) {
-        wrong.push(`Nothing you have read says “${v}”.`);
+        wrong.push(tx("Nothing you have read says “{word}”.", {word: v}));
         return v;
       }
       if (w.kind !== p.kinds[n])
-        wrong.push(`“${w.text}” is a ${w.kind}; that blank takes a ${p.kinds[n]}.`);
+        wrong.push(tx("“{word}” is a {kind}; that blank takes a {wanted}.",
+                      {word: w.text, kind: kindName(w.kind), wanted: kindName(p.kinds[n])}));
       return w.text;                       /* spelling and case forgiven */
     });
     if (wrong.length) { say(id, wrong[0], "bad"); return null; }
@@ -779,31 +953,33 @@ function citing(key) {
 
 function slot(key) {
   const f = CASE.memo.form;
+  const head = new RegExp(`^([^:"]{1,40})${
+    lineSep().replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(.*)$`, "s");
   const chips = (CITE[key] || []).map((t, j) => {
     const out = `<button class="unchip" data-slot="${esc(key)}" data-j="${j}" ` +
-      `title="Take it out" aria-label="Take this out">× take out</button></span>`;
+      `title="${tx("Take it out")}" aria-label="${tx("Take this out")}">${tx("× take out")}</button></span>`;
     /* a line of the page opens with its source; what somebody said besides
-       does not, and shows its first words */
-    const m = /^([^:"]{1,40}): (.*)$/.exec(t);
-    const words = (m ? m[2] : t).split(/\s+/).slice(0, 6).join(" ");
+       does not, and shows its first words (the first characters, in a
+       script with no spaces) */
+    const m = head.exec(t);
+    const rest = m ? m[2] : t;
+    const words = bounded() ? rest.split(/\s+/).slice(0, 6).join(" ") : rest.slice(0, 14);
     return `<span class="chip" title="${esc(t)}">${m ? `<b>${esc(m[1])}</b> ` : ""}${
       esc(words)}… ${out}`;
   }).join("");
   const open = ACTIVE === key;
   return `<div class="evidence${open ? " open" : ""}"><span class="elabel">${
-    esc(f.evidence)}:</span> ${chips || '<span class="none">none cited</span>'} ` +
+    esc(f.evidence)}:</span> ${chips || `<span class="none">${tx("none cited")}</span>`} ` +
     `<button class="attach" data-slot="${esc(key)}">${
-      open ? "done" : "＋ cite"}</button>${open
-      ? '<span class="hint"> click ＋ beside any line</span>' : ""}</div>`;
+      open ? tx("done") : tx("＋ cite")}</button>${open
+      ? `<span class="hint"> ${tx("click ＋ beside any line")}</span>` : ""}</div>`;
 }
 
 function memo() {
   const kept = {};
   $("parts").querySelectorAll("input.blank,select").forEach(s => kept[s.id] = s.value);
   VISIBLE = typing() ? onPagesRead() : FOUND;
-  $("count").textContent = typing()
-    ? `Words in what you have read so far: ${VISIBLE.size}`
-    : `Words picked up: ${FOUND.size} of ${CASE.words.length}`;
+  $("count").textContent = wordCount();
   const m = CASE.memo, f = m.form, res = new Set(m.result);
   const level = m.levels.find(l => l.id === levelOf());
   const part = p => {
@@ -814,18 +990,18 @@ function memo() {
     /* a part cites nothing, its words are its proof (rule 1); only
        the court's file asks a part for its lines */
     return `<div class="part"><h3>${esc(p.title)}</h3><p>${sentence}</p>
-      ${level.id === "court" ? slot(p.id) : ""}<button class="sign" data-part="${p.id}">Sign</button>
+      ${level.id === "court" ? slot(p.id) : ""}<button class="sign" data-part="${p.id}">${tx("Sign")}</button>
       <p class="verdict ${v[1]}" id="verdict-${p.id}">${esc(v[0])}</p></div>`;
   };
   const row = (r, i) => {
     const key = `row${i}`, v = VERDICT[key] || ["", ""];
     return `<div class="part row"><h3>${esc(r.label)}</h3>${slot(key)}
-      <button class="sign" data-row="${i}">Sign</button>
+      <button class="sign" data-row="${i}">${tx("Sign")}</button>
       <p class="verdict ${v[1]}" id="verdict-${key}">${esc(v[0])}</p></div>`;
   };
   $("parts").innerHTML = (typing() ? datalists() : "") +
     `<div class="form"><div>${esc(f.office)}</div><div>${esc(level.head)
-      }</div><div class="subject">Subject: ${esc(m.subject)}</div></div>` +
+      }</div><div class="subject">${tx("Subject:")} ${esc(m.subject)}</div></div>` +
     `<h3 class="sec">${esc(f.facts)}</h3>` +
     CASE.parts.filter(p => !res.has(p.id)).map(part).join("") +
     (level.id === "notes" ? ""
@@ -893,8 +1069,10 @@ const resultPeople = () => CASE.memo.result.flatMap(named);
    part names -- found from the words, which have already been checked. The
    same match as memo.named_rows. */
 function unruled(people, verdicts = VERDICT) {
-  const re = w => new RegExp(`(?<![\\p{L}\\p{N}_])${
-    w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\p{L}\\p{N}_])`, "iu");
+  const q = w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = w => bounded()
+    ? new RegExp(`(?<![\\p{L}\\p{N}_])${q(w)}(?![\\p{L}\\p{N}_])`, "iu")
+    : new RegExp(q(w), "iu");
   return CASE.memo.rows
     .map((r, i) => [r, `row${i}`])
     .filter(([r]) => !people.some(w => re(w).test(r.id)))
@@ -952,8 +1130,8 @@ async function partMark(id, people, verdicts = VERDICT, cited = CITE, level = le
    file credits nothing a part shows. */
 async function rowMark(r, cited, signed = levelOf() === "court" ? [] : signedParts()) {
   const v = await citations(r.id, r, cited, signed);
-  const whose = v === "own" ? `: something cited here is ${r.label}'s own word`
-    : v === "ring" ? `: something cited here rests on somebody ${r.label} clears in turn` : "";
+  const whose = v === "own" ? tx(": something cited here is {row}'s own word", {row: r.label})
+    : v === "ring" ? tx(": something cited here rests on somebody {row} clears in turn", {row: r.label}) : "";
   return [CASE.memo.marks[v] + whose, v === "holds" ? "good" : "bad"];
 }
 
@@ -1004,12 +1182,20 @@ function setVerdict(id, text, cls) {
    his voice, the author's own line for that kind (chapters/memo.py, MAUSER;
    attic/mauser.md for every source). English, her German one click away.
    Which line is found from the mark's own text, so nothing about the case is
-   needed and nothing new is sealed. A mark with no line says nothing more. */
+   needed and nothing new is sealed. A mark with no line says nothing more.
+   In German he says her own words, and there is nothing to click; in any
+   other language the translation, with her German a click away (`text`,
+   chapters/i18n.py). */
 function mauserLine(say) {
   const q = document.createElement("span");
   q.className = "mauser";
-  q.innerHTML = `<b>Mauser</b> “${esc(say.en)}”<button class="de" type="button" ` +
-    `aria-expanded="false" title="Her German">Deutsch</button>` +
+  const main = say.text || say.en;
+  if (main === say.de) {
+    q.innerHTML = `<b>Mauser</b> „${esc(say.de)}“ <cite>${esc(say.src)}</cite>`;
+    return q;
+  }
+  q.innerHTML = `<b>Mauser</b> “${esc(main)}”<button class="de" type="button" ` +
+    `aria-expanded="false" title="${tx("Her German")}">Deutsch</button>` +
     `<span class="orig" hidden>„${esc(say.de)}“ <cite>${esc(say.src)}</cite></span>`;
   const b = q.querySelector(".de"), o = q.querySelector(".orig");
   b.onclick = () => { o.hidden = !o.hidden; b.setAttribute("aria-expanded", String(!o.hidden)); };
@@ -1046,10 +1232,12 @@ function tally() {
   const solved = keys.length && keys.every(k => (VERDICT[k] || [])[1] === "good");
   const asked = questionsSaid();
   const n = recall(CASE.id, "signatures", 0);
-  const signed = notes ? ` The notes have been signed ${n === 1 ? "once" : `${n} times`}.` : "";
+  const signed = !notes ? "" : " " + (n === 1 ? tx("The notes have been signed once.")
+    : tx("The notes have been signed {n} times.", {n}));
   el.textContent = (solved && walk.fewest
-    ? `Every part holds. Sarah asked ${asked}; all the evidence in this chapter can be had with ${walk.fewest}.`
-    : `So far Sarah has asked ${asked}.`) + signed;
+    ? tx("Every part holds. Sarah asked {asked}; all the evidence in this chapter can be had with {fewest}.",
+         {asked, fewest: walk.fewest})
+    : tx("So far Sarah has asked {asked}.", {asked})) + signed;
   const closing = solved && CASE.memo && CASE.memo.mauser && CASE.memo.mauser.solved;
   if (closing) el.append(mauserLine(closing));
   $("invite").hidden = !solved;
@@ -1058,11 +1246,17 @@ function tally() {
 /* Per-viewer convenience only: which evenings have been opened and which
    words picked up. Wrapped because a private window, cleared site data or a
    browser set to refuse storage all throw here rather than returning null. */
+/* A chapter played in another language is another game: what was heard and
+   cited is kept by its text, and the German text is not the English. So its
+   state is kept apart, under "de/rueckstand"; English keeps the keys it
+   always had, and the settings ("_") are one for every language. */
+const stateKey = id => id === "_" || typeof LANG === "undefined" || LANG === "en"
+  ? id : `${LANG}/${id}`;
 function remember(id, key, value) {
-  try { localStorage.setItem(`faelle.${id}.${key}`, JSON.stringify(value)); } catch (e) {}
+  try { localStorage.setItem(`faelle.${stateKey(id)}.${key}`, JSON.stringify(value)); } catch (e) {}
 }
 function recall(id, key, dflt) {
-  try { return JSON.parse(localStorage.getItem(`faelle.${id}.${key}`)) || dflt; }
+  try { return JSON.parse(localStorage.getItem(`faelle.${stateKey(id)}.${key}`)) || dflt; }
   catch (e) { return dflt; }
 }
 

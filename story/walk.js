@@ -66,6 +66,9 @@ function setView(v) {
   document.body.classList.toggle("view-notebook", v === "notebook");
   $("views").querySelectorAll("[data-view]").forEach(b =>
     b.classList.toggle("on", b.dataset.view === v));
+  /* the desk was laid out while hidden, every card 0 high (the user, 27
+     September 2026: two rows' height until another card was added) */
+  if (v === "notebook" && DESKPLACE) DESKPLACE();
   freshCount();
 }
 
@@ -77,7 +80,7 @@ function freshCount() {
   const onNotebook = document.body.classList.contains("view-notebook");
   if (onNotebook) remember(CASE.id, "noted", inNotebook());
   const n = Math.max(0, inNotebook() - recall(CASE.id, "noted", 0));
-  const text = n ? `(${n} new)` : "";
+  const text = n ? tx("({n} new)", {n}) : "";
   $("freshcount").textContent = text;
   $("freshroom").textContent = text;
 }
@@ -114,8 +117,11 @@ const questions = () => W ? Object.values(W.asked).reduce((n, a) => n + a.length
 const shrugs = () => W ? (W.shrugs || 0) : 0;
 const questionsSaid = () => {
   const q = questions(), s = shrugs();
-  if (q === 1) return s ? "1 question, and it was shrugged off" : "1 question";
-  return `${q} questions` + (q ? `, ${s === q ? "all" : s || "none"} of them shrugged off` : "");
+  if (q === 1) return s ? tx("1 question, and it was shrugged off") : tx("1 question");
+  if (!q) return tx("{q} questions", {q});
+  return s === q ? tx("{q} questions, all of them shrugged off", {q})
+    : s ? tx("{q} questions, {s} of them shrugged off", {q, s})
+    : tx("{q} questions, none of them shrugged off", {q});
 };
 
 /* EVERYTHING PEOPLE SAY GOES IN THE NOTEBOOK (the user, 14 September 2026).
@@ -142,8 +148,14 @@ const saidCount = () => W ? new Set(Object.values(W.log).flat()
   .filter(([k, t]) => (k === "talk" || k === "evade") && !/ nods\.$/.test(t))
   .map(([, t]) => t)).size : 0;
 /* "The porter's book" is how the sampler names an exhibit at the head of a
-   line; inside a sentence it is "the porter's book". */
-const thingName = t => t.replace(/^(The|A|An) /, m => m.toLowerCase());
+   line; inside a sentence it is "the porter's book". Another language says
+   how it is called inside a sentence (the form "mid", chapters/i18n.py). */
+const formsOf = name => (WALK && WALK.forms && WALK.forms[name]) || {};
+const thingName = t => LANG === "en" ? t.replace(/^(The|A|An) /, m => m.toLowerCase())
+  : formsOf(t).mid || t;
+/* a thing or a person as a sentence of the app's may want it (i18n.js) */
+const thingIn = t => withForms(thingName(t), formsOf(t));
+const personIn = p => withForms(p.name, formsOf(p.name));
 
 /* The evening tabs follow the walk: a chapter whose phases are its evenings
    opens the evening Sarah is in, so what she hears there is on the page. */
@@ -191,7 +203,7 @@ function meet(id) {
        One already heard is a nod now. */
     const hello = p.hello.filter(h => now(h) && !HEARD.has(h.text));
     for (const h of hello) { hear(h.text); note(id, "line", h.text); }
-    if (!hello.length) note(id, "nod", `${cap(p.name)} nods.`);
+    if (!hello.length) note(id, "nod", cap(tx("{person} nods.", {person: personIn(p)})));
     save(); draw(); report();
   }
   walkDraw();
@@ -209,12 +221,16 @@ function act(kind, what) {
   (W.asked[p.id] || (W.asked[p.id] = [])).push(key);
   if (kind === "topic") {
     note(p.id, "sarah", askOf(WALK.topics.find(x => x.id === what), p.id));
+  } else if (kind === "file") {
+    note(p.id, "sarah", tx("Sarah asks {person} for the file {number}.",
+                           {person: personIn(p), number: what}));
   } else {
+    const v = {thing: thingIn(what), person: personIn(p)};
     note(p.id, "sarah", carried(what)
-      ? `Sarah puts ${thingName(what)} in front of ${p.name}.`
-      : `Sarah tells ${p.name} what she saw in ${thingName(what)}.`);
+      ? tx("Sarah puts {thing} in front of {person}.", v)
+      : tx("Sarah tells {person} what she saw in {thing}.", v));
   }
-  const r = (kind === "topic" ? p.topics : p.shows)[what];
+  const r = (kind === "topic" ? p.topics : kind === "file" ? p.files : p.shows)[what];
   let any = false;
   if (r) {
     for (const l of r.lines.filter(now)) { hear(l.text); note(p.id, "line", l.text); any = true; }
@@ -243,6 +259,52 @@ function act(kind, what) {
     if (r.top < 0 || r.bottom > window.innerHeight)
       log.scrollIntoView({block: r.height > window.innerHeight ? "start" : "nearest"});
   }
+}
+
+/* A FILE BY ITS NUMBER (chapter 4, Die drei Namen: the Aktenzeichen is its
+   engine). chapters/meetings.py decided which number hands over which lines
+   and checked it; this only reads what Sarah types. A number is the Referat,
+   the subject, and the running number with its year, and each piece must
+   stand in something she has read, as a report word must be found before it
+   can be typed: nothing is guessed. A number with a piece missing is refused
+   by the keeper, and a wrong one fetches a wrong file; both cost nothing, as a
+   question nobody can answer costs nothing. Only the file that answers spends
+   the keeper's time. */
+const NUMBER = /^\s*([A-Za-z](?:\s*[A-Za-z])*\s*\d+)\s*[-–—]\s*(\d{3,4})\s*[-–—]\s*(\d{1,4}\s*\/\s*\d{2})\s*$/;
+const flatNumber = s => s.replace(/[\s\-–—]+/g, "").toLowerCase();
+const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+/* meetings.piece_in, the same test: spacing aside, never inside a longer one */
+function pieceIn(piece, text) {
+  const chars = [...piece].filter(c => !/\s/.test(c)).map(escRe);
+  return new RegExp("(?<![\\w/])" + chars.join("\\s*") + "(?![\\w/])", "i").test(text);
+}
+const readSoFar = () => [CASE.preamble || "", WALK.cover || "", ...HEARD].join("\n");
+
+function askFile(typed) {
+  const p = person(TALKING);
+  if (!p || spent(p.id) >= p.patience) return;
+  const m = NUMBER.exec(typed || "");
+  const talk = p.file_talk || {};
+  const v = {person: personIn(p), number: (typed || "").trim()};
+  const quiet = (kind, text) => {
+    /* counted in the score like any question, once per number */
+    const key = askKey("file", flatNumber(typed || ""));
+    const mine = W.asked[p.id] || (W.asked[p.id] = []);
+    if (!mine.includes(key)) mine.push(key);
+    note(p.id, "sarah", tx("Sarah asks {person} for the file {number}.", v));
+    note(p.id, kind, text);
+    W.shrugs = (W.shrugs || 0) + 1;
+    save(); walkDraw(); draw(); report();
+  };
+  if (!m) { quiet("shrug", talk.short || cap(tx("{person} cannot help Sarah there.", v))); return; }
+  const held = readSoFar();
+  if (![m[1], m[2], m[3]].every(piece => pieceIn(piece, held))) {
+    quiet("shrug", tx("Sarah has not seen that number anywhere, and does not ask for it."));
+    return;
+  }
+  const num = Object.keys(p.files || {}).find(n => flatNumber(n) === flatNumber(typed));
+  if (num) { act("file", num); return; }
+  quiet("shrug", talk.wrong || cap(tx("{person} cannot help Sarah there.", v)));
 }
 
 const lastPhase = () => W.phase + 1 >= WALK.phases.length;
@@ -282,18 +344,20 @@ function walkDraw() {
 
   const ph = phase();
   $("clock").innerHTML = WALK.repeat
-    ? `<b>Day ${W.day}</b> · ${esc(ph.name)}` +
-      (W.day > WALK.days ? ` <small>(the chapter is planned for ${WALK.days})</small>` : "")
-    : `<b>${esc(cap(ph.name))}</b> <small>· evening ${W.phase + 1} of ${WALK.phases.length}</small>`;
-  $("clock").innerHTML += ` <small>· ${questionsSaid()}</small>`;
+    ? `<b>${esc(tx("Day {n}", {n: W.day}))}</b> · ${esc(ph.name)}` +
+      (W.day > WALK.days ? ` <small>${esc(tx("(the chapter is planned for {n})", {n: WALK.days}))}</small>` : "")
+    : `<b>${esc(cap(ph.name))}</b> <small>· ${esc(tx("evening {n} of {all}",
+        {n: W.phase + 1, all: WALK.phases.length}))}</small>`;
+  $("clock").innerHTML += ` <small>· ${esc(questionsSaid())}</small>`;
   const next = $("nextphase");
   if (!lastPhase()) {
     next.hidden = false;
-    next.textContent = WALK.repeat ? `Stay until ${WALK.phases[W.phase + 1].name}`
-                                   : `On to ${WALK.phases[W.phase + 1].name}`;
+    const phaseName = WALK.phases[W.phase + 1].name;
+    next.textContent = WALK.repeat ? tx("Stay until {phase}", {phase: phaseName})
+                                   : tx("On to {phase}", {phase: phaseName});
   } else if (WALK.repeat) {
     next.hidden = false;
-    next.textContent = "Go home; come back tomorrow";
+    next.textContent = tx("Go home; come back tomorrow");
   } else {
     next.hidden = true;
   }
@@ -330,7 +394,7 @@ function map() {
   const xs = Object.values(pos).map(p => p.x);
   const width = (xs.length ? Math.max(...xs) : stairX) + colW;
   const height = 20 + rows.length * rowH;
-  let svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Map">`;
+  let svg = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="${esc(tx("Map"))}">`;
   rows.forEach((row, r) => {
     const y = 20 + r * rowH;
     svg += `<line class="floor" x1="0" x2="${width}" y1="${y + 30}" y2="${y + 30}"/>` +
@@ -354,9 +418,10 @@ function map() {
     const q = pos[p.id];
     if (!q || q.pass) continue;
     const who = WALK.people.filter(x => x.at[phase().name] === p.id).length;
-    svg += `<g class="room${p.id === W.at ? " here" : ""}" data-go="${p.id}" tabindex="0" role="button" aria-label="Go to ${esc(p.name)}">` +
+    svg += `<g class="room${p.id === W.at ? " here" : ""}" data-go="${p.id}" tabindex="0" role="button" aria-label="${
+      esc(tx("Go to {place}", {place: p.name}))}">` +
       `<rect x="${q.x}" y="${q.y}" width="${colW - 14}" height="28" rx="2"/>` +
-      `<text x="${q.x + 6}" y="${q.y + 19}">${esc(short(p.name))}</text>` +
+      `<text x="${q.x + 6}" y="${q.y + 19}">${esc(p.short || p.name)}</text>` +
       (who ? `<circle cx="${q.x + colW - 24}" cy="${q.y + 5}" r="7"/>` +
              `<text class="n" x="${q.x + colW - 24}" y="${q.y + 9}">${who}</text>` : "") +
       `</g>`;
@@ -369,14 +434,11 @@ function map() {
   });
 }
 
-const floorName = f => f === -1 ? "cellar" : f === 0 ? "ground"
-  : f === 2 ? "2nd" : f === 3 ? "3rd" : `${f}th`;
+const floorName = f => f === -1 ? tx("cellar") : f === 0 ? tx("ground")
+  : f === 1 ? tx("1st") : f === 2 ? tx("2nd") : f === 3 ? tx("3rd") : tx("{n}th", {n: f});
 
-const short = n => n.replace(/^the /, "").replace("outer office of 407", "outer office")
-  .replace("second-floor ", "").replace("fourth-floor ", "").replace("third-floor ", "")
-  .replace("entrance hall", "hall, lodge").replace("Kommissar Mauser's office", "Mauser's office")
-  .replace("a café near the Markt", "café, Markt")
-  .replace(/^(Frau|Fräulein) ([^' ]+)'s (flat|room|building)$/u, "$2's $3");
+/* A room's short name on the map is the export's (p.short, export_cases.short),
+   so that another language can say it. */
 
 /* The room, with whoever is in it standing on its floor, Sarah to one side.
    Both face the viewer (the staging MEETINGS.md asks for). */
@@ -398,7 +460,7 @@ function scene() {
     const left = n === 1 ? (p.stand ? p.stand * 100 : 62) : a + i * ((b - a) / Math.max(1, n - 1));
     const img = x.sprite ? `<img src="${esc(x.sprite)}" alt="">` : `<span class="nofig">?</span>`;
     return `<button class="fig${TALKING === x.id ? " talking" : ""}" data-meet="${esc(x.id)}" ` +
-      `style="left:${left}%;height:${tall(x.height)}" title="Talk to ${esc(x.name)}">${img}` +
+      `style="left:${left}%;height:${tall(x.height)}" title="${esc(tx("Talk to {person}", {person: personIn(x)}))}">${img}` +
       `<span class="label">${esc(x.name)}</span></button>`;
   }).join("");
   /* THE PROPS (24 September 2026): what the room's list shows as a thing
@@ -417,7 +479,7 @@ function scene() {
     const under = x.under && x.under[art] ? `<img class="under" src="${esc(x.under[art])}" alt="">` : "";
     return `<button class="prop placed${seenThing(x.thing) ? "" : " fresh"}" data-thing="${esc(x.thing)}" ` +
       `style="left:${pct(l)};top:${pct(t)};width:${pct(w)};height:${pct(h)}" ` +
-      `title="Look at ${esc(thingName(x.thing))}">${under}<img src="${esc(x.files[art])}" ` +
+      `title="${esc(tx("Look at {thing}", {thing: thingIn(x.thing)}))}">${under}<img src="${esc(x.files[art])}" ` +
       `alt="${esc(cap(thingName(x.thing)))}"></button>`;
   };
   const props = (WALK.props || []).filter(x => lying.has(x.thing) && x.places.includes(p.id))
@@ -427,7 +489,7 @@ function scene() {
     .sort((a, b) => (b.under ? 1 : 0) - (a.under ? 1 : 0))
     .map(x => x.files ? own(x) : `<button class="prop${seenThing(x.thing) ? "" : " fresh"}" data-thing="${esc(x.thing)}" ` +
       `style="left:${(x.x * 100).toFixed(2)}%;top:${(x.y * 100).toFixed(2)}%;width:${(x.w * 100).toFixed(2)}%" ` +
-      `title="Look at ${esc(thingName(x.thing))}"><img src="${esc(x.file)}" alt="${esc(cap(thingName(x.thing)))}" ` +
+      `title="${esc(tx("Look at {thing}", {thing: thingIn(x.thing)}))}"><img src="${esc(x.file)}" alt="${esc(cap(thingName(x.thing)))}" ` +
       `style="transform:scaleY(${x.flat})"></button>`).join("");
   $("scene").innerHTML = props +
     `<div class="fig sarah" style="left:${p.sarah_at ? (p.sarah_at * 100).toFixed(1) : 9}%;height:${tall(WALK.sarah_height)}"><img src="${esc(WALK.sarah)}" alt=""><span class="label">Sarah</span></div>` +
@@ -439,18 +501,18 @@ function scene() {
   });
   $("placename").textContent = cap(p.name);
   $("placetext").innerHTML = marked(p.text, false) +
-    (n ? "" : ` <i>Nobody is here now.</i>`);
+    (n ? "" : ` <i>${tx("Nobody is here now.")}</i>`);
   const sees = (p.sees || []).filter(now);
   const things = [...new Set(sees.map(s => thingOf(s.text)).filter(Boolean))];
   $("sees").innerHTML =
     sees.filter(s => !thingOf(s.text)).map(s => `<li>${marked(s.text, false)}</li>`).join("") +
-    things.map(th => `<li><button class="read" data-thing="${esc(th)}" title="Look at it">` +
-      `${esc(thingName(th))}</button>${seenThing(th) ? "" : " <i>is here</i>"}</li>`).join("");
+    things.map(th => `<li><button class="read" data-thing="${esc(th)}" title="${tx("Look at it")}">` +
+      `${esc(thingName(th))}</button>${seenThing(th) ? "" : ` <i>${tx("is here")}</i>`}</li>`).join("");
   $("sees").hidden = !sees.length;
   const notebook = held();
   $("notebook").innerHTML = notebook.length
-    ? `<span>In Sarah's notebook</span>` + notebook.map(t =>
-        `<button class="read" data-thing="${esc(t)}" title="Read it again">${esc(thingName(t))}</button>`).join("")
+    ? `<span>${tx("In Sarah's notebook")}</span>` + notebook.map(t =>
+        `<button class="read" data-thing="${esc(t)}" title="${tx("Read it again")}">${esc(thingName(t))}</button>`).join("")
     : "";
   $("stage").querySelectorAll(".read").forEach(b => b.onclick = () => readThing(b.dataset.thing));
   $("theatreclose").onclick = () => theatre(false);
@@ -477,13 +539,14 @@ function readThing(thing) {
   let fresh = false;
   for (const s of place(W.at).sees || [])
     if (now(s) && thingOf(s.text) === thing) fresh = hear(s.text) || fresh;
+  const head = thing + lineSep();
   const lines = WALK.exhibits.filter(e => e.thing === thing && HEARD.has(e.line))
-    .map(e => e.line.startsWith(thing + ": ") ? cap(e.line.slice(thing.length + 2)) : e.line);
+    .map(e => e.line.startsWith(head) ? cap(e.line.slice(head.length)) : e.line);
   if (!lines.length) return;
   if (fresh) { save(); draw(); report(); walkDraw(); }
   const doc = (WALK.documents || {})[thing];
   const cell = c => typeof c === "string" ? esc(c)
-    : c.scrawl ? `<span class="scrawl" aria-label="a signature"></span>`
+    : c.scrawl ? `<span class="scrawl" aria-label="${tx("a signature")}"></span>`
     : c.sign ? `<span class="signature">${esc(c.sign)}</span>`
     : esc(c.shown);
   /* The object above, its words below. A picture of a document shows what
@@ -496,15 +559,23 @@ function readThing(thing) {
   const pv = (WALK.pictures || {})[thing];
   const pic = !pv ? null : typeof pv === "string" ? pv : HEARD.has(pv.when) ? pv.file : null;
   $("doctitle").textContent = cap(thingName(thing));
-  $("docpic").innerHTML = pic
-    ? `<img src="${esc(pic)}" alt="${esc(cap(thingName(thing)))}" loading="lazy">`
-    : "";
+  /* A THING THAT OPENS INTO ANOTHER (the user, 26 September 2026): the shut
+     file's picture opens the file, where its inside lies here too or has
+     been looked at already (the case's `opens`, meetings.py check 12). */
+  const inside = (WALK.opens || {})[thing];
+  const canOpen = inside && (seenThing(inside) ||
+    (place(W.at).sees || []).some(s => now(s) && thingOf(s.text) === inside));
+  const img = pic ? `<img src="${esc(pic)}" alt="${esc(cap(thingName(thing)))}" loading="lazy">` : "";
+  $("docpic").innerHTML = pic && canOpen
+    ? `<button type="button" class="opens" title="${esc(tx("Open it"))}">${img}</button>` : img;
   $("docpic").hidden = !pic;
+  const opener = $("docpic").querySelector && $("docpic").querySelector(".opens");
+  if (opener) opener.onclick = () => readThing(inside);
   $("docbody").innerHTML = doc && doc.kind === "ledger"
     ? `<table class="ledger"><thead><tr>${doc.columns.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead>` +
       `<tbody>${doc.rows.map(r => `<tr>${r.map(c => `<td>${cell(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>` +
-      `<p class="noted">Noted with what you have heard.</p>`
-    : doc && doc.kind === "tree" ? orgTree(doc) + `<p class="noted">Noted with what you have heard.</p>`
+      `<p class="noted">${tx("Noted with what you have heard.")}</p>`
+    : doc && doc.kind === "tree" ? orgTree(doc) + `<p class="noted">${tx("Noted with what you have heard.")}</p>`
     : lines.map(l => `<p>${marked(l, false)}</p>`).join("");
   $("doc").hidden = false;
   if (typeof annotate === "function") annotate($("doc"));
@@ -517,7 +588,7 @@ function readThing(thing) {
    every box, name, colour and step is held to what the lines say. */
 function orgTree(doc) {
   const mark = m => !m ? "" : m === "initials"
-    ? `<span class="mark initials">initials</span>`
+    ? `<span class="mark initials">${tx("initials")}</span>`
     : `<span class="mark" data-pencil="${esc(m)}"><i></i>${esc(m)}</span>`;
   const nodes = ns => ns.length ? `<ul>${ns.map(n =>
     `<li><div class="node"${n.mark && n.mark !== "initials" ? ` data-pencil="${esc(n.mark)}"` : ""}>` +
@@ -578,32 +649,52 @@ function conversation() {
   const topics = offered().slice().sort((a, b) => later("topic", a.id) - later("topic", b.id))
     .map(t => chip("topic", t.id, t.label, askOf(t, p.id))).join("");
   const things = held().slice().sort((a, b) => later("show", a) - later("show", b))
-    .map(t => chip("show", t, thingName(t), carried(t)
-    ? `Put ${thingName(t)} in front of ${p.name}.`
-    : `Tell ${p.name} what she saw in ${thingName(t)}.`)).join("");
+    .map(t => {
+      const v = {thing: thingIn(t), person: personIn(p)};
+      return chip("show", t, thingName(t), carried(t)
+        ? tx("Put {thing} in front of {person}.", v)
+        : tx("Tell {person} what she saw in {thing}.", v));
+    }).join("");
   /* Which list comes first is the player's, as the building and the clues
      swap on the duty sheet (the user, 15 September 2026); remembered for the
      whole game. */
-  const swap = `<button class="swapask" type="button" title="Put the other list first">swap</button>`;
+  const swap = `<button class="swapask" type="button" title="${tx("Put the other list first")}">${tx("swap")}</button>`;
   const lists = [
-    `<div class="ask"><span>Raise ${swap}</span>${topics || '<i>nothing yet</i>'}</div>`,
-    `<div class="ask"><span>Show or mention ${swap}</span>${things || '<i>nothing in your notebook</i>'}</div>`];
+    `<div class="ask"><span>${tx("Raise")} ${swap}</span>${topics || `<i>${tx("nothing yet")}</i>`}</div>`,
+    `<div class="ask"><span>${tx("Show or mention")} ${swap}</span>${things || `<i>${tx("nothing in your notebook")}</i>`}</div>`];
   if (recall("_", "askswap", false)) lists.reverse();
-  const when = WALK.reset === "phase" ? "this evening" : "today";
+  /* a keeper of files takes a number, typed from what Sarah has read */
+  if (p.files && Object.keys(p.files).length)
+    lists.push(`<form class="ask askfile"><span>${tx("Ask for a file by its number")}</span>` +
+      `<input name="number" autocomplete="off" spellcheck="false"${tired ? " disabled" : ""} ` +
+      `placeholder="${esc(tx("the Referat – the subject – the number/the year"))}">` +
+      `<button class="chip file"${tired ? " disabled" : ""}><b>${tx("Ask")}</b></button></form>`);
+  /* each sentence whole, today and this evening, so a translator has the
+     sentence and not a piece of one */
+  const evening = WALK.reset === "phase";
+  const v = {person: personIn(p), left, all: p.patience};
+  const patience = evening ? tx("Patience: {left} of {all} left this evening", v)
+                           : tx("Patience: {left} of {all} left today", v);
+  const costs = evening
+    ? tx("Each answer takes a little of {person}'s time this evening. A question nobody can answer costs nothing.", v)
+    : tx("Each answer takes a little of {person}'s time today. A question nobody can answer costs nothing.", v);
+  const spentAll = evening ? tx("{person} has given you all the time there is this evening.", v)
+                           : tx("{person} has given you all the time there is today.", v);
   box.innerHTML =
-    `<header><b>${esc(cap(p.name))}</b><span class="pips" title="Patience: ${left} of ${p.patience} left ${when}">${pips}</span>` +
-    `<button class="close" title="Step away">×</button></header>` +
+    `<header><b>${esc(cap(p.name))}</b><span class="pips" title="${esc(patience)}">${pips}</span>` +
+    `<button class="close" title="${tx("Step away")}">×</button></header>` +
     `<ol class="log">${log}</ol>` +
-    `<p class="costs">Each answer takes a little of ${esc(p.name)}'s time ${when}. ` +
-    `A question nobody can answer costs nothing.</p>` +
-    (tired ? `<p class="spent">${esc(cap(p.name))} has given you all the time there is ${when}.</p>` : "") +
+    `<p class="costs">${esc(costs)}</p>` +
+    (tired ? `<p class="spent">${esc(cap(spentAll))}</p>` : "") +
     `<div class="asks">${lists.join("")}</div>`;
   box.querySelector(".close").onclick = () => { TALKING = null; walkDraw(); };
   box.querySelectorAll(".swapask").forEach(b => b.onclick = () => {
     remember("_", "askswap", !recall("_", "askswap", false));
     conversation();
   });
-  box.querySelectorAll(".chip").forEach(b => b.onclick = () => act(b.dataset.kind, b.dataset.what));
+  box.querySelectorAll(".chip[data-kind]").forEach(b => b.onclick = () => act(b.dataset.kind, b.dataset.what));
+  const ff = box.querySelector(".askfile");
+  if (ff) ff.onsubmit = e => { e.preventDefault(); askFile(ff.number.value); };
   const ol = box.querySelector(".log");
   ol.scrollTop = ol.scrollHeight;
   const asks = ol.querySelectorAll ? ol.querySelectorAll("li.sarah") : [];

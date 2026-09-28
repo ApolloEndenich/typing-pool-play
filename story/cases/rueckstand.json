@@ -3,13 +3,13 @@
  "subtitle": "The Outstanding File",
  "title": "DER RÜCKSTAND",
  "engine": "a bit of everything",
- "preamble": "Sarah Wessen is a private detective in Bonn, and Kommissar Mauser of the\nKriminalpolizei is the reason a ministry door opens for her at all. This is\nthe first thing he has sent her there for. It is not a case.\n\nHerr Simon keeps the Registratur, and the Registratur keeps a book: what went\nout, to which room, on which day, and what came back. Roughly one file a month\ndoes not come back, and he remembers every one of them.\n\nOn the afternoon of Tuesday 14 October one of them was lying on his counter.\nIt had been out since the spring. It was complete, it had been mended, and\nnobody had written a word about it anywhere.\n\nNobody is in any trouble over this and nobody is going to be. But Herr Simon\nhas kept that book for twenty years without a line in it he could not account\nfor, and a file that comes home with nobody's name against it is, to him,\nworse than one that never comes home at all. He could not let it lie. He\nmentioned it to Kommissar Mauser the way another man mentions a noise in the\nnight, and Mauser, who had nobody to spare and a weakness for exact people,\nsent Sarah. He wants it in writing, because a report is a report.\n\nWhat follows is everything that was found or said.",
+ "preamble": "Sarah Wessen is a private detective in Bonn, and Kommissar Mauser of the\nKriminalpolizei is the reason a ministry door opens for her at all. This is\nthe first thing he has sent her there for. It is not a case.\n\nHerr Simon keeps the Registratur, and the Registratur keeps a book: what went\nout, to which room, on which day, and what came back. Roughly one file a month\ndoes not come back, and he remembers every one of them.\n\nOn the afternoon of Tuesday 14 October one of them was lying on his counter.\nIt had been out since the spring. It was complete, it had been mended, and\nnobody had written a word about it anywhere.\n\nNobody is in any trouble over this and nobody is going to be. But Herr Simon\nhas kept that book for twenty years without a line in it he could not account\nfor, and a file that comes home with nobody's name against it is, to him,\nworse than one that never comes home at all. He could not let it lie. He\nmentioned it to Kommissar Mauser the way another man mentions a noise in the\nnight, and Mauser, who had nobody to spare and a weakness for exact people,\nsent Sarah. He wants it in writing, because a report is a report. Herr Simon\nis the one person in the building who is not asked to account for himself:\nit was he who asked.\n\nWhat follows is everything that was found or said.",
  "question": "Who put the file back on Herr Simon's counter? Fill in the report.",
  "days": [
   {
    "n": 1,
    "name": "One afternoon",
-   "note": "Ten people are ruled out here, by four kinds of argument, and each kind rests on its own evidence. Some could not have been there; some never came to know; some would have left a record that is not there; and some could not have left the trace the file itself carries.",
+   "note": "Nine people are ruled out here, and so is the idea that the file never left the shelf, by four kinds of argument, each resting on its own evidence. Some could not have been there; some never came to know; the records show it did leave; and some could not have left the trace the file itself carries. Whoever brought it back meant not to be known, not to be taken for somebody else.",
    "sections": [
     {
      "where": "the Registratur",
@@ -30,7 +30,7 @@
      "where": "the Poststelle",
      "lines": [
       "The Poststelle's outgoing book: Fräulein Bühl's initials against every item entered between a quarter past two and twenty to four on 14 October, twenty-three of them, and two of the clerks up there put their own beside hers.",
-      "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, where it was done."
+      "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, when it was done."
      ]
     },
     {
@@ -45,7 +45,7 @@
      "where": "the lodge",
      "lines": [
       "The porter's book: entries at the lodge window at twenty to three, a quarter to three, five past three, a quarter past three and twenty-five past three, each one signed by whoever came to the window, and the porter's initials against every one.",
-      "The delivery note for the paper of the typing pool (Schreibsaal): for a parcel of paper delivered at the lodge on 14 October at a quarter to three, signed for there by Frau Kern, and the count of the reams initialled at the foot by her and by the porter at twenty to four."
+      "The delivery note for the paper of the typing pool (Schreibsaal): for a parcel of paper delivered at the lodge on 14 October at a quarter to three, the quarter's paper for the Schreibsaal, listed Referat by Referat, signed for there by Frau Kern, and the count of the reams initialled at the foot by her and by the porter at twenty to four."
      ]
     },
     {
@@ -57,10 +57,12 @@
      ]
     },
     {
-     "where": "Fräulein Ostrowski",
+     "where": "Frau Adam",
      "lines": [
-      "Ostrowski: You are the one looking into the file. Good; somebody should. I own my own copy of the Geschäftsordnung, issued to me and not the pool's, and I have read it twice. I can tell you what it says about a file that comes back and exactly where the line goes.",
-      "Ostrowski: Once. Frau Pohlmann came down to the canteen, which she never does, and asked us once, over lunch at the long table in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
+      "Adam: Oh, look at that. Anything that comes back to Frau Litt's hand she squares up with the oldest facing, and she does not look at what she is doing while she does it. She started in this building at Herr Simon's counter, that is where she learned it, and she has never learned it the other way.",
+      "Adam: Oh, the machines! This room has been arguing about its machines since the summer. It is the same argument every time and it is about whether the ones before these were better.",
+      "Adam: I would not know about drawers. What I know about is people. Fräulein Wenzel does not use the word typist about herself, she takes an English class in the evenings, and when she says for now she says it the way you say an address you have only to present yourself at. I used to say it too.",
+      "Adam: Sit down, sit down, nobody here will mind. My elder boy is to be an engineer and the younger one already knows he will not be, and I brought cake in on Tuesday and it did not turn out."
      ]
     },
     {
@@ -74,26 +76,31 @@
      ]
     },
     {
-     "where": "Frau Adam",
-     "lines": [
-      "Adam: Oh, look at that. Anything that comes back to Frau Litt's hand she squares up with the oldest facing, and she does not look at what she is doing while she does it. She started in this building at Herr Simon's counter, that is where she learned it, and she has never learned it the other way.",
-      "Adam: Oh, the machines! This room has been arguing about its machines since the summer. It is the same argument every time and it is about whether the ones before these were better.",
-      "Adam: I would not know about drawers. What I know about is people. Fräulein Wenzel does not use the word typist about herself, she takes an English class in the evenings, and when she says for now she says it the way you say an address you have only to present yourself at. I used to say it too.",
-      "Adam: Sit down, sit down, nobody here will mind. My elder boy is to be an engineer and the younger one already knows he will not be, and I brought cake in on Tuesday and it did not turn out."
-     ]
-    },
-    {
      "where": "Fräulein Wenzel",
      "lines": [
       "Wenzel: Wenzel. Shorthand with distinction, if nobody has told you. I take the end of the long table when we go down to eat, and it is the quietest seat in this building, and I have said so for years. Up here I have the desk in the corner behind the door, and the drawer in it is the one nobody else has any reason to open."
      ]
     },
     {
+     "where": "the charwoman",
+     "lines": [
+      "the charwoman: And before you ask, because they all do: I am in the Schreibsaal only when the pool has gone and the room is empty. I empty what is in the baskets and I do not open a folder left on a desk, and I have never in my life been in there while anybody was talking.",
+      "the charwoman: You stopped. I like talking when somebody stops, and almost nobody stops. I have two grown children. I do not see much of them, and I tell everybody about them."
+     ]
+    },
+    {
+     "where": "Fräulein Ostrowski",
+     "lines": [
+      "Ostrowski: You are the one looking into the file. Good; somebody should. I own my own copy of the Geschäftsordnung, issued to me and not the pool's, and I have read it twice. I can tell you what it says about a file that comes back and exactly where the line goes.",
+      "Ostrowski: Once. Frau Pohlmann came down to the canteen, which she never does, and asked us once, over lunch at the long table in the last week of September, and never again anywhere. What she asked about was a number and not a subject. One of us wrote it on the corner of a sheet and one of us said it would be on the Rückstandsliste anyway."
+     ]
+    },
+    {
      "where": "Frau Kern",
      "lines": [
       "Kern: Ask Frau Adam. Frau Adam knows who is expecting, who is moving and who is separating, and she tells it only to people who know already, and she considers that discretion.",
-      "Kern: Kern. I came across to the Schreibsaal in the spring, and being newest I am the one who goes up to the landing for the post and down to the lodge for a parcel of paper. I do not mind it. The stairs would tell you otherwise.",
-      "Kern: Downstairs. That Tuesday I went down to the porter's window to wait for the Schreibsaal's paper, and I did not come up again until he and I had counted every ream of it.",
+      "Kern: Kern. I came across to the Schreibsaal in the spring, and being newest I am the one who goes up to the landing for the post and down to the lodge for a parcel of paper. I do not mind it. The stairs would tell you otherwise. By the time the cleaning women come up them, the last of us has gone home.",
+      "Kern: Downstairs. That Tuesday I went down to the porter's window to wait for the Schreibsaal's paper, and I did not come up again until he and I had counted every ream of it, Referat by Referat.",
       "Kern: I remember that week. Frau Adam was away the whole of the last week of September. I had her machine that week, because mine had gone to be repaired, and nobody sat at it but me."
      ]
     },
@@ -102,13 +109,6 @@
      "lines": [
       "Bühl: If it is the pencil you are looking at, you want Fräulein Ostrowski. Fräulein Ostrowski corrects other people's commas in pencil, very lightly, so that it can be rubbed out again, and she does it whether or not anybody has asked her to read the sheet.",
       "Bühl: One moment. I am to be married in the spring and I mean to keep my post. If you want me, I take my hands off the keys first, because I do not talk while I type, which I call courtesy."
-     ]
-    },
-    {
-     "where": "the charwoman",
-     "lines": [
-      "the charwoman: And before you ask, because they all do: I am in the Schreibsaal only when the pool has gone and the room is empty. I empty what is in the baskets and I do not open a folder left on a desk, and I have never in my life been in there while anybody was talking.",
-      "the charwoman: You stopped. I like talking when somebody stops, and almost nobody stops. I have two grown children. I do not see much of them, and I tell everybody about them."
      ]
     },
     {
@@ -125,14 +125,14 @@
     {
      "where": "Oberregierungsrat Grau",
      "lines": [
-      "Grau: Fräulein Wessen. Sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else."
+      "Grau: Fräulein Wessen. Frau Pohlmann will have told you I am not to be disturbed, and she is right, so sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else."
      ]
     },
     {
      "where": "the porter",
      "lines": [
       "the porter: Where I always am. I did not leave the lodge between half past two and half past three, and my initials stand in my book against every one of the five who came to the window in that hour to say so. The afternoon is when the deliveries come, and a lodge nobody is sitting in is a lodge anybody may walk past.",
-      "the porter: And I had company for it. A parcel of paper for the Schreibsaal came at a quarter to three. Frau Kern had come down to the lodge at twenty past two to wait for it and she was still standing here at a quarter to four, the two of us going over the count line by line, which took longer than the delivery did.",
+      "the porter: And I had company for it. A parcel of paper for the Schreibsaal came at a quarter to three, the quarter's paper for every Referat they type for. Frau Kern had come down to the lodge at twenty past two to wait for it and she was still standing here at a quarter to four, the two of us counting it out Referat by Referat against the note, which took longer than the delivery did.",
       "the porter: Once the pool has gone, this building is mine, and I know who is in it. The cleaning women come in by the side door and I let them in myself, and not one of them goes up before the last of the pool has gone out past me. I see to that.",
       "the porter: Good day. You notice I say good day. I should like it recorded, since you are recording things, that nobody gets past me without being greeted and that not everybody greets me back. I will name them if you ask, and you will not have to ask.",
       "the porter: Herr Simon? He says good morning, every morning, which is more than some upstairs manage. His brother kept an inn, and he will tell you about the inn if you give him an opening. He gives himself one."
@@ -141,7 +141,7 @@
     {
      "where": "Herr Simon",
      "lines": [
-      "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
+      "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. The file was not on it when I went up, and it was when I came down. People ask me why I did not lock it. A counter is not a thing anybody locks.",
       "Simon: You will be the one Kommissar Mauser sent. Good. Come and stand where I stood, because this counter is where it happened. The file was not there when I went up to the Poststelle and it was there when I came down, squared off against the edge the way a thing is put down by somebody who means it to be noticed.",
       "Simon: The way it went out. There is one way, and I have explained it more often than I can count. A file leaves on the book and it comes back on the book, and it comes back from Frau Pohlmann's outer office that took it, never from Oberregierungsrat Grau himself, whom it went up to. So you understand me: a thing lying on my counter is not back. Until somebody writes the line it is still out, whatever is sitting there.",
       "Simon: Once, and I asked the proper person. I stopped Frau Pohlmann in the corridor in the last week of September and asked whether 117/64 had ever come back to her, and she said she would ask the typists, since it was the Schreibsaal she had passed it to. What she asked them, and how, you will have to ask her.",
@@ -281,7 +281,7 @@
   {
    "id": "hour",
    "title": "The Open Counter",
-   "text": "The counter stood empty from ___ until ___ on the day it came back, and the whole of that hour Frau ___ was downstairs, counting paper.",
+   "text": "The Registratur counter stood empty from ___ until ___ on the day the file came back, and the whole of that hour Frau ___ was downstairs, counting paper.",
    "kinds": [
     "time",
     "time",
@@ -292,7 +292,7 @@
   {
    "id": "asking",
    "title": "The Asking",
-   "text": "Herr ___ asked Frau ___ whether the file had ever come back, and the typists were asked once and once only, in the last week of September, over lunch in ___.",
+   "text": "Herr ___ asked Frau ___ whether the file had ever come back, and the typists were asked once and once only, in the last week of September, in ___.",
    "kinds": [
     "person",
     "person",
@@ -429,7 +429,6 @@
      "1fb005a62e49000768cb7559ee35c2101da5346d599429f4ffae8c96059e729f",
      "2899812b37a8eb19e990546db58cf72b540bbd84017f38bda0cbc85fd6017b9a",
      "372f2798f5b6c1c231600caeaeaafd9ca56508b21001dc890af119c942d492f7",
-     "391cc830c7ffe9276b25e22c59e5df1c540c3475b571f4c613a994716f7b87bc",
      "44c20f65c52d197c44e56a381cc4e84d065d1136870f10e0e78083173850d6d2",
      "4610b2f7c356145694d043dd135cd74b9561b572f5bb1490332665be4fca78b7",
      "486a65739a46fdab3329eda92637c9f7c8d767a0a00a202db1040573e6d7e07c",
@@ -445,10 +444,10 @@
      "7836f4d2d3099d0c8620123d39d2f23330be2278f7672552033918a81adb33be",
      "7faec206ebe1f58eaf4bdb11342891772f8d7dbe9ab92ea297ce6076696064d3",
      "8be142bb3280e4c80e9be1f4f9194cd6fa774b50ec57ec208fbfb947aefc25b6",
+     "9755fe5a8fbf78098cda2c30b2de1b01d83addb3602f4aee4e834466051cb2e0",
      "bcccac46067c6e71ec45d78e249e8e37ff5525996453452401dc16ee88c6207a",
      "be460fd2e4e46704779c75641cf4a29085bcd78e4948ea9210ac3359c7aee82d",
      "be78623d2f65433ebfc50be45422d9cf72f642cbad3e9391499a22f70489520c",
-     "c75bedd6631a0c61fdac20441a381c9583af3a0367816273e43617db69d34dad",
      "c9a6c208ad848c20ffc613eb38ad33441f3256aa65398e890c8a683a31ba1cdf",
      "c9cd2be1d69ef5770ca8b8beb0d51987fe5c3c537c48628a752b9d50dfb10d28",
      "ccbbe226639c237240f7452b27ba9b72f756c7397bf28fb0562974ad904a9fba",
@@ -457,6 +456,7 @@
      "dc5aad084c801d00a2002ab1f150407bcaed0b3a999ae0e8420914c03ce7f92f",
      "e1241dd82c9146eea25e7b332bd057deeae9f127e4fde5150654cc0f9fc75106",
      "e652180b58892f1accd1ebef6aa61290e3b18b729deb506f1d9e311369c237ce",
+     "e97b893e967e7a4114b587602e2f4690ca00fcbe0c5ccfbf51de377152cc6d57",
      "f3ee644063065bd16cb5ab87749c5d89a6be910740a96d8902f006b13473bf45",
      "f4d5cfd51266d8dd2fba1d11c74a05ee9e70e3b1837e3bdf31f0b61cda89680d",
      "f7c81029fb397e34f83cd3dc4ef0f5b25cbc564cb493ca5fff62fc3e5acb5be6",
@@ -577,6 +577,7 @@
      "4feb5dc04d1e6056fab922836d6ebfad224710eea5aca50c8c4140a6b5257a35",
      "561c4f5030485a4226a771578ec4601b70b31b2b538ae3d32cbeb10eaabd3bbc",
      "5f6c78598a3b477e264dafc0611bafdbfe2209bc67e5d057d2af95ca88199d05",
+     "623020bb46d39ba26807e466662377322a9fc44f1d06710e4452294243f0a085",
      "63c5260b9180bb9ee13fa17f820680e2231af033cf303fb8758222067e0c1f4b",
      "7bd724d696e1357a699326ff65534252451a9de522a42e8d8704818160385a1f",
      "7c30347e63af1133386d2fc07cf2b0cb9d5d706dd98940673e7f853b86672396",
@@ -586,7 +587,6 @@
      "89dde57b50bd38a0ecad9b9d827fb2af2032caea0efcca81c1118bc29ed36b6d",
      "99f4f4f660ff942da06542fc960d397076f90e279c604d54cf828f60d76416d7",
      "a5d91c1c108bf99829aa182344f853f1bfa0326ff5237814c4a94f98896b39e9",
-     "a687b4de560c6bf26a32a294b7c04138c9a43b124deaffe852544eed1f2ff4b4",
      "aa5f993635a882f7a7e5bfe746d6a7b7c669741603b9fb56b01b3abec285f650",
      "aee5880e904d7f33d91599ecf5b4533ad0f7dde37aa2f9f1106ca3230f6c1f90",
      "b434bca3570799ed926488e27c430713f3afa84c08d4d6d45d779e34ec6b089b",
@@ -611,12 +611,10 @@
      "00d99fe9afbaae4b03c15152900d07657f0f1152a03e031972c93c2864a02124",
      "085a9f25a2f1e5b0caf105cf85306e556ba5d9c6a0873b87b47c0bc0f2e204d6",
      "0e3cd6666715e6961a75e38737dc73953e5b83cd3940d88dc5b73389f80a157c",
-     "1ea65635ba25a4043a0a64aae14c62cc1301b1d49a5e06b9c7c5ef2bfb3286bd",
      "207dc98d95de149c36e90c555beb0b2857da1c966ab620608d44a5ff50532fe1",
      "244729e857ac586f069836302051d07ce34fdb4cb38e6e01aa90e5265ad688ca",
      "26cf8377ed4eab91f7e1b19dff9174c1aca1953243d6611eebe66b316e16f5ae",
      "2815efc7ca6f9592ffaa904b1eed3fd310f65f07df6cba3d4d0e33afed1ed602",
-     "2d4ad7e64fd3eecfba9d1a8546787381766c4d059a4380a17b8a39981f55b130",
      "3bb17b512d2cf2aa3e588698d0f824d52dd0f19355681d3a07db770047aace22",
      "46587762466a1fd8691df8304e8cf24aaee3067da46faa5e354f4e098d652a67",
      "46f16c1c5a750d97541ea595e0530a6ed016a02c1d4566febf96f8ab658c2098",
@@ -625,7 +623,7 @@
      "58ee2fc3146275ae87a5e919e29cfb327fae2829a0d98438bc32f2bac2ebf53e",
      "6564b497b1e87ee03bc9a8797f22ee5092f05ecd0956d1b8259af8dfdf1c7c71",
      "676faecf63dc7da74179e6aa994322639ab4b7eb875b12aa4752c66a1f9b09a0",
-     "78e8d4d0bae42821ff66035352432fdce46382f5a40e98b05d9e17f75fc15749",
+     "6cb93d8737b6ceb70b51e7ed003bb88e71f02229303f6908d07648ceb42ace18",
      "7b8e5e343b43c66ff484186a7c2b6a5fa2e1b79a11d3187237c28825cdfafb6d",
      "81d4f2e345a336c11beaee2c89889acf2b367f6b00c9fb2941e9792514040f29",
      "82b2c71a8920573d360decccf2fa1ef7dc76682227c0a29e45a91c7ac8ee6128",
@@ -633,17 +631,19 @@
      "9c897b73171cd76046d81c8cb318d865ad9b5918b2fe915d145029a44c7e551f",
      "9df720686f18f16804a3fa12c5795e0785ac0c48d1d788a3c0f16f76d6908e8c",
      "a2422888aa0df38cdf0ba211f2ad784761b0030509df5cd17ab4d57d595a3022",
+     "a344cd60d87dfdc582e2576297eb37de53894ee4ad1a51946bf82966bb4d8ddf",
      "a489e62087ccad9865d379e79d7612e95b54c247a55589fc3cdcae2acba51bd1",
      "a6fc00ee090404df63aad13691b9c8dde502b1e44dce6ccba65ad5924c19f09b",
      "b438d778238ff1a9e4fed50a663e8aad5936f134b9f2cff45e222b7e4ca73cf6",
      "b659de8a1e6e1ee1e165b0488f381a4e216840426e10e108be20e3fcd9003f34",
      "b93eba4cace1200f7b56354311963740ba6fd844601651b6180579deb4eef305",
-     "c638a1e21b5ffa0c43dfa88abf156507d8f06b90019f06cf195dbffeeb5a1a05",
+     "c8d2feba96d5753a01087c5d906365523272b68a35b115844532af13900fa217",
      "cdd086ce4cb8d0b95a783342a6726639a6c46d5b865462bb414bfd9509a7338b",
      "d495a714442b37f20a51f0951d5ed75f430213af68661088f620b293e07c2218",
      "d73c3514a7dafd91ceadec8e85ddeb2a26e64405f85d80f0659f7f8001339eea",
      "de67b7d1f6cefb793c1f310b7722dac6c17ff254533d330f7da51fccf30796dc",
      "eca9c8e6b89a85874a404ad1444853bd30fe3c39711c01cfc5e9a05b231d4f70",
+     "ed5ba89ac9b8c05de0423e5c708afcc51c94fdd3e4653fd9921323df36761f39",
      "f7fcddc976e6e2d4ce2a4d481f5113a125836e8058378892f2de3bb357f83307",
      "fc535702ba6b3406e2cc5ad4f8d96df0311781b9a7171c8e961138e17b167c9c",
      "fe0c037c3cbd94447eebd7c4d0c80e518b55f4f63cbd3dde99fafd71f4ffe1a9",
@@ -698,53 +698,6 @@
     ]
    },
    {
-    "id": "Herr Simon",
-    "label": "Herr Simon",
-    "need": "5d2e3c62ea9ec041685b064176ef5d8b875222129e84f351ed0bf4aaeff85417",
-    "marks": [
-     "01ec5b236a48a99ec6b99a821d2c23ee9ce25b169a2e5a9c4bc630bda76b68ca",
-     "06c7d9df287b93ce7fd05e3ff1371b77c4d0c2700e1cda0df43514bd09c60d1a",
-     "0b194e84e022a4c6ebdb2a007b6aa0d26569cd08dffd98ef98e2af2ca2d3607b",
-     "0ce3d223a35d1065efff553b216795aa64a65efed20db5ab07a9aebc75dd4549",
-     "0dee1bbd1f5d264c40326885e425c0a84ecbe04cc094ddcc9268b01d9632f081",
-     "10efd49431bd7081328619ab8625ea418df78fc70caa5d47d8e26e0f0cd5c379",
-     "175d461cc9aa2a10605c22334e1cce1c67632407dde7d5e8bae35caa180f93aa",
-     "185c0909b75c13aa1481b75bf91b01c66af1e4d8d4f2ffee35f246bf80fc35c0",
-     "18a811acbb58765b42fd2560bcb75f3a4db94770e7e307c0b1aa76cb90075b64",
-     "1c17914ab556003153a2ec4afba4d60277d30136631f131c485406acf2124f94",
-     "1e21704d2790504974c2e8dcbb721eea3ccab89a6d1e6cebf4f1bc1e5857f030",
-     "269fbc46fd5aff00068d879407e8f3738308329f06b635714bb5e356becadebf",
-     "30afedaff86868f4d3939c34a071a20b8d0752276ae69e17960c41165e05f300",
-     "347783d8b5ee0dbb6dd8f579bf84d80bd81b51e7abff2bd17ca9edf2d2f67b12",
-     "3d6ea871b05bd843767d5a73c2d79ce327d500bbcffd6c938977d445ea24215b",
-     "40e0b75145ecd84963ec74251b811aacc83c89886411e82f303a6ca493b65a97",
-     "602b83643a46326bf0b17cfbb55f9ce1e9976c6015952b4df8febfc872cac382",
-     "6bd0fc5fa9ad9a150b7b3edfe66f3e5e9b89f6bbcdba8f0a9ca2831185ab8117",
-     "8232bb35c55ba5d52bb9b88ec73b1fa06766affc0d9a8f42df1413ec2261f512",
-     "8308ed1cc48968d0ed7a24e614a6c2570922c4d7e194a21db209bc9d55e34bbc",
-     "87494d1364b420b354d265458f00454b75f7d69f000de1399ae40958c49a5bfe",
-     "89816aa61c9926b7b1119d6b6f3e0964ca24916e7dbc244c5730c89d435cd410",
-     "92ec6901e2721c2220e613fcfb89f91a44afe3033eadb8f3cc07f4868cc4e8e0",
-     "959ae3feeb5870ac9751e342f60be8c1cb2119a32e43de6104337e7fb74053c5",
-     "a7c37a3963020370aba8283d34b82e9cb01ec54451360dfbfe8f892c9652fcb1",
-     "a9606b749cdb8da872d5d529757bcdb03b2255544f76c6b55999991b3f6b0f9e",
-     "a9b471711bce34855d48f3a2ece879ff747f13f33b1cf4ce862324cc020a1a92",
-     "a9eba343368f3fb6f50f218e1d0ebc951323ce20171ed0dbad8f60f53733c36d",
-     "b88669387f38a590cae9e79100294e3b640869eba6e105fbc1206bf6b1ae4b77",
-     "ba199a0ae2d3e9adab136fa301c1c2ffa6aafc5c83dd6c8ea87ba17db05ea92c",
-     "ccffd1b51bab367967bcb134a535620b0d015c83c360a188141ca70e8ffa4ed4",
-     "d44b2b8c71bf0560a434fd6954bda16cc707b8451d2cf0594a68eff1f151ff2a",
-     "d9ef27afde2332f3b33922da2afb0c1ef12803c169adfb5c7685611b8782c7e8",
-     "dee83d768b60c4c3e5487493eaaff074ca3b94f8d7795d51098835ae0dc8039f",
-     "e14ef0c5b29b3eef9cbb5cad02da3b8fc7468976720ffa2552bb65db1d7d250d",
-     "e9593bc8b559c4ccf04edc6d5ba52e5721f4e2ee346cd7f1ade43c52d5b2f198",
-     "f041148d54bb5b04eb4c1214168bb59f867ae3e5b7a40d43dfafff0039695f63",
-     "f19516152477c94b35236e8d6199ecc72b352cd1e6f937344cb154b87171b521",
-     "f7c2e788736bb88d802c3e3eb6ffceff9ec4cf9cb0dbc5f134e0b448340e4428",
-     "fd952390797790b578d8dff60d19fc092af86535e131eff3c8849a817e991b9b"
-    ]
-   },
-   {
     "id": "Frau Litt",
     "label": "Frau Litt",
     "need": "065692d55945ea3fcf70868de810de4b7fb3e5c7af52fab5e5a05cf404c7882b",
@@ -776,8 +729,8 @@
      "c3a5d753b5abda5975c18cbcf61036a207a8f1647078e04085f05c5e4650cf20",
      "c87288785ee54c4ae97d58dd4b2f1466a5951213d007d8c3738c5a03b4822458",
      "c92dc969f2bc512be32c259d562adce5824b85f60c3852843b4a78dc2a987e97",
-     "cd8ba4d290fbc395a5514a1587a1775b4777cf64cbc60011e19acabb405912b9",
      "d4786a84ce12ee2e63c821b351c8d15fa07f8461975f66f3b7ec7769f873555b",
+     "dbaddf482287b95a3791c5112c96f40276bbea51a6f83fc3d8aedc46be37c752",
      "df5b90cebb6163503045024abbbfcd38ef5a49b91387fd3a7f985090726e2d26",
      "e1f338246ab89799a51dc3b5c0bf2f7e0c89a1122982aeafa4ae126b67d82123",
      "e5ca228259028a349d0cef648b6ac26574c1ed0d9ba027201ef3eda9ab3de525",
@@ -802,7 +755,6 @@
      "1299717084c12a53d0a33f2f7c4d0ef8384fab4c0cf7ad4c83bdd56c970eb6e0",
      "1390d5aa20aed715516d4113f729ee240cb882be3c0be50a0c20b745a3d986b3",
      "17555ee9c6fb8f9d6a06c9a71ba8382a8e85d71e8f5d4a38e15fea19c1e41ac1",
-     "200a124de2534ec820d6eb3f0b74f6886d6095ba9accec2514f4aa51d9511273",
      "26494cd530ca54880f2f20081cc3104077442a08f2ded047b3b55d01cfac4cd3",
      "40e5ce20c10124df8588a6c1dd6fcad23b06bc83c3a8407ea795b3d7cadba0f2",
      "454f854a2642f3083121a3d07fd48ba1e072119917b7a962f34fbf3e2597c86f",
@@ -811,8 +763,10 @@
      "550637f77adae6b341f556ff01f6906d885ea8569381fe59de01585ed70cda3b",
      "559587a2d232110022b69abec9bf6b4cf5f5962878902afe42852f35f341c97f",
      "58753c50e1f3dad6415530b2645ea1a63cd259048e517dbd7a2d6dcf0f4ac8a0",
+     "5b578cbf08f064ecfbdbb407fece96f783df4bc72da881b43807192d40c60834",
      "5f3a88bf595e25180293621c9f1fe7abd38f6f51d713c9e8ced8a05b9c2dd22a",
      "6037441284da37f9c079a2fe134ed552ee5eb169efed586cff4e382adfe2b95f",
+     "66b4a5e1b5ef65c359d077902553130d494e17f7927af39f2346dad43c0a9748",
      "6d9390ea1a813588a7a634c200ca46a61d9f70a8ef105cbb6102e13d8ac20f10",
      "6f4f0a67d6e84eff2c1c268dbe201133fe6689922974e40af079df86331d3dc6",
      "76b323bad03c8aec03f22366aca38bb439724ea2b36c0c758403b2137792969c",
@@ -827,7 +781,6 @@
      "c291629bb6bb2f3429202dde50deb589084c3e3a195ca129750fcae7eded540e",
      "d364dabb5153134d2628aca122033dfe7fe40d2ad63982e3ffeb26efd358ab89",
      "d40589969a04c85387d7170f128b7416df6b13211c20787f9b52d5b63e4a8c50",
-     "d7868e3c08ab0268c333f54dab2d479624252eab6f02c458f393ec414bf24870",
      "dec8332493e026426258378a677749d791ebdd1a65824a2589fc9484c75475de",
      "e501f004eb05200af88bc25685329ff1d1d7cf9d3b48c6f9f56b8296c980889f",
      "f83742d5079dd8f3bdcd1971b3a1e444e2ce25eee449032fe1d490642deb2d75",
@@ -854,22 +807,23 @@
      "23b886df7edd48578f44bf88c69e6f719833b7ef1723f370a698548456d62dfd",
      "26ab84d280d517402b89b8737e3b7d83ee5a327419cb54f88516ad86645c39b2",
      "2e803c5f9cfe479f967dcf385edc90ae38000aaae82418cda4d89d35763220a9",
+     "3236f8a1a4f0712d1449e0e5761b9c7b3a3b2907b7e40fdca402d57444eb842d",
      "3bc4fc75807055ebc2f14b4cda030dd5d8137abfc2af2600c67d823849f16b6a",
      "48e2467d077face3ca549c19c7bb22b8fa39c51916ef6b35a8f3a24de9495ba4",
      "50031feb4e820c57e238f52d755a2dd4c71878e87a0801c5bc1636f67df1fd64",
      "5ea249836b68d6e893ac6ae20c6ac8c07846c23ef857409cc5b1fb3b58d24e96",
      "641dc40fba7144d83caae271253ad1cd31c422bf8a7a171a89d6cbdda0e9c9db",
      "72ea613e65cb9f1c6dd7fa0110ecfddb23b465b9e77d6d314d0d1fe72226e2e4",
+     "7bc022f9f299c82ed4e9377a33b2898aaff079781147a299d2a96bba7ac308af",
      "7d015d2e07a2112f4b158e87b2e24dd71a567a4ba50ce510583d8b51fd774978",
      "832e063247fa68b3992e8e3b3057928e701e791bcfd5da6d5074d2b12f840875",
      "86587b4005fa4961efcb05f7ad1d3069706d99b6b8a32f1de20d54a411369666",
-     "88664255e0e5e3cedde3a7cd7f5f78c2cf35cf98aed42a1c261e8bea4799a7c2",
      "890d39461d2923a6ea9e9398586a0cb156fccb34579b01e46f0a0e55bf9361a8",
      "8bed1810d1665840b19bbb488fa716ebecdd45077e13f1c4ae61f161556ec2d2",
      "92325e6d9f6620d1da8047b7c4360694f46ba47549f754bf8d0e52f3a3408def",
      "92f140cca3be48e45aca3cc3cf17bf99c9bc71709d1acf7f0202a480164923a3",
-     "9dacc4957472b9d1f910f335f6321d06214d30142bde095ba6dcf651f5491371",
-     "b346e86aa132a7b8802a2b52d99835fb591e17adbbb05d89dbfd927b980b6666",
+     "971a4b3be3b8fa18f5a3fa7f26f5aac735ecd8b0e71a9163c5bf2b837193a801",
+     "a79451b5a5cfaee65da55c55dc6fc67f97a01b1ac233353fee73242c432f6e66",
      "b69981796ab4b9579c5dc1d9e74a9d22f8bee7cf676d7f9f81db8c7d82fd2f7e",
      "b90c1b90452b13b0e2cb77c0a7be718293be82bafc351f63d6a46e85988093d3",
      "bbbcd366f5cd63878a33978ec7ab65153215590cb5a5b9e61a381a365eb73df1",
@@ -881,7 +835,6 @@
      "e1e52490dee3f9ecc31c63df61a685f53a6aa259b876759abc667282bc5b9e82",
      "e3b8dcacb6e6b9c6311b86de37719eb28a1ba04f19e0698f02a2223ede33ddd8",
      "e6b5ec603b11fd06a91ae9d691bce313140622f4adf4b4a41677151566354499",
-     "fdefbd10d08478516ab60aa9a19714721afc0091abcf6437d2b97aca920472b8",
      "ff0474f2dc712ba55638c4a05be646f1bbd29205419009141b1445874a5d8ba2"
     ]
    },
@@ -890,18 +843,18 @@
     "label": "Frau Kern",
     "need": "b2c23400bb10cecc6ed18c0f843395cd8d14bbdaa1dabf80d6766bdc6fa55527",
     "marks": [
-     "03b51e8f8e43bda75733af032bca35a6411220561b5a848ed9147ccc60a8635d",
      "050febe1217226bb01147b92a1cfb38303cddfa7f15a8ceb92077b4a674cfcfc",
      "09270c8e57aae1878965465bcad971fc73bcc3f63e1a094dca9f86ae85716d24",
      "0e5c554ee11e99c5fd6d63aea81f00e2f935b912a6a648447557cca1a439451f",
+     "11a737a80ff5a0f7d30e8905f2f35ea924729f701f2844250765ffbbd7a67987",
+     "11b6b4e0c5f5cbad617944dd3a8fcd7c043e635bf3d8cc775fc28cebdb26ef33",
      "14ecfddf99385966410906261da6acabbf56c75fcf2e1f2e85a42757e712cbc5",
      "1dd7fc77653fa5b72dd96dfb599deafbfc1714ae7d1833baee4e5bec215d0bb1",
      "23a45d4b9b566206c268915fc63d9fa1b1fda2657569e92fd1c575a373f4ce97",
-     "28242ae973470b79858ac1b5f7fc9ccf002ac609fff3f124dfd0da001c87da71",
      "2debdbe921ce76b7f35b802322e760095a88e63f77d0a1ddede2da3dfa0b18b2",
-     "2e521799eed51b8ab5978ac1b3aa2e49ee724ac5ddec79a9e8f13514268c60d2",
      "30d721c46d164d6d08c049fd14c5b6c0d57c8eb512f9e1a19335c17fb8e931ff",
      "35467137317df3df33439772e2843b802d207456aab471a7e4691338aa8e0832",
+     "3617b4ee9fb333382894a5c4181a1da19073721d711e637ed5bd5efe24f5d565",
      "3ac678eb175773a070a3f826257167f55907cb50b6c1821d4ecfd3789d2c7880",
      "43fdd282398703ab38c5327b31aa926fa7ab5c36f017226407a9fc7a5bbe8bc9",
      "499314382ccaaa0ee535a8d3738d886f783277a6e7c29db9590d8a29c6b1e21a",
@@ -909,14 +862,16 @@
      "564d4694b5c5a2063431a32b41f3dbed8cd43d17e8cf484f250d487517369ffa",
      "57eb80cc008cf5610fa0aec2b1daae761cad6807d98e6699e0ccb23183310b94",
      "5baa85d14af83f59b6c588391981a85130a22e7d44acf0f61dc55b3e707f8bef",
+     "6f0cd49936ff92cf149f45cf650759e02e9c57294885969c2907b7f84c2bbf72",
      "722b10b274b39f77b7710daf00431fbb8589cfea260e06e00d623f783ed35919",
+     "78080350ea29c34833b234d314e99e3e72d5f396c11adb0ac94322d0ed16f3b5",
      "889e58401dee0643fc8a7b892c4dae0a8cb2ae368005999f8fe5098be06b8b83",
      "900c80a7961f340e3caad895718a221d47ffe2e3ff679c6ea2c9ecf1b9f5fd85",
      "a4f7dc30773110439c80dcc46d67a63395bf7743fd589cec22ba761afa097f68",
      "aa00660ef2e9d08702b0ccba5742c7c19e7f0d27ce8adb242334bf8192416667",
-     "aad6d37c8afea83ff823634eb643147ada633692aefb2d5b7704dff008eaf636",
+     "b0bde0bce8b6b9368ab3d05b627c34f99f1abb59fa08420e3abe238ab3434623",
      "be395dc6f3225d54dcb44f8bd7d9c9ce87b895408ffc2da443d8cf58a4b349ff",
-     "cf173677fd035b8953666998b2cd583d83d83a4e67702b216d4191a0c6a1e481",
+     "cd612ca878a661837ef769c4b356f1372d8b109c067ce603f9fd559d7880d2ef",
      "d54e65b6d64132f525d931a2bb2bffbafc43cf0fad31e4902b8e186a887c774a",
      "db49a161c9ed0acf8fdff481a4940a82291bacb1569ca4c6a05cb71b16e755fe",
      "dfb669d1fe2f4d877edbf1dd42827fc5c4a761625125269d180bdda476456935",
@@ -924,12 +879,10 @@
      "e1c648e03b7721f8c9334758a330d00ddf5288fc07b4025e4a7854f9979ea9db",
      "ec1b1fc2ebbcb9ac6afb7a7c9ac7f74da44f0015cdc6187a6b903f8cbb3cda1f",
      "f35c6a435db1a1b784e5322c7b77248655cdc068a6c97be90e915caacd01afb7",
-     "f7a906dee1c69571cc3a5be7bc6795053fc008558f3f589cd4ddc0ce11429fb6",
      "f97aaeb4447bfb7c7c9a79c64721bfd18ae891a70f0fc3f2547ad448e2d88297",
      "fbb3374a78390cca52a205005f0fecad6e2fafbca224e9d7cccc1d90bfefb536",
      "fd6dbdc6ea987ea22de5753afb5ca42a04685cc69ddc912d870ab4d55f73b3a4",
-     "fdf4ce10b6a0de9fd55b90e44bec58be1622145ec48750c4d4aa989d8f97855d",
-     "ff9f0bbddbd1647bd19826802c5aee193b10939a5ed80f14a602e08b4b01b731"
+     "fdf4ce10b6a0de9fd55b90e44bec58be1622145ec48750c4d4aa989d8f97855d"
     ]
    },
    {
@@ -1031,8 +984,10 @@
     "label": "The porter",
     "need": "05c7c573f3aadfa911a4c4dc4d17c9d11db8f9488a2c299b001b2a931c802d0d",
     "marks": [
+     "002ff4a3bef031f00a7c2dbc219b2c0584ae68b081996311acea57e667492940",
      "05f3a0b3daa67f1906be7342446bcffe8d13dedfa68350724fb9b50d35dfa653",
      "0641a4f038fcf35e6a799aea47494e027d2ddcf1f0babc228d0a7fa331e40039",
+     "0a514155b60b2fd1c3f98da724a072b226597c1e129e4931cd3b97e48d6f60a0",
      "0c86b9c199be23fc4b6ae44b25b33bbbc3d8548ab271cd5b34bb8f96787bb540",
      "0e0500252980abc5f6fc2880f535c99ff50c893298a7206e1423058e9ce7539a",
      "0f3f66c5a7b3f7f462d2b638e4fe34742cf11adc1af4e9a5ce1e9bdabf14cc9a",
@@ -1048,10 +1003,9 @@
      "55f1be0e2a580eeb0cd6d2daefc21b6f7652fd4c7e6545d943a17eebdb2c3bad",
      "575c1789f3ad0b5c5725fd0e38e56f8308c0d074d7fa228f5f87caeca8709a08",
      "5af657ec6b71fa821b2780e343bb3a226224c5b6a6d150d5280ab0c5e6bc0e0f",
-     "6739e35377a5ba19766e2414973079ca3a6701381abc038cb2c9209fb91c4e92",
+     "656a683b23681f9792f5a29a2768ae941b65d08ef0712db5dae0ce2e1e250f36",
      "77df36e3e25dfc84956a655ea3935834ba254c023312ecf441a4d8326768f97c",
      "7bc3e2607cb10a428541dfee2ff749870625ba097456cbf78b4fe45dbdfe295c",
-     "7f30779d12e8b94694d3a00d08ef4c605174e67018df1970ffd59657efce5fdd",
      "81873c3b9cb08064dc93905fee39607c534c4a1dc7a0abba5ef807df7d04ff85",
      "862b47a7325b9783c58a1a68bc2b19abd12e88b4a59dacf2029eccaf0a0dd49c",
      "876dbed25d016665a84ec3124f17ae572239ef69fcda22cc262c59ff0e5de4d6",
@@ -1062,10 +1016,9 @@
      "ac7f07acfb6d88531601257d97d5fb69a2f858b3b3652f550203796c5109f207",
      "b5010536e9c00fc4296542149f25242b9ece7206753397a7318ff6a29f270982",
      "bd35fb4dee7221d96b9b0d4063808fef0f8b36498ff549a87c7bfef408c173ba",
+     "cb7f095bf72c8c759f86f72db0f8d689da8b735b22d90e2bce651b22b8c76d16",
      "cce44471e0f110eab8b81b91ab34993b0582ab0a5e76571181d5e62044082e98",
      "cddac2053ea9637535083e8e1a2f5239dab1a8a0c5351e9dbd0c75420e500d7f",
-     "d1d63619c7bd0e3d5c191ccc26fc75bdbc9ae267a6cf75fbc8cc4ad80f379257",
-     "d53f98446151fbc13562bb56bded84d1ecfe2c11eafefa1538005b9f1fac5611",
      "d6c344877555237963bf28664ddb926d89761e9e701affd7801874d786c833f6",
      "d7652b87ddb533c8ebc7a74b09ff9fc6385fc83683db4c0448c70209fb8f94e9",
      "ef99d3753e895b068abd496a34d3268b0e80cc1f9ecb1b70e05ddad812362772",
@@ -1079,13 +1032,12 @@
     "need": "82258fb87adab0fd23a2f629438a60f33fdba8501a2c136c13bc002f0a4d1fe4",
     "marks": [
      "02ab848bdf7c0de79f24b68d6670482fe8b0ede6b00bb113399f43c06dbb40f4",
-     "02d1f8274d440f7cdf59193ef6fadb0e7ca4f5de0909c8f29a7fc76bef1e67b7",
      "04698f3fd2e7b3ea62f26e58904fc0e0b2f74177ad3b1bd00c89a33e81ab2254",
      "196b348c0b64b7bd0cd4d1ca4c5bbf82e7c65040478b5aeae2bbd9d1e366d86d",
      "1f5d12f829e0ae173226ca4443dc3e772c171204f2cb7101507013c62dbb6ed0",
      "2f55544e172675c6d85481777142ad0f42d446728f5f9b56ee2106df89293145",
      "36987b20dda0bb8d861c631ae8b8e91083c28ce752859b187fcafccc2bb0ea05",
-     "36de6c77f74da47fb0d3b56ce2d3b2ed35886dbb345b25aadbc5bd8777cfb06c",
+     "405f19fcc6a336043c005f6c8d9f8b044df661848b3031114af607e54a6f65d8",
      "4428dcded9b355591d69964b4435c1953d50ce7eba4a1b8ae71da08d890a35f2",
      "4eac6efadd5d233ebcc9f3dc9e98201753f2f1f1a072540539ca3fa43bd8bc73",
      "4ff704b206f2c71e9c580eed997448d97ba133fd8105e1a99eb2027567bb8326",
@@ -1093,6 +1045,7 @@
      "53fcf173eca447f70e8dc3d7abf236e8486868c5de332912740fb86bb4699cbe",
      "63314e87dc531b05a28ce415eae597e4b4195dc7143d80833913d190eac2e7c9",
      "634263340b862e12946868e381e2277863f5897aa5d15fdd4a92d9f5ef91e62c",
+     "747d7a9d739a395a86ec8a69b464c0eb3ac8b7a5b11ca480359939b2313931c7",
      "8069f06eb0de70df1c5289a87c36655ba9fdbbe3a431f2b590b2683dfa3b1816",
      "84b2625a3c97d9c3aa193670efd26890034ec7912345da03d8d6244d826d0ac0",
      "897a7244f14933ac2624d84973556c37625be1ef34620e78b0d4d8a86c6ecc9f",
@@ -1148,7 +1101,7 @@
    "who": "Oberregierungsrat Grau",
    "de": "Oberregierungsrat, Mitte fünfzig, im Haus seit dem Umzug. Er hört einem bis zum Ende zu und entscheidet dann, was er ohnehin entschieden hatte, und hält beides für dasselbe. Ein Mann, der Namen nie vergisst und Gesichter schon. Er redet über die Arbeit wie über das Wetter: sachlich, unaufhörlich und ohne dass jemand klüger wird. Zu Hause wird er anders sein, sagt das Haus, und das Haus weiß es nicht.",
    "en": "Oberregierungsrat, in his middle fifties, in the building since the move. He hears you out and then decides what he had decided already, and considers those the same thing. A man who never forgets a name and does forget faces. He talks about work the way other people talk about weather: steadily, at length, and without anybody coming away wiser. He must be different at home, the building says, and the building does not know.",
-   "sprite": "art/people/simon.png"
+   "sprite": "art/people/grau.png"
   },
   {
    "who": "Frau Pohlmann",
@@ -1160,7 +1113,7 @@
    "who": "Herr Simon",
    "de": "Vierundfünfzig, seit zwanzig Jahren in der Registratur, und er sagt jeden Satz so, als hätte er ihn schon zwanzig Jahre gesagt, was stimmt. Ordnung ist bei ihm keine Tugend, sondern eine Gewohnheit, die er sich nicht mehr abgewöhnen könnte. Er verwechselt nie eine Nummer und selten einen Namen. Wenn etwas nicht zurückkommt, ärgert er sich still und lange. Sein Bruder hatte eine Gastwirtschaft, und davon erzählt er einmal im Jahr.",
    "en": "Fifty-four, twenty years in the Registratur, and he says every sentence like a man who has been saying it for twenty years, which he has. Order is not a virtue with him but a habit he could no longer break. He never mixes up a number and rarely a name. When something does not come back he is quietly and lastingly annoyed. His brother kept an inn, and he tells you about it once a year.",
-   "sprite": "art/people/grau.png"
+   "sprite": "art/people/simon.png"
   },
   {
    "who": "Frau Litt",
@@ -1178,13 +1131,13 @@
    "who": "Fräulein Bühl",
    "de": "Achtundzwanzig, seit vier Jahren im Haus, verlobt seit Ostern. Geheiratet wird im Frühjahr, und was danach kommt, hat das Haus schon entschieden, ohne dass es jemand ausgesprochen hätte. Sie kleidet sich eine Gehaltsstufe über ihrer Gehaltsstufe und trägt dazu ein Gesicht, das zu einer Bemerkung einlädt. Gemacht hat sie noch niemand. Sie tippt gut und gern und redet dabei nicht, was sie für Höflichkeit hält und die anderen für Hochmut. Auf die Frage, ob sie danach bleibt, sagt sie „Mal sehen“, und zwar so, als hätte sie schon gesehen.",
    "en": "Twenty-eight, four years in the building, engaged since Easter. The wedding is in the spring, and what happens after that the building has already decided without anyone saying it aloud. She dresses one salary grade above her salary grade and wears an expression that invites a remark. Nobody has made one yet. She types well and willingly and does not talk while she does it, which she considers courtesy and the others consider airs. Asked whether she will stay on afterwards she says we'll see, in the tone of somebody who has already seen.",
-   "sprite": "art/people/kern.png"
+   "sprite": "art/people/buehl.png"
   },
   {
    "who": "Frau Kern",
    "de": "Kam im Frühjahr herüber. Ohne Beförderung, ohne Erklärung. Auf die Frage warum sagt sie, hier sei es wärmer. Ein Ehering, kein Foto auf dem Schreibtisch. Sie schreibt schnell, sauber und ohne jede Neugier auf den Inhalt — in einem Haus wie diesem eine erlernbare Fähigkeit, und bei ihr wirkt sie sehr gut erlernt. Wenn im Raum über Vorgesetzte gesprochen wird, prüft sie ihr Farbband.",
    "en": "Came across in the spring. No promotion, no explanation. Asked why, she says it is warmer here. A wedding ring, no photograph on the desk. She types fast, cleanly and with no curiosity whatever about the content — in a building like this one a learnable skill, and in her case a very well learned one. When the room starts talking about superiors, she checks her ribbon.",
-   "sprite": "art/people/buehl.png"
+   "sprite": "art/people/kern.png"
   },
   {
    "who": "Fräulein Ostrowski",
@@ -1285,7 +1238,8 @@
     "stand": null,
     "sarah_at": null,
     "spread": null,
-    "sees": []
+    "sees": [],
+    "short": "canteen"
    },
    {
     "id": "hall2",
@@ -1306,7 +1260,8 @@
     "stand": null,
     "sarah_at": null,
     "spread": null,
-    "sees": []
+    "sees": [],
+    "short": "corridor"
    },
    {
     "id": "landing",
@@ -1326,7 +1281,8 @@
     "stand": null,
     "sarah_at": null,
     "spread": null,
-    "sees": []
+    "sees": [],
+    "short": "landing"
    },
    {
     "id": "lodge",
@@ -1354,10 +1310,11 @@
       "phase": null
      },
      {
-      "text": "The delivery note for the paper of the typing pool (Schreibsaal): for a parcel of paper delivered at the lodge on 14 October at a quarter to three, signed for there by Frau Kern, and the count of the reams initialled at the foot by her and by the porter at twenty to four.",
+      "text": "The delivery note for the paper of the typing pool (Schreibsaal): for a parcel of paper delivered at the lodge on 14 October at a quarter to three, the quarter's paper for the Schreibsaal, listed Referat by Referat, signed for there by Frau Kern, and the count of the reams initialled at the foot by her and by the porter at twenty to four.",
       "phase": null
      }
-    ]
+    ],
+    "short": "hall, lodge"
    },
    {
     "id": "paternoster",
@@ -1377,7 +1334,8 @@
     "stand": null,
     "sarah_at": null,
     "spread": null,
-    "sees": []
+    "sees": [],
+    "short": "landing"
    },
    {
     "id": "pool",
@@ -1408,7 +1366,8 @@
       "text": "A drafted request, in the drawer of the desk in the corner behind the door: for new machines, costed to the Pfennig against what the last lot came to in 1964, finished, unsigned, and never sent up.",
       "phase": "after five"
      }
-    ]
+    ],
+    "short": "typing pool"
    },
    {
     "id": "poststelle",
@@ -1432,10 +1391,11 @@
       "phase": null
      },
      {
-      "text": "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, where it was done.",
+      "text": "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, when it was done.",
       "phase": null
      }
-    ]
+    ],
+    "short": "Poststelle"
    },
    {
     "id": "registratur",
@@ -1474,7 +1434,8 @@
       "text": "The file, its contents: every sheet flat and in the pool's own order, the newest facing you the moment the cover is open, which is neither how the file went out nor how the Registratur keeps it; and on the inside of the cover the figures of the number stand up where the pencil was pressed through the card.",
       "phase": null
      }
-    ]
+    ],
+    "short": "Registratur"
    },
    {
     "id": "vorzimmer",
@@ -1506,7 +1467,8 @@
       "text": "The out-tray on Frau Pohlmann's desk: three files waiting to go down, every one of them with the oldest sheet facing and the newest at the back, the way everything leaves Frau Pohlmann's desk.",
       "phase": null
      }
-    ]
+    ],
+    "short": "outer office"
    },
    {
     "id": "washroom",
@@ -1524,7 +1486,8 @@
     "stand": null,
     "sarah_at": null,
     "spread": null,
-    "sees": []
+    "sees": [],
+    "short": "washroom"
    },
    {
     "id": "z407",
@@ -1542,7 +1505,8 @@
     "stand": null,
     "sarah_at": null,
     "spread": null,
-    "sees": []
+    "sees": [],
+    "short": "Room 407"
    }
   ],
   "people": [
@@ -1572,7 +1536,7 @@
      "afternoon": {
       "lines": [
        {
-        "text": "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
+        "text": "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. The file was not on it when I went up, and it was when I came down. People ask me why I did not lock it. A counter is not a thing anybody locks.",
         "phase": null
        }
       ],
@@ -1621,7 +1585,9 @@
       "talk": null,
       "evade": null
      }
-    }
+    },
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "Pohlmann",
@@ -1698,7 +1664,9 @@
       "talk": null,
       "evade": null
      }
-    }
+    },
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "Grau",
@@ -1718,7 +1686,7 @@
     "sprite": "art/people/grau.png",
     "hello": [
      {
-      "text": "Grau: Fräulein Wessen. Sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else.",
+      "text": "Grau: Fräulein Wessen. Frau Pohlmann will have told you I am not to be disturbed, and she is right, so sit down; this will not take long. I can tell you a good deal about the procurement of 1964 in general and nothing whatever about 117/64 in particular, and nothing of mine ever went on to it, in ink or in anything else.",
       "phase": null
      }
     ],
@@ -1729,7 +1697,9 @@
       "evade": null
      }
     },
-    "shows": {}
+    "shows": {},
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "Litt",
@@ -1801,7 +1771,9 @@
       "talk": null,
       "evade": null
      }
-    }
+    },
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "Adam",
@@ -1868,7 +1840,9 @@
       "talk": null,
       "evade": null
      }
-    }
+    },
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "Kern",
@@ -1888,7 +1862,7 @@
     "sprite": "art/people/kern.png",
     "hello": [
      {
-      "text": "Kern: Kern. I came across to the Schreibsaal in the spring, and being newest I am the one who goes up to the landing for the post and down to the lodge for a parcel of paper. I do not mind it. The stairs would tell you otherwise.",
+      "text": "Kern: Kern. I came across to the Schreibsaal in the spring, and being newest I am the one who goes up to the landing for the post and down to the lodge for a parcel of paper. I do not mind it. The stairs would tell you otherwise. By the time the cleaning women come up them, the last of us has gone home.",
       "phase": null
      }
     ],
@@ -1916,7 +1890,7 @@
      "afternoon": {
       "lines": [
        {
-        "text": "Kern: Downstairs. That Tuesday I went down to the porter's window to wait for the Schreibsaal's paper, and I did not come up again until he and I had counted every ream of it.",
+        "text": "Kern: Downstairs. That Tuesday I went down to the porter's window to wait for the Schreibsaal's paper, and I did not come up again until he and I had counted every ream of it, Referat by Referat.",
         "phase": null
        }
       ],
@@ -1929,7 +1903,9 @@
       "evade": null
      }
     },
-    "shows": {}
+    "shows": {},
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "Bühl",
@@ -1965,7 +1941,9 @@
       "talk": null,
       "evade": null
      }
-    }
+    },
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "Ostrowski",
@@ -2006,7 +1984,9 @@
       "evade": "\"I have nothing to say about anybody's temper,\" says Fräulein Ostrowski, and looks at her keys."
      }
     },
-    "shows": {}
+    "shows": {},
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "Wenzel",
@@ -2037,7 +2017,9 @@
       "evade": null
      }
     },
-    "shows": {}
+    "shows": {},
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "the porter",
@@ -2070,7 +2052,7 @@
         "phase": null
        },
        {
-        "text": "the porter: And I had company for it. A parcel of paper for the Schreibsaal came at a quarter to three. Frau Kern had come down to the lodge at twenty past two to wait for it and she was still standing here at a quarter to four, the two of us going over the count line by line, which took longer than the delivery did.",
+        "text": "the porter: And I had company for it. A parcel of paper for the Schreibsaal came at a quarter to three, the quarter's paper for every Referat they type for. Frau Kern had come down to the lodge at twenty past two to wait for it and she was still standing here at a quarter to four, the two of us counting it out Referat by Referat against the note, which took longer than the delivery did.",
         "phase": null
        }
       ],
@@ -2104,7 +2086,9 @@
       "talk": "\"That is my book,\" says the porter, \"and it says what it says. I do not read it out to people. You can read.\"",
       "evade": null
      }
-    }
+    },
+    "files": {},
+    "file_talk": {}
    },
    {
     "id": "the charwoman",
@@ -2133,10 +2117,12 @@
      }
     ],
     "topics": {},
-    "shows": {}
+    "shows": {},
+    "files": {},
+    "file_talk": {}
    }
   ],
-  "fewest": 17,
+  "fewest": 18,
   "topics": [
    {
     "id": "registratur",
@@ -2179,8 +2165,8 @@
     "always": true,
     "raised_by": [
      "The shelf for Z A 4: a gap since 12 May, and the slip standing in it gives a room and not a name, because that is all a slip has ever been asked to give. Every other cover on the shelf has its number on the front in ink, in one hand, and it is Herr Simon's.",
-     "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, where it was done.",
-     "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
+     "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, when it was done.",
+     "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. The file was not on it when I went up, and it was when I came down. People ask me why I did not lock it. A counter is not a thing anybody locks.",
      "Simon: You will be the one Kommissar Mauser sent. Good. Come and stand where I stood, because this counter is where it happened. The file was not there when I went up to the Poststelle and it was there when I came down, squared off against the edge the way a thing is put down by somebody who means it to be noticed.",
      "Simon: The way it went out. There is one way, and I have explained it more often than I can count. A file leaves on the book and it comes back on the book, and it comes back from Frau Pohlmann's outer office that took it, never from Oberregierungsrat Grau himself, whom it went up to. So you understand me: a thing lying on my counter is not back. Until somebody writes the line it is still out, whatever is sitting there.",
      "Simon: Once, and I asked the proper person. I stopped Frau Pohlmann in the corridor in the last week of September and asked whether 117/64 had ever come back to her, and she said she would ask the typists, since it was the Schreibsaal she had passed it to. What she asked them, and how, you will have to ask her.",
@@ -2235,7 +2221,7 @@
     "ask_of": {},
     "always": true,
     "raised_by": [
-     "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. People ask me why I did not lock it. A counter is not a thing anybody locks.",
+     "Simon: I have been over that afternoon more times than it deserves. I was called up to the Poststelle at half past two on 14 October and I was back at half past three, and my counter stood open and empty the whole of that hour. The file was not on it when I went up, and it was when I came down. People ask me why I did not lock it. A counter is not a thing anybody locks.",
      "the porter: Where I always am. I did not leave the lodge between half past two and half past three, and my initials stand in my book against every one of the five who came to the window in that hour to say so. The afternoon is when the deliveries come, and a lodge nobody is sitting in is a lodge anybody may walk past."
     ]
    },
@@ -2296,7 +2282,7 @@
    },
    {
     "thing": "The Poststelle's outgoing book",
-    "line": "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, where it was done.",
+    "line": "The Poststelle's outgoing book: Herr Simon's initials in the margin at a quarter to three on 14 October, against a misdirected item the clerks had called him up to sort out, and again at a quarter past three, when it was done.",
     "portable": false
    },
    {
@@ -2321,7 +2307,7 @@
    },
    {
     "thing": "The delivery note for the paper of the typing pool (Schreibsaal)",
-    "line": "The delivery note for the paper of the typing pool (Schreibsaal): for a parcel of paper delivered at the lodge on 14 October at a quarter to three, signed for there by Frau Kern, and the count of the reams initialled at the foot by her and by the porter at twenty to four.",
+    "line": "The delivery note for the paper of the typing pool (Schreibsaal): for a parcel of paper delivered at the lodge on 14 October at a quarter to three, the quarter's paper for the Schreibsaal, listed Referat by Referat, signed for there by Frau Kern, and the count of the reams initialled at the foot by her and by the porter at twenty to four.",
     "portable": false
    },
    {
@@ -2417,8 +2403,8 @@
    "The shelf for Z A 4": "art/documents/shelf-z-a-4-room.jpeg",
    "The loan book": "art/documents/loan-book.jpeg",
    "The Rückstandsliste, the arrears list": "art/documents/rueckstandsliste.jpeg",
-   "The file, its cover": "art/documents/file-cover.jpeg",
-   "The file, its contents": "art/documents/file-contents.jpeg",
+   "The file, its cover": "art/documents/file-shut-cut.png",
+   "The file, its contents": "art/documents/file-open-cut.png",
    "The Poststelle's outgoing book": "art/documents/poststelle-outgoing-book.jpeg",
    "The outer office's list of what went down": "art/documents/outer-office-list.jpeg",
    "The Geschäftsordnung, the rules of procedure, on Fräulein Ostrowski's desk": "art/documents/geschaeftsordnung.jpeg",
@@ -2586,6 +2572,25 @@
     "under": null
    },
    {
+    "thing": "The Poststelle's outgoing book",
+    "prop": "P32",
+    "places": [
+     "poststelle"
+    ],
+    "files": {
+     "art/rooms/poststelle-autumn.jpeg": "art/props/painted-p32-autumn.png",
+     "art/rooms/poststelle-friday.jpeg": "art/props/painted-p32-friday.png",
+     "art/rooms/poststelle-spring.jpeg": "art/props/painted-p32-spring.png"
+    },
+    "box": [
+     0.57617,
+     0.47005,
+     0.10254,
+     0.05469
+    ],
+    "under": null
+   },
+   {
     "thing": "The delivery note for the paper of the typing pool (Schreibsaal)",
     "prop": "P28",
     "places": [
@@ -2622,8 +2627,30 @@
      0.05208
     ],
     "under": null
+   },
+   {
+    "thing": "The file, its cover",
+    "prop": "P30",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/file-shut-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/file-shut-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/file-shut-spring.png"
+    },
+    "box": [
+     0.74609,
+     0.50521,
+     0.04248,
+     0.02214
+    ],
+    "under": null
    }
   ],
+  "opens": {
+   "The file, its cover": "The file, its contents"
+  },
   "sarah": "art/people/sarah.png",
   "sarah_height": 172
  },

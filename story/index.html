@@ -11,15 +11,22 @@
 <!--
   The whole front end. It knows how to read a case and how to mark an answer
   sheet, and nothing whatever about how a case is made or proved.
+
+  IN ANOTHER LANGUAGE (26 September 2026): every piece of the page a player
+  reads carries data-i18n, its id in the translations (lang/<code>/ui.po,
+  the context "html:<id>"), and an attribute a player reads carries
+  data-i18n-title and the like. i18n.js puts the translation in. A new piece
+  of text needs its data-i18n, or chapters/i18n.py cannot see it.
 -->
 
 <header>
   <div class="topbar">
     <h1 id="title">The Outstanding File</h1>
     <span class="tools">
-      <button type="button" id="openmanual">How to play</button>
-      <button type="button" id="openfeedback">Feedback</button>
-      <button type="button" id="opensettings">Settings</button>
+      <select id="langpick" aria-label="Language" data-i18n-aria-label="langpick" hidden></select>
+      <button type="button" id="openmanual" data-i18n="openmanual">How to play</button>
+      <button type="button" id="openfeedback" data-i18n="openfeedback">Feedback</button>
+      <button type="button" id="opensettings" data-i18n="opensettings">Settings</button>
     </span>
   </div>
   <p id="subtitle"></p>
@@ -28,10 +35,10 @@
        the building, and what Sarah has heard with the report. The title and
        the chapter list stand only on the first. Reading the whole file shows
        everything on one page and has no tabs. -->
-  <nav id="views" class="tabs views" aria-label="View">
-    <button type="button" data-view="chapters">Chapters</button>
-    <button type="button" data-view="building">The building</button>
-    <button type="button" data-view="notebook">Notebook and report <span class="fresh" id="freshcount"></span></button>
+  <nav id="views" class="tabs views" aria-label="View" data-i18n-aria-label="views">
+    <button type="button" data-view="chapters" data-i18n="view.chapters">Chapters</button>
+    <button type="button" data-view="building" data-i18n="view.building">The building</button>
+    <button type="button" data-view="notebook" data-i18n="view.notebook">Notebook and report <span class="fresh" id="freshcount"></span></button>
   </nav>
 </header>
 
@@ -46,7 +53,7 @@
        The map, the room with whoever is in it, and the conversation. What
        is heard here lands in the evenings below, under its own heading. -->
   <section id="walk" hidden>
-    <p class="readnote" id="readnote" hidden>You are reading the whole file.
+    <p class="readnote" id="readnote" hidden data-i18n="readnote">You are reading the whole file.
       <button type="button" id="backtowalk">Walk the building instead</button></p>
     <div id="walkbody">
       <p class="cover" id="cover"></p>
@@ -55,8 +62,8 @@
       <div class="walkgrid">
         <div id="map"></div>
         <div class="stage" id="stage">
-          <button id="theatreclose" type="button" title="Back to the map (Esc)">← the map</button>
-          <button id="tonotebook" type="button" title="What Sarah has heard, and the report">Notebook and report <span class="fresh" id="freshroom"></span></button>
+          <button id="theatreclose" type="button" title="Back to the map (Esc)" data-i18n-title="theatreclose.title" data-i18n="theatreclose">← the map</button>
+          <button id="tonotebook" type="button" title="What Sarah has heard, and the report" data-i18n-title="tonotebook.title" data-i18n="tonotebook">Notebook and report <span class="fresh" id="freshroom"></span></button>
           <div id="scene"></div>
           <h3 id="placename"></h3>
           <p id="placetext"></p>
@@ -74,7 +81,7 @@
   <section id="evenings" hidden>
     <!-- The desk (the user, 17 September 2026): lines laid out by hand, any
          evening's, wherever the player puts them. -->
-    <div id="deskwrap"><h3 class="deskhead">On the desk <button type="button" id="squeeze" hidden title="Push every card up into the empty space, and make the desk only as big as they need">close the gaps</button></h3><div id="sarahsdesk"></div></div>
+    <div id="deskwrap"><h3 class="deskhead"><span data-i18n="deskhead">On the desk</span> <button type="button" id="squeeze" hidden title="Push every card up into the empty space, and make the desk only as big as they need" data-i18n-title="squeeze.title" data-i18n="squeeze">close the gaps</button></h3><div id="sarahsdesk"></div></div>
     <div class="tabs" id="daytabs"></div>
     <p class="note" id="daynote"></p>
     <div id="sections"></div>
@@ -105,21 +112,21 @@
          so that it can be written while reading. The duty sheet has the same
          box; nothing reads it but the player. -->
     <section id="notepad">
-      <h2>Notes</h2>
-      <textarea id="notes" spellcheck="false"
+      <h2 data-i18n="notes.head">Notes</h2>
+      <textarea id="notes" spellcheck="false" data-i18n-placeholder="notes.placeholder"
         placeholder="Your own working. Nothing here is marked and nobody reads it."></textarea>
     </section>
 
     <aside id="sheet">
-      <h2>The report</h2>
+      <h2 data-i18n="report.head">The report</h2>
       <p class="mode">
         <button id="modeswitch" type="button"></button>
-        <select id="levelswitch" aria-label="How much evidence the report asks for" hidden></select>
+        <select id="levelswitch" aria-label="How much evidence the report asks for" data-i18n-aria-label="levelswitch" hidden></select>
         <span class="count" id="count"></span>
       </p>
       <div id="parts"></div>
       <p class="count" id="asked"></p>
-      <p class="invite" id="invite" hidden>This is an early version, and you are
+      <p class="invite" id="invite" hidden data-i18n="invite">This is an early version, and you are
         one of the first to finish it. <button type="button" id="invitefeedback">Tell
         us how it went</button></p>
     </aside>
@@ -129,70 +136,73 @@
 <!-- THE MANUAL. For a player, not for us: how to get about, how to talk to
      people, how the report is marked. It says nothing about how to weigh what
      anybody says -- the handoff's rule: nobody is ever told that witnesses may
-     lie or that objects are true. If the game changes, this changes with it. -->
+     lie or that objects are true. If the game changes, this changes with it,
+     in every language: a changed paragraph's translation goes fuzzy and the
+     check stays red until it is read again. -->
 <div id="manual" class="sheet-modal" hidden>
   <div class="paper" role="dialog" aria-modal="true" aria-labelledby="manualtitle">
-    <button class="closer" type="button" data-close="manual" title="Close (Esc)">×</button>
-    <h2 id="manualtitle">How to play</h2>
+    <button class="closer" type="button" data-close="manual" title="Close (Esc)" data-i18n-title="close.title">×</button>
+    <h2 id="manualtitle" data-i18n="manual.title">How to play</h2>
 
-    <p>Bonn, 1969. Sarah Wessen is a private detective (Privatdetektivin).
+    <p data-i18n="manual.intro">Bonn, 1969. Sarah Wessen is a private detective (Privatdetektivin).
     Kommissar Mauser of the Kriminalpolizei is how she gets through the door of
     a federal ministry, and each chapter is something he sends her to look
     into. You go where she goes, hear what she hears, and at the end you write
     her report to him.</p>
 
-    <h3>Getting about</h3>
-    <p>The map shows the building floor by floor, and on some evenings the
+    <h3 data-i18n="manual.about.head">Getting about</h3>
+    <p data-i18n="manual.about">The map shows the building floor by floor, and on some evenings the
     town. Click a room to walk into it; it fills the screen. <b>← the map</b>
     or <kbd>Esc</kbd> takes you back out. A small number on a room says how
     many people are in it.</p>
 
-    <h3>Time moves on, and only forward</h3>
-    <p>The bar above the map says when it is, and the button beside it moves
+    <h3 data-i18n="manual.time.head">Time moves on, and only forward</h3>
+    <p data-i18n="manual.time.1">The bar above the map says when it is, and the button beside it moves
     the time on. <b>No button moves it back.</b> Who is in the building
     depends on the time: people leave, and others come in.</p>
-    <p>In some chapters a day has two parts. During <b>the working day</b> the
+    <p data-i18n="manual.time.2">In some chapters a day has two parts. During <b>the working day</b> the
     offices are full. <b>Stay until after five</b> ends it: the people who
     work there go home, the few who are about in the evening are about, and
     Sarah cannot go back to the afternoon. Anybody she did not get to is gone
     until the morning. <b>Go home; come back tomorrow</b> starts the next day,
     with everybody back at work and with time for her again, so in these
     chapters nothing is lost for good.</p>
-    <p>In others the whole chapter is working days, and there is no evening to
+    <p data-i18n="manual.time.3">In others the whole chapter is working days, and there is no evening to
     wait for. That is not a smaller chapter. What is held back there is held
     back by somebody rather than by the clock: a cupboard is opened for the
     right paper and not at the right hour, so what Sarah gets next depends on
     what she is already carrying. Going home and coming back still buys her
     more of everybody's time.</p>
-    <p>Some chapters are a few fixed evenings instead: the bar says which, as
+    <p data-i18n="manual.time.4">Some chapters are a few fixed evenings instead: the bar says which, as
     in “evening 1 of 3”. <b>On to</b> the next evening leaves this one behind
     for good. Whoever was there only that evening cannot be found again, and
     what was there to be seen only that evening is not there any more. Before
     moving on, make sure Sarah has been everywhere and talked to everybody
     she wants to.</p>
-    <p>What Sarah has already heard is never lost: the notebook keeps every
+    <p data-i18n="manual.time.5">What Sarah has already heard is never lost: the notebook keeps every
     evening.</p>
 
-    <h3>Looking</h3>
-    <p>When you walk into a room, what is there to be noticed is written
+    <h3 data-i18n="manual.looking.head">Looking</h3>
+    <p data-i18n="manual.looking">When you walk into a room, what is there to be noticed is written
     under the picture. A thing in a <span class="read">dashed box</span> is
     something Sarah can look at: click it. Most such things also lie in the
     picture itself, where they are: on a desk, on a counter, pinned to a wall.
-    Clicking one there is the same as clicking its box. What it says is only
+    Clicking one there is the same as clicking its box. A thing that can be
+    opened, like a file, opens when you click its picture. What it says is only
     noted once she has looked, and it goes into her notebook, where you can look
     at it again at any time.</p>
 
-    <h3>Talking</h3>
-    <p>Click somebody to talk to them. The first time Sarah goes up to a
+    <h3 data-i18n="manual.talking.head">Talking</h3>
+    <p data-i18n="manual.talking.1">Click somebody to talk to them. The first time Sarah goes up to a
     person, they will usually say something of their own accord.</p>
-    <p>After that, you choose what Sarah does. Under <b>Raise</b> are the
+    <p data-i18n="manual.talking.2">After that, you choose what Sarah does. Under <b>Raise</b> are the
     subjects she can bring up, each with the words she will use; a subject
     appears once something you have read or heard gives her a reason to
     mention it. Under <b>Show or mention</b> are the things in her notebook: a
     thing she has with her she puts in front of them, and a thing that stays
     where it is, like the porter's book, she tells them about. <b>Swap</b>,
     beside either heading, puts the other list first.</p>
-    <p>People have only so much time for her. The dots beside a name are their
+    <p data-i18n="manual.talking.3">People have only so much time for her. The dots beside a name are their
     patience, what is left of it: every answer uses one, and a question somebody cannot answer
     costs nothing, though it is counted: the bar above the map shows how many
     questions Sarah has asked and how many of them were shrugged off. Their
@@ -200,8 +210,8 @@
     Everybody has time enough for everything they know, so nothing can be lost
     by asking the wrong thing.</p>
 
-    <h3>What you have heard</h3>
-    <p>The page has three tabs at the top. <b>Chapters</b> lists the
+    <h3 data-i18n="manual.heard.head">What you have heard</h3>
+    <p data-i18n="manual.heard.1">The page has three tabs at the top. <b>Chapters</b> lists the
     chapters of the series. <b>The building</b> is the map and
     the rooms. <b>Notebook and report</b> collects everything Sarah has heard
     or seen, under the place or the person it came from, beside your notes and
@@ -220,39 +230,48 @@
     too. <b>▼</b> beside a heading folds it
     away, and it opens again by itself when something new stands under it. A German word with a dotted
     line under it explains itself when you point at it, and so does a name.</p>
-    <p><b>Notes</b> is your own; nothing in it is read or marked.</p>
+    <p data-i18n="manual.heard.3">Select part of a line, in the notebook or on the desk, and
+    <b>Highlight</b> marks it; select across a mark to take it off again.
+    <b>⌇</b> on one card and then on another ties a string between them, and
+    the string follows the cards wherever you drag them; a click on the string
+    cuts it. Neither is read by the game: you still cite whole lines.</p>
+    <p data-i18n="manual.heard.2"><b>Notes</b> is your own; nothing in it is read or marked.</p>
 
-    <h3>The report</h3>
-    <p>The report is a set of sentences with blanks. Each blank takes a word
+    <h3 data-i18n="manual.report.head">The report</h3>
+    <p data-i18n="manual.report.1">The report is a set of sentences with blanks. Each blank takes a word
     that stands somewhere in what you have heard: type it in, or change the
     setting at the top of the report to pick words up by clicking them in the
     lines. When a part is filled in, <b>Sign</b> it. You are told whether the
     part holds, never which blank is wrong.</p>
-    <p>Some reports also have a section for the people ruled out, each with
+    <p data-i18n="manual.report.2">Some reports also have a section for the people ruled out, each with
     their own evidence. How much evidence they ask for is the setting beside
     the report's other one, and it holds for every chapter:</p>
     <ul>
-      <li><b>Sarah's notes.</b> Only the blanks; nobody has to be ruled out in
+      <li data-i18n="manual.report.notes"><b>Sarah's notes.</b> Only the blanks; nobody has to be ruled out in
       writing. Every time you sign, it is counted.</li>
-      <li><b>Report to Mauser.</b> The numbered parts need no evidence: their
+      <li data-i18n="manual.report.report"><b>Report to Mauser.</b> The numbered parts need no evidence: their
       words are enough. Under a person, press <b>＋ cite</b>, then <b>＋</b>
       beside the lines that rule them out, and sign. Whatever the parts you
       have signed already show about somebody counts for them by itself, so
       cite only the rest; sign a person even when there is nothing left to
       cite.</li>
-      <li><b>Mauser's file for the court.</b> Every part cites its evidence
+      <li data-i18n="manual.report.court"><b>Mauser's file for the court.</b> Every part cites its evidence
       too, and every person all of theirs: nothing counts for you by
       itself.</li>
     </ul>
-    <p><b>× take out</b> on a cited line removes it again. Kommissar Mauser
+    <p data-i18n="manual.report.3"><b>× take out</b> on a cited line removes it again. Kommissar Mauser
     marks each in pencil in the margin, and marks it again whenever what you
     have signed changes: a person signed early counts what you sign later.
     Changing the setting starts the marks afresh.</p>
-    <p>Where people are ruled out, the result is the last thing he accepts: it
+    <p data-i18n="manual.report.4">Where people are ruled out, the result is the last thing he accepts: it
     stands only once everybody else has been ruled out.</p>
+    <p data-i18n="manual.report.5">Anybody Sarah talks to may be lying to her, and so may a book, about
+    the one who keeps it. Every case holds even so: in the end nobody is
+    ruled out on the word of any one person. Mauser does not ask you to show
+    that, but a report you believe should survive it.</p>
 
-    <h3>Telling us how it went</h3>
-    <p>This is an early version. <b>Feedback</b>, at the top of the page, asks a
+    <h3 data-i18n="manual.feedback.head">Telling us how it went</h3>
+    <p data-i18n="manual.feedback">This is an early version. <b>Feedback</b>, at the top of the page, asks a
     few questions about how you got on, at any point, finished or not: what
     stopped you is worth as much to us as how you solved it. Nothing is sent
     by itself. You copy what you wrote, or send it by email (to
@@ -261,8 +280,8 @@
     itself is a count of visits to the page (GoatCounter: no cookies, nothing
     about who you are).</p>
 
-    <h3>The pictures</h3>
-    <p>The rooms and the people are generated with AI from
+    <h3 data-i18n="manual.pictures.head">The pictures</h3>
+    <p data-i18n="manual.pictures">The rooms and the people are generated with AI from
     written descriptions, and they are drafts. The documents are made both
     ways: the paper, the covers and the light are generated the same way, and
     every ruled line and every mark on them is drawn by a small program of
@@ -270,11 +289,11 @@
     handwriting is made of pen strokes and no letters. What a picture shows is
     never evidence unless a line says so.</p>
 
-    <h3>Saving</h3>
-    <p>Where you are, what you have heard, your notes and your report are kept
+    <h3 data-i18n="manual.saving.head">Saving</h3>
+    <p data-i18n="manual.saving">Where you are, what you have heard, your notes and your report are kept
     in this browser, for each chapter separately. <b>Start every walk over</b>,
     under Settings, sends Sarah back to the beginning and keeps your notes.</p>
-    <p class="closefoot"><button class="closer-foot" type="button">Close</button></p>
+    <p class="closefoot"><button class="closer-foot" type="button" data-i18n="close">Close</button></p>
   </div>
 </div>
 
@@ -283,10 +302,10 @@
      game by accident. -->
 <div id="settings" class="sheet-modal" hidden>
   <div class="paper" role="dialog" aria-modal="true" aria-labelledby="settingstitle">
-    <button class="closer" type="button" data-close="settings" title="Close (Esc)">×</button>
-    <h2 id="settingstitle">Settings</h2>
-    <p class="setting"><button type="button" id="startover">Start every walk over</button>
-      <span>Forgets where Sarah has been, what she has heard and seen, and what
+    <button class="closer" type="button" data-close="settings" title="Close (Esc)" data-i18n-title="close.title">×</button>
+    <h2 id="settingstitle" data-i18n="settings.title">Settings</h2>
+    <p class="setting"><button type="button" id="startover" data-i18n="startover">Start every walk over</button>
+      <span data-i18n="startover.says">Forgets where Sarah has been, what she has heard and seen, and what
       she has asked. Your notes and your report are kept.</span></p>
   </div>
 </div>
@@ -294,18 +313,18 @@
 <!-- THE QUESTIONNAIRE (feedback.js). Asks, and sends nothing by itself. -->
 <div id="feedback" class="sheet-modal" hidden>
   <div class="paper" role="dialog" aria-modal="true" aria-labelledby="feedbacktitle">
-    <button class="closer" type="button" data-close="feedback" title="Close (Esc)">×</button>
-    <h2 id="feedbacktitle">How it went</h2>
-    <p>You are one of the first people to play this, and what you say decides
+    <button class="closer" type="button" data-close="feedback" title="Close (Esc)" data-i18n-title="close.title">×</button>
+    <h2 id="feedbacktitle" data-i18n="feedback.title">How it went</h2>
+    <p data-i18n="feedback.intro">You are one of the first people to play this, and what you say decides
     what gets fixed. Answer as much or as little as you like; every question
     can be left empty. What you write is kept in this browser until you send it.</p>
     <div id="fbform"></div>
     <p class="fbsend">
-      <button type="button" id="copyfeedback">Copy it</button>
-      <button type="button" id="mailfeedback" hidden>Send it by email</button>
-      <button type="button" id="postfeedback">Post it on GitHub</button>
+      <button type="button" id="copyfeedback" data-i18n="copyfeedback">Copy it</button>
+      <button type="button" id="mailfeedback" hidden data-i18n="mailfeedback">Send it by email</button>
+      <button type="button" id="postfeedback" data-i18n="postfeedback">Post it on GitHub</button>
       <span id="fbsaid" class="fbsaid"></span></p>
-    <p class="fbnote">A GitHub post is public and needs a GitHub account; leave out
+    <p class="fbnote" data-i18n="feedback.note">A GitHub post is public and needs a GitHub account; leave out
     anything that would give the case away.</p>
   </div>
 </div>
@@ -313,17 +332,18 @@
 <!-- A document Sarah holds, set in type (walk.js). -->
 <div id="doc" hidden onclick="if (event.target === this) closeDoc()">
   <div class="paper" role="dialog" aria-modal="true" aria-labelledby="doctitle">
-    <button id="docclose" type="button" onclick="closeDoc()" title="Put it down (Esc)">×</button>
+    <button id="docclose" type="button" onclick="closeDoc()" title="Put it down (Esc)" data-i18n-title="docclose.title">×</button>
     <h3 id="doctitle"></h3>
     <figure id="docpic" hidden></figure>
     <div id="docbody"></div>
-    <p class="closer-foot"><button type="button" onclick="closeDoc()">Close</button></p>
+    <p class="closer-foot"><button type="button" onclick="closeDoc()" data-i18n="close">Close</button></p>
   </div>
 </div>
 
 <!-- One floating note, for a German term or a person. Never collectable. -->
 <div id="tip" hidden></div>
 
+<script src="i18n.js"></script>
 <script src="walk.js"></script>
 <script src="feedback.js"></script>
 <script src="app.js"></script>

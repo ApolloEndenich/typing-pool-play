@@ -28,32 +28,35 @@
 const FEEDBACK_TO = "typingpool1969@gmail.com";   // the game's own, 17 September 2026
 const FEEDBACK_ISSUES = "https://github.com/ApolloEndenich/typing-pool-play/issues/new";
 
+/* Written in English and shown in the player's language (N_, i18n.js). A
+   chosen option is kept by its English, so an answer reads the same to us
+   whichever language it was given in; the games' names are names. */
 const ASK = [
-  {id: "far", kind: "one", q: "How far did you get?",
-   options: ["Every part of the report holds", "I filled in some of the report",
-             "I stopped before writing the report"]},
-  {id: "stopped", kind: "text", q: "If you stopped, where were you, and what made you stop?"},
-  {id: "stuck", kind: "text", q: "Was there a moment when you did not know what to do next? What was it?"},
+  {id: "far", kind: "one", q: N_("How far did you get?"),
+   options: [N_("Every part of the report holds"), N_("I filled in some of the report"),
+             N_("I stopped before writing the report")]},
+  {id: "stopped", kind: "text", q: N_("If you stopped, where were you, and what made you stop?")},
+  {id: "stuck", kind: "text", q: N_("Was there a moment when you did not know what to do next? What was it?")},
   {id: "unclear", kind: "text",
-   q: "Was anything about how to play unclear: the map, talking to people, the report, citing evidence?"},
+   q: N_("Was anything about how to play unclear: the map, talking to people, the report, citing evidence?")},
   {id: "suspect", kind: "text",
-   q: "Did you suspect somebody who turned out not to be the answer? What changed your mind? (This may spoil the case, so leave it out of anything public.)"},
+   q: N_("Did you suspect somebody who turned out not to be the answer? What changed your mind? (This may spoil the case, so leave it out of anything public.)")},
   {id: "citing", kind: "one",
-   q: "Citing evidence for every part and every person: how did that feel?",
-   options: ["Part of the puzzle", "Somewhere in between", "Paperwork"]},
-  {id: "citingwhy", kind: "text", q: "Why?"},
-  {id: "waste", kind: "text", q: "Was there anything you read that felt like a waste of your time?"},
-  {id: "long", kind: "text", q: "Roughly how long did you play?"},
-  {id: "again", kind: "one", q: "Would you play another chapter?",
-   options: ["Yes", "Maybe", "No"]},
-  {id: "played", kind: "many", q: "Have you played any of these?",
+   q: N_("Citing evidence for every part and every person: how did that feel?"),
+   options: [N_("Part of the puzzle"), N_("Somewhere in between"), N_("Paperwork")]},
+  {id: "citingwhy", kind: "text", q: N_("Why?")},
+  {id: "waste", kind: "text", q: N_("Was there anything you read that felt like a waste of your time?")},
+  {id: "long", kind: "text", q: N_("Roughly how long did you play?")},
+  {id: "again", kind: "one", q: N_("Would you play another chapter?"),
+   options: [N_("Yes"), N_("Maybe"), N_("No")]},
+  {id: "played", kind: "many", q: N_("Have you played any of these?"),
    options: ["Return of the Obra Dinn", "The Case of the Golden Idol",
              "Sherlock Holmes Consulting Detective", "Her Story", "Papers, Please",
-             "Murdle", "None of them"]},
-  {id: "device", kind: "one", q: "What did you play on?",
-   options: ["A computer", "A tablet", "A phone"]},
-  {id: "found", kind: "text", q: "How did you come across it?"},
-  {id: "else", kind: "text", q: "Anything else?"},
+             "Murdle", N_("None of them")]},
+  {id: "device", kind: "one", q: N_("What did you play on?"),
+   options: [N_("A computer"), N_("A tablet"), N_("A phone")]},
+  {id: "found", kind: "text", q: N_("How did you come across it?")},
+  {id: "else", kind: "text", q: N_("Anything else?")},
 ];
 
 /* Minutes with the page in front of the player, counted once a minute while
@@ -96,7 +99,7 @@ function playLog() {
 function feedbackGuess() {
   const d = recall(CASE.id, "feedback", {});
   if (!d.long && recall(CASE.id, "minutes", 0))
-    d.long = `about ${recall(CASE.id, "minutes", 0)} minutes (the page's own count)`;
+    d.long = tx("about {n} minutes (the page's own count)", {n: recall(CASE.id, "minutes", 0)});
   if (!d.device)
     d.device = window.innerWidth < 700 ? "A phone" : window.innerWidth < 1100 ? "A tablet" : "A computer";
   if (!d.far) {
@@ -111,17 +114,17 @@ function feedbackForm() {
   const field = a => {
     const name = `fb-${a.id}`;
     if (a.kind === "text")
-      return `<label class="fbq"><span>${esc(a.q)}</span><textarea name="${name}" rows="2">${
+      return `<label class="fbq"><span>${esc(tx(a.q))}</span><textarea name="${name}" rows="2">${
         esc(d[a.id] || "")}</textarea></label>`;
     const type = a.kind === "one" ? "radio" : "checkbox";
     const on = o => (a.kind === "one" ? d[a.id] === o : (d[a.id] || []).includes(o));
-    return `<fieldset class="fbq"><legend>${esc(a.q)}</legend>${a.options.map(o =>
+    return `<fieldset class="fbq"><legend>${esc(tx(a.q))}</legend>${a.options.map(o =>
       `<label><input type="${type}" name="${name}" value="${esc(o)}"${on(o) ? " checked" : ""}> ${
-        esc(o)}</label>`).join("")}</fieldset>`;
+        esc(tx(o))}</label>`).join("")}</fieldset>`;
   };
   $("fbform").innerHTML = ASK.map(field).join("") +
     `<label class="fbq fblog"><span><input type="checkbox" id="fb-log"${
-      d.log === false ? "" : " checked"}> Include the play log</span>` +
+      d.log === false ? "" : " checked"}> ${tx("Include the play log")}</span>` +
     `<pre id="fb-logtext">${esc(playLog())}</pre></label>`;
   $("fbform").oninput = $("fbform").onchange = () => {
     remember(CASE.id, "feedback", feedbackRead());
@@ -143,10 +146,13 @@ function feedbackRead() {
 
 function feedbackText() {
   const d = feedbackRead();
-  const lines = [`The Typing Pool, ${CASE.title}: how it went`, ""];
+  /* the questions as the player read them; the log stays English, for us */
+  const lines = [`The Typing Pool, ${CASE.title}: how it went` +
+                 (LANG === "en" ? "" : ` (played in ${LANG})`), ""];
   for (const a of ASK) {
-    const v = Array.isArray(d[a.id]) ? d[a.id].join(", ") : (d[a.id] || "").trim();
-    if (v) lines.push(a.q, v, "");
+    const v = Array.isArray(d[a.id]) ? d[a.id].map(o => tx(o)).join(", ")
+      : a.kind === "one" ? tx(d[a.id] || "") : (d[a.id] || "").trim();
+    if (v) lines.push(tx(a.q), v, "");
   }
   if (d.log) lines.push("PLAY LOG", playLog());
   return lines.join("\n");
@@ -166,9 +172,9 @@ function feedbackSheet() {
     const t = feedbackText();
     try {
       await navigator.clipboard.writeText(t);
-      $("fbsaid").textContent = "Copied. Paste it into an email or a message.";
+      $("fbsaid").textContent = tx("Copied. Paste it into an email or a message.");
     } catch (e) {
-      $("fbsaid").textContent = "This browser would not copy it; select the text below and copy it by hand.";
+      $("fbsaid").textContent = tx("This browser would not copy it; select the text below and copy it by hand.");
       $("fb-logtext").textContent = t;
     }
   };
