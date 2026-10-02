@@ -86,7 +86,8 @@
   "german": "Der Dienstweg, noch einmal",
   "stated": "December 1970",
   "built": false,
-  "opens": false
+  "opens": false,
+  "held": true
  },
  {
   "id": "woche",
