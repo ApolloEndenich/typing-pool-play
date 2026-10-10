@@ -11,7 +11,7 @@ cases is not here.
 In `story/` is **Der Rückstand**, and it is not one of those cases. It is a
 detective case in the same building with no grid in it at all: you walk the
 ministry, ask the people in it, and write Sarah's report yourself, with the
-evidence for every part. It stands on its own. English only, and early.
+evidence for every part. It stands on its own. English and German, and early.
 
 Sarah Wessen and Schmiss are from the crime novels of **Gudrun Leyendecker**
 and are used here with her permission. The game is not the books: it borrows
