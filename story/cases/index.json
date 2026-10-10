@@ -96,33 +96,37 @@
   "german": "Die unmögliche Woche",
   "stated": "May 1971",
   "built": false,
-  "opens": false
+  "opens": false,
+  "held": true
  },
  {
   "id": "erste",
   "n": 9,
   "title": "Which Came First?",
   "german": "Welches ist das Erste?",
-  "stated": "Autumn 1971",
+  "stated": "October 1971",
   "built": false,
-  "opens": false
+  "opens": false,
+  "held": true
  },
  {
   "id": "wiederaufnahme",
   "n": 10,
   "title": "The Case Reopened",
   "german": "Die Wiederaufnahme",
-  "stated": "Spring 1972",
+  "stated": "March 1972",
   "built": false,
-  "opens": false
+  "opens": false,
+  "held": true
  },
  {
-  "id": "ungezählt",
+  "id": "ungezaehlt",
   "n": 11,
   "title": "The One Nobody Counted",
   "german": "Der, den niemand gezählt hat",
-  "stated": "Autumn 1972",
+  "stated": "October 1972",
   "built": false,
-  "opens": false
+  "opens": false,
+  "held": true
  }
 ]

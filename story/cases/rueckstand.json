@@ -276,7 +276,17 @@
     "thing",
     "thing"
    ],
-   "sealed": "f8c8547361ca8781d34e9eb6c748bbe8997da1783ee132592dfbc917962dd3ce"
+   "sealed": "f8c8547361ca8781d34e9eb6c748bbe8997da1783ee132592dfbc917962dd3ce",
+   "blanks": [
+    "763b47b8e937c021438233c55fb70cbf1205628676e690bc18156c9a93f24435",
+    "1a1767cbb62128fee726adead98dbc067e88b6a7b1a2ddf2633a0cc0fb1144a1",
+    "c8385e9bb8568e9daf15822265f33211f868367664cccc26d8ff92cc7800b3a9"
+   ],
+   "hints": [
+    "Look in the Registratur, at Herr Simon's books on the counter.",
+    "Read the loan book's entry for the subject file that went out in May, and the list made up for the quarter at the end of September.",
+    "The words: 117/64, the Rückstandsliste, the loan book."
+   ]
   },
   {
    "id": "hour",
@@ -287,7 +297,17 @@
     "time",
     "person"
    ],
-   "sealed": "837601f6fc8e2a3c9b29c376a711ce9b88c33025207bef14cc88ab59cf38fafc"
+   "sealed": "837601f6fc8e2a3c9b29c376a711ce9b88c33025207bef14cc88ab59cf38fafc",
+   "blanks": [
+    "621787d2dbf2279cec94fae788a831eccf868e6eb958ea01598a1782d34fa2d5",
+    "7e21f2b38cb62b80d149c326a42ae7d7db1029dcd7fedfcc073ae96e72146df8",
+    "855c809d727e3c8b05c1a494ad4348e9e687c3308af0e6b442e445427220b4c7"
+   ],
+   "hints": [
+    "Ask Herr Simon about the afternoon the file came back, and the porter about the same afternoon.",
+    "Herr Simon says when he was called up to the Poststelle and when he was back; the delivery note at the lodge says who came down for the paper.",
+    "The words: half past two, half past three, Kern."
+   ]
   },
   {
    "id": "asking",
@@ -298,7 +318,17 @@
     "person",
     "thing"
    ],
-   "sealed": "5f2391d6ef3620326e8b65a429b5970c53e2c603e683dc09a69f59ee79007872"
+   "sealed": "5f2391d6ef3620326e8b65a429b5970c53e2c603e683dc09a69f59ee79007872",
+   "blanks": [
+    "6c2bc1b4f0eaf32efede9eb7075a77433e0887fc40a8651028584115628352cc",
+    "c78f32483dca39ece7f09967416260926d0041cd7cdf2ac4cdda52cc75e10b8d",
+    "109fceb45b301392e378d1f9f585661b8c1f129fac6c56b7b24b603e8aa83c44"
+   ],
+   "hints": [
+    "Ask Herr Simon and Frau Pohlmann who asked whom about the file.",
+    "Herr Simon stopped somebody in the corridor in the last week of September; that person says where she went to ask the typists, once.",
+    "The words: Simon, Pohlmann, the canteen."
+   ]
   },
   {
    "id": "hand",
@@ -309,7 +339,17 @@
     "thing",
     "thing"
    ],
-   "sealed": "bcd574b2820a7eeceb378df853f6e9c59bdd0f5cea2734164d0386c9b2f527af"
+   "sealed": "bcd574b2820a7eeceb378df853f6e9c59bdd0f5cea2734164d0386c9b2f527af",
+   "blanks": [
+    "1f59c7ae11a5cf2c5df4c5246c11a477885405c983dd5a690ecd837d957eaa08",
+    "543b9fb8b9a5a2abbde486d2046ff17e0cf2680df804595db4f9205002edef90",
+    "80e6b3a4f7c81cec5b1f2d61a294286716b907e2d389aa8897c351698815e471"
+   ],
+   "hints": [
+    "Look at the file itself on the returns counter: its cover, and the order of its sheets.",
+    "The cover was cut and folded by hand, and the sheets lie in an order neither the Registratur nor the Referat keeps. Whose way of keeping papers is it?",
+    "The words: Wenzel, Aktendeckel, the pool's own order."
+   ]
   }
  ],
  "memo": {
@@ -319,7 +359,7 @@
    "to": "Kommissar Mauser, Kriminalpolizei Bonn",
    "by": "S. Wessen, private detective",
    "facts": "I. What was found",
-   "excluded": "II. Who is ruled out, and on what evidence",
+   "excluded": "II. Who can be accounted for, and on what evidence",
    "result": "III. Result",
    "evidence": "Evidence"
   },
@@ -1351,7 +1391,7 @@
      "after five": "art/rooms/pool-friday.jpeg"
     },
     "stand": null,
-    "sarah_at": 0.12,
+    "sarah_at": 0.1,
     "spread": null,
     "sees": [
      {
@@ -1504,7 +1544,10 @@
     },
     "stand": null,
     "sarah_at": null,
-    "spread": null,
+    "spread": [
+     56,
+     80
+    ],
     "sees": [],
     "short": "Room 407"
    }
@@ -2447,7 +2490,7 @@
      "art/rooms/pool-sunday.jpeg": "art/props/geschaeftsordnung-sunday.png"
     },
     "box": [
-     0.36963,
+     0.36377,
      0.65755,
      0.04102,
      0.01562

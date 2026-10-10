@@ -24,6 +24,7 @@
     <h1 id="title">The Outstanding File</h1>
     <span class="tools">
       <select id="langpick" aria-label="Language" data-i18n-aria-label="langpick" hidden></select>
+      <button type="button" id="openfront" data-i18n="openfront">Title page</button>
       <button type="button" id="openmanual" data-i18n="openmanual">How to play</button>
       <button type="button" id="openfeedback" data-i18n="openfeedback">Feedback</button>
       <button type="button" id="opensettings" data-i18n="opensettings">Settings</button>
@@ -41,6 +42,39 @@
     <button type="button" data-view="notebook" data-i18n="view.notebook">Notebook and report <span class="fresh" id="freshcount"></span></button>
   </nav>
 </header>
+
+<!-- THE FRONT PAGE (the user, 9 October 2026: "People typically don't find
+     the game from the puzzle website, so somehow I need a good startpage for
+     this game in itself. Just starting with the instructions seems a bit
+     odd."). What the game is, in the room it is named after, and one button.
+     It stands in front of the chapter every time the page is opened; the
+     manual no longer opens by itself. Nothing here is evidence. -->
+<section id="front" hidden>
+  <div class="frontpic">
+    <img id="frontsarah" src="art/people/sarah.png" alt="">
+    <div class="frontcard">
+      <p class="kicker" data-i18n="front.kicker">Bonn, 1968 to 1972</p>
+      <!-- the name, the same in every language (the user, 10 October 2026) -->
+      <h2 id="fronttitle">The Typing Pool<span>Ministry of Secrets</span></h2>
+      <p class="strap" data-i18n="front.strap">A detective game in a federal ministry</p>
+    </div>
+  </div>
+  <div class="fronttext">
+    <p data-i18n="front.1">Sarah Wessen is a private detective. Kommissar Mauser sends her where
+    the police cannot go, and so the Personalreferat has taken her on as a
+    relief typist. Nobody in the building is to know why she is there.</p>
+    <p data-i18n="front.2">A typist is sent up and down the house with work, and nobody minds
+    what she sees on the way. Walk the building, talk to the people in it,
+    and read what lies on their desks. Then write her report to Mauser
+    yourself, with the evidence for every part.</p>
+    <p class="frontgo"><button type="button" id="frontbegin"></button>
+      <button type="button" id="frontmanual" data-i18n="front.manual">How to play</button></p>
+    <p class="frontnote" data-i18n="front.3">Each chapter is a case of its own. Nothing to install and no
+    account; your place is kept in this browser.</p>
+    <p class="frontnote" data-i18n="front.foot">Sarah Wessen and Kommissar Mauser are from the crime novels of
+    Gudrun Leyendecker and are used with her permission.</p>
+  </div>
+</section>
 
 <main>
   <section id="brief" hidden>
@@ -307,6 +341,15 @@
     <p class="setting"><button type="button" id="startover" data-i18n="startover">Start every walk over</button>
       <span data-i18n="startover.says">Forgets where Sarah has been, what she has heard and seen, and what
       she has asked. Your notes and your report are kept.</span></p>
+    <!-- TWO WAYS TO MAKE IT EASIER, both off until chosen (the user, 2
+         October 2026). Remembered for every chapter, like the report's level. -->
+    <p class="setting"><input type="checkbox" id="set-near">
+      <label for="set-near" data-i18n="set.near">When a part of the report does not hold,
+      say so if only one word in it is wrong. Never which one.</label></p>
+    <p class="setting"><input type="checkbox" id="set-hints">
+      <label for="set-hints" data-i18n="set.hints">Mauser's hints: three to every part of
+      the report, from where to look to the word itself, one at a time. The part
+      says how many you took.</label></p>
   </div>
 </div>
 

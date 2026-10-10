@@ -75,9 +75,23 @@ function sheets() {
        scrolls back up for it (the user, 15 September 2026) */
     m.querySelectorAll(".closer, .closer-foot").forEach(b => b.onclick = () => { m.hidden = true; });
   });
-  if (!recall("_", "manualseen", false)) {
-    remember("_", "manualseen", true);
-    show("manual");
+  /* NOT BY ITSELF ANY MORE (the user, 9 October 2026: "just starting with the
+     instructions seems a bit odd"): the front page stands first, and the
+     manual is a button on it. */
+  $("frontmanual").onclick = () => show("manual");
+  /* and a way back to it (the user, 10 October 2026: "once I click on
+     Spielen, I cannot get back to that title page") */
+  $("openfront").onclick = front;
+  /* the two settings that make it easier: on and off at once, and the report
+     drawn again so a hint button appears or goes */
+  for (const [box, key] of [["set-near", "near"], ["set-hints", "hints"]]) {
+    const b = $(box);
+    if (!b) continue;
+    b.checked = recall("_", key, "off") === "on";
+    b.onchange = () => {
+      remember("_", key, b.checked ? "on" : "off");
+      if (CASE) report();
+    };
   }
 }
 
@@ -140,7 +154,30 @@ async function boot() {
   }).join("");
   $("cases").querySelectorAll("button:not([disabled])").forEach(b =>
     b.onclick = () => load(b.dataset.id));
-  load((index.find(c => c.opens) || index.find(c => c.built)).id);
+  /* the chapter a player was in last, so that Continue is where they were */
+  const last = recall("_", "last", null);
+  front();
+  load((index.find(c => c.id === last && c.built) || index.find(c => c.opens) || index.find(c => c.built)).id);
+}
+
+/* THE FRONT PAGE (index.html, #front). It stands in front of the chapter
+   each time the page is opened, and one button takes it away: Begin the
+   first time, Continue ever after. The chapter is loaded behind it all the
+   while, so the button has nothing to wait for. */
+function front() {
+  $("frontbegin").textContent = recall("_", "begun", false) ? tx("Continue") : tx("Begin");
+  $("frontbegin").onclick = () => {
+    remember("_", "begun", true);
+    document.body.classList.remove("front");
+    $("front").hidden = true;
+    window.scrollTo(0, 0);
+    /* whatever measured itself while it was not shown measures again */
+    window.dispatchEvent(new Event("resize"));
+  };
+  document.body.classList.add("front");
+  $("front").hidden = false;
+  window.scrollTo(0, 0);
+  $("frontbegin").focus();
 }
 
 /* The introduction folds away, per chapter, and the question stays (the user,
@@ -155,6 +192,7 @@ function briefShut(shut) {
 
 async function load(id) {
   CASE = await (await fetch(casePath(`${id}.json`))).json();
+  remember("_", "last", id);
   DAY = 1;
   VERDICT = {};
   SEEN = new Set(recall(id, "days", [1]));
@@ -191,7 +229,7 @@ async function load(id) {
   citing(null);
   $("notes").value = recall(id, "notes", "");
   $("notes").oninput = () => remember(id, "notes", $("notes").value);
-  MATCH = matcher(CASE.words.map(w => w.text));
+  MATCH = matcher(wordForms());
 
   /* Two more things in a line can be looked at without being collected: a
      German term, and a person. Neither is evidence and neither can be picked
@@ -281,7 +319,12 @@ function matcher(texts) {
     : new RegExp(`(${alts})`, "giu");
 }
 
-const canon = t => CASE.words.find(w => w.text.toLowerCase() === t.toLowerCase()).text;
+/* the word as the list has it, from the form a line had it in (i18n.js bareOf) */
+const canon = t => {
+  const low = t.toLowerCase();
+  return (CASE.words.find(w => w.text.toLowerCase() === low)
+          || CASE.words.find(w => bareOf(w.text).toLowerCase() === low)).text;
+};
 
 /* A line can carry three kinds of thing at once and they overlap: "the
    Dienstaltersliste" is a collectable word AND a German term, and Kern is a
@@ -294,8 +337,19 @@ function spans(text, collectable) {
   const out = [];
   const add = (re, kind) => {
     if (!re) return;
-    for (const m of text.matchAll(re))
+    for (const m of text.matchAll(re)) {
+      /* A NAME IS WRITTEN WITH A CAPITAL (the user, 2 October 2026: in
+         German "und wessen Hand bleibt dann übrig?" opened Sarah Wessen's
+         card). "wessen", "grau" and "litt" are ordinary German words, and
+         none of them is anybody. "the porter" has no capital to keep. */
+      if (kind === "who") {
+        const d = WHO[m[0].toLowerCase()];
+        const name = d.who.toLowerCase() === m[0].toLowerCase()
+          ? d.who : d.who.split(/\s+/).pop();
+        if (name[0] !== name[0].toLowerCase() && m[0][0] !== name[0]) continue;
+      }
       out.push({s: m.index, e: m.index + m[0].length, kind, t: m[0]});
+    }
   };
   if (collectable && !typing()) add(MATCH, "word");
   add(NMATCH, "who");
@@ -855,8 +909,9 @@ function report() {
     const v = VERDICT[p.id] || ["", ""];
     return `<div class="part"><h3>${esc(p.title)}</h3><p>${sentence}</p>
       <button class="sign" data-id="${p.id}">${tx("Sign")}</button>
-      <p class="verdict ${v[1]}" id="verdict-${p.id}">${v[0]}</p></div>`;
+      <p class="verdict ${v[1]}" id="verdict-${p.id}">${v[0]}</p>${hintBox(p)}</div>`;
   }).join("");
+  bindHints(report);
   $("parts").querySelectorAll("select").forEach(s => {
     if (kept[s.id] && [...s.options].some(o => o.value === kept[s.id]))
       s.value = kept[s.id];
@@ -896,7 +951,57 @@ async function sign(id) {
   const held = await wordsHold(id);
   if (held === null) return;
   say(id, held ? tx("This part of the report stands.")
-               : tx("It does not hold. Something in it is wrong."), held ? "good" : "bad");
+               : tx("It does not hold. Something in it is wrong.") + await oneWrong(id),
+      held ? "good" : "bad");
+}
+
+/* TWO SETTINGS THAT MAKE IT EASIER, BOTH OFF UNTIL A PLAYER TURNS THEM ON
+   (the user, 2 October 2026: "Could they be options, like the report
+   format to Mauser?").
+
+   "Say when only one word is wrong" bends the rule below (a part is marked
+   whole) for whoever asks: it reads each blank's own seal and says so when
+   exactly ONE word of a failed part is wrong. Never which, and never "two":
+   on a part of two or three blanks, "two wrong" would say nearly everything.
+
+   Hints are Mauser's, three to a part, from where to look to the word, one
+   step per press; the steps taken are remembered with the case, and the
+   part says how many were taken, so a player can always see later what was
+   solved without help. */
+const easier = key => recall("_", key, "off") === "on";
+const PICKED = {};
+
+async function oneWrong(id) {
+  const p = CASE.parts.find(x => x.id === id);
+  if (!easier("near") || !p.blanks || !PICKED[id]) return "";
+  let wrong = 0;
+  for (const [i, w] of PICKED[id].entries())
+    if (await seal(["blank", id, i, w]) !== p.blanks[i]) wrong++;
+  return wrong === 1 ? " " + tx("Only one word in it is wrong.") : "";
+}
+
+function hintsTaken(id) { return (recall(CASE.id, "hints", {}) || {})[id] || 0; }
+
+function hintBox(p) {
+  if (!easier("hints") || !p.hints || !p.hints.length) return "";
+  const n = hintsTaken(p.id);
+  const shown = p.hints.slice(0, n).map((h, i) =>
+    `<li>${esc(h)}</li>`).join("");
+  return `<div class="mhints">${shown ? `<ol>${shown}</ol>` : ""}${
+    n < p.hints.length
+      ? `<button type="button" class="askhint" data-hint="${p.id}">${
+          tx("Mauser's hint ({n} of {m})", {n: n + 1, m: p.hints.length})}</button>`
+      : ""}${n ? `<span class="taken">${
+          tx("{n} of Mauser's hints taken for this part", {n})}</span>` : ""}</div>`;
+}
+
+function bindHints(again) {
+  $("parts").querySelectorAll(".askhint").forEach(b => b.onclick = () => {
+    const all = recall(CASE.id, "hints", {}) || {};
+    all[b.dataset.hint] = (all[b.dataset.hint] || 0) + 1;
+    remember(CASE.id, "hints", all);
+    again();
+  });
 }
 
 /* true or false for a part's words, or null when the typing itself was the
@@ -932,7 +1037,9 @@ async function wordsHold(id) {
   /* A part holds or it does not, and nothing says which blank is wrong.
      Per-blank marks turn a deduction into a search. A part is marked whole,
      and the checks make sure no part has so few fillings that trying them
-     all is quicker than thinking (rule 4 of the answer sheet). */
+     all is quicker than thinking (rule 4 of the answer sheet). Only the
+     setting "say when only one word is wrong" reads further (oneWrong). */
+  PICKED[id] = picked;
   return await seal([id, ...picked]) === p.sealed;
 }
 
@@ -991,7 +1098,7 @@ function memo() {
        the court's file asks a part for its lines */
     return `<div class="part"><h3>${esc(p.title)}</h3><p>${sentence}</p>
       ${level.id === "court" ? slot(p.id) : ""}<button class="sign" data-part="${p.id}">${tx("Sign")}</button>
-      <p class="verdict ${v[1]}" id="verdict-${p.id}">${esc(v[0])}</p></div>`;
+      <p class="verdict ${v[1]}" id="verdict-${p.id}">${esc(v[0])}</p>${hintBox(p)}</div>`;
   };
   const row = (r, i) => {
     const key = `row${i}`, v = VERDICT[key] || ["", ""];
@@ -1014,6 +1121,7 @@ function memo() {
   });
   $("parts").querySelectorAll("p.verdict").forEach(p =>
     mauserSays(p, (VERDICT[p.id.slice(8)] || [])[0]));
+  bindHints(memo);
   $("parts").querySelectorAll(".attach").forEach(b => b.onclick = () => {
     citing(ACTIVE === b.dataset.slot ? null : b.dataset.slot);
     memo();
@@ -1034,7 +1142,7 @@ function memo() {
          signature that gets a mark is counted */
       if (level.id === "notes")
         remember(CASE.id, "signatures", recall(CASE.id, "signatures", 0) + 1);
-      if (!held) return say(id, marks.words, "bad");
+      if (!held) return say(id, marks.words + await oneWrong(id), "bad");
       say(id, ...await partMark(id, resultPeople()));
     } else {
       const i = +b.dataset.row;

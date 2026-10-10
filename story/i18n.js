@@ -139,5 +139,19 @@ function wordTyped(v) {
   return same.length === 1 ? same[0] : undefined;
 }
 
+/* A WORD FOUND WITHOUT ITS ARTICLE (chapters/i18n.py, the same heading; the
+   user, 4 October 2026). In a language that says so (`bare`), "die
+   Schachtgrube" is found, and picked up, where a line says "Schachtgrube":
+   a record does not carry articles. English does not say so. */
+const barely = () => !!(typeof CASE !== "undefined" && CASE && CASE.lang && CASE.lang.bare);
+function bareOf(s) {
+  const arts = (CASE.lang && CASE.lang.articles) || [];
+  const w = s.split(/\s+/);
+  return w.length > 1 && arts.includes(w[0].toLowerCase()) ? w.slice(1).join(" ") : s;
+}
+/* every form a report word is found in: itself, and bare where the language allows */
+const wordForms = () => CASE.words.flatMap(w =>
+  barely() && bareOf(w.text) !== w.text ? [w.text, bareOf(w.text)] : [w.text]);
+
 /* What stands between a line's source and the line: ": " in English. */
 const lineSep = () => (typeof CASE !== "undefined" && CASE && CASE.lang && CASE.lang.sep) || ": ";

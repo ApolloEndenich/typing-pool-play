@@ -4,10 +4,10 @@
 <!-- Visits counted by GoatCounter (the user, 18 September 2026): no cookies, nothing personal, and localhost is not counted. -->
 <script data-goatcounter="https://typingpoolgame.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-<meta name="description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Six languages, free, no account.">
+<meta name="description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Seven languages, free, no account.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The Typing Pool — duty sheet">
-<meta property="og:description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Six languages, free, no account.">
+<meta property="og:description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Seven languages, free, no account.">
 <meta property="og:url" content="https://typingpoolgame.com/duty-sheet-general.html">
 <meta property="og:image" content="https://typingpoolgame.com/share.png">
 <meta property="og:image:width" content="1200">
@@ -825,6 +825,61 @@ zh: {
    blurb: "一层楼上两张桌子。任何关于楼层的说法都分不开它们——只有座位能。"},
   {name: "狗来数数",
    blurb: "施密斯从不说是谁。他说有几个人来自某条线以上，这就够了。"}
+ ]
+},
+
+/* JAPANESE (2 October 2026). The game speaks to the player in です／ます;
+   the clues themselves (phrase.js) are plain statements, as entries in a
+   book are. The player is not named with あなた more than a sentence needs:
+   Japanese leaves the subject out, and a page full of あなた reads as a
+   translation. Schmiss is シュミス throughout. */
+ja: {
+ dailyNotes: [
+  "五時十五分、タイピストたちは帰ったばかり。机は三つ。手は一つ、消していくことです。",
+  "火曜日、当番表がまた直されています。読み方は二つ、正しいのはちょうど一つ。",
+  "用務員が午後じゅうタイプライターを動かしていました。そのうち二台は一緒に動きます。",
+  "場所を空けるために、ひとつの階に二人を入れました。階だけでは、もう誰も決まりません。",
+  "金曜日、半分は早く帰りました。シュミスが数え、その数が仕事をしてくれます。",
+  "土曜の午前、最低限の人数、相部屋の階が二つ。すべては二つの数の差にかかっています。",
+  "日曜日。建物は閉まっていて、夜警が入れてくれました。机は六つ、尋ねる相手は誰もいません。"
+ ],
+ staffing: {
+  weekday: "五時十五分。まだ全員います。",
+  saturday: "土曜の午前、最低限の人数。扉は少なく、そのぶん一つ一つの扉の奥が多い。",
+  sunday: "日曜日。守衛が入れてくれましたが、尋ねる相手はほとんどいません——"
+    + "そのかわり、時間を無駄にさせる人もいません。"
+ },
+ trades: {
+  garble:   "食い違う記録",
+  not_t:    "人についての否定",
+  not_m:    "タイプライターについての否定",
+  above:    "誰が誰より上の階で働くか",
+  apart:    "二台のタイプライターが何階離れているか",
+  uses:     "誰がどのタイプライターを使うか",
+  share:    "誰が同じ階にいるか",
+  notshare: "誰が別の階にいるか",
+  not_seat: "相部屋の階のどの机か"
+ },
+ // Japanese lists join with a reading mark, as Chinese does
+ tradeAnd: "、",
+ lessons: [
+  {name: "消していく",
+   blurb: "名前をひとつの階から消します。二つ消えれば、三つ目は決まります。"},
+  {name: "読み方の一つは誤り",
+   blurb: "読み方は二つ、正しいのはちょうど一つ。それだけでは何も決まりませんが、"
+     + "三つ目の手がかりと合わせればすべてが決まります。"},
+  {name: "上と下",
+   blurb: "一人がもう一人より上の階で働く——それで一人には最上階が、"
+     + "もう一人には最下階がなくなります。"},
+  {name: "一緒に動くタイプライター",
+   blurb: "二台のあいだは決まった階数。その組を建物の上下に滑らせて、"
+     + "収まる位置が一つだけになるまで試します。"},
+  {name: "階ではなく、どの机か",
+   blurb: "ひとつの階に机が二つ。階についての手がかりでは決して分けられません——"
+     + "分けられるのは席だけです。"},
+  {name: "犬が数える",
+   blurb: "シュミスは誰とは決して言いません。線より上から来たのが何人かを言うだけで、"
+     + "それで十分です。"}
  ]
 }
 
@@ -2611,6 +2666,276 @@ zh: {
    "只有她还知道从前是什么样子，而且她也乐意讲，只是从不在打完手上那一页之前讲。别人有委屈都来找她，因为她只是听，不拿去做别的用处。还能救回来的纸，她一张也没扔过。她管这叫节俭。1946年她也是什么都不扔的。"
   ]
  }
+},
+
+/* ------------------------------------------------------------------ Japanese
+
+   (2 October 2026.) FLOORS follow phrase.js: 1階 is the ground floor, the
+   way Chinese and North America count. TITLES come out of phrase.js as 嬢
+   and 夫人 after the surname. The game speaks to the player in です／ます;
+   the dog's account and the dossiers are plain narration (だ／である is
+   avoided, past and present tense as Japanese narrative uses them).
+
+   A VOICE is followed by ": " and the clue, so each one ends in a verb of
+   saying. The ASIDES are translated from Gudrun Leyendecker's German, never
+   from the English, which is itself a translation. */
+ja: {
+ title: "タイピスト室", locale: "ja-JP",
+ credit: "サラ・ヴェッセンとシュミスは Gudrun Leyendecker のもので、彼の十三の独白は第一作からの引用です——どちらも彼女の許可を得ています。パズルのエンジンとこの記録用紙はこのゲームのために作りました。",
+ name: "日本語",
+ back: "トップページに戻る",
+ pool: "タイピスト室",
+ building: "建物——どこで尋ねるか",
+ cluesHeld: "手もとの手がかり——ひとつ選ぶとペンになります",
+ nameThem: "名前を入れる",
+ working: "メモ",
+ caseAndArt: "事件と絵",
+ swap: "入れ替え", replay: "前の場面",
+ fileReport: "報告書を出す",
+ ago: "ちょうど{n}年前の今日",
+ nudge: "シュミスが鼻でつつく（−30分）",
+ fresh: "新しい用紙",
+ notesHint: "C なら B はドアのそば、だから D は……",
+ key: {notLooked: "未確認", could: "かもしれない", certain: "確定",
+       ruled: "除外",
+       how: "マスを押すと印が変わります。先に手がかりを選ぶと、印にその文字が押されます。"},
+ lang: "言語",
+ typistsCol: "タイピスト", machinesCol: "タイプライター",
+ settings: {caseSel: "事件", typists: "タイピスト", machines: "タイプライター",
+   scenes: "場面", scenesOn: "見る", scenesOff: "とばす",
+   arcs: "弧", arcsOn: "描く", arcsOff: "自分で考える"},
+ sets: {typists1: "第1組 — 細かい描き込み",
+        typists2: "第2組 — 平塗り、太い線",
+        typewriters1: "第1組 — いろいろな外形",
+        typewriters0: "第0組 — すべて同じ形"},
+ clueWord: "手がかり", schmiss: "シュミス",
+ // spoken Japanese joins the last two names with と, the rest with 、
+ andJoin: "と",
+ tickDone: "これは済んだ", tickBack: "もう一度使う",
+ lastCollection: "最終集配 {t}", collectionGone: "集配は終わった",
+ shape: "タイピスト{t}人、タイプライター{m}台、{f}階建て",
+ shapeShared: "。少なくとも一つの階には机が二つ以上あります——階だけでは、そこにいる誰も決まりません。",
+ findWho: "誰がどこに座り、どの機械を使っているかを突き止めてください。",
+ dossierPool: "タイピスト室",
+ machineFlag: "史実、確認済み。エアフルト、ドレスデン、ケムニッツ、ツェラ＝メーリスは、"
+   + "どれも最後は国境の向こう側になりました——つまりこのタイピスト室の半分は、"
+   + "省が承認していない国で作られた機械で打っているのです。絵はこのゲームの機械で、"
+   + "その銘柄の肖像ではありません。本物の姿は、Typewriter Database にほぼすべての"
+   + "写真があります。",
+ nothingOnFile: "記録なし。",
+ close: "閉じる",
+ noCallYet: "まだどこも訪ねていません。",
+ nothingNew: "シュミスには、まだ聞いていないことは何もありません。",
+ toldNothing: "{voice}: すでに聞いたことばかりだ。",
+ andAlso: "それから: ",
+ orElse: " ——あるいは—— ",
+ orShort: "——または——",
+ report: {
+  allRight: "すべての名前が正しい椅子に。",
+  wrong: "{n}か所の誤り",
+  late: " 八時の最終集配はもう出ていました。自分で駅まで持っていき、夜行列車に"
+    + "乗せました。一日遅れで届き、読まれました。",
+  intime: " 最終集配に間に合い、朝には正しい机の上にありました。",
+  again: " もう一度見てください——この用紙に当て推量はひとつもありません。",
+  statsOne: "{t} · 訪問{n}回 · 評価 {grade}",
+  stats: "{t} · 訪問{n}回 · 評価 {grade}",
+  fewest: "最少 {p} 回",
+  share: "結果をコピー",
+  copied: "コピーしました。どこに貼っても、答えは漏れません。",
+  stampRight: "処理済み", stampWrong: "未処理",
+  shareRight: "名前はすべて正解", shareWrong: "{n}か所の誤り",
+  shareCallsOne: "訪問{n}回、最少{p}回",
+  shareCalls: "訪問{n}回、最少{p}回",
+  runOne: "{n}日連続", run: "{n}日連続",
+  record: "プレイした日: {p} · ERLEDIGT: {d} · 最長連続: {b}"
+ },
+ scene: {
+  goOn: "どこかを押して続ける",
+  done: "これで全部",
+  skip: "今後は表示しない",
+  straight: "すぐ用紙へ",
+  back: "用紙に戻る",
+  scenesOff: "場面は表示しない設定です。",
+  playThem: "見る",
+  echo: "<b>{place}<\/b>の話は、すでに聞いたことばかりでした。それでも{n}分かかりました。",
+  echoDog: " 少なくともシュミスには何かありました。",
+  hadIt: "（これはもう聞いています: {place}）"
+ },
+ nextDay: " 翌日",
+ saidNothingNew: "新しい話はなかった",
+ aboutWho: "{who}について",
+ toSay1: "話すことが{n}つ",
+ toSayN: "話すことが{n}つ",
+ ruleLabel: "{id} · {who}のうち{n}人がここより上",
+ noPicture: "まだ絵がありません",
+ nothingYet: "まだ何もありません。誰かに尋ねに行きましょう。",
+ howtoTitle: "用紙の使い方",
+ hide: "隠す", show: "表示",
+ howto: [
+  ["手がかりを押す", "それが<b>ペン<\/b>になります。それからマスにつける印には、"
+   + "すべてその手がかりの文字が押され、あとでどの手がかりがつけた印かわかります。"
+   + "訪問のあとは、聞いたばかりの最初の手がかりがペンになります。"],
+  ["マスを押す", "印が順に変わります: 空 &rarr; <b>&#10007; 除外<\/b> &rarr; "
+   + "<b>? かもしれない<\/b> &rarr; <b>&#10003; 確定<\/b> &rarr; 空。"],
+  ["入れ替え", "二つの欄の見出しにあります。<b>建物<\/b>と<b>手がかり<\/b>を入れ替え、"
+   + "いま使っているほうを表の隣に置きます。扉を選ぶと自動で手がかりに切り替わります。"],
+  ["弧", "<i>事件と絵<\/i>の中にあります。曲線（タイピストどうしは点線、タイプライターが"
+   + "からむと破線）は、間隔や順序の手がかりがまだ許す位置をすべて示します。いくつあっても"
+   + "全部です。消すのは<b>難易度の設定<\/b>です。その組を頭の中で建物に沿って動かすことに"
+   + "なります。"],
+  ["手がかりの &#10003;", "使い終えた手がかりをリストの下へしまいます。<b>&#8634;<\/b> で"
+   + "戻せます。かかわる人が全員決まった手がかりは、少しすると自分で下がります——"
+   + "印を取り消して、また役目ができれば、自分で戻ってきます。"],
+  ["場面", "扉ごとの小さな場面は、ずっと表示しないようにできます。表示しないときに"
+   + "出るお知らせから、また見るようにできます。"],
+  ["シュミス", "どの訪問にもついてきますが、最初の五課では知っていることを口にしません。"
+   + "<b>第六課は彼の課です<\/b>。彼の数えた数は、話題の階に<b>建物を横切る線<\/b>"
+   + "として描かれます——リストに書かれるのではなく、建物の上に。弧を消しても消えません。"
+   + "それは手がかりそのもので、代わりにした推理ではないからです。"],
+  ["時計", "訪問ごとに二十五分かかり、最終集配は八時です。遅れると報告書の"
+   + "届き方が変わりますが、最後までやれなくなることはありません。"],
+  ["メモ", "表に書ききれない推理の筋道を書くための欄です。"],
+  ["報告書を出す", "正しかったかどうかを教えてくれる唯一のものです。表の上では"
+   + "途中で正誤は示されず、どの扉も教えてくれません——<i>名前を入れる<\/i>を埋めて"
+   + "提出します。八時を過ぎると届き方が変わりますが、提出できなくなることはありません。"],
+  ["シュミスが鼻でつつく", "ひと押しで、三十分かかります。彼がつける印は<b>ひとつ<\/b>"
+   + "だけ。すでに聞いたことから導ける印で、もとになった手がかりの文字が押されます。"
+   + "聞いていないことを彼がでっち上げることはありません。"],
+  ["新しい用紙", "表と時計と訪問を空にして、同じ事件をはじめからやり直します。"
+   + "別の事件を選ぶのではありません——それは<i>事件と絵<\/i>の中の<i>事件<\/i>です。"]
+ ],
+ places: {
+  janitor: {name: "用務員の物置",
+   room: "ボイラーの先、下の階。油と冷たい石、そして立ち上がらない男。",
+   voice: "振り向きもせずに彼は答える"},
+  porter: {name: "夜警の記録簿",
+   room: "記録簿は机に鎖でつながれている。二人の手で書かれ、一人は急いでいた。",
+   voice: "読めるかぎりで言えば、記入はこうだ"},
+  roster: {name: "当番表",
+   room: "エレベーターの脇に留めてある。四週間前のもので、三種類の鉛筆で直されている。",
+   voice: "直しの下にはこう書いてある"},
+  switchboard: {name: "電話交換台",
+   room: "真鍮の目が並ぶ壁。話しているあいだじゅう、彼女はプラグを抜き差ししている。",
+   voice: "電話の合間に彼女は言う"},
+  post: {name: "郵便室",
+   room: "料金計器とひも、それに替えたばかりの熱いリボンのにおい。",
+   voice: "建物じゅうの筆跡を知っている彼は言う"},
+  registry: {name: "登録係",
+   room: "カーボンの写しは全部、彼のところにある。順番どおりに。できれば触らないでほしいそうだ。",
+   voice: "カーボンを読み上げて彼は言う"},
+  lift: {name: "エレベーター係",
+   room: "質問を最後まで言えるように、一階上がってまた下ろしてくれる。",
+   voice: "一日じゅう彼女たちを乗せている彼は、覚えていて言う"},
+  trolley: {name: "お茶のワゴン",
+   room: "頼まれもしないのにワゴンを止め、欲しくもない一杯を注いでくれる。",
+   voice: "どの机も一日に二度見る彼女は言う"},
+  charwoman: {name: "掃除婦",
+   room: "バケツと、寄りかかったモップ。机を拭くから、机のことを知っている。",
+   voice: "彼女はきっぱり言う"},
+  file: {name: "人事ファイル",
+   room: "三番目の引き出し。打たれてから、誰かが手をつけている。",
+   voice: "ファイルにはこうある——かつては、そうあった"},
+  canteen: {name: "食堂",
+   room: "食事の合間。椅子は机の上、湯沸かしがひとつまだついていて、三人が話している。",
+   voice: "一人が言い、ほかの二人は打ち消さない"}
+ },
+ floorsOf: {basement: "地下", lobby: "ロビー", low: "下の階",
+   mid: "中ほどの階", high: "上の階", lift: "エレベーター"},
+ snout: {
+  listComma: "、",
+  count0: "幅木に沿って{who}の前を通り、一度も顔を上げない。あの階段のにおいは、"
+    + "誰からもしない。",
+  count: "列に沿って嗅いでいき——{who}——{n}人のところで止まる。"
+    + "{those}今日、{floor}より上へ行っている。",
+  thatOneHas: "その一人は", thoseHave: "その人たちは",
+  trail: "鼻を下げて階段を上る。{who}のにおいが混ざり合い、上るほど薄くなり、"
+    + "{floor}の踊り場で彼は座り込む。そこより上には、彼女たちのにおいはない。",
+  distinct: "何でもそうするように、{who}を山に分ける。{N}つの山、"
+    + "だから彼女たちのあいだには{n}つの階。",
+  pile: "山", piles: "山", floor: "階", floors: "階"
+ },
+ /* 十三はすべて彼女の文。Gudrun Leyendecker『Schmiss und Wessen ermitteln』
+    （BoD 2025）第一巻、章番号は attic/quotes.md。ドイツ語の原文から訳した。
+    英語は訳文なので、英語を経由しない。どれも情報を持たない——それがこの
+    文たちの役目。 */
+ asides: [
+  "心の中で笑った。外ではくしゃみをした。品のいい、距離を置いたくしゃみを。",
+  "頭の中に書き留めた。靴ははいていないが——蹴りが来るときは、わかる。",
+  "犬に職業があるとしたら、ぼくはさしずめ物言わぬ共同経営者だ。吠えない、噛まない、でもいつも真ん中にいる。",
+  "ぼくは自分の場所に寝そべっていた。その場所が、まったくの偶然で、窓のすぐ前にあった。ほかに楽しみもないのだから。",
+  "ぼくは職業的に尻尾を振った。公務として、私的にではなく。",
+  "サラは何も言わなかった。ぼくもだ。ときには沈黙がいちばんの批評になる。",
+  "それにぼくには判断する資格がある——なにしろこの事件で、鼻で考えるのはぼくだけなのだから。",
+  "世界はパズルだった。でも、少なくともバニラのにおいがした。",
+  "<i>計算<\/i>……人間がにおいに気を配るかわりに顔色を読みはじめる、そういう言葉だ。",
+  "ぼくは座った。ぼくの言葉では、こういう意味だ——反対のことを証明するまでは、きみは大丈夫。",
+  "人間はときどき自分の考えにすっかり絡まって、目の前で人生がヒキガエルの婚礼を祝っていることにも気づかない。",
+  "追い払った。朝食のビュッフェではないのだから。",
+  "いつものように彼女のそばに寝そべった。テーブルの下で誰がいつ嘘をつくか、わかったものではない。"
+ ],
+ machines: {
+  "Olympia": {made: "エアフルト、のちにヴィルヘルムスハーフェン近郊ロフハウゼン", side: "1946年以後は西",
+   text: ["オリンピアは終戦まではエアフルトの会社だった。1945年6月3日、工場はソ連占領軍に"
+        + "引き渡されて国有化され、名前をめぐる争いに負けたまま、VEBオプティマとして"
+        + "タイプライターを作り続けた。",
+        "去った社員たちは図面を持って出た。まずビーレフェルトに拠点を置き、1946年10月には"
+        + "ヴィルヘルムスハーフェン近くのロフハウゼンにある元海軍の倉庫に移った。1954年から"
+        + "オリンピア・ヴェルケ株式会社。1951年から1966年にその工場から出た機械は、"
+        + "どこで作られたものと比べても最高の部類に数えられる。"]},
+  "Adler": {made: "アドラーヴェルケ、フランクフルト・アム・マイン", side: "西",
+   text: ["アドラーはフランクフルトで自転車、自動車、タイプライターを作った。1957年、"
+        + "マックス・グルンディッヒがアドラーヴェルケの株式の過半を取得し、同じ年に"
+        + "ニュルンベルクのトライアンフの過半も取得した——何十年も競い合ってきた二つの名前が、"
+        + "こうしてトライアンフ・アドラーになった。"]},
+  "Erika": {made: "ザイデル＆ナウマン、ドレスデン", side: "1945年以後は東",
+   text: ["ザイデル＆ナウマンは1870年代にドレスデンでミシン作りから始まり、"
+        + "次に自転車、それからタイプライターを作った。エリカの携帯機は上等なものだった。",
+        "1945年2月、工場はドレスデンのほかの部分とともに失われた。再建されたものは"
+        + "国境の東にとどまり——そして誰よりも長く生き延びた。エリカはヨーロッパで作られた"
+        + "最後の手動携帯タイプライターで、最後の一台がラインを出たのは1991年だった。"]},
+  "Triumph": {made: "トライアンフ・ヴェルケ・ニュルンベルク株式会社", side: "西",
+   text: ["1911年からトライアンフ・ヴェルケ・ニュルンベルク。二年後にトライアンフ・"
+        + "エンジニアリングから分かれた。自転車、オートバイ、短いあいだ自動車、そして"
+        + "二つの大戦を通じて主にタイプライター。1957年にグルンディッヒが過半を買った。"]},
+  "Continental": {made: "ヴァンダラー・ヴェルケ、ケムニッツ近郊ジークマール＝シェーナウ",
+   side: "1945年以後は東",
+   text: ["コンチネンタルは、ケムニッツ郊外ジークマール＝シェーナウのヴァンダラー・ヴェルケの"
+        + "タイプライター部門だった。自転車、オートバイ、自動車も作った会社で、その四つの輪は"
+        + "アウトウニオンの紋章に入った。ケムニッツは東側になった。"]},
+  "Mercedes": {made: "ツェラ＝メーリス、テューリンゲン", side: "1945年以後は東",
+   text: ["自動車とは無関係で、その無関係を保つにはお金がかかった。1913年、グスタフ・メーツは"
+        + "自分のタイプライターをメルセデスと呼び続ける権利のために、ダイムラーに二万マルクの"
+        + "和解金を払った。工場はテューリンゲンのツェラ＝メーリスにあった。"]}
+ },
+ /* The six dossiers, translated from the English. Not one line places
+    anybody: no floor, desk, neighbour, break, time of day or document (the
+    rule over `typists` in the English table). */
+ typists: {
+  "Wenzel": [
+   "二十二歳、この建物に来て一年半。コブレンツの商業学校を出て、速記は優等、と聞かれもしないのに言う。誰よりも速く打ち、誰よりも多く打ち間違える。それで釣り合いは取れていると思っている。",
+   "夜は英語の講座に通い、ロンドンの大使館のことを、あとは出向くだけの住所のように話す。<i>タイピスト<\/i>という言葉は使わない。<i>いまのところは<\/i>と言う。Adam夫人は、自分も昔はそう言っていたと言う。"
+  ],
+  "Ostrowski": [
+   "1946年、子どものときに西へ来た。スーツケース一つと、途中のどこかでポーランド語を話すのをやめた母親と一緒に。彼女のドイツ語はここの誰よりも正確だ。自然に身についたのではなく、学ばなければならなかったから。",
+   "ほかの人のコンマを鉛筆で直す。ごく軽く、消せるように。シュレージエンの話はしない。自分の名前の話もしない。この建物はもう三度、その綴りを間違えたのに。三度とも、そのままにしておいた。"
+  ],
+  "Bühl": [
+   "二十八歳、この建物で四年、復活祭から婚約中。結婚式は春で、そのあとどうなるかは、誰も口にしないまま建物がもう決めている。",
+   "自分の給与等級より一つ上の装いをし、何か言われるのを待っているような顔をしている。まだ誰も何も言っていない。上手に、すすんで打ち、打っているあいだは話さない。本人は礼儀のつもりで、ほかの人は気取りだと思っている。結婚後も続けるのかと聞かれると<i>そのうちね<\/i>と言う。もう答えの出ている人の口調で。"
+  ],
+  "Adam": [
+   "夫は鉄道で働き、息子が二人。一人は技師になることになっていて、もう一人はなれないともうわかっている。ケーキを持ってきては、毎回うまくいかなかったと言う。",
+   "誰が身ごもったか、誰が引っ越すか、誰が別れるかを知っていて、それをすでに知っている人にだけ話す。本人はそれを慎みと思っている。だいたいは、そのとおりだ。"
+  ],
+  "Kern": [
+   "春に人事から移ってきた。昇進もなく、説明もなく。理由を聞かれると、向こうは暑すぎたと言う。結婚指輪、机に写真はない。",
+   "速く、きれいに、中身には少しの好奇心も持たずに打つ——こういう建物では身につけられる技術で、彼女の場合はとてもよく身につけた技術だ。部屋で上役の話が始まると、彼女はリボンを点検する。"
+  ],
+  "Litt": [
+   "四十一歳、1953年からこの建物にいる。大臣が三人、引っ越しが二回。1957年から未亡人——建物はずいぶん昔のことだと思っているが、彼女はそう思っていない。指輪はまだしている。右手に。若い人たちは変わった癖だと思い、年配の人たちはそう思わない。",
+   "昔のことをまだ知っているのは彼女だけで、すすんで話してくれる。ただし、いま打っている一枚を終えるまでは決して話さない。ほかの人は彼女に愚痴をこぼしに来る。聞くだけで、そこから何もしないから。まだ救える紙を捨てたことは一度もない。倹約だと言う。1946年にも、何も捨てなかった。"
+  ]
+ }
 }
 
 };
@@ -3815,6 +4140,69 @@ const ZH = {
  }
 };
 
+/* ------------------------------------------------------------------ Japanese
+
+   (2 October 2026.) FLOORS are counted the way China and North America count
+   them: 1階 is the ground floor, so index 0 is "1階" and every storey above
+   is one higher than the British name. Arabic numerals, which is how a
+   Japanese building signs its floors. `phrase-test.js` holds this against
+   en-NA the way it holds Chinese: the same storey and the same number.
+
+   TITLES. Frau and Fräulein are 夫人 and 嬢 AFTER the surname, which keeps
+   the two apart the way the case file does (さん would erase it). The
+   surnames stay in Latin script, as in Chinese, for the same reason.
+
+   MACHINES. The make stands alone, no article, and a typewriter is a thing:
+   ない, not いない. People take いる.
+
+   COUNTING. A sentence supplies its own counter: 人 for people, 階分 for a
+   distance in storeys, つ for how many different floors. The number list is
+   kanji, which every one of those counters takes in writing. */
+
+const JA = {
+ floors: ["1階", "2階", "3階", "4階", "5階", "6階"],
+ seats:  ["窓際", "ドアのそば", "隅", "ストーブのそば"],
+ titles: {fraeulein: "嬢", frau: "夫人"},
+ num:    ["ゼロ", "一", "二", "三", "四", "五"],
+
+ t: (i, c) => {
+  const key = (C.cast.titles || [])[i];
+  return C.cast.typists[i] + (key ? JA.titles[key] : "");
+ },
+ trio: xs => {
+  const n = xs.map(x => C.cast.typists[x]);
+  return n.length > 1 ? n.slice(0, -1).join("、") + "と" + n[n.length - 1]
+                      : n[0];
+ },
+ m: (i, c) => C.cast.machines[i],
+ f: (i, c) => JA.floors[i],
+ named: i => C.cast.machines[i],
+ seat: (f, s) => `${JA.f(f)}の${JA.seats[s]}の席`,
+ floorName: f => JA.floors[f],
+
+ line: {
+  not_t:    a => `${JA.t(a[0])}は${JA.f(a[1])}にいない`,
+  not_m:    a => `${JA.m(a[0])}は${JA.f(a[1])}にない`,
+  above:    a => `${JA.t(a[0])}は${JA.t(a[1])}より上の階で働いている`,
+  // 上 / 下 carries the sign
+  apart:    a => `${JA.m(a[0])}は${JA.m(a[1])}より`
+    + `${JA.num[Math.abs(a[2])]}階分${a[2] > 0 ? "上" : "下"}にある`,
+  share:    a => `${JA.t(a[0])}は${JA.t(a[1])}と同じ階にいる`,
+  notshare: a => `${JA.t(a[0])}と${JA.t(a[1])}は別々の階にいる`,
+  uses:     a => `${JA.t(a[0])}が使っているのは${JA.m(a[1])}だ`,
+  at_seat:  a => `${JA.t(a[0])}は${JA.seat(a[2], a[1])}に座っている`,
+  not_seat: a => `${JA.t(a[0])}は${JA.seat(a[2], a[1])}には座っていない`,
+  count:    a => `${JA.trio(a[0])}の三人のうち、`
+    + (a[2] === 0 ? `${JA.f(a[1])}より上の階から来た者はいない`
+                  : `${JA.f(a[1])}より上の階から来たのは${JA.num[a[2]]}人`),
+  // the highest of them, singular, as the English insists
+  trail:    a => `${JA.trio(a[0])}のうち、いちばん上の階は${JA.f(a[1])}だった`,
+  distinct: a => a[1] === 1
+    ? `${JA.trio(a[0])}は全員同じ階から来た`
+    : `${JA.trio(a[0])}は${JA.num[a[1]]}つの別々の階から来た`
+ }
+};
+
 /* Ground first, the British way, and the table every other language is
    checked against — `phrase-test.js` holds THIS one against general.py
    character for character. */
@@ -3826,7 +4214,8 @@ const EN = english(["ground", "first", "second", "third", "fourth", "fifth"]);
    every other check in phrase-test.js is language-independent. */
 const EN_NA = english(["first", "second", "third", "fourth", "fifth", "sixth"]);
 
-const PHRASE = {en: EN, "en-NA": EN_NA, de: DE, fr: FR, it: IT, es: ES, zh: ZH};
+const PHRASE = {en: EN, "en-NA": EN_NA, de: DE, fr: FR, it: IT, es: ES, zh: ZH,
+                ja: JA};
 let LANG = "en";
 
 function words(lang){ return PHRASE[lang || LANG] || EN; }

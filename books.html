@@ -4,10 +4,10 @@
 <!-- Visits counted by GoatCounter (the user, 18 September 2026): no cookies, nothing personal, and localhost is not counted. -->
 <script data-goatcounter="https://typingpoolgame.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-<meta name="description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Six languages, free, no account.">
+<meta name="description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Seven languages, free, no account.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="The books — The Typing Pool">
-<meta property="og:description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Six languages, free, no account.">
+<meta property="og:description" content="A deduction game. Bonn, 1969, a quarter past five. A letter left the building that should never have left it, and the typists have gone home. Seven languages, free, no account.">
 <meta property="og:url" content="https://typingpoolgame.com/books.html">
 <meta property="og:image" content="https://typingpoolgame.com/share.png">
 <meta property="og:image:width" content="1200">
@@ -1738,6 +1738,125 @@ zh: {
 
  }
 
+},
+
+/* ------------------------------------------------------------------ Japanese
+   (2 October 2026, translated from the English, not from the Chinese.) The
+   game speaks to the player in です／ます. Names: サラ・ヴェッセン, シュミス,
+   マウザー警部; the author's name stays in Latin script, as on her books. */
+
+ja: {
+ name: "日本語", locale: "ja-JP",
+ title: "タイピスト室",
+ sub: "推理ゲーム · ボン、1969年 · 五時過ぎ",
+ intro: [
+  "この建物から、出てはならない一通の手紙が出ていきました。署名はありません。けれど、"
+  + "打ったタイプライターは紙面から読み取れます——欠けた <i>e<\/i>、高く浮くキャリッジ——"
+  + "だから、どの機械で打たれたかは正確にわかります。わからないのは、そのとき誰がその前に"
+  + "座っていたかです。",
+  "タイピスト室は配置換えになりました。タイプライターは修理のために下の階へ運ばれ、"
+  + "戻ってくると別の机に置かれます。女性たちも機械と一緒に移されます。エレベーター脇の"
+  + "当番表は四週間前のもので、三種類の鉛筆で書き直されています。だから問いは一枚の表です。"
+  + "どの機械がどの机にあり、誰がそこに座っていたのか。",
+  "いまは<b>五時十五分<\/b>。タイピストたちは五時に帰りました——だから各階を歩いて回れるし、"
+  + "だから彼女たちには一人も直接は尋ねられません。ほかの人はまだ残っています。"
+  + "後片づけこそが彼らの仕事だからです。掃除婦は机を拭き、夜警は勤務に就くところで、"
+  + "食堂は次の食事の合間。みんな一日じゅう、あのタイピスト室を見ていました。",
+  "あなたは<b>サラ・ヴェッセン<\/b>。建物のどの扉でもノックできます。訪ねるたびに"
+  + "二十五分かかり、最後の集配は八時です。",
+  "<b>シュミス<\/b>はおまけでついてきます。そして、これを全部話しているのは彼です。"
+  + "彼は誰とは決して言いません。三人のうち何人がある踊り場より上へ行ったか、"
+  + "においの跡がどこで途切れるか、三人の女性がいくつの別々の階から来たか——"
+  + "どれも名前ではありませんが、全部合わせると名前になります。"
+ ],
+ caption: "このゲームのために描かれたサラ・ヴェッセンとシュミス。小説では彼が語り手です。"
+  + "ここでもその役は手放しません。パズルが許すかぎりは。",
+ start: "どこから始めるか",
+ doors: {
+  learn: "覚える",
+  learnSub: "全{n}課。一課に一つの考え方、小さいものから。まだ教えていないことは出てきません。",
+  today: "今日の事件",
+  todaySub: "毎朝、新しい建物。誰にとっても同じ事件です。",
+  rest: "ほかの事件",
+  restSub: "{n}件。机三つから六つまで、やさしいものから手ごわいものまで。"
+ },
+ daily: {
+  today: "今日は{date}です。",
+  ago: "ちょうど{n}年前の今日",
+  none: "まだ誰も作っていません——daily.py を実行してください。下のリンクは、"
+   + "ある中でいちばん新しい日を開きます。",
+  stale: "今日の分はまだ作られていません。リンクは{date}（{day}）を開きます。"
+ },
+ sampler: {
+  h: "これもここにありますが、パズルではありません",
+  text: "<b>Der Rückstand<\/b> は同じ建物で起きる探偵事件ですが、上の事件とはまったく"
+   + "違います。埋める表はありません。修繕されたファイルが登録課（Registratur）に戻って"
+   + "きたのに、誰も受領の署名をしていない。省内を歩き、人に尋ね、マウザー警部への"
+   + "サラの報告書を自分で書きます。どの部分にも証拠を添えて。一晩で遊べる長さで、"
+   + "単独で完結しており、同じような事件をいま書いているところです。初期版で、"
+   + "いまは英語のみ。部屋と人物はAIで生成した下絵です。書類のほうは紙と光だけがそうで、"
+   + "罫線や書き込みはすべて私たちの小さなプログラムが描いています。",
+  link: "事件を開く →",
+  notify: "続きができたら知りたい方は、{mail} までご連絡ください。",
+  notifySubject: "続きができたら知らせてください"
+ },
+ whose: "これは誰の犬か",
+ about: [
+  "ヴェッセンとシュミスは私のものではありません。<b>Gudrun Leyendecker<\/b> の"
+  + "推理小説の登場人物です。彼女は1948年にボンで生まれ、1995年から作品を発表し、"
+  + "百冊をゆうに超える著書があります。小説ではシュミスが<i>語り手<\/i>です。"
+  + "物語を語るのは犬で、誰の予想よりも多くのことに気づき、それを彼なりのやり方で"
+  + "伝えます。そのあいだにサラ・ヴェッセンは自分のやり方で、マウザー警部は彼の"
+  + "やり方で事件を追います。",
+  "<b>このゲームは小説ではありません。<\/b>彼女の登場人物二人と、二人が生きる年を"
+  + "借り、小説が決してしないことをします。ボンのある夕方を、〇と×で埋める表に"
+  + "変えるのです。ここに筋書きはなく、誰も傷つきません。語り手がシュミスなのは、"
+  + "その役を彼から取り上げるほうが、そもそも彼を借りることよりひどく思えたから——"
+  + "そして、訪問のあいだに彼が言うことも彼女のものです。第一作から、彼女の許しを得て"
+  + "引いた十三の文です。とはいえ、パズルが語り手にさせられる仕事には限りがあります。"
+  + "この二人が気に入ったなら、本当に生きているのは小説のほうです。そしてそれは"
+  + "小説であって、パズルではありません。"
+ ],
+ bookLine: "ボン、1969年。ヴェーヌスベルクの一発の銃声、政治と私的な商売が絡み合う。",
+ moreBooks: "彼女のほかの本",
+ allBooks: "Schmiss und Wessen シリーズの全巻 →",
+ report: "問題を報告する",
+ foot: "登場人物とシュミスの独白は Gudrun Leyendecker の小説から、彼女の許可を得て"
+  + "引用・使用しています。パズルのエンジンと記録用紙はこのゲームのために作りました。"
+  + "どの事件も、公開前に、推測なしで解けることを構成して証明しています。"
+  + "{date} ビルド。",
+ lang: "言語",
+ books: {
+  sub: "この犬の出どころの本",
+  back: "← ゲームに戻る",
+  find: "入手先",
+  author: "著者について",
+  band: "第{n}巻",
+  empty: "まだ記入されていません",
+  emptyNote: "この巻の情報は、どの出版社や書店のページにも見つかりませんでした。"
+   + "空白を埋めるために書名や ISBN をでっち上げることはしません。"
+   + "<code>books.json<\/code> に加えれば、ここに表示されます。",
+  pages: "ページ",
+  at: "出版社で",
+  shop: "書店——国によって入手状況が異なります",
+  publisher: "出版社直営の書店",
+  aboutHer: "彼女と作品について",
+  seriesBlurb: "ボン、1969年。サラ・ヴェッセンは自分の考えを持った私立探偵、マウザー警部は警察。そしてシュミスは犬で、すべてを語ります——本人が思っているよりずっとわかっておらず、誰にも内心たいして感心していません。",
+  authorNote: "美術史家 Ernst Lang とピアニスト Margarethe Lang の四番目の子。製本を学び、俳優を志し、精神世界の本から始めて、小説、推理小説、児童書、詩、実用書を書いてきました。著書は百冊をゆうに超えます。",
+  alsoTitle: "ボンを舞台にしたほかの推理小説",
+  alsoNote: "著者の確認によれば、これらは Schmiss und Wessen シリーズではありません——犬は出てきません。それぞれ独立した作品で、どちらかといえば心理劇の色が濃いものです。彼女はさらに以前の一作『Nicht zu fassen』を、ユーモラスで破天荒な推理小説、シリーズの先駆けとして挙げています。出版社のページをまだ読めていないため、ここには載せていません。",
+  linkLabels: {
+   bod: "出版社（BoD）で彼女の本を見る",
+   lovelybooks: "LovelyBooks の著者ページ",
+   wikipedia: "Wikipedia（ドイツ語）",
+   indigo: "Indigo で検索（カナダ）",
+   amazon: "Amazon.de で検索",
+  },
+  born: "{name}、{date}{place}生まれ、{since}年から執筆。",
+  foot: "このページで出版社・日付・ISBN が添えてあるものは、すべて出版社か販売店の"
+   + "ページから読み取ったものです。確かめられなかったものは、埋めずに空欄のまま"
+   + "にしています。ゲームは<a href=\"index.html\">トップページ<\/a>にあります。"
+ }
 }
 
 

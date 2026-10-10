@@ -3,5 +3,10 @@
   "code": "en",
   "name": "English",
   "released": true
+ },
+ {
+  "code": "de",
+  "name": "Deutsch",
+  "released": true
  }
 ]

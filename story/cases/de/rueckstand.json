@@ -1,0 +1,3047 @@
+{
+ "id": "rueckstand",
+ "subtitle": "",
+ "title": "DER RÜCKSTAND",
+ "engine": "a bit of everything",
+ "preamble": "Sarah Wessen ist Privatdetektivin in Bonn, und Kommissar Mauser von der Kriminalpolizei ist der Grund, weshalb sich ihr eine Ministeriumstür überhaupt öffnet. Dies ist das Erste, wofür er sie dorthin schickt. Ein Fall ist es nicht.\n\nHerr Simon führt die Registratur, und die Registratur führt ein Buch: was hinausging, in welches Zimmer, an welchem Tag, und was zurückkam. Ungefähr eine Akte im Monat kommt nicht zurück, und an jede einzelne davon erinnert er sich.\n\nAm Nachmittag des 14. Oktober, eines Dienstags, lag eine davon auf seinem Schalter. Sie war seit dem Frühjahr draußen gewesen. Sie war vollständig, sie war ausgebessert worden, und niemand hatte irgendwo ein Wort darüber geschrieben.\n\nNiemand bekommt deswegen Ärger, und niemand wird welchen bekommen. Aber Herr Simon führt dieses Buch seit zwanzig Jahren, ohne eine Zeile darin, über die er nicht Rechenschaft geben könnte, und eine Akte, die heimkommt, ohne dass ein Name bei ihr steht, ist ihm schlimmer als eine, die nie heimkommt. Er konnte es nicht auf sich beruhen lassen. Er erwähnte es Kommissar Mauser gegenüber, so wie ein anderer ein Geräusch in der Nacht erwähnt, und Mauser, der niemanden entbehren konnte und eine Schwäche für genaue Leute hat, schickte Sarah. Er will es schriftlich, denn ein Bericht ist ein Bericht. Herr Simon ist der Einzige im Haus, der über sich selbst keine Rechenschaft ablegen muss: Er war es, der gefragt hat.\n\nEs folgt alles, was gefunden oder gesagt wurde.",
+ "question": "Wer hat die Akte auf Herrn Simons Schalter zurückgelegt? Füllen Sie den Bericht aus.",
+ "days": [
+  {
+   "n": 1,
+   "name": "Ein Nachmittag",
+   "note": "Neun Personen werden hier ausgeschlossen, und ebenso der Gedanke, die Akte habe das Regal nie verlassen, durch vier Arten von Argument, und jede Art stützt sich auf ihre eigenen Belege. Manche können nicht dort gewesen sein; manche haben es nie erfahren; die Unterlagen zeigen, dass sie hinausging; und manche hätten die Spur nicht hinterlassen können, die die Akte selbst trägt. Wer sie zurückbrachte, wollte nicht erkannt werden, nicht für jemand anderen gehalten werden.",
+   "sections": [
+    {
+     "where": "die Registratur",
+     "lines": [
+      "Das Regal für Z A 4: eine Lücke seit dem 12. Mai, und der Zettel, der darin steht, nennt ein Zimmer und keinen Namen, denn mehr ist von einem Zettel nie verlangt worden. Jeder andere Deckel im Regal trägt vorn seine Nummer mit Tinte, alle von derselben Hand, und es ist die von Herrn Simon.",
+      "Das Ausleihbuch: Sachakte 117/64, über die Beschaffung von Schreibmaschinen, am 12. Mai an Zimmer 407 ausgegeben, und seither keine Rückgabe dazu eingetragen.",
+      "Die Rückstandsliste: Ende September für das dritte Quartal aufgestellt, mit 117/64 unter elf anderen, und eine Abschrift ist an jedes Referat gegangen, bei dem eine davon liegt."
+     ]
+    },
+    {
+     "where": "der Rückgabeschalter",
+     "lines": [
+      "Die Akte, ihr Umschlag: der Aktendeckel ist neu, von Hand zugeschnitten und gefalzt, und die Nummer, 117/64, ist vorn mit gewöhnlichem Bleistift übertragen.",
+      "Die Akte, ihr Inhalt: jedes Blatt glatt, und es gilt die Ordnung des Schreibsaals: das neueste vorn, sobald man den Deckel aufschlägt, was weder so ist, wie die Akte hinausging, noch so, wie die Registratur sie führt; und innen im Deckel stehen die Ziffern der Nummer erhaben heraus, wo sich der Bleistift durch den Karton gedrückt hat."
+     ]
+    },
+    {
+     "where": "die Poststelle",
+     "lines": [
+      "Das Ausgangsbuch der Poststelle: Fräulein Bühls Namenszeichen neben jedem Posten, der am 14. Oktober zwischen Viertel nach zwei und zwanzig vor vier eingetragen wurde, dreiundzwanzig an der Zahl, und zwei der Angestellten dort oben haben ihr Namenszeichen danebengesetzt.",
+      "Das Ausgangsbuch der Poststelle: Herrn Simons Namenszeichen am Rand um Viertel vor drei am 14. Oktober, neben einem fehlgeleiteten Posten, zu dessen Klärung die Angestellten ihn heraufgerufen hatten, und noch einmal um Viertel nach drei, als es erledigt war."
+     ]
+    },
+    {
+     "where": "das Vorzimmer von 407",
+     "lines": [
+      "Die Abgabeliste des Vorzimmers: vor jeder Abgabe geschrieben und unten abgezeichnet, für alles, was aus dem Referat hinuntergeht, auch von Herrn Graus Schreibtisch; links die Spalte des Vorzimmers, rechts der Stempel der Registratur. 117/64 steht in keiner der beiden Spalten.",
+      "Der Ausgangskorb auf Frau Pohlmanns Schreibtisch: drei Akten, die darauf warten, hinunterzugehen, jede mit dem ältesten Blatt vorn und dem neuesten hinten, so wie alles Frau Pohlmanns Schreibtisch verlässt.",
+      "Die Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober: abgehalten mit seinen Referenten in seinem eigenen Zimmer von zwei Uhr bis Viertel nach vier, Oberregierungsrat Grau unter den Anwesenden, und am Fuß vom Abteilungsleiter selbst unterschrieben."
+     ]
+    },
+    {
+     "where": "die Pförtnerloge",
+     "lines": [
+      "Das Pförtnerbuch: Einträge am Fenster der Pförtnerloge um zwanzig vor drei, um Viertel vor drei, um fünf nach drei, um Viertel nach drei und um fünf vor halb vier, jeder unterschrieben von dem, der ans Fenster kam, und neben jedem das Namenszeichen des Pförtners.",
+      "Der Lieferschein für das Papier des Schreibsaals: für ein Paket Papier, am 14. Oktober um Viertel vor drei an der Pförtnerloge abgegeben, das Quartalspapier des Schreibsaals, Referat für Referat aufgeführt, dort von Frau Kern quittiert, und unten die Zählung der Ries, um zwanzig vor vier von ihr und vom Pförtner abgezeichnet."
+     ]
+    },
+    {
+     "where": "der Schreibsaal",
+     "lines": [
+      "Der Ablagekorb auf Frau Litts Schreibtisch: jede Akte darin mit dem ältesten Blatt vorn und dem neuesten hinten, der einzige Schreibtisch im Raum, auf dem die Akten in dieser Reihenfolge liegen.",
+      "Die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch: Fräulein Ostrowskis Name innen im Deckel, und der Absatz über eine Akte, die in die Registratur zurückgeht, unterstrichen, leicht, mit Bleistift.",
+      "Ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür: für neue Maschinen, auf den Pfennig durchgerechnet nach dem, was die letzten Maschinen im Jahr 1964 gekostet haben, fertig, nicht unterschrieben und nie hinaufgeschickt."
+     ]
+    },
+    {
+     "where": "Frau Adam",
+     "lines": [
+      "Adam: Ach, sehen Sie mal. Alles, was Frau Litt wieder in die Hand bekommt, stößt sie mit dem ältesten Blatt vorn gerade, und sie sieht nicht hin, während sie es tut. Sie hat in diesem Haus an Herrn Simons Schalter angefangen, dort hat sie es gelernt, und andersherum hat sie es nie gelernt.",
+      "Adam: Ach, die Maschinen! Hier wird seit dem Sommer über die Maschinen gestritten. Es ist jedes Mal derselbe Streit, und es geht darum, ob die vorigen besser waren.",
+      "Adam: Von Schubladen verstehe ich nichts. Von Menschen verstehe ich etwas. Fräulein Wenzel nimmt das Wort Stenotypistin für sich nicht in den Mund, sie besucht abends einen Englischkurs, und wenn sie „vorläufig“ sagt, dann klingt das wie bei einer, die die nächste Stelle schon in der Tasche hat. Das habe ich früher auch gesagt.",
+      "Adam: Setzen Sie sich, setzen Sie sich, hier hat niemand etwas dagegen. Mein Älterer soll Ingenieur werden, und der Jüngere weiß jetzt schon, dass er es nicht wird, und am Dienstag habe ich Kuchen mitgebracht, und er ist mir nicht gelungen."
+     ]
+    },
+    {
+     "where": "Frau Litt",
+     "lines": [
+      "Litt: Zurück in die Registratur? Von uns hat noch keine in der Registratur eine Rückgabe abzeichnen müssen. Was in diesen Raum kommt, kommt über das Vorzimmer und geht denselben Weg zurück, und die meisten der Mädchen hatten nie einen Grund, das Ausleihbuch überhaupt anzufassen.",
+      "Litt: Von der Woche kann ich Ihnen erzählen. Frau Adam war in der letzten Septemberwoche überhaupt nicht in diesem Raum, und wir reiben es ihr seither unter die Nase, weil sie doch immer diejenige ist, die alles weiß.",
+      "Litt: Dazu kann ich Ihnen etwas sagen. Ich habe noch nie ein Blatt weggeworfen, das sich noch retten ließ. Gummiertes Leinen habe ich in meiner eigenen Schublade, und ich habe mehr Deckel ausgebessert, als die Registratur ausgegeben hat.",
+      "Litt: Fangen Sie mir nicht mit den Maschinen an. Ich kann Ihnen sagen, was die Maschinen vor diesen gekostet haben und was ihre Wartung gekostet hat, und das sage ich seit dem Sommer jedem am langen Tisch in der Kantine, der zuhören will.",
+      "Litt: Wenn Sie uns alle der Reihe nach fragen, bekommen Sie aus Frau Kern nichts heraus, nehmen Sie es sich also nicht zu Herzen. Frau Kern schreibt schnell und sauber und interessiert sich überhaupt nicht dafür, was auf dem Blatt steht, und wenn hier das Gerede über die Vorgesetzten losgeht, findet sie etwas an ihrer Maschine zu tun."
+     ]
+    },
+    {
+     "where": "Fräulein Wenzel",
+     "lines": [
+      "Wenzel: Wenzel. Kurzschrift mit Auszeichnung, falls es Ihnen niemand gesagt hat. Ich sitze am Ende des langen Tisches, wenn wir zum Essen hinuntergehen, und es ist der ruhigste Platz in diesem Haus, und das sage ich seit Jahren. Hier oben habe ich den Schreibtisch in der Ecke hinter der Tür, und an die Schublade darin geht außer mir niemand."
+     ]
+    },
+    {
+     "where": "die Putzfrau",
+     "lines": [
+      "die Putzfrau: Und bevor Sie fragen, weil alle fragen: Ich bin nur im Schreibsaal, wenn die Schreibkräfte gegangen sind und der Raum leer ist. Ich leere, was in den Papierkörben ist, und ich mache keine Mappe auf, die auf einem Schreibtisch liegen geblieben ist, und ich war in meinem Leben noch nie dort drin, während jemand redete.",
+      "die Putzfrau: Sie sind stehen geblieben. Ich rede gern, wenn jemand stehen bleibt, und fast niemand bleibt stehen. Ich habe zwei erwachsene Kinder. Ich sehe sie selten, und ich erzähle allen von ihnen."
+     ]
+    },
+    {
+     "where": "Fräulein Ostrowski",
+     "lines": [
+      "Ostrowski: Sie sind die, die der Akte nachgeht. Gut; das sollte jemand tun. Ich habe mein eigenes Exemplar der Geschäftsordnung, mir persönlich ausgehändigt und nicht das des Schreibsaals, und ich habe sie zweimal gelesen. Ich kann Ihnen sagen, was sie über eine Akte sagt, die zurückkommt, und genau, wohin die Zeile gehört.",
+      "Ostrowski: Einmal. Frau Pohlmann kam in die Kantine herunter, was sie sonst nie tut, und fragte uns einmal, beim Mittagessen am langen Tisch in der letzten Septemberwoche, und danach nirgends mehr. Sie fragte nach einer Nummer, nicht nach einem Betreff. Eine von uns schrieb sie auf die Ecke eines Blattes, und eine von uns sagte, sie stehe ohnehin auf der Rückstandsliste."
+     ]
+    },
+    {
+     "where": "Frau Kern",
+     "lines": [
+      "Kern: Fragen Sie Frau Adam. Frau Adam weiß, wer ein Kind erwartet, wer umzieht und wer sich trennt, und sie erzählt es nur Leuten, die es schon wissen, und das hält sie für Verschwiegenheit.",
+      "Kern: Kern. Ich bin im Frühjahr in den Schreibsaal herübergekommen, und als die Neueste bin ich diejenige, die zum Treppenabsatz hinaufgeht, um die Post zu holen, und hinunter zur Pförtnerloge, wenn ein Paket Papier kommt. Es macht mir nichts aus. Meine Beine sehen das anders. Wenn die Putzfrauen die Treppe heraufkommen, ist die Letzte von uns schon zu Hause.",
+      "Kern: Unten. An dem Dienstag bin ich zum Fenster des Pförtners hinuntergegangen, um auf das Papier für den Schreibsaal zu warten, und ich bin nicht wieder heraufgekommen, bis er und ich jedes Ries davon gezählt hatten, Referat für Referat.",
+      "Kern: An die Woche erinnere ich mich. Frau Adam war die ganze letzte Septemberwoche weg. Ich hatte in der Woche ihre Maschine, weil meine zur Reparatur war, und außer mir hat niemand daran gesessen."
+     ]
+    },
+    {
+     "where": "Fräulein Bühl",
+     "lines": [
+      "Bühl: Wenn es der Bleistift ist, den Sie sich ansehen, dann müssen Sie zu Fräulein Ostrowski. Fräulein Ostrowski verbessert anderer Leute Kommas mit Bleistift, ganz leicht, damit man es wieder ausradieren kann, und sie tut es, ob jemand sie gebeten hat, das Blatt zu lesen, oder nicht.",
+      "Bühl: Einen Augenblick. Ich heirate im Frühjahr, und ich habe vor, meine Stelle zu behalten. Wenn Sie mich brauchen, nehme ich erst die Hände von den Tasten, denn ich rede nicht, während ich schreibe, und das nenne ich Höflichkeit."
+     ]
+    },
+    {
+     "where": "Frau Pohlmann",
+     "lines": [
+      "Pohlmann: Über meinen Tisch. Zwischen der Registratur und dem Referatsleiter selbst geht nichts hin und her außer über diesen Schreibtisch, in beiden Richtungen, und so ist es seit elf Jahren und drei Referatsleitern.",
+      "Pohlmann: Ja. Ich habe es selbst getan, weil es meine Sache war. Ich bin dafür in die Kantine hinuntergegangen, was ich sonst nicht tue, und habe die Schreibkräfte selbst gefragt, einmal, beim Mittagessen am langen Tisch in der letzten Septemberwoche, und ich habe nicht noch einmal gefragt. Eine Sache, nach der man zweimal fragt, wird zu einer Sache, die man jemandem vorwirft.",
+      "Pohlmann: In einer Schreibtischschublade? Nein. Niemand in diesem Referat hat verlangt, dass neue Maschinen durchgerechnet werden, weder in diesem Jahr noch in einem anderen. Ein solcher Antrag wäre über diesen Schreibtisch gegangen, und es ist keiner gekommen.",
+      "Pohlmann: Bitte. Herr Grau darf nicht gestört werden, aber einen Augenblick kann ich Ihnen geben. Ich erinnere mich, dass 117/64 im Mai heraufkam, und ich erinnere mich, dass ich sie an den Schreibsaal weitergegeben habe, und im Schreibsaal hörte sie auf, etwas zu sein, worüber ich Rechenschaft geben kann.",
+      "Pohlmann: Ein sorgfältiger Mann, und ein gerechter. Herr Simon ist wegen 117/64 nicht verärgert und hat mir das zweimal gesagt, woran das ganze Haus erkennt, dass er es ist. Worauf er immer wieder zurückkommt, ist, dass eine Zeile im Buch niemanden etwas gekostet hätte.",
+      "Pohlmann: Ach, die Liste. Die Rückstandsliste lag im September auf Herrn Graus Schreibtisch, und er hat sie abgezeichnet, und ich habe sie wieder hinausgeschickt, und er könnte Ihnen heute keine einzige Nummer sagen, die darauf stand."
+     ]
+    },
+    {
+     "where": "Oberregierungsrat Grau",
+     "lines": [
+      "Grau: Fräulein Wessen. Frau Pohlmann wird Ihnen gesagt haben, dass ich nicht gestört werden darf, und sie hat recht, also setzen Sie sich; es dauert nicht lange. Ich kann Ihnen über die Beschaffung von 1964 im Allgemeinen eine ganze Menge sagen und über 117/64 im Besonderen gar nichts, und ich habe nie etwas darauf vermerkt, weder mit Tinte noch sonst wie."
+     ]
+    },
+    {
+     "where": "der Pförtner",
+     "lines": [
+      "der Pförtner: Wo ich immer bin. Ich habe die Pförtnerloge zwischen halb drei und halb vier nicht verlassen, und mein Namenszeichen steht in meinem Buch neben jedem der fünf, die in dieser Stunde ans Fenster kamen, zum Beweis. Am Nachmittag kommen die Lieferungen, und an einer Loge, in der niemand sitzt, kann jeder vorbeigehen.",
+      "der Pförtner: Und ich hatte Gesellschaft dabei. Ein Paket Papier für den Schreibsaal kam um Viertel vor drei, das Quartalspapier für jedes Referat, für das sie schreiben. Frau Kern war um zwanzig nach zwei zur Pförtnerloge heruntergekommen, um darauf zu warten, und stand um Viertel vor vier immer noch hier, wir beide zählten es Referat für Referat anhand des Lieferscheins nach, und das dauerte länger als die Lieferung.",
+      "der Pförtner: Wenn der Schreibsaal gegangen ist, gehört dieses Haus mir, und ich weiß, wer darin ist. Die Putzfrauen kommen durch die Seitentür, und ich lasse sie selbst herein, und keine von ihnen geht hinauf, bevor die Letzte aus dem Schreibsaal an mir vorbei hinausgegangen ist. Dafür sorge ich.",
+      "der Pförtner: Guten Tag. Sie bemerken, dass ich guten Tag sage. Ich hätte gern zu Protokoll gegeben, da Sie ja Dinge zu Protokoll nehmen, dass niemand an mir vorbeikommt, ohne gegrüßt zu werden, und dass nicht jeder zurückgrüßt. Ich nenne Ihnen die Namen, wenn Sie fragen, und Sie werden nicht fragen müssen.",
+      "der Pförtner: Herr Simon? Der sagt guten Morgen, jeden Morgen, was mehr ist, als manche oben fertigbringen. Sein Bruder hatte ein Wirtshaus, und er erzählt Ihnen von dem Wirtshaus, wenn Sie ihm Gelegenheit geben. Er gibt sich selbst eine."
+     ]
+    },
+    {
+     "where": "Herr Simon",
+     "lines": [
+      "Simon: Ich bin diesen Nachmittag öfter durchgegangen, als er es verdient. Ich wurde am 14. Oktober um halb drei zur Poststelle hinaufgerufen und war um halb vier zurück, und mein Schalter war die ganze Stunde offen und unbesetzt. Als ich hinaufging, lag die Akte nicht darauf, und als ich herunterkam, lag sie da. Die Leute fragen mich, warum ich ihn nicht abgeschlossen habe. Einen Schalter schließt niemand ab.",
+      "Simon: Sie werden die sein, die Kommissar Mauser geschickt hat. Gut. Kommen Sie und stellen Sie sich dahin, wo ich stand, denn an diesem Schalter ist es geschehen. Die Akte war nicht da, als ich zur Poststelle hinaufging, und sie war da, als ich herunterkam, genau an der Kante ausgerichtet, so wie jemand eine Sache hinlegt, der will, dass man sie bemerkt.",
+      "Simon: So, wie sie hinausging. Es gibt einen Weg, und ich habe ihn öfter erklärt, als ich zählen kann. Eine Akte geht mit einem Eintrag im Buch hinaus und kommt mit einem Eintrag im Buch zurück, und sie kommt aus Frau Pohlmanns Vorzimmer zurück, das sie in Empfang genommen hat, nie von Oberregierungsrat Grau selbst, zu dem sie hinaufging. Damit Sie mich verstehen: Eine Sache, die auf meinem Schalter liegt, ist nicht zurück. Bis jemand die Zeile schreibt, ist sie noch draußen, was immer da liegt.",
+      "Simon: Einmal, und ich habe die richtige Person gefragt. Ich habe Frau Pohlmann in der letzten Septemberwoche auf dem Flur angehalten und gefragt, ob 117/64 je zu ihr zurückgekommen sei, und sie sagte, sie werde die Schreibkräfte fragen, da sie die Akte an den Schreibsaal weitergegeben habe. Was sie sie gefragt hat und wie, das müssen Sie sie selbst fragen.",
+      "Simon: Da. Jetzt sehen Sie, warum ich sie nicht einfach eingeordnet und nichts gesagt habe. Einen Deckel mache ich, und die Nummer kommt mit Tinte darauf. Ein Referat, das einen zerrissen hat, fragt am Schalter nach und bekommt einen neuen, und in zwanzig Jahren habe ich kein einziges Mal abgelehnt.",
+      "Simon: Schlagen Sie sie selbst auf; Sie sehen es besser, als ich es sagen kann. Schlagen Sie in diesem Raum eine Akte auf, dann ist das älteste Blatt vorn und das neueste hinten: Das ist die Ordnung der Registratur; in ihr verlässt eine Akte dieses Zimmer, und in ihr erwarte ich sie zurück. Schlagen Sie eine im Schreibsaal auf, dann haben sie sie umgedreht, das neueste vorn, weil das das Blatt ist, an dem sie arbeiten."
+     ]
+    }
+   ]
+  }
+ ],
+ "words": [
+  {
+   "text": "Simon",
+   "kind": "person"
+  },
+  {
+   "text": "Grau",
+   "kind": "person"
+  },
+  {
+   "text": "Pohlmann",
+   "kind": "person"
+  },
+  {
+   "text": "Litt",
+   "kind": "person"
+  },
+  {
+   "text": "Adam",
+   "kind": "person"
+  },
+  {
+   "text": "Kern",
+   "kind": "person"
+  },
+  {
+   "text": "Bühl",
+   "kind": "person"
+  },
+  {
+   "text": "Ostrowski",
+   "kind": "person"
+  },
+  {
+   "text": "Wenzel",
+   "kind": "person"
+  },
+  {
+   "text": "12. Mai",
+   "kind": "time"
+  },
+  {
+   "text": "14. Oktober",
+   "kind": "time"
+  },
+  {
+   "text": "halb drei",
+   "kind": "time"
+  },
+  {
+   "text": "halb vier",
+   "kind": "time"
+  },
+  {
+   "text": "Viertel vor drei",
+   "kind": "time"
+  },
+  {
+   "text": "117/64",
+   "kind": "thing"
+  },
+  {
+   "text": "die Rückstandsliste",
+   "kind": "thing"
+  },
+  {
+   "text": "das Ausleihbuch",
+   "kind": "thing"
+  },
+  {
+   "text": "der Aktendeckel",
+   "kind": "thing"
+  },
+  {
+   "text": "Bleistift",
+   "kind": "thing"
+  },
+  {
+   "text": "Tinte",
+   "kind": "thing"
+  },
+  {
+   "text": "die Kantine",
+   "kind": "thing"
+  },
+  {
+   "text": "die Pförtnerloge",
+   "kind": "thing"
+  },
+  {
+   "text": "die Poststelle",
+   "kind": "thing"
+  },
+  {
+   "text": "die Ordnung des Schreibsaals",
+   "kind": "thing"
+  },
+  {
+   "text": "die Ordnung der Registratur",
+   "kind": "thing"
+  },
+  {
+   "text": "die Geschäftsordnung",
+   "kind": "thing"
+  },
+  {
+   "text": "ein Paket Papier",
+   "kind": "thing"
+  },
+  {
+   "text": "gummiertes Leinen",
+   "kind": "thing"
+  }
+ ],
+ "parts": [
+  {
+   "id": "arrears",
+   "title": "Die offene Ausleihe",
+   "text": "Die Sachakte ___ ging im Frühjahr an Zimmer 407; ___ für das Quartal führte sie im September noch auf, und ___ enthielt keine Zeile für ihre Rückgabe.",
+   "kinds": [
+    "thing",
+    "thing",
+    "thing"
+   ],
+   "sealed": "29a63508ec99ee01c2db51bc6093af9d5874bbe333b2e092855a91b891d41ce8",
+   "blanks": [
+    "763b47b8e937c021438233c55fb70cbf1205628676e690bc18156c9a93f24435",
+    "5d24aa41803610f3e3f068a95ff5461500468a5b9c6a75aeaac52d35f761a2fd",
+    "70cc703258e170ab6415102af422773b571ef4262b5ac0c018045df757c19202"
+   ],
+   "hints": [
+    "Sehen Sie in der Registratur nach, in Herrn Simons Büchern am Schalter.",
+    "Lesen Sie den Eintrag im Ausleihbuch für die Sachakte, die im Mai hinausging, und die Liste, die Ende September für das Quartal aufgestellt wurde.",
+    "Die Wörter: 117/64, die Rückstandsliste, das Ausleihbuch."
+   ]
+  },
+  {
+   "id": "hour",
+   "title": "Der unbesetzte Schalter",
+   "text": "Der Schalter der Registratur war an dem Tag, an dem die Sachakte zurückkam, von ___ bis ___ unbesetzt, und die ganze Stunde über war Frau ___ unten und zählte Papier.",
+   "kinds": [
+    "time",
+    "time",
+    "person"
+   ],
+   "sealed": "e83df5f0f9d4fa150d7d5ef8be0d9b8360244423394c53b565c19eb3a50cd233",
+   "blanks": [
+    "7cc04da000c9ba15d142d2cb17fcaa035e6b9a4ea5ae7e337abc50a3219a11cf",
+    "82d7abbd1fbc30ed5191140fcf34233aa75a83b25cbe77a1d0a7b43e6dbbf667",
+    "855c809d727e3c8b05c1a494ad4348e9e687c3308af0e6b442e445427220b4c7"
+   ],
+   "hints": [
+    "Fragen Sie Herrn Simon nach dem Nachmittag, an dem die Akte zurückkam, und den Pförtner nach demselben Nachmittag.",
+    "Herr Simon sagt, wann er in die Poststelle gerufen wurde und wann er zurück war; der Lieferschein in der Pförtnerloge sagt, wer für das Papier herunterkam.",
+    "Die Wörter: halb drei, halb vier, Kern."
+   ]
+  },
+  {
+   "id": "asking",
+   "title": "Die Nachfrage",
+   "text": "Herr ___ fragte Frau ___, ob die Akte je zurückgekommen sei; und der Ort, an dem die Schreibkräfte ein einziges Mal gefragt wurden, in der letzten Septemberwoche, war ___.",
+   "kinds": [
+    "person",
+    "person",
+    "thing"
+   ],
+   "sealed": "71d7126bd7ed8d33a54ac8fb5216c598a6d819d6becb49decbfcc85a38e3753f",
+   "blanks": [
+    "6c2bc1b4f0eaf32efede9eb7075a77433e0887fc40a8651028584115628352cc",
+    "c78f32483dca39ece7f09967416260926d0041cd7cdf2ac4cdda52cc75e10b8d",
+    "a2a69a49be87b99ec18a9f9429241d8f9751edabfc46165992eca00c8e279e6f"
+   ],
+   "hints": [
+    "Fragen Sie Herrn Simon und Frau Pohlmann, wer wen nach der Akte gefragt hat.",
+    "Herr Simon hat in der letzten Septemberwoche jemanden auf dem Flur angehalten; diese Person sagt, wohin sie ging, um die Schreibkräfte zu fragen, ein einziges Mal.",
+    "Die Wörter: Simon, Pohlmann, die Kantine."
+   ]
+  },
+  {
+   "id": "hand",
+   "title": "Die Hand",
+   "text": "___ legte die Akte zurück; neu an der Akte war ___, und die Ordnung der Blätter darin war ___.",
+   "kinds": [
+    "person",
+    "thing",
+    "thing"
+   ],
+   "sealed": "ceaf7c64eb3539d624c2ac03fc7f653940746b9d433fdd1bfd9978bac1acf318",
+   "blanks": [
+    "1f59c7ae11a5cf2c5df4c5246c11a477885405c983dd5a690ecd837d957eaa08",
+    "1f88970754a97b8b9e696746ec2f5bd902f810bda4e3b1a8c828f966688d019e",
+    "fea6e6355eefeb56b90b025ca8325089aa3ad04c37ffb82a10eb0ad2e62dd473"
+   ],
+   "hints": [
+    "Sehen Sie sich die Akte selbst auf der Rückgabetheke an: ihren Deckel und die Reihenfolge ihrer Blätter.",
+    "Der Deckel ist von Hand geschnitten und gefaltet, und die Blätter liegen in einer Ordnung, die weder die Registratur noch das Referat hält. Wessen Art, Papiere zu halten, ist das?",
+    "Die Wörter: Wenzel, der Aktendeckel, die Ordnung des Schreibsaals."
+   ]
+  }
+ ],
+ "memo": {
+  "form": {
+   "office": "Bonn",
+   "kind": "Bericht",
+   "to": "Kommissar Mauser, Kriminalpolizei Bonn",
+   "by": "S. Wessen, Privatdetektivin",
+   "facts": "I. Feststellungen",
+   "excluded": "II. Wer sich entlasten lässt – und womit",
+   "result": "III. Ergebnis",
+   "evidence": "Belege"
+  },
+  "marks": {
+   "holds": "✓ M.",
+   "words": "? — das hält nicht",
+   "proof": "Weitere Belege vorhanden?",
+   "own": "Eigene Aussage",
+   "ring": "Sie bürgen füreinander",
+   "empty": "Nichts angeführt",
+   "others": "Und die anderen?"
+  },
+  "mauser": {
+   "words": {
+    "en": "You think you know something, and life comes along and says: if only.",
+    "de": "Wenn man glaubt, man weiß was, kommt das Leben und sagt: 'Schön wär's.'",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "Wenn man glaubt, man weiß was, kommt das Leben und sagt: 'Schön wär's.'"
+   },
+   "own": {
+    "en": "They all claim something.",
+    "de": "Behaupten tun sie alle was.",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "Behaupten tun sie alle was."
+   },
+   "ring": {
+    "en": "A collective alibi. You can't fill a report with that.",
+    "de": "Kollektives Alibi. Damit kann man kein Protokoll füllen.",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "Kollektives Alibi. Damit kann man kein Protokoll füllen."
+   },
+   "proof": {
+    "en": "Maybe. But a little digging never hurts.",
+    "de": "Vielleicht. Aber ein bisschen recherchieren schadet nie.",
+    "src": "Schmiss und Wessen, Band 6",
+    "text": "Vielleicht. Aber ein bisschen recherchieren schadet nie."
+   },
+   "empty": {
+    "en": "But at least write me a report that looks like a police document.",
+    "de": "Aber schreiben Sie mir wenigstens einen Bericht, der wie ein Polizeidokument aussieht.",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "Aber schreiben Sie mir wenigstens einen Bericht, der wie ein Polizeidokument aussieht."
+   },
+   "others": {
+    "en": "Slowly. It's not that simple, I'm afraid.",
+    "de": "Langsam. So einfach ist es leider nicht.",
+    "src": "Schmiss und Wessen, Band 7",
+    "text": "Langsam. So einfach ist es leider nicht."
+   },
+   "solved": {
+    "en": "Everyone has their own small truth. But in the end there's only one that counts.",
+    "de": "Und doch hat jeder seine eigene kleine Wahrheit. Aber am Ende gibt's nur eine, die zählt.",
+    "src": "Schmiss und Wessen, Band 3",
+    "text": "Und doch hat jeder seine eigene kleine Wahrheit. Aber am Ende gibt's nur eine, die zählt."
+   }
+  },
+  "subject": "Die Rückgabe der Sachakte 117/64 an den Schalter der Registratur, Dienstag, 14. Oktober 1969",
+  "result": [
+   "hand"
+  ],
+  "cite": {
+   "arrears": {
+    "need": "3b38b8a5e8b4a9158013b4e2685ec3e8d48ee6553d8ab1305e9944a93dccf722",
+    "marks": [
+     "0c274af48252c50ebc55a255e977a1b4707e062d3ab5bf807681578bd4098bc8",
+     "22c4007ce798a24031edb54cc9522beddb5b8c26a502d9aa172bafcea94f72cd",
+     "24b911d8b6ff4a90121ab96c7313c5b159c43eb092b33a8575d32571aca82ab6",
+     "287b8005a224096fe0ddcd650898d90a929af0712d8a0e65df36d2dc11d999d0",
+     "2c53c14854601b0e25860b7ce8ababbae743640c863a39e7cd69f92a3724f318",
+     "39aa29ef884954ce98bebb52fefff79bc437e389e2a1954be82d9d8bf2d4718e",
+     "3cd0a550e8aec4e711569ca884e63e5f36aaa542bcd6b20b0cc42e34a1c3691c",
+     "40da79d57b8ed7304bb2d5936e9a608f5aad23bedb3db778f6b76ffcb2167f09",
+     "42965ce994ba3cdeae68a0dc867acb78369fc15cb0407c9a298e1c2a07c5d61b",
+     "45b34c2d3cfd6148bd5c595b6492ebaa8a3cdbbcdd37009d352cc5ddd92227a5",
+     "515ffcc5d01f1635c6764dcb17f9aaff546ea6d330b352d8ddcc146fee73fab4",
+     "5883bbddb064e9d8fd60d5e6507744f6600b533b52ee20197b503cf225b2df6f",
+     "5b21ef6f8f99c6eec29cbc9adebc5eb40b7f3d58d314769f43f8158f94ea4c11",
+     "62853b00730fe632f26e3ed20dcffeafcac59bbd0d2d66de6a0c76cd7b1cb0a9",
+     "67b4b0c6b389b9233d7551de8495e3aad1f1b22f227d282c6db3d8c3de8c4739",
+     "6e7b0d806b305b392d594a3d98bb5e3aaff024a1802dbcbe655525649ffeb738",
+     "725972cd6fb2432c62a2a1ebb27fddc43c29f3920ac6bd450ed2b541b0158e81",
+     "79f94308f0f8084a25ca24daef025597a63c23fb71a68394a2e04b925f1e23be",
+     "7bc9ee1237f62bcdbae62dfd07e233f44a6c8ee3a7442e70a0d71963ff15bf83",
+     "7c76cfac300ba3657dd01c42c7955c1119a6030b82feffd7e8c1d7c092682734",
+     "8658a77a409160e1d520efef237bfc416a011d3527fde02c0c2b0edaeef1254f",
+     "9536c40059138c298cac316a35b391f3e0b4d065f9e0bcc53b2456d35921b3b7",
+     "96a374a629ba9bcfbd5de92aa0982e30d0bdb58c1e421c6ab2cc6c6c2687096b",
+     "9d9721d3ba963f86306499945596ccd8edda4f7faedc7e574c2ba4adf6964ab4",
+     "a02aa0285839b61b94ea03d93e8a3108d974ae957998ed247cec95f0941153b2",
+     "a37bbe46e2bb2d0e7b426c7b0aba9fdfbaa0be63981bcd42ac77029c5a92caf0",
+     "a4f2939e1b92d3950d8c355ac0b8ea0333a5e22b4d44ac08ac1044c6b93d697f",
+     "abf024aa772791616663d92776e01a744ee11a5883f625f72599a653e2e63fa1",
+     "b125a94e85b0ac1fd7d991ec99622afb4751c765c52ffbab730ae488080cc477",
+     "c12fd75381c50cab1b9719f7fb721b996dfd87b312883c4cd57a8d94ac902f3a",
+     "c53849d3ee3eee7033c23b18de805e2768a5b5c795631ff2cd9ee92a75476cc5",
+     "c93a5159b15f50e5320611804e695913f00b411b5319454b39478731ce44a85b",
+     "cd7a3047f3d6caedaa4ec3c3dab2df8cc43f2215c0acaeca0058ed92f6ce4485",
+     "cfb51ab0e68265e0e875f09b3ec91eeac43461448250d30d1214e88820eed618",
+     "ea0d0e3e6b49e34735b5bf2802f5e4f08a9db6bcabdd5b41d2187f1e0cad0068",
+     "ed8b06ac81bfae5ce511f04cbdc62b545c084bd6f3b166e12aba15b9cc61cfb8",
+     "f1d879ab5e48fe19eb7b10ec7dfae7d1f23d901a1f5158570231a25013a6b822",
+     "f88d16073808d6132eb9f83538383a52e2c6d1bfa7992999d5c302f221dec716",
+     "fca5e11dcab2a239f9d14c989fa906b0625b1bc33263771372a3545f08a7b892",
+     "fe2ef8fe0728df79cec3b0511d6ce53d75abad696742384f45ab22fbd4d07e4d"
+    ]
+   },
+   "hour": {
+    "need": "029c7d84fdd5c76c30def244e973421d0de5db6c7e565fafd27eac82ab37945c",
+    "marks": [
+     "00d89fc1b07cd77c811cd29d1ebd8bbee9ef5d57fe8f15bb8e9dc70952e9c5df",
+     "11a8955bb871bd2091ec492aa802333d61119ac899348bdfdb2432ce30d91b49",
+     "120405ca1e954c3ce1613e8d81890e74cf4075ae072e1c0d627635b7c60beb63",
+     "157b2ac21b2f8f05cb0ed0ec3afbeaa1609c8181d0d6b762b4ec29d4b79bd3af",
+     "1fb005a62e49000768cb7559ee35c2101da5346d599429f4ffae8c96059e729f",
+     "2899812b37a8eb19e990546db58cf72b540bbd84017f38bda0cbc85fd6017b9a",
+     "2fe9a5b2fd63c5cb4f424b4f8bc5120f09511ac68cd44f0c4f1e251bc0750f91",
+     "372f2798f5b6c1c231600caeaeaafd9ca56508b21001dc890af119c942d492f7",
+     "44c20f65c52d197c44e56a381cc4e84d065d1136870f10e0e78083173850d6d2",
+     "4610b2f7c356145694d043dd135cd74b9561b572f5bb1490332665be4fca78b7",
+     "486a65739a46fdab3329eda92637c9f7c8d767a0a00a202db1040573e6d7e07c",
+     "48e6a415102ae20273af94e587efa8381020b54b923907a446783e101e5d6167",
+     "49a3b6f3e2400825185ecd0f9fe4b7dae232f51357ff10ec18333a512e8108f5",
+     "562f1710c6da2277592c5b2211ddb3ecb93cb237ec35b40597491944b8178e6d",
+     "5685f6f6bc8dba7a71a7a7e29a1b0acfadbf92270de2130540964bc6c4539ddd",
+     "611bb0056ba93be6e963c6e02d28baf12d5ccc82734406f86d4eb9a9e22de24b",
+     "63a0f5707edbc4d1684d7c0eccc66bb5e1b7ddaee71bc33affa2cd577650bec3",
+     "66ababf67a51c83f97a7e52f7f3cd58ccc27d81e7a4fd4eb1a09bce4c3abfcef",
+     "66bee0e7154f73c72b32376d09f35bccb9d83f2c269f23e94f9ee279c14512ef",
+     "74401836b8b3f5711d1ab285b0032f4027a1127798ce9e3ff4c7d5eb7eb89e93",
+     "7836f4d2d3099d0c8620123d39d2f23330be2278f7672552033918a81adb33be",
+     "7faec206ebe1f58eaf4bdb11342891772f8d7dbe9ab92ea297ce6076696064d3",
+     "8be142bb3280e4c80e9be1f4f9194cd6fa774b50ec57ec208fbfb947aefc25b6",
+     "bcccac46067c6e71ec45d78e249e8e37ff5525996453452401dc16ee88c6207a",
+     "be460fd2e4e46704779c75641cf4a29085bcd78e4948ea9210ac3359c7aee82d",
+     "be78623d2f65433ebfc50be45422d9cf72f642cbad3e9391499a22f70489520c",
+     "c9a6c208ad848c20ffc613eb38ad33441f3256aa65398e890c8a683a31ba1cdf",
+     "c9cd2be1d69ef5770ca8b8beb0d51987fe5c3c537c48628a752b9d50dfb10d28",
+     "ccbbe226639c237240f7452b27ba9b72f756c7397bf28fb0562974ad904a9fba",
+     "cd7a4cd02c2c7e20061e57eb2d562ac3e03d489c019fe5d58ff9f5c66568b918",
+     "d2232230428fa5a8f18b7c94d8fd77373f066883d83a25fa7a59854a533ec49e",
+     "dbc27880a5f889955869bda45c6c1d544de630a5be5a8fefb159e161d581727a",
+     "dc5aad084c801d00a2002ab1f150407bcaed0b3a999ae0e8420914c03ce7f92f",
+     "e1241dd82c9146eea25e7b332bd057deeae9f127e4fde5150654cc0f9fc75106",
+     "e652180b58892f1accd1ebef6aa61290e3b18b729deb506f1d9e311369c237ce",
+     "f3ee644063065bd16cb5ab87749c5d89a6be910740a96d8902f006b13473bf45",
+     "f4d5cfd51266d8dd2fba1d11c74a05ee9e70e3b1837e3bdf31f0b61cda89680d",
+     "f7c81029fb397e34f83cd3dc4ef0f5b25cbc564cb493ca5fff62fc3e5acb5be6",
+     "f95e184d1a89cbfbb2f074efafa4e4ce76eb7782dba27656d554688b6570c474",
+     "fe27737c371ba06ed600f47526d49745b2790de071595b2ae1e0b34d8c9f95e0"
+    ]
+   },
+   "asking": {
+    "need": "aa82a5220921004ef08c58412b329a96a1521b4de99c85cf6e247f44e394e9cc",
+    "marks": [
+     "03b459875d0563f28fd76dbc20ee2a3f18b501cc3e9f18490c5afa95cfb32eb6",
+     "07f928c238c40f21e24569771abc32d82344ff207d0bb299fc36dd9aa466665e",
+     "23b11035c288fe48403c5b556e3849054ac2463b1d20a5035b7a04a40e2d2859",
+     "2654f6267ee7e60f3eeabf596799214c27d12eef4bc18dda0fd312cc4bfebddb",
+     "26dfdfd6adeb5246c2f497f6b02ad9738381dbba9aa8023b6fd2b738f2d3aeed",
+     "2c8a9bf6177675982ab16c49a6030c16f0854a0b9c109102208352d47f6cb08a",
+     "309403ce0da44545dcb260f71b4d791fd1492e4fb5d0aba01749024497625ab1",
+     "3201a989bf8b783714b0057a90f479673170930db913c633583957337c27667d",
+     "3b291077f167c1785300e20d9c821415a59f5f693da694f3d64ea5785271b1d9",
+     "3f0eacdf5235576857dc8e4b1eea99a183885c7f64b1bf5be96080bf8f3eb4b7",
+     "41f30fc111799e725f33c83868f9337d43af8fa261fbaaf07e5d917dd28e0064",
+     "42db9f48b4c162c40198c4f0e3f71127d7ff1a1c15b90f18ddab87e41d842d28",
+     "47814b7a6edb97c8ddb564f5aa2d735c91eb1a80fc62a00a66a5766192509051",
+     "4975d778007be17d4dbf6bad968220d08920103a3177a1eaf0ec530b186b1445",
+     "49d7e1152f05cb322635c8dcda8490bbc72b9160b39e439626782711efd1cab3",
+     "5f4d4e64609acd4a4deac7199ab76dca88e8bb43d25beb67451df6e63d102636",
+     "73219ff1ebcd21b991ef41d8beff426ce14faa925e44fb9e3c1fa72dcda2c1a8",
+     "82a1ef4e0a501424afefb60d98ded6549cb091bbf5a1588ce3359e83cca0a436",
+     "82a4791a668abbbbac936db4102b24082fc872d193cc5ad91086dc884f5a96af",
+     "86cbdd7f6953497ee246385f7e130e4e4161a883dfe93d050c89819fdfafd1e2",
+     "87e32763677a582f66ea039d18685f5b5ac0cfeb40cef4a292454be6228421d4",
+     "9aad8f522ecc5878ae4651cb8655c07c0e944834d479b4fd4049132a01735b4c",
+     "9ef01d2c8b5fdbcf07f9af0e41cd735e931280fd7ce78378a0b498dd91bbaddb",
+     "a123ae964d8dee171edbeb86455e7b5642ccba265709dacfe287093f4154fc14",
+     "a864a808512e94568c0250596efbc46dd0628bf53595aa28f16e3aa536ecf30f",
+     "a8f81c36e3abad954c4fd75b83fccf220dc47403b7fc7d7dae3e89bebfa0c707",
+     "a9405a467b121ba8d175cd50f896184b421dfec8fa6d0f86ce5f9d3efe186404",
+     "b3211d374ecfbec3da8a36839b97061fd714f43ecb7fd0a527f6c74d8c7a2cfc",
+     "b7087743cd7f10055f04ed1b63419a41bd105c04bb542382d556616d0d3761c8",
+     "ba548eb3dbc73fb494dd9fc39e5939f8336db3a537fc836639a043fc5cbb8c94",
+     "c6848de92a630d5142ff4b90377c75f9e02efce7b33eca5dfdd29f9d38274f70",
+     "c7f57c5c3b6b4e8b00d392468ecc494ee37524047f823e1b18289207bda00491",
+     "cdfdfd9cb402270c46c046a10545cefbd166e4eaaa9af818efd9e284d3250a28",
+     "ce9863ba5b94a777669c8b215352fd581bd6d6b0c922db968a6338a0523f9e12",
+     "d1efe113378e0bcadc66bb53171e08ab210232341d4995e6616e9941d9e3db4e",
+     "eb3690059cc6f881787f01ce98515e79f02b24d3ada97e583ca86f0747d3d91b",
+     "ec6a30e23a4fbbed01fb91e02b32e0a308e496ccc65d74da1b43ec9169cc0da7",
+     "f20f8a212f23650d4f6dfef431418dcfea03aae2bb7cfeaf946f09553932ab98",
+     "f53d275a37fb6ede8566df61287546367e44e0cb7d5a094b6c40c6dc4d08d6a8",
+     "fd6ab3591c57183f6beb4aab23ccb838c61782bc1448564692538431162592f1"
+    ]
+   },
+   "hand": {
+    "need": "89f2af49f94bcce4d74472e71b2d05332354e53f77edc3747bad5e4f3deb42ae",
+    "marks": [
+     "0cb4f226ca003f7803ef8e5a5f4cd57031c0c03916d670c5f48462c3dc24a0c0",
+     "1130161835a74824b2f48d826485d414f66ff42fe5b49e2eb1f5fcb8eae4c20f",
+     "1489a5a5446e278b4fee0c135a90d62a0c7c9ce8c37423be1ee2d0605102f618",
+     "1b0799dbeb003b2132df316c9b4cd13901a7df53ee1efde2dbadf6ec6ab0ca3a",
+     "2da90f033200a77c78b5e0979ad3b9fe97fa4abc6d5ae8357c580cbd0d22ec87",
+     "2ea282a1123687b0538559c7d3e75298c1cdc965b23597db08083a782c2b8757",
+     "30a52bda522db6a7a5582c29e42cd5ad451d73010ac29d1fac6e15f2898d1311",
+     "4864a5b0739d12a7bea88ec2c50c14de35dc7bc907d015b762bfb5c7b4be23d0",
+     "4cc96652016441c4ad28004188229d8a840d797b76b4b22885de40a8268db665",
+     "5385f4295025839c2b0e0e70090041b7476dfa4dc31d7844f9c28e057270468f",
+     "5c374d8c62e076dac641846945eeba57b6e4394f6cc13513c6ad70021c1f067b",
+     "5d1839cf50b44b50822f0965bbf4d4156c48c8c6d2308ec9419a465ac841fb42",
+     "5e25cddb141f69b470667870ce6b7cbec6358223bf0fd086c1a699345e6622d0",
+     "66aa212c9eacbe9091be933d9d15d416f5395e265f1ae1b012e005ff7009fedc",
+     "6a549e263071c583197ce61422a4810c267ac51674263f633a644905f1350bfd",
+     "6fa546407198e87247699167e6dc5939c549c03720c99590597c5e03ff60858f",
+     "782c9b85e3105911433a6e982868e2a3c34dff753d4a028ad3ef698f27c01d3b",
+     "79b9a9733bba6363aade05cd97160adf859b85c9ba684d14658a8f912daf6d79",
+     "82f4e347d96b7495c25d5d7319e7c06466ece3ac2e2c313ebed06b99630a93ac",
+     "8a0134b674af313ba8962335baa7480f0ddc52c380dd4fc9078ff4625f48478f",
+     "8b84194e12d47b0e4a974dea4cd1d7b319118bb28c003aefa16d4cc860348ccd",
+     "8d79308ca80e1101f480500bc598f0a48cd9be7dcb91493714290a3864c97cda",
+     "982b6d182334688e851287f5951e6878cad16ab74f1604b2482ea07bc0ec1ae5",
+     "9a2d4cc3b501ea3fcdad27393a8eef725f771e09ed627c203fa6656c1091c3c5",
+     "9cf8ae23852e7c3ff1702b294ea328bdbbd7e48bf7a0d7bbaf3998f60443cf39",
+     "a19bc142944376d95673bf716d5ba6009308abd52530712dff58c2922fe926bc",
+     "a7162eca6efe8cdd4a529180a9d0ab238d7152e4360aa998692dd24447f5dccf",
+     "ab753202d9e53bf1495c69aa96144a00632f16ec8f0ab7ff70bd3a5d0078f7e6",
+     "cb4e248b6f74e0e05fcb4369e8e3691c878620153fd4000eb9d95555ba2b0444",
+     "d008576e7b79e769d148886ae6bd71fac855eae2a58929f109c15d508f3ed017",
+     "d038e36434cd5cdf609c82b813b1d60018c64e5a02c0e6328b5d6b4952fff3e3",
+     "d471652a1443baf20cc0988459cee9c835d8f6b064b8fb5dbfc73eebd24be862",
+     "d73257382d6172e001b0a23885d5f741d59906defeed44257e8d8b702a952873",
+     "dfa26dc0be8e6a9daf7c966def0f38895c6e83411d454fca7ee58abda184a1b7",
+     "e3d51d4544d59911d51e5b4599c4bce33f1a83d8aeac4a2b7d8010483fa0bddb",
+     "ec1e0bb279e748fe4de85b04c3a9377b74adb2e99afc833bd58aaf6339cb1586",
+     "f03c4b44fe1e3464940cadceca0b2f644692fc5213b9406c25171438f0108bfc",
+     "f1f6e5e25bf1f28f16e00e21cfffcb3b3973dca3e36d3d6f0f4582f148c3266a",
+     "f2b5a255b61266d31370ed1f7c4c15c1025e9dbc5d7779173ec64a4630e36c8b",
+     "ffdd3f0bb1d7373c9aec97475a2dcbe156ad117f282e355c2d5e6da2d4630625"
+    ]
+   }
+  },
+  "rows": [
+   {
+    "id": "niemand -- sie war nie aus dem Regal",
+    "label": "Niemand (sie war nie aus dem Regal)",
+    "need": "1972994950d29b0c30b61135843830b1c9020249bcb8efd99d26bf77bc036488",
+    "marks": [
+     "0513e18bf61e7d5b19d9c40e759c49a4b0c5b77d9b074f5d34d7c031670c98d2",
+     "13ac49336b80ef12ae4522d3b807d66b7765536c71a0cfa9134d16d2ecd84533",
+     "167bd2ae22505590e1d7a299193d277c95940e386eab9daa869130622fa6c58b",
+     "1c860415f507fce89aa2d44360b5af6bca5953e9db34ce2cf7b124a96bdc580e",
+     "1cd802a5db0cfd3cf00e1b003c98a14659bf519d0b60ddce5627a18b22ec363f",
+     "24d93c168848099ce3c4e3bc4ef9547b0552524b2322879a28a1aa5943cc3c5e",
+     "25900e6ed52e0a993ac53f95e85ede6ac1ec266655668f4b0fcab24c48be59f1",
+     "27ab8552357f235e8c3d494c229463bbe7f3415795d1e64a3c44d4909c203108",
+     "29f5739c32ba134d1608d3ae1fc651eb8240b1c65f47f14ff46b5be1f8a68f31",
+     "2b29bcab04ca806d37ff94bd015d3f7d0e5f1d457548ec0f233a7ab900f060a4",
+     "2d9220695427c6eb805a4bef592d4e382e79153873c532fe8d36d3d1e38bdf5b",
+     "3079725ccc49de635c46f15a156ccb59663da2de2d4987d1112cfd70a449a846",
+     "33962a1b1b23dc0f4ca19764e28941879ce7c5e203b5583423c62faa63077a84",
+     "3e7c5965e291e0c367a8385e64c59586ab17dfca1be50aad0eec3ab2a0f20c1a",
+     "41c6e9787dc0ff4cabfc336885eac19116f8ac5a293b541de6a1905046d8f256",
+     "41fe1a4d54aed95966724099f8ce42cdd499be2601d34bc5bb793f78b52e4d3f",
+     "4c9a654ec84125eaa03b810db8d10777a8e0a9de41b29e1a2981ef00a09a1220",
+     "534c545cefe76c95a1bc38efd6d424b726d45d130e58f80a0992ca40f397291e",
+     "56bd1bb1c84643be09d1f358ccf23281543b3c194ec79f46a10cdd52ad867658",
+     "58684a0c46f85d82ad50d185857bc4225db546016677d020000de882bcc6ffde",
+     "595d3ad873a8aedcb65b823a492824651d8bab3f88d25c2810561f6bb3a53dd7",
+     "7212556c7a40d2a79709edbbd2a059c24e4b5fba502f88c2da7bf314cabe6e97",
+     "7cc6c7b490d212199caf06a4f4cff8673651e50d37ac6657fd251ed8ccf23a7e",
+     "7ce2ce887d262cc14944ddc3fbd4e3cc5bab3a1b79c637ca9385c01444973a93",
+     "7ffc0e015c1588f1395315bac7ad986fc856792193bde7ef82fa56e85e84bae7",
+     "8772b5e27ae81a6468b7af974ac8a33cc7b48c8a1e00750a32add312289f669b",
+     "a059fe30ca12274935f53c4406f6e52f3f1007447e3c20cc0bb54d6196ff93a8",
+     "a98f4338414123688fad58cea91ccfb617442c6e91b5e7f916c6bbfb56ab87bc",
+     "ac186dd3ab316dd983aec25b1db3832c0268a4644487d3b973cedb67d23bf3f5",
+     "c06078cba2108635361d4df033dd9f38b7d5b3ae9fe66376192b3132202caf23",
+     "c34ff5451f456000cf194c5de66de28978e31e9165a3fbad82a61d5e9d0d6dcf",
+     "cde487f3db4f41a2f2a6c77c066b18af38a618fce73ea3e5674943320b2147f9",
+     "dc1ad3f4e646076663eb112c3289f14d00abde746819441063116ca155965f4a",
+     "dce371c42a0635dd852e47b49ddd3b7bffab8f33368cea54d3b438d91be356a0",
+     "ddaee587087bb9a35584414cfddbebcf7bf4222589f74cbb697611e960919dbd",
+     "decca5a936c5a8bdc791cfbe266e4473c094347a15eae5bdfe9d6e63b42e8908",
+     "e13e2d7b82fc72b678e7c771c43d699431321e6636ab2d809bbf6ae97e932bb2",
+     "e27ca48f33dce5968f4490f24f6fba8d0d053cb63f0bf2983b528e4f1433dc86",
+     "e29a1ce264fd89ad754c16bd7e6e90255df7960bc5a1aebb4f4bb7a3370c25e1",
+     "fb48fae1c78a9c3a705edf6de028c7371826c33d66cb6c9fca8154419b843d82"
+    ]
+   },
+   {
+    "id": "Oberregierungsrat Grau",
+    "label": "Oberregierungsrat Grau",
+    "need": "1ff40a1fe2612d44984102e8e36276015446586631847e2c6f047117d3cef61a",
+    "marks": [
+     "00d99fe9afbaae4b03c15152900d07657f0f1152a03e031972c93c2864a02124",
+     "085a9f25a2f1e5b0caf105cf85306e556ba5d9c6a0873b87b47c0bc0f2e204d6",
+     "0e3cd6666715e6961a75e38737dc73953e5b83cd3940d88dc5b73389f80a157c",
+     "207dc98d95de149c36e90c555beb0b2857da1c966ab620608d44a5ff50532fe1",
+     "244729e857ac586f069836302051d07ce34fdb4cb38e6e01aa90e5265ad688ca",
+     "26cf8377ed4eab91f7e1b19dff9174c1aca1953243d6611eebe66b316e16f5ae",
+     "2815efc7ca6f9592ffaa904b1eed3fd310f65f07df6cba3d4d0e33afed1ed602",
+     "3a75cfdba719e0251eec71ef0edb8bc471f0d83cfbecbfccee1ab0f4e51d8800",
+     "3bb17b512d2cf2aa3e588698d0f824d52dd0f19355681d3a07db770047aace22",
+     "46587762466a1fd8691df8304e8cf24aaee3067da46faa5e354f4e098d652a67",
+     "4d50e462733d271eb8acec2786570d7f7bde99f2965a83b07d80e66b646bf6bb",
+     "525e56e4d9d07c98c9e6b1eb7a57e277d9c11d2773cf1fd633e88afd4b85dc30",
+     "58ee2fc3146275ae87a5e919e29cfb327fae2829a0d98438bc32f2bac2ebf53e",
+     "63b578716315001c985cb57f5f22e22e129cc3cc5c4df1a72dbec2f14dffdd49",
+     "6564b497b1e87ee03bc9a8797f22ee5092f05ecd0956d1b8259af8dfdf1c7c71",
+     "676faecf63dc7da74179e6aa994322639ab4b7eb875b12aa4752c66a1f9b09a0",
+     "7b8e5e343b43c66ff484186a7c2b6a5fa2e1b79a11d3187237c28825cdfafb6d",
+     "82b2c71a8920573d360decccf2fa1ef7dc76682227c0a29e45a91c7ac8ee6128",
+     "8cf507b3cc0f7ddc5e97e714096a18f5770f7c273fc33ce9ff782eb5c9ffd1d3",
+     "90510697f1e78423fe469fe0bd055ea71252eeb264abee47826d431cc23ef4a0",
+     "9c897b73171cd76046d81c8cb318d865ad9b5918b2fe915d145029a44c7e551f",
+     "9df720686f18f16804a3fa12c5795e0785ac0c48d1d788a3c0f16f76d6908e8c",
+     "a2422888aa0df38cdf0ba211f2ad784761b0030509df5cd17ab4d57d595a3022",
+     "a489e62087ccad9865d379e79d7612e95b54c247a55589fc3cdcae2acba51bd1",
+     "a6fc00ee090404df63aad13691b9c8dde502b1e44dce6ccba65ad5924c19f09b",
+     "b438d778238ff1a9e4fed50a663e8aad5936f134b9f2cff45e222b7e4ca73cf6",
+     "b659de8a1e6e1ee1e165b0488f381a4e216840426e10e108be20e3fcd9003f34",
+     "b93eba4cace1200f7b56354311963740ba6fd844601651b6180579deb4eef305",
+     "cdd086ce4cb8d0b95a783342a6726639a6c46d5b865462bb414bfd9509a7338b",
+     "d495a714442b37f20a51f0951d5ed75f430213af68661088f620b293e07c2218",
+     "d73c3514a7dafd91ceadec8e85ddeb2a26e64405f85d80f0659f7f8001339eea",
+     "de67b7d1f6cefb793c1f310b7722dac6c17ff254533d330f7da51fccf30796dc",
+     "eca9c8e6b89a85874a404ad1444853bd30fe3c39711c01cfc5e9a05b231d4f70",
+     "ed5ba89ac9b8c05de0423e5c708afcc51c94fdd3e4653fd9921323df36761f39",
+     "f7fcddc976e6e2d4ce2a4d481f5113a125836e8058378892f2de3bb357f83307",
+     "fc535702ba6b3406e2cc5ad4f8d96df0311781b9a7171c8e961138e17b167c9c",
+     "fe0c037c3cbd94447eebd7c4d0c80e518b55f4f63cbd3dde99fafd71f4ffe1a9",
+     "ff3234a46251b552e50600f62536ba1c1486f1da168065bffa8740ec499cde8b",
+     "ffe0766ce73225b51be96ef9293f6b60a9e3092ac0fdbcec6c2d8f9fb9bb80a0",
+     "ffe63ba46dea479d6696ec9fae56412e6bfe992096c78b910422ef81f998239c"
+    ]
+   },
+   {
+    "id": "Frau Pohlmann",
+    "label": "Frau Pohlmann",
+    "need": "4350f90a0ed1345c2244db853ee3b334fbde6154d0f641dc4bad6217bb223079",
+    "marks": [
+     "1bda1df3da08e8dcfa82971667bbe0518495e5e1524257ede60be1d91b45a53a",
+     "1fa75538cf28fe8a2514ead8e6efb0b1df40b8a0768a9a2f2f0bcce25ec58a67",
+     "20ddc0c2acff2d91c34e3e8c24672d607234e4c7378847925155ea69b8e011eb",
+     "2208cc975a06171f26676c4195b2e38522054297a45bef2c5187b1a88e9fc6d5",
+     "2c8e37075fd78d319e1df4a7fbb3d170e0aff1bd083e3a23d2c35c72c99cda9a",
+     "3132377bbc29385f4c554c0493b413d4c6bdd7dd75be333b590422fdccd895d3",
+     "3b6a505c82bba41d4b728a9e443e0a155f499f3c8014228839fa51ac883fd276",
+     "4023c869b64019cb82a47775cb11f210227735acbb1bf39084c962e99612a00d",
+     "4383282867b80206cb1eeb1b31196444897da954db20a9ebdc09563c8bfa65fd",
+     "5305f63ad0e8a4424d4ff949501fbf559fc9c4713ea721fc04c97ab69451c88e",
+     "5cd51fc8013e8f74d6cc5c5c2f090e638ce8594c47545ab332b1f1a68731c099",
+     "681d1f94529f637100e55d542f248b3f5755a41b7d55d9b15954fe2e3db05425",
+     "7a342913a04351d838dad27b98c441715eae7935ded2c444d64c77a5fce4dbe9",
+     "7d17aae887350a3211f71af9fdea2b51e9057c901379d3b5dbd534669af36c4f",
+     "80431cef78552bb5170022e4971084dee2f0fe03dda81889590838dfbddb8f17",
+     "89360ffb5b561dc398378d14111e39e7292853c64f8d33693c933a2a086ed910",
+     "9216fc815fe7f306564d5d1f2e0ae0cae8dc94b52ac2e2eb1d1d56625780e81e",
+     "93393b90015b8bdd423036dfa49de958707fddac21e750d7b0a62c6bc309f94a",
+     "938868aaaa69d1ea4f48b98b114921c92f52e628d0e15990286869009ef70c5d",
+     "95f55a5474f7f45860faa13c5d2fcb637bd7e3046379c2658a07c1f47123d6f3",
+     "98126ea1ecfe6bba36d993073d0f1ae31426a36bb283a56ba87d3808ee34d46d",
+     "a30b3db51f921a3e2f4c5a42992d6ec7ca719f40ab6d8160c97ace558d970d54",
+     "a63a4921cbe1ec5bf767e72a15af01e73cab3ed6efe641d2f6503d78648b8026",
+     "ac503677c24f844bccd7a55d79a0638b21064d6db722b25aaa6cc446ca54d322",
+     "b5bf33ce89f4dc4d717eb96ead43ced0ad6cf38aa7579d9109aa50063e36d061",
+     "bc7afce459e150117e4c6a7f63c8e40221483fe9fd125c9898607d5ac7cb4fc5",
+     "bd5a358366cd7c59acc9ec44690322eedd5d3a887c9fdab0c7598f65ee0ee3ef",
+     "c1e9628922f34fc27fb9a077a988ff9a74bddd5b45d31506a9f0ac0b6c505cb8",
+     "d21470dadda8b2ac3b3a1d58f9e4d12ddc833a6bd39d6adf7c141a65529e7f6b",
+     "d233d0f8c83e8040717ff1f4c74a2d4fc8efe7fbd17697fb5ca6a2a2641c5123",
+     "d3053c34ac955ddc422169655791639ae1e555a061357b28bac08838261221df",
+     "d4c3086f16fdca77a1b2953b12516c43d787ed42183e8510ea82116d8bc91270",
+     "d68bab88e7e7c99519d5989d0cb924380fe05a2b99876dc85f569ef5bd7212a7",
+     "dc6692f4c7a720b30316a391766620cfb1837d3da60684be2a4651b53a09349b",
+     "e50ab8dc2d26404342f0e7eadbf804187665989a1f4a666c08cf0f358eedcae7",
+     "e5b72b93fde1e095d1e9c37e9d4d922610b68eb51b2406e5ca0fe17d9dd45a8e",
+     "ed96fb2c197439c13a4c0766ba486499e51c8615abe8f1e15f45dc4bf8e62c3b",
+     "f3d70a87fddc52e140c23849cbf4aa5a5cc155e26f100fc9fb4507d2e949d86f",
+     "f9221aa7e5694cfc5faa5ead360aa42660c59282ff42e93fa4bea57fb105337c",
+     "fbdd65481fba19d79d5cae6e99156911c5e2bbd47a4951928915880877e524db"
+    ]
+   },
+   {
+    "id": "Frau Litt",
+    "label": "Frau Litt",
+    "need": "065692d55945ea3fcf70868de810de4b7fb3e5c7af52fab5e5a05cf404c7882b",
+    "marks": [
+     "05c59e4ce49bba29ac1d3bff16678eaa535875544105f9a4777b2f566cf8dbdf",
+     "0e6d290d3788bb6c1719c99b8ba5717fd513c4ae8ece32d2de8e83de0b972392",
+     "2023126d7e2f6132cb6b770f09987d41945d403a759f2419f98f804536bf323b",
+     "232156f8d696b2514a36c52747c2af7dbb41278aa809d24357a64969f8729780",
+     "2d3ebe1f70e34317e0b4568d8c86eace57fca925a9c9ca2a3d4c44f060ced917",
+     "33a399c765d8c301c12b76cc5829588ba89276922934e04787846b1b34ab52d1",
+     "5268d85bacd9733e037fc505b940a9b7b1320212e04712c420eda4bd2b7ee261",
+     "52df78f301028949e516cd1584180781cad9ba9b15dea0c4da48923c81ad2c96",
+     "58d261c0bff6fb3b005b29f33c2215baec4c3c78a3e53cf5cc86ea4e28724a91",
+     "594efe5924f98eee65cc8053d9cef18268db1a533a69f706fe68eaa64aba6df9",
+     "5a3ae4604ae8d9f395f06bdca3a78c6c7d574afed0c0af5f96e54e60bae9d8e7",
+     "5c6e1cf18256125e9a96ebf394f9e4ce9ac201be1e1c937aa6b1e7ea08694267",
+     "6a84b372a5969b71128431818dd56061e880f3f7a1b26fc7762dcc007ac81cb8",
+     "6fe1d8211df3d547308344ac04de01ab9bfe5feb8ad2ad603e9704fd08266459",
+     "71d5f4fee5a0eadccc4eb4b9798519c02d0af460924c469bac5aa27794f2e87b",
+     "73880c440f5331e72f40548472c12362c69bac91aba51a3e2ac768ea7495ec6c",
+     "8506698c50f58bb31574e599df9b86a5c03454608f8c2bd6811a1b06d82d9e17",
+     "85c58bbfea02c4c979f20634a84415b783f1c376b5da89e9e55652510cb920df",
+     "89fcee540c81a25218fea9d5bb5510bccb10d5dbfe96afd75883f7b4a0ce6fc2",
+     "8c7bdaa2cfb96137e766d8e03841bf61cb3604cb4fd96e568ec483735b70212d",
+     "90e0612da82cc7d8009c4fedfab12468e0dec9b8fabcd63f8ef3a059a0007f86",
+     "9116f720933810c11c2ea63d8e9d0e4e07c10f1b539df0ef26d78d0d60f37994",
+     "973b6019036db4226a6761147a9e6f1b9cbcdbe3cd1cfd10e4dd0732c4539af3",
+     "9d2cca8be6909188b005151418ede4dccad523de2f6dd742b0a6be57304d9c25",
+     "a91c9544bcdcef4a1ac131614a18bb4881bb77dbdae6589efa6021a62d4fdd5d",
+     "c35bfbe88c687d40118550182c09ebde61bacf612e7e3e32567caa557ec3d3c9",
+     "c3a5d753b5abda5975c18cbcf61036a207a8f1647078e04085f05c5e4650cf20",
+     "c87288785ee54c4ae97d58dd4b2f1466a5951213d007d8c3738c5a03b4822458",
+     "c92dc969f2bc512be32c259d562adce5824b85f60c3852843b4a78dc2a987e97",
+     "dbaddf482287b95a3791c5112c96f40276bbea51a6f83fc3d8aedc46be37c752",
+     "df5b90cebb6163503045024abbbfcd38ef5a49b91387fd3a7f985090726e2d26",
+     "e1f338246ab89799a51dc3b5c0bf2f7e0c89a1122982aeafa4ae126b67d82123",
+     "e5ca228259028a349d0cef648b6ac26574c1ed0d9ba027201ef3eda9ab3de525",
+     "e66c77cd43c6b2c680cc9400c7a8ceb76a9194a0a03846905e2600868525db3f",
+     "e8afb4f0dc0670de5e53e2229a401a7caf1a722f1e2cfdf049942277775c839a",
+     "eb911390fb5a52c8f4453ff70b2f414d5d5cbf2754faecda1d7e2830d373a5e4",
+     "ec4015cc41424763ea210139f52de62ffca51572443bf9e07cb9652d59fb9372",
+     "ee9e91b144291853b3c7aad7a035fb9c34e1f94cae65f3241eea0d6c23d44b9c",
+     "f1f63614fe14864fe0520c87f81c7bc56bf6f59f27ca127b5038f39359124220",
+     "f28a1138a5bb2e8ca8c47d158636f7856261c07b2290c21944f1562836de8542"
+    ]
+   },
+   {
+    "id": "Frau Adam",
+    "label": "Frau Adam",
+    "need": "d3355629a2ae5e8c2e4589f0c4a0648f7cfe488ba1021c38bb6620461fb99428",
+    "marks": [
+     "07eaa623a224f71a12e5f7fc677ade5af983ff0c840af987b247ca4cdd4f7344",
+     "0973b0d61e06cea7b3ceb639a19901879c3a92d909ddeeb3252b6e03f0ce2f58",
+     "120bd9d9af7a1418cfb6776b4e65809d648c3f20a83f83753e82d3c4abcf902e",
+     "1299717084c12a53d0a33f2f7c4d0ef8384fab4c0cf7ad4c83bdd56c970eb6e0",
+     "1390d5aa20aed715516d4113f729ee240cb882be3c0be50a0c20b745a3d986b3",
+     "17555ee9c6fb8f9d6a06c9a71ba8382a8e85d71e8f5d4a38e15fea19c1e41ac1",
+     "26494cd530ca54880f2f20081cc3104077442a08f2ded047b3b55d01cfac4cd3",
+     "40e5ce20c10124df8588a6c1dd6fcad23b06bc83c3a8407ea795b3d7cadba0f2",
+     "454f854a2642f3083121a3d07fd48ba1e072119917b7a962f34fbf3e2597c86f",
+     "46ced804e87c79a39b6d95b5ab1637cf63b9778b164fd982c9393ebf85e88309",
+     "513984e9e4da38c8c3cee0f726df988c9b2c841da244f7c57f712fc71c97e593",
+     "550637f77adae6b341f556ff01f6906d885ea8569381fe59de01585ed70cda3b",
+     "559587a2d232110022b69abec9bf6b4cf5f5962878902afe42852f35f341c97f",
+     "58753c50e1f3dad6415530b2645ea1a63cd259048e517dbd7a2d6dcf0f4ac8a0",
+     "5f3a88bf595e25180293621c9f1fe7abd38f6f51d713c9e8ced8a05b9c2dd22a",
+     "6037441284da37f9c079a2fe134ed552ee5eb169efed586cff4e382adfe2b95f",
+     "6401d47e846410fc4f32c75a7631591b9bfe7aea6d7f5a6f011c31da9b583354",
+     "6d9390ea1a813588a7a634c200ca46a61d9f70a8ef105cbb6102e13d8ac20f10",
+     "6f4f0a67d6e84eff2c1c268dbe201133fe6689922974e40af079df86331d3dc6",
+     "78cd656c8dce815489f7fd363866a9ead84bfa8d56cf8a92f9a7e5afad5f8dd9",
+     "7a0293603063fa7f6619bdf93d3a17fd1dff3470614ce00bee3d8a2dddf6a324",
+     "7cf2156215a51b75f304097fd29023c74a9af5288b7dc79e295827ae8aa63b23",
+     "852581b787beaa2036c20d0866917e147912886388ff3e7cd70048138a44a318",
+     "97ee7bcc133c64b8264a18bf1464caf4ab636ccbfb9a5e5bdc5dcb752ae84916",
+     "9c82aaa3515c2435993a206b1387c0cf4b4a6e4e31b6d7285f5363a6e52f609f",
+     "b44e15939631fce54a73829bbe6cc59a199a38e47b51f8719e0bf67349b16fce",
+     "b5b00d242737064482a2ba3de6252bcae2fb30439c5f4184a22ecd83ac7bb326",
+     "c1a7a5eb2b4d49f87472b92925dfcf68b5a6c334bdad5d6658842b794999ee5f",
+     "c291629bb6bb2f3429202dde50deb589084c3e3a195ca129750fcae7eded540e",
+     "d364dabb5153134d2628aca122033dfe7fe40d2ad63982e3ffeb26efd358ab89",
+     "d40589969a04c85387d7170f128b7416df6b13211c20787f9b52d5b63e4a8c50",
+     "dec8332493e026426258378a677749d791ebdd1a65824a2589fc9484c75475de",
+     "dfb7089b23698952dd9dc3397d985a33b8e12c851303a6e05cf618644f446833",
+     "e501f004eb05200af88bc25685329ff1d1d7cf9d3b48c6f9f56b8296c980889f",
+     "f83742d5079dd8f3bdcd1971b3a1e444e2ce25eee449032fe1d490642deb2d75",
+     "f8f4785736a44b0c88f266237685bcf521f63000fb44470143825c3b45360200",
+     "fcbcb1f46549376a115d0a52fabf9a5fc87b4a405e02468e7d0feca2d1a26923",
+     "fd056db36e76756eb798d5f14c8b275442161ea2e9cdb0e52811eb969081a467",
+     "fd112992778362033e824329ee445732bdec24dbeaf80874192dbada945f66ec",
+     "ff042858e27448844334e9c0c1cfa5d4770c3e33ed256e20c2d96937f38ac54c"
+    ]
+   },
+   {
+    "id": "Fräulein Bühl",
+    "label": "Fräulein Bühl",
+    "need": "63902b946b9d13f6a0d83373dc9995feb85b238df526e34702a4b31c83b55926",
+    "marks": [
+     "0191a8388e29494aa55d0b1212251ded8326cbe18513b7ceef02779a6352a56d",
+     "0bd980c23a8ab06adff74bfafc1a8ce9eadc5cd659944d569b82a9aad6d7c229",
+     "0e2de068cd2b505c9bf135ea5cd5f33ba484e397b261cbd8e84492368f00d803",
+     "1042c8ded10e5c14906072a6345c86966e09831ad61cc1d58762d2308c1c3f61",
+     "14908d10803ebc90bab51d219e1da12c8774ff369fd0449cf284725ca649046c",
+     "1dfa7145e81e6be6ccd3362a9200c0afc4557c0b5415d077b77ddac93ddd5ab5",
+     "2221db3c253e661888afdfd5ac463b156badb00decaf492a669287e4b99320a8",
+     "23b886df7edd48578f44bf88c69e6f719833b7ef1723f370a698548456d62dfd",
+     "26ab84d280d517402b89b8737e3b7d83ee5a327419cb54f88516ad86645c39b2",
+     "2e803c5f9cfe479f967dcf385edc90ae38000aaae82418cda4d89d35763220a9",
+     "2eb1cd3473cf8225530f14a7f8dbd67727f86e3ac564d6a85f967926411c9a8e",
+     "3bc4fc75807055ebc2f14b4cda030dd5d8137abfc2af2600c67d823849f16b6a",
+     "48e2467d077face3ca549c19c7bb22b8fa39c51916ef6b35a8f3a24de9495ba4",
+     "50031feb4e820c57e238f52d755a2dd4c71878e87a0801c5bc1636f67df1fd64",
+     "5ea249836b68d6e893ac6ae20c6ac8c07846c23ef857409cc5b1fb3b58d24e96",
+     "641dc40fba7144d83caae271253ad1cd31c422bf8a7a171a89d6cbdda0e9c9db",
+     "72ea613e65cb9f1c6dd7fa0110ecfddb23b465b9e77d6d314d0d1fe72226e2e4",
+     "7d015d2e07a2112f4b158e87b2e24dd71a567a4ba50ce510583d8b51fd774978",
+     "832e063247fa68b3992e8e3b3057928e701e791bcfd5da6d5074d2b12f840875",
+     "86587b4005fa4961efcb05f7ad1d3069706d99b6b8a32f1de20d54a411369666",
+     "890d39461d2923a6ea9e9398586a0cb156fccb34579b01e46f0a0e55bf9361a8",
+     "8a8d3c2e3f172e94181a9058dc01dfb94f22ad449b5e6f499f7f99fae39f16af",
+     "8bed1810d1665840b19bbb488fa716ebecdd45077e13f1c4ae61f161556ec2d2",
+     "92325e6d9f6620d1da8047b7c4360694f46ba47549f754bf8d0e52f3a3408def",
+     "92f140cca3be48e45aca3cc3cf17bf99c9bc71709d1acf7f0202a480164923a3",
+     "9b8ee3b7c8f7fd272312eeca7e09a444e704b92090688729cf1a89f192d51354",
+     "a79451b5a5cfaee65da55c55dc6fc67f97a01b1ac233353fee73242c432f6e66",
+     "b1595925b412d402d3565f08f79903a6e5ccc890f8e35e511b60ca7b0656d112",
+     "b90c1b90452b13b0e2cb77c0a7be718293be82bafc351f63d6a46e85988093d3",
+     "bbbcd366f5cd63878a33978ec7ab65153215590cb5a5b9e61a381a365eb73df1",
+     "cb13f2c72ab61edafee90fb569f3dade656b761f249141e30b2739490ebdb8e4",
+     "d11f7bdf661d94aa279e0eb2baea4bddc4559fd1923a234868f0ac15673754fe",
+     "d4e4e728e7b7c32a59742ed706f1a4b9f1e6cf066b0dbd1514013feae36585ea",
+     "e08b1820837b471cfd74f96b0437bb7f699ac47c6577568ba510c779ce43b010",
+     "e1a66e2ac026463706ff347b9e7bc6302dccd13667de68940f60f1da3578e40c",
+     "e1e52490dee3f9ecc31c63df61a685f53a6aa259b876759abc667282bc5b9e82",
+     "e3b8dcacb6e6b9c6311b86de37719eb28a1ba04f19e0698f02a2223ede33ddd8",
+     "e6b5ec603b11fd06a91ae9d691bce313140622f4adf4b4a41677151566354499",
+     "f4c637ec070dede3e034939944c3c4079d436f507099ec19f586ced6dcc8e8da",
+     "ff0474f2dc712ba55638c4a05be646f1bbd29205419009141b1445874a5d8ba2"
+    ]
+   },
+   {
+    "id": "Frau Kern",
+    "label": "Frau Kern",
+    "need": "b2c23400bb10cecc6ed18c0f843395cd8d14bbdaa1dabf80d6766bdc6fa55527",
+    "marks": [
+     "050febe1217226bb01147b92a1cfb38303cddfa7f15a8ceb92077b4a674cfcfc",
+     "09270c8e57aae1878965465bcad971fc73bcc3f63e1a094dca9f86ae85716d24",
+     "0e5c554ee11e99c5fd6d63aea81f00e2f935b912a6a648447557cca1a439451f",
+     "14ecfddf99385966410906261da6acabbf56c75fcf2e1f2e85a42757e712cbc5",
+     "17907608ffe998a6af5c1170ab6d4d195605d7b850b1c747ad79c056a77f644c",
+     "1dd7fc77653fa5b72dd96dfb599deafbfc1714ae7d1833baee4e5bec215d0bb1",
+     "23a45d4b9b566206c268915fc63d9fa1b1fda2657569e92fd1c575a373f4ce97",
+     "2d04959f197d90b0615e9224750b6d3589998e2eb5ae7115b9193c604c786b5c",
+     "2debdbe921ce76b7f35b802322e760095a88e63f77d0a1ddede2da3dfa0b18b2",
+     "30d721c46d164d6d08c049fd14c5b6c0d57c8eb512f9e1a19335c17fb8e931ff",
+     "35467137317df3df33439772e2843b802d207456aab471a7e4691338aa8e0832",
+     "3ac678eb175773a070a3f826257167f55907cb50b6c1821d4ecfd3789d2c7880",
+     "4322f368dab9298e0ab1e146b616d6fd55d15f0249d3bf842c9fad0f03d0b2e5",
+     "43fdd282398703ab38c5327b31aa926fa7ab5c36f017226407a9fc7a5bbe8bc9",
+     "499314382ccaaa0ee535a8d3738d886f783277a6e7c29db9590d8a29c6b1e21a",
+     "4a428645c36ac37edd0ab7b8c12f7c4c99c2d5d36e53701d11332997347b8c96",
+     "564d4694b5c5a2063431a32b41f3dbed8cd43d17e8cf484f250d487517369ffa",
+     "57eb80cc008cf5610fa0aec2b1daae761cad6807d98e6699e0ccb23183310b94",
+     "5baa85d14af83f59b6c588391981a85130a22e7d44acf0f61dc55b3e707f8bef",
+     "62ff4192a21562506db125c0fea5fb64f66586d0afea0c2b3207b18dc4fa5feb",
+     "722b10b274b39f77b7710daf00431fbb8589cfea260e06e00d623f783ed35919",
+     "889e58401dee0643fc8a7b892c4dae0a8cb2ae368005999f8fe5098be06b8b83",
+     "900c80a7961f340e3caad895718a221d47ffe2e3ff679c6ea2c9ecf1b9f5fd85",
+     "9de0843422faf6373bbcb807cdc4d153f74dedc6c85e5c869d1900422ac38b8c",
+     "aa00660ef2e9d08702b0ccba5742c7c19e7f0d27ce8adb242334bf8192416667",
+     "b8d5e3b277d0f51f613ca906d61e5cd11e20a9ecba16dd91036360493d0d9f59",
+     "be395dc6f3225d54dcb44f8bd7d9c9ce87b895408ffc2da443d8cf58a4b349ff",
+     "cd612ca878a661837ef769c4b356f1372d8b109c067ce603f9fd559d7880d2ef",
+     "d54e65b6d64132f525d931a2bb2bffbafc43cf0fad31e4902b8e186a887c774a",
+     "db49a161c9ed0acf8fdff481a4940a82291bacb1569ca4c6a05cb71b16e755fe",
+     "dfb669d1fe2f4d877edbf1dd42827fc5c4a761625125269d180bdda476456935",
+     "e06506df9c61a4ff397ed6ee61e4fbb83a65207601a4c4a7f9b6d04c4d170fbd",
+     "e1c648e03b7721f8c9334758a330d00ddf5288fc07b4025e4a7854f9979ea9db",
+     "e478d6bf703798589714694aca5b3aabf879339a130a7d2b46f8812e7c1c09ac",
+     "ec1b1fc2ebbcb9ac6afb7a7c9ac7f74da44f0015cdc6187a6b903f8cbb3cda1f",
+     "f35c6a435db1a1b784e5322c7b77248655cdc068a6c97be90e915caacd01afb7",
+     "f97aaeb4447bfb7c7c9a79c64721bfd18ae891a70f0fc3f2547ad448e2d88297",
+     "fbb3374a78390cca52a205005f0fecad6e2fafbca224e9d7cccc1d90bfefb536",
+     "fd6dbdc6ea987ea22de5753afb5ca42a04685cc69ddc912d870ab4d55f73b3a4",
+     "fdf4ce10b6a0de9fd55b90e44bec58be1622145ec48750c4d4aa989d8f97855d"
+    ]
+   },
+   {
+    "id": "Fräulein Ostrowski",
+    "label": "Fräulein Ostrowski",
+    "need": "20c6eb27bb06d7f9ed317c5e32af3556c8d853d7cd796a50be29611ce66e2894",
+    "marks": [
+     "0bd93faf103bde05fbd2e8f54c10ef3c238ef86bc6748c4725d416c4d7ff1cf9",
+     "16ed4a141dda418726d61da00a1561aa1bbe85a28620889bdce044c8590d6d49",
+     "1a26596ada458a53f74a32592bd49577e46fd466421f7fc98c3d573eab815ac6",
+     "1bdebb2512ddeb40ea514839347b354f8d33dbe7501fa2a32b67d999e9c366d8",
+     "323406fabb6677fa63ea53328221b5f2031cfefe09d71a46cf9438c043ff71a2",
+     "38dbe2b81a30136fab60f81a672a608748fa03dac813f5a63aaa6196794ff317",
+     "3bbff5cff290cd3dcac819013927b82dfd07464fb3ad992425c8ded725d854b0",
+     "3d3cbad603416c210001076739d64ff397d09862e4520e03e7d0639069c748a3",
+     "3e41bcf93014c42718d526948afe363aff0abe42a6d09cec0c8cd898abcddf39",
+     "40a17858e7e99b2e1e9f0f10bc415ebb4fe8116abfbe0b1a012b8bbb57dd86ec",
+     "43430db92b3b79cd7c5ed6b2f94606a1c4fd2d4545ea3f68d856ac2a2824b876",
+     "44876f52820b8a421b5b85f7aac4b547229858c7d145871a2e421790595e1853",
+     "458131b3e486decc2a8083e3926d2646fc9620bb50ab05cc573b74b3e1f210eb",
+     "474de1d83931ef11ec5831e0bb03546fa1fba8465f26979187212f03322b7749",
+     "4df99b71f86bfce62892f881bd49412f8e85d72801ba7beb9c75e80e2f97fdca",
+     "62c1061673b35b4821b14bc3484db2bd5bbece52c6f42c0f10c2c5f5bdbff726",
+     "66a1e68c096a389be42aab17fef37b4c217afd0a280062bd3d5ac6b6e21031a2",
+     "6a0e3d2de357b7e2facc819118684ffcfb50d1093d4c2f7a5114f02417c364e8",
+     "6a774729f8e3ed941eb2b05c23bd4039d5d9109820de573db866d21db3b705a9",
+     "73b70332910c34e0889bbc1e1b5a77d59895d15ab9daf65e964f10a66bcf5a01",
+     "764ac9135c570d739907cfdfedc7af6c3a6f9e15bd35db06e21cbc06896d5ecd",
+     "91afc2540213427f8d64b9894ad9a397d13dfd35a8d01e49a625e2bdbcb15fec",
+     "93006d699dc7d2ac57af4b2946a570739326a80da8620595c632cb56b249dc5e",
+     "99a7b9b1c80ab668d8719b76c1448df4aed2352b9461ca2a45ae8ca631ba4f26",
+     "9ae4ea5f14131f84098d2a36a4290ead4828997159dcd346f33e76e85d808fac",
+     "9fb17e9693ba20192af9b8b4876a4ef692bb4d518729ea28fac2851c9b5e73f4",
+     "a31d635d9292d1a74fe86d065d9f2f4ecce08db51ebd3180de452e9a5e77837d",
+     "a35c1c6a5bcf9491b3c4cfa4049273fc11dbbff39369ec72ab31abd673d417cf",
+     "bbd96384f19fe2dc6eb2bc5f1081d0469da595a204e52ffe570863ea99fbb461",
+     "ccc1869f2396917a451b79cabb1a8b3290ca35ee44078fd85174835e12ce9e65",
+     "d1074ae151345c01da894d306e9a352b978e38e501234c50ec393353f1d324b0",
+     "dcaa90b048c48bc284c50f7e19171e072b8b0669d5595e8c02dfbeb36b4536e3",
+     "dd97bcff4d2797c9dab642c78495fdd9ce115c385bb61dcbc991c18829842b12",
+     "e16cb677a351c964c0c2ef53d2442ac22702bb0794d9cfbaa389340853c791d7",
+     "e404cf5c17381984baafee24a33f7d85130dfa3e677feff98a9850c5e03c39cf",
+     "e804bc1fcfec05eaaf2c543ffe31f70c0648500ebb73938f00681b6475cb22bd",
+     "e97d52e85ca81ef57c04bf8702085eb1a9f646d971e904a4e43867e1ab346d63",
+     "eb8ae81aab06b74fe1f8ae923db27790869b2510ec25568afb727e84dd37e9a8",
+     "ef43dcf8300850fc1bcf79f10c8d8ca9c41d8a25f4778d78a499f0da3d1a928d",
+     "f627531b2e9d5a8660be546ac2a62f0e89962c6f2097d12454164b6d2471bb18"
+    ]
+   },
+   {
+    "id": "Fräulein Wenzel",
+    "label": "Fräulein Wenzel",
+    "need": "5077aaefad96289105c975cfe73440f7a6ecd3afb471581133d84150779fe5d2",
+    "marks": [
+     "25fea078ae9e63723866ebeff7207d95d371884d5aac51d9c54c60c9a4f9b6d2",
+     "27a2ea424c38ecdbad32cce9ffa0b1fa7c1b0f0fa309d403afa92314fe8b2fd3",
+     "2a77f2fcc456d29b03fe17309d75aba489a03bf42199b7e0534cbc01de81346b",
+     "2d07c9bf90ed8afc87349b3570db974a34a7c632660e6a595f56434042c9c942",
+     "3172774766d47ecf517b1c9c6499e139244be63a7dbf03b337bed575cd2c6858",
+     "3ae5e5c8f61304c69ff8264c4d50aa522bca5007dc514b2b0e082ccf4e809c7c",
+     "3fd659fbfacb79f586f3635cec22d4a6621ba42f135bfd4817ef4d936fbb2dea",
+     "5c851255d3661a74e0e8f4ab569bfb03f86cbba6fc1d60d38fe6738bfb8f2c0e",
+     "5e7840aebc3fab36e5f251ad0f3a8d224051c837eb962814d73491a2d479823e",
+     "5f9e15140da64b39d346f8b0c9456600785f33df097e0aaf05c3cf6c48d2e855",
+     "67a3a9a1fdb8367614b1655720ee8fa5be04a55caa7bd6ab37e7dfae048ba831",
+     "71e222de529cda94edb42c469bd99244932c39f2431c0a8c86572b3bba72f2d5",
+     "73cadd04bfc9eb848165791521324a6d3fccf5bb6b49c22f1643eb153e033000",
+     "7883526a2de3f29305e135c9e9f518806a006eb449a5941f5d1d30da9d41d74b",
+     "7a7fba32b6798c2661f2a11f9c38874340ade4552b331332c3f2e28d8e71baa1",
+     "809855a7d49583b8410f1ba2968ff3506d2a8d724c22f1f3ac3660d75ed51d08",
+     "85c89f91f9c767b1a240a8380311e2bfaf7c3501f19e39401fba58ab67b64fe0",
+     "924e5960a02f04876e5339025b486797d0546c3c131775fb6368c82343aad2fa",
+     "95002eed7de9d7cd288218647c3c0f812ecb7bb283daf8cbacc83248cd51eb61",
+     "95bc3eeecda2a0e4056c4971cbf1f3912659359c42b11988a2bb2313d4a98c20",
+     "97c91c7f14234ec4f78632731f99f13b4f13310fa4093cd46a83965ffaa32c24",
+     "9c2a47ba9522223cf5a4473b85e8759012527f3ebc647fcac0b3a0e1a96d64ba",
+     "9f054d20b220d4f05684e116da234d467a2e256ea0bae642d6c02ed6fba35ffd",
+     "a23997ebdd5f2c1fb7f64e8c6c10e3b654c63933d0dd2a159183b011c9a95692",
+     "acc46eb0bc2be373be9fe750b9482bb2f29853d69480c36062549f97bc7c85c7",
+     "ad3c125eb63b2f1983459cdad76902853ede8732fa7290e749a0173e229a9b8e",
+     "aeb6d47f10f00353fda17ffbd67fd2f73a9125fa16c39bc501fb25240ad606f1",
+     "b355922c14aa39b2f89ca6539ff7317959ebde399c51f4c9cd2f06ab09e44f89",
+     "b7fa4ed45c3a1e81b01e117e35cbc0c71660a94a7aa5a28c43ecc49b0f8bbc9a",
+     "b9c05a6ef94425740cd88dc164a903d30c4b1e415339538907b833fe3c0c322f",
+     "bc13268750a8aef7fc2c22f12eb29142c029229053b2d946471debb072cc15fb",
+     "bc1e0b9c164589746de934abf9e40c2dd9818eb7181303a64b6812e9cd60878b",
+     "c100c0a4dafb791b3175c27f96572e081de0411f4cc906f92dff792a55da6a53",
+     "cd63044c51c3dcdb759f3994c480e56ff99271f837bccb94bba00dc9ffb7feba",
+     "db8b6354d42e8b4ffa59d7fb53556d87e03594dcf231da1afddc6462197d2886",
+     "dc3d7e13b302980b4e7bd08d8a7281acf40944a9a500f3a3e34481361fd8a01b",
+     "e8cca3a39ff3f53b50873fd4700e99232f46e4b99267b39c5f9f4a8fafa4efde",
+     "ea4983c3f580a593bf01f5563f982f3eb9d5fdc881d33c33727acbdd107b5e75",
+     "ecb6c560c7b82a3fef79ea6db50ac5c4d4990529443ff9ade89b2cdcd011466a",
+     "f59218fce045dac4aaa8a94e93e85e6c51727a07c92964c83b9be44abec6a1cf"
+    ]
+   },
+   {
+    "id": "der Pförtner",
+    "label": "Der Pförtner",
+    "need": "79df13fb6d54eb4986f8b5c0e3c8fdcee9393b1f4e47ad71dbf51b8318265abb",
+    "marks": [
+     "13add27e4c103e0dfeba17cd62a7a667130d967a3757b916acd5c7784a345690",
+     "1580234a082ab684461f2fac3c3d1d9ac6503499f53cae6210936ddf4e9a6bf7",
+     "18af3728be4b5c1319e339be0254711384580a9be5140e10172c02e493fbe11d",
+     "1f8c44481e96a7739e03470cbf459d5fb32dd4f2547d6f5771b732352ce0c5b2",
+     "204cf0641f0175dd3d9f5df880ad32938e770a553d293ea07d593c3f07a07c74",
+     "218bf630c1c00d707e1ea66c5f1082a75a7db06150b9fd6fefa82b5850335fda",
+     "2471e446a6f16b30d65160ed76fb68f16d429b0aa5f653d3a8e7d827e7babdce",
+     "274c29dd06fd06cf3a5ba13907ef62383b5878624ea5c82fb0a05e87fe074f37",
+     "2bae5cb92794b798b292ad709be8e460541270b78a64a3603aa058d404f48076",
+     "2dd3f3351fdd3ea90e385dad6c8ef35fe068cc64b658d4ab4c3d7c5c9cc509f0",
+     "3cea5c04746881e22c494555ed70198830801313114c1771c8c1ccdb9e6909ef",
+     "466f92b41b54144153588984234ae092df848042e1e60cc85ab372a7395a0c78",
+     "46d242649dde50d0feb9600314ecdee120de1be488e94021313fc11142facad0",
+     "4e0775cf53b0c180a90cfa04b654705f2e15ca7f087bf1ab7ef7fcd448ec5c88",
+     "58e6d6cc66781144e70b9fd002b430e7904b9114a12472cd093325a1d7a923a6",
+     "59ae2b702b36ae1ad6d6a1310c1934276dd4595f45c77c8d8b4d23fc50735eb0",
+     "68db6d0227227dafd26ecfdcf44f23a8cce03074d385b8a92ccde061c9df49a6",
+     "6b2885150df7c556c5f7898d6c319d1faa61c30abbf5d4ea5ef22cc2a03dea12",
+     "6c22b61d200a99e993b85efd20da6f2ec6eb639231ea14f6fbdab8069bf02c65",
+     "73a2951dfb9d9f723a6125962f7c9361de5f12e3afb6f4634a9d703a3789d585",
+     "801d41882ef53ac0bff56318166a6c0c29c7f722068caa8455d7e6e4d119eda9",
+     "83b810fc0cec63ba0af488018698826f69ac343d9eaad1beb06e02e10bc74b8d",
+     "8b9ff84addd2e44b4775a4fb09e743f5942a823c3e03877b1a2f3faf453c8b46",
+     "8e9500813399e881efc5e50341954732aeb209ac32439c0b9778094d97ebdb0c",
+     "96c282f8df1cfca99c84bc57635a328a357df62f79f73fc8d78caa8b7ce704f4",
+     "96d833a2009499bdd6a226d4bd55e7afe7a1278621f7c2dbc3f3dc378a541a32",
+     "983c77ade6a423941336ca9d062eb190537112c0c52c9f688e87ef82bbcae00f",
+     "a056d427f1b3cbc2ca0d70f9f2c1ef8f7fa62e146b50a64f8604f1baf2b6d0ee",
+     "a5b16df510006fda4f4b90ed08a4595d64c225b630d3e31e79da2884cbf71065",
+     "a84f7528972e2aefe87ed9af920d531297d16b55b54de8a81fc745497c1cd04c",
+     "ae0124dfef05a63304ba594567aefbab4140598e6b0018cfa4d15021d350da4e",
+     "b8a1b1e1166ec675b4daba3d81e975eb10a58983cbfd0c179b79e44811bc55be",
+     "ce3800e06d7b96ec94951d290472f3bb26f38e50ad436e09ffb09feda2a0b3ff",
+     "de627f9dc913cd135f07071d035574191377e5270b7e2fa4d8767608825c3811",
+     "e0f09c028e5fec49e86f27d9e552bf62e4cc00b72027abb48f4c3d97c566b1a4",
+     "e6a0c15e5a12c59580a94a48d5aae88e5829b42b1ac4554cb888933e8e3b530e",
+     "ec6b6fbc4db230217c11b5f1d2cd078923d7d3d6f42ee76cee7c42400d65c527",
+     "eea555ddb27f0eba509d53498061e6d251318c4c1ff82145524a1f1cc72ca4bd",
+     "f6041029db7b2d1397b399c1c7d701a447c5fda03bbb0990032256d350049c9d",
+     "f98f79ec97696d081063946c4938b826bbcb95887e74c28e283493c95b3206bb"
+    ]
+   },
+   {
+    "id": "die Putzfrau",
+    "label": "Die Putzfrau",
+    "need": "ee8db422894725d04d845a87a43a82f2225c6aa314f2a17bf66f94cc2154d2d9",
+    "marks": [
+     "194bcdec35c8f5aa2efba12b141b572feddf2fc6513cccf77e5b15059497caa3",
+     "2b27b70914ffa01fada14cad359d5006b7ff6ab1bd9bf5127c84a5671436b9f1",
+     "2e263b44c8d59dd46f7cdb60b6420e82d234fb40913a4c8609e9870068ddf039",
+     "33f1ab7b188f0b14670568b2d45d986c71107ea253083e685ad2830fd3bef695",
+     "37428a36a2c40e32cbc347c41f9f728776276ecd247dd83d4f7171beac1711db",
+     "383a34786df2e202641d25e8837c3d6df11cb172262e94d9c7e260a1fd111437",
+     "3e51a207d32e1e525a1b75b02995f94760be9a78988626bcff8bf542f3433004",
+     "3fe9454d2d22f1366c0add432810202a2488ff5fcacdc1301edaba5a67f955d0",
+     "43e38d8d4e0d5e2ee39f9f9bc551b6fe9f5219a8b2611af3e60613f4fd49699b",
+     "46b8d10e5b5e80e4ab2b2820f1cccd4c46dd9f31b66d5e1a838d25fe34b13b0c",
+     "502a7830754fb20a293e867a88f9b35f3ba68bf0e96aca4370a8484cbb9d5266",
+     "50e7f658edf487f3bd9e5b8bf856e1601b49553d68f20120b409f7ff5de4568c",
+     "5830597c2b27eb7b88be25e9c008b2544448eb6d7a2960d12e7f347b88f3f04b",
+     "5a0c894e788f2f278c2036ce629ad315c352a4ecda896f57c1517c26113a7a00",
+     "606602a39e1049f9fc8362fb78c44673c4d77712ed669532ac2c94a7453b02fb",
+     "661429269a116ee5082d2274bce91d1063c1cfd9eeec2b6a048558725d978c18",
+     "818bd6c39b94641aca473489456d5e4567db5246561dc18018775172a4fc9d59",
+     "838d12c38d81a1f47ebe5d6a918dbadcf3117e7dd67484e53a42ed22aaa29e9e",
+     "881bd546efba1518077b4e7081dadf55908ceb72ca53d8ce23cb720db52e4976",
+     "89ecfee0af20d133d676294d6412e69dd2661c665b670febd2b0280499144139",
+     "8d959d8e5ceeeac3cc63722f60524768ce2049575239ec13b6d42806d7312f8d",
+     "94ff6cf83e7b9fd7c7998eb4fc1a01ccc053c49e019547f1dfc14fbe5f721422",
+     "964f0d8324007888cc7aab5293ab2918c2b4a97ca8efd702baafe0d0602b6aa2",
+     "97be86c15f7958eb38467e92390d765d7113b61c1b626e30c9f592c2f6b4bbe8",
+     "97d5911f50ba7b97a79152b971419cfbde2d5021abc66b4e971758defcaa439c",
+     "a2658f7dde3f11a3f24708a858a1da7ccf7eb8f79d37e4f082aff4d8ea4dc483",
+     "a4d50ed7b7db6f6ce2dcfbbed24a800d2ee1f22fe9344eafecda0a09ad0fab7f",
+     "a83a51ef1a36cf793af7c0320207d39ea9e2dbff992275a2112f032d66e34910",
+     "ab816afd758bbb5828d6789efcf2cc04d530dd208065c4cd911d138dc046eb45",
+     "ab88366809152d3c6101d9ed727367a702b7c7e1961dc758001f89252fcd1d92",
+     "abe8743bcd690628d3fc2476a8741d40e5a27d5708304dd868a107cc2b60621c",
+     "ad651d41168d42560434544c9acaf4c45557364d82448b97b855183614ecff22",
+     "b205dacd216a901d8a23ccba8ead25c06c0474eb032f5cd5a19c198218e81d31",
+     "c1a530e8e92ac1652d4b9e099ab9ca6fda415b1ed5a6337cdaee0e795507c228",
+     "ce063da251521be3877ffe7dd2e0c30c5b4df2d08447fb1656c90e490eca7845",
+     "e9814a91870f168651b3a17f7eeb5522416b7340fb008995e026ef4e8d4b54c2",
+     "f28cf56e81340374fedda73112231b7b590ccdb67c0df799d4d9153b07a018af",
+     "f99a7fd5e6d0d5eba9ae2d75b6b00402899e3e831303494495e9d90c23d15fba",
+     "f9d80df90acbe3e3f87305b980db345f89c272ada2336f526ef2cdb58b4bbcb6",
+     "fa7bc8c7cf6ebb1d49df213fdf076cb11424fb837b81237677d31499f9cc6e78"
+    ]
+   }
+  ],
+  "max_need": 6,
+  "levels": [
+   {
+    "id": "notes",
+    "name": "Sarahs Notizen",
+    "head": "Notizen · S. Wessen, Privatdetektivin",
+    "says": "Nur die Lücken. Niemand muss schriftlich ausgeschlossen werden; jede Unterschrift wird gezählt."
+   },
+   {
+    "id": "report",
+    "name": "Bericht an Mauser",
+    "head": "Bericht · an Kommissar Mauser, Kriminalpolizei Bonn · von S. Wessen, Privatdetektivin",
+    "says": "Die Lücken und die Ausgeschlossenen; angeführt wird nur, was die Teile nicht schon zeigen."
+   },
+   {
+    "id": "court",
+    "name": "Mausers Akte für das Gericht",
+    "head": "Akte für das Gericht · Kommissar Mauser, Kriminalpolizei Bonn · nach den Ermittlungen von S. Wessen, Privatdetektivin",
+    "says": "Jeder Teil und jede Person führt alle ihre Belege an; nichts zählt von selbst."
+   }
+  ]
+ },
+ "dossiers": [
+  {
+   "who": "Oberregierungsrat Grau",
+   "de": "Oberregierungsrat, Mitte fünfzig, im Haus seit dem Umzug. Er hört einem bis zum Ende zu und entscheidet dann, was er ohnehin entschieden hatte, und hält beides für dasselbe. Ein Mann, der Namen nie vergisst und Gesichter schon. Er redet über die Arbeit wie über das Wetter: sachlich, unaufhörlich und ohne dass jemand klüger wird. Zu Hause wird er anders sein, sagt das Haus, und das Haus weiß es nicht.",
+   "en": "Oberregierungsrat, in his middle fifties, in the building since the move. He hears you out and then decides what he had decided already, and considers those the same thing. A man who never forgets a name and does forget faces. He talks about work the way other people talk about weather: steadily, at length, and without anybody coming away wiser. He must be different at home, the building says, and the building does not know.",
+   "sprite": "art/people/grau.png",
+   "text": "Oberregierungsrat, Mitte fünfzig, im Haus seit dem Umzug. Er hört einem bis zum Ende zu und entscheidet dann, was er ohnehin entschieden hatte, und hält beides für dasselbe. Ein Mann, der Namen nie vergisst und Gesichter schon. Er redet über die Arbeit wie über das Wetter: sachlich, unaufhörlich und ohne dass jemand klüger wird. Zu Hause wird er anders sein, sagt das Haus, und das Haus weiß es nicht."
+  },
+  {
+   "who": "Frau Pohlmann",
+   "de": "Fünfundvierzig, seit elf Jahren im Vorzimmer, drei Referatsleiter lang. Frau, nicht Fräulein, und niemand im Haus könnte sagen, wann das angefangen hat. Sie ist die Einzige, die weiß, was ihr Chef wirklich meint, wenn er nichts sagt, und sie sagt es nicht weiter. Höflich zu allen, vertraut mit keiner; die Damen aus dem Saal grüßt sie freundlich und beim Nachnamen. Sie hat einen Mantel für den Winter und einen für den Herbst und trägt beide, bis sie nicht mehr gehen.",
+   "en": "Forty-five, eleven years outside one man's door, three heads of department. Frau, not Fräulein, and nobody in the building could tell you when that began. She is the only person who knows what her chief means when he says nothing, and she does not pass it on. Civil to everybody and close to nobody; she greets the women from the pool kindly and by their surnames. She has one coat for winter and one for autumn and wears each until it will not do.",
+   "sprite": "art/people/pohlmann.png",
+   "text": "Fünfundvierzig, seit elf Jahren im Vorzimmer, drei Referatsleiter lang. Frau, nicht Fräulein, und niemand im Haus könnte sagen, wann das angefangen hat. Sie ist die Einzige, die weiß, was ihr Chef wirklich meint, wenn er nichts sagt, und sie sagt es nicht weiter. Höflich zu allen, vertraut mit keiner; die Damen aus dem Saal grüßt sie freundlich und beim Nachnamen. Sie hat einen Mantel für den Winter und einen für den Herbst und trägt beide, bis sie nicht mehr gehen."
+  },
+  {
+   "who": "Herr Simon",
+   "de": "Vierundfünfzig, seit zwanzig Jahren in der Registratur, und er sagt jeden Satz so, als hätte er ihn schon zwanzig Jahre gesagt, was stimmt. Ordnung ist bei ihm keine Tugend, sondern eine Gewohnheit, die er sich nicht mehr abgewöhnen könnte. Er verwechselt nie eine Nummer und selten einen Namen. Wenn etwas nicht zurückkommt, ärgert er sich still und lange. Sein Bruder hatte eine Gastwirtschaft, und davon erzählt er einmal im Jahr.",
+   "en": "Fifty-four, twenty years in the Registratur, and he says every sentence like a man who has been saying it for twenty years, which he has. Order is not a virtue with him but a habit he could no longer break. He never mixes up a number and rarely a name. When something does not come back he is quietly and lastingly annoyed. His brother kept an inn, and he tells you about it once a year.",
+   "sprite": "art/people/simon.png",
+   "text": "Vierundfünfzig, seit zwanzig Jahren in der Registratur, und er sagt jeden Satz so, als hätte er ihn schon zwanzig Jahre gesagt, was stimmt. Ordnung ist bei ihm keine Tugend, sondern eine Gewohnheit, die er sich nicht mehr abgewöhnen könnte. Er verwechselt nie eine Nummer und selten einen Namen. Wenn etwas nicht zurückkommt, ärgert er sich still und lange. Sein Bruder hatte eine Gastwirtschaft, und davon erzählt er einmal im Jahr."
+  },
+  {
+   "who": "Frau Litt",
+   "de": "Einundvierzig, seit 1953 im Haus: drei Minister, zwei Umzüge. Witwe seit 1957 — im Haus gilt das als lange her, ihr nicht. Den Ring trägt sie noch, rechts, was die Jüngeren für eine Marotte halten und die Älteren nicht. Sie ist die Einzige, die noch weiß, wie es vorher war, und sie sagt es bereitwillig, aber immer erst, wenn sie den Bogen zu Ende getippt hat. Bei ihr beschweren sich die anderen, weil sie zuhört, ohne etwas daraus zu machen. Ein Blatt, das noch zu retten ist, hat sie noch nie weggeworfen. Sie nennt das Sparsamkeit. Sie hat 1946 auch schon nichts weggeworfen.",
+   "en": "Forty-one, in the building since 1953: three ministers and two removals. Widowed since 1957 — the building considers that a long time ago; she does not. She still wears the ring, on the right hand, which the younger ones take for an eccentricity and the older ones do not. She is the only one who still knows how it used to be, and she will say so readily, but never before she has finished the sheet she is on. The others complain to her, because she listens without making anything of it. She has never thrown away a sheet that could still be saved. She calls it thrift. She didn't throw anything away in 1946 either.",
+   "sprite": "art/people/litt.png",
+   "text": "Einundvierzig, seit 1953 im Haus: drei Minister, zwei Umzüge. Witwe seit 1957 — im Haus gilt das als lange her, ihr nicht. Den Ring trägt sie noch, rechts, was die Jüngeren für eine Marotte halten und die Älteren nicht. Sie ist die Einzige, die noch weiß, wie es vorher war, und sie sagt es bereitwillig, aber immer erst, wenn sie den Bogen zu Ende getippt hat. Bei ihr beschweren sich die anderen, weil sie zuhört, ohne etwas daraus zu machen. Ein Blatt, das noch zu retten ist, hat sie noch nie weggeworfen. Sie nennt das Sparsamkeit. Sie hat 1946 auch schon nichts weggeworfen."
+  },
+  {
+   "who": "Frau Adam",
+   "de": "Verheiratet mit einem Mann bei der Bundesbahn, zwei Söhne: Der eine soll Ingenieur werden, der andere weiß schon, dass er keiner wird. Sie bringt Kuchen mit und behauptet jedes Mal, er sei diesmal nichts geworden. Sie weiß, wer ein Kind erwartet, wer umzieht und wer sich trennt, und sie erzählt es nur Leuten, die es ohnehin schon wissen. Das hält sie für Diskretion. Es ist auch welche, ungefähr.",
+   "en": "Married to a man on the railways, two sons: one is to become an engineer and the other already knows he won't. She brings cake and claims every time that it didn't turn out. She knows who is expecting, who is moving and who is separating, and she tells it only to people who know already. She considers this discretion. It more or less is.",
+   "sprite": "art/people/adam.png",
+   "text": "Verheiratet mit einem Mann bei der Bundesbahn, zwei Söhne: Der eine soll Ingenieur werden, der andere weiß schon, dass er keiner wird. Sie bringt Kuchen mit und behauptet jedes Mal, er sei diesmal nichts geworden. Sie weiß, wer ein Kind erwartet, wer umzieht und wer sich trennt, und sie erzählt es nur Leuten, die es ohnehin schon wissen. Das hält sie für Diskretion. Es ist auch welche, ungefähr."
+  },
+  {
+   "who": "Fräulein Bühl",
+   "de": "Achtundzwanzig, seit vier Jahren im Haus, verlobt seit Ostern. Geheiratet wird im Frühjahr, und was danach kommt, hat das Haus schon entschieden, ohne dass es jemand ausgesprochen hätte. Sie kleidet sich eine Gehaltsstufe über ihrer Gehaltsstufe und trägt dazu ein Gesicht, das zu einer Bemerkung einlädt. Gemacht hat sie noch niemand. Sie tippt gut und gern und redet dabei nicht, was sie für Höflichkeit hält und die anderen für Hochmut. Auf die Frage, ob sie danach bleibt, sagt sie „Mal sehen“, und zwar so, als hätte sie schon gesehen.",
+   "en": "Twenty-eight, four years in the building, engaged since Easter. The wedding is in the spring, and what happens after that the building has already decided without anyone saying it aloud. She dresses one salary grade above her salary grade and wears an expression that invites a remark. Nobody has made one yet. She types well and willingly and does not talk while she does it, which she considers courtesy and the others consider airs. Asked whether she will stay on afterwards she says we'll see, in the tone of somebody who has already seen.",
+   "sprite": "art/people/buehl.png",
+   "text": "Achtundzwanzig, seit vier Jahren im Haus, verlobt seit Ostern. Geheiratet wird im Frühjahr, und was danach kommt, hat das Haus schon entschieden, ohne dass es jemand ausgesprochen hätte. Sie kleidet sich eine Gehaltsstufe über ihrer Gehaltsstufe und trägt dazu ein Gesicht, das zu einer Bemerkung einlädt. Gemacht hat sie noch niemand. Sie tippt gut und gern und redet dabei nicht, was sie für Höflichkeit hält und die anderen für Hochmut. Auf die Frage, ob sie danach bleibt, sagt sie „Mal sehen“, und zwar so, als hätte sie schon gesehen."
+  },
+  {
+   "who": "Frau Kern",
+   "de": "Kam im Frühjahr herüber. Ohne Beförderung, ohne Erklärung. Auf die Frage warum sagt sie, hier sei es wärmer. Ein Ehering, kein Foto auf dem Schreibtisch. Sie schreibt schnell, sauber und ohne jede Neugier auf den Inhalt — in einem Haus wie diesem eine erlernbare Fähigkeit, und bei ihr wirkt sie sehr gut erlernt. Wenn im Raum über Vorgesetzte gesprochen wird, prüft sie ihr Farbband.",
+   "en": "Came across in the spring. No promotion, no explanation. Asked why, she says it is warmer here. A wedding ring, no photograph on the desk. She types fast, cleanly and with no curiosity whatever about the content — in a building like this one a learnable skill, and in her case a very well learned one. When the room starts talking about superiors, she checks her ribbon.",
+   "sprite": "art/people/kern.png",
+   "text": "Kam im Frühjahr herüber. Ohne Beförderung, ohne Erklärung. Auf die Frage warum sagt sie, hier sei es wärmer. Ein Ehering, kein Foto auf dem Schreibtisch. Sie schreibt schnell, sauber und ohne jede Neugier auf den Inhalt — in einem Haus wie diesem eine erlernbare Fähigkeit, und bei ihr wirkt sie sehr gut erlernt. Wenn im Raum über Vorgesetzte gesprochen wird, prüft sie ihr Farbband."
+  },
+  {
+   "who": "Fräulein Ostrowski",
+   "de": "Kam 1946 als Kind aus dem Osten, mit einem Koffer und einer Mutter, die unterwegs aufhörte, Polnisch zu sprechen. Ihr Deutsch ist deshalb besser als das der meisten hier: Sie hat es lernen müssen, statt es nur mitzubekommen. Fremde Kommafehler korrigiert sie mit Bleistift, sehr leicht, damit man es wegradieren kann. Über Schlesien redet sie nicht. Über ihren Namen auch nicht, obwohl er im Haus schon dreimal falsch geschrieben worden ist. Sie hat ihn jedes Mal stehen lassen.",
+   "en": "Came west in 1946 as a child, with one suitcase and a mother who stopped speaking Polish somewhere along the way. Her German is better than most people's here because she had to learn it rather than simply pick it up. She corrects other people's commas in pencil, very lightly, so it can be rubbed out. She does not talk about Schlesien. She does not talk about her name either, though the building has misspelled it three times now. She let it stand every time.",
+   "sprite": "art/people/ostrowski.png",
+   "text": "Kam 1946 als Kind aus dem Osten, mit einem Koffer und einer Mutter, die unterwegs aufhörte, Polnisch zu sprechen. Ihr Deutsch ist deshalb besser als das der meisten hier: Sie hat es lernen müssen, statt es nur mitzubekommen. Fremde Kommafehler korrigiert sie mit Bleistift, sehr leicht, damit man es wegradieren kann. Über Schlesien redet sie nicht. Über ihren Namen auch nicht, obwohl er im Haus schon dreimal falsch geschrieben worden ist. Sie hat ihn jedes Mal stehen lassen."
+  },
+  {
+   "who": "Fräulein Wenzel",
+   "de": "Zweiundzwanzig, seit vier Jahren im Haus. Handelsschule in Koblenz, Stenografie mit Auszeichnung — was sie erwähnt, ohne dass jemand fragt. Sie tippt schneller als alle anderen und macht dabei die meisten Fehler; sie hält das für einen fairen Handel. Abends besucht sie einen Englischkurs und spricht von der Botschaft in London wie von einer Adresse, bei der man sich nur noch zu melden braucht. Das Wort „Schreibkraft“ benutzt sie nicht. Sie sagt „vorläufig“. Frau Adam sagt, das habe sie damals auch gesagt.",
+   "en": "Twenty-two, four years in the building. Commercial college in Koblenz, shorthand with distinction, which she mentions without being asked. She types faster than anyone else and makes the most mistakes doing it; she considers that a fair trade. Evenings she takes an English class, and she talks about the embassy in London the way you talk about an address where you only have to present yourself. She does not use the word typist. She says for now. Frau Adam says she used to say that too.",
+   "sprite": "art/people/wenzel.png",
+   "text": "Zweiundzwanzig, seit vier Jahren im Haus. Handelsschule in Koblenz, Stenografie mit Auszeichnung — was sie erwähnt, ohne dass jemand fragt. Sie tippt schneller als alle anderen und macht dabei die meisten Fehler; sie hält das für einen fairen Handel. Abends besucht sie einen Englischkurs und spricht von der Botschaft in London wie von einer Adresse, bei der man sich nur noch zu melden braucht. Das Wort „Schreibkraft“ benutzt sie nicht. Sie sagt „vorläufig“. Frau Adam sagt, das habe sie damals auch gesagt."
+  },
+  {
+   "who": "der Pförtner",
+   "de": "Pförtner, um die sechzig, und der Einzige im Haus, der es vom Keller bis unters Dach kennt. Er hält das Haus für seines und die Beamten für Gäste, die länger bleiben. Er ist höflich, unbestechlich und leicht gekränkt, wenn jemand an ihm vorbeigeht, ohne zu grüßen. Seine Frau schickt ihm belegte Brote mit, jeden Tag dieselben, und er isst sie, als wären es verschiedene.",
+   "en": "The porter, about sixty, and the only man who knows the building from the cellar to the roof. He considers the building his and the officials guests who are staying on. He is courteous, unbribable, and easily offended when somebody walks past him without a word. His wife sends sandwiches with him, the same ones every day, and he eats them as though they were different ones.",
+   "sprite": "art/people/the-porter.png",
+   "text": "Pförtner, um die sechzig, und der Einzige im Haus, der es vom Keller bis unters Dach kennt. Er hält das Haus für seines und die Beamten für Gäste, die länger bleiben. Er ist höflich, unbestechlich und leicht gekränkt, wenn jemand an ihm vorbeigeht, ohne zu grüßen. Seine Frau schickt ihm belegte Brote mit, jeden Tag dieselben, und er isst sie, als wären es verschiedene."
+  },
+  {
+   "who": "die Putzfrau",
+   "de": "Putzfrau, Anfang fünfzig, seit Jahren im Haus und für die meisten hier ein Geräusch im Flur. Sie sieht mehr als alle anderen und macht sich nichts daraus, weil es sie nichts angeht und weil es, ehrlich gesagt, meistens nichts ist. Sie redet gern, wenn jemand stehen bleibt, und das tut fast nie jemand. Sie hat zwei erwachsene Kinder, von denen sie spricht wie von entfernten Bekannten, auf die sie stolz ist.",
+   "en": "The charwoman, in her early fifties, years in the building and to most of the people here a sound in the corridor. She sees more than anybody and makes nothing of it, because it is not her business and because, to be honest, it is usually nothing. She likes talking when somebody stops, and almost nobody stops. She has two grown children she speaks of the way you speak of distant acquaintances you are proud of.",
+   "sprite": "art/people/the-charwoman.png",
+   "text": "Putzfrau, Anfang fünfzig, seit Jahren im Haus und für die meisten hier ein Geräusch im Flur. Sie sieht mehr als alle anderen und macht sich nichts daraus, weil es sie nichts angeht und weil es, ehrlich gesagt, meistens nichts ist. Sie redet gern, wenn jemand stehen bleibt, und das tut fast nie jemand. Sie hat zwei erwachsene Kinder, von denen sie spricht wie von entfernten Bekannten, auf die sie stolz ist."
+  },
+  {
+   "who": "Sarah Wessen",
+   "de": "Sarah Wessen, Privatdetektivin in Bonn. An den meisten Tagen ein schlichter Wollmantel mit einem großen Knopf am Hals, die Sonnenbrille auch drinnen. Für das Ministerium zieht sie den roten Mantel mit dem Gürtel an und lässt die Sonnenbrille in der Tasche, denn ein Haus voller Beamter will einem in die Augen sehen. Im Laden an der Ecke ruft man ihr „die Detektivin mit dem Schnüffler“ hinterher. Sie lächelt charmant wie ein Fräulein vom Filmfunk, wenn es nützt, und sie hat ein zweites Lächeln, das heißt: Ich habe das schon zu Ende gedacht. Mit Leuten, die nicht reden wollen, geht sie um wie eine ältere Schwester, die den kleinen Bruder zum Reden bringen will. Ob jemand unschuldig ist, weiß sie nach ihrem eigenen untrüglichen Gefühl, lange bevor sie es belegen kann.",
+   "en": "Sarah Wessen, private detective in Bonn. Most days a plain wool coat with one big button at the throat, and the sunglasses stay on indoors. For the ministry she puts on the red coat with the belt and leaves the sunglasses in her bag, because a building full of officials wants to see a person's eyes. In the shop on the corner they call after her: the detective with the sniffer. She smiles charmingly, like a young lady off the film pages, when it is useful, and she has a second smile that means: I have already thought this through to the end. With people who would rather not talk she works the way an older sister works on a younger brother. Whether somebody is innocent she knows by her own unerring feeling, long before she can show it.",
+   "sprite": "art/people/sarah.png",
+   "text": "Sarah Wessen, Privatdetektivin in Bonn. An den meisten Tagen ein schlichter Wollmantel mit einem großen Knopf am Hals, die Sonnenbrille auch drinnen. Für das Ministerium zieht sie den roten Mantel mit dem Gürtel an und lässt die Sonnenbrille in der Tasche, denn ein Haus voller Beamter will einem in die Augen sehen. Im Laden an der Ecke ruft man ihr „die Detektivin mit dem Schnüffler“ hinterher. Sie lächelt charmant wie ein Fräulein vom Filmfunk, wenn es nützt, und sie hat ein zweites Lächeln, das heißt: Ich habe das schon zu Ende gedacht. Mit Leuten, die nicht reden wollen, geht sie um wie eine ältere Schwester, die den kleinen Bruder zum Reden bringen will. Ob jemand unschuldig ist, weiß sie nach ihrem eigenen untrüglichen Gefühl, lange bevor sie es belegen kann."
+  },
+  {
+   "who": "Kommissar Mauser",
+   "de": "Kommissar Friedrich Mauser von der Bonner Kriminalpolizei. Ein Mann, der seine Brille etwa siebzehnmal in der Stunde zurechtrückt und über den Rand hinwegsieht, wenn ihm etwas nicht passt. Das Hemd zerknittert, das Jackett rückt er sich zurecht, als säße eine Wespe darin. Hinter dem Schreibtisch sitzt er wie ein grummeliger Wachhund, und die Falten auf seiner Stirn werden tiefer, je länger man redet. Auf dem Tisch ein eingetrockneter Kaffeefleck, ein wachsender Papierstapel und ein Notizblock, der längst aussieht wie ein Kunstprojekt aus Tinte und Kaffeespuren. Wenn nichts anliegt, nimmt er sich alte ungelöste Akten noch einmal vor. Über gewisse Formulierungen sagt er, sie röchen noch deutlich nach der alten Zeit.",
+   "en": "Kommissar Friedrich Mauser of the Bonn criminal police. A man who straightens his glasses about seventeen times an hour and looks at you over the rim of them when something does not suit him. The shirt creased, the jacket tugged straight as though a wasp were sitting in it. Behind his desk he sits like a grumpy watchdog, and the furrows on his forehead deepen the longer you talk. On the desk a coffee stain two days dry, a growing pile of paper, and a notepad long since like an art project made of ink and coffee marks. When nothing is on, he goes back through the old unsolved files. Of certain turns of phrase he says you can still smell the old regime on them.",
+   "sprite": "art/people/mauser.png",
+   "text": "Kommissar Friedrich Mauser von der Bonner Kriminalpolizei. Ein Mann, der seine Brille etwa siebzehnmal in der Stunde zurechtrückt und über den Rand hinwegsieht, wenn ihm etwas nicht passt. Das Hemd zerknittert, das Jackett rückt er sich zurecht, als säße eine Wespe darin. Hinter dem Schreibtisch sitzt er wie ein grummeliger Wachhund, und die Falten auf seiner Stirn werden tiefer, je länger man redet. Auf dem Tisch ein eingetrockneter Kaffeefleck, ein wachsender Papierstapel und ein Notizblock, der längst aussieht wie ein Kunstprojekt aus Tinte und Kaffeespuren. Wenn nichts anliegt, nimmt er sich alte ungelöste Akten noch einmal vor. Über gewisse Formulierungen sagt er, sie röchen noch deutlich nach der alten Zeit."
+  }
+ ],
+ "walk": {
+  "days": 2,
+  "repeat": true,
+  "reset": "day",
+  "phases": [
+   {
+    "name": "die Dienstzeit",
+    "light": "autumn",
+    "day": null,
+    "start": "lodge",
+    "open": [
+     "lodge",
+     "canteen",
+     "hall2",
+     "pool",
+     "washroom",
+     "paternoster",
+     "registratur",
+     "landing",
+     "poststelle",
+     "vorzimmer",
+     "z407"
+    ]
+   },
+   {
+    "name": "nach Dienstschluss",
+    "light": "friday",
+    "day": null,
+    "start": "lodge",
+    "open": [
+     "lodge",
+     "canteen",
+     "hall2",
+     "pool",
+     "washroom",
+     "paternoster",
+     "registratur",
+     "landing",
+     "poststelle",
+     "vorzimmer",
+     "z407"
+    ]
+   }
+  ],
+  "cover": "Diesmal ist nichts verborgen, und das ist der Witz daran. Herr Simon hat die Polizei nach einer Akte gefragt, die ausgebessert zu ihm zurückkam, Kommissar Mauser hat Sarah Wessen geschickt, und das ganze Haus weiß, warum sie darin herumgeht, und findet es ein wenig lächerlich. Die Leute schenken ihr jeden Tag ein wenig von ihrer Zeit, und nicht mehr.",
+  "places": [
+   {
+    "id": "canteen",
+    "name": "die Kantine",
+    "floor": -1,
+    "links": [
+     "lodge"
+    ],
+    "text": "Eine Treppe tiefer als die Halle: eine Theke mit einem Kaffeekessel und ein einziger Tisch, der die ganze Länge des Raums einnimmt.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/canteen-friday.jpeg",
+     "nach Dienstschluss": "art/rooms/canteen-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "Kantine"
+   },
+   {
+    "id": "hall2",
+    "name": "der Flur im zweiten Stock",
+    "floor": 2,
+    "links": [
+     "lodge",
+     "pool",
+     "washroom",
+     "paternoster"
+    ],
+    "text": "",
+    "passage": true,
+    "art": {
+     "die Dienstzeit": null,
+     "nach Dienstschluss": null
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "Flur"
+   },
+   {
+    "id": "landing",
+    "name": "der Treppenabsatz im vierten Stock",
+    "floor": 4,
+    "links": [
+     "paternoster",
+     "vorzimmer",
+     "poststelle"
+    ],
+    "text": "Das obere Ende der Treppe, ein schlichter Tisch an der Wand, daneben angeheftete Aushänge, und eine schmale Hintertreppe, die hinunterführt.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/landing-autumn.jpeg",
+     "nach Dienstschluss": "art/rooms/landing-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "Treppenabsatz"
+   },
+   {
+    "id": "lodge",
+    "name": "die Eingangshalle",
+    "floor": 0,
+    "links": [
+     "hall2",
+     "canteen"
+    ],
+    "text": "Der Eingang von der Straße, daneben die verglaste Pförtnerloge und die Haupttreppe, die hinaufführt.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/lodge-friday.jpeg",
+     "nach Dienstschluss": "art/rooms/lodge-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": [
+     32,
+     58
+    ],
+    "sees": [
+     {
+      "text": "Das Pförtnerbuch: Einträge am Fenster der Pförtnerloge um zwanzig vor drei, um Viertel vor drei, um fünf nach drei, um Viertel nach drei und um fünf vor halb vier, jeder unterschrieben von dem, der ans Fenster kam, und neben jedem das Namenszeichen des Pförtners.",
+      "phase": null
+     },
+     {
+      "text": "Der Lieferschein für das Papier des Schreibsaals: für ein Paket Papier, am 14. Oktober um Viertel vor drei an der Pförtnerloge abgegeben, das Quartalspapier des Schreibsaals, Referat für Referat aufgeführt, dort von Frau Kern quittiert, und unten die Zählung der Ries, um zwanzig vor vier von ihr und vom Pförtner abgezeichnet.",
+      "phase": null
+     }
+    ],
+    "short": "Halle, Loge"
+   },
+   {
+    "id": "paternoster",
+    "name": "der Treppenabsatz im dritten Stock",
+    "floor": 3,
+    "links": [
+     "hall2",
+     "registratur",
+     "landing"
+    ],
+    "text": "Die Haupttreppe und der Paternoster kommen hier beide vorbei, und auf der anderen Seite des Treppenabsatzes ist eine Tür mit einem Schalter.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/paternoster-sunday.jpeg",
+     "nach Dienstschluss": "art/rooms/paternoster-sunday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "Treppenabsatz"
+   },
+   {
+    "id": "pool",
+    "name": "der Schreibsaal",
+    "floor": 2,
+    "links": [
+     "hall2"
+    ],
+    "text": "Sechs Schreibtische in Reihen zu den hohen Fenstern hin, auf jedem eine Maschine, und ihr Lärm, wenn im Raum gearbeitet wird.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/pool-autumn.jpeg",
+     "nach Dienstschluss": "art/rooms/pool-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": 0.1,
+    "spread": null,
+    "sees": [
+     {
+      "text": "Der Ablagekorb auf Frau Litts Schreibtisch: jede Akte darin mit dem ältesten Blatt vorn und dem neuesten hinten, der einzige Schreibtisch im Raum, auf dem die Akten in dieser Reihenfolge liegen.",
+      "phase": "nach Dienstschluss"
+     },
+     {
+      "text": "Die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch: Fräulein Ostrowskis Name innen im Deckel, und der Absatz über eine Akte, die in die Registratur zurückgeht, unterstrichen, leicht, mit Bleistift.",
+      "phase": null
+     },
+     {
+      "text": "Ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür: für neue Maschinen, auf den Pfennig durchgerechnet nach dem, was die letzten Maschinen im Jahr 1964 gekostet haben, fertig, nicht unterschrieben und nie hinaufgeschickt.",
+      "phase": "nach Dienstschluss"
+     }
+    ],
+    "short": "Schreibsaal"
+   },
+   {
+    "id": "poststelle",
+    "name": "die Poststelle",
+    "floor": 4,
+    "links": [
+     "landing"
+    ],
+    "text": "Sortiertische, Fächer und die Ausgangskörbe.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/poststelle-autumn.jpeg",
+     "nach Dienstschluss": "art/rooms/poststelle-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [
+     {
+      "text": "Das Ausgangsbuch der Poststelle: Fräulein Bühls Namenszeichen neben jedem Posten, der am 14. Oktober zwischen Viertel nach zwei und zwanzig vor vier eingetragen wurde, dreiundzwanzig an der Zahl, und zwei der Angestellten dort oben haben ihr Namenszeichen danebengesetzt.",
+      "phase": null
+     },
+     {
+      "text": "Das Ausgangsbuch der Poststelle: Herrn Simons Namenszeichen am Rand um Viertel vor drei am 14. Oktober, neben einem fehlgeleiteten Posten, zu dessen Klärung die Angestellten ihn heraufgerufen hatten, und noch einmal um Viertel nach drei, als es erledigt war.",
+      "phase": null
+     }
+    ],
+    "short": "Poststelle"
+   },
+   {
+    "id": "registratur",
+    "name": "die Registratur",
+    "floor": 3,
+    "links": [
+     "paternoster"
+    ],
+    "text": "Ein Schalter quer durch den Raum, dahinter Aktenregale bis unter die Decke, und ein Stahlschrank hinter dem Stuhl des Registrators.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/registratur-autumn.jpeg",
+     "nach Dienstschluss": "art/rooms/registratur-friday.jpeg"
+    },
+    "stand": 0.4,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [
+     {
+      "text": "Das Regal für Z A 4: eine Lücke seit dem 12. Mai, und der Zettel, der darin steht, nennt ein Zimmer und keinen Namen, denn mehr ist von einem Zettel nie verlangt worden. Jeder andere Deckel im Regal trägt vorn seine Nummer mit Tinte, alle von derselben Hand, und es ist die von Herrn Simon.",
+      "phase": null
+     },
+     {
+      "text": "Das Ausleihbuch: Sachakte 117/64, über die Beschaffung von Schreibmaschinen, am 12. Mai an Zimmer 407 ausgegeben, und seither keine Rückgabe dazu eingetragen.",
+      "phase": null
+     },
+     {
+      "text": "Die Rückstandsliste: Ende September für das dritte Quartal aufgestellt, mit 117/64 unter elf anderen, und eine Abschrift ist an jedes Referat gegangen, bei dem eine davon liegt.",
+      "phase": null
+     },
+     {
+      "text": "Die Akte, ihr Umschlag: der Aktendeckel ist neu, von Hand zugeschnitten und gefalzt, und die Nummer, 117/64, ist vorn mit gewöhnlichem Bleistift übertragen.",
+      "phase": null
+     },
+     {
+      "text": "Die Akte, ihr Inhalt: jedes Blatt glatt, und es gilt die Ordnung des Schreibsaals: das neueste vorn, sobald man den Deckel aufschlägt, was weder so ist, wie die Akte hinausging, noch so, wie die Registratur sie führt; und innen im Deckel stehen die Ziffern der Nummer erhaben heraus, wo sich der Bleistift durch den Karton gedrückt hat.",
+      "phase": null
+     }
+    ],
+    "short": "Registratur"
+   },
+   {
+    "id": "vorzimmer",
+    "name": "das Vorzimmer von 407",
+    "floor": 4,
+    "links": [
+     "landing",
+     "z407"
+    ],
+    "text": "Der Schreibtisch der Sekretärin, und dahinter eine geschlossene Holztür.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/vorzimmer-autumn.jpeg",
+     "nach Dienstschluss": "art/rooms/vorzimmer-friday.jpeg"
+    },
+    "stand": 0.5,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [
+     {
+      "text": "Die Abgabeliste des Vorzimmers: vor jeder Abgabe geschrieben und unten abgezeichnet, für alles, was aus dem Referat hinuntergeht, auch von Herrn Graus Schreibtisch; links die Spalte des Vorzimmers, rechts der Stempel der Registratur. 117/64 steht in keiner der beiden Spalten.",
+      "phase": null
+     },
+     {
+      "text": "Die Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober: abgehalten mit seinen Referenten in seinem eigenen Zimmer von zwei Uhr bis Viertel nach vier, Oberregierungsrat Grau unter den Anwesenden, und am Fuß vom Abteilungsleiter selbst unterschrieben.",
+      "phase": null
+     },
+     {
+      "text": "Der Ausgangskorb auf Frau Pohlmanns Schreibtisch: drei Akten, die darauf warten, hinunterzugehen, jede mit dem ältesten Blatt vorn und dem neuesten hinten, so wie alles Frau Pohlmanns Schreibtisch verlässt.",
+      "phase": null
+     }
+    ],
+    "short": "Vorzimmer"
+   },
+   {
+    "id": "washroom",
+    "name": "der Waschraum im zweiten Stock",
+    "floor": 2,
+    "links": [
+     "hall2"
+    ],
+    "text": "Waschbecken an der einen Wand und eine Reihe Kabinen an der anderen.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/washroom-friday.jpeg",
+     "nach Dienstschluss": "art/rooms/washroom-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "Waschraum"
+   },
+   {
+    "id": "z407",
+    "name": "Zimmer 407",
+    "floor": 4,
+    "links": [
+     "vorzimmer"
+    ],
+    "text": "Das Zimmer des Referatsleiters: ein großer Schreibtisch und daneben eine alte stählerne Kartei.",
+    "passage": false,
+    "art": {
+     "die Dienstzeit": "art/rooms/z407-autumn.jpeg",
+     "nach Dienstschluss": "art/rooms/z407-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": [
+     56,
+     80
+    ],
+    "sees": [],
+    "short": "Zimmer 407"
+   }
+  ],
+  "people": [
+   {
+    "id": "Simon",
+    "name": "Herr Simon",
+    "at": {
+     "die Dienstzeit": "registratur"
+    },
+    "patience": 3,
+    "shrugs": [
+     "„Das“, sagt Herr Simon, „ist keine Angelegenheit der Registratur.“",
+     "Herr Simon hat dem nichts hinzuzufügen.",
+     "Da kann Herr Simon Sarah nicht helfen."
+    ],
+    "looked": "„Aha“, sagt Herr Simon, und sagt nichts weiter dazu.",
+    "tired": "„Die Rückgaben räumen sich nicht von selbst ein“, sagt Herr Simon und wendet sich dem Aktenwagen zu.",
+    "height": 172,
+    "sprite": "art/people/simon.png",
+    "hello": [
+     {
+      "text": "Simon: Sie werden die sein, die Kommissar Mauser geschickt hat. Gut. Kommen Sie und stellen Sie sich dahin, wo ich stand, denn an diesem Schalter ist es geschehen. Die Akte war nicht da, als ich zur Poststelle hinaufging, und sie war da, als ich herunterkam, genau an der Kante ausgerichtet, so wie jemand eine Sache hinlegt, der will, dass man sie bemerkt.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "afternoon": {
+      "lines": [
+       {
+        "text": "Simon: Ich bin diesen Nachmittag öfter durchgegangen, als er es verdient. Ich wurde am 14. Oktober um halb drei zur Poststelle hinaufgerufen und war um halb vier zurück, und mein Schalter war die ganze Stunde offen und unbesetzt. Als ich hinaufging, lag die Akte nicht darauf, und als ich herunterkam, lag sie da. Die Leute fragen mich, warum ich ihn nicht abgeschlossen habe. Einen Schalter schließt niemand ab.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "registratur": {
+      "lines": [
+       {
+        "text": "Simon: So, wie sie hinausging. Es gibt einen Weg, und ich habe ihn öfter erklärt, als ich zählen kann. Eine Akte geht mit einem Eintrag im Buch hinaus und kommt mit einem Eintrag im Buch zurück, und sie kommt aus Frau Pohlmanns Vorzimmer zurück, das sie in Empfang genommen hat, nie von Oberregierungsrat Grau selbst, zu dem sie hinaufging. Damit Sie mich verstehen: Eine Sache, die auf meinem Schalter liegt, ist nicht zurück. Bis jemand die Zeile schreibt, ist sie noch draußen, was immer da liegt.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "asked": {
+      "lines": [
+       {
+        "text": "Simon: Einmal, und ich habe die richtige Person gefragt. Ich habe Frau Pohlmann in der letzten Septemberwoche auf dem Flur angehalten und gefragt, ob 117/64 je zu ihr zurückgekommen sei, und sie sagte, sie werde die Schreibkräfte fragen, da sie die Akte an den Schreibsaal weitergegeben habe. Was sie sie gefragt hat und wie, das müssen Sie sie selbst fragen.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "shows": {
+     "Die Akte, ihr Umschlag": {
+      "lines": [
+       {
+        "text": "Simon: Da. Jetzt sehen Sie, warum ich sie nicht einfach eingeordnet und nichts gesagt habe. Einen Deckel mache ich, und die Nummer kommt mit Tinte darauf. Ein Referat, das einen zerrissen hat, fragt am Schalter nach und bekommt einen neuen, und in zwanzig Jahren habe ich kein einziges Mal abgelehnt.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "Die Akte, ihr Inhalt": {
+      "lines": [
+       {
+        "text": "Simon: Schlagen Sie sie selbst auf; Sie sehen es besser, als ich es sagen kann. Schlagen Sie in diesem Raum eine Akte auf, dann ist das älteste Blatt vorn und das neueste hinten: Das ist die Ordnung der Registratur; in ihr verlässt eine Akte dieses Zimmer, und in ihr erwarte ich sie zurück. Schlagen Sie eine im Schreibsaal auf, dann haben sie sie umgedreht, das neueste vorn, weil das das Blatt ist, an dem sie arbeiten.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Pohlmann",
+    "name": "Frau Pohlmann",
+    "at": {
+     "die Dienstzeit": "vorzimmer"
+    },
+    "patience": 4,
+    "shrugs": [
+     "„Das kann ich wirklich nicht sagen“, sagt Frau Pohlmann.",
+     "Frau Pohlmann hat dem nichts hinzuzufügen.",
+     "Da kann Frau Pohlmann Sarah nicht helfen."
+    ],
+    "looked": "„Dazu möchte ich mich nicht äußern“, sagt Frau Pohlmann.",
+    "tired": "Frau Pohlmanns Telefon klingelt, und sie hebt ab, mit einer Entschuldigung, die keine ist.",
+    "height": 167,
+    "sprite": "art/people/pohlmann.png",
+    "hello": [
+     {
+      "text": "Pohlmann: Bitte. Herr Grau darf nicht gestört werden, aber einen Augenblick kann ich Ihnen geben. Ich erinnere mich, dass 117/64 im Mai heraufkam, und ich erinnere mich, dass ich sie an den Schreibsaal weitergegeben habe, und im Schreibsaal hörte sie auf, etwas zu sein, worüber ich Rechenschaft geben kann.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "registratur": {
+      "lines": [
+       {
+        "text": "Pohlmann: Über meinen Tisch. Zwischen der Registratur und dem Referatsleiter selbst geht nichts hin und her außer über diesen Schreibtisch, in beiden Richtungen, und so ist es seit elf Jahren und drei Referatsleitern.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "asked": {
+      "lines": [
+       {
+        "text": "Pohlmann: Ja. Ich habe es selbst getan, weil es meine Sache war. Ich bin dafür in die Kantine hinuntergegangen, was ich sonst nicht tue, und habe die Schreibkräfte selbst gefragt, einmal, beim Mittagessen am langen Tisch in der letzten Septemberwoche, und ich habe nicht noch einmal gefragt. Eine Sache, nach der man zweimal fragt, wird zu einer Sache, die man jemandem vorwirft.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "simon": {
+      "lines": [
+       {
+        "text": "Pohlmann: Ein sorgfältiger Mann, und ein gerechter. Herr Simon ist wegen 117/64 nicht verärgert und hat mir das zweimal gesagt, woran das ganze Haus erkennt, dass er es ist. Worauf er immer wieder zurückkommt, ist, dass eine Zeile im Buch niemanden etwas gekostet hätte.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "shows": {
+     "Ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür": {
+      "lines": [
+       {
+        "text": "Pohlmann: In einer Schreibtischschublade? Nein. Niemand in diesem Referat hat verlangt, dass neue Maschinen durchgerechnet werden, weder in diesem Jahr noch in einem anderen. Ein solcher Antrag wäre über diesen Schreibtisch gegangen, und es ist keiner gekommen.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "Die Rückstandsliste": {
+      "lines": [
+       {
+        "text": "Pohlmann: Ach, die Liste. Die Rückstandsliste lag im September auf Herrn Graus Schreibtisch, und er hat sie abgezeichnet, und ich habe sie wieder hinausgeschickt, und er könnte Ihnen heute keine einzige Nummer sagen, die darauf stand.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Grau",
+    "name": "Oberregierungsrat Grau",
+    "at": {
+     "die Dienstzeit": "z407"
+    },
+    "patience": 2,
+    "shrugs": [
+     "„Das“, sagt Herr Grau, „müsste ich prüfen lassen“, und tut es nicht.",
+     "Oberregierungsrat Grau hat dem nichts hinzuzufügen.",
+     "Da kann Oberregierungsrat Grau Sarah nicht helfen."
+    ],
+    "looked": "„Hm“, sagt Herr Grau, und weiter nichts.",
+    "tired": "„Auf mich wartet jemand“, sagt Herr Grau.",
+    "height": 180,
+    "sprite": "art/people/grau.png",
+    "hello": [
+     {
+      "text": "Grau: Fräulein Wessen. Frau Pohlmann wird Ihnen gesagt haben, dass ich nicht gestört werden darf, und sie hat recht, also setzen Sie sich; es dauert nicht lange. Ich kann Ihnen über die Beschaffung von 1964 im Allgemeinen eine ganze Menge sagen und über 117/64 im Besonderen gar nichts, und ich habe nie etwas darauf vermerkt, weder mit Tinte noch sonst wie.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "simon": {
+      "lines": [],
+      "talk": "„Der genaueste Mann im Haus“, sagt Herr Grau, „und das ist nicht immer ein Trost.“",
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Litt",
+    "name": "Frau Litt",
+    "at": {
+     "die Dienstzeit": "pool"
+    },
+    "patience": 3,
+    "shrugs": [
+     "„Das ist keine Frage für den Schreibsaal“, sagt Frau Litt, ohne von ihrem Blatt aufzusehen.",
+     "Frau Litt hat dem nichts hinzuzufügen.",
+     "Da kann Frau Litt Sarah nicht helfen."
+    ],
+    "looked": "„Hm“, sagt Frau Litt und wendet sich wieder ihrem Blatt zu.",
+    "tired": "„Manche von uns haben zu arbeiten“, sagt Frau Litt.",
+    "height": 144,
+    "sprite": "art/people/litt.png",
+    "hello": [
+     {
+      "text": "Litt: Wenn Sie uns alle der Reihe nach fragen, bekommen Sie aus Frau Kern nichts heraus, nehmen Sie es sich also nicht zu Herzen. Frau Kern schreibt schnell und sauber und interessiert sich überhaupt nicht dafür, was auf dem Blatt steht, und wenn hier das Gerede über die Vorgesetzten losgeht, findet sie etwas an ihrer Maschine zu tun.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "registratur": {
+      "lines": [
+       {
+        "text": "Litt: Zurück in die Registratur? Von uns hat noch keine in der Registratur eine Rückgabe abzeichnen müssen. Was in diesen Raum kommt, kommt über das Vorzimmer und geht denselben Weg zurück, und die meisten der Mädchen hatten nie einen Grund, das Ausleihbuch überhaupt anzufassen.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "week": {
+      "lines": [
+       {
+        "text": "Litt: Von der Woche kann ich Ihnen erzählen. Frau Adam war in der letzten Septemberwoche überhaupt nicht in diesem Raum, und wir reiben es ihr seither unter die Nase, weil sie doch immer diejenige ist, die alles weiß.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "machines": {
+      "lines": [
+       {
+        "text": "Litt: Fangen Sie mir nicht mit den Maschinen an. Ich kann Ihnen sagen, was die Maschinen vor diesen gekostet haben und was ihre Wartung gekostet hat, und das sage ich seit dem Sommer jedem am langen Tisch in der Kantine, der zuhören will.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "gone": {
+      "lines": [],
+      "talk": "„Der Schreibsaal geht, wenn seine Arbeit getan ist“, sagt Frau Litt, „und keine Minute früher.“",
+      "evade": null
+     }
+    },
+    "shows": {
+     "Die Akte, ihr Umschlag": {
+      "lines": [
+       {
+        "text": "Litt: Dazu kann ich Ihnen etwas sagen. Ich habe noch nie ein Blatt weggeworfen, das sich noch retten ließ. Gummiertes Leinen habe ich in meiner eigenen Schublade, und ich habe mehr Deckel ausgebessert, als die Registratur ausgegeben hat.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Adam",
+    "name": "Frau Adam",
+    "at": {
+     "die Dienstzeit": "pool"
+    },
+    "patience": 3,
+    "shrugs": [
+     "„Ach, darüber könnte ich Ihnen eine Menge erzählen“, sagt Frau Adam, und tut es, und nichts davon gehört zur Sache.",
+     "Frau Adam hat dem nichts hinzuzufügen.",
+     "Da kann Frau Adam Sarah nicht helfen."
+    ],
+    "looked": "„Na so was“, sagt Frau Adam, und mehr sagt sie dazu nicht.",
+    "tired": "„Ich werde an meiner Maschine gebraucht“, sagt Frau Adam, mit ehrlichem Bedauern.",
+    "height": 174,
+    "sprite": "art/people/adam.png",
+    "hello": [
+     {
+      "text": "Adam: Setzen Sie sich, setzen Sie sich, hier hat niemand etwas dagegen. Mein Älterer soll Ingenieur werden, und der Jüngere weiß jetzt schon, dass er es nicht wird, und am Dienstag habe ich Kuchen mitgebracht, und er ist mir nicht gelungen.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "machines": {
+      "lines": [
+       {
+        "text": "Adam: Ach, die Maschinen! Hier wird seit dem Sommer über die Maschinen gestritten. Es ist jedes Mal derselbe Streit, und es geht darum, ob die vorigen besser waren.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "lastdesk": {
+      "lines": [
+       {
+        "text": "Adam: Von Schubladen verstehe ich nichts. Von Menschen verstehe ich etwas. Fräulein Wenzel nimmt das Wort Stenotypistin für sich nicht in den Mund, sie besucht abends einen Englischkurs, und wenn sie „vorläufig“ sagt, dann klingt das wie bei einer, die die nächste Stelle schon in der Tasche hat. Das habe ich früher auch gesagt.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "asked": {
+      "lines": [],
+      "talk": "„Ich höre am Ende alles“, sagt Frau Adam, „und das habe ich als Letzte gehört.“",
+      "evade": null
+     },
+     "younger": {
+      "lines": [],
+      "talk": null,
+      "evade": "„Heute nicht“, sagt Frau Adam, und ausnahmsweise meint sie es so."
+     }
+    },
+    "shows": {
+     "Die Akte, ihr Inhalt": {
+      "lines": [
+       {
+        "text": "Adam: Ach, sehen Sie mal. Alles, was Frau Litt wieder in die Hand bekommt, stößt sie mit dem ältesten Blatt vorn gerade, und sie sieht nicht hin, während sie es tut. Sie hat in diesem Haus an Herrn Simons Schalter angefangen, dort hat sie es gelernt, und andersherum hat sie es nie gelernt.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Kern",
+    "name": "Frau Kern",
+    "at": {
+     "die Dienstzeit": "pool"
+    },
+    "patience": 2,
+    "shrugs": [
+     "Frau Kern schüttelt den Kopf.",
+     "Frau Kern hat dem nichts hinzuzufügen.",
+     "Da kann Frau Kern Sarah nicht helfen."
+    ],
+    "looked": "Frau Kern sieht es sich an und sagt nichts.",
+    "tired": "Frau Kern schreibt schon wieder.",
+    "height": 153,
+    "sprite": "art/people/kern.png",
+    "hello": [
+     {
+      "text": "Kern: Kern. Ich bin im Frühjahr in den Schreibsaal herübergekommen, und als die Neueste bin ich diejenige, die zum Treppenabsatz hinaufgeht, um die Post zu holen, und hinunter zur Pförtnerloge, wenn ein Paket Papier kommt. Es macht mir nichts aus. Meine Beine sehen das anders. Wenn die Putzfrauen die Treppe heraufkommen, ist die Letzte von uns schon zu Hause.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "asked": {
+      "lines": [
+       {
+        "text": "Kern: Fragen Sie Frau Adam. Frau Adam weiß, wer ein Kind erwartet, wer umzieht und wer sich trennt, und sie erzählt es nur Leuten, die es schon wissen, und das hält sie für Verschwiegenheit.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "week": {
+      "lines": [
+       {
+        "text": "Kern: An die Woche erinnere ich mich. Frau Adam war die ganze letzte Septemberwoche weg. Ich hatte in der Woche ihre Maschine, weil meine zur Reparatur war, und außer mir hat niemand daran gesessen.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "afternoon": {
+      "lines": [
+       {
+        "text": "Kern: Unten. An dem Dienstag bin ich zum Fenster des Pförtners hinuntergegangen, um auf das Papier für den Schreibsaal zu warten, und ich bin nicht wieder heraufgekommen, bis er und ich jedes Ries davon gezählt hatten, Referat für Referat.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "lastdesk": {
+      "lines": [],
+      "talk": "„Ich habe noch nie die Schublade einer anderen Frau aufgemacht“, sagt Frau Kern, „und ich habe nicht vor, damit anzufangen.“",
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Bühl",
+    "name": "Fräulein Bühl",
+    "at": {
+     "die Dienstzeit": "pool"
+    },
+    "patience": 2,
+    "shrugs": [
+     "Fräulein Bühl schreibt ihre Zeile zu Ende, bevor sie aufsieht. „Das kann ich nicht sagen.“",
+     "Fräulein Bühl hat dem nichts hinzuzufügen.",
+     "Da kann Fräulein Bühl Sarah nicht helfen."
+    ],
+    "looked": "Fräulein Bühl nimmt die Hände von den Tasten, um hinzusehen, und legt sie dann wieder darauf.",
+    "tired": "„Wenn Sie mich entschuldigen“, sagt Fräulein Bühl, und schreibt.",
+    "height": 158,
+    "sprite": "art/people/buehl.png",
+    "hello": [
+     {
+      "text": "Bühl: Einen Augenblick. Ich heirate im Frühjahr, und ich habe vor, meine Stelle zu behalten. Wenn Sie mich brauchen, nehme ich erst die Hände von den Tasten, denn ich rede nicht, während ich schreibe, und das nenne ich Höflichkeit.",
+      "phase": null
+     }
+    ],
+    "topics": {},
+    "shows": {
+     "Die Akte, ihr Umschlag": {
+      "lines": [
+       {
+        "text": "Bühl: Wenn es der Bleistift ist, den Sie sich ansehen, dann müssen Sie zu Fräulein Ostrowski. Fräulein Ostrowski verbessert anderer Leute Kommas mit Bleistift, ganz leicht, damit man es wieder ausradieren kann, und sie tut es, ob jemand sie gebeten hat, das Blatt zu lesen, oder nicht.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Ostrowski",
+    "name": "Fräulein Ostrowski",
+    "at": {
+     "die Dienstzeit": "pool"
+    },
+    "patience": 2,
+    "shrugs": [
+     "„Das wüsste ich nicht“, sagt Fräulein Ostrowski.",
+     "Fräulein Ostrowski hat dem nichts hinzuzufügen.",
+     "Da kann Fräulein Ostrowski Sarah nicht helfen."
+    ],
+    "looked": "Fräulein Ostrowski sieht es sich genau an, wie sie sich alles ansieht, und sagt nichts.",
+    "tired": "Fräulein Ostrowski spannt ein frisches Blatt in ihre Maschine.",
+    "height": 140,
+    "sprite": "art/people/ostrowski.png",
+    "hello": [
+     {
+      "text": "Ostrowski: Sie sind die, die der Akte nachgeht. Gut; das sollte jemand tun. Ich habe mein eigenes Exemplar der Geschäftsordnung, mir persönlich ausgehändigt und nicht das des Schreibsaals, und ich habe sie zweimal gelesen. Ich kann Ihnen sagen, was sie über eine Akte sagt, die zurückkommt, und genau, wohin die Zeile gehört.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "asked": {
+      "lines": [
+       {
+        "text": "Ostrowski: Einmal. Frau Pohlmann kam in die Kantine herunter, was sie sonst nie tut, und fragte uns einmal, beim Mittagessen am langen Tisch in der letzten Septemberwoche, und danach nirgends mehr. Sie fragte nach einer Nummer, nicht nach einem Betreff. Eine von uns schrieb sie auf die Ecke eines Blattes, und eine von uns sagte, sie stehe ohnehin auf der Rückstandsliste.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "simon": {
+      "lines": [],
+      "talk": null,
+      "evade": "„Über die Launen anderer Leute habe ich nichts zu sagen“, sagt Fräulein Ostrowski und sieht auf ihre Tasten."
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Wenzel",
+    "name": "Fräulein Wenzel",
+    "at": {
+     "die Dienstzeit": "pool"
+    },
+    "patience": 2,
+    "shrugs": [
+     "„Mir erzählt ja keiner etwas“, sagt Fräulein Wenzel. „Ich bin die Jüngste.“",
+     "Fräulein Wenzel hat dem nichts hinzuzufügen.",
+     "Da kann Fräulein Wenzel Sarah nicht helfen."
+    ],
+    "looked": "Fräulein Wenzel sieht es sich an und sagt nichts.",
+    "tired": "„Frau Litt braucht mich“, sagt Fräulein Wenzel.",
+    "height": 168,
+    "sprite": "art/people/wenzel.png",
+    "hello": [
+     {
+      "text": "Wenzel: Wenzel. Kurzschrift mit Auszeichnung, falls es Ihnen niemand gesagt hat. Ich sitze am Ende des langen Tisches, wenn wir zum Essen hinuntergehen, und es ist der ruhigste Platz in diesem Haus, und das sage ich seit Jahren. Hier oben habe ich den Schreibtisch in der Ecke hinter der Tür, und an die Schublade darin geht außer mir niemand.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "machines": {
+      "lines": [],
+      "talk": "„Ich habe meine Meinung über die Maschinen“, sagt Fräulein Wenzel, „und ich behalte sie für mich.“",
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "the porter",
+    "name": "der Pförtner",
+    "at": {
+     "die Dienstzeit": "lodge",
+     "nach Dienstschluss": "lodge"
+    },
+    "patience": 3,
+    "shrugs": [
+     "„Das ist eine Angelegenheit für oben“, sagt der Pförtner. „Hier unten haben wir die Tür.“",
+     "Der Pförtner hat dem nichts hinzuzufügen.",
+     "Da kann der Pförtner Sarah nicht helfen."
+    ],
+    "looked": "„Davon verstehe ich nichts“, sagt der Pförtner. „Ich hüte die Tür.“",
+    "tired": "„Da ist jemand am Fenster“, sagt der Pförtner, wendet sich ihm zu, und damit ist es zu Ende.",
+    "height": 176,
+    "sprite": "art/people/the-porter.png",
+    "hello": [
+     {
+      "text": "der Pförtner: Guten Tag. Sie bemerken, dass ich guten Tag sage. Ich hätte gern zu Protokoll gegeben, da Sie ja Dinge zu Protokoll nehmen, dass niemand an mir vorbeikommt, ohne gegrüßt zu werden, und dass nicht jeder zurückgrüßt. Ich nenne Ihnen die Namen, wenn Sie fragen, und Sie werden nicht fragen müssen.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "afternoon": {
+      "lines": [
+       {
+        "text": "der Pförtner: Wo ich immer bin. Ich habe die Pförtnerloge zwischen halb drei und halb vier nicht verlassen, und mein Namenszeichen steht in meinem Buch neben jedem der fünf, die in dieser Stunde ans Fenster kamen, zum Beweis. Am Nachmittag kommen die Lieferungen, und an einer Loge, in der niemand sitzt, kann jeder vorbeigehen.",
+        "phase": null
+       },
+       {
+        "text": "der Pförtner: Und ich hatte Gesellschaft dabei. Ein Paket Papier für den Schreibsaal kam um Viertel vor drei, das Quartalspapier für jedes Referat, für das sie schreiben. Frau Kern war um zwanzig nach zwei zur Pförtnerloge heruntergekommen, um darauf zu warten, und stand um Viertel vor vier immer noch hier, wir beide zählten es Referat für Referat anhand des Lieferscheins nach, und das dauerte länger als die Lieferung.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "gone": {
+      "lines": [
+       {
+        "text": "der Pförtner: Wenn der Schreibsaal gegangen ist, gehört dieses Haus mir, und ich weiß, wer darin ist. Die Putzfrauen kommen durch die Seitentür, und ich lasse sie selbst herein, und keine von ihnen geht hinauf, bevor die Letzte aus dem Schreibsaal an mir vorbei hinausgegangen ist. Dafür sorge ich.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "simon": {
+      "lines": [
+       {
+        "text": "der Pförtner: Herr Simon? Der sagt guten Morgen, jeden Morgen, was mehr ist, als manche oben fertigbringen. Sein Bruder hatte ein Wirtshaus, und er erzählt Ihnen von dem Wirtshaus, wenn Sie ihm Gelegenheit geben. Er gibt sich selbst eine.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "shows": {
+     "Das Pförtnerbuch": {
+      "lines": [],
+      "talk": "„Das ist mein Buch“, sagt der Pförtner, „und es steht drin, was drinsteht. Ich lese es den Leuten nicht vor. Sie können lesen.“",
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "the charwoman",
+    "name": "die Putzfrau",
+    "at": {
+     "nach Dienstschluss": "pool"
+    },
+    "patience": 2,
+    "shrugs": [
+     "„Ich mache nur die Böden“, sagt die Putzfrau.",
+     "Die Putzfrau hat dem nichts hinzuzufügen.",
+     "Da kann die Putzfrau Sarah nicht helfen."
+    ],
+    "looked": "„Da müssen Sie die Damen fragen“, sagt die Putzfrau.",
+    "tired": "„Ich habe noch den ganzen Raum vor mir“, sagt die Putzfrau, und das stimmt.",
+    "height": 160,
+    "sprite": "art/people/the-charwoman.png",
+    "hello": [
+     {
+      "text": "die Putzfrau: Sie sind stehen geblieben. Ich rede gern, wenn jemand stehen bleibt, und fast niemand bleibt stehen. Ich habe zwei erwachsene Kinder. Ich sehe sie selten, und ich erzähle allen von ihnen.",
+      "phase": null
+     },
+     {
+      "text": "die Putzfrau: Und bevor Sie fragen, weil alle fragen: Ich bin nur im Schreibsaal, wenn die Schreibkräfte gegangen sind und der Raum leer ist. Ich leere, was in den Papierkörben ist, und ich mache keine Mappe auf, die auf einem Schreibtisch liegen geblieben ist, und ich war in meinem Leben noch nie dort drin, während jemand redete.",
+      "phase": null
+     }
+    ],
+    "topics": {},
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   }
+  ],
+  "fewest": 18,
+  "topics": [
+   {
+    "id": "registratur",
+    "label": "wie eine Akte in die Registratur zurückkommt",
+    "ask": "„Wie kommt eine Akte aus dem übrigen Haus in die Registratur zurück?“, fragt Sarah.",
+    "ask_of": {},
+    "always": true,
+    "raised_by": [
+     "Die Akte, ihr Inhalt: jedes Blatt glatt, und es gilt die Ordnung des Schreibsaals: das neueste vorn, sobald man den Deckel aufschlägt, was weder so ist, wie die Akte hinausging, noch so, wie die Registratur sie führt; und innen im Deckel stehen die Ziffern der Nummer erhaben heraus, wo sich der Bleistift durch den Karton gedrückt hat.",
+     "Die Abgabeliste des Vorzimmers: vor jeder Abgabe geschrieben und unten abgezeichnet, für alles, was aus dem Referat hinuntergeht, auch von Herrn Graus Schreibtisch; links die Spalte des Vorzimmers, rechts der Stempel der Registratur. 117/64 steht in keiner der beiden Spalten.",
+     "Die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch: Fräulein Ostrowskis Name innen im Deckel, und der Absatz über eine Akte, die in die Registratur zurückgeht, unterstrichen, leicht, mit Bleistift.",
+     "Simon: Schlagen Sie sie selbst auf; Sie sehen es besser, als ich es sagen kann. Schlagen Sie in diesem Raum eine Akte auf, dann ist das älteste Blatt vorn und das neueste hinten: Das ist die Ordnung der Registratur; in ihr verlässt eine Akte dieses Zimmer, und in ihr erwarte ich sie zurück. Schlagen Sie eine im Schreibsaal auf, dann haben sie sie umgedreht, das neueste vorn, weil das das Blatt ist, an dem sie arbeiten.",
+     "Pohlmann: Über meinen Tisch. Zwischen der Registratur und dem Referatsleiter selbst geht nichts hin und her außer über diesen Schreibtisch, in beiden Richtungen, und so ist es seit elf Jahren und drei Referatsleitern.",
+     "Litt: Zurück in die Registratur? Von uns hat noch keine in der Registratur eine Rückgabe abzeichnen müssen. Was in diesen Raum kommt, kommt über das Vorzimmer und geht denselben Weg zurück, und die meisten der Mädchen hatten nie einen Grund, das Ausleihbuch überhaupt anzufassen.",
+     "Litt: Dazu kann ich Ihnen etwas sagen. Ich habe noch nie ein Blatt weggeworfen, das sich noch retten ließ. Gummiertes Leinen habe ich in meiner eigenen Schublade, und ich habe mehr Deckel ausgebessert, als die Registratur ausgegeben hat."
+    ]
+   },
+   {
+    "id": "asked",
+    "label": "ob jemand nach der Akte gefragt wurde",
+    "ask": "„Ist je jemand nach der Akte gefragt worden, die ausgebessert zurückkam?“, fragt Sarah.",
+    "ask_of": {},
+    "always": true,
+    "raised_by": [
+     "Das Regal für Z A 4: eine Lücke seit dem 12. Mai, und der Zettel, der darin steht, nennt ein Zimmer und keinen Namen, denn mehr ist von einem Zettel nie verlangt worden. Jeder andere Deckel im Regal trägt vorn seine Nummer mit Tinte, alle von derselben Hand, und es ist die von Herrn Simon.",
+     "Simon: Einmal, und ich habe die richtige Person gefragt. Ich habe Frau Pohlmann in der letzten Septemberwoche auf dem Flur angehalten und gefragt, ob 117/64 je zu ihr zurückgekommen sei, und sie sagte, sie werde die Schreibkräfte fragen, da sie die Akte an den Schreibsaal weitergegeben habe. Was sie sie gefragt hat und wie, das müssen Sie sie selbst fragen.",
+     "Pohlmann: Ja. Ich habe es selbst getan, weil es meine Sache war. Ich bin dafür in die Kantine hinuntergegangen, was ich sonst nicht tue, und habe die Schreibkräfte selbst gefragt, einmal, beim Mittagessen am langen Tisch in der letzten Septemberwoche, und ich habe nicht noch einmal gefragt. Eine Sache, nach der man zweimal fragt, wird zu einer Sache, die man jemandem vorwirft.",
+     "Pohlmann: In einer Schreibtischschublade? Nein. Niemand in diesem Referat hat verlangt, dass neue Maschinen durchgerechnet werden, weder in diesem Jahr noch in einem anderen. Ein solcher Antrag wäre über diesen Schreibtisch gegangen, und es ist keiner gekommen.",
+     "Bühl: Wenn es der Bleistift ist, den Sie sich ansehen, dann müssen Sie zu Fräulein Ostrowski. Fräulein Ostrowski verbessert anderer Leute Kommas mit Bleistift, ganz leicht, damit man es wieder ausradieren kann, und sie tut es, ob jemand sie gebeten hat, das Blatt zu lesen, oder nicht.",
+     "Ostrowski: Einmal. Frau Pohlmann kam in die Kantine herunter, was sie sonst nie tut, und fragte uns einmal, beim Mittagessen am langen Tisch in der letzten Septemberwoche, und danach nirgends mehr. Sie fragte nach einer Nummer, nicht nach einem Betreff. Eine von uns schrieb sie auf die Ecke eines Blattes, und eine von uns sagte, sie stehe ohnehin auf der Rückstandsliste."
+    ]
+   },
+   {
+    "id": "simon",
+    "label": "Herr Simon",
+    "ask": "„Was für ein Mann ist Herr Simon?“, fragt Sarah.",
+    "ask_of": {
+     "Simon": "„Und was für ein Mann sind Sie, würden Sie sagen, Herr Simon?“, fragt Sarah."
+    },
+    "always": true,
+    "raised_by": [
+     "Das Regal für Z A 4: eine Lücke seit dem 12. Mai, und der Zettel, der darin steht, nennt ein Zimmer und keinen Namen, denn mehr ist von einem Zettel nie verlangt worden. Jeder andere Deckel im Regal trägt vorn seine Nummer mit Tinte, alle von derselben Hand, und es ist die von Herrn Simon.",
+     "Das Ausgangsbuch der Poststelle: Herrn Simons Namenszeichen am Rand um Viertel vor drei am 14. Oktober, neben einem fehlgeleiteten Posten, zu dessen Klärung die Angestellten ihn heraufgerufen hatten, und noch einmal um Viertel nach drei, als es erledigt war.",
+     "Simon: Ich bin diesen Nachmittag öfter durchgegangen, als er es verdient. Ich wurde am 14. Oktober um halb drei zur Poststelle hinaufgerufen und war um halb vier zurück, und mein Schalter war die ganze Stunde offen und unbesetzt. Als ich hinaufging, lag die Akte nicht darauf, und als ich herunterkam, lag sie da. Die Leute fragen mich, warum ich ihn nicht abgeschlossen habe. Einen Schalter schließt niemand ab.",
+     "Simon: Sie werden die sein, die Kommissar Mauser geschickt hat. Gut. Kommen Sie und stellen Sie sich dahin, wo ich stand, denn an diesem Schalter ist es geschehen. Die Akte war nicht da, als ich zur Poststelle hinaufging, und sie war da, als ich herunterkam, genau an der Kante ausgerichtet, so wie jemand eine Sache hinlegt, der will, dass man sie bemerkt.",
+     "Simon: So, wie sie hinausging. Es gibt einen Weg, und ich habe ihn öfter erklärt, als ich zählen kann. Eine Akte geht mit einem Eintrag im Buch hinaus und kommt mit einem Eintrag im Buch zurück, und sie kommt aus Frau Pohlmanns Vorzimmer zurück, das sie in Empfang genommen hat, nie von Oberregierungsrat Grau selbst, zu dem sie hinaufging. Damit Sie mich verstehen: Eine Sache, die auf meinem Schalter liegt, ist nicht zurück. Bis jemand die Zeile schreibt, ist sie noch draußen, was immer da liegt.",
+     "Simon: Einmal, und ich habe die richtige Person gefragt. Ich habe Frau Pohlmann in der letzten Septemberwoche auf dem Flur angehalten und gefragt, ob 117/64 je zu ihr zurückgekommen sei, und sie sagte, sie werde die Schreibkräfte fragen, da sie die Akte an den Schreibsaal weitergegeben habe. Was sie sie gefragt hat und wie, das müssen Sie sie selbst fragen.",
+     "Simon: Da. Jetzt sehen Sie, warum ich sie nicht einfach eingeordnet und nichts gesagt habe. Einen Deckel mache ich, und die Nummer kommt mit Tinte darauf. Ein Referat, das einen zerrissen hat, fragt am Schalter nach und bekommt einen neuen, und in zwanzig Jahren habe ich kein einziges Mal abgelehnt.",
+     "Simon: Schlagen Sie sie selbst auf; Sie sehen es besser, als ich es sagen kann. Schlagen Sie in diesem Raum eine Akte auf, dann ist das älteste Blatt vorn und das neueste hinten: Das ist die Ordnung der Registratur; in ihr verlässt eine Akte dieses Zimmer, und in ihr erwarte ich sie zurück. Schlagen Sie eine im Schreibsaal auf, dann haben sie sie umgedreht, das neueste vorn, weil das das Blatt ist, an dem sie arbeiten.",
+     "Pohlmann: Ein sorgfältiger Mann, und ein gerechter. Herr Simon ist wegen 117/64 nicht verärgert und hat mir das zweimal gesagt, woran das ganze Haus erkennt, dass er es ist. Worauf er immer wieder zurückkommt, ist, dass eine Zeile im Buch niemanden etwas gekostet hätte.",
+     "Adam: Ach, sehen Sie mal. Alles, was Frau Litt wieder in die Hand bekommt, stößt sie mit dem ältesten Blatt vorn gerade, und sie sieht nicht hin, während sie es tut. Sie hat in diesem Haus an Herrn Simons Schalter angefangen, dort hat sie es gelernt, und andersherum hat sie es nie gelernt.",
+     "der Pförtner: Herr Simon? Der sagt guten Morgen, jeden Morgen, was mehr ist, als manche oben fertigbringen. Sein Bruder hatte ein Wirtshaus, und er erzählt Ihnen von dem Wirtshaus, wenn Sie ihm Gelegenheit geben. Er gibt sich selbst eine."
+    ]
+   },
+   {
+    "id": "week",
+    "label": "wer in der Woche im Schreibsaal war",
+    "ask": "„Wer war im Schreibsaal in der Woche, in der die Schreibkräfte nach der Akte gefragt wurden?“, fragt Sarah.",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "Simon: Einmal, und ich habe die richtige Person gefragt. Ich habe Frau Pohlmann in der letzten Septemberwoche auf dem Flur angehalten und gefragt, ob 117/64 je zu ihr zurückgekommen sei, und sie sagte, sie werde die Schreibkräfte fragen, da sie die Akte an den Schreibsaal weitergegeben habe. Was sie sie gefragt hat und wie, das müssen Sie sie selbst fragen.",
+     "Pohlmann: Ja. Ich habe es selbst getan, weil es meine Sache war. Ich bin dafür in die Kantine hinuntergegangen, was ich sonst nicht tue, und habe die Schreibkräfte selbst gefragt, einmal, beim Mittagessen am langen Tisch in der letzten Septemberwoche, und ich habe nicht noch einmal gefragt. Eine Sache, nach der man zweimal fragt, wird zu einer Sache, die man jemandem vorwirft.",
+     "Litt: Von der Woche kann ich Ihnen erzählen. Frau Adam war in der letzten Septemberwoche überhaupt nicht in diesem Raum, und wir reiben es ihr seither unter die Nase, weil sie doch immer diejenige ist, die alles weiß.",
+     "Kern: An die Woche erinnere ich mich. Frau Adam war die ganze letzte Septemberwoche weg. Ich hatte in der Woche ihre Maschine, weil meine zur Reparatur war, und außer mir hat niemand daran gesessen.",
+     "Ostrowski: Einmal. Frau Pohlmann kam in die Kantine herunter, was sie sonst nie tut, und fragte uns einmal, beim Mittagessen am langen Tisch in der letzten Septemberwoche, und danach nirgends mehr. Sie fragte nach einer Nummer, nicht nach einem Betreff. Eine von uns schrieb sie auf die Ecke eines Blattes, und eine von uns sagte, sie stehe ohnehin auf der Rückstandsliste."
+    ]
+   },
+   {
+    "id": "machines",
+    "label": "die Schreibmaschinen des Schreibsaals",
+    "ask": "„Ich höre immer wieder von den Schreibmaschinen des Schreibsaals“, sagt Sarah, „den alten und den neuen.“",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "Ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür: für neue Maschinen, auf den Pfennig durchgerechnet nach dem, was die letzten Maschinen im Jahr 1964 gekostet haben, fertig, nicht unterschrieben und nie hinaufgeschickt.",
+     "Pohlmann: In einer Schreibtischschublade? Nein. Niemand in diesem Referat hat verlangt, dass neue Maschinen durchgerechnet werden, weder in diesem Jahr noch in einem anderen. Ein solcher Antrag wäre über diesen Schreibtisch gegangen, und es ist keiner gekommen.",
+     "Litt: Fangen Sie mir nicht mit den Maschinen an. Ich kann Ihnen sagen, was die Maschinen vor diesen gekostet haben und was ihre Wartung gekostet hat, und das sage ich seit dem Sommer jedem am langen Tisch in der Kantine, der zuhören will.",
+     "Adam: Ach, die Maschinen! Hier wird seit dem Sommer über die Maschinen gestritten. Es ist jedes Mal derselbe Streit, und es geht darum, ob die vorigen besser waren."
+    ]
+   },
+   {
+    "id": "lastdesk",
+    "label": "der Antragsentwurf in der Schreibtischschublade",
+    "ask": "„Ich habe in einer Schreibtischschublade im Schreibsaal einen Antragsentwurf für neue Maschinen gesehen“, sagt Sarah. „Was können Sie mir darüber sagen?“",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "Ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür: für neue Maschinen, auf den Pfennig durchgerechnet nach dem, was die letzten Maschinen im Jahr 1964 gekostet haben, fertig, nicht unterschrieben und nie hinaufgeschickt."
+    ]
+   },
+   {
+    "id": "afternoon",
+    "label": "der Dienstagnachmittag, an dem die Akte zurückkam",
+    "ask": "„Was ging im Haus vor an dem Dienstagnachmittag, an dem die Akte zurückkam?“, fragt Sarah.",
+    "ask_of": {},
+    "always": true,
+    "raised_by": [
+     "Simon: Ich bin diesen Nachmittag öfter durchgegangen, als er es verdient. Ich wurde am 14. Oktober um halb drei zur Poststelle hinaufgerufen und war um halb vier zurück, und mein Schalter war die ganze Stunde offen und unbesetzt. Als ich hinaufging, lag die Akte nicht darauf, und als ich herunterkam, lag sie da. Die Leute fragen mich, warum ich ihn nicht abgeschlossen habe. Einen Schalter schließt niemand ab.",
+     "der Pförtner: Wo ich immer bin. Ich habe die Pförtnerloge zwischen halb drei und halb vier nicht verlassen, und mein Namenszeichen steht in meinem Buch neben jedem der fünf, die in dieser Stunde ans Fenster kamen, zum Beweis. Am Nachmittag kommen die Lieferungen, und an einer Loge, in der niemand sitzt, kann jeder vorbeigehen."
+    ]
+   },
+   {
+    "id": "gone",
+    "label": "wer noch da ist, wenn der Schreibsaal gegangen ist",
+    "ask": "„Wer ist im Schreibsaal, wenn die Schreibkräfte nach Hause gegangen sind?“, fragt Sarah.",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "der Pförtner: Wenn der Schreibsaal gegangen ist, gehört dieses Haus mir, und ich weiß, wer darin ist. Die Putzfrauen kommen durch die Seitentür, und ich lasse sie selbst herein, und keine von ihnen geht hinauf, bevor die Letzte aus dem Schreibsaal an mir vorbei hinausgegangen ist. Dafür sorge ich.",
+     "die Putzfrau: Und bevor Sie fragen, weil alle fragen: Ich bin nur im Schreibsaal, wenn die Schreibkräfte gegangen sind und der Raum leer ist. Ich leere, was in den Papierkörben ist, und ich mache keine Mappe auf, die auf einem Schreibtisch liegen geblieben ist, und ich war in meinem Leben noch nie dort drin, während jemand redete."
+    ]
+   },
+   {
+    "id": "younger",
+    "label": "ihr jüngerer Sohn",
+    "ask": "„Wie geht es Frau Adams jüngerem Sohn?“, fragt Sarah.",
+    "ask_of": {
+     "Adam": "„Und wie geht es Ihrem jüngeren Sohn?“, fragt Sarah."
+    },
+    "always": false,
+    "raised_by": [
+     "Adam: Setzen Sie sich, setzen Sie sich, hier hat niemand etwas dagegen. Mein Älterer soll Ingenieur werden, und der Jüngere weiß jetzt schon, dass er es nicht wird, und am Dienstag habe ich Kuchen mitgebracht, und er ist mir nicht gelungen."
+    ]
+   }
+  ],
+  "exhibits": [
+   {
+    "thing": "Das Regal für Z A 4",
+    "line": "Das Regal für Z A 4: eine Lücke seit dem 12. Mai, und der Zettel, der darin steht, nennt ein Zimmer und keinen Namen, denn mehr ist von einem Zettel nie verlangt worden. Jeder andere Deckel im Regal trägt vorn seine Nummer mit Tinte, alle von derselben Hand, und es ist die von Herrn Simon.",
+    "portable": false
+   },
+   {
+    "thing": "Das Ausleihbuch",
+    "line": "Das Ausleihbuch: Sachakte 117/64, über die Beschaffung von Schreibmaschinen, am 12. Mai an Zimmer 407 ausgegeben, und seither keine Rückgabe dazu eingetragen.",
+    "portable": false
+   },
+   {
+    "thing": "Die Rückstandsliste",
+    "line": "Die Rückstandsliste: Ende September für das dritte Quartal aufgestellt, mit 117/64 unter elf anderen, und eine Abschrift ist an jedes Referat gegangen, bei dem eine davon liegt.",
+    "portable": false
+   },
+   {
+    "thing": "Die Akte, ihr Umschlag",
+    "line": "Die Akte, ihr Umschlag: der Aktendeckel ist neu, von Hand zugeschnitten und gefalzt, und die Nummer, 117/64, ist vorn mit gewöhnlichem Bleistift übertragen.",
+    "portable": true
+   },
+   {
+    "thing": "Die Akte, ihr Inhalt",
+    "line": "Die Akte, ihr Inhalt: jedes Blatt glatt, und es gilt die Ordnung des Schreibsaals: das neueste vorn, sobald man den Deckel aufschlägt, was weder so ist, wie die Akte hinausging, noch so, wie die Registratur sie führt; und innen im Deckel stehen die Ziffern der Nummer erhaben heraus, wo sich der Bleistift durch den Karton gedrückt hat.",
+    "portable": true
+   },
+   {
+    "thing": "Das Ausgangsbuch der Poststelle",
+    "line": "Das Ausgangsbuch der Poststelle: Fräulein Bühls Namenszeichen neben jedem Posten, der am 14. Oktober zwischen Viertel nach zwei und zwanzig vor vier eingetragen wurde, dreiundzwanzig an der Zahl, und zwei der Angestellten dort oben haben ihr Namenszeichen danebengesetzt.",
+    "portable": false
+   },
+   {
+    "thing": "Das Ausgangsbuch der Poststelle",
+    "line": "Das Ausgangsbuch der Poststelle: Herrn Simons Namenszeichen am Rand um Viertel vor drei am 14. Oktober, neben einem fehlgeleiteten Posten, zu dessen Klärung die Angestellten ihn heraufgerufen hatten, und noch einmal um Viertel nach drei, als es erledigt war.",
+    "portable": false
+   },
+   {
+    "thing": "Die Abgabeliste des Vorzimmers",
+    "line": "Die Abgabeliste des Vorzimmers: vor jeder Abgabe geschrieben und unten abgezeichnet, für alles, was aus dem Referat hinuntergeht, auch von Herrn Graus Schreibtisch; links die Spalte des Vorzimmers, rechts der Stempel der Registratur. 117/64 steht in keiner der beiden Spalten.",
+    "portable": false
+   },
+   {
+    "thing": "Der Ausgangskorb auf Frau Pohlmanns Schreibtisch",
+    "line": "Der Ausgangskorb auf Frau Pohlmanns Schreibtisch: drei Akten, die darauf warten, hinunterzugehen, jede mit dem ältesten Blatt vorn und dem neuesten hinten, so wie alles Frau Pohlmanns Schreibtisch verlässt.",
+    "portable": false
+   },
+   {
+    "thing": "Die Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober",
+    "line": "Die Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober: abgehalten mit seinen Referenten in seinem eigenen Zimmer von zwei Uhr bis Viertel nach vier, Oberregierungsrat Grau unter den Anwesenden, und am Fuß vom Abteilungsleiter selbst unterschrieben.",
+    "portable": false
+   },
+   {
+    "thing": "Das Pförtnerbuch",
+    "line": "Das Pförtnerbuch: Einträge am Fenster der Pförtnerloge um zwanzig vor drei, um Viertel vor drei, um fünf nach drei, um Viertel nach drei und um fünf vor halb vier, jeder unterschrieben von dem, der ans Fenster kam, und neben jedem das Namenszeichen des Pförtners.",
+    "portable": false
+   },
+   {
+    "thing": "Der Lieferschein für das Papier des Schreibsaals",
+    "line": "Der Lieferschein für das Papier des Schreibsaals: für ein Paket Papier, am 14. Oktober um Viertel vor drei an der Pförtnerloge abgegeben, das Quartalspapier des Schreibsaals, Referat für Referat aufgeführt, dort von Frau Kern quittiert, und unten die Zählung der Ries, um zwanzig vor vier von ihr und vom Pförtner abgezeichnet.",
+    "portable": false
+   },
+   {
+    "thing": "Der Ablagekorb auf Frau Litts Schreibtisch",
+    "line": "Der Ablagekorb auf Frau Litts Schreibtisch: jede Akte darin mit dem ältesten Blatt vorn und dem neuesten hinten, der einzige Schreibtisch im Raum, auf dem die Akten in dieser Reihenfolge liegen.",
+    "portable": false
+   },
+   {
+    "thing": "Die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch",
+    "line": "Die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch: Fräulein Ostrowskis Name innen im Deckel, und der Absatz über eine Akte, die in die Registratur zurückgeht, unterstrichen, leicht, mit Bleistift.",
+    "portable": false
+   },
+   {
+    "thing": "Ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür",
+    "line": "Ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür: für neue Maschinen, auf den Pfennig durchgerechnet nach dem, was die letzten Maschinen im Jahr 1964 gekostet haben, fertig, nicht unterschrieben und nie hinaufgeschickt.",
+    "portable": false
+   }
+  ],
+  "documents": {
+   "Das Pförtnerbuch": {
+    "kind": "ledger",
+    "columns": [
+     "Uhrzeit",
+     "Unterschrift",
+     "Pförtner"
+    ],
+    "rows": [
+     [
+      {
+       "shown": "14.40",
+       "says": "zwanzig vor drei"
+      },
+      {
+       "scrawl": true
+      },
+      {
+       "scrawl": true
+      }
+     ],
+     [
+      {
+       "shown": "14.45",
+       "says": "Viertel vor drei"
+      },
+      {
+       "scrawl": true
+      },
+      {
+       "scrawl": true
+      }
+     ],
+     [
+      {
+       "shown": "15.05",
+       "says": "fünf nach drei"
+      },
+      {
+       "scrawl": true
+      },
+      {
+       "scrawl": true
+      }
+     ],
+     [
+      {
+       "shown": "15.15",
+       "says": "Viertel nach drei"
+      },
+      {
+       "scrawl": true
+      },
+      {
+       "scrawl": true
+      }
+     ],
+     [
+      {
+       "shown": "15.25",
+       "says": "fünf vor halb vier"
+      },
+      {
+       "scrawl": true
+      },
+      {
+       "scrawl": true
+      }
+     ]
+    ]
+   }
+  },
+  "pictures": {
+   "Das Pförtnerbuch": "art/documents/porters-book.jpeg",
+   "Das Regal für Z A 4": "art/documents/shelf-z-a-4-room.jpeg",
+   "Das Ausleihbuch": "art/documents/loan-book.jpeg",
+   "Die Rückstandsliste": "art/documents/rueckstandsliste.jpeg",
+   "Die Akte, ihr Umschlag": "art/documents/file-shut-cut.png",
+   "Die Akte, ihr Inhalt": "art/documents/file-open-cut.png",
+   "Das Ausgangsbuch der Poststelle": "art/documents/poststelle-outgoing-book.jpeg",
+   "Die Abgabeliste des Vorzimmers": "art/documents/outer-office-list.jpeg",
+   "Die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch": "art/documents/geschaeftsordnung.jpeg",
+   "Ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür": "art/documents/drafted-request.jpeg",
+   "Der Ausgangskorb auf Frau Pohlmanns Schreibtisch": "art/documents/out-tray-cut.png",
+   "Die Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober": "art/documents/minutes-cut.png",
+   "Der Lieferschein für das Papier des Schreibsaals": "art/documents/delivery-note-cut.png",
+   "Der Ablagekorb auf Frau Litts Schreibtisch": "art/documents/litt-basket-cut.png"
+  },
+  "props": [
+   {
+    "thing": "Die Rückstandsliste",
+    "prop": "P16",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/rueckstandsliste-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/rueckstandsliste-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/rueckstandsliste-spring.png"
+    },
+    "box": [
+     0.69995,
+     0.51042,
+     0.04028,
+     0.01562
+    ],
+    "under": null
+   },
+   {
+    "thing": "Die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch",
+    "prop": "P17",
+    "places": [
+     "pool"
+    ],
+    "files": {
+     "art/rooms/pool-autumn.jpeg": "art/props/geschaeftsordnung-autumn.png",
+     "art/rooms/pool-friday.jpeg": "art/props/geschaeftsordnung-friday.png",
+     "art/rooms/pool-spring.jpeg": "art/props/geschaeftsordnung-spring.png",
+     "art/rooms/pool-sunday.jpeg": "art/props/geschaeftsordnung-sunday.png"
+    },
+    "box": [
+     0.36377,
+     0.65755,
+     0.04102,
+     0.01562
+    ],
+    "under": null
+   },
+   {
+    "thing": "Das Regal für Z A 4",
+    "prop": "P19",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/shelf-gap-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/shelf-gap-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/shelf-gap-spring.png"
+    },
+    "box": [
+     0.90137,
+     0.25391,
+     0.06152,
+     0.07943
+    ],
+    "under": null
+   },
+   {
+    "thing": "Die Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober",
+    "prop": "P21",
+    "places": [
+     "vorzimmer"
+    ],
+    "files": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/minutes-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/minutes-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/minutes-spring.png"
+    },
+    "box": [
+     0.61206,
+     0.62109,
+     0.04102,
+     0.01562
+    ],
+    "under": null
+   },
+   {
+    "thing": "Der Ausgangskorb auf Frau Pohlmanns Schreibtisch",
+    "prop": "P22",
+    "places": [
+     "vorzimmer"
+    ],
+    "files": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/out-tray-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/out-tray-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/out-tray-spring.png"
+    },
+    "box": [
+     0.61865,
+     0.5599,
+     0.09155,
+     0.08464
+    ],
+    "under": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/out-tray-under-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/out-tray-under-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/out-tray-under-spring.png"
+    }
+   },
+   {
+    "thing": "Die Abgabeliste des Vorzimmers",
+    "prop": "P23",
+    "places": [
+     "vorzimmer"
+    ],
+    "files": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/outer-office-list-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/outer-office-list-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/outer-office-list-spring.png"
+    },
+    "box": [
+     0.5835,
+     0.60938,
+     0.03589,
+     0.01432
+    ],
+    "under": null
+   },
+   {
+    "thing": "Das Pförtnerbuch",
+    "prop": "P24",
+    "places": [
+     "lodge"
+    ],
+    "files": {
+     "art/rooms/lodge-friday.jpeg": "art/props/painted-p24-friday.png",
+     "art/rooms/lodge-sunday.jpeg": "art/props/painted-p24-sunday.png"
+    },
+    "box": [
+     0.75635,
+     0.63672,
+     0.12744,
+     0.07422
+    ],
+    "under": null
+   },
+   {
+    "thing": "Das Ausleihbuch",
+    "prop": "P25",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/painted-p25-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/painted-p25-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/painted-p25-spring.png"
+    },
+    "box": [
+     0.56226,
+     0.47135,
+     0.12964,
+     0.05599
+    ],
+    "under": null
+   },
+   {
+    "thing": "Das Ausgangsbuch der Poststelle",
+    "prop": "P32",
+    "places": [
+     "poststelle"
+    ],
+    "files": {
+     "art/rooms/poststelle-autumn.jpeg": "art/props/painted-p32-autumn.png",
+     "art/rooms/poststelle-friday.jpeg": "art/props/painted-p32-friday.png",
+     "art/rooms/poststelle-spring.jpeg": "art/props/painted-p32-spring.png"
+    },
+    "box": [
+     0.57617,
+     0.47005,
+     0.10254,
+     0.05469
+    ],
+    "under": null
+   },
+   {
+    "thing": "Der Lieferschein für das Papier des Schreibsaals",
+    "prop": "P28",
+    "places": [
+     "lodge"
+    ],
+    "files": {
+     "art/rooms/lodge-friday.jpeg": "art/props/delivery-note-friday.png",
+     "art/rooms/lodge-sunday.jpeg": "art/props/delivery-note-sunday.png"
+    },
+    "box": [
+     0.89038,
+     0.67448,
+     0.03589,
+     0.03125
+    ],
+    "under": null
+   },
+   {
+    "thing": "Der Ablagekorb auf Frau Litts Schreibtisch",
+    "prop": "P29",
+    "places": [
+     "pool"
+    ],
+    "files": {
+     "art/rooms/pool-autumn.jpeg": "art/props/painted-p29-autumn.png",
+     "art/rooms/pool-friday.jpeg": "art/props/painted-p29-friday.png",
+     "art/rooms/pool-spring.jpeg": "art/props/painted-p29-spring.png",
+     "art/rooms/pool-sunday.jpeg": "art/props/painted-p29-sunday.png"
+    },
+    "box": [
+     0.22681,
+     0.63802,
+     0.04688,
+     0.05208
+    ],
+    "under": null
+   },
+   {
+    "thing": "Die Akte, ihr Umschlag",
+    "prop": "P30",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/file-shut-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/file-shut-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/file-shut-spring.png"
+    },
+    "box": [
+     0.74609,
+     0.50521,
+     0.04248,
+     0.02214
+    ],
+    "under": null
+   }
+  ],
+  "opens": {
+   "Die Akte, ihr Umschlag": "Die Akte, ihr Inhalt"
+  },
+  "sarah": "art/people/sarah.png",
+  "sarah_height": 172,
+  "forms": {
+   "Herr Simon": {
+    "dat": "Herrn Simon"
+   },
+   "Frau Pohlmann": {
+    "dat": "Frau Pohlmann"
+   },
+   "Oberregierungsrat Grau": {
+    "dat": "Oberregierungsrat Grau"
+   },
+   "Frau Litt": {
+    "dat": "Frau Litt"
+   },
+   "Frau Adam": {
+    "dat": "Frau Adam"
+   },
+   "Frau Kern": {
+    "dat": "Frau Kern"
+   },
+   "Fräulein Bühl": {
+    "dat": "Fräulein Bühl"
+   },
+   "Fräulein Ostrowski": {
+    "dat": "Fräulein Ostrowski"
+   },
+   "Fräulein Wenzel": {
+    "dat": "Fräulein Wenzel"
+   },
+   "der Pförtner": {
+    "dat": "dem Pförtner"
+   },
+   "die Putzfrau": {
+    "dat": "der Putzfrau"
+   },
+   "Das Regal für Z A 4": {
+    "mid": "das Regal für Z A 4",
+    "acc": "das Regal für Z A 4",
+    "in": "am Regal für Z A 4"
+   },
+   "Das Ausleihbuch": {
+    "mid": "das Ausleihbuch",
+    "acc": "das Ausleihbuch",
+    "in": "im Ausleihbuch"
+   },
+   "Die Rückstandsliste": {
+    "mid": "die Rückstandsliste",
+    "acc": "die Rückstandsliste",
+    "in": "in der Rückstandsliste"
+   },
+   "Die Akte, ihr Umschlag": {
+    "mid": "die Akte, ihr Umschlag",
+    "acc": "die Akte",
+    "in": "am Umschlag der Akte"
+   },
+   "Die Akte, ihr Inhalt": {
+    "mid": "die Akte, ihr Inhalt",
+    "acc": "die Akte",
+    "in": "in der Akte"
+   },
+   "Das Ausgangsbuch der Poststelle": {
+    "mid": "das Ausgangsbuch der Poststelle",
+    "acc": "das Ausgangsbuch der Poststelle",
+    "in": "im Ausgangsbuch der Poststelle"
+   },
+   "Die Abgabeliste des Vorzimmers": {
+    "mid": "die Abgabeliste des Vorzimmers",
+    "acc": "die Abgabeliste des Vorzimmers",
+    "in": "in der Abgabeliste des Vorzimmers"
+   },
+   "Der Ausgangskorb auf Frau Pohlmanns Schreibtisch": {
+    "mid": "der Ausgangskorb auf Frau Pohlmanns Schreibtisch",
+    "acc": "den Ausgangskorb auf Frau Pohlmanns Schreibtisch",
+    "in": "im Ausgangskorb auf Frau Pohlmanns Schreibtisch"
+   },
+   "Die Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober": {
+    "mid": "die Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober",
+    "acc": "die Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober",
+    "in": "in der Niederschrift der Besprechung des Abteilungsleiters vom 14. Oktober"
+   },
+   "Das Pförtnerbuch": {
+    "mid": "das Pförtnerbuch",
+    "acc": "das Pförtnerbuch",
+    "in": "im Pförtnerbuch"
+   },
+   "Der Lieferschein für das Papier des Schreibsaals": {
+    "mid": "der Lieferschein für das Papier des Schreibsaals",
+    "acc": "den Lieferschein für das Papier des Schreibsaals",
+    "in": "auf dem Lieferschein für das Papier des Schreibsaals"
+   },
+   "Der Ablagekorb auf Frau Litts Schreibtisch": {
+    "mid": "der Ablagekorb auf Frau Litts Schreibtisch",
+    "acc": "den Ablagekorb auf Frau Litts Schreibtisch",
+    "in": "im Ablagekorb auf Frau Litts Schreibtisch"
+   },
+   "Die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch": {
+    "mid": "die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch",
+    "acc": "die Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch",
+    "in": "in der Geschäftsordnung auf Fräulein Ostrowskis Schreibtisch"
+   },
+   "Ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür": {
+    "mid": "ein Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür",
+    "acc": "einen Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür",
+    "in": "im Antragsentwurf in der Schublade des Schreibtischs in der Ecke hinter der Tür"
+   }
+  }
+ },
+ "glossary": [
+  {
+   "term": "Abteilungsleiter",
+   "also": [],
+   "short": "Leiter einer Abteilung",
+   "long": "Steht über dem Unterabteilungsleiter und unter dem Staatssekretär. Ihm ist der Blaustift vorbehalten."
+  },
+  {
+   "term": "Aktendeckel",
+   "also": [],
+   "short": "Umschlag einer Akte",
+   "long": "Trägt vorn das Aktenzeichen. Hergestellt und beschriftet wird er in der Registratur, nicht im Referat."
+  },
+  {
+   "term": "Angestellte",
+   "also": [
+    "Angestellten"
+   ],
+   "short": "Beschäftigte im öffentlichen Dienst mit Arbeitsvertrag",
+   "long": "Im Unterschied zum Beamten; tarifliche Regeln (BAT) statt Beamtenrecht."
+  },
+  {
+   "term": "Beschaffung",
+   "also": [],
+   "short": "dienstliche Anschaffung",
+   "long": "Einkauf von Geräten, Mobiliar und Material, und die Akte dazu."
+  },
+  {
+   "term": "Geschäftsordnung",
+   "also": [
+    "Geschaeftsordnung"
+   ],
+   "short": "Gemeinsame Geschäftsordnung der Bundesministerien",
+   "long": "Regelt Zuständigkeit, Geschäftsgang, Vordrucke und Zeichnung. Die wenigsten haben sie gelesen."
+  },
+  {
+   "term": "Kommissar",
+   "also": [
+    "Kriminalkommissar"
+   ],
+   "short": "Dienstgrad bei der Kriminalpolizei",
+   "long": "Kriminalkommissar: der Beamte, der eine Ermittlung führt."
+  },
+  {
+   "term": "Kriminalpolizei",
+   "also": [
+    "Kripo"
+   ],
+   "short": "die Kriminalpolizei",
+   "long": "Der Teil der Polizei, der Straftaten aufklärt, im Unterschied zur uniformierten Schutzpolizei."
+  },
+  {
+   "term": "Oberregierungsrat",
+   "also": [],
+   "short": "Amtsbezeichnung des höheren Dienstes",
+   "long": "In der Regel die eines Referatsleiters."
+  },
+  {
+   "term": "Pfennig",
+   "also": [],
+   "short": "hundertster Teil einer Mark",
+   "long": "„Auf den Pfennig genau“ heißt: ganz genau, und noch nach Jahren."
+  },
+  {
+   "term": "Poststelle",
+   "also": [],
+   "short": "Stelle für den Postein- und -ausgang",
+   "long": "Hier wird die Hauspost sortiert."
+  },
+  {
+   "term": "Referat",
+   "also": [
+    "Referate"
+   ],
+   "short": "kleinste Organisationseinheit eines Ministeriums",
+   "long": "Einige Bedienstete unter einem Referatsleiter, zuständig für ein Sachgebiet."
+  },
+  {
+   "term": "Referatsleiter",
+   "also": [],
+   "short": "Leiter eines Referats",
+   "long": "Verantwortlich für alles, was in sein Referat eingeht."
+  },
+  {
+   "term": "Registratur",
+   "also": [],
+   "short": "Aktenhaltung des Hauses",
+   "long": "Führt das Ausleihbuch; ohne Unterschrift verlässt nichts das Haus."
+  },
+  {
+   "term": "Rückstand",
+   "also": [
+    "Rueckstand",
+    "RÜCKSTAND",
+    "RUECKSTAND"
+   ],
+   "short": "noch nicht Erledigtes",
+   "long": "Hier: eine Akte, die ausgegeben und nicht zurückgegeben wurde. Das Wort enthält keinen Vorwurf, weshalb es auch niemanden eilt."
+  },
+  {
+   "term": "Rückstandsliste",
+   "also": [
+    "Rueckstandsliste"
+   ],
+   "short": "Liste der offenen Ausleihen",
+   "long": "Wird von der Registratur regelmäßig aufgestellt; jedes Referat erhält die Abschrift für die bei ihm liegenden Akten."
+  },
+  {
+   "term": "Sachakte",
+   "also": [
+    "Sachakten"
+   ],
+   "short": "nach Sachgebiet geführte Akte",
+   "long": "Sammelt alles zu einem Gegenstand unter einem Aktenzeichen -- im Unterschied zur Personalakte."
+  },
+  {
+   "term": "Schreibmaschine",
+   "also": [
+    "Schreibmaschinen"
+   ],
+   "short": "Maschine zum Schreiben",
+   "long": "Wird der Kraft zugeteilt, nicht dem Platz; Wartung nach Vertrag, Austausch etwa so häufig wie ein Minister."
+  },
+  {
+   "term": "Schreibsaal",
+   "also": [],
+   "short": "Raum des Schreibdienstes",
+   "long": "Hier sitzen die Schreibkräfte für das ganze Haus."
+  },
+  {
+   "term": "Vorzimmer",
+   "also": [
+    "outer office"
+   ],
+   "short": "Vorraum des Dienstzimmers",
+   "long": "Hier sitzt die Sekretärin; alles geht durch dieses Zimmer."
+  },
+  {
+   "term": "Abgabeliste",
+   "also": [
+    "Abgabelisten"
+   ],
+   "short": "Liste des Vorzimmers über Abgegebenes",
+   "long": "Das Vorzimmer schreibt darauf, was es an Akten und Papieren hinausgibt, bevor sie hinausgehen."
+  },
+  {
+   "term": "Antragsentwurf",
+   "also": [],
+   "short": "noch nicht abgesandter Antrag",
+   "long": "Ein Antrag im Entwurf: geschrieben, aber noch nicht auf den Dienstweg gegeben."
+  },
+  {
+   "term": "Ausgangsbuch",
+   "also": [],
+   "short": "Buch der Poststelle über hinausgehende Post",
+   "long": "Jeder Posten, der das Haus verlässt, wird darin eingetragen."
+  },
+  {
+   "term": "Ausleihbuch",
+   "also": [],
+   "short": "Buch der Registratur über ausgegebene Akten",
+   "long": "Jede Akte, die die Registratur verlässt, wird darin mit Tag und Empfänger eingetragen, und ihre Rückgabe ebenso."
+  },
+  {
+   "term": "Lieferschein",
+   "also": [],
+   "short": "Begleitpapier einer Lieferung",
+   "long": "Führt auf, was geliefert wurde; wer die Ware annimmt, quittiert darauf."
+  },
+  {
+   "term": "Namenszeichen",
+   "also": [],
+   "short": "abgekürzte Unterschrift, Paraphe",
+   "long": "Die Anfangsbuchstaben, mit denen ein Bediensteter abzeichnet, dass er etwas gesehen oder getan hat."
+  },
+  {
+   "term": "Niederschrift",
+   "also": [],
+   "short": "förmliches Protokoll einer Besprechung",
+   "long": "Nennt die Anwesenden und die Zeit und wird vom Leiter der Besprechung unterschrieben."
+  },
+  {
+   "term": "Pförtnerbuch",
+   "also": [],
+   "short": "Buch des Pförtners",
+   "long": "Wer am Fenster der Loge vorspricht, wird darin mit Uhrzeit eingetragen; der Pförtner zeichnet ab."
+  },
+  {
+   "term": "Pförtnerloge",
+   "also": [
+    "Loge"
+   ],
+   "short": "Raum des Pförtners am Eingang",
+   "long": "Mit Fenster zur Eingangshalle; Lieferungen werden hier abgegeben und quittiert."
+  },
+  {
+   "term": "Ries",
+   "also": [],
+   "short": "Zählmaß für Papier",
+   "long": "Ein Ries sind 500 Bogen; Papier wird in Ries geliefert und in Ries gezählt."
+  }
+ ],
+ "lang": {
+  "code": "de",
+  "sep": ": ",
+  "boundary": true,
+  "articles": [
+   "der",
+   "die",
+   "das",
+   "den",
+   "dem",
+   "des",
+   "ein",
+   "eine",
+   "einen",
+   "einem",
+   "einer",
+   "eines"
+  ],
+  "bare": true
+ }
+}

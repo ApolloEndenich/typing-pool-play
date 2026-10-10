@@ -395,6 +395,12 @@ body.walks.view-notebook #people { grid-row:3 }
 }
 #scene .fig:hover img, #scene .fig:focus img { filter:drop-shadow(0 0 4px #fff) drop-shadow(0 3px 2px rgba(0,0,0,.3)) }
 #scene .fig.talking .label { background:var(--hi2); color:var(--ink); font-weight:700 }
+/* THE NAMES ONLY UNDER THE MOUSE (the user, 10 October 2026), and on whoever
+   Sarah is talking to. Where there is no mouse to hover with they stay. */
+@media (hover:hover) {
+  #scene .fig .label { opacity:0; transition:opacity .12s }
+  #scene .fig:hover .label, #scene .fig:focus-visible .label, #scene .fig.talking .label { opacity:1 }
+}
 #scene .nofig { font-size:40px; opacity:.5 }
 /* a prop lies ON its y: the button is placed by its centre and its foot, and
    a flat thing is squashed upright from the foot, as it would be seen from a
@@ -580,6 +586,12 @@ body.theatre #talk .asks { flex:0 1 auto; overflow-y:auto; max-height:40% }
 .fbnote { font-size:11px; color:var(--faint) }
 .invite { font-size:12px; margin-top:6px }
 .setting input { margin-top:4px }
+/* Mauser's hints under a part, in his pencil: only with the setting on */
+.mhints { font-size:12px; margin:4px 0 0; color:var(--ink) }
+.mhints ol { margin:2px 0 4px 18px; padding:0; font-style:italic }
+.mhints .askhint { font:inherit; font-size:11px; cursor:pointer; padding:2px 8px;
+                   background:var(--wash); color:var(--ink); border:1px dashed var(--rule) }
+.mhints .taken { margin-left:8px; font-size:11px; color:var(--faint) }
 .readnote { font-size:12px; color:var(--faint); border:1px dashed var(--rule); padding:6px 10px; margin:0 0 12px }
 .readnote button { font:inherit; font-size:12px; cursor:pointer; margin-left:8px; padding:2px 8px;
                    background:var(--hi); color:var(--ink); border:1px solid var(--ink) }
@@ -642,4 +654,44 @@ body.theatre #talk .asks { flex:0 1 auto; overflow-y:auto; max-height:40% }
 }
 @media (max-width:999px) {
   body.theatre #talk { max-height:42vh }
+}
+
+/* THE FRONT PAGE (index.html, #front; app.js, front): the pool in autumn,
+   Sarah in front of it as she stands in every room, the name on a card of
+   the page's own paper, and under it what the game is and one button. While
+   it stands, the chapter behind it is not shown. */
+body.front main, body.front #subtitle { display:none }
+body.front #cases, body.front #views { display:none !important }
+body.front #title { visibility:hidden }
+body.front #openfront { display:none }
+#front { max-width:1100px; margin:0 auto }
+/* THE ROOM AS THE GAME SHOWS IT (the user, 10 October 2026: "way too tall
+   compared to the background", and a foot on the small table): the whole
+   painting at 16:9, and Sarah exactly where and as tall as she stands in the
+   pool (walk.js, tall: 72% for 180 cm, she is 172; props.py, SARAH_AT), feet
+   and all, mirrored as in every room. */
+.frontpic { position:relative; aspect-ratio:16/9; max-width:880px; margin:0 auto; overflow:hidden;
+  border:1px solid var(--ink);
+  background:var(--wash) url("art/rooms/pool-autumn.jpeg") center/cover }
+#frontsarah { position:absolute; left:10%; bottom:2%; height:68.8%; width:auto;
+  transform:scaleX(-1); filter:drop-shadow(0 3px 2px rgba(0,0,0,.25)) }
+.frontcard { position:absolute; right:5%; top:50%; transform:translateY(-50%); max-width:52%;
+  background:rgba(251,249,244,.86); border:1px solid var(--ink); padding:18px 24px 16px;
+  box-shadow:4px 4px 0 rgba(16,16,16,.25) }
+.frontcard .kicker { margin:0 0 6px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint) }
+.frontcard h2 { margin:0 0 8px; font-size:30px; line-height:1.15; letter-spacing:.16em; text-transform:uppercase }
+.frontcard h2 span { display:block; margin-top:4px; font-size:.55em; font-weight:400; letter-spacing:.22em }
+.frontcard .strap { margin:0; padding-top:8px; border-top:2px solid var(--ink); font-size:14px }
+.fronttext { max-width:720px; margin:22px auto 0; font-size:15px; line-height:1.6 }
+.fronttext p { margin:0 0 12px }
+.frontgo { display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 18px !important }
+.frontgo button { font:inherit; cursor:pointer; padding:9px 22px; background:none; color:var(--ink);
+  border:1px solid var(--ink) }
+#frontbegin { background:var(--ink); color:var(--paper); font-weight:700; letter-spacing:.12em; text-transform:uppercase }
+#frontbegin:hover, #frontbegin:focus-visible { background:var(--hi2); color:var(--ink) }
+#frontmanual:hover { background:var(--hi) }
+.frontnote { font-size:12px; color:var(--faint) }
+@media (max-width:640px) {
+  .frontcard { right:4%; left:34%; max-width:none; top:8%; transform:none; padding:10px 12px }
+  .frontcard h2 { font-size:20px; letter-spacing:.1em }
 }

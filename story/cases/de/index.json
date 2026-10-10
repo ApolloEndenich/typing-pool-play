@@ -1,0 +1,132 @@
+[
+ {
+  "id": "dienstweg",
+  "n": 0,
+  "title": "Der Dienstweg",
+  "german": null,
+  "stated": "November 1968",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "stellenplan",
+  "n": 1,
+  "title": "Der Stellenplan",
+  "german": null,
+  "stated": "März 1969",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "braunstift",
+  "n": 2,
+  "title": "Die Braunstift-Akte",
+  "german": null,
+  "stated": "September 1969",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "rueckstand",
+  "n": null,
+  "title": "Der Rückstand",
+  "german": null,
+  "stated": "Dienstag, 14. Oktober 1969",
+  "built": true,
+  "subtitle": "",
+  "opens": true
+ },
+ {
+  "id": "schublade",
+  "n": 3,
+  "title": "Die dritte Schublade",
+  "german": null,
+  "stated": "Freitag, 14. November 1969",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "dreinamen",
+  "n": 4,
+  "title": "Die drei Namen",
+  "german": null,
+  "stated": "Januar 1970",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "brief",
+  "n": 5,
+  "title": "Der verschlossene Brief",
+  "german": null,
+  "stated": "Mai 1970",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "nichts",
+  "n": 6,
+  "title": "Was nicht geschehen ist",
+  "german": null,
+  "stated": "Oktober 1970",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "dienstweg2",
+  "n": 7,
+  "title": "Der Dienstweg, noch einmal",
+  "german": null,
+  "stated": "Dezember 1970",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "woche",
+  "n": 8,
+  "title": "Die unmögliche Woche",
+  "german": null,
+  "stated": "Mai 1971",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "erste",
+  "n": 9,
+  "title": "Welches ist das Erste?",
+  "german": null,
+  "stated": "Oktober 1971",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "wiederaufnahme",
+  "n": 10,
+  "title": "Die Wiederaufnahme",
+  "german": null,
+  "stated": "März 1972",
+  "built": false,
+  "opens": false,
+  "held": true
+ },
+ {
+  "id": "ungezaehlt",
+  "n": 11,
+  "title": "Der, den niemand gezählt hat",
+  "german": null,
+  "stated": "Oktober 1972",
+  "built": false,
+  "opens": false,
+  "held": true
+ }
+]
