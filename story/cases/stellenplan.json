@@ -48,7 +48,7 @@
       "The Dienstaltersliste is pinned by the door and brought up to date every January. It is not an Entlassungsliste and everybody in the room knows that the distinction has never saved the last names on it.",
       "The new ribbons come on two spools in a tin and there is a requisition for them, and the requisition asks how many were used last quarter, and nobody has ever been able to answer it.",
       "The pencil sharpener on the window sill has been broken since September and there is no form for a pencil sharpener.",
-      "The new machines are lighter to strike and Frau Litt does not think that is an improvement, because a light touch lets you type faster than you can think."
+      "The new machines are lighter to strike and Frau Litt does not think that is an improvement, because a light touch lets you type faster than you can think. There are two of them so far, and they take the new ribbons that run through once; the rest of the pool is still on cloth."
      ]
     },
     {
@@ -1407,7 +1407,7 @@
     "sprite": "art/people/litt.png",
     "hello": [
      {
-      "text": "The new machines are lighter to strike and Frau Litt does not think that is an improvement, because a light touch lets you type faster than you can think.",
+      "text": "The new machines are lighter to strike and Frau Litt does not think that is an improvement, because a light touch lets you type faster than you can think. There are two of them so far, and they take the new ribbons that run through once; the rest of the pool is still on cloth.",
       "phase": null
      },
      {
