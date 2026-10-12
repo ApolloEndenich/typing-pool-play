@@ -129,7 +129,8 @@ async function boot() {
 
   const index = await (await fetch(casePath("index.json"))).json();
   /* The series in its order, with the chapters that are only a name so far
-     standing in their places, shut. The sampler has no number. */
+     standing in their places, shut. A chapter is labelled with a key of the
+     German keyboard, in reading order (export_cases.py, KEYS). */
   /* THREE SEASONS (the user, 17 September 2026), by the year a chapter is set
      in: 1968-69, 1970, 1971-72. */
   const SEASONS = [[tx("Season one"), "1968–1969", y => y <= 1969],
@@ -144,7 +145,7 @@ async function boot() {
     : yearOf(c) >= 1971 ? tx("sketched") : tx("in progress");
   const button = c =>
     `<button data-id="${c.id}"${c.built ? "" : " disabled"} class="${c.built ? "" : "tocome"}">` +
-    `<span class="num">${c.n === null ? "·" : c.n}</span>${esc(c.title)}` +
+    `<span class="num">${esc(c.key || "·")}</span>${esc(c.title)}` +
     (c.german ? ` <i class="de">${esc(c.german)}</i>` : "") +
     `<small>${esc(c.stated)}${c.built ? "" : " · " + shut(c)}</small></button>`;
   $("cases").innerHTML = SEASONS.map(([name, years, has]) => {
@@ -326,6 +327,17 @@ const canon = t => {
           || CASE.words.find(w => bareOf(w.text).toLowerCase() === low)).text;
 };
 
+/* A WORD WAITS FOR ITS LINE (export_cases.py assemble; 12 October 2026). A
+   word of the list may name the line that releases it. Until that line is
+   held the word is marked in no line and no blank takes it: when a word
+   arrives is then the chapter's decision, in every language, and not what
+   a translation happened to say on the first day ("Das Farbband wechselt
+   sie selbst" for "She changes her own ribbon"). */
+function released(text) {
+  const w = CASE.words.find(x => x.text === text);
+  return !w || !w.release || holds(w.release);
+}
+
 /* A line can carry three kinds of thing at once and they overlap: "the
    Dienstaltersliste" is a collectable word AND a German term, and Kern is a
    word AND a person. So they are gathered in one pass and the longest match
@@ -352,6 +364,9 @@ function spans(text, collectable) {
     }
   };
   if (collectable && !typing()) add(MATCH, "word");
+  /* a word that waits for its line is not marked before it (released) */
+  for (let i = out.length - 1; i >= 0; i--)
+    if (out[i].kind === "word" && !released(canon(out[i].t))) out.splice(i, 1);
   add(NMATCH, "who");
   add(GMATCH, "term");
   out.sort((a, b) => a.s - b.s || (b.e - b.s) - (a.e - a.s)
@@ -468,7 +483,8 @@ function onPagesRead() {
       const lines = s.lines.filter(holds);
       if (!lines.length) continue;
       for (const t of [s.where, ...lines])
-        for (const m of t.matchAll(MATCH)) out.add(canon(m[0]));
+        for (const m of t.matchAll(MATCH))
+          if (released(canon(m[0]))) out.add(canon(m[0]));
     }
   }
   return out;
@@ -1082,6 +1098,19 @@ function slot(key) {
       ? `<span class="hint"> ${tx("click ＋ beside any line")}</span>` : ""}</div>`;
 }
 
+/* A part of the report that has not opened yet: the chapter gives it the
+   places of the lines it rests on (export_cases.py, "opens": [day, section,
+   line]), and it opens once the player holds one of them. A chapter that is
+   read and not walked, or that gives no places, has every part open. */
+function shut(p) {
+  if (!p.opens || !p.opens.length) return false;
+  if (typeof walking !== "function" || !walking()) return false;
+  return !p.opens.some(([d, s, l]) => {
+    const sec = CASE.days[d] && CASE.days[d].sections[s];
+    return sec && holds(sec.lines[l]);
+  });
+}
+
 function memo() {
   const kept = {};
   $("parts").querySelectorAll("input.blank,select").forEach(s => kept[s.id] = s.value);
@@ -1090,6 +1119,14 @@ function memo() {
   const m = CASE.memo, f = m.form, res = new Set(m.result);
   const level = m.levels.find(l => l.id === levelOf());
   const part = p => {
+    /* THE FORM OPENS PART BY PART (the user, 10 October 2026), in a chapter
+       that says so. A part Sarah has nothing for yet stands on the page as a
+       part still to be written: the player sees how long the report is, and
+       not what the part will ask. Nothing in the building is held back by
+       this; only her own report grows. */
+    if (shut(p))
+      return `<div class="part later"><h3>${tx("A further part")}</h3>
+        <p>${tx("Sarah has nothing to write here yet.")}</p></div>`;
     const bits = esc(p.text).split("___");
     const sentence = bits.map((bit, n) =>
       n < bits.length - 1 ? bit + blank(p, n) : bit).join("");
@@ -1332,6 +1369,10 @@ function say(id, text, cls) {
 function tally() {
   const el = $("asked");
   if (!el) return;
+  /* THE CARD AFTER THE REPORT (chapters/after.py): what happened next, shown
+     once every part holds and not before. It is the chapter's last word. */
+  const after = $("after");
+  if (after) { after.hidden = true; after.textContent = ""; }
   const walk = CASE && CASE.walk;
   if (!walk || typeof questions !== "function" || !walking()) { el.textContent = ""; return; }
   const notes = CASE.memo && levelOf() === "notes";
@@ -1349,6 +1390,7 @@ function tally() {
   const closing = solved && CASE.memo && CASE.memo.mauser && CASE.memo.mauser.solved;
   if (closing) el.append(mauserLine(closing));
   $("invite").hidden = !solved;
+  if (after && solved && CASE.after) { after.textContent = CASE.after; after.hidden = false; }
 }
 
 /* Per-viewer convenience only: which evenings have been opened and which
