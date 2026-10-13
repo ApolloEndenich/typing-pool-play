@@ -1258,7 +1258,13 @@
       "evade": "\"Staffing is a matter for the Referat,\" says Herr Grau, \"and not for the pool,\" and he picks up his pen."
      }
     },
-    "shows": {},
+    "shows": {
+     "Herr Grau's desk calendar": {
+      "lines": [],
+      "talk": "Herr Grau looks at her a moment longer than is comfortable. \"You read a good deal for a typist, Fräulein Wessen.\"",
+      "evade": null
+     }
+    },
     "files": {},
     "file_talk": {}
    },
@@ -1269,7 +1275,7 @@
      "the working day": "vorzimmer",
      "the next day": "vorzimmer"
     },
-    "patience": 3,
+    "patience": 4,
     "shrugs": [
      "\"I really could not say,\" says Frau Pohlmann.",
      "Frau Pohlmann has nothing to add to that.",
@@ -1312,6 +1318,11 @@
       ],
       "talk": null,
       "evade": null
+     },
+     "Herr Grau's desk calendar": {
+      "lines": [],
+      "talk": "\"Herr Grau's calendar is on Herr Grau's desk,\" says Frau Pohlmann, \"and that is where it stays.\"",
+      "evade": null
      }
     },
     "files": {},
@@ -1339,6 +1350,11 @@
       "lines": [],
       "talk": "Frau Kern says every card is somebody, and every drawer is kept shut.",
       "evade": null
+     },
+     "vogt": {
+      "lines": [],
+      "talk": null,
+      "evade": "Frau Kern says there is no card for a relief girl, and that she has never been sorry for it."
      }
     },
     "shows": {},
@@ -1393,7 +1409,13 @@
       "evade": null
      }
     },
-    "shows": {},
+    "shows": {
+     "the Personalreferat's register": {
+      "lines": [],
+      "talk": "\"It is all in the book, Fräulein,\" says Herr Simon. \"I write it down so that I need not remember it.\"",
+      "evade": null
+     }
+    },
     "files": {},
     "file_talk": {}
    },

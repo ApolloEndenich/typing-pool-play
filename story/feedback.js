@@ -88,6 +88,7 @@ function playLog() {
     `minutes with the page open: about ${recall(CASE.id, "minutes", 0)}`,
     walked && W ? `day ${W.day}, ${phase().name}; ${questions()} questions asked, ${shrugs()} shrugged off` : "read the whole file, without walking",
     walked ? `lines heard: ${HEARD.size} of ${total}` : "",
+    walked && W && (W.dead || []).length ? `shrugged off: ${W.dead.join("; ")}` : "",
     ...parts,
     CASE.memo ? `the report asks for: ${CASE.memo.levels.find(l => l.id === levelOf()).name}` : "",
     notes ? `signatures: ${recall(CASE.id, "signatures", 0)}` : "",

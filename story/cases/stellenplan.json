@@ -1385,7 +1385,13 @@
       "evade": null
      }
     },
-    "shows": {},
+    "shows": {
+     "the pension file": {
+      "lines": [],
+      "talk": "Herr Simon says he has given up putting it away: it would only be asked for again before he had sat down.",
+      "evade": null
+     }
+    },
     "files": {},
     "file_talk": {}
    },
@@ -1586,9 +1592,25 @@
       "lines": [],
       "talk": null,
       "evade": "Fräulein Bühl says she simply prefers them, and asks whether Sarah thinks it will rain."
+     },
+     "return": {
+      "lines": [],
+      "talk": null,
+      "evade": "Fräulein Bühl says she only knows it is the week when nobody upstairs has time for anyone, and looks for her eraser."
+     },
+     "married": {
+      "lines": [],
+      "talk": null,
+      "evade": "Fräulein Bühl goes pink, and says it is not settled, and then that it is."
      }
     },
-    "shows": {},
+    "shows": {
+     "the pension file": {
+      "lines": [],
+      "talk": "Fräulein Bühl says she fetches what she is sent for, and has stopped asking what is in it.",
+      "evade": null
+     }
+    },
     "files": {},
     "file_talk": {}
    },

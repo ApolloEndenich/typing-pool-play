@@ -1277,7 +1277,13 @@
       "evade": "„Personalsachen sind Sache des Referats“, sagt Herr Grau, „und nicht des Schreibsaals“, und greift nach seinem Füller."
      }
     },
-    "shows": {},
+    "shows": {
+     "Herrn Graus Tischkalender": {
+      "lines": [],
+      "talk": "Herr Grau sieht sie einen Augenblick länger an, als angenehm ist. „Sie lesen viel für eine Schreibkraft, Fräulein Wessen.“",
+      "evade": null
+     }
+    },
     "files": {},
     "file_talk": {}
    },
@@ -1288,7 +1294,7 @@
      "die Dienstzeit": "vorzimmer",
      "der nächste Tag": "vorzimmer"
     },
-    "patience": 3,
+    "patience": 4,
     "shrugs": [
      "„Das kann ich wirklich nicht sagen“, sagt Frau Pohlmann.",
      "Frau Pohlmann hat dem nichts hinzuzufügen.",
@@ -1331,6 +1337,11 @@
       ],
       "talk": null,
       "evade": null
+     },
+     "Herrn Graus Tischkalender": {
+      "lines": [],
+      "talk": "„Herrn Graus Kalender liegt auf Herrn Graus Schreibtisch“, sagt Frau Pohlmann, „und da bleibt er auch.“",
+      "evade": null
      }
     },
     "files": {},
@@ -1358,6 +1369,11 @@
       "lines": [],
       "talk": "Frau Kern sagt, jede Karte sei ein Mensch, und jede Schublade bleibe zu.",
       "evade": null
+     },
+     "vogt": {
+      "lines": [],
+      "talk": null,
+      "evade": "Frau Kern sagt, für eine Aushilfe gebe es keine Karte, und das habe ihr noch nie leidgetan."
      }
     },
     "shows": {},
@@ -1412,7 +1428,13 @@
       "evade": null
      }
     },
-    "shows": {},
+    "shows": {
+     "das Tagebuch des Personalreferats": {
+      "lines": [],
+      "talk": "„Es steht alles drin, Fräulein“, sagt Herr Simon. „Ich schreibe es auf, damit ich es mir nicht merken muss.“",
+      "evade": null
+     }
+    },
     "files": {},
     "file_talk": {}
    },

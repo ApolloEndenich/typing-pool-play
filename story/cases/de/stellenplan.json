@@ -1401,7 +1401,13 @@
       "evade": null
      }
     },
-    "shows": {},
+    "shows": {
+     "die Rentenakte": {
+      "lines": [],
+      "talk": "Herr Simon sagt, er habe es aufgegeben, sie wegzuräumen: Kaum sitze er, werde sie schon wieder verlangt.",
+      "evade": null
+     }
+    },
     "files": {},
     "file_talk": {}
    },
@@ -1602,9 +1608,25 @@
       "lines": [],
       "talk": null,
       "evade": "Fräulein Bühl sagt, sie sei ihr einfach lieber, und fragt, ob Sarah glaube, dass es regnen wird."
+     },
+     "return": {
+      "lines": [],
+      "talk": null,
+      "evade": "Fräulein Bühl sagt, sie wisse nur, dass das die Woche sei, in der da oben niemand für irgendwen Zeit hat, und sucht nach ihrem Radiergummi."
+     },
+     "married": {
+      "lines": [],
+      "talk": null,
+      "evade": "Fräulein Bühl wird rot und sagt, es sei noch nicht ausgemacht, und dann, es sei doch ausgemacht."
      }
     },
-    "shows": {},
+    "shows": {
+     "die Rentenakte": {
+      "lines": [],
+      "talk": "Fräulein Bühl sagt, sie hole, wozu man sie schickt, und frage längst nicht mehr, was drinsteht.",
+      "evade": null
+     }
+    },
     "files": {},
     "file_talk": {}
    },

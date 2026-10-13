@@ -238,6 +238,11 @@ function act(kind, what) {
     if (r.talk) { note(p.id, "talk", r.talk); any = true; }
   }
   if (!any) W.shrugs = (W.shrugs || 0) + 1;
+  /* ...and WHICH question it was, for the feedback's play log only (the user,
+     12 October 2026: "we cannot anticipate where each player would go next").
+     Where players expect an answer and get a shrug is what no cold reader
+     can tell us. */
+  if (!any) (W.dead || (W.dead = [])).push(`${p.id}: ${what}`);
   if (any) W.spent[p.id] = spent(p.id) + 1;
   else if (kind !== "topic" && p.looked) note(p.id, "shrug", p.looked);
   else {
