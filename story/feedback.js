@@ -13,7 +13,9 @@
    an address of the game's own and nobody's personal one.
 
    WHAT IT ASKS, AND WHAT IT DOES NOT. What stopped a player, what confused
-   them, whom they suspected and what changed their mind, whether citing felt
+   them, where they felt clever (12 October 2026: a case can be understood
+   and finished and still give a player no discovery of their own), whom
+   they suspected and what changed their mind, whether citing felt
    like puzzle or paperwork, and whether anything read like a waste of time
    (the padding, which the cold reads could not settle). It never asks a
    question that teaches: nothing here says a witness might lie or an object
@@ -21,8 +23,10 @@
    of the game.
 
    THE PLAY LOG is counts and marks only: how many questions, how many lines
-   heard, which day, which parts hold. No words from the report and no cited
-   line, so a log is safe to post where others read it. The player sees all of
+   heard, which day, which parts hold; and, since 12 October 2026, which
+   questions were shrugged off (the person and the subject, never an answer).
+   No words from the report and no cited line, so a log is safe to post where
+   others read it. The player sees all of
    it before sending, and can leave it out. */
 
 const FEEDBACK_TO = "typingpool1969@gmail.com";   // the game's own, 17 September 2026
@@ -37,6 +41,8 @@ const ASK = [
              N_("I stopped before writing the report")]},
   {id: "stopped", kind: "text", q: N_("If you stopped, where were you, and what made you stop?")},
   {id: "stuck", kind: "text", q: N_("Was there a moment when you did not know what to do next? What was it?")},
+  {id: "clever", kind: "text",
+   q: N_("Was there a moment when you felt clever? What was it? (This may spoil the case, so leave it out of anything public.)")},
   {id: "unclear", kind: "text",
    q: N_("Was anything about how to play unclear: the map, talking to people, the report, citing evidence?")},
   {id: "suspect", kind: "text",
