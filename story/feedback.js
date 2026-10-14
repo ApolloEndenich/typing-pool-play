@@ -32,6 +32,17 @@
 const FEEDBACK_TO = "typingpool1969@gmail.com";   // the game's own, 17 September 2026
 const FEEDBACK_ISSUES = "https://github.com/ApolloEndenich/typing-pool-play/issues/new";
 
+/* INSIDE SOMEBODY ELSE'S PLAYER (13 October 2026; web/lang.js has the same
+   test and the reason). An arcade's frame opens no new tab and no mail
+   program, so the two buttons that need one did nothing there. Framed, the
+   form copies and that is all; the address to paste it to is in the manual.
+   itch.io's frame opens both, and keeps both. */
+const EMBEDDED = (() => {
+  let framed = true;
+  try { framed = window.self !== window.top; } catch (e) {}
+  return framed && !/(^|\.)itch\.(zone|io)$/.test(location.hostname);
+})();
+
 /* Written in English and shown in the player's language (N_, i18n.js). A
    chosen option is kept by its English, so an answer reads the same to us
    whichever language it was given in; the games' names are names. */
@@ -170,7 +181,9 @@ function feedbackSheet() {
     if (!CASE) return;
     feedbackForm();
     $("fbsaid").textContent = "";
-    $("mailfeedback").hidden = !FEEDBACK_TO;
+    $("mailfeedback").hidden = !FEEDBACK_TO || EMBEDDED;
+    $("postfeedback").hidden = EMBEDDED;
+    $("feedback").querySelector(".fbnote").hidden = EMBEDDED;
     $("feedback").hidden = false;
     $("feedback").querySelector(".closer").focus();
   };

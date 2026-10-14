@@ -141,6 +141,21 @@ function uiSet(l){
  return UILANG;
 }
 
+/* INSIDE SOMEBODY ELSE'S PLAYER (13 October 2026). An arcade shows the game
+   in a frame that allows no new tabs: a link out to the bookshop loads a site
+   that refuses to be framed and leaves the player blank with no way back, and
+   a mail link or a GitHub link does nothing at all. So a framed page shows no
+   link that leaves the game; the arcade's own description carries those.
+
+   itch.io frames the game too, but its frame opens new tabs, and that copy
+   is where the feedback comes from, so it keeps its links. A frame that
+   cannot be looked into is a frame. */
+const EMBEDDED = (() => {
+ let framed = true;
+ try { framed = window.self !== window.top; } catch (e) {}
+ return framed && !/(^|\.)itch\.(zone|io)$/.test(location.hostname);
+})();
+
 /* "{n} lessons" with the number in it. Deliberately dumb: no plural rules and
    no gender. Anything needing those gets a whole sentence of its own in the
    table instead, which is the only way a translator can actually fix it. */
@@ -1910,7 +1925,8 @@ function card(b){
      real German blurb plus an English gloss than by neither. */
   + (b.blurb_en && UILANG !== "de" ? `<p class="en">${esc(b.blurb_en)}</p>` : "")
   + `<div class="facts">${esc(facts)}`
-  + (b.href ? ` &nbsp;·&nbsp; <a href="${b.href}">${t.at}</a>` : "")
+  + (b.href && !EMBEDDED
+      ? ` &nbsp;·&nbsp; <a href="${b.href}" target="_blank" rel="noopener">${t.at}</a>` : "")
   + `</div></div>`;
 }
 
@@ -1937,8 +1953,11 @@ function redraw(){
   $("also").innerHTML = B.also.books.map(card).join("");
  }
 
+ /* every one of these leaves the game, so a framed page has no such
+    section at all (lang.js, EMBEDDED) */
+ $("findH").parentNode.hidden = EMBEDDED;
  $("links").innerHTML = B.author.links.map(l =>
-  `<a class="link" href="${l.href}"><b>${tb.linkLabels[l.slug] || l.slug}</b>`
+  `<a class="link" href="${l.href}" target="_blank" rel="noopener"><b>${tb.linkLabels[l.slug] || l.slug}</b>`
   + `<small>${l.kind === "shop" ? tb.shop
      : l.kind === "publisher" ? tb.publisher : tb.aboutHer}</small></a>`).join("");
 
@@ -1949,8 +1968,8 @@ function redraw(){
    place: B.author.bornPlace, date: uiDate(B.author.bornDate, T().locale),
    since: B.author.since}) + " " + tb.authorNote;
 
- $("foot").innerHTML = tb.foot
-   + ` &nbsp;·&nbsp; <a href="https://github.com/ApolloEndenich/typing-pool-play/issues" target="_blank" rel="noopener">${T().report}</a>`;
+ $("foot").innerHTML = tb.foot + (EMBEDDED ? ""
+   : ` &nbsp;·&nbsp; <a href="https://github.com/ApolloEndenich/typing-pool-play/issues" target="_blank" rel="noopener">${T().report}</a>`);
 
  $("langwrap").innerHTML = "";
  $("langwrap").appendChild(langPicker(uiLangs(), uiName, UILANG, redraw, t.lang));
