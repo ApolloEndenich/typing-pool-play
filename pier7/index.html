@@ -58,6 +58,10 @@ canvas{display:block;width:100%;max-width:100%}
 .seg button{font:inherit;font-size:.88rem;color:var(--muted);background:transparent;border:0;border-radius:999px;padding:6px 13px;cursor:pointer}
 .seg button:hover{color:var(--ink)}
 .seg button[aria-pressed="true"]{background:var(--sun);color:var(--void);font-weight:700}
+.share{background:var(--panel);border:1px solid var(--sun);border-radius:var(--r);padding:14px 16px;display:grid;gap:8px;max-width:560px}
+.share pre{margin:0;white-space:pre-wrap;font-family:var(--f-mono);font-size:.9rem;line-height:1.5;background:var(--panel-2);border-radius:10px;padding:10px 12px;color:var(--ink)}
+.share .row{align-items:center}
+.share-note{font-size:.84rem;color:var(--mint)}
 .daypick{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;color:var(--muted)}
 .daypick input{font:inherit;font-size:.9rem;color:var(--ink);background:var(--panel-2);border:1px solid var(--rule);border-radius:999px;padding:7px 12px;color-scheme:dark}
 .btn{font:inherit;font-weight:700;border-radius:999px;padding:9px 17px;border:1px solid var(--sun);background:var(--sun);color:var(--void);cursor:pointer}
@@ -350,6 +354,11 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
           <p id="chart-ask"></p>
           <div class="chart" id="chart"></div>
           <p class="verdict" id="sig-verdict" role="status"></p>
+        </div>
+        <div class="share" id="share" hidden>
+          <p class="kicker" id="share-head">Your result, to share</p>
+          <pre id="share-text"></pre>
+          <div class="row"><button type="button" class="btn small" id="share-copy">Copy</button><span class="share-note" id="share-note" role="status"></span></div>
         </div>
         <div class="signal" id="single-done" hidden>
           <h3 id="single-title">Puzzle solved</h3>
@@ -1767,7 +1776,7 @@ function renderCase() {
   caseViews.forEach(dropView); caseViews = []; pendingHint = null;
   $('cast').innerHTML = ''; $('log').innerHTML = '';
   if (CASE) $('cast').style.setProperty('--n', CASE.n); $('verdict').textContent = ''; $('verdict').className = 'verdict';
-  $('hintbox').hidden = true; $('signal').hidden = true; signal = null; $('log').hidden = $('words-slot').hidden = false; $('single-done').hidden = true;
+  $('hintbox').hidden = true; $('signal').hidden = true; signal = null; $('share').hidden = true; $('log').hidden = $('words-slot').hidden = false; $('single-done').hidden = true;
   if (!CASE) { $('grade').textContent = 'The case could not be loaded. Check the connection, then press New case.'; return; }
   const cs = CASE;
   cs.al.forEach((a, p) => {
@@ -2005,8 +2014,29 @@ function lockRow(p, label) {
   for (let d = 0; d < CASE.D; d++) setCell(p, d, CASE.hinted[d][p] ? 'hint' : 'lock');
   if (helps.spent) renderEntries();
 }
+// One line of a daily case's result: no squares, no score from anywhere but this page.
+function shareText() {
+  const c = CASE, st = c.start || { hints: 0, shown: 0, tries: 0 }, day = dailyDay();
+  const hints = score.hints - st.hints, tries = score.tries - st.tries;
+  const len = { quick: 'Quick', short: 'Short', standard: 'Standard', long: 'Long', hard: 'Long' }[c.level] || c.level;
+  const date = fromYmd(day).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  const how = c.shown ? '🔭 answer shown'
+    : `${'👽'.repeat(c.n)} all ${c.n} found · ${tries} ${tries === 1 ? 'report' : 'reports'} · ${hints ? hints + (hints === 1 ? ' hint' : ' hints') : 'no hints'}${c.scanned >= 0 ? ' · 1 X-ray' : ''}`;
+  return `Pier 7 · ${date} · ${len}, ${c.style === 'photos' ? 'photos' : 'ledger'}\n${how}\nhttps://typingpoolgame.com/pier7/?day=${day}`;
+}
+function showShare() {
+  const on = !!(CASE && CASE.closed && daily);
+  $('share').hidden = !on; if (!on) return;
+  $('share-head').textContent = dailyDay() === ymd(new Date()) ? "Today's result, to share" : 'Your result, to share';
+  $('share-text').textContent = shareText(); $('share-note').textContent = '';
+}
+$('share-copy').addEventListener('click', () => {
+  const text = $('share-text').textContent, note = $('share-note');
+  const fallback = () => { const range = document.createRange(); range.selectNodeContents($('share-text')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range); note.textContent = 'Selected: copy it with Ctrl+C or ⌘C.'; };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => { note.textContent = 'Copied.'; }, fallback); else fallback();
+});
 function closeCase(shown) {
-  CASE.closed = true; CASE.shown = shown;
+  CASE.closed = true; CASE.shown = shown; showShare();
   $('hintbox').hidden = true; pendingHint = null; $('case-hint').textContent = 'Hint';
   applyHelps();
   if (playMode === 'single') { if (!shown) score.solved = (score.solved || 0) + 1; showSingleDone(true); } else openSignal();
@@ -2383,7 +2413,9 @@ function newCase() {
   syncDayPick();
   fetchCase(isDaily).then(c => {
     if (ticket !== caseTicket) return;
-    CASE = prepCase(c, isDaily); score.hintsAtStart = score.hints; renderCase();
+    CASE = prepCase(c, isDaily); score.hintsAtStart = score.hints;
+    CASE.start = { hints: score.hints, shown: score.shown || 0, tries: score.tries };   // for the result line
+    renderCase();
   }).catch(e => {
     if (ticket !== caseTicket) return;
     console.warn(e); CASE = null; renderCase();
@@ -2807,7 +2839,7 @@ function snapshot() {
     s.case = { level:c.level, n:c.n, D:c.D, cols:c.cols, al:c.al, vals:c.vals, T:c.T, scribe:c.scribe, nodes:c.nodes, supposes:c.supposes,
       style:c.style || 'ledger', photos:c.photos, aside:c.aside ? [...c.aside] : [], spotAside:c.spotAside ? [...c.spotAside] : [], slide:c._slide,
       clues:c.clues, hints:c.hints, id:c.id,
-      locked:c.locked, hinted:c.hinted, scanned:c.scanned, closed:c.closed, shown:c.shown, done:[...(c.done || [])], xrayOn:!!(sv && sv.dither),
+      start:c.start, locked:c.locked, hinted:c.hinted, scanned:c.scanned, closed:c.closed, shown:c.shown, done:[...(c.done || [])], xrayOn:!!(sv && sv.dither),
       picks:Array.from({ length:c.n }, (_, p) => Array.from({ length:c.D }, (_, d) => $(`case-${p}-${d}`).value)),
       labels:Array.from({ length:c.n }, (_, p) => $(`card-${p}`).querySelector('.st').textContent) };
     s.verdict = { text:$('verdict').textContent, cls:$('verdict').className };
@@ -2844,12 +2876,29 @@ function restore(s) {
   }
   applyHelps();
   if (playMode === 'single' && CASE.closed) showSingleDone(false);
+  showShare();
+}
+// ?day=today (or a date up to today) opens that day's case at once, as a single puzzle, with no story
+// in front of it: the address a list of daily games links to.
+function dayFromLink() {
+  let t = null; try { t = new URLSearchParams(location.search).get('day'); } catch (e) {}
+  if (!t) return null;
+  const today = ymd(new Date());
+  if (t === 'today') return today;
+  return /^\d{4}-\d{2}-\d{2}$/.test(t) && t <= today ? t : null;
+}
+function openDay(day) {
+  playMode = 'single'; daily = day; $('finale').hidden = true; $('case-bench').hidden = false;
+  applyHelps(); scrollToCast = true; newCase();
 }
 function start(data) {
+  const day = dayFromLink();
   let s = data && data.v === 2 ? data : null;
   if (!s) { try { const raw = localStorage.getItem(SAVE_KEY); if (raw) s = JSON.parse(raw); } catch (e) {} }
-  if (s && s.v === 2) { try { restore(s); return; } catch (e) { console.warn('Could not restore the voyage', e); } }
-  CASE = null; startVoyage(); updateChips(); newCase();
+  if (s && s.v === 2) { try { restore(s); if (day && !(daily === day && CASE && playMode === 'single')) openDay(day); return; } catch (e) { console.warn('Could not restore the voyage', e); } }
+  CASE = null; startVoyage(); updateChips();
+  if (day) { openDay(day); return; }
+  newCase();
   let seen = false; try { seen = !!localStorage.getItem('starport-intro-seen'); localStorage.setItem('starport-intro-seen', '1'); } catch (e) {}
   if (!seen) playJump(HOME, ship.planet, 'intro', toCase);
 }
