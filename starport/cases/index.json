@@ -1,0 +1,39 @@
+{
+ "v": 1,
+ "shard": 50,
+ "dailyStart": "2026-10-15",
+ "banks": {
+  "photos-quick": {
+   "free": 300,
+   "daily": 400
+  },
+  "photos-short": {
+   "free": 300,
+   "daily": 400
+  },
+  "photos-standard": {
+   "free": 300,
+   "daily": 400
+  },
+  "photos-long": {
+   "free": 300,
+   "daily": 400
+  },
+  "ledger-quick": {
+   "free": 300,
+   "daily": 400
+  },
+  "ledger-short": {
+   "free": 300,
+   "daily": 400
+  },
+  "ledger-standard": {
+   "free": 300,
+   "daily": 400
+  },
+  "ledger-long": {
+   "free": 300,
+   "daily": 400
+  }
+ }
+}
