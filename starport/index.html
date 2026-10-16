@@ -58,6 +58,8 @@ canvas{display:block;width:100%;max-width:100%}
 .seg button{font:inherit;font-size:.88rem;color:var(--muted);background:transparent;border:0;border-radius:999px;padding:6px 13px;cursor:pointer}
 .seg button:hover{color:var(--ink)}
 .seg button[aria-pressed="true"]{background:var(--sun);color:var(--void);font-weight:700}
+.daypick{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;color:var(--muted)}
+.daypick input{font:inherit;font-size:.9rem;color:var(--ink);background:var(--panel-2);border:1px solid var(--rule);border-radius:999px;padding:7px 12px;color-scheme:dark}
 .btn{font:inherit;font-weight:700;border-radius:999px;padding:9px 17px;border:1px solid var(--sun);background:var(--sun);color:var(--void);cursor:pointer}
 .btn.ghost{background:transparent;color:var(--sun)}
 .btn.small{padding:5px 11px;font-size:.82rem}
@@ -302,6 +304,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
         </div>
         <button type="button" class="btn ghost" id="case-new">New case</button>
         <button type="button" class="btn ghost" id="case-daily">Today's case</button>
+        <label class="daypick">Earlier days <input type="date" id="case-day" aria-label="Play the case of an earlier day"></label>
         <button type="button" class="btn ghost" id="voyage-restart">Start a new voyage</button>
       </div>
       <details class="helps" id="helps">
@@ -1803,8 +1806,8 @@ function renderCase() {
   const fair = cs.supposes ? `It can be solved step by step, and ${cs.supposes} of the steps need a "suppose" (try a value, watch it break).` : 'It can be solved step by step without ever guessing.';
   if (cs.style === 'photos') {
     const figs = cs.photos.reduce((t, ph) => t + ph.reduce((u, f) => u + (f.absence ? cs.n - 1 : f.group ? 2 : 1), 0), 0), hard = cs.level === 'hard';
-    $('grade').innerHTML = `<strong>${daily ? "Today's case. " : ''}${cs.photos.length} ${cs.photos.length === 1 ? 'photo' : 'photos'}, ${figs} hidden figures, one answer.</strong> ${fair} ${hard ? 'The gate and the shuttle stay on purpose; every other figure the case could spare was taken out. The cast is made of look-alikes.' : 'Every figure left in the photos is needed.'} Tap a spot to look closer.`;
-  } else $('grade').innerHTML = `<strong>${daily ? "Today's case. " : ''}One answer, ${cs.clues.length} entries.</strong> ${fair} The proof checked ${cs.nodes.toLocaleString()} candidate rows.`;
+    $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}${cs.photos.length} ${cs.photos.length === 1 ? 'photo' : 'photos'}, ${figs} hidden figures, one answer.</strong> ${fair} ${hard ? 'The gate and the shuttle stay on purpose; every other figure the case could spare was taken out. The cast is made of look-alikes.' : 'Every figure left in the photos is needed.'} Tap a spot to look closer.`;
+  } else $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}One answer, ${cs.clues.length} entries.</strong> ${fair} The proof checked ${cs.nodes.toLocaleString()} candidate rows.`;
   $('case-kicker').textContent = `The case at ${ship.planet.name}`;
   applyHelps();
   if (scrollToCast) { scrollToCast = false; requestAnimationFrame(toCase); }
@@ -2324,6 +2327,11 @@ const getJSON = url => fetch(url).then(r => { if (!r.ok) throw new Error(url + '
 const bankIndex = () => bank.index ? Promise.resolve(bank.index) : getJSON('cases/index.json').then(ix => (bank.index = ix));
 function bankShard(name) { if (!bank.shards.has(name)) bank.shards.set(name, getJSON(`cases/${name}.json`).catch(e => { bank.shards.delete(name); throw e; })); return bank.shards.get(name); }
 const dayNumber = d => Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5);
+const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+const fromYmd = t => { const [y, m, d] = t.split('-').map(Number); return new Date(y, m - 1, d); };
+const dailyDay = () => typeof daily === 'string' ? daily : ymd(new Date());
+// "Today's case", or "The case of 12 October 2026" for an earlier day
+const dailyLabel = () => { const t = dailyDay(); return t === ymd(new Date()) ? "Today's case" : 'The case of ' + fromYmd(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }); };
 const RECENT_KEY = 'starport-recent';
 function recentList(key) { try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '{}')[key] || []; } catch (e) { return []; } }
 function noteRecent(key, i, size) {
@@ -2333,8 +2341,8 @@ async function fetchCase(isDaily) {
   const ix = await bankIndex(), key = `${caseStyle}-${level}`, b = ix.banks[key];
   let kind, i;
   if (isDaily) {
-    const [y, m, d] = ix.dailyStart.split('-').map(Number);
-    kind = 'daily'; i = ((dayNumber(new Date()) - dayNumber(new Date(y, m - 1, d))) % b.daily + b.daily) % b.daily;
+    const day = typeof isDaily === 'string' ? fromYmd(isDaily) : new Date();
+    kind = 'daily'; i = ((dayNumber(day) - dayNumber(fromYmd(ix.dailyStart))) % b.daily + b.daily) % b.daily;
   } else {
     // a free case not played lately in this browser
     const recent = new Set(recentList(key)); kind = 'free';
@@ -2361,7 +2369,8 @@ function prepCase(c, isDaily) {
 let caseTicket = 0;
 function newCase() {
   $('grade').textContent = 'Fetching a case…';
-  const ticket = ++caseTicket, isDaily = daily;
+  const ticket = ++caseTicket, isDaily = daily === true ? ymd(new Date()) : daily;
+  syncDayPick();
   fetchCase(isDaily).then(c => {
     if (ticket !== caseTicket) return;
     CASE = prepCase(c, isDaily); score.hintsAtStart = score.hints; renderCase();
@@ -2394,8 +2403,21 @@ $('nums').addEventListener('click', e => {
   numMode = b.dataset.m; applyHelps();
 });
 $('case-daily').addEventListener('click', () => {
-  daily = true; newCase();
+  daily = ymd(new Date()); syncDayPick(); newCase();
 });
+// Earlier days: any day from the first daily case up to today, never a day ahead.
+function syncDayPick() {
+  const el = $('case-day'), today = ymd(new Date());
+  el.max = today; el.value = daily ? dailyDay() : '';
+  bankIndex().then(ix => { el.min = ix.dailyStart; }).catch(() => {});
+}
+$('case-day').addEventListener('change', e => {
+  const t = e.target.value; if (!t) return;
+  const today = ymd(new Date()), first = e.target.min || t;
+  if (t > today || t < first) { syncDayPick(); return; }
+  daily = t; R = Math.random; newCase();
+});
+syncDayPick();
 
 /* ---------- the cinema: the story, take-off, the jump and the landing, over the whole window ---------- */
 const HOME = { name: 'Home Port', kind: 'rocky', hue: 205, ring: false, seed: 777, tilt: 0, tex: null, label: 'where every voyage starts' };
@@ -2764,7 +2786,7 @@ function snapshot() {
   return s;
 }
 function restore(s) {
-  level = s.level; numMode = s.numMode; daily = !!s.daily; if (s.playMode) playMode = s.playMode; if (s.caseStyle) caseStyle = s.caseStyle; if (s.ledgerMode && s.ledgerMode !== 'dock') ledgerMode = s.ledgerMode;
+  level = s.level; numMode = s.numMode; daily = s.daily || false; if (s.playMode) playMode = s.playMode; if (s.caseStyle) caseStyle = s.caseStyle; if (s.ledgerMode && s.ledgerMode !== 'dock') ledgerMode = s.ledgerMode;
   Object.assign(voyage, s.voyage); Object.assign(score, s.score);
   ['names','worlds','piers'].forEach(k => { met[k].clear(); s.met[k].forEach(x => met[k].add(x)); });
   ship.planet = { ...s.planet, tex:null }; ship.phase = 'idle';
