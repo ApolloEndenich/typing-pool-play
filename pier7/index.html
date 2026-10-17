@@ -425,7 +425,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
     </section>
   </div>
 </main>
-<footer class="gutter"><div class="inner">Every case is checked by a solver: one answer, reachable step by step. Everything is drawn in code. Frau Kern from <a href="https://typingpoolgame.com/" target="_blank" rel="noopener">The Typing Pool</a> draws it in the evenings, for her niece.</div></footer>
+<footer class="gutter"><div class="inner">Every case is checked by a solver: one answer, reachable step by step. No image generator was used: Frau Kern from <a href="https://typingpoolgame.com/" target="_blank" rel="noopener">The Typing Pool</a> draws the pictures in the evenings, for her niece.</div></footer>
 
 <div class="cine" id="cine" hidden>
   <canvas id="cine-canvas" aria-hidden="true"></canvas>
@@ -2039,8 +2039,8 @@ function crewbarCheck() {
   crewbarTick = 0;
   const bar = $('crewbar'), cast = $('cast'), top = document.querySelector('.bar');
   const h = top ? top.offsetHeight : 0; bar.style.setProperty('--barh', h + 'px');
-  // shown once the cards are (nearly) gone above; the strip leaves by itself with the end of the case
-  bar.classList.toggle('on', !!CASE && $('crewbar-in').childElementCount > 0 && cast.offsetParent !== null && cast.getBoundingClientRect().bottom < h + 40);
+  // shown once the cards are (nearly) gone above; gone for good once the case is closed, so it never covers the result
+  bar.classList.toggle('on', !!CASE && !CASE.closed && $('crewbar-in').childElementCount > 0 && cast.offsetParent !== null && cast.getBoundingClientRect().bottom < h + 40);
 }
 addEventListener('scroll', () => { if (!crewbarTick) crewbarTick = requestAnimationFrame(crewbarCheck); }, { passive: true });
 addEventListener('resize', () => { if (!crewbarTick) crewbarTick = requestAnimationFrame(crewbarCheck); });
@@ -2145,7 +2145,7 @@ $('share-copy').addEventListener('click', () => {
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => { note.textContent = 'Copied.'; }, fallback); else fallback();
 });
 function closeCase(shown) {
-  CASE.closed = true; CASE.shown = shown; showShare();
+  CASE.closed = true; CASE.shown = shown; showShare(); crewbarCheck();
   $('hintbox').hidden = true; pendingHint = null; $('case-hint').textContent = 'Hint';
   applyHelps();
   if (playMode === 'single') { if (!shown) score.solved = (score.solved || 0) + 1; showSingleDone(true); } else openSignal();
