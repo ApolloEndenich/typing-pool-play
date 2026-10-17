@@ -174,6 +174,10 @@ canvas.scene.scene-zoomed{width:100%;cursor:default}
 canvas.glyph{display:inline-block;vertical-align:-0.45em;margin:0 2px}
 
 .hintbox{background:var(--panel-2);border-radius:12px;padding:12px 14px;margin:0;max-width:72ch}
+.hintbox .explain{display:block;margin-top:10px}
+.hintbox ol.steps{margin:10px 0 0;padding-left:1.6em;display:grid;gap:6px}
+.hintbox ol.steps li::marker{color:var(--muted)}
+.hintbox p.so{margin:8px 0 0;color:var(--sun)}
 .verdict{min-height:1.5em;font-weight:700;margin:0}
 .verdict.good{color:var(--mint)} .verdict.bad{color:var(--coral)}
 
@@ -376,7 +380,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
           <button type="button" class="btn small ghost" id="case-clear" title="Clear your picks and bring back everything you put aside. Confirmed and hinted answers stay.">Start this case over</button>
           <p class="verdict" id="verdict" role="status"></p>
         </div>
-        <p class="hintbox" id="hintbox" hidden></p>
+        <div class="hintbox" id="hintbox" hidden></div>
         <div class="signal" id="signal" hidden>
           <div class="sig-head"><h3 id="sig-title">Next coordinates</h3><button type="button" class="btn small ghost" id="case-again">Show the photos again</button></div>
           <p id="sig-text"></p>
@@ -410,7 +414,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
         <li><strong>The cards</strong> are the aliens on the pier, Alien A, B, C… Tap one to see its hands up close. For each alien, pick a name, a home planet and what it carries.</li>
         <li><strong>Photos:</strong> the customs camera caught each alien at one spot. A spot shows only part of an alien, such as the antennae, the eyes, a hand or the markings. A speech bubble gives a name, and a see-through suitcase shows the cargo and a home-planet sticker. Tap a spot to look closer. ✕ puts a spot or a whole photo aside when you're done with it, and ↺ brings it back.</li>
         <li><strong>Ledger:</strong> the same kind of case as a list of entries, in Words, Pictures or Scenes. ✓ ticks an entry off.</li>
-        <li><strong>The relay</strong> confirms correctly identified aliens two at a time and never says which ones are wrong. <strong>Hint</strong> points at the next real deduction, and pressing it again fills that answer in. The <strong>X-ray</strong> shows what one alien carries, once per case.</li>
+        <li><strong>The relay</strong> confirms correctly identified aliens two at a time and never says which ones are wrong. <strong>Hint</strong> points at the next real deduction, and pressing it again fills that answer in. When a ledger hint needs several entries, <strong>Explain step by step</strong> writes out what each one rules out. The <strong>X-ray</strong> shows what one alien carries, once per case.</li>
         <li><strong>The coordinates:</strong> the alien with the map piece has its crew hold up fingers, and each crew member is one digit in that species' counting. Pick the matching star and jump. <strong>Simple counting</strong>, under Helps, turns this into one number made of the raised fingers, for younger players.</li>
       </ul>
       <h3 class="kicker" id="guide-head">What each spot in the photos shows</h3>
@@ -2204,6 +2208,62 @@ $('case-reveal').addEventListener('click', () => {
 const knows = (cs, p, d) => cs.locked[p] || cs.hinted[d][p] || ($(`case-${p}-${d}`) || {}).value === String(cs.T[d][p]);
 const computeHint = cs => cs.hints.find(h => !knows(cs, h.p, h.d)) || null;
 const entryList = xs => { const s = xs.map(x => x + 1); return s.length < 2 ? `entry ${s[0]}` : `entries ${s.slice(0, -1).join(', ')} and ${s[s.length - 1]}`; };
+// A hint's small steps (worked out when the cases were built) in words: each says which values an
+// entry rules out, with the entry's own words the first time it comes up.
+const orList = xs => xs.length < 2 ? xs[0] : xs.slice(0, -1).join(', ') + ' or ' + xs[xs.length - 1];
+const andList = xs => xs.length < 2 ? xs[0] : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1];
+function stepLines(cs, steps) {
+  const groups = [];
+  for (const [by, d, p, v, x] of steps) {
+    const g = groups[groups.length - 1], same = g && g.by === by && g.d === d && g.x === x;
+    if (same && g.vs.length === 1 && g.vs[0] === v && !g.ps.includes(p)) g.ps.push(p);
+    else if (same && g.ps.length === 1 && g.ps[0] === p && !g.vs.includes(v)) g.vs.push(v);
+    else groups.push({ by, d, x, ps: [p], vs: [v] });
+  }
+  const seen = new Set();
+  // "Alien C is not from Pim", "Aliens A and B are not Gim", "Alien C does not carry the star key or the glow seed"
+  const isNot = (ps, d, vs) => {
+    const k = cs.cols[d], t = vs.map(v => cs.vals[d][v]), many = ps.length > 1, who = (many ? 'Aliens ' : 'Alien ') + andList(ps.map(p => LETTERS[p]));
+    return k === 'name' ? `${who} ${many ? 'are' : 'is'} not ${orList(t)}` : k === 'planet' ? `${who} ${many ? 'are' : 'is'} not from ${orList(t)}` : `${who} ${many ? 'do' : 'does'} not carry ${orList(t)}`;
+  };
+  // a comparison rules a value out only through the other aliens: say which ones could have been the other side
+  const why = (c, g) => {
+    if (c.type !== 'compare' || g.ps.length > 1 || g.vs.length > 1) return '';
+    const p = g.ps[0], noun = NUMKEYS[c.key].noun, mine = cs.al[p][c.key], A = 'Alien ' + LETTERS[p];
+    const more = g.d === c.db && g.vs[0] === c.vb;   // p is not the one with fewer, so look for someone with more than p
+    const qs = cs.al.map((a, q) => q).filter(q => q !== p && (more ? cs.al[q][c.key] > mine : cs.al[q][c.key] < mine));
+    const W = (qs.length > 1 ? 'Aliens ' : 'Alien ') + andList(qs.map(q => LETTERS[q])), has = qs.length > 1 ? 'have' : 'has';
+    if (!qs.length) return more ? ` No alien has more ${noun} than ${A}.` : ` No alien has fewer ${noun} than ${A}.`;
+    return ` Only ${W} ${has} ${more ? 'more' : 'fewer'} ${noun} than ${A}, and ${isNot(qs, more ? c.da : c.db, [more ? c.va : c.vb])}.`;
+  };
+  return groups.map(g => {
+    const what = isNot(g.ps, g.d, g.vs);
+    const noun = { name:'name', planet:'home', cargo:'cargo' }[cs.cols[g.d]];
+    // already settled on another alien, or the only alien left for some other value
+    if (g.by === -1) return `${cellFact(cs, g.x, g.d, g.vs[0])}, and each ${noun} belongs to exactly one alien, so ${what}.`;
+    if (g.by === -2) {
+      const k = cs.cols[g.d], t = cs.vals[g.d][g.x], P = 'Alien ' + LETTERS[g.ps[0]];
+      const only = k === 'name' ? `Only ${P} can be ${t}` : k === 'planet' ? `Only ${P} can come from ${t}` : `Only ${P} can carry ${t}`;
+      return `${only}, so ${what}.`;
+    }
+    const c = cs.clues[g.by], r = why(c, g);
+    let head = `Entry ${g.by + 1}`;
+    if (!seen.has(g.by)) {
+      seen.add(g.by);
+      const parts = clueParts(c, cs); let s = partsText(parts).replace(/.$/, '');
+      if (typeof parts[0] === 'string') s = s[0].toLowerCase() + s.slice(1);
+      head += ` says ${s}`;
+    }
+    return r ? `${head}.${r} So ${what}.` : `${head}, so ${what}.`;
+  });
+}
+function showSteps(h) {
+  const box = $('hintbox'), b = box.querySelector('.explain'); if (b) b.remove();
+  const ol = document.createElement('ol'); ol.className = 'steps';
+  stepLines(CASE, h.steps).forEach(t => { const li = document.createElement('li'); li.textContent = t; ol.append(li); });
+  const so = document.createElement('p'); so.className = 'so'; so.textContent = `So ${cellFact(CASE, h.p, h.d, h.v)}.`;
+  box.append(ol, so);
+}
 function markCited(xs) { document.querySelectorAll('.log li.cited').forEach(li => li.classList.remove('cited')); xs.forEach(x => { const li = $(`entry-${x}`); if (li) li.classList.add('cited'); }); }
 $('case-hint').addEventListener('click', () => {
   if (!CASE || CASE.closed || !helps.hints) return;
@@ -2231,6 +2291,10 @@ $('case-hint').addEventListener('click', () => {
     const off = (h.suppose ? h.suppose.why : h.cites).filter(i => CASE.done && CASE.done.has(i));
     if (off.length && CASE.style !== 'photos') txt += off.length > 1 ? ` Entries ${off.map(i => i + 1).join(' and ')} are among the ones you ticked off.` : ` Entry ${off[0] + 1} is among the ones you ticked off.`;
     box.textContent = txt; if (CASE.style !== 'photos') markCited(h.suppose ? h.suppose.why : h.cites);
+    if (h.steps && !h.suppose && CASE.style !== 'photos') {
+      const eb = document.createElement('button'); eb.type = 'button'; eb.className = 'btn small ghost explain'; eb.textContent = 'Explain step by step';
+      eb.addEventListener('click', () => showSteps(h)); box.append(eb);
+    }
     $('case-hint').textContent = 'Show me';
   } else {
     const h = pendingHint; pendingHint = null;
