@@ -378,7 +378,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
           <button type="button" class="btn" id="case-check">Send to the relay</button>
           <button type="button" class="btn ghost" id="case-hint">Hint</button>
           <button type="button" class="btn ghost" id="case-reveal">Show the answer</button>
-          <button type="button" class="btn small ghost" id="case-clear" title="Clear your picks and bring back everything you put aside. Confirmed and hinted answers stay.">Start this case over</button>
+          <button type="button" class="btn small ghost" id="case-clear" title="Clear your picks and the answers hints filled in, and bring back everything you put aside. What the relay confirmed stays.">Start this case over</button>
           <p class="verdict" id="verdict" role="status"></p>
         </div>
         <div class="hintbox" id="hintbox" hidden></div>
@@ -416,7 +416,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
         <li><strong>Photos:</strong> the customs camera caught each alien at one spot. A spot shows only part of an alien, such as the antennae, the eyes, a hand or the markings. A speech bubble gives a name, and a see-through suitcase shows the cargo and a home-planet sticker. Tap a spot to look closer. ✕ puts a spot or a whole photo aside when you're done with it, and ↺ brings it back.</li>
         <li><strong>Ledger:</strong> the same kind of case as a list of entries, in Words, Pictures or Scenes. ✓ ticks an entry off.</li>
         <li><strong>Stars</strong> say how hard a case is. ★ Easy: every step needs one or two entries (or photo spots). ★★ Medium: one step needs three. ★★★ Hard: a step needs four or more, or the case needs a "suppose" (try a value and watch it clash). ★★★★ Very hard: three or more "suppose" steps. Long ledger cases are mostly ★★★.</li>
-        <li><strong>The relay</strong> confirms correctly identified aliens two at a time and never says which ones are wrong. <strong>Hint</strong> points at the next real deduction, and pressing it again fills that answer in. When a ledger hint needs several entries, <strong>Explain step by step</strong> writes out what each one rules out. The <strong>X-ray</strong> shows what one alien carries, once per case.</li>
+        <li><strong>The relay</strong> confirms correctly identified aliens two at a time and never says which ones are wrong. <strong>Hint</strong> points at the next real deduction. Press it again (<strong>Explain</strong>) to see it worked out step by step, and once more (<strong>Show me</strong>) to fill that answer in. The counter at the top keeps all three: hints, explained, shown. The <strong>X-ray</strong> shows what one alien carries, once per case.</li>
         <li><strong>The coordinates:</strong> the alien with the map piece has its crew hold up fingers, and each crew member is one digit in that species' counting. Pick the matching star and jump. <strong>Simple counting</strong>, under Helps, turns this into one number made of the raised fingers, for younger players.</li>
       </ul>
       <h3 class="kicker" id="guide-head">What each spot in the photos shows</h3>
@@ -1799,7 +1799,10 @@ const helps = { colour:true, grey:true, key:true, explain:true, hints:true, scan
 try { Object.assign(helps, JSON.parse(localStorage.getItem('lab2-helps') || '{}')); } catch (e) {}
 const HELP_KEYS = ['colour','grey','key','explain','hints','scan','simple','tick','spent'];
 const saveHelps = () => { try { localStorage.setItem('lab2-helps', JSON.stringify(helps)); } catch (err) {} };
-const score = { piers:1, hints:0, shown:0, scans:0, tries:0 };
+const score = { piers:1, hints:0, explained:0, shown:0, scans:0, tries:0 };
+let hintExplained = false;   // the open hint has had its Explain press
+// "3 hints", "3 hints (2 explained, 1 shown)": the three levels of help, for the counter, the result line and the finale
+const hintCount = (n, ex, sh) => { const more = [ex ? `${ex} explained` : '', sh ? `${sh} shown` : ''].filter(Boolean); return `${n} ${n === 1 ? 'hint' : 'hints'}${more.length ? ` (${more.join(', ')})` : ''}`; };
 let ledgerMode = 'pictures', caseStyle = 'photos';
 let scrollToCast = false, playMode = 'voyage';
 let level = 'standard', numMode = 'plain', CASE = null, caseViews = [], pendingHint = null, daily = false;
@@ -1807,11 +1810,11 @@ const VOYAGE_LEN = { quick:3, short:3, standard:4, long:5 };
 const voyage = { len: 4, pieces: 0, holders: [] };
 function startVoyage() {
   voyage.len = VOYAGE_LEN[level]; voyage.pieces = 0; voyage.holders = [];
-  Object.assign(score, { piers:1, hints:0, shown:0, scans:0, tries:0 });
+  Object.assign(score, { piers:1, hints:0, explained:0, shown:0, scans:0, tries:0 });
 }
 function updateChips() {
   $('c-pier').textContent = ship.planet.name; $('c-map').textContent = `${voyage.pieces} of ${voyage.len}`;
-  $('c-hints').textContent = score.shown ? `${score.hints} · ${score.shown} shown` : score.hints; $('c-scans').textContent = score.scans; $('c-tries').textContent = score.tries;
+  $('c-hints').textContent = [score.hints, score.explained ? `${score.explained} explained` : '', score.shown ? `${score.shown} shown` : ''].filter(x => x !== '').join(' · '); $('c-scans').textContent = score.scans; $('c-tries').textContent = score.tries;
   const on = ['colour','grey','key','explain','hints','scan','spent'].filter(k => helps[k]).length;
   $('helps-sum').textContent = `Helps · ${on} of 7 on${helps.simple ? ' · simple counting' : ''}`;
 }
@@ -2121,12 +2124,13 @@ const starRow = k => '★'.repeat(k) + '☆'.repeat(4 - k);
 const starsHtml = cs => { const k = caseStars(cs); return `<span class="stars" title="Difficulty ${k} of 4">${starRow(k)} ${STAR_WORD[k]}.</span>`; };
 // One line of a daily case's result: no squares, no score from anywhere but this page.
 function shareText() {
-  const c = CASE, st = c.start || { hints: 0, shown: 0, tries: 0 }, day = dailyDay();
+  const c = CASE, st = c.start || { hints: 0, explained: 0, shown: 0, tries: 0 }, day = dailyDay();
   const hints = score.hints - st.hints, tries = score.tries - st.tries;
+  const explained = (score.explained || 0) - (st.explained || 0), shown = (score.shown || 0) - (st.shown || 0);
   const len = { quick: 'Quick', short: 'Short', standard: 'Standard', long: 'Long', hard: 'Long' }[c.level] || c.level;
   const date = fromYmd(day).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
   const how = c.shown ? '🔭 answer shown'
-    : `${'👽'.repeat(c.n)} all ${c.n} found · ${tries} ${tries === 1 ? 'report' : 'reports'} · ${hints ? hints + (hints === 1 ? ' hint' : ' hints') : 'no hints'}${c.scanned >= 0 ? ' · 1 X-ray' : ''}`;
+    : `${'👽'.repeat(c.n)} all ${c.n} found · ${tries} ${tries === 1 ? 'report' : 'reports'} · ${hints ? hintCount(hints, explained, shown) : 'no hints'}${c.scanned >= 0 ? ' · 1 X-ray' : ''}`;
   return `Pier 7 · ${date} · ${len}, ${c.style === 'photos' ? 'photos' : 'ledger'} · ${starRow(caseStars(c))}\n${how}\nhttps://typingpoolgame.com/pier7/?day=${day}`;
 }
 function showShare() {
@@ -2197,8 +2201,12 @@ $('case-check').addEventListener('click', () => {
 // What the relay confirmed and what a hint filled in stay, and so do the voyage and the counters.
 $('case-clear').addEventListener('click', () => {
   if (!CASE || CASE.closed) return;
-  if (!confirm('Start this case over? Your picks are cleared and everything you put aside comes back. Confirmed and hinted answers stay.')) return;
-  for (let p = 0; p < CASE.n; p++) for (let d = 0; d < CASE.D; d++) { const sel = $(`case-${p}-${d}`); if (!sel.disabled) sel.value = ''; }
+  if (!confirm('Start this case over? Your picks and the answers hints filled in are cleared, and everything you put aside comes back. What the relay confirmed stays, and so do the counters.')) return;
+  for (let p = 0; p < CASE.n; p++) for (let d = 0; d < CASE.D; d++) {
+    const sel = $(`case-${p}-${d}`);
+    if (CASE.hinted[d][p] && !CASE.locked[p]) { CASE.hinted[d][p] = false; sel.disabled = false; sel.classList.remove('hinted'); }
+    if (!sel.disabled) sel.value = '';
+  }
   if (CASE.done) CASE.done.clear(); if (CASE.aside) CASE.aside.clear(); if (CASE.spotAside) CASE.spotAside.clear();
   pendingHint = null; $('hintbox').hidden = true; $('case-hint').textContent = 'Hint'; $('verdict').textContent = '';
   if (CASE.style === 'photos') renderPhotos(new Set()); else { renderEntries(); markCited([]); }
@@ -2259,12 +2267,17 @@ function stepLines(cs, steps) {
       return `${only}, so ${what}.`;
     }
     const c = cs.clues[g.by], r = why(c, g);
-    let head = `Entry ${g.by + 1}`;
+    let head = `Entry ${g.by + 1}`, verb = 'says';
+    if (cs.style === 'photos') {
+      const pi = cs.photos.findIndex(ph => ph.some(x => x.id === c.fig)), j = pi < 0 ? -1 : cs.photos[pi].findIndex(x => x.id === c.fig);
+      head = j < 0 ? 'A spot' : `Spot ${spotTag(pi, j)}`; verb = 'shows';
+      if (j >= 0 && !seen.has('spot' + c.fig)) { seen.add('spot' + c.fig); head += ` (${STATIONS[cs.photos[pi][j].station].label})`; }
+    }
     if (!seen.has(g.by)) {
       seen.add(g.by);
-      const parts = clueParts(c, cs); let s = partsText(parts).replace(/.$/, '');
+      const parts = clueParts(c, cs); let s = partsText(parts).replace(/\.$/, '');
       if (typeof parts[0] === 'string') s = s[0].toLowerCase() + s.slice(1);
-      head += ` says ${s}`;
+      head += ` ${verb} ${s}`;
     }
     return r ? `${head}.${r} So ${what}.` : `${head}, so ${what}.`;
   });
@@ -2274,7 +2287,7 @@ function showSteps(h) {
   const ol = document.createElement('ol'); ol.className = 'steps';
   stepLines(CASE, h.steps).forEach(t => { const li = document.createElement('li'); li.textContent = t; ol.append(li); });
   const so = document.createElement('p'); so.className = 'so'; so.textContent = `So ${cellFact(CASE, h.p, h.d, h.v)}.`;
-  box.append(ol, so);
+  box.append(ol); if (pendingHint === h) box.append(so);
 }
 function markCited(xs) { document.querySelectorAll('.log li.cited').forEach(li => li.classList.remove('cited')); xs.forEach(x => { const li = $(`entry-${x}`); if (li) li.classList.add('cited'); }); }
 $('case-hint').addEventListener('click', () => {
@@ -2303,17 +2316,21 @@ $('case-hint').addEventListener('click', () => {
     const off = (h.suppose ? h.suppose.why : h.cites).filter(i => CASE.done && CASE.done.has(i));
     if (off.length && CASE.style !== 'photos') txt += off.length > 1 ? ` Entries ${off.map(i => i + 1).join(' and ')} are among the ones you ticked off.` : ` Entry ${off[0] + 1} is among the ones you ticked off.`;
     box.textContent = txt; if (CASE.style !== 'photos') markCited(h.suppose ? h.suppose.why : h.cites);
-    if (h.steps && !h.suppose && CASE.style !== 'photos') {
-      const eb = document.createElement('button'); eb.type = 'button'; eb.className = 'btn small ghost explain'; eb.textContent = 'Explain step by step';
-      eb.addEventListener('click', () => showSteps(h)); box.append(eb);
-    }
+    // three presses: Hint (where to look), Explain (the steps, when there are any), Show me (the answer)
+    hintExplained = false;
+    $('case-hint').textContent = h.steps && !h.suppose ? 'Explain' : 'Show me';
+  } else if (pendingHint.steps && !pendingHint.suppose && !hintExplained) {
+    hintExplained = true; score.explained = (score.explained || 0) + 1; updateChips();
+    showSteps(pendingHint);
     $('case-hint').textContent = 'Show me';
   } else {
     const h = pendingHint; pendingHint = null;
     CASE.hinted[h.d][h.p] = true; score.shown = (score.shown || 0) + 1;
     setCell(h.p, h.d, 'hint'); refreshPicks(); updateChips();
     if (helps.spent) renderEntries();
+    const keep = [...box.querySelectorAll('ol.steps')];
     box.textContent = `${cellFact(CASE, h.p, h.d, h.v)}. It is filled in and marked in yellow.`;
+    keep.forEach(e => box.append(e));
     if (CASE.style === 'photos') renderPhotos(new Set()); else markCited([]);
     $('case-hint').textContent = 'Hint';
   }
@@ -2485,7 +2502,7 @@ function showFinale() {
   const tidy = score.hints === 0 && score.scans === 0;
   const names = voyage.holders.map(a => a.name);
   const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names[0];
-  $('finale-text').textContent = `${voyage.len} piers, ${voyage.len} map pieces, carried by ${list}. You used ${score.hints} ${score.hints === 1 ? 'hint' : 'hints'}${score.shown ? ` (${score.shown} of them shown in full)` : ''} and ${score.scans} ${score.scans === 1 ? 'scan' : 'scans'}, and sent ${score.tries} ${score.tries === 1 ? 'report' : 'reports'} to the relay.${tidy ? ' A clean voyage: no hints, no scans.' : ''}`;
+  $('finale-text').textContent = `${voyage.len} piers, ${voyage.len} map pieces, carried by ${list}. You used ${hintCount(score.hints, score.explained || 0, score.shown || 0)} and ${score.scans} ${score.scans === 1 ? 'scan' : 'scans'}, and sent ${score.tries} ${score.tries === 1 ? 'report' : 'reports'} to the relay.${tidy ? ' A clean voyage: no hints, no scans.' : ''}`;
   caseViews.forEach(v => v.visible = false);
   $('case-bench').hidden = true; $('finale').hidden = false;
   finaleT0 = performance.now() / 1000; sizeView(finaleView); finaleView.dirty = true;
@@ -2579,7 +2596,7 @@ function newCase() {
   fetchCase(isDaily).then(c => {
     if (ticket !== caseTicket) return;
     CASE = prepCase(c, isDaily); score.hintsAtStart = score.hints;
-    CASE.start = { hints: score.hints, shown: score.shown || 0, tries: score.tries };   // for the result line
+    CASE.start = { hints: score.hints, explained: score.explained || 0, shown: score.shown || 0, tries: score.tries };   // for the result line
     renderCase();
   }).catch(e => {
     if (ticket !== caseTicket) return;
