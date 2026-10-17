@@ -770,6 +770,8 @@ function clueParts(c, cs) {
   let parts;
   const noneNot = c.pr && c.neg && c.pr.meta.kind === 'eq' && c.pr.meta.k === 0;   // "has antennae" said plainly
   if (c.type === 'feat' || c.type === 'notfeat') parts = [...Rf(c.d, c.v), ' ', ...(noneNot ? ['has at least one antenna'] : c.neg ? c.pr.neg : c.pr.pos)];
+  // a finger count in the ledger says nothing about suction cups; say so (the pictures put a ? on the tips)
+  if (c.pr && c.pr.meta.key === 'fingers' && !cs.photos) parts.push(', with or without suction cups');
   else if (c.type === 'link' || c.type === 'notlink') {
     const yes = c.type === 'link', a = cs.vals[c.d1][c.v1], b = cs.vals[c.d2][c.v2], k1 = cs.cols[c.d1], k2 = cs.cols[c.d2];
     if (k1 === 'name' && k2 === 'planet') parts = [{ t:a, k:'name' }, yes ? ' comes from ' : ' is not from ', { t:b, k:'planet' }];
@@ -834,10 +836,15 @@ function refTok(d, v, cs) {
 const ICON = {
   eye: () => ({ w: 16, draw: (ctx, x, H) => { const cy = H / 2; ctx.beginPath(); ctx.arc(x + 8, cy, 7, 0, TAU); ctx.fillStyle = '#fffaf0'; ctx.fill(); ctx.beginPath(); ctx.arc(x + 8, cy + 1, 4.4, 0, TAU); ctx.fillStyle = '#5fb8ff'; ctx.fill(); ctx.beginPath(); ctx.arc(x + 8, cy + 1, 2.2, 0, TAU); ctx.fillStyle = '#0d0b1f'; ctx.fill(); ctx.beginPath(); ctx.arc(x + 6.6, cy - .6, 1.2, 0, TAU); ctx.fillStyle = '#ffffff'; ctx.fill(); } }),
   ant: () => ({ w: 12, draw: (ctx, x, H) => { const cy = H / 2; ctx.beginPath(); ctx.moveTo(x + 6, cy + 11); ctx.quadraticCurveTo(x + 3, cy, x + 7, cy - 7); ctx.strokeStyle = '#f4eddc'; ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.stroke(); ctx.beginPath(); ctx.arc(x + 7, cy - 9, 3.4, 0, TAU); ctx.fillStyle = '#ffc857'; ctx.fill(); } }),
-  hand: (k, col = '#f4eddc') => ({ w: 30, draw: (ctx, x, H) => {
-    const cx = x + 15, cy = H / 2 + 7, spread = Math.min(1.9, .5 * (k - 1));
+  // q: a little ? over every fingertip, for a count that says nothing about suction cups
+  hand: (k, col = '#f4eddc', q = false) => ({ w: q ? 34 : 30, draw: (ctx, x, H) => {
+    const cx = x + (q ? 17 : 15), cy = H / 2 + 7, spread = Math.min(1.9, .5 * (k - 1)), L = q ? 13 : 15;
     ctx.strokeStyle = col; ctx.lineCap = 'round'; ctx.lineWidth = 3.4;
-    for (let i = 0; i < k; i++) { const a = -Math.PI / 2 + (k === 1 ? 0 : (i / (k - 1) - .5) * spread); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a) * 15, cy + Math.sin(a) * 15); ctx.stroke(); }
+    for (let i = 0; i < k; i++) {
+      const a = -Math.PI / 2 + (k === 1 ? 0 : (i / (k - 1) - .5) * spread);
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a) * L, cy + Math.sin(a) * L); ctx.stroke();
+      if (q) { ctx.font = '700 9px Fredoka, "Trebuchet MS", sans-serif'; ctx.fillStyle = '#ffc857'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('?', cx + Math.cos(a) * 20, cy + Math.sin(a) * 20); ctx.textAlign = 'start'; }
+    }
     ctx.beginPath(); ctx.arc(cx, cy, 6, 0, TAU); ctx.fillStyle = col; ctx.fill();
   } }),
   cups: () => ({ w: 22, draw: (ctx, x, H) => {
@@ -861,7 +868,7 @@ const GREY = 'hsl(250 10% 62%)';
 function glyphTok(n, cs) { const gh = 24, w = numberWidth(n, cs.scribe, gh); return { w, draw: (ctx, x, H) => drawNumber(ctx, n, cs.scribe, x, H / 2 - gh / 2 - 2, gh, '#f4eddc') }; }
 function countToks(key, k, cs) {
   const hand = numMode === 'hand';
-  if (key === 'fingers') return hand ? [glyphTok(k, cs), ICON.hand(3, MUTED)] : [ICON.hand(k)];
+  if (key === 'fingers') return hand ? [glyphTok(k, cs), ICON.hand(3, MUTED, true)] : [ICON.hand(k, undefined, true)];
   const one = key === 'eyes' ? ICON.eye : ICON.ant;
   if (k === 0) return [slashTok([one()])];
   if (hand) return [glyphTok(k, cs), one()];
@@ -989,7 +996,8 @@ const SCENES = {
     ctx.fillStyle = '#4a3f5e'; ctx.fillRect(0, 0, W, H);
     const g = ctx.createRadialGradient(lx, ly, 20, lx, ly, 120); g.addColorStop(0, '#fbeed4'); g.addColorStop(.75, 'rgba(251,238,212,.85)'); g.addColorStop(1, 'rgba(251,238,212,0)');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-    // the shadow of one hand: arm, palm, and every finger spread wide, suction cups showing as round tips
+    // the shadow of one hand: arm, palm, and every finger spread wide. The entry only counts fingers, so
+    // the real alien's suction cups are not drawn (they would say more than the entry): a ? over each tip
     const k = a.fingers, px = lx, py = ly + 34, spread = Math.min(1.9, .45 * (k - 1));
     ctx.fillStyle = ctx.strokeStyle = 'rgba(40,30,58,.94)'; ctx.lineCap = 'round';
     ctx.lineWidth = 34; ctx.beginPath(); ctx.moveTo(px + 6, H + 20); ctx.lineTo(px, py); ctx.stroke();
@@ -998,8 +1006,10 @@ const SCENES = {
     for (let i = 0; i < k; i++) {
       const ang = -Math.PI / 2 + (i / (k - 1) - .5) * spread, fx = px + Math.cos(ang) * 62, fy = py + Math.sin(ang) * 58;
       ctx.beginPath(); ctx.moveTo(px + Math.cos(ang) * 14, py + Math.sin(ang) * 14); ctx.lineTo(fx, fy); ctx.stroke();
-      if (a.cups) { ctx.beginPath(); ctx.arc(fx + Math.cos(ang) * 3, fy + Math.sin(ang) * 3, 10.5, 0, TAU); ctx.fill(); }
     }
+    ctx.font = '700 19px Fredoka, "Trebuchet MS", sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    for (let i = 0; i < k; i++) { const ang = -Math.PI / 2 + (i / (k - 1) - .5) * spread; ctx.fillText('?', px + Math.cos(ang) * 82, py + Math.sin(ang) * 77); }
+    ctx.textAlign = 'start';
     return lx - 92;
   },
   // something glows under a blanket: only its colour gets out
@@ -2776,7 +2786,7 @@ function legendCase() {
       { type: 'feat', d: 1, v: 2, neg: false, pr: P('ant', { k: 0, kind: 'eq' }, ['has ', { n: 0 }, ' antennae'], ['has antennae']) }],
     ['Not', 'A red stroke means "not".', 'A screen with the feature and a red ✗: not.',
       { type: 'notfeat', d: 2, v: 2, neg: true, pr: P('color', { v: 0 }, ['is green'], ['is not green']) }],
-    ['At least', '≥ means this many or more; ≤ this many or fewer.', 'A screen with ≥ and a green ✓: this many or more.',
+    ['At least', '≥ means this many or more; ≤ this many or fewer. A ? on a fingertip: suction cups or not, the entry doesn\'t say.', 'A screen with ≥ and a green ✓: this many or more. A ? on a fingertip: suction cups or not, the entry doesn\'t say.',
       { type: 'feat', d: 0, v: 1, neg: false, pr: P('fingers', { k: 4, kind: 'ge' }, ['has at least ', { n: 4 }, ' fingers on each hand'], ['has fewer than ', { n: 4 }, ' fingers on each hand']) }],
     ['Markings', 'Plain, spots or stripes, whatever the colour.', 'The markings on the belly, seen through the strip in a door.',
       { type: 'feat', d: 0, v: 1, neg: false, pr: P('pattern', { v: 'stripes' }, ['is striped'], ['has no stripes']) }],
