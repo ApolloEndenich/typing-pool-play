@@ -80,6 +80,7 @@ details.helps summary{cursor:pointer;color:var(--sun);font-weight:700}
 
 .grade{font-size:.92rem;color:var(--muted);max-width:76ch;margin:0}
 .grade strong{color:var(--ink)}
+.stars{color:var(--sun);white-space:nowrap;letter-spacing:.04em}
 
 /* the cast in one row, as many columns as aliens; the ledger underneath */
 .case-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
@@ -414,6 +415,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
         <li><strong>The cards</strong> are the aliens on the pier, Alien A, B, C… Tap one to see its hands up close. For each alien, pick a name, a home planet and what it carries.</li>
         <li><strong>Photos:</strong> the customs camera caught each alien at one spot. A spot shows only part of an alien, such as the antennae, the eyes, a hand or the markings. A speech bubble gives a name, and a see-through suitcase shows the cargo and a home-planet sticker. Tap a spot to look closer. ✕ puts a spot or a whole photo aside when you're done with it, and ↺ brings it back.</li>
         <li><strong>Ledger:</strong> the same kind of case as a list of entries, in Words, Pictures or Scenes. ✓ ticks an entry off.</li>
+        <li><strong>Stars</strong> say how hard a case is. ★ Easy: every step needs one or two entries (or photo spots). ★★ Medium: one step needs three. ★★★ Hard: a step needs four or more, or the case needs a "suppose" (try a value and watch it clash). ★★★★ Very hard: three or more "suppose" steps. Long ledger cases are mostly ★★★.</li>
         <li><strong>The relay</strong> confirms correctly identified aliens two at a time and never says which ones are wrong. <strong>Hint</strong> points at the next real deduction, and pressing it again fills that answer in. When a ledger hint needs several entries, <strong>Explain step by step</strong> writes out what each one rules out. The <strong>X-ray</strong> shows what one alien carries, once per case.</li>
         <li><strong>The coordinates:</strong> the alien with the map piece has its crew hold up fingers, and each crew member is one digit in that species' counting. Pick the matching star and jump. <strong>Simple counting</strong>, under Helps, turns this into one number made of the raised fingers, for younger players.</li>
       </ul>
@@ -1866,11 +1868,11 @@ function renderCase() {
   $('words-slot').innerHTML = '';
   if (cs.style === 'photos') { $('log').innerHTML = '<div class="photos" id="photos"></div>'; $('words-slot').innerHTML = '<details class="words"><summary>What the photos show, in words</summary><div id="words-body"></div></details>'; litNow = new Set(); renderWords(); }
   else $('log').innerHTML = `<h3>Cargo ledger,${ship.planet.name} · Pier 7</h3><p class="sub" id="log-sub"></p><div class="key" id="numkey"></div><div id="entries"></div>`;
-  const fair = cs.supposes ? `It can be solved step by step, and ${cs.supposes} of the steps need a "suppose" (try a value, watch it break).` : 'It can be solved step by step without ever guessing.';
+  const fair = cs.supposes ? `It can be solved step by step, and ${cs.supposes === 1 ? 'one of the steps needs' : cs.supposes + ' of the steps need'} a "suppose" (try a value, watch it break).` : 'It can be solved step by step without ever guessing.';
   if (cs.style === 'photos') {
     const figs = cs.photos.reduce((t, ph) => t + ph.reduce((u, f) => u + (f.absence ? cs.n - 1 : f.group ? 2 : 1), 0), 0), hard = cs.level === 'hard';
-    $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}${cs.photos.length} ${cs.photos.length === 1 ? 'photo' : 'photos'}, ${figs} hidden figures, one answer.</strong> ${fair} ${hard ? 'The gate and the shuttle stay on purpose; every other figure the case could spare was taken out. The cast is made of look-alikes.' : 'Every figure left in the photos is needed.'} Tap a spot to look closer.`;
-  } else $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}One answer, ${cs.clues.length} entries.</strong> ${fair} The proof checked ${cs.nodes.toLocaleString()} candidate rows.`;
+    $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}${cs.photos.length} ${cs.photos.length === 1 ? 'photo' : 'photos'}, ${figs} hidden figures, one answer.</strong> ${starsHtml(cs)} ${fair} ${hard ? 'The gate and the shuttle stay on purpose; every other figure the case could spare was taken out. The cast is made of look-alikes.' : 'Every figure left in the photos is needed.'} Tap a spot to look closer.`;
+  } else $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}One answer, ${cs.clues.length} entries.</strong> ${starsHtml(cs)} ${fair} The proof checked ${cs.nodes.toLocaleString()} candidate rows.`;
   buildCrewbar();
   $('case-kicker').textContent = `The case at ${ship.planet.name}`;
   applyHelps();
@@ -2107,6 +2109,16 @@ function lockRow(p, label) {
   for (let d = 0; d < CASE.D; d++) setCell(p, d, CASE.hinted[d][p] ? 'hint' : 'lock');
   if (helps.spent) renderEntries();
 }
+// How hard a case is, 1 to 4 stars, from its own hints: the biggest step (entries, or spots in a
+// photo case) and how many "suppose" steps it takes. Worked out the same way for every length.
+const STAR_WORD = ['', 'Easy', 'Medium', 'Hard', 'Very hard'];
+function caseStars(cs) {
+  const size = h => cs.style === 'photos' ? new Set(h.cites.map(i => cs.clues[i].fig)).size : h.cites.length;
+  const big = Math.max(0, ...(cs.hints || []).map(size)), sup = cs.supposes || 0;
+  return sup >= 3 ? 4 : sup >= 1 || big >= 4 ? 3 : big >= 3 ? 2 : 1;
+}
+const starRow = k => '★'.repeat(k) + '☆'.repeat(4 - k);
+const starsHtml = cs => { const k = caseStars(cs); return `<span class="stars" title="Difficulty ${k} of 4">${starRow(k)} ${STAR_WORD[k]}.</span>`; };
 // One line of a daily case's result: no squares, no score from anywhere but this page.
 function shareText() {
   const c = CASE, st = c.start || { hints: 0, shown: 0, tries: 0 }, day = dailyDay();
@@ -2115,7 +2127,7 @@ function shareText() {
   const date = fromYmd(day).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
   const how = c.shown ? '🔭 answer shown'
     : `${'👽'.repeat(c.n)} all ${c.n} found · ${tries} ${tries === 1 ? 'report' : 'reports'} · ${hints ? hints + (hints === 1 ? ' hint' : ' hints') : 'no hints'}${c.scanned >= 0 ? ' · 1 X-ray' : ''}`;
-  return `Pier 7 · ${date} · ${len}, ${c.style === 'photos' ? 'photos' : 'ledger'}\n${how}\nhttps://typingpoolgame.com/pier7/?day=${day}`;
+  return `Pier 7 · ${date} · ${len}, ${c.style === 'photos' ? 'photos' : 'ledger'} · ${starRow(caseStars(c))}\n${how}\nhttps://typingpoolgame.com/pier7/?day=${day}`;
 }
 function showShare() {
   const on = !!(CASE && CASE.closed && daily);
