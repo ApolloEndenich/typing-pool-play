@@ -770,8 +770,6 @@ function clueParts(c, cs) {
   let parts;
   const noneNot = c.pr && c.neg && c.pr.meta.kind === 'eq' && c.pr.meta.k === 0;   // "has antennae" said plainly
   if (c.type === 'feat' || c.type === 'notfeat') parts = [...Rf(c.d, c.v), ' ', ...(noneNot ? ['has at least one antenna'] : c.neg ? c.pr.neg : c.pr.pos)];
-  // a finger count in the ledger says nothing about suction cups; say so (the pictures put a ? on the tips)
-  if (c.pr && c.pr.meta.key === 'fingers' && !cs.photos) parts.push(', with or without suction cups');
   else if (c.type === 'link' || c.type === 'notlink') {
     const yes = c.type === 'link', a = cs.vals[c.d1][c.v1], b = cs.vals[c.d2][c.v2], k1 = cs.cols[c.d1], k2 = cs.cols[c.d2];
     if (k1 === 'name' && k2 === 'planet') parts = [{ t:a, k:'name' }, yes ? ' comes from ' : ' is not from ', { t:b, k:'planet' }];
@@ -780,6 +778,8 @@ function clueParts(c, cs) {
   }
   else if (c.type === 'compare') parts = [...Rf(c.da, c.va), ' has more ', NUMKEYS[c.key].noun, ' than ', ...Rf(c.db, c.vb)];
   else parts = [...Rf(c.da, c.va), ' and ', ...Rf(c.db, c.vb), ' ', SAMEPHRASE[c.key]];
+  // a finger count in the ledger says nothing about suction cups; say so (the pictures put a ? on the tips)
+  if ((c.type === 'feat' || c.type === 'notfeat') && c.pr.meta.key === 'fingers' && !cs.photos) parts.push(', with or without suction cups');
   if (typeof parts[0] === 'string') parts[0] = parts[0][0].toUpperCase() + parts[0].slice(1);
   return [...parts, '.'];
 }
