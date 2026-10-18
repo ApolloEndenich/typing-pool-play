@@ -3225,6 +3225,21 @@ function restore(s) {
   applyHelps();
   if (playMode === 'single' && CASE.closed) showSingleDone(false);
   showShare();
+  freshHints(CASE);
+}
+// A case saved before its hints were rewritten keeps the old ones in the save: take the bank's
+// current hints for it, as long as its entries are still the same.
+function freshHints(c) {
+  const m = /^(free|daily)-(\w+-\w+)-(\d+)$/.exec(c.id || '');
+  if (!m) return;
+  bankIndex().then(ix => {
+    const i = +m[3];
+    return bankShard(`${m[1]}-${m[2]}-${String(Math.floor(i / ix.shard)).padStart(2, '0')}`).then(sh => {
+      const b = sh[i % ix.shard];
+      if (CASE !== c || !b || JSON.stringify(b.clues) !== JSON.stringify(c.clues)) return;
+      c.hints = b.hints; c.supposes = b.supposes;
+    });
+  }).catch(() => {});
 }
 // ?day=today (or a date up to today) opens that day's case at once, as a single puzzle, with no story
 // in front of it: the address a list of daily games links to.
