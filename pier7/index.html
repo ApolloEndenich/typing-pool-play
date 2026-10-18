@@ -2346,6 +2346,37 @@ function stepLines(cs, steps) {
       const only = k === 'name' ? `Only ${P} can be ${t}` : k === 'planet' ? `Only ${P} can come from ${t}` : `Only ${P} can carry ${t}`;
       return `${only}, so ${what}.`;
     }
+    // a pair or a triple: as many values as aliens, so between them they take all of those values and nothing else
+    if (g.by === -3 || g.by === -4) {
+      const vs = [...Array(cs.n).keys()].filter(v => (g.x >> v) & 1), ps = [...Array(cs.n).keys()].filter(p => (g.x >> (8 + p)) & 1);
+      const k = cs.cols[g.d], t = vs.map(v => cs.vals[g.d][v]), W = 'Aliens ' + andList(ps.map(p => LETTERS[p]));
+      const num = ['', 'one', 'two', 'three', 'four'][vs.length], many = { name:'names', planet:'homes', cargo:'cargoes' }[k];
+      const can = k === 'name' ? `be ${orList(t)}` : k === 'planet' ? `come from ${orList(t)}` : `carry ${orList(t)}`;
+      const head = g.by === -3 ? `Only ${W} can ${can}` : `${W} can only ${can}`;
+      return `${head}: ${num} ${many} for ${num} aliens, so they share them out between them, and ${what}.`;
+    }
+    // entries that keep one value apart from every value this alien could still have in another column
+    if (g.by === -5) {
+      const d2 = Math.floor(g.x / 2 ** 24), low = g.x % 2 ** 24, ids = [...Array(24).keys()].filter(i => (low >> i) & 1);
+      const opts = [...new Set(ids.map(i => { const c = cs.clues[i]; return c.type === 'notlink' ? (c.d1 === d2 ? c.v1 : c.v2) : (c.da === d2 ? c.va : c.vb); }))];
+      const k1 = cs.cols[g.d], t1 = cs.vals[g.d][g.vs[0]], k2 = cs.cols[d2], t2 = orList(opts.map(v => cs.vals[d2][v]));
+      const subj = k1 === 'name' ? t1 : k1 === 'planet' ? `the alien from ${t1}` : `whoever carries ${t1}`;
+      const pred = k2 === 'name' ? `is not ${t2}` : k2 === 'planet' ? `is not from ${t2}` : `does not carry ${t2}`;
+      const P = 'Alien ' + LETTERS[g.ps[0]], can = k2 === 'name' ? `can only be ${t2}` : k2 === 'planet' ? `can only come from ${t2}` : `can only carry ${t2}`;
+      const head = ids.length > 1 ? `Entries ${andList(ids.map(i => String(i + 1)))} mean` : `Entry ${ids[0] + 1} means`;
+      return `${head} that ${subj} ${pred}. ${P} ${can}, so ${what}.`;
+    }
+    // two values on different aliens that only two aliens can hold: they hold one each, so a value
+    // kept apart from both goes to neither
+    if (g.by === -6) {
+      const low = g.x % 2 ** 24, hi = Math.floor(g.x / 2 ** 24), a = hi % 16, b = Math.floor(hi / 16) % 16, H = Math.floor(hi / 256);
+      const ids = [...Array(24).keys()].filter(i => (low >> i) & 1), n = cs.n;
+      const who = (d, v) => { const k = cs.cols[d], t = cs.vals[d][v]; return k === 'name' ? t : k === 'planet' ? `the alien from ${t}` : `whoever carries ${t}`; };
+      const X = who(Math.floor(a / n), a % n), Y = who(Math.floor(b / n), b % n), Z = g.vs.map(v => who(g.d, v));
+      const W = 'Aliens ' + andList([...Array(n).keys()].filter(p => (H >> p) & 1).map(p => LETTERS[p]));
+      const head = ids.length > 1 ? `Entries ${andList(ids.map(i => String(i + 1)))}` : `Entry ${ids[0] + 1}`;
+      return `${head}: ${X} and ${Y} are two different aliens, and only ${W} can be either, so ${W} are those two, one each. ${andList(Z).replace(/^./, c => c.toUpperCase())} ${Z.length > 1 ? 'are' : 'is'} neither of them, so ${what}.`;
+    }
     const c = cs.clues[g.by], r = why(c, g);
     let head = `Entry ${g.by + 1}`, verb = 'says';
     if (cs.style === 'photos') {
