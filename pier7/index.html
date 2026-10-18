@@ -1262,7 +1262,7 @@ const STATIONS = {
   blanket: { label:'asleep in a nap pod', shows:['color'], note:'Under the blanket only the glow of the sleeper\'s colour shows.' },
   gap:     { label:'through the little window in the shop door', shows:['pattern'], note:'The shop door is solid wood, with one small window of thick, smoked glass at belly height. Through it you see the markings on the belly (plain, spots or stripes), but no colour and nothing of the alien\'s outline.' },
   steam:   { label:'eyes in the steam room (1–2 or 3–4)', shows:['eyesFuzzy'], note:'The steam blurs the eyes. One round glow means 1 or 2 eyes, and a wide band means 3 or 4.' },
-  redlamp: { label:'a hand in the darkroom\'s red light', shows:['fingers','warmth'], note:'Fingers and suction cups show. Under red light, warm colours (pink, orange) glow bright and cool colours (green, blue, purple) look dark.' },
+  redlamp: { label:'a hand in the darkroom\'s red light', shows:['fingers','warmth'], note:'The fingers show, but the red light washes out the fingertips, so you cannot tell suction cups from plain tips. Under red light, warm colours (pink, orange) glow bright and cool colours (green, blue, purple) look dark.' },
   gate:    { label:'the two arriving together in one pod', shows:[], note:'Two aliens arrive in a two-seat pod. You see one thing of each (their eyes through the tinted windows, or their antennae over the rim) and hear both answers, but not who said which.' },
   shuttle: { label:'the shuttle with one seat empty', shows:[], note:'Everyone is aboard but one. Compare the passengers with the cards to see what the missing one looks like.' }
 };
@@ -1571,7 +1571,8 @@ const STATION_DRAW = {
     ctx.strokeStyle = 'rgba(255,160,160,.45)'; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(D.L + 14, 116); ctx.quadraticCurveTo(fx, 124, D.R - 14, 116); ctx.stroke();
     [D.L + 18, D.R - 38].forEach(x => { ctx.fillStyle = '#4a1a26'; ctx.fillRect(x, 118, 20, 24); ctx.fillStyle = '#7a3442'; ctx.fillRect(x + 3, 121, 14, 14); ctx.fillStyle = '#c9a0a0'; ctx.fillRect(x + 8, 114, 4, 7); });
     const warm = WARM.includes(a.color);
-    drawHand(ctx, fx, 168, a, warm ? '#ff8a6a' : '#5a1f2c', '#1a0508', warm ? '#ffc2a8' : '#7a3442', 1, 50);
+    // the red light washes out the fingertips: no suction cups show here (the case does not count on them)
+    drawHand(ctx, fx, 168, { ...a, cups: false }, warm ? '#ff8a6a' : '#5a1f2c', '#1a0508', warm ? '#ffc2a8' : '#7a3442', 1, 50);
     ctx.fillStyle = '#3a1a22'; ctx.fillRect(D.L, 204, D.R - D.L, FLOOR - 204); ctx.fillStyle = '#5a2a34'; ctx.fillRect(D.L - 4, 200, D.R - D.L + 8, 7);
     ctx.fillStyle = '#6a2a36'; [[D.L + 14, 40], [D.R - 58, 44]].forEach(([x, w]) => ctx.fillRect(x, 194, w, 7));
     sign(ctx, fx, 'camera', '#ff8a7a');
