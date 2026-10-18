@@ -31,6 +31,13 @@ body{background:var(--void);color:var(--ink);font-family:var(--f-body);font-size
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--void) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
 .bar .inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:10px}
 .brand{font-family:var(--f-display);font-weight:600;font-size:1.05rem}
+.brandrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+/* which case this is: today's or not, its number (in hand numerals, five fingers a hand, so they read as tens) and its stars */
+.casetag{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:.74rem;padding:2px 10px;border-radius:999px;border:1px solid var(--rule);background:var(--panel);color:var(--muted)}
+.casetag.today{border-color:var(--sun);color:var(--sun)}
+.casetag canvas{display:inline-block;height:20px;width:auto}
+.casetag .no{color:var(--ink)}
+.casetag .stars{font-size:.8rem}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-family:var(--f-mono);font-size:.76rem;padding:4px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--rule);color:var(--muted);font-variant-numeric:tabular-nums}
 .chip b{color:var(--ink);font-weight:600}
@@ -155,6 +162,10 @@ canvas.scene.scene-zoomed{width:100%;cursor:default}
 
 .log{background:var(--panel);border:1px solid var(--rule);border-radius:var(--r);padding:18px 20px;font-family:var(--f-mono);font-size:.88rem;line-height:1.6;min-width:0}
 .log h3{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mint);margin:0 0 4px;font-weight:600}
+.log-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px 12px;flex-wrap:wrap;margin-bottom:6px}
+.log-head h3{margin:6px 0 0}
+.ledger-tools{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-family:var(--f-body)}
+.ledger-tools .seg button{font-size:.78rem;padding:3px 10px}
 .log .sub{color:var(--muted);margin:0 0 12px;font-size:.82rem}
 .log ol{margin:0;padding-left:2.4em;display:grid;gap:9px}
 .log li::marker{color:var(--muted)}
@@ -188,6 +199,16 @@ canvas.glyph{display:inline-block;vertical-align:-0.45em;margin:0 2px}
 .signal h3{font-family:var(--f-display);font-weight:600;font-size:1.4rem;margin:0}
 .signal p{margin:0;color:var(--muted);max-width:68ch}
 .signal p strong{color:var(--ink)}
+.sig-text{color:var(--muted);max-width:68ch}
+.sig-text strong{color:var(--ink)}
+.sig-text .ex-head,.sig-text .ex-foot{display:block;margin-top:10px}
+.sig-text .ex-foot{font-size:.88rem}
+.placetab-wrap{display:block;overflow-x:auto;margin-top:6px}
+.placetab{border-collapse:collapse;font-family:var(--f-mono);font-size:.86rem;font-variant-numeric:tabular-nums;color:var(--ink)}
+.placetab th,.placetab td{padding:5px 10px;border:1px solid var(--rule);text-align:center;white-space:nowrap}
+.placetab thead th{color:var(--muted);font-weight:400;font-size:.76rem}
+.placetab tbody th{text-align:left;font-family:var(--f-body);font-weight:400;color:var(--muted)}
+.placetab td.sum{color:var(--sun);font-weight:600}
 .crew{border-radius:12px}
 .chart{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
 .chart button{font:inherit;text-align:left;background:var(--panel-2);color:var(--ink);border:1px solid var(--rule);border-radius:12px;padding:10px 12px;cursor:pointer;display:grid;gap:2px}
@@ -233,7 +254,9 @@ details.words{background:var(--panel);border:1px solid var(--rule);border-radius
 details.words summary{cursor:pointer;color:var(--sun);font-weight:700}
 details.words h4{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mint);margin:12px 0 4px}
 details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size:.86rem;display:grid;gap:4px}
-#spot-body canvas{width:100%;height:auto;border-radius:10px}
+/* a closer look always fits the window's height (never a scroll), keeping the spot's shape */
+#spot-body canvas{display:block;margin-inline:auto;height:auto;width:min(100%,calc((100vh - 190px) * var(--ar,1)));border-radius:10px}
+@supports (height:100dvh){#spot-body canvas{width:min(100%,calc((100dvh - 190px) * var(--ar,1)))}}
 .zoom-head .row{gap:8px}
 /* compact cards, so the cast, the photos and the buttons fit on one screen */
 #cast{scroll-margin-top:64px}
@@ -254,6 +277,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
 /* the cinema: take-off, the jump and the landing, over the whole window */
 .cine{position:fixed;inset:0;z-index:50;background:#090717;opacity:1;transition:opacity .45s ease}
 .cine.out{opacity:0}
+.cine:focus{outline:none}
 .cine-start{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;padding:16px}
 .cine-start[hidden]{display:none}
 .cine-start h2{font-family:var(--f-display);font-size:clamp(2.6rem,9vw,5rem);color:var(--sun);margin:0;line-height:1}
@@ -281,7 +305,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
 
 <div class="bar gutter">
   <div class="inner">
-    <div class="brand">Pier 7</div>
+    <div class="brandrow"><div class="brand">Pier 7</div><span class="casetag" id="case-tag" hidden></span></div>
     <div class="chips" aria-live="polite">
       <span class="chip">Pier <b id="c-pier">…</b></span>
       <span class="chip">Map <b id="c-map">0 of 4</b></span>
@@ -299,7 +323,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
       <p class="eyebrow">A deduction voyage · sketch</p>
       <h1>Solve the case, read the <em>hands</em>, jump.</h1>
       <p class="lede">The map to the Hidden Star was torn into pieces. At every starport one traveller carries a piece. Work out who is who from the customs photos or the cargo ledger, send your answer to the relay, then read the next coordinates on the crew's fingers and jump. The last piece leads to the treasure.</p>
-      <p class="lede"><strong>Choose how to play:</strong> <em>Photos</em> (customs camera spots, the easiest to start with) or <em>Ledger</em>, written in <em>Words</em>, <em>Pictures</em> or <em>Scenes</em>, with plain numbers or alien hand numerals. Play a whole <em>Voyage</em>, or just <em>Single puzzles</em> with no map and no jumps. Voyages come in four lengths: Quick and Short (3 aliens, 3 piers), Standard (4 and 4) and Long (5 and 5). <em>Today's case</em> is the same for everyone today. Helps lets you switch colour coding, hints, the X-ray and simple counting on or off. More under How to play, at the bottom.</p>
+      <p class="lede"><strong>Choose how to play:</strong> <em>Photos</em> (customs camera spots, the easiest to start with) or <em>Ledger</em>, written in <em>Words</em>, <em>Pictures</em> or <em>Scenes</em>, with plain numbers or alien hand numerals. Play a whole <em>Voyage</em>, or just <em>Single puzzles</em> with no map and no jumps. Voyages come in four lengths: Quick and Short (3 aliens, 3 piers), Standard (4 and 4) and Long (5 and 5). <em>Today's case</em> is the same for everyone today. Helps lets you switch colour coding, hints and the X-ray on or off, and choose how hard the finger counting is, from Toddler to Full. More under How to play, at the bottom.</p>
       <div class="hero-row"><button type="button" class="btn" id="to-case">To the case ↓</button><button type="button" class="btn ghost" id="story">▶ Watch the story</button></div>
     </header>
 
@@ -336,15 +360,18 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
           <button type="button" data-s="photos" aria-pressed="true">Photos</button>
           <button type="button" data-s="ledger" aria-pressed="false">Ledger</button>
         </div>
-        <div class="seg" id="ledger-mode" role="group" aria-label="How the ledger is written">
-          <button type="button" data-g="words" aria-pressed="false">Words</button>
-          <button type="button" data-g="pictures" aria-pressed="true">Pictures</button>
-          <button type="button" data-g="scenes" aria-pressed="false">Scenes</button>
-        </div>
-        <div class="seg" id="nums" role="group" aria-label="How the ledger writes numbers">
-          <button type="button" data-m="plain" aria-pressed="true">Plain numbers</button>
-          <button type="button" data-m="hand" aria-pressed="false">Hand numerals</button>
-        </div>
+        <!-- the ledger's own switches; they sit in the ledger's top right corner while a ledger case is open -->
+        <div id="ledger-park" hidden><div class="ledger-tools" id="ledger-tools">
+          <div class="seg" id="ledger-mode" role="group" aria-label="How the ledger is written">
+            <button type="button" data-g="words" aria-pressed="false">Words</button>
+            <button type="button" data-g="pictures" aria-pressed="true">Pictures</button>
+            <button type="button" data-g="scenes" aria-pressed="false">Scenes</button>
+          </div>
+          <div class="seg" id="nums" role="group" aria-label="How the ledger writes numbers">
+            <button type="button" data-m="plain" aria-pressed="true">Plain numbers</button>
+            <button type="button" data-m="hand" aria-pressed="false">Hand numerals</button>
+          </div>
+        </div></div>
         <button type="button" class="btn ghost" id="case-new">New case</button>
         <button type="button" class="btn ghost" id="case-daily">Today's case</button>
         <label class="daypick">Earlier days <input type="date" id="case-day" aria-label="Play the case of an earlier day"></label>
@@ -367,7 +394,14 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
           <label class="check"><input type="checkbox" id="h-spent"> Grey out log entries once the relay has confirmed every alien they mention</label>
           <label class="check"><input type="checkbox" id="h-hints" checked> Allow hints</label>
           <label class="check"><input type="checkbox" id="h-scan" checked> Allow one X-ray scan per case</label>
-          <label class="check"><input type="checkbox" id="h-simple"> Simple counting for younger players: one number, just count the raised fingers</label>
+          <label class="check pickhelp">Counting the coordinates
+            <select id="h-count">
+              <option value="toddler">Toddler: one crew member, count the raised fingers</option>
+              <option value="kids">Kids: two crew members, add all their raised fingers</option>
+              <option value="youth">Youth: two crew members, two places in their base</option>
+              <option value="full">Full: up to three places in their base</option>
+            </select>
+          </label>
         </div>
       </details>
       <p class="grade" id="grade">Fetching a case…</p>
@@ -384,7 +418,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
         <div class="hintbox" id="hintbox" hidden></div>
         <div class="signal" id="signal" hidden>
           <div class="sig-head"><h3 id="sig-title">Next coordinates</h3><button type="button" class="btn small ghost" id="case-again">Show the photos again</button></div>
-          <p id="sig-text"></p>
+          <div class="sig-text" id="sig-text"></div>
           <button type="button" class="look" id="crew-look" aria-label="Look closer at the crew's hands"><canvas class="crew" id="crew"></canvas></button>
           <p id="chart-ask"></p>
           <div class="chart" id="chart"></div>
@@ -417,7 +451,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
         <li><strong>Ledger:</strong> the same kind of case as a list of entries, in Words, Pictures or Scenes. ✓ ticks an entry off.</li>
         <li><strong>Stars</strong> say how hard a case is. ★ Easy: every step needs one or two entries (or photo spots). ★★ Medium: one step needs three. ★★★ Hard: a step needs four or more, or the case needs a "suppose" (try a value and watch it clash). ★★★★ Very hard: three or more "suppose" steps. Long ledger cases are mostly ★★★.</li>
         <li><strong>The relay</strong> confirms correctly identified aliens two at a time and never says which ones are wrong. <strong>Hint</strong> points at the next real deduction. Press it again (<strong>Explain</strong>) to see it worked out step by step, and once more (<strong>Show me</strong>) to fill that answer in. The counter at the top keeps all three: hints, explained, shown. The <strong>X-ray</strong> shows what one alien carries, once per case.</li>
-        <li><strong>The coordinates:</strong> the alien with the map piece has its crew hold up fingers, and each crew member is one digit in that species' counting. Pick the matching star and jump. <strong>Simple counting</strong>, under Helps, turns this into one number made of the raised fingers, for younger players.</li>
+        <li><strong>The coordinates:</strong> the alien with the map piece has its crew hold up fingers, and each crew member is one digit in that species' counting. Pick the matching star and jump. <strong>Counting</strong>, under Helps, has four levels: <em>Toddler</em> (one crew member, count the raised fingers), <em>Kids</em> (two members, add all their raised fingers), <em>Youth</em> (two members, two places in their base) and <em>Full</em> (up to three places).</li>
       </ul>
       <h3 class="kicker" id="guide-head">What each spot in the photos shows</h3>
       <p class="guide-note" id="guide-note" hidden></p>
@@ -427,7 +461,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
 </main>
 <footer class="gutter"><div class="inner">Every case is checked by a solver: one answer, reachable step by step. No image generator was used: Frau Kern from <a href="https://typingpoolgame.com/" target="_blank" rel="noopener">The Typing Pool</a> draws the pictures in the evenings, for her niece.</div></footer>
 
-<div class="cine" id="cine" hidden>
+<div class="cine" id="cine" tabindex="-1" hidden>
   <canvas id="cine-canvas" aria-hidden="true"></canvas>
   <p class="cine-cap" id="cine-cap" aria-live="polite"></p>
   <div class="cine-start" id="cine-start" hidden>
@@ -435,7 +469,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
     <p>Who came off the ship?</p>
     <div class="row"><button type="button" class="btn" id="cine-full">⛶ Play in full screen</button><button type="button" class="btn ghost" id="cine-here">Play in this window</button></div>
   </div>
-  <div class="cine-ui"><button type="button" class="btn small ghost" id="cine-skip">Skip ›</button></div>
+  <div class="cine-ui"><button type="button" class="btn small ghost" id="cine-skip" title="Skip (Esc)">Skip ›</button></div>
   <p class="cine-tap" id="cine-tap" hidden>Tap to go on</p>
 </div>
 
@@ -495,7 +529,7 @@ const views = new Set();
 const io = new IntersectionObserver(es => es.forEach(e => { const v = e.target._view; if (v) { v.visible = e.isIntersecting; if (v.visible) v.dirty = true; } }), { rootMargin: '120px' });
 const ro = new ResizeObserver(es => es.forEach(e => { const v = e.target._view; if (v) { sizeView(v); v.dirty = true; } }));
 function makeView(canvas, draw, opts = {}) {
-  const v = { canvas, draw, animated: opts.animated !== false, realtime: !!opts.realtime, dither: false, visible: true, dirty: true, scale: 1, cw: 1, ch: 1 };
+  const v = { canvas, draw, animated: opts.animated !== false, realtime: !!opts.realtime, read: !!opts.read, cap: opts.cap || 0, dither: false, visible: true, dirty: true, scale: 1, cw: 1, ch: 1 };
   canvas._view = v; views.add(v); io.observe(canvas); ro.observe(canvas); sizeView(v);
   return v;
 }
@@ -504,21 +538,35 @@ function sizeView(v) {
   const r = v.canvas.getBoundingClientRect();
   v.cw = Math.max(1, r.width); v.ch = Math.max(1, r.height);
   v.scale = v.dither ? .75 : Math.min(window.devicePixelRatio || 1, 2);
+  // a big canvas (the cinema, full screen) keeps to about cap pixels, so a frame never takes too long
+  if (v.cap && v.cw * v.ch * v.scale * v.scale > v.cap) v.scale = Math.max(.5, Math.sqrt(v.cap / (v.cw * v.ch)));
   v.canvas.width = Math.max(1, Math.round(v.cw * v.scale));
   v.canvas.height = Math.max(1, Math.round(v.ch * v.scale));
   v.canvas.style.imageRendering = v.dither ? 'pixelated' : '';
 }
 function renderView(v, t) {
-  const ctx = v.canvas.getContext('2d', { willReadFrequently: true });
+  // only the portraits read their pixels back (the X-ray dither); every other canvas stays on the GPU
+  const ctx = v.canvas.getContext('2d', v.read ? { willReadFrequently: true } : undefined);
   ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0, 0, v.canvas.width, v.canvas.height);
   ctx.setTransform(v.canvas.width / v.cw, 0, 0, v.canvas.height / v.ch, 0, 0);
   v.draw(ctx, v.cw, v.ch, t);
   if (v.dither) ditherCanvas(ctx, v.canvas.width, v.canvas.height);
 }
+// One loop draws every canvas. A canvas that fails is skipped for that frame and the loop goes on,
+// so one bad drawing can never stop the flights or leave the aliens blank. While the cinema covers
+// the window, only the cinema is drawn; everything under it is redrawn once it lifts.
+let wasCovered = false;
 function frame(ms) {
-  const t = ms / 1000, still = reduceMotion ? 0 : t;
-  for (const v of views) if (v.visible && (v.animated || v.dirty)) { renderView(v, v.realtime ? t : still); v.dirty = false; }
   requestAnimationFrame(frame);
+  const t = ms / 1000, still = reduceMotion ? 0 : t, covered = !$('cine').hidden && !$('cine').classList.contains('out');
+  if (wasCovered && !covered) for (const v of views) v.dirty = true;
+  wasCovered = covered;
+  for (const v of views) {
+    if (covered && v !== cineView) continue;
+    if (!(v.visible || v === cineView && cine.on) || !(v.animated || v.dirty)) continue;
+    try { renderView(v, v.realtime ? t : still); } catch (e) { if (!v.failed) console.error('A picture could not be drawn', e); v.failed = true; }
+    v.dirty = false;
+  }
 }
 const BAYER = [0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5];
 const D_INK = [24,30,44], D_PAPER = [214,236,240];
@@ -814,8 +862,9 @@ function clueParts(c, cs) {
   }
   else if (c.type === 'compare') parts = [...Rf(c.da, c.va), ' has more ', NUMKEYS[c.key].noun, ' than ', ...Rf(c.db, c.vb)];
   else parts = [...Rf(c.da, c.va), ' and ', ...Rf(c.db, c.vb), ' ', SAMEPHRASE[c.key]];
-  // a finger count in the ledger says nothing about suction cups; say so (the pictures put a ? on the tips)
-  if ((c.type === 'feat' || c.type === 'notfeat') && c.pr.meta.key === 'fingers' && !cs.photos) parts.push(', with or without suction cups');
+  // a finger count in the ledger says nothing about suction cups; say so (the pictures draw a hand with both kinds of tips)
+  const fingers = (c.type === 'feat' || c.type === 'notfeat') ? c.pr.meta.key === 'fingers' : (c.type === 'compare' || c.type === 'same') && c.key === 'fingers';
+  if (fingers && !cs.photos) parts.push(', with or without suction cups');
   if (typeof parts[0] === 'string') parts[0] = parts[0][0].toUpperCase() + parts[0].slice(1);
   return [...parts, '.'];
 }
@@ -872,14 +921,14 @@ function refTok(d, v, cs) {
 const ICON = {
   eye: () => ({ w: 16, draw: (ctx, x, H) => { const cy = H / 2; ctx.beginPath(); ctx.arc(x + 8, cy, 7, 0, TAU); ctx.fillStyle = '#fffaf0'; ctx.fill(); ctx.beginPath(); ctx.arc(x + 8, cy + 1, 4.4, 0, TAU); ctx.fillStyle = '#5fb8ff'; ctx.fill(); ctx.beginPath(); ctx.arc(x + 8, cy + 1, 2.2, 0, TAU); ctx.fillStyle = '#0d0b1f'; ctx.fill(); ctx.beginPath(); ctx.arc(x + 6.6, cy - .6, 1.2, 0, TAU); ctx.fillStyle = '#ffffff'; ctx.fill(); } }),
   ant: () => ({ w: 12, draw: (ctx, x, H) => { const cy = H / 2; ctx.beginPath(); ctx.moveTo(x + 6, cy + 11); ctx.quadraticCurveTo(x + 3, cy, x + 7, cy - 7); ctx.strokeStyle = '#f4eddc'; ctx.lineWidth = 2; ctx.lineCap = 'round'; ctx.stroke(); ctx.beginPath(); ctx.arc(x + 7, cy - 9, 3.4, 0, TAU); ctx.fillStyle = '#ffc857'; ctx.fill(); } }),
-  // q: a little ? over every fingertip, for a count that says nothing about suction cups
-  hand: (k, col = '#f4eddc', q = false) => ({ w: q ? 34 : 30, draw: (ctx, x, H) => {
-    const cx = x + (q ? 17 : 15), cy = H / 2 + 7, spread = Math.min(1.9, .5 * (k - 1)), L = q ? 13 : 15;
+  // mixed: every other fingertip has a suction cup, for a count that says nothing about cups (both kinds count)
+  hand: (k, col = '#f4eddc', mixed = false) => ({ w: 30, draw: (ctx, x, H) => {
+    const cx = x + 15, cy = H / 2 + 7, spread = Math.min(1.9, .5 * (k - 1)), L = 15;
     ctx.strokeStyle = col; ctx.lineCap = 'round'; ctx.lineWidth = 3.4;
     for (let i = 0; i < k; i++) {
       const a = -Math.PI / 2 + (k === 1 ? 0 : (i / (k - 1) - .5) * spread);
-      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a) * L, cy + Math.sin(a) * L); ctx.stroke();
-      if (q) { ctx.font = '700 9px Fredoka, "Trebuchet MS", sans-serif'; ctx.fillStyle = '#ffc857'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('?', cx + Math.cos(a) * 20, cy + Math.sin(a) * 20); ctx.textAlign = 'start'; }
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a) * L, cy + Math.sin(a) * L); ctx.strokeStyle = col; ctx.lineWidth = 3.4; ctx.stroke();
+      if (mixed && i % 2) { ctx.beginPath(); ctx.arc(cx + Math.cos(a) * (L + 1.5), cy + Math.sin(a) * (L + 1.5), 3.7, 0, TAU); ctx.fillStyle = '#c9f2e6'; ctx.fill(); ctx.strokeStyle = '#1b1633'; ctx.lineWidth = 1.2; ctx.stroke(); }
     }
     ctx.beginPath(); ctx.arc(cx, cy, 6, 0, TAU); ctx.fillStyle = col; ctx.fill();
   } }),
@@ -904,7 +953,7 @@ const GREY = 'hsl(250 10% 62%)';
 function glyphTok(n, cs) { const gh = 24, w = numberWidth(n, cs.scribe, gh); return { w, draw: (ctx, x, H) => drawNumber(ctx, n, cs.scribe, x, H / 2 - gh / 2 - 2, gh, '#f4eddc') }; }
 function countToks(key, k, cs) {
   const hand = numMode === 'hand';
-  if (key === 'fingers') return hand ? [glyphTok(k, cs), ICON.hand(3, MUTED, true)] : [ICON.hand(k, undefined, true)];
+  if (key === 'fingers') return hand ? [glyphTok(k, cs), ICON.hand(4, MUTED, true)] : [ICON.hand(k, undefined, true)];
   const one = key === 'eyes' ? ICON.eye : ICON.ant;
   if (k === 0) return [slashTok([one()])];
   if (hand) return [glyphTok(k, cs), one()];
@@ -929,7 +978,7 @@ function stackTok(icon, op) {
     ctx.save(); ctx.translate(0, H * .2); o.draw(ctx, x + (w - o.w) / 2, H); ctx.restore();
   } };
 }
-const keyIcon = key => key === 'fingers' ? ICON.hand(3, MUTED) : key === 'eyes' ? ICON.eye() : key === 'ant' ? ICON.ant() : key === 'color' ? ICON.blob('rainbow') : ICON.blob(GREY, 'both');
+const keyIcon = key => key === 'fingers' ? ICON.hand(4, MUTED, true) : key === 'eyes' ? ICON.eye() : key === 'ant' ? ICON.ant() : key === 'color' ? ICON.blob('rainbow') : ICON.blob(GREY, 'both');
 function predToks(pr, neg, cs) {
   const m = pr.meta;
   if (m.key in NUMKEYS) {
@@ -1002,7 +1051,7 @@ const SCENES = {
   // the alien hides behind crates against a lit window: only the antennae stick out, in silhouette
   ant(ctx, W, H, a, dpr) {
     ctx.fillStyle = '#231d47'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#18142f'; ctx.fillRect(0, H * .8, W, H);
-    const S = 130, cx = W * .72, cy = 112, ry = SHAPES[a.shape][2], top = cy + (60 - ry + 7 - 50) * S / 100;
+    const S = 130, cx = W * .72, cy = 112, ry = SHAPES[a.shape][2], top = cy + (60 - ry - 2 - 50) * S / 100;
     const g = ctx.createLinearGradient(0, 12, 0, top); g.addColorStop(0, '#ffe2ae'); g.addColorStop(1, '#f2b45e');
     ctx.fillStyle = g; ctx.fillRect(W * .53, 12, W * .38, top - 12);
     ctx.strokeStyle = '#3a2a52'; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(W * .72, 12); ctx.lineTo(W * .72, top); ctx.moveTo(W * .53, 12 + (top - 12) / 2); ctx.lineTo(W * .91, 12 + (top - 12) / 2); ctx.stroke();
@@ -1033,7 +1082,8 @@ const SCENES = {
     const g = ctx.createRadialGradient(lx, ly, 20, lx, ly, 120); g.addColorStop(0, '#fbeed4'); g.addColorStop(.75, 'rgba(251,238,212,.85)'); g.addColorStop(1, 'rgba(251,238,212,0)');
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     // the shadow of one hand: arm, palm, and every finger spread wide. The entry only counts fingers, so
-    // the real alien's suction cups are not drawn (they would say more than the entry): a ? over each tip
+    // the real alien's suction cups are not drawn (they would say more than the entry): every other tip
+    // gets a cup instead, the same sign as in the picture ledger that both kinds of finger count
     const k = a.fingers, px = lx, py = ly + 34, spread = Math.min(1.9, .45 * (k - 1));
     ctx.fillStyle = ctx.strokeStyle = 'rgba(40,30,58,.94)'; ctx.lineCap = 'round';
     ctx.lineWidth = 34; ctx.beginPath(); ctx.moveTo(px + 6, H + 20); ctx.lineTo(px, py); ctx.stroke();
@@ -1043,9 +1093,7 @@ const SCENES = {
       const ang = -Math.PI / 2 + (i / (k - 1) - .5) * spread, fx = px + Math.cos(ang) * 62, fy = py + Math.sin(ang) * 58;
       ctx.beginPath(); ctx.moveTo(px + Math.cos(ang) * 14, py + Math.sin(ang) * 14); ctx.lineTo(fx, fy); ctx.stroke();
     }
-    ctx.font = '700 19px Fredoka, "Trebuchet MS", sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    for (let i = 0; i < k; i++) { const ang = -Math.PI / 2 + (i / (k - 1) - .5) * spread; ctx.fillText('?', px + Math.cos(ang) * 82, py + Math.sin(ang) * 77); }
-    ctx.textAlign = 'start';
+    for (let i = 1; i < k; i += 2) { const ang = -Math.PI / 2 + (i / (k - 1) - .5) * spread; ctx.beginPath(); ctx.arc(px + Math.cos(ang) * 66, py + Math.sin(ang) * 62, 12, 0, TAU); ctx.fill(); }
     return lx - 92;
   },
   // something glows under a blanket: only its colour gets out
@@ -1054,9 +1102,10 @@ const SCENES = {
     ctx.fillStyle = '#141128'; ctx.fillRect(0, 0, W, H); ctx.fillStyle = '#0e0c1e'; ctx.fillRect(0, H * .78, W, H);
     const g = ctx.createRadialGradient(bx, H * .82, 6, bx, H * .82, 95); g.addColorStop(0, `hsl(${h} 90% 62% / .95)`); g.addColorStop(1, `hsl(${h} 90% 62% / 0)`);
     ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
-    ctx.beginPath(); ctx.moveTo(W * .5, H * .84); ctx.bezierCurveTo(W * .56, H * .2, W * .88, H * .2, W * .95, H * .84); ctx.closePath();
-    ctx.fillStyle = '#4a4670'; ctx.fill();
-    ctx.strokeStyle = '#3a3660'; ctx.lineWidth = 2; [[.62, .5], [.78, .45]].forEach(([fx, fy]) => { ctx.beginPath(); ctx.moveTo(W * fx, H * fy); ctx.quadraticCurveTo(W * (fx + .04), H * .7, W * (fx + .02), H * .82); ctx.stroke(); });
+    rrect(ctx, W * .5, H * .6, W * .45, H * .24, 10); ctx.fillStyle = '#4a4670'; ctx.fill();
+    ctx.strokeStyle = '#3a3660'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+    for (let x = W * .56; x < W * .94; x += W * .075) { ctx.beginPath(); ctx.moveTo(x, H * .62); ctx.lineTo(x, H * .82); ctx.stroke(); }
+    ctx.beginPath(); ctx.moveTo(W * .51, H * .72); ctx.lineTo(W * .94, H * .72); ctx.stroke(); ctx.setLineDash([]);
     ctx.beginPath(); ctx.moveTo(W * .5, H * .84); ctx.lineTo(W * .95, H * .84); ctx.strokeStyle = `hsl(${h} 95% 70%)`; ctx.lineWidth = 3; ctx.stroke();
     return W * .5 - 8;
   },
@@ -1209,7 +1258,7 @@ const STATIONS = {
   dark:    { label:'eyes in the dark storeroom', shows:['eyes'], note:'The light is out. Only the eyes shine: count them.' },
   curtain: { label:'a hand from the changing booth', shows:['fingers','cups','color'], note:'A hand reaches through the curtain: the fingers, any suction cups, and the colour of the skin.' },
   blanket: { label:'asleep in a nap pod', shows:['color'], note:'Under the blanket only the glow of the sleeper\'s colour shows.' },
-  gap:     { label:'through the clear strip in the shop door', shows:['pattern'], note:'The frosted door has one low strip of thick, smoked glass that magnifies. Through it you see the markings on the belly (plain, spots or stripes), but no colour.' },
+  gap:     { label:'through the little window in the shop door', shows:['pattern'], note:'The shop door is solid wood, with one small window of thick, smoked glass at belly height. Through it you see the markings on the belly (plain, spots or stripes), but no colour and nothing of the alien\'s outline.' },
   steam:   { label:'eyes in the steam room (1–2 or 3–4)', shows:['eyesFuzzy'], note:'The steam blurs the eyes. One round glow means 1 or 2 eyes, and a wide band means 3 or 4.' },
   redlamp: { label:'a hand in the darkroom\'s red light', shows:['fingers','warmth'], note:'Fingers and suction cups show. Under red light, warm colours (pink, orange) glow bright and cool colours (green, blue, purple) look dark.' },
   gate:    { label:'the two arriving together in one pod', shows:[], note:'Two aliens arrive in a two-seat pod. You see one thing of each (their eyes through the tinted windows, or their antennae over the rim) and hear both answers, but not who said which.' },
@@ -1359,14 +1408,6 @@ function sign(ctx, fx, icon, ink = '#f6efdc') {
   ctx.strokeStyle = ctx.fillStyle = ink; ctx.lineWidth = 1.8; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   SIGN[icon](ctx); ctx.restore(); ctx.textAlign = 'start';
 }
-// a body seen only as a dim, soft shape (the same for every alien, so no shape, colour or antennae show)
-function dimBody(ctx, fx, cy, S, col) {
-  const k = S / 100, x = fx, y = cy + 10 * k, rx = 27 * k, ry = 25 * k;
-  ctx.save(); ctx.translate(x, y); ctx.scale(1, ry / rx);
-  const g = ctx.createRadialGradient(0, 0, rx * .3, 0, 0, rx); g.addColorStop(0, col); g.addColorStop(.75, col); g.addColorStop(1, 'rgba(150,138,210,0)');
-  ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, rx, 0, TAU); ctx.fill(); ctx.restore();
-  [-10, 10].forEach(dx => { ctx.beginPath(); ctx.ellipse(fx + dx * k, cy + 35 * k, 7 * k, 3.5 * k, 0, 0, TAU); ctx.fillStyle = col; ctx.fill(); });
-}
 // a little key on the floor under the doorway, for the spots that blur what they show
 function plate(ctx, fx, draw) {
   rrect(ctx, fx - 70, 266, 122, 26, 8); ctx.fillStyle = 'rgba(14,12,32,.72)'; ctx.fill(); ctx.strokeStyle = 'rgba(244,237,220,.3)'; ctx.lineWidth = 1; ctx.stroke();
@@ -1426,7 +1467,6 @@ const STATION_DRAW = {
     [[D.L + 20, 118, 16, 22], [D.L + 40, 124, 12, 16], [D.R - 40, 120, 20, 20], [D.R - 36, 172, 18, 24], [D.L + 22, 176, 14, 20], [D.L + 20, 214, 22, 22], [D.R - 46, 218, 26, 18]].forEach(([x, y, w, h]) => ctx.fillRect(x, y, w, h));
     ctx.strokeStyle = 'rgba(170,160,215,.35)'; ctx.lineWidth = 1.2; ctx.beginPath(); ctx.moveTo(fx + 44, D.T); ctx.lineTo(fx + 44, D.T + 14); ctx.stroke();
     ctx.beginPath(); ctx.arc(fx + 44, D.T + 20, 6, 0, TAU); ctx.fillStyle = 'rgba(150,140,190,.3)'; ctx.fill();
-    dimBody(ctx, fx, cy, S, 'rgba(150,138,210,.16)');
     eyesInDark(ctx, fx, a, S, cy);
     sign(ctx, fx, 'broom');
   },
@@ -1461,16 +1501,18 @@ const STATION_DRAW = {
     gl.addColorStop(0, `hsl(${h} 90% 62% / .9)`); gl.addColorStop(1, `hsl(${h} 90% 62% / 0)`); ctx.fillStyle = gl; ctx.fillRect(L, T, R - L, B - T);
     ctx.fillStyle = '#cdc6e4'; ctx.fillRect(L + 4, B - 16, R - L - 8, 14);
     ctx.fillStyle = '#efeaf8'; ctx.beginPath(); ctx.ellipse(R - 34, B - 22, 22, 9, -.08, 0, TAU); ctx.fill();
-    ctx.beginPath(); ctx.moveTo(L + 8, B - 13); ctx.bezierCurveTo(L + 30, B - 60, R - 96, B - 64, R - 50, B - 14); ctx.closePath();
-    ctx.fillStyle = '#4a4670'; ctx.fill();
-    ctx.strokeStyle = '#3a3660'; ctx.lineWidth = 2; [.3, .55].forEach(u => { const x = L + 8 + u * (R - L - 58); ctx.beginPath(); ctx.moveTo(x, B - 46); ctx.quadraticCurveTo(x + 8, B - 30, x + 4, B - 15); ctx.stroke(); });
-    ctx.beginPath(); ctx.moveTo(L + 8, B - 13); ctx.lineTo(R - 50, B - 14); ctx.strokeStyle = `hsl(${h} 95% 70%)`; ctx.lineWidth = 3; ctx.stroke();
+    // a thick, flat quilt with a stitched check, the same for every sleeper
+    rrect(ctx, L + 6, B - 40, R - L - 54, 27, 9); ctx.fillStyle = '#4a4670'; ctx.fill();
+    ctx.strokeStyle = '#3a3660'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
+    for (let x = L + 30; x < R - 50; x += 26) { ctx.beginPath(); ctx.moveTo(x, B - 38); ctx.lineTo(x, B - 15); ctx.stroke(); }
+    ctx.beginPath(); ctx.moveTo(L + 8, B - 27); ctx.lineTo(R - 50, B - 27); ctx.stroke(); ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(L + 10, B - 13); ctx.lineTo(R - 50, B - 13); ctx.strokeStyle = `hsl(${h} 95% 70%)`; ctx.lineWidth = 3; ctx.stroke();
     ctx.restore();
     ctx.fillStyle = '#3a3270'; ctx.fillRect(L + 20, B + 7, 8, FLOOR - B - 7); ctx.fillRect(R - 28, B + 7, 8, FLOOR - B - 7);
     sign(ctx, fx, 'moon');
   },
-  // a shop door of frosted glass with one clear, smoked strip at belly height: through it the markings show,
-  // in grey, but no colour, no face and no outline
+  // a shop door of solid wood with one small, smoked window at belly height: through it the markings
+  // show, in grey, but no colour, no face and no outline (the window is too small for the body's edge)
   gap(ctx, x0, fx, a, S, cy, dpr) {
     const D = doorway(ctx, fx, '#2a2a3a', '#6d5d92');
     const Z = 300, ccy = cy + (78 - 50) * S / 100 - (78 - 50) * Z / 100, u = v => ccy + (v - 50) * Z / 100;
@@ -1481,16 +1523,19 @@ const STATION_DRAW = {
     const img = x.getImageData(0, 0, c.width, c.height), d = img.data;
     for (let i = 0; i < d.length; i += 4) { const l = .3 * d[i] + .59 * d[i + 1] + .11 * d[i + 2], v = Math.max(0, Math.min(255, (l - 140) * 3 + 128)); d[i] = d[i + 1] = d[i + 2] = v; }
     x.putImageData(img, 0, 0);
-    const gL = D.L + 8, gT = D.T + 8, gW = D.R - D.L - 16, gH = FLOOR - D.T - 12;
-    const fr = ctx.createLinearGradient(gL, gT, gL + gW, gT + gH); fr.addColorStop(0, '#d9dcf0'); fr.addColorStop(.5, '#c4c8e2'); fr.addColorStop(1, '#d4d7ee');
-    ctx.fillStyle = fr; ctx.fillRect(gL, gT, gW, gH);
-    if ('filter' in ctx) ctx.filter = 'blur(6px)';
-    dimBody(ctx, fx, cy, S, 'rgba(70,72,110,.35)'); ctx.filter = 'none';
-    ctx.fillStyle = 'rgba(255,255,255,.35)'; ctx.beginPath(); ctx.moveTo(gL + 10, gT + gH); ctx.lineTo(gL + 40, gT); ctx.lineTo(gL + 52, gT); ctx.lineTo(gL + 22, gT + gH); ctx.closePath(); ctx.fill();
+    // the door: wood with its grain, two panels, a brass handle
+    const dL = D.L + 4, dT = D.T + 4, dW = D.R - D.L - 8, dH = FLOOR - D.T - 6;
+    ctx.fillStyle = '#6b4329'; ctx.fillRect(dL, dT, dW, dH);
+    ctx.strokeStyle = 'rgba(40,22,12,.35)'; ctx.lineWidth = 1;
+    for (let y = dT + 6; y < dT + dH; y += 8) { ctx.beginPath(); ctx.moveTo(dL, y); ctx.bezierCurveTo(dL + dW * .3, y + 3, dL + dW * .6, y - 3, dL + dW, y + 1); ctx.stroke(); }
+    ctx.strokeStyle = 'rgba(30,16,8,.45)'; ctx.lineWidth = 2;
+    ctx.strokeRect(dL + 12, dT + 12, dW - 24, gy - dT - 26);
+    ctx.strokeRect(dL + 12, gy + gh + 14, dW - 24, dT + dH - gy - gh - 26);
+    ctx.fillStyle = '#e8c56a'; ctx.beginPath(); ctx.arc(dL + dW - 16, gy - 10, 5, 0, TAU); ctx.fill();
+    // the window, the only place the alien shows
     ctx.save(); ctx.beginPath(); ctx.rect(gx, gy, gw, gh); ctx.clip(); ctx.drawImage(c, x0, 0, SW, PH); ctx.fillStyle = 'rgba(24,22,40,.22)'; ctx.fillRect(gx, gy, gw, gh); ctx.restore();
-    ctx.strokeStyle = '#8a8fb0'; ctx.lineWidth = 2; ctx.strokeRect(gx, gy, gw, gh);
-    ctx.strokeStyle = '#9a9fc0'; ctx.lineWidth = 4; ctx.strokeRect(gL, gT, gW, gH);
-    ctx.fillStyle = '#e8d7a0'; rrect(ctx, D.R - 24, 160, 6, 44, 3); ctx.fill();
+    ctx.strokeStyle = '#3a2416'; ctx.lineWidth = 5; ctx.strokeRect(gx - 2, gy - 2, gw + 4, gh + 4);
+    ctx.strokeStyle = '#a07a52'; ctx.lineWidth = 1.5; ctx.strokeRect(gx - 4.5, gy - 4.5, gw + 9, gh + 9);
     sign(ctx, fx, 'bag');
   },
   // the steam room: the eyes blur into one round glow (1 or 2 eyes) or a wide band (3 or 4)
@@ -1502,7 +1547,6 @@ const STATION_DRAW = {
     ctx.fillStyle = '#8a6a48'; ctx.fillRect(D.L + 16, 216, D.R - D.L - 32, 8); ctx.fillRect(D.L + 24, 224, 6, FLOOR - 230); ctx.fillRect(D.R - 30, 224, 6, FLOOR - 230);
     const rnd = mulberry32(17 + Math.round(fx)), puff = (x, y, r, al) => { const p = ctx.createRadialGradient(x, y, 0, x, y, r); p.addColorStop(0, `rgba(236,242,250,${al})`); p.addColorStop(1, 'rgba(236,242,250,0)'); ctx.fillStyle = p; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); };
     for (let i = 0; i < 70; i++) puff(D.L + rnd() * (D.R - D.L), D.T + rnd() * (FLOOR - D.T), 5 + rnd() * 11, .16 + rnd() * .16);
-    dimBody(ctx, fx, cy, S, 'rgba(30,40,58,.45)');
     const g = geom(a, .6), k = S / 100, ey = cy + (g.by - 6 - 50) * k;
     if (a.eyes <= 2) { const gl = ctx.createRadialGradient(fx, ey, 2, fx, ey, 26); gl.addColorStop(0, 'rgba(255,250,225,.95)'); gl.addColorStop(1, 'rgba(255,250,225,0)'); ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(fx, ey, 26, 0, TAU); ctx.fill(); }
     else { const gl = ctx.createRadialGradient(fx, ey, 4, fx, ey, 40); gl.addColorStop(0, 'rgba(255,250,225,.92)'); gl.addColorStop(1, 'rgba(255,250,225,0)'); ctx.save(); ctx.translate(fx, ey); ctx.scale(1.5, .55); ctx.translate(-fx, -ey); ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(fx, ey, 40, 0, TAU); ctx.fill(); ctx.restore(); }
@@ -1560,7 +1604,7 @@ function drawGate(ctx, x0, f, cs) {
     f.ps.forEach((p, i) => {
       const a = cs.al[p], g = geom(a, .6), ey = cy + (g.by - 6 - 50) * k, R = 40;
       ctx.save(); ctx.beginPath(); ctx.arc(seats[i], ey, R, 0, TAU); ctx.fillStyle = '#08070f'; ctx.fill(); ctx.clip();
-      dimBody(ctx, seats[i], cy, S, 'rgba(150,138,210,.14)'); eyesInDark(ctx, seats[i], a, S, cy);
+      eyesInDark(ctx, seats[i], a, S, cy);
       ctx.fillStyle = 'rgba(160,190,255,.10)'; ctx.beginPath(); ctx.ellipse(seats[i] - 14, ey - 18, 10, 18, .6, 0, TAU); ctx.fill();
       ctx.restore();
       ctx.beginPath(); ctx.arc(seats[i], ey, R, 0, TAU); ctx.strokeStyle = '#5d6478'; ctx.lineWidth = 6; ctx.stroke();
@@ -1696,6 +1740,7 @@ function openSpotZoom(cs, f, pi) {
   const ab = $('spot-aside');
   ab.textContent = cs.spotAside.has(f.id) ? '↺ Bring this spot back' : '✕ Put this spot aside';
   ab.onclick = () => { cs.spotAside.has(f.id) ? cs.spotAside.delete(f.id) : cs.spotAside.add(f.id); renderPhotos(); closeSpotZoom(); };
+  cv.style.setProperty('--ar', String(w / PH));
   const b = $('spot-body'); b.innerHTML = ''; b.append(cv);
   $('spot-aside').hidden = false;
   const d = $('spot-zoom'); if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
@@ -1795,9 +1840,16 @@ function renderWords() {
 }
 
 /* ---------- game state ---------- */
-const helps = { colour:true, grey:true, key:true, explain:true, hints:true, scan:true, simple:false, tick:true, spent:false, chart:'decimal' };
-try { Object.assign(helps, JSON.parse(localStorage.getItem('lab2-helps') || '{}')); } catch (e) {}
-const HELP_KEYS = ['colour','grey','key','explain','hints','scan','simple','tick','spent'];
+// count: how the crew signals the next pier, from Toddler (one member, count the fingers) to Full (up to three places)
+const helps = { colour:true, grey:true, key:true, explain:true, hints:true, scan:true, count:'full', tick:true, spent:false, chart:'decimal' };
+const COUNT_NAME = { toddler:'Toddler', kids:'Kids', youth:'Youth', full:'Full' };
+try {
+  const kept = JSON.parse(localStorage.getItem('lab2-helps') || '{}');
+  if (kept.simple && !kept.count) kept.count = 'toddler';   // the old "simple counting" switch
+  delete kept.simple; Object.assign(helps, kept);
+  if (!COUNT_NAME[helps.count]) helps.count = 'full';
+} catch (e) {}
+const HELP_KEYS = ['colour','grey','key','explain','hints','scan','tick','spent'];
 const saveHelps = () => { try { localStorage.setItem('lab2-helps', JSON.stringify(helps)); } catch (err) {} };
 const score = { piers:1, hints:0, explained:0, shown:0, scans:0, tries:0 };
 let hintExplained = false;   // the open hint has had its Explain press
@@ -1816,17 +1868,32 @@ function updateChips() {
   $('c-pier').textContent = ship.planet.name; $('c-map').textContent = `${voyage.pieces} of ${voyage.len}`;
   $('c-hints').textContent = [score.hints, score.explained ? `${score.explained} explained` : '', score.shown ? `${score.shown} shown` : ''].filter(x => x !== '').join(' · '); $('c-scans').textContent = score.scans; $('c-tries').textContent = score.tries;
   const on = ['colour','grey','key','explain','hints','scan','spent'].filter(k => helps[k]).length;
-  $('helps-sum').textContent = `Helps · ${on} of 7 on${helps.simple ? ' · simple counting' : ''}`;
+  $('helps-sum').textContent = `Helps · ${on} of 7 on · counting: ${COUNT_NAME[helps.count]}`;
 }
 const cellPhrase = (p, d) => { const k = CASE.cols[d]; return k === 'name' ? `Alien ${LETTERS[p]}'s name` : k === 'planet' ? `Alien ${LETTERS[p]}'s home` : `what Alien ${LETTERS[p]} carries`; };
 const cellFact = (cs, p, d, v) => { const k = cs.cols[d], t = cs.vals[d][v]; return k === 'name' ? `Alien ${LETTERS[p]} is ${t}` : k === 'planet' ? `Alien ${LETTERS[p]} comes from ${t}` : `Alien ${LETTERS[p]} carries ${t}`; };
 
+// The tag next to the name in the top bar: today's case (or the day it belongs to, or a free case),
+// its number in the bank, and its stars. The number is drawn in hand numerals of five-fingered
+// hands, which count in tens, so anyone can read it; the plain number is in the tooltip.
+function caseTag() {
+  const el = $('case-tag'); el.innerHTML = ''; el.hidden = !CASE; if (!CASE) return;
+  const m = /^(daily|free)-(\w+)-(\w+)-(\d+)$/.exec(CASE.id || ''), no = m ? +m[4] + 1 : 0, isDaily = m && m[1] === 'daily';
+  const today = isDaily && dailyDay() === ymd(new Date());
+  const what = !isDaily ? 'Free case' : today ? "Today's case" : fromYmd(dailyDay()).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+  el.classList.toggle('today', !!today);
+  const w = document.createElement('span'); w.textContent = what; el.append(w);
+  if (no) { const g = glyphCanvas(no, 5), n = document.createElement('span'); n.className = 'no'; n.textContent = no; el.append('No.', g, n); }
+  const st = document.createElement('span'); st.className = 'stars'; st.textContent = starRow(caseStars(CASE)); el.append(st);
+  el.title = `${what}${m ? `, ${m[2]} ${m[3]} case number ${no}` : ''}, ${STAR_WORD[caseStars(CASE)].toLowerCase()} (${caseStars(CASE)} of 4 stars)`;
+}
 function renderCase() {
-  caseViews.forEach(dropView); caseViews = []; pendingHint = null;
+  caseViews.forEach(dropView); caseViews = []; pendingHint = null; hintExplained = false; $('case-hint').textContent = 'Hint';
+  $('ledger-park').append($('ledger-tools'));
   $('cast').innerHTML = ''; $('log').innerHTML = '';
   if (CASE) $('cast').style.setProperty('--n', CASE.n); $('verdict').textContent = ''; $('verdict').className = 'verdict';
   $('hintbox').hidden = true; $('signal').hidden = true; signal = null; $('share').hidden = true; $('log').hidden = $('words-slot').hidden = false; $('single-done').hidden = true;
-  if (!CASE) { buildCrewbar(); $('grade').textContent = 'The case could not be loaded. Check the connection, then press New case.'; return; }
+  if (!CASE) { buildCrewbar(); caseTag(); $('grade').textContent = 'The case could not be loaded. Check the connection, then press New case.'; return; }
   const cs = CASE;
   cs.al.forEach((a, p) => {
     const card = document.createElement('div'); card.className = 'card'; card.id = `card-${p}`;
@@ -1863,20 +1930,20 @@ function renderCase() {
         const sweep = (t - v.scanT) / 1.4;
         if (sweep < 1 && !reduceMotion) { ctx.fillStyle = 'rgba(255,255,255,.85)'; ctx.fillRect(0, h * sweep - 3, w, 6); }
       } else { paintBench(ctx, w, h); drawShadow(ctx, w / 2, h * .86, w * .24); drawAlien(ctx, a, w / 2, h / 2, s, t); }
-    }, { animated: !reduceMotion });
+    }, { animated: !reduceMotion, read: true });
     v.portrait = p; caseViews.push(v);
   });
   cs.done = new Set();
   $('log').classList.toggle('photomode', cs.style === 'photos');
   $('words-slot').innerHTML = '';
   if (cs.style === 'photos') { $('log').innerHTML = '<div class="photos" id="photos"></div>'; $('words-slot').innerHTML = '<details class="words"><summary>What the photos show, in words</summary><div id="words-body"></div></details>'; litNow = new Set(); renderWords(); }
-  else $('log').innerHTML = `<h3>Cargo ledger,${ship.planet.name} · Pier 7</h3><p class="sub" id="log-sub"></p><div class="key" id="numkey"></div><div id="entries"></div>`;
-  const fair = cs.supposes ? `It can be solved step by step, and ${cs.supposes === 1 ? 'one of the steps needs' : cs.supposes + ' of the steps need'} a "suppose" (try a value, watch it break).` : 'It can be solved step by step without ever guessing.';
+  else { $('log').innerHTML = `<div class="log-head"><h3>Cargo ledger, ${ship.planet.name} · Pier 7</h3></div><p class="sub" id="log-sub"></p><div class="key" id="numkey"></div><div id="entries"></div>`; $('log').querySelector('.log-head').append($('ledger-tools')); }
+  const fair = cs.supposes ? `It can be solved step by step, and ${cs.supposes === 1 ? 'one of the steps needs' : cs.supposes + ' of the steps need'} a "suppose" (try a value, watch it break).` : 'It can be worked out step by step, without ever having to guess.';
   if (cs.style === 'photos') {
     const figs = cs.photos.reduce((t, ph) => t + ph.reduce((u, f) => u + (f.absence ? cs.n - 1 : f.group ? 2 : 1), 0), 0), hard = cs.level === 'hard';
     $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}${cs.photos.length} ${cs.photos.length === 1 ? 'photo' : 'photos'}, ${figs} hidden figures, one answer.</strong> ${starsHtml(cs)} ${fair} ${hard ? 'The gate and the shuttle stay on purpose; every other figure the case could spare was taken out. The cast is made of look-alikes.' : 'Every figure left in the photos is needed.'} Tap a spot to look closer.`;
-  } else $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}One answer, ${cs.clues.length} entries.</strong> ${starsHtml(cs)} ${fair} The proof checked ${cs.nodes.toLocaleString()} candidate rows.`;
-  buildCrewbar();
+  } else $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}${cs.clues.length} entries in the ledger, and only one answer fits them all.</strong> ${starsHtml(cs)} ${fair}`;
+  buildCrewbar(); caseTag();
   $('case-kicker').textContent = `The case at ${ship.planet.name}`;
   applyHelps();
   if (scrollToCast) { scrollToCast = false; requestAnimationFrame(toCase); }
@@ -1927,11 +1994,13 @@ function renderEntries() {
   cs.clues.forEach((c, i) => { const done = helps.tick && cs.done.has(i); (done ? shut : open).append(mk(i, done)); });
   box.append(open);
   if (shut.children.length) { const h = document.createElement('p'); h.className = 'done-head'; h.textContent = 'Done with'; box.append(h, shut); }
+  // an open hint keeps its entries marked when the ledger is redrawn (Words, Pictures, Scenes, ticks)
+  if (pendingHint) markCited(pendingHint.suppose ? pendingHint.suppose.why : pendingHint.cites);
 }
 $('h-chart').addEventListener('change', e => { helps.chart = e.target.value; saveHelps(); applyHelps(); });
 function applyHelps() {
   HELP_KEYS.forEach(k => { $('h-' + k).checked = helps[k]; });
-  $('h-chart').value = helps.chart;
+  $('h-chart').value = helps.chart; $('h-count').value = helps.count;
   $('nums').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.m === numMode)));
   $('ledger-mode').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.g === ledgerMode)));
   $('case-style').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.s === caseStyle)));
@@ -2081,6 +2150,12 @@ function openPick(p, d) {
 document.addEventListener('pointerdown', e => { if (openMenu && !openMenu.el.contains(e.target) && e.target.closest('.pick') !== openMenu.btn) closePick(); });
 addEventListener('scroll', () => closePick(), { passive: true }); let pickW = innerWidth; addEventListener('resize', () => { if (innerWidth !== pickW) { pickW = innerWidth; closePick(); } });  // a phone's bar sliding away changes only the height
 HELP_KEYS.forEach(k => $('h-' + k).addEventListener('change', e => { helps[k] = e.target.checked; saveHelps(); applyHelps(); }));
+// a new counting level while the coordinates show (and no star is picked yet): a new signal that fits it
+$('h-count').addEventListener('change', e => {
+  helps.count = e.target.value; saveHelps();
+  if (signal && signal.a && !$('signal').hidden && !signal.choices.some(c => c.right)) { signalNumbers(signal); showSignal(false); }
+  applyHelps();
+});
 
 // One scan per case. The scanned portrait can switch between its X-ray and its normal look as often as you like.
 function scan(p) {
@@ -2166,7 +2241,7 @@ $('single-again').addEventListener('click', () => singleCase($('log').hidden));
 $('single-next').addEventListener('click', () => { daily = false; R = Math.random; scrollToCast = true; newCase(); });
 $('play-mode').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b || b.dataset.p === playMode || ship.phase !== 'idle') return;
-  playMode = b.dataset.p; daily = false; R = Math.random;
+  playMode = b.dataset.p; daily = firstCase(); R = Math.random;
   $('finale').hidden = true; $('case-bench').hidden = false;
   if (playMode === 'voyage') { startVoyage(); updateChips(); }
   applyHelps(); newCase();
@@ -2343,31 +2418,41 @@ function openSignal() {
   const cc = cargoCol(cs), holder = cs.T[cc].indexOf(cs.vals[cc].indexOf(CARGO[0]));
   const a = cs.al[holder], f = a.fingers, base = 2 * f;
   const name = cs.vals[0][cs.T[0][holder]];
-  const simple = helps.simple;
-  const coord = simple ? 1 + Math.floor(Math.random() * base) : 20 + Math.floor(Math.random() * 230);
-  const digits = simple ? [coord] : digitsOf(coord, base);
-  const crew = digits.map((d, i) => ({ ...a, seed: a.seed + i * 13.7, pose: { l: Math.min(d, f), r: Math.max(0, d - f) } }));
-  const opts = new Set([coord]);
-  if (simple) {
-    [coord - 1, coord + 1, base, coord + 2].forEach(v => { if (v > 0 && opts.size < 4) opts.add(v); });
-  } else {
-    const asDecimal = +digits.join(''); if (asDecimal !== coord && asDecimal < 10000) opts.add(asDecimal);
-    for (const g of [2, 3, 4, 5]) if (g !== f && opts.size < 4 && digits.every(d => d < 2 * g)) opts.add(digits.reduce((s, d) => s * 2 * g + d, 0));
-  }
-  while (opts.size < 4) opts.add(simple ? 1 + Math.floor(Math.random() * 12) : 20 + Math.floor(Math.random() * 230));
   met.piers.add(ship.planet.name);
   let pool = WORLDS.filter(w => !met.piers.has(w));
   if (pool.length < 4) { met.piers.clear(); met.piers.add(ship.planet.name); pool = WORLDS.filter(w => w !== ship.planet.name); }
   const worlds = shuffle(pool).slice(0, 4);
   voyage.pieces = Math.min(voyage.len, voyage.pieces + 1); voyage.holders.push({ ...a, name });
   const last = voyage.pieces >= voyage.len;
-  signal = { coord, crew, name, f, base, simple, last, D: cs.D, choices: shuffle([...opts]).map((v, i) => ({ v, world: worlds[i], wrong: false })) };
-  if (last) signal.choices.find(c => c.v === coord).world = 'the Hidden Star';
+  signal = { a, name, f, base, last, worlds, D: cs.D };
+  signalNumbers(signal);
   updateChips();
   showSignal(true);
 }
+// The number the crew shows, the crew, and the four stars on the chart. Done again when the
+// counting help changes before a star is picked, so the signal always fits the help that is on.
+// On the last leg every star is uncharted: the Hidden Star's name would give the answer away.
+function signalNumbers(sg) {
+  const { a, f, base, worlds, last } = sg, mode = helps.count, r = n => Math.floor(Math.random() * n);
+  let digits, coord;
+  if (mode === 'toddler') { coord = 1 + r(base); digits = [coord]; }                                      // one member: all the raised fingers
+  else if (mode === 'kids') { digits = [1 + r(base), 1 + r(base)]; coord = digits[0] + digits[1]; }       // two members, added up
+  else if (mode === 'youth') { digits = [1 + r(base - 1), r(base)]; coord = digits[0] * base + digits[1]; }   // two places
+  else { coord = 20 + r(230); digits = digitsOf(coord, base); }                                            // up to three places
+  const crew = digits.map((d, i) => ({ ...a, seed: a.seed + i * 13.7, pose: { l: Math.min(d, f), r: Math.max(0, d - f) } }));
+  const opts = new Set([coord]), counting = mode === 'toddler' || mode === 'kids';
+  if (counting) [coord - 1, coord + 1, coord + 2, coord - 2].forEach(v => { if (v > 0 && opts.size < 4) opts.add(v); });
+  else {
+    const asDecimal = +digits.join(''); if (asDecimal !== coord && asDecimal < 10000) opts.add(asDecimal);
+    for (const g of [2, 3, 4, 5]) if (g !== f && opts.size < 4 && digits.every(d => d < 2 * g)) opts.add(digits.reduce((s, d) => s * 2 * g + d, 0));
+  }
+  while (opts.size < 4) opts.add(counting ? 1 + r(2 * base + 2) : mode === 'youth' ? base + r(base * base - base) : 20 + r(230));
+  Object.assign(sg, { coord, crew, mode, choices: shuffle([...opts]).map((v, i) => ({ v, world: last ? 'An uncharted star' : worlds[i], wrong: false })) });
+}
+const sigMode = sg => sg.mode || (sg.simple ? 'toddler' : 'full');   // signals saved before the counting levels
+const placesMode = sg => { const m = sigMode(sg); return m === 'youth' || m === 'full'; };
 function showSignal(scroll) {
-  const { crew, name, f, base, simple } = signal, digits = crew.map(c => c.pose.l + c.pose.r);
+  const { crew, name, f, base } = signal, digits = crew.map(c => c.pose.l + c.pose.r), places = placesMode(signal);
   renderSignalText();
   const cv = $('crew'); cv.style.aspectRatio = `${Math.max(2, crew.length) * .85} / 1.1`;
   if (crewView) dropView(crewView);
@@ -2376,7 +2461,7 @@ function showSignal(scroll) {
     const sw = w / crew.length, sz = Math.min(sw * 1.05, h * .88);
     crew.forEach((c, i) => {
       drawShadow(ctx, sw * (i + .5), h * .82, sz * .22); drawAlien(ctx, c, sw * (i + .5), h * .45, sz, t, c.pose);
-      if (helps.explain && !simple) {
+      if (helps.explain && places) {
         ctx.fillStyle = '#ffc857'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
         ctx.font = `600 ${Math.round(Math.max(12, h * .065))}px "JetBrains Mono", monospace`;
         const pv = base ** (crew.length - 1 - i);
@@ -2397,14 +2482,29 @@ function showCaseAgain(on) {
   $('case-again').setAttribute('aria-expanded', String(on));
 }
 $('case-again').addEventListener('click', () => showCaseAgain($('log').hidden));
+// A worked example under the explanation: the same three digits read in tens and in the species'
+// base, place by place. Never the digits of the signal itself.
+function placeTable(base, real) {
+  const n = real.length < 3 ? 2 : 3, ex = [2, 5, 3].slice(0, n).map(d => Math.min(d, base - 1));
+  if (ex.join() === real.join()) ex[n - 1] = (ex[n - 1] + 1) % base;
+  const row = (b, label) => {
+    const pv = (n === 3 ? [b * b, b, 1] : [b, 1]), parts = ex.map((d, i) => d * pv[i]);
+    return `<tr><th scope="row">${label}</th>${ex.map((d, i) => `<td>${d} × ${pv[i]} = ${parts[i]}</td>`).join('')}<td class="sum">${parts.reduce((x, y) => x + y, 0)}</td></tr>`;
+  };
+  const heads = ['1st member', '2nd member', '3rd member'].slice(0, n).map(t => `<th scope="col">${t}</th>`).join('');
+  return `<span class="ex-head">For example, ${n === 3 ? 'three' : 'two'} crew members showing ${andList(ex.map(String))}:</span>`
+    + `<span class="placetab-wrap"><table class="placetab"><thead><tr><th></th>${heads}<th scope="col">number</th></tr></thead><tbody>`
+    + row(10, 'In tens, as we count') + row(base, `In ${base}s, as they count`)
+    + `</tbody></table></span><span class="ex-foot">${n === 3 ? `In tens the places are worth 100 (10 × 10), 10 and 1. In ${base}s they are worth ${base * base} (${base} × ${base}), ${base} and 1.` : `In tens the places are worth 10 and 1. In ${base}s they are worth ${base} and 1.`}</span>`;
+}
 function renderSignalText() {
-  const { name, f, base, simple, coord, D } = signal;
+  const { name, f, base, crew } = signal, mode = sigMode(signal);
   const who = `<strong>${name}</strong> carries the map fragment.`;
-  const ex = coord === base + 2 ? [1, 1] : [1, Math.min(2, base - 1)], exVal = ex[0] * base + ex[1];
   let txt;
-  if (simple) txt = `${who} ${name} holds up the number of the next pier. Count the raised fingers on both hands together. Folded stubs count as nothing.`;
+  if (mode === 'toddler') txt = `${who} ${name} holds up the number of the next pier. Count the raised fingers on both hands together. Folded stubs count as nothing.`;
+  else if (mode === 'kids') txt = `${who} ${name}'s crew holds up the number of the next pier together. Count every raised finger on all their hands and add them up. Folded stubs count as nothing.`;
   else if (!helps.explain) txt = `${who} ${name}'s crew signals the coordinates.`;
-  else txt = `${who} ${name}'s crew signals the coordinates, and <strong>each crew member shows one digit</strong>. To read a digit, add up the raised fingers on both hands together. It doesn't matter which hand, and folded stubs count as nothing. ${name}'s species has ${f} fingers on each hand, so one member can show 0 to ${base - 1}, and they count in ${base}s where we count in tens. Read the digits left to right. Each place is worth ${base} times the place to its right. For example, two members showing 1 and ${ex[1]} would mean 1 × ${base} + ${ex[1]} = ${exVal}.`;
+  else txt = `${who} ${name}'s crew signals the coordinates, and <strong>each crew member shows one digit</strong>. To read a digit, add up the raised fingers on both hands together. It doesn't matter which hand, and folded stubs count as nothing. ${name}'s species has ${f} fingers on each hand, ${base} in all, so they count in ${base}s where we count in tens. A member shows a digit from 0 to ${base - 1}. All ${base} fingers up is never a digit: just as our ten is written 10, ${base} moves one place to the left as a 1, with a 0 after it. Read the digits left to right: each place is worth ${base} times the place to its right.` + placeTable(base, crew.map(c => c.pose.l + c.pose.r));
   $('sig-title').textContent = signal.last ? 'The last piece of the map' : `Map piece ${voyage.pieces} of ${voyage.len}`;
   if (signal.last) txt += ' <strong>The map is complete. These coordinates lead to the treasure.</strong>';
   $('sig-text').innerHTML = txt;
@@ -2433,15 +2533,15 @@ $('crew-look').addEventListener('click', e => {
   openZoom(signal.crew[i], signal.crew[i].pose, `Crew member ${i + 1} of ${k}`);
 });
 function chooseStar(ch, btn) {
-  if (ship.phase !== 'idle') return;
+  if (ship.phase !== 'idle' || cine.on || gate) return;
   if (ch.v !== signal.coord) {
     btn.disabled = true; ch.wrong = true;
-    $('sig-verdict').textContent = `Nothing at ${ch.world} but dust. Count the raised fingers of each crew member again, and read in their base.`;
+    $('sig-verdict').textContent = `Nothing at ${signal.last ? 'that star' : ch.world} but dust. Count the raised fingers of each crew member again, and read in their base.`;
     $('sig-verdict').className = 'verdict bad'; return;
   }
   ch.right = true;
   $('chart').querySelectorAll('button').forEach(b => b.disabled = true);
-  $('sig-verdict').textContent = `Course set for ${ch.world}. Hold on.`; $('sig-verdict').className = 'verdict good';
+  $('sig-verdict').textContent = signal.last ? 'Course set for the uncharted star. Hold on.' : `Course set for ${ch.world}. Hold on.`; $('sig-verdict').className = 'verdict good';
   if (signal.last) {
     ship.next = { name: 'the Hidden Star', kind: 'gas', label: 'treasure world', hue: 42, ring: true, seed: 4242, tilt: -.25, tex: null };
     ship.onArrive = showFinale;
@@ -2449,7 +2549,6 @@ function chooseStar(ch, btn) {
     ship.next = makePlanet(ch.world);
     ship.onArrive = () => { score.piers++; daily = false; R = Math.random; scrollToCast = true; newCase(); };
   }
-  ship.next.tex = planetTexture(ship.next);
   ship.phase = 'jump';
   playJump(ship.planet, ship.next, null, () => { ship.planet = ship.next; ship.next = null; ship.phase = 'idle'; const f = ship.onArrive; ship.onArrive = null; if (f) f(); });
 }
@@ -2509,7 +2608,7 @@ function showFinale() {
   $('finale').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
 }
 function newVoyage() {
-  if (ship.phase !== 'idle') return;
+  if (ship.phase !== 'idle' || cine.on || gate) return;
   const from = ship.planet, to = makePlanet(pick(WORLDS.filter(w => w !== from.name)));
   $('finale').hidden = true; $('case-bench').hidden = false; met.piers.clear();
   startVoyage(); daily = false; R = Math.random; updateChips();
@@ -2589,6 +2688,9 @@ function prepCase(c, isDaily) {
   return c;
 }
 let caseTicket = 0;
+// a new length, style or Single puzzles opens with today's case for it; New case gives a random one.
+// A voyage takes random cases at every pier.
+const firstCase = () => playMode === 'single' ? ymd(new Date()) : false;
 function newCase() {
   $('grade').textContent = 'Fetching a case…';
   const ticket = ++caseTicket, isDaily = daily === true ? ymd(new Date()) : daily;
@@ -2604,16 +2706,20 @@ function newCase() {
   });
 }
 $('lvl').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
-  level = b.dataset.l; daily = false; R = Math.random;
+  const b = e.target.closest('button'); if (!b || ship.phase !== 'idle') return;
+  level = b.dataset.l; daily = firstCase(); R = Math.random;
   $('lvl').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-  if (playMode === 'voyage' && (voyage.pieces > 0 || !$('finale').hidden)) { newVoyage(); return; }
-  voyage.len = VOYAGE_LEN[level]; updateChips(); newCase();
+  // a new length is a new voyage: map pieces, piers and every counter start again
+  if (playMode === 'voyage') {
+    if (voyage.pieces > 0 || !$('finale').hidden) { newVoyage(); return; }
+    startVoyage(); met.piers.clear();
+  }
+  updateChips(); newCase();
 });
 $('case-new').addEventListener('click', () => { daily = false; R = Math.random; newCase(); });
 $('case-style').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b || b.dataset.s === caseStyle) return;
-  caseStyle = b.dataset.s; applyHelps(); daily = false; R = Math.random; newCase();
+  caseStyle = b.dataset.s; applyHelps(); daily = firstCase(); R = Math.random; newCase();
 });
 $('spot-close').addEventListener('click', () => { const d = $('spot-zoom'); if (d.close) d.close(); else d.removeAttribute('open'); });
 $('spot-zoom').addEventListener('click', e => { if (e.target === $('spot-zoom') && $('spot-zoom').close) $('spot-zoom').close(); });
@@ -2882,17 +2988,21 @@ function drawCine(ctx, w, h, t) {
   const prevStory = i > 0 && cine.segs[i - 1].story;
   if ((sg.story || prevStory) && el < .8) { ctx.fillStyle = `rgba(9,7,23,${1 - el / .8})`; ctx.fillRect(0, 0, w, h); }
 }
-const cineView = makeView($('cine-canvas'), drawCine, { realtime: true });
+const cineView = makeView($('cine-canvas'), drawCine, { realtime: true, cap: 2.4e6 });
+// while the cinema (or its full-screen card) is up, nothing under it can be reached, not even with Tab
+const cover = on => document.querySelectorAll('body > :not(#cine):not(script)').forEach(el => { el.inert = on; });
 function playCine(segs, done) {
   if (reduceMotion) { if (done) done(); return; }
+  cover(true);
   segs.forEach(sg => { sg.go = false; });
   Object.assign(cine, { on: true, segs, t0: performance.now() / 1000, done, cap: null, last: null, cur: 0 });
   const el = $('cine'); el.hidden = false; el.classList.remove('out');
   sizeView(cineView); cineView.visible = true; cineView.dirty = true;
-  $('cine-skip').focus({ preventScroll: true });
+  // the focus goes to the cinema itself, not to Skip, so a space or Enter goes on instead of skipping
+  el.focus({ preventScroll: true });
 }
 function finishCine() {
-  if (!cine.on) return; cine.on = false;
+  if (!cine.on) return; cine.on = false; cover(false);
   const el = $('cine'); el.classList.add('out');
   setTimeout(() => { if (!cine.on) { el.hidden = true; el.classList.remove('out'); } }, 460);
   const f = cine.done; cine.done = null; if (f) f();
@@ -2902,7 +3012,7 @@ function finishCine() {
 let gate = null;
 function introGate(go, done) {
   if (reduceMotion || !document.fullscreenEnabled || document.fullscreenElement) { go(); return; }
-  const el = $('cine'); el.hidden = false; el.classList.remove('out');
+  const el = $('cine'); el.hidden = false; el.classList.remove('out'); cover(true);
   $('cine-start').hidden = false; $('cine-cap').textContent = ''; $('cine-tap').hidden = true;
   sizeView(cineView); cineView.visible = true; cineView.dirty = true;
   gate = { go, done }; $('cine-full').focus({ preventScroll: true });
@@ -2913,12 +3023,20 @@ function passGate(full) {
 }
 $('cine-full').addEventListener('click', () => passGate(true));
 $('cine-here').addEventListener('click', () => passGate(false));
+// a planet's two surfaces (seen from space, and turned for the landing) take a moment to paint:
+// done before the flight starts, never in the middle of it, where it showed as a jolt
+function warmPlanet(p) {
+  if (!p.tex) p.tex = planetTexture(p);
+  if (!p.texLand) p.texLand = planetTexture(p, true);
+  if (!p.soil) p.soil = surfaceAt(p, 0, -.9, true);
+}
 function playJump(from, to, intro, done) {
   if (intro === 'intro') { introGate(() => playJump(from, to, 'go', done), done); return; }
+  [from, to].concat(intro ? [HIDDEN] : []).forEach(warmPlanet);
   playCine((intro ? storySegs() : []).concat(jumpSegs(from, to, intro ? 'Collect every piece. The last one leads to the treasure. Off you go, captain!' : null)), done);
 }
 $('cine-skip').addEventListener('click', () => {
-  if (gate) { const { done } = gate; gate = null; $('cine-start').hidden = true; $('cine').hidden = true; if (done) done(); return; }
+  if (gate) { const { done } = gate; gate = null; $('cine-start').hidden = true; $('cine').hidden = true; cover(false); if (done) done(); return; }
   finishCine();
 });
 // a tap or a key shows the whole picture at once, and the next one goes on to the next picture
@@ -2928,15 +3046,17 @@ function cineNext() {
   if (left > .02) cine.t0 -= left; else sg.go = true;
 }
 $('cine-canvas').addEventListener('click', cineNext);
+// Only Esc (or a click on Skip) leaves the story; every other key goes on, even with Skip focused
 document.addEventListener('keydown', e => {
   if (!cine.on) return;
   if (e.key === 'Escape') { finishCine(); return; }
-  if (e.key === 'Tab' || e.target === $('cine-skip') && (e.key === 'Enter' || e.key === ' ')) return;
-  e.preventDefault(); cineNext();
+  if (e.key === 'Tab' || e.ctrlKey || e.metaKey || e.altKey) return;
+  e.preventDefault(); if (!e.repeat) cineNext();
 });
+document.addEventListener('keyup', e => { if (cine.on && e.key === ' ') e.preventDefault(); });
 const toCase = () => $('cast').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
 $('to-case').addEventListener('click', toCase);
-$('story').addEventListener('click', () => { if (ship.phase === 'idle' && !cine.on) playJump(HOME, ship.planet, 'intro', toCase); });
+$('story').addEventListener('click', () => { if (ship.phase === 'idle' && !cine.on && !gate) playJump(HOME, ship.planet, 'intro', toCase); });
 if (document.fullscreenEnabled) {
   const fs = $('fullscreen'); fs.hidden = false;
   fs.addEventListener('click', () => { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(() => {}); });
