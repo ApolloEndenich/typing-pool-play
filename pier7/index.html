@@ -360,6 +360,8 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
           <button type="button" data-s="photos" aria-pressed="true">Photos</button>
           <button type="button" data-s="ledger" aria-pressed="false">Ledger</button>
         </div>
+      </div>
+      <div class="row">
         <!-- the ledger's own switches; they sit in the ledger's top right corner while a ledger case is open -->
         <div id="ledger-park" hidden><div class="ledger-tools" id="ledger-tools">
           <div class="seg" id="ledger-mode" role="group" aria-label="How the ledger is written">
@@ -1866,7 +1868,9 @@ function startVoyage() {
 }
 function updateChips() {
   $('c-pier').textContent = ship.planet.name; $('c-map').textContent = `${voyage.pieces} of ${voyage.len}`;
-  $('c-hints').textContent = [score.hints, score.explained ? `${score.explained} explained` : '', score.shown ? `${score.shown} shown` : ''].filter(x => x !== '').join(' · '); $('c-scans').textContent = score.scans; $('c-tries').textContent = score.tries;
+  const st = playMode === 'single' && CASE && CASE.start ? CASE.start : {}, less = k => (score[k] || 0) - (st[k] || 0);
+  const hints = less('hints'), ex = less('explained'), sh = less('shown');
+  $('c-hints').textContent = [hints, ex ? `${ex} explained` : '', sh ? `${sh} shown` : ''].filter(x => x !== '').join(' · '); $('c-scans').textContent = less('scans'); $('c-tries').textContent = less('tries');
   const on = ['colour','grey','key','explain','hints','scan','spent'].filter(k => helps[k]).length;
   $('helps-sum').textContent = `Helps · ${on} of 7 on · counting: ${COUNT_NAME[helps.count]}`;
 }
@@ -2698,8 +2702,8 @@ function newCase() {
   fetchCase(isDaily).then(c => {
     if (ticket !== caseTicket) return;
     CASE = prepCase(c, isDaily); score.hintsAtStart = score.hints;
-    CASE.start = { hints: score.hints, explained: score.explained || 0, shown: score.shown || 0, tries: score.tries };   // for the result line
-    renderCase();
+    CASE.start = { hints: score.hints, explained: score.explained || 0, shown: score.shown || 0, tries: score.tries, scans: score.scans };   // for the result line and the counters
+    renderCase(); updateChips();
   }).catch(e => {
     if (ticket !== caseTicket) return;
     console.warn(e); CASE = null; renderCase();
@@ -2732,8 +2736,14 @@ $('nums').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   numMode = b.dataset.m; applyHelps();
 });
+// today's case (and an earlier day's) is a single puzzle, the same for everyone; from a voyage it switches over
+function toSingle() {
+  if (playMode === 'single') return;
+  playMode = 'single'; $('finale').hidden = true; $('case-bench').hidden = false; applyHelps();
+}
 $('case-daily').addEventListener('click', () => {
-  daily = ymd(new Date()); syncDayPick(); newCase();
+  if (ship.phase !== 'idle') return;
+  toSingle(); daily = ymd(new Date()); R = Math.random; syncDayPick(); newCase();
 });
 // Earlier days: any day from the first daily case up to today, never a day ahead.
 function syncDayPick() {
@@ -2745,7 +2755,8 @@ $('case-day').addEventListener('change', e => {
   const t = e.target.value; if (!t) return;
   const today = ymd(new Date()), first = e.target.min || t;
   if (t > today || t < first) { syncDayPick(); return; }
-  daily = t; R = Math.random; newCase();
+  if (ship.phase !== 'idle') { syncDayPick(); return; }
+  toSingle(); daily = t; R = Math.random; newCase();
 });
 syncDayPick();
 
@@ -2870,11 +2881,14 @@ function jumpSegs(from, to, firstCap) {
       const s = shipSize(w, h) * .65 * (1 - .45 * ease(k));
       drawShip(ctx, w / 2 + Math.sin(t * 3) * 4, lerp(h * .38, h * .5, ease(k)), s, t, 1);
     } },
-    { dur: 2.2, cap: `Arriving at ${to.name}`, draw(ctx, w, h, k, t, dt) {
-      space(ctx, w, h); cineStars(ctx, w, h, .03 + 2.4 * (1 - k) ** 2, dt);
-      const e = ease(k), top = groundTop(h, 1), r1 = groundR(w) / 6, r = lerp(3, r1, e * e), cy = lerp(h * .5, top + r1, e);
+    { dur: 4, cap: `Arriving at ${to.name}`, draw(ctx, w, h, k, t, dt) {
+      space(ctx, w, h); cineStars(ctx, w, h, .03 + 2.4 * clamp01(1 - k / .5) ** 2, dt);
+      // first the whole planet grows into view in the middle, then it holds, then we sink towards the pier
+      const e = ease(k), a = ease(clamp01(k / .5)), c = ease(clamp01((k - .62) / .38));
+      const top = groundTop(h, 1), r1 = groundR(w) / 6, rA = Math.min(w, h) * .3, cyA = h * .47;
+      const r = c > 0 ? lerp(rA, r1, c * c) : lerp(3, rA, a * a), cy = c > 0 ? lerp(cyA, top + r1, c) : lerp(h * .5, cyA, a);
       drawPlanet(ctx, to, w / 2, cy, r, true);
-      const m = clamp01((k - .8) / .2);
+      const m = clamp01((k - .9) / .1);
       if (m > 0) { ctx.globalAlpha = m; drawGround(ctx, w, h, to, 1, t); ctx.globalAlpha = 1; }
       const s0 = shipSize(w, h); drawShip(ctx, w / 2, lerp(h * .5, h * .3, e), s0 * lerp(.36, .65, e), t, .7);
     } },
@@ -3133,7 +3147,7 @@ renderGuide(true); document.fonts?.ready?.then(() => renderGuide(true));
 const SAVE_KEY = 'starport-voyage';
 const stripTex = p => { const { tex, ...rest } = p; return rest; };
 function snapshot() {
-  const s = { v:2, level, numMode, ledgerMode, caseStyle, playMode, daily, voyage:{ len:voyage.len, pieces:voyage.pieces, holders:voyage.holders }, score:{ ...score },
+  const s = { v:2, saved:ymd(new Date()), level, numMode, ledgerMode, caseStyle, playMode, daily, voyage:{ len:voyage.len, pieces:voyage.pieces, holders:voyage.holders }, score:{ ...score },
     met:{ names:[...met.names], worlds:[...met.worlds], piers:[...met.piers] }, planet:stripTex(ship.planet), finale:!$('finale').hidden };
   if (ship.phase !== 'idle' && ship.next) s.jump = { next:stripTex(ship.next), last:!!(signal && signal.last) };
   if (CASE && !s.finale && $(`case-0-0`)) {
@@ -3197,6 +3211,8 @@ function start(data) {
   const day = dayFromLink();
   let s = data && data.v === 2 ? data : null;
   if (!s) { try { const raw = localStorage.getItem(SAVE_KEY); if (raw) s = JSON.parse(raw); } catch (e) {} }
+  // a single puzzle that was that day's own case gives way to today's case on a later day
+  if (s && s.v === 2 && !day && s.playMode === 'single' && s.saved && s.daily === s.saved && s.saved !== ymd(new Date())) { s.daily = ymd(new Date()); delete s.case; }
   if (s && s.v === 2) { try { restore(s); if (day && !(daily === day && CASE && playMode === 'single')) openDay(day); return; } catch (e) { console.warn('Could not restore the voyage', e); } }
   CASE = null; startVoyage(); updateChips();
   if (day) { openDay(day); return; }
