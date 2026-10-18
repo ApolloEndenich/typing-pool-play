@@ -3211,8 +3211,9 @@ function start(data) {
   const day = dayFromLink();
   let s = data && data.v === 2 ? data : null;
   if (!s) { try { const raw = localStorage.getItem(SAVE_KEY); if (raw) s = JSON.parse(raw); } catch (e) {} }
-  // a single puzzle that was that day's own case gives way to today's case on a later day
-  if (s && s.v === 2 && !day && s.playMode === 'single' && s.saved && s.daily === s.saved && s.saved !== ymd(new Date())) { s.daily = ymd(new Date()); delete s.case; }
+  // a finished single puzzle that was that day's own case gives way to today's case on a later day;
+  // one left unfinished comes back as it was, to go on with
+  if (s && s.v === 2 && !day && s.playMode === 'single' && s.saved && s.daily === s.saved && s.saved !== ymd(new Date()) && (!s.case || s.case.closed)) { s.daily = ymd(new Date()); delete s.case; }
   if (s && s.v === 2) { try { restore(s); if (day && !(daily === day && CASE && playMode === 'single')) openDay(day); return; } catch (e) { console.warn('Could not restore the voyage', e); } }
   CASE = null; startVoyage(); updateChips();
   if (day) { openDay(day); return; }
