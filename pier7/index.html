@@ -449,7 +449,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
       </div>
       <ul>
         <li><strong>The cards</strong> are the aliens on the pier, Alien A, B, C… Tap one to see its hands up close. For each alien, pick a name, a home planet and what it carries.</li>
-        <li><strong>Photos:</strong> the customs camera caught each alien at one spot. A spot shows only part of an alien, such as the antennae, the eyes, a hand or the markings. A speech bubble gives a name, and a see-through suitcase shows the cargo and a home-planet sticker. Tap a spot to look closer. ✕ puts a spot or a whole photo aside when you're done with it, and ↺ brings it back.</li>
+        <li><strong>Photos:</strong> the customs camera caught each alien at one spot. A spot shows only part of an alien, such as the antennae, the eyes, a hand or the markings. A speech bubble gives a name, and a see-through suitcase shows the cargo and a home-planet sticker. Each photo is one moment, so an alien shows up at most once in it: two spots in the same photo are always two different aliens. Tap a spot to look closer. ✕ puts a spot or a whole photo aside when you're done with it, and ↺ brings it back.</li>
         <li><strong>Ledger:</strong> the same kind of case as a list of entries, in Words, Pictures or Scenes. ✓ ticks an entry off.</li>
         <li><strong>Stars</strong> say how hard a case is. ★ Easy: every step needs one or two entries (or photo spots). ★★ Medium: one step needs three. ★★★ Hard: a step needs four or more, or the case needs a "suppose" (try a value and watch it clash). ★★★★ Very hard: three or more "suppose" steps. Long ledger cases are mostly ★★★.</li>
         <li><strong>The relay</strong> confirms correctly identified aliens two at a time and never says which ones are wrong. <strong>Hint</strong> points at the next real deduction. Press it again (<strong>Explain</strong>) to see it worked out step by step, and once more (<strong>Show me</strong>) to fill that answer in. The counter at the top keeps all three: hints, explained, shown. The <strong>X-ray</strong> shows what one alien carries, once per case.</li>
@@ -644,6 +644,8 @@ function drawAlien(ctx, a, cx, cy, size, t, pose) {
   const E = EYES[a.eyes];
   const blink = !reduceMotion && ((t * .6 + ph * .37) % 4.2) < .13;
   const lx = pose ? 0 : Math.sin(t * .9 + ph) * .22, ly = pose ? -.2 : Math.cos(t * .7 + ph) * .12;
+  // a.faceless: the body and its markings only (the shop door window shows the belly, never a face)
+  if (!a.faceless) {
   E.forEach(([dx, dy, r]) => {
     const ex = bx + dx, ey = by + dy;
     if (blink) { ctx.beginPath(); ctx.moveTo(ex - r, ey); ctx.quadraticCurveTo(ex, ey + r * .5, ex + r, ey); ctx.strokeStyle = C.dark; ctx.lineWidth = 2; ctx.stroke(); return; }
@@ -656,6 +658,7 @@ function drawAlien(ctx, a, cx, cy, size, t, pose) {
   if (pose) ctx.ellipse(bx, by + (a.eyes === 1 ? 9 : 8), 3.2, 2.6, 0, 0, TAU); else ctx.arc(bx, by + (a.eyes === 1 ? 8 : 7), 4.5, .15 * Math.PI, .85 * Math.PI);
   ctx.strokeStyle = C.dark; ctx.lineWidth = 2; ctx.stroke();
   [-1, 1].forEach(sd => { ctx.beginPath(); ctx.ellipse(bx + sd * Math.min(17, rxB * .62), by + 5, 3.6, 2.1, 0, 0, TAU); ctx.fillStyle = 'hsl(350 85% 72% / .55)'; ctx.fill(); });
+  }
 
   g.hands.forEach(([sd, hd], hi) => {
     const k = a.fingers, raised = pose ? (hi === 0 ? pose.l : pose.r) : k;
@@ -863,6 +866,10 @@ function clueParts(c, cs) {
     else parts = ['the alien from ', { t:a, k:'planet' }, yes ? ' carries ' : ' does not carry ', { t:b, k:'cargo' }];
   }
   else if (c.type === 'compare') parts = [...Rf(c.da, c.va), ' has more ', NUMKEYS[c.key].noun, ' than ', ...Rf(c.db, c.vb)];
+  else if (c.type === 'gate') {
+    const say = v => c.key === 'eyes' ? `${v} ${v === 1 ? 'eye' : 'eyes'}` : `${v === 0 ? 'no' : v} ${v === 1 ? 'antenna' : 'antennae'}`;
+    parts = [...Rf(c.da, c.va), ' and ', ...Rf(c.db, c.vb), ' are the two at the gate, one with ', say(c.A[0]), ' and the other with ', say(c.A[1])];
+  }
   else parts = [...Rf(c.da, c.va), ' and ', ...Rf(c.db, c.vb), ' ', SAMEPHRASE[c.key]];
   // a finger count in the ledger says nothing about suction cups; say so (the pictures draw a hand with both kinds of tips)
   const fingers = (c.type === 'feat' || c.type === 'notfeat') ? c.pr.meta.key === 'fingers' : (c.type === 'compare' || c.type === 'same') && c.key === 'fingers';
@@ -870,6 +877,8 @@ function clueParts(c, cs) {
   if (typeof parts[0] === 'string') parts[0] = parts[0][0].toUpperCase() + parts[0].slice(1);
   return [...parts, '.'];
 }
+// the spots an entry rests on: its own, or the two of a same-photo entry ("two spots in one photo are two aliens")
+const figsOf = c => c.figs || [c.fig];
 function renderParts(el, parts, cs) {
   for (const p of parts) {
     if (typeof p === 'string') el.append(p);
@@ -1513,15 +1522,16 @@ const STATION_DRAW = {
     ctx.fillStyle = '#3a3270'; ctx.fillRect(L + 20, B + 7, 8, FLOOR - B - 7); ctx.fillRect(R - 28, B + 7, 8, FLOOR - B - 7);
     sign(ctx, fx, 'moon');
   },
-  // a shop door of solid wood with one small, smoked window at belly height: through it the markings
-  // show, in grey, but no colour, no face and no outline (the window is too small for the body's edge)
+  // a shop door of solid wood with one small, smoked window a third of the way up: through it the markings
+  // show, in grey, but no colour, no face and no outline. The window looks onto the band of the belly where
+  // the markings are (15 either side of the middle, 3 to 14 below it), which lies inside every body shape.
   gap(ctx, x0, fx, a, S, cy, dpr) {
     const D = doorway(ctx, fx, '#2a2a3a', '#6d5d92');
-    const Z = 300, ccy = cy + (78 - 50) * S / 100 - (78 - 50) * Z / 100, u = v => ccy + (v - 50) * Z / 100;
-    const gx = fx - 30, gw = 60, gy = u(73.5), gh = Math.min(FLOOR - 6, u(84)) - gy;
+    const Z = 240, gw = 72, gh = 26, gx = fx - gw / 2, gy = FLOOR - 74;
+    const ccy = gy + gh / 2 - (60 + 8.5 - 50) * Z / 100;   // the band's middle, 8.5 below the body's, in the window's middle
     const [c, x] = offscreen(SW, PH, dpr);
     x.fillStyle = '#7a7a7a'; x.fillRect(0, 0, SW, PH);
-    drawAlien(x, { ...a, color: 0 }, fx - x0, ccy, Z, .6);
+    drawAlien(x, { ...a, color: 0, faceless: true }, fx - x0, ccy, Z, .6);
     const img = x.getImageData(0, 0, c.width, c.height), d = img.data;
     for (let i = 0; i < d.length; i += 4) { const l = .3 * d[i] + .59 * d[i + 1] + .11 * d[i + 2], v = Math.max(0, Math.min(255, (l - 140) * 3 + 128)); d[i] = d[i + 1] = d[i + 2] = v; }
     x.putImageData(img, 0, 0);
@@ -1531,9 +1541,9 @@ const STATION_DRAW = {
     ctx.strokeStyle = 'rgba(40,22,12,.35)'; ctx.lineWidth = 1;
     for (let y = dT + 6; y < dT + dH; y += 8) { ctx.beginPath(); ctx.moveTo(dL, y); ctx.bezierCurveTo(dL + dW * .3, y + 3, dL + dW * .6, y - 3, dL + dW, y + 1); ctx.stroke(); }
     ctx.strokeStyle = 'rgba(30,16,8,.45)'; ctx.lineWidth = 2;
-    ctx.strokeRect(dL + 12, dT + 12, dW - 24, gy - dT - 26);
-    ctx.strokeRect(dL + 12, gy + gh + 14, dW - 24, dT + dH - gy - gh - 26);
-    ctx.fillStyle = '#e8c56a'; ctx.beginPath(); ctx.arc(dL + dW - 16, gy - 10, 5, 0, TAU); ctx.fill();
+    ctx.strokeRect(dL + 12, dT + 12, dW - 24, gy - dT - 28);                 // the upper panel, above the window
+    ctx.strokeRect(dL + 12, gy + gh + 16, dW - 24, dT + dH - gy - gh - 30);    // the lower panel, ending above the floor
+    ctx.fillStyle = '#e8c56a'; ctx.beginPath(); ctx.arc(dL + dW - 16, gy - 26, 5, 0, TAU); ctx.fill();
     // the window, the only place the alien shows
     ctx.save(); ctx.beginPath(); ctx.rect(gx, gy, gw, gh); ctx.clip(); ctx.drawImage(c, x0, 0, SW, PH); ctx.fillStyle = 'rgba(24,22,40,.22)'; ctx.fillRect(gx, gy, gw, gh); ctx.restore();
     ctx.strokeStyle = '#3a2416'; ctx.lineWidth = 5; ctx.strokeRect(gx - 2, gy - 2, gw + 4, gh + 4);
@@ -2196,7 +2206,7 @@ function lockRow(p, label) {
 // photo case) and how many "suppose" steps it takes. Worked out the same way for every length.
 const STAR_WORD = ['', 'Easy', 'Medium', 'Hard', 'Very hard'];
 function caseStars(cs) {
-  const size = h => cs.style === 'photos' ? new Set(h.cites.map(i => cs.clues[i].fig)).size : h.cites.length;
+  const size = h => cs.style === 'photos' ? new Set(h.cites.flatMap(i => figsOf(cs.clues[i]))).size : h.cites.length;
   const big = Math.max(0, ...(cs.hints || []).map(size)), sup = cs.supposes || 0;
   return sup >= 3 ? 4 : sup >= 1 || big >= 4 ? 3 : big >= 3 ? 2 : 1;
 }
@@ -2315,12 +2325,18 @@ const andList = xs => xs.length < 2 ? xs[0] : xs.slice(0, -1).join(', ') + ' and
 function stepLines(cs, steps) {
   const groups = [];
   for (const [by, d, p, v, x] of steps) {
-    const g = groups[groups.length - 1], same = g && g.by === by && g.d === d && g.x === x;
-    if (same && g.vs.length === 1 && g.vs[0] === v && !g.ps.includes(p)) g.ps.push(p);
+    const g = groups[groups.length - 1], same = g && g.by === by && g.d === d && JSON.stringify(g.x) === JSON.stringify(x);
+    // (an 'apart' step says why for one alien only, so two aliens never share one)
+    if (same && by !== -5 && g.vs.length === 1 && g.vs[0] === v && !g.ps.includes(p)) g.ps.push(p);
     else if (same && g.ps.length === 1 && g.ps[0] === p && !g.vs.includes(v)) g.vs.push(v);
     else groups.push({ by, d, x, ps: [p], vs: [v] });
   }
   const seen = new Set();
+  // in photo cases a step names its spots ("3a"); same-photo entries say why they keep two aliens apart
+  const tagOf = id => { const pi = cs.photos ? cs.photos.findIndex(ph => ph.some(x => x.id === id)) : -1; return pi < 0 ? '?' : spotTag(pi, cs.photos[pi].findIndex(x => x.id === id)); };
+  const spotsOf = ids => [...new Set(ids.flatMap(i => figsOf(cs.clues[i])))];
+  const spotsHead = ids => { const t = spotsOf(ids).map(tagOf), one = ids.some(i => cs.clues[i].figs);
+    return `${t.length > 1 ? 'Spots' : 'Spot'} ${andList(t)}${one ? ' (spots in the same photo show two different aliens)' : ''}`; };
   // "Alien C is not from Pim", "Aliens A and B are not Gim", "Alien C does not carry the star key or the glow seed"
   const isNot = (ps, d, vs) => {
     const k = cs.cols[d], t = vs.map(v => cs.vals[d][v]), many = ps.length > 1, who = (many ? 'Aliens ' : 'Alien ') + andList(ps.map(p => LETTERS[p]));
@@ -2357,28 +2373,34 @@ function stepLines(cs, steps) {
     }
     // entries that keep one value apart from every value this alien could still have in another column
     if (g.by === -5) {
-      const d2 = Math.floor(g.x / 2 ** 24), low = g.x % 2 ** 24, ids = [...Array(24).keys()].filter(i => (low >> i) & 1);
+      // [column, entries] (cases written before 18 October 2026 packed both into one number)
+      const [d2, ids] = Array.isArray(g.x) ? g.x : [Math.floor(g.x / 2 ** 24), [...Array(24).keys()].filter(i => ((g.x % 2 ** 24) >> i) & 1)];
       const opts = [...new Set(ids.map(i => { const c = cs.clues[i]; return c.type === 'notlink' ? (c.d1 === d2 ? c.v1 : c.v2) : (c.da === d2 ? c.va : c.vb); }))];
       const k1 = cs.cols[g.d], t1 = cs.vals[g.d][g.vs[0]], k2 = cs.cols[d2], t2 = orList(opts.map(v => cs.vals[d2][v]));
       const subj = k1 === 'name' ? t1 : k1 === 'planet' ? `the alien from ${t1}` : `whoever carries ${t1}`;
       const pred = k2 === 'name' ? `is not ${t2}` : k2 === 'planet' ? `is not from ${t2}` : `does not carry ${t2}`;
       const P = 'Alien ' + LETTERS[g.ps[0]], can = k2 === 'name' ? `can only be ${t2}` : k2 === 'planet' ? `can only come from ${t2}` : `can only carry ${t2}`;
-      const head = ids.length > 1 ? `Entries ${andList(ids.map(i => String(i + 1)))} mean` : `Entry ${ids[0] + 1} means`;
+      const head = cs.style === 'photos' ? spotsHead(ids) + (spotsOf(ids).length > 1 ? ' mean' : ' means') : ids.length > 1 ? `Entries ${andList(ids.map(i => String(i + 1)))} mean` : `Entry ${ids[0] + 1} means`;
       return `${head} that ${subj} ${pred}. ${P} ${can}, so ${what}.`;
     }
     // two values on different aliens that only two aliens can hold: they hold one each, so a value
     // kept apart from both goes to neither
     if (g.by === -6) {
-      const low = g.x % 2 ** 24, hi = Math.floor(g.x / 2 ** 24), a = hi % 16, b = Math.floor(hi / 16) % 16, H = Math.floor(hi / 256);
-      const ids = [...Array(24).keys()].filter(i => (low >> i) & 1), n = cs.n;
+      const n = cs.n, low = g.x % 2 ** 24, hi = Math.floor(g.x / 2 ** 24);
+      const [a, b, H, ids] = Array.isArray(g.x) ? g.x : [hi % 16, Math.floor(hi / 16) % 16, Math.floor(hi / 256), [...Array(24).keys()].filter(i => (low >> i) & 1)];
       const who = (d, v) => { const k = cs.cols[d], t = cs.vals[d][v]; return k === 'name' ? t : k === 'planet' ? `the alien from ${t}` : `whoever carries ${t}`; };
       const X = who(Math.floor(a / n), a % n), Y = who(Math.floor(b / n), b % n), Z = g.vs.map(v => who(g.d, v));
       const W = 'Aliens ' + andList([...Array(n).keys()].filter(p => (H >> p) & 1).map(p => LETTERS[p]));
-      const head = ids.length > 1 ? `Entries ${andList(ids.map(i => String(i + 1)))}` : `Entry ${ids[0] + 1}`;
+      const head = cs.style === 'photos' ? spotsHead(ids) : ids.length > 1 ? `Entries ${andList(ids.map(i => String(i + 1)))}` : `Entry ${ids[0] + 1}`;
       return `${head}: ${X} and ${Y} are two different aliens, and only ${W} can be either, so ${W} are those two, one each. ${andList(Z).replace(/^./, c => c.toUpperCase())} ${Z.length > 1 ? 'are' : 'is'} neither of them, so ${what}.`;
     }
     const c = cs.clues[g.by], r = why(c, g);
     let head = `Entry ${g.by + 1}`, verb = 'says';
+    if (cs.style === 'photos' && c.figs) {
+      // two spots of one photo: one moment, so two different aliens
+      const s = partsText(clueParts(c, cs)).replace(/\.$/, '');
+      return `Spots ${andList(c.figs.map(tagOf))} are in the same photo, so they show two different aliens: ${s}. So ${what}.`;
+    }
     if (cs.style === 'photos') {
       const pi = cs.photos.findIndex(ph => ph.some(x => x.id === c.fig)), j = pi < 0 ? -1 : cs.photos[pi].findIndex(x => x.id === c.fig);
       head = j < 0 ? 'A spot' : `Spot ${spotTag(pi, j)}`; verb = 'shows';
@@ -2418,7 +2440,7 @@ $('case-hint').addEventListener('click', () => {
     if (CASE.style === 'photos') {
       const photoOf = id => CASE.photos.findIndex(ph => ph.some(x => x.id === id));
       const spot = id => { const pi = photoOf(id); if (pi < 0) return ''; const j = CASE.photos[pi].findIndex(x => x.id === id), f = CASE.photos[pi][j]; return `spot ${spotTag(pi, j)} (${STATIONS[f.station].label})${CASE.aside.has(pi) || CASE.spotAside.has(id) ? ', which you put aside' : ''}`; };
-      const figs = [...new Set((h.suppose ? h.suppose.why : h.cites).map(i => CASE.clues[i].fig))], list = figs.map(spot);
+      const figs = [...new Set((h.suppose ? h.suppose.why : h.cites).flatMap(i => figsOf(CASE.clues[i])))], list = figs.map(spot);
       const where = list.length ? `Look at ${list.length > 1 ? list.slice(0, -1).join('; ') + ' and ' + list[list.length - 1] : list[0]}.` : `Each ${noun} belongs to exactly one alien.`;
       txt = `${where} ${h.suppose ? 'It takes a "suppose": try a value and watch it clash. ' : ''}That settles ${cellPhrase(h.p, h.d)}.`;
       const first = figs.map(photoOf).find(pi => pi >= 0 && !CASE.aside.has(pi)); if (first != null) CASE._slide = first;
