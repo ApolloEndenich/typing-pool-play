@@ -1815,6 +1815,7 @@ function renderPhotos(lit = litNow) {
     count.textContent = !inPlay.length ? 'No photos in play' : full.length === inPlay.length ? `All ${inPlay.length} in play shown` : `Photo ${full.length ? full.map(p => p + 1).join(', ') : '…'} in view · ${inPlay.length} in play`;
     const first = slides().find(s => s.offsetLeft + s.offsetWidth > L + 8);
     if (first) cs._slide = +first.dataset.pi;
+    cs._scroll = { key: inPlay.join(','), left: L };
     prev.hidden = L < 4; next.hidden = Rt > track.scrollWidth - 4;
   };
   track.addEventListener('scroll', () => requestAnimationFrame(where));
@@ -1835,8 +1836,13 @@ function renderPhotos(lit = litNow) {
     });
     side.append(h, t2); box.append(side);
   }
-  // stay on the photo you were looking at
-  requestAnimationFrame(() => { const s = slides().find(x => +x.dataset.pi === cs._slide); track.scrollLeft = s ? s.offsetLeft : 0; where(); });
+  // stay where you were: the same scroll position while the same photos are in play (a spot put aside),
+  // otherwise line up the photo you were looking at (or the one just brought back)
+  const was = cs._scroll;
+  requestAnimationFrame(() => {
+    if (was && was.key === inPlay.join(',')) track.scrollLeft = was.left;
+    else { const s = slides().find(x => +x.dataset.pi === cs._slide); track.scrollLeft = s ? s.offsetLeft : 0; }
+    where(); });
 }
 function renderWords() {
   const body = $('words-body'); body.innerHTML = '';
@@ -2443,7 +2449,7 @@ $('case-hint').addEventListener('click', () => {
       const figs = [...new Set((h.suppose ? h.suppose.why : h.cites).flatMap(i => figsOf(CASE.clues[i])))], list = figs.map(spot);
       const where = list.length ? `Look at ${list.length > 1 ? list.slice(0, -1).join('; ') + ' and ' + list[list.length - 1] : list[0]}.` : `Each ${noun} belongs to exactly one alien.`;
       txt = `${where} ${h.suppose ? 'It takes a "suppose": try a value and watch it clash. ' : ''}That settles ${cellPhrase(h.p, h.d)}.`;
-      const first = figs.map(photoOf).find(pi => pi >= 0 && !CASE.aside.has(pi)); if (first != null) CASE._slide = first;
+      const first = figs.map(photoOf).find(pi => pi >= 0 && !CASE.aside.has(pi)); if (first != null) { CASE._slide = first; CASE._scroll = null; }
       renderPhotos(new Set(figs));
     }
     const off = (h.suppose ? h.suppose.why : h.cites).filter(i => CASE.done && CASE.done.has(i));
