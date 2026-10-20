@@ -8,6 +8,19 @@
 <script data-goatcounter="https://typingpoolgame.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 <title>Pier 7</title>
+<script>
+/* WHICH LANGUAGE (20 October 2026). One setting for the whole site, `pool.lang`, as the Typing
+   Pool's pages keep it: chosen there, it carries in here. ?lang=de in the address chooses too, and
+   is remembered. Failing both, the browser's own language. English needs no file; any other
+   language's words come from lang/xx.js, read before the game starts. */
+(function () {
+  var have = ['de', 'fr', 'it', 'es', 'zh', 'ja'], want = null;
+  try { want = new URLSearchParams(location.search).get('lang'); if (want) localStorage.setItem('pool.lang', want); } catch (e) {}
+  if (!want) try { want = localStorage.getItem('pool.lang'); } catch (e) {}
+  if (!want) try { var l = navigator.languages || [navigator.language]; for (var i = 0; i < l.length && !want; i++) { var s = String(l[i] || '').toLowerCase().split('-')[0]; if (have.indexOf(s) >= 0 || s === 'en') want = s; } } catch (e) {}
+  if (have.indexOf(want) >= 0) { document.documentElement.lang = want; document.write('<script src="lang/' + want + '.js"><\/script>'); }
+})();
+</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +54,7 @@ body{background:var(--void);color:var(--ink);font-family:var(--f-body);font-size
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{font-family:var(--f-mono);font-size:.76rem;padding:4px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--rule);color:var(--muted);font-variant-numeric:tabular-nums}
 .chip b{color:var(--ink);font-weight:600}
+.langpick{font-family:var(--f-mono);font-size:.76rem;padding:3px 8px;border-radius:999px;background:var(--panel);border:1px solid var(--rule);color:var(--ink);cursor:pointer}
 button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--mint);outline-offset:2px}
 
 .hero{padding-block:40px 22px;display:grid;gap:10px}
@@ -102,7 +116,7 @@ details.helps summary{cursor:pointer;color:var(--sun);font-weight:700}
 .crewcell:hover{border-color:var(--muted)}
 .crewcell.locked{border-color:var(--mint)}
 .crewcell .lt{grid-area:lt;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;color:var(--muted)}
-.crewcell .lt::before{content:'ALIEN '}
+
 .crewcell canvas{grid-area:face;width:44px;height:44px}
 .crewcell .nm{grid-area:nm;font-size:.84rem;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .crewcell .nm.ph{color:var(--muted)}
@@ -313,6 +327,9 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
       <span class="chip">Scans <b id="c-scans">0</b></span>
       <span class="chip">Relay <b id="c-tries">0</b></span>
       <button type="button" class="btn small ghost" id="fullscreen" hidden>⛶ Full screen</button>
+      <select class="langpick" id="langpick" aria-label="Language" title="Language">
+        <option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="it">Italiano</option><option value="es">Español</option><option value="zh">中文</option><option value="ja">日本語</option>
+      </select>
     </div>
   </div>
 </div>
@@ -321,9 +338,9 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
   <div class="inner">
     <header class="hero">
       <p class="eyebrow">A deduction voyage · sketch</p>
-      <h1>Solve the case, read the <em>hands</em>, jump.</h1>
-      <p class="lede">The map to the Hidden Star was torn into pieces. At every starport one traveller carries a piece. Work out who is who from the customs photos or the cargo ledger, send your answer to the relay, then read the next coordinates on the crew's fingers and jump. The last piece leads to the treasure.</p>
-      <p class="lede"><strong>Choose how to play:</strong> <em>Photos</em> (customs camera spots, the easiest to start with) or <em>Ledger</em>, written in <em>Words</em>, <em>Pictures</em> or <em>Scenes</em>, with plain numbers or alien hand numerals. Play a whole <em>Voyage</em>, or just <em>Single puzzles</em> with no map and no jumps. Voyages come in four lengths: Quick and Short (3 aliens, 3 piers), Standard (4 and 4) and Long (5 and 5). <em>Today's case</em> is the same for everyone today. Helps lets you switch colour coding, hints and the X-ray on or off, and choose how hard the finger counting is, from Toddler to Full. More under How to play, at the bottom.</p>
+      <h1 data-t>Solve the case, read the <em>hands</em>, jump.</h1>
+      <p class="lede" data-t>The map to the Hidden Star was torn into pieces. At every starport one traveller carries a piece. Work out who is who from the customs photos or the cargo ledger, send your answer to the relay, then read the next coordinates on the crew's fingers and jump. The last piece leads to the treasure.</p>
+      <p class="lede" data-t><strong>Choose how to play:</strong> <em>Photos</em> (customs camera spots, the easiest to start with) or <em>Ledger</em>, written in <em>Words</em>, <em>Pictures</em> or <em>Scenes</em>, with plain numbers or alien hand numerals. Play a whole <em>Voyage</em>, or just <em>Single puzzles</em> with no map and no jumps. Voyages come in four lengths: Quick and Short (3 aliens, 3 piers), Standard (4 and 4) and Long (5 and 5). <em>Today's case</em> is the same for everyone today. Helps lets you switch colour coding, hints and the X-ray on or off, and choose how hard the finger counting is, from Toddler to Full. More under How to play, at the bottom.</p>
       <div class="hero-row"><button type="button" class="btn" id="to-case">To the case ↓</button><button type="button" class="btn ghost" id="story">▶ Watch the story</button></div>
     </header>
 
@@ -448,12 +465,12 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
         <h2 id="h-notes">Who is who, at every pier</h2>
       </div>
       <ul>
-        <li><strong>The cards</strong> are the aliens on the pier, Alien A, B, C… Tap one to see its hands up close. For each alien, pick a name, a home planet and what it carries.</li>
-        <li><strong>Photos:</strong> the customs camera caught each alien at one spot. A spot shows only part of an alien, such as the antennae, the eyes, a hand or the markings. A speech bubble gives a name, and a see-through suitcase shows the cargo and a home-planet sticker. Each photo is one moment, so an alien shows up at most once in it: two spots in the same photo are always two different aliens. Tap a spot to look closer. ✕ puts a spot or a whole photo aside when you're done with it, and ↺ brings it back.</li>
-        <li><strong>Ledger:</strong> the same kind of case as a list of entries, in Words, Pictures or Scenes. When an entry compares two aliens (more, fewer or the same), they are always two different aliens. ✓ ticks an entry off.</li>
-        <li><strong>Stars</strong> say how hard a case is. ★ Easy: every step needs one or two entries (or photo spots). ★★ Medium: one step needs three. ★★★ Hard: a step needs four or more, or the case needs a "suppose" (try a value and watch it clash). ★★★★ Very hard: three or more "suppose" steps. Long ledger cases are mostly ★★★.</li>
-        <li><strong>The relay</strong> confirms correctly identified aliens two at a time and never says which ones are wrong. <strong>Hint</strong> points at the next real deduction. Press it again (<strong>Explain</strong>) to see it worked out step by step, and once more (<strong>Show me</strong>) to fill that answer in. The counter at the top keeps all three: hints, explained, shown. The <strong>X-ray</strong> shows what one alien carries, once per case.</li>
-        <li><strong>The coordinates:</strong> the alien with the map piece has its crew hold up fingers, and each crew member is one digit in that species' counting. Pick the matching star and jump. <strong>Counting</strong>, under Helps, has four levels: <em>Toddler</em> (one crew member, count the raised fingers), <em>Kids</em> (two members, add all their raised fingers), <em>Youth</em> (two members, two places in their base) and <em>Full</em> (up to three places).</li>
+        <li data-t><strong>The cards</strong> are the aliens on the pier, Alien A, B, C… Tap one to see its hands up close. For each alien, pick a name, a home planet and what it carries.</li>
+        <li data-t><strong>Photos:</strong> the customs camera caught each alien at one spot. A spot shows only part of an alien, such as the antennae, the eyes, a hand or the markings. A speech bubble gives a name, and a see-through suitcase shows the cargo and a home-planet sticker. Each photo is one moment, so an alien shows up at most once in it: two spots in the same photo are always two different aliens. Tap a spot to look closer. ✕ puts a spot or a whole photo aside when you're done with it, and ↺ brings it back.</li>
+        <li data-t><strong>Ledger:</strong> the same kind of case as a list of entries, in Words, Pictures or Scenes. When an entry compares two aliens (more, fewer or the same), they are always two different aliens. ✓ ticks an entry off.</li>
+        <li data-t><strong>Stars</strong> say how hard a case is. ★ Easy: every step needs one or two entries (or photo spots). ★★ Medium: one step needs three. ★★★ Hard: a step needs four or more, or the case needs a "suppose" (try a value and watch it clash). ★★★★ Very hard: three or more "suppose" steps. Long ledger cases are mostly ★★★.</li>
+        <li data-t><strong>The relay</strong> confirms correctly identified aliens two at a time and never says which ones are wrong. <strong>Hint</strong> points at the next real deduction. Press it again (<strong>Explain</strong>) to see it worked out step by step, and once more (<strong>Show me</strong>) to fill that answer in. The counter at the top keeps all three: hints, explained, shown. The <strong>X-ray</strong> shows what one alien carries, once per case.</li>
+        <li data-t><strong>The coordinates:</strong> the alien with the map piece has its crew hold up fingers, and each crew member is one digit in that species' counting. Pick the matching star and jump. <strong>Counting</strong>, under Helps, has four levels: <em>Toddler</em> (one crew member, count the raised fingers), <em>Kids</em> (two members, add all their raised fingers), <em>Youth</em> (two members, two places in their base) and <em>Full</em> (up to three places).</li>
       </ul>
       <h3 class="kicker" id="guide-head">What each spot in the photos shows</h3>
       <p class="guide-note" id="guide-note" hidden></p>
@@ -461,7 +478,7 @@ details.words ul{margin:0;padding-left:1.2em;font-family:var(--f-mono);font-size
     </section>
   </div>
 </main>
-<footer class="gutter"><div class="inner">Every case is checked by a solver: one answer, reachable step by step. No image generator was used: Frau Kern from <a href="https://typingpoolgame.com/" target="_blank" rel="noopener">The Typing Pool</a> draws the pictures in the evenings, for her niece.</div></footer>
+<footer class="gutter"><div class="inner" data-t>Every case is checked by a solver: one answer, reachable step by step. No image generator was used: Frau Kern from <a href="https://typingpoolgame.com/" target="_blank" rel="noopener">The Typing Pool</a> draws the pictures in the evenings, for her niece.</div></footer>
 
 <div class="cine" id="cine" tabindex="-1" hidden>
   <canvas id="cine-canvas" aria-hidden="true"></canvas>
@@ -728,12 +745,12 @@ function drawDigit(ctx, d, f, x, y, h, col) {
 }
 function drawNumber(ctx, n, f, x, y, h, col) { digitsOf(n, 2 * f).forEach((d, i) => drawDigit(ctx, d, f, x + i * h * 1.1, y, h, col)); }
 const numberWidth = (n, f, h) => digitsOf(n, 2 * f).length * h * 1.1 - h * .2;
-const handWords = (n, f) => digitsOf(n, 2 * f).map(d => { const l = Math.min(d, f), r = Math.max(0, d - f); return `left ${l ? l + ' up' : 'fist'}, right ${r ? r + ' up' : 'fist'}`; }).join('; then ');
+const handWords = (n, f) => digitsOf(n, 2 * f).map(d => { const l = Math.min(d, f), r = Math.max(0, d - f); return tx('left {l}, right {r}', { l: l ? tx('{n} up', { n: l }) : tx('fist'), r: r ? tx('{n} up', { n: r }) : tx('fist') }); }).join(tx('; then '));
 function glyphCanvas(n, f) {
   const h = 22, w = Math.ceil(numberWidth(n, f, h)) + 4, dpr = Math.min(window.devicePixelRatio || 1, 2);
   const c = document.createElement('canvas'); c.className = 'glyph';
   c.width = w * dpr; c.height = h * dpr; c.style.width = w + 'px'; c.style.height = h + 'px';
-  c.setAttribute('role', 'img'); c.setAttribute('aria-label', 'hand numeral: ' + handWords(n, f));
+  c.setAttribute('role', 'img'); c.setAttribute('aria-label', tx('hand numeral: {w}', { w: handWords(n, f) }));
   const ctx = c.getContext('2d'); ctx.scale(dpr, dpr);
   drawNumber(ctx, n, f, 2, 0, h, getComputedStyle(document.documentElement).getPropertyValue('--ink').trim() || '#f4eddc');
   return c;
@@ -750,6 +767,8 @@ function vnoise(x, y, z, s) {
 function fbm(x, y, z, s) { let a = .5, f = 1, sum = 0, nm = 0; for (let o = 0; o < 4; o++) { sum += a * vnoise(x * f, y * f, z * f, s + o * 31); nm += a; a *= .5; f *= 2.03; } return sum / nm; }
 function hsl2rgb(h, s, l) { h = ((h % 360) + 360) % 360; s /= 100; l /= 100; const k = n => (n + h / 30) % 12, a = s * Math.min(l, 1 - l); const f = n => l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1)); return [f(0) * 255, f(8) * 255, f(4) * 255]; }
 function mix(a, b, t) { t = Math.max(0, Math.min(1, t)); return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; }
+// under the planet's name: its own label, or what kind of world it is
+const worldLabel = p => p.label ? tx(p.label) : p.kind === 'gas' ? tx('gas world') : p.kind === 'ice' ? tx('ice world') : tx('rocky world');
 function makePlanet(name) {
   const r = Math.random;
   return { name, kind: ['rocky','gas','ice'][Math.floor(r() * 3)], hue: r() * 360, ring: r() < .45, seed: 1 + Math.floor(r() * 99999), tilt: (r() - .5) * .9, tex: null };
@@ -848,54 +867,161 @@ makeView($('viewport'), (ctx, w, h, t) => {
   ctx.fillStyle = '#f4eddc'; ctx.textBaseline = 'alphabetic';
   ctx.font = `600 ${small}px "JetBrains Mono", monospace`;
   const showing = ship.phase === 'idle' ? ship.planet : (ship.next || ship.planet);
-  ctx.fillText(ship.phase === 'idle' ? 'DOCKED AT PIER 7' : 'JUMPING TO', w * .05, h * .14);
+  ctx.fillText(ship.phase === 'idle' ? tx('DOCKED AT PIER 7') : tx('JUMPING TO'), w * .05, h * .14);
   ctx.font = `600 ${big}px Fredoka, "Trebuchet MS", sans-serif`;
   ctx.fillText(showing.name, w * .05, h * .14 + big * 1.05);
   ctx.font = `400 ${small}px "JetBrains Mono", monospace`; ctx.fillStyle = '#b3add6';
-  ctx.fillText(showing.label || `${showing.kind} world`, w * .05, h * .14 + big * 1.05 + small * 1.6);
+  ctx.fillText(worldLabel(showing), w * .05, h * .14 + big * 1.05 + small * 1.6);
 }, { realtime: true });
 
 /* ---------- the case: the words for its entries (the cases themselves are written elsewhere and read from cases/) ---------- */
-const NUMKEYS = { fingers:{ min:2, max:5, noun:'fingers' }, eyes:{ min:1, max:4, noun:'eyes' }, ant:{ min:0, max:3, noun:'antennae' } };
-// a "same" entry is always about two different aliens, and says so (engine.js holds() needs p !== q)
-const SAMEPHRASE = { fingers:'are two different aliens with the same number of fingers', eyes:'are two different aliens with the same number of eyes', ant:'are two different aliens with the same number of antennae', color:'are two different aliens of the same colour', pattern:'are two different aliens with the same markings' };
-const COL_LABEL = { name:'Name', planet:'Home', cargo:'Carries' };
+const NUMKEYS = { fingers:{ min:2, max:5 }, eyes:{ min:1, max:4 }, ant:{ min:0, max:3 } };
+
+/* ---------- the page's words, in the reader's language (20 October 2026) ----------
+   lang/xx.js (read before this script, see the head) sets PIER7_LANG: its code, its words and a
+   little of its grammar. tx() of an English template gives the reader's language, or the English
+   where there is none, and anything that varies is a {name}. {name:form} asks a value for one of
+   its forms: a cargo in the accusative, say ({b:acc}); a value without that form gives its plain
+   one. {name:form:conj} joins a list in the language's own way (and, or, nor). tn() is a count: the
+   English names its two forms, and a language gives as many as it needs. The English is always
+   written out literally in the call, so starport/i18n.js finds every template a language must
+   translate; a string kept for later is marked N_() and translated where it is shown.
+   This sits inside the stretch check.js lifts out of the page, so it runs without a browser too. */
+const LANGPACK = (typeof window !== 'undefined' && window.PIER7_LANG) || null, LANG = LANGPACK ? LANGPACK.code : 'en';
+const TR = (LANGPACK && LANGPACK.text) || {};
+const N_ = s => s;
+function say(x, form, conj) {
+  if (x && x.items) return listOf(x.items.map(i => say(i, form)), conj || x.conj || 'and');
+  if (x && typeof x === 'object' && 'base' in x) return (form && x.forms && x.forms[form]) || x.base;
+  if (x && typeof x === 'object' && 't' in x) return (form && x.forms && x.forms[form]) || x.t;
+  return String(x);
+}
+const HOLE = /\{(\w+)(?::(\w*))?(?::(\w+))?\}/g;
+const fill = (s, v = {}) => String(s).replace(HOLE, (m, k, form, conj) => k in v ? say(v[k], form, conj) : m);
+const tx = (s, v) => fill(TR[s] != null ? TR[s] : s, v);
+// which of a count's forms: English has one and other; a language's plural() may also give 2, a form for none
+function tn(n, one, other, v = {}) {
+  const t = TR[one + '|' + other], forms = t == null ? [one, other] : Array.isArray(t) ? t : [t];
+  const i = LANGPACK && LANGPACK.plural ? LANGPACK.plural(n) : (n === 1 ? 0 : 1);
+  return fill(forms[Math.min(i, forms.length - 1)], { n, ...v });
+}
+// "A, B and C", "A, B or C", in the reader's language (nor: "neither A nor B", where a language has it)
+function listOf(xs, conj = 'and') {
+  if (LANGPACK && LANGPACK.list) return LANGPACK.list(xs, conj);
+  return xs.length < 2 ? xs[0] : xs.slice(0, -1).join(', ') + (conj === 'and' ? ' and ' : ' or ') + xs[xs.length - 1];
+}
+const orList = xs => listOf(xs, 'or'), andList = xs => listOf(xs, 'and');
+const items = (xs, conj) => ({ items: xs, conj });
+// a sentence's first letter and its full stop, as the language writes them (Japanese and Chinese: none and 。)
+const capFirst = s => LANGPACK && LANGPACK.caps === false ? s : s.replace(/^./, ch => ch.toUpperCase());
+const STOP = (LANGPACK && LANGPACK.stop) || '.', COMMA = (LANGPACK && LANGPACK.comma) || ', ';
+// between two sentences (Japanese and Chinese need no space)
+const SP = LANGPACK && LANGPACK.space != null ? LANGPACK.space : ' ';
+// A template as parts, for the ledger: strings, values ({ t, k }, a name, a home world or a cargo, shown
+// in its colour) and numbers ({ n }, drawn as hand numerals when the ledger uses them).
+function tparts(s, v) {
+  const out = [];
+  for (const piece of String(s).split(/(\{\w+(?::\w*)?(?::\w+)?\})/)) {
+    const m = /^\{(\w+)(?::(\w*))?(?::(\w+))?\}$/.exec(piece);
+    if (!m || !(m[1] in v)) { if (piece) out.push(piece); continue; }
+    const x = v[m[1]], form = m[2];
+    const one = y => y && typeof y === 'object' && 't' in y && 'k' in y ? { t: say(y, form), k: y.k } : y;
+    if (Array.isArray(x)) x.forEach(y => out.push(one(y)));
+    else if (x && typeof x === 'object' && ('n' in x || 'k' in x)) out.push(one(x));
+    else out.push(say(x, form, m[3]));
+  }
+  return out.reduce((a, p) => { if (typeof p === 'string' && typeof a[a.length - 1] === 'string') a[a.length - 1] += p; else a.push(p); return a; }, []);
+}
+// A cargo in the reader's language, with its forms (the English bare one drops the article: "old
+// lantern" on a tag). Names and home worlds are only labels, the same in every language.
+function cargoWord(t) {
+  const w = LANGPACK && LANGPACK.cargo && LANGPACK.cargo[t];
+  return w || { base: t, forms: { bare: t.replace(/^the /, '') } };
+}
+// a home world is only a label too, but a language may give it forms ("d'Ulu", "de Bree")
+const planetWord = t => LANGPACK && LANGPACK.planet ? LANGPACK.planet(t) : t;
+const valWord = (cs, d, v) => cs.cols[d] === 'cargo' ? cargoWord(cs.vals[d][v]) : cs.cols[d] === 'planet' ? planetWord(cs.vals[d][v]) : cs.vals[d][v];
+const valRef = (cs, d, v) => { const k = cs.cols[d], w = valWord(cs, d, v); return typeof w === 'string' ? { t: w, k } : { t: w.base, k, forms: w.forms }; };
+const shortCargo = t => say(cargoWord(t), 'bare');
+const colLabel = k => k === 'name' ? tx('Name') : k === 'planet' ? tx('Home') : tx('Carries');
+const COLOR_WORD = [N_('green'), N_('pink'), N_('blue'), N_('orange'), N_('purple')];
+const colorWord = v => tx(COLOR_WORD[v]);
+// one value of a feature, for the gate and the shuttle: "3 eyes", "no antennae", "green"
+function featText(key, v) {
+  if (key === 'color') return colorWord(v);
+  if (key === 'eyes') return tn(v, '{n} eye', '{n} eyes');
+  if (key === 'fingers') return tn(v, '{n} finger on each hand', '{n} fingers on each hand');
+  return v === 0 ? tx('no antennae') : tn(v, '{n} antenna', '{n} antennae');
+}
+// What an entry says of its alien, from the facts the case keeps (pr.meta), in the reader's
+// language. The English comes out word for word as the case files have it (check.js compares).
+function predParts(m, neg) {
+  const num = { n: m.k };
+  if (m.key in NUMKEYS) {
+    if (neg && m.kind === 'eq' && m.k === 0) return tparts(tx('has at least one antenna'), {});
+    // the count picks the form; the number itself stays a part, so the ledger can draw it in hand numerals
+    const K = m.key, k = m.k, NK = { n: '{n}' }, W = s => tparts(s, { n: num });
+    if (m.kind === 'eq' && !neg) return K === 'eyes' ? W(tn(k, 'has {n} eye', 'has {n} eyes', NK)) : K === 'ant' ? W(tn(k, 'has {n} antenna', 'has {n} antennae', NK)) : W(tn(k, 'has {n} finger on each hand', 'has {n} fingers on each hand', NK));
+    if (m.kind === 'eq') return K === 'eyes' ? W(tn(k, 'does not have {n} eye', 'does not have {n} eyes', NK)) : K === 'ant' ? W(tn(k, 'does not have {n} antenna', 'does not have {n} antennae', NK)) : W(tn(k, 'does not have {n} finger on each hand', 'does not have {n} fingers on each hand', NK));
+    if (m.kind === 'ge' && !neg) return K === 'eyes' ? W(tn(k, 'has at least {n} eye', 'has at least {n} eyes', NK)) : K === 'ant' ? W(tn(k, 'has at least {n} antenna', 'has at least {n} antennae', NK)) : W(tn(k, 'has at least {n} finger on each hand', 'has at least {n} fingers on each hand', NK));
+    if (m.kind === 'ge') return K === 'eyes' ? W(tn(k, 'has fewer than {n} eye', 'has fewer than {n} eyes', NK)) : K === 'ant' ? W(tn(k, 'has fewer than {n} antenna', 'has fewer than {n} antennae', NK)) : W(tn(k, 'has fewer than {n} finger on each hand', 'has fewer than {n} fingers on each hand', NK));
+    if (!neg) return K === 'eyes' ? W(tn(k, 'has at most {n} eye', 'has at most {n} eyes', NK)) : K === 'ant' ? W(tn(k, 'has at most {n} antenna', 'has at most {n} antennae', NK)) : W(tn(k, 'has at most {n} finger on each hand', 'has at most {n} fingers on each hand', NK));
+    return K === 'eyes' ? W(tn(k, 'has more than {n} eye', 'has more than {n} eyes', NK)) : K === 'ant' ? W(tn(k, 'has more than {n} antenna', 'has more than {n} antennae', NK)) : W(tn(k, 'has more than {n} finger on each hand', 'has more than {n} fingers on each hand', NK));
+  }
+  const T = s => tparts(s, {});
+  if (m.key === 'color') return T([[tx('is green'), tx('is not green')], [tx('is pink'), tx('is not pink')], [tx('is blue'), tx('is not blue')], [tx('is orange'), tx('is not orange')], [tx('is purple'), tx('is not purple')]][m.v][neg ? 1 : 0]);
+  if (m.key === 'pattern') return T({ plain: [tx('has neither spots nor stripes'), tx('has spots or stripes')], spots: [tx('is spotted'), tx('has no spots')], stripes: [tx('is striped'), tx('has no stripes')] }[m.v][neg ? 1 : 0]);
+  if (m.key === 'cups') return T(neg ? tx('has no suction cups') : tx('has suction cups on its fingertips'));
+  // the photo cases' own: the steam, the red lamp, the shuttle and the gate (ids as engine.js writes them)
+  let s, g;
+  if (m.id === 'eyes12') s = tx('has 1 or 2 eyes (a single blur in the steam)');
+  else if (m.id === 'eyes3+') s = tx('has 3 or 4 eyes (a wide blur in the steam)');
+  else if (m.id === 'warm') s = tx('is a warm colour (pink or orange)');
+  else if (m.id === 'cool') s = tx('is a cool colour (green, blue or purple)');
+  else if ((g = /^gone-(\w+)-(\d+)-([\d.]+)$/.exec(m.id))) s = tx('is the one missing from the shuttle, where the passengers show {seen}', { seen: g[3].split('.').map(v => featText(g[1], +v)).join(COMMA) });
+  else if ((g = /^gate-(\w+)-(\d+)-(\d+)$/.exec(m.id))) s = tx('is one of the two at the gate, who have {a} and {b}', { a: featText(g[1], +g[2]), b: featText(g[1], +g[3]) });
+  else s = m.id;
+  return T(neg ? tx('not: {x}', { x: s }) : s);
+}
 const cargoCol = cs => cs.cols.indexOf('cargo');
 function refParts(d, v, cs) {
-  const t = cs.vals[d][v], k = cs.cols[d];
-  if (k === 'name') return [{ t, k }];
-  if (k === 'planet') return ['the alien from ', { t, k }];
-  return ['whoever carries ', { t, k }];
+  const r = valRef(cs, d, v);
+  if (r.k === 'name') return [r];
+  if (r.k === 'planet') return tparts(tx('the alien from {t}'), { t: r });
+  return tparts(tx('whoever carries {t}'), { t: r });
 }
 function clueParts(c, cs) {
-  const Rf = (d, v) => refParts(d, v, cs);
+  const Rf = (d, v) => refParts(d, v, cs), T = tparts;
   let parts;
-  const noneNot = c.pr && c.neg && c.pr.meta.kind === 'eq' && c.pr.meta.k === 0;   // "has antennae" said plainly
-  if (c.type === 'feat' || c.type === 'notfeat') parts = [...Rf(c.d, c.v), ' ', ...(noneNot ? ['has at least one antenna'] : c.neg ? c.pr.neg : c.pr.pos)];
+  if (c.type === 'feat' || c.type === 'notfeat') parts = T(tx('{who} {does}'), { who: Rf(c.d, c.v), does: predParts(c.pr.meta, c.neg) });
   else if (c.type === 'link' || c.type === 'notlink') {
-    const yes = c.type === 'link', a = cs.vals[c.d1][c.v1], b = cs.vals[c.d2][c.v2], k1 = cs.cols[c.d1], k2 = cs.cols[c.d2];
-    if (k1 === 'name' && k2 === 'planet') parts = [{ t:a, k:'name' }, yes ? ' comes from ' : ' is not from ', { t:b, k:'planet' }];
-    else if (k1 === 'name') parts = [{ t:a, k:'name' }, yes ? ' carries ' : ' does not carry ', { t:b, k:'cargo' }];
-    else parts = ['the alien from ', { t:a, k:'planet' }, yes ? ' carries ' : ' does not carry ', { t:b, k:'cargo' }];
+    const yes = c.type === 'link', a = valRef(cs, c.d1, c.v1), b = valRef(cs, c.d2, c.v2), k1 = cs.cols[c.d1], k2 = cs.cols[c.d2];
+    if (k1 === 'name' && k2 === 'planet') parts = T(yes ? tx('{a} comes from {b}') : tx('{a} is not from {b}'), { a, b });
+    else if (k1 === 'name') parts = T(yes ? tx('{a} carries {b}') : tx('{a} does not carry {b}'), { a, b });
+    else parts = T(yes ? tx('the alien from {a} carries {b}') : tx('the alien from {a} does not carry {b}'), { a, b });
   }
-  else if (c.type === 'compare') parts = [...Rf(c.da, c.va), ' has more ', NUMKEYS[c.key].noun, ' than ', ...Rf(c.db, c.vb)];
-  else if (c.type === 'gate') {
-    const say = v => c.key === 'eyes' ? `${v} ${v === 1 ? 'eye' : 'eyes'}` : `${v === 0 ? 'no' : v} ${v === 1 ? 'antenna' : 'antennae'}`;
-    parts = [...Rf(c.da, c.va), ' and ', ...Rf(c.db, c.vb), ' are the two at the gate, one with ', say(c.A[0]), ' and the other with ', say(c.A[1])];
+  else if (c.type === 'compare') {
+    const a = Rf(c.da, c.va), b = Rf(c.db, c.vb);
+    parts = T(c.key === 'eyes' ? tx('{a} has more eyes than {b}') : c.key === 'ant' ? tx('{a} has more antennae than {b}') : tx('{a} has more fingers than {b}'), { a, b });
   }
-  else parts = [...Rf(c.da, c.va), ' and ', ...Rf(c.db, c.vb), ' ', SAMEPHRASE[c.key]];
+  else if (c.type === 'gate') parts = T(tx('{a} and {b} are the two at the gate, one with {x} and the other with {y}'), { a: Rf(c.da, c.va), b: Rf(c.db, c.vb), x: featText(c.key, c.A[0]), y: featText(c.key, c.A[1]) });
+  else {
+    // a "same" entry is always about two different aliens, and says so (engine.js holds() needs p !== q)
+    const s = { fingers: tx('{a} and {b} are two different aliens with the same number of fingers'), eyes: tx('{a} and {b} are two different aliens with the same number of eyes'), ant: tx('{a} and {b} are two different aliens with the same number of antennae'), color: tx('{a} and {b} are two different aliens of the same colour'), pattern: tx('{a} and {b} are two different aliens with the same markings') }[c.key];
+    parts = T(s, { a: Rf(c.da, c.va), b: Rf(c.db, c.vb) });
+  }
   // a finger count in the ledger says nothing about suction cups; say so (the pictures draw a hand with both kinds of tips)
   const fingers = (c.type === 'feat' || c.type === 'notfeat') ? c.pr.meta.key === 'fingers' : (c.type === 'compare' || c.type === 'same') && c.key === 'fingers';
-  if (fingers && !cs.photos) parts.push(', with or without suction cups');
-  if (typeof parts[0] === 'string') parts[0] = parts[0][0].toUpperCase() + parts[0].slice(1);
-  return [...parts, '.'];
+  if (fingers && !cs.photos) parts.push(tx(', with or without suction cups'));
+  if (typeof parts[0] === 'string') parts[0] = capFirst(parts[0]);
+  return tparts('{p}' + STOP, { p: parts });
 }
 // the spots an entry rests on: its own, or the two of a same-photo entry ("two spots in one photo are two aliens")
 const figsOf = c => c.figs || [c.fig];
 function renderParts(el, parts, cs) {
   for (const p of parts) {
     if (typeof p === 'string') el.append(p);
-    else if ('n' in p) el.append(numMode === 'hand' ? glyphCanvas(p.n, cs.scribe) : (p.n === 0 ? 'no' : String(p.n)));
+    else if ('n' in p) el.append(numMode === 'hand' ? glyphCanvas(p.n, cs.scribe) : (p.n === 0 ? tx('no') : String(p.n)));
     else { const b = document.createElement('b'); b.className = 'ref ref-' + p.k; b.textContent = p.t; el.append(b); }
   }
 }
@@ -906,7 +1032,6 @@ const mctx = document.createElement('canvas').getContext('2d');
 const hashStr = s => { let h = 2166136261; for (const ch of s) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; };
 const CARGO_INK = [['#f1dfb5','#8a4b22'], ['#ffd166','#5a3c00'], ['#e0b16a','#3a2a10'], ['#7ddc8f','#1f4d2a'], ['#ff9f5a','#fff3c4'], ['#8fc3ff','#16304f']];
 const RED = '#ff6b5b', MUTED = '#b3add6';
-const shortCargo = t => t.replace(/^the /, '');
 function measure(s, font) { mctx.font = font; return mctx.measureText(s).width; }
 function rrect(ctx, x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
 const opTok = (s, col = MUTED) => { const f = '600 22px "JetBrains Mono", monospace'; return { w: measure(s, f), draw: (ctx, x, H) => { ctx.font = f; ctx.fillStyle = col; ctx.textBaseline = 'middle'; ctx.fillText(s, x, H / 2); } }; };
@@ -1022,7 +1147,7 @@ function picTokens(c, cs) {
   if (c.type === 'notlink') return [refTok(c.d1, c.v1, cs), opTok('≠', RED), refTok(c.d2, c.v2, cs)];
   return [refTok(c.da, c.va, cs), stackTok(keyIcon(c.key), c.type === 'compare' ? '>' : '='), refTok(c.db, c.vb, cs)];
 }
-const partsText = parts => parts.map(p => typeof p === 'string' ? p : 'n' in p ? (p.n === 0 ? 'no' : String(p.n)) : p.t).join('');
+const partsText = parts => parts.map(p => typeof p === 'string' ? p : 'n' in p ? (p.n === 0 ? tx('no') : String(p.n)) : p.t).join('');
 function picEntry(c, cs) {
   const toks = picTokens(c, cs), H = PIC_H, dpr = Math.min(window.devicePixelRatio || 1, 2);
   const W = Math.ceil(toks.reduce((s, t) => s + t.w, 0) + PIC_GAP * (toks.length - 1) + 8);
@@ -1259,7 +1384,7 @@ function sceneCanvas(c, cs, zoom = 1) {
 function sceneEntry(c, cs) {
   const cv = sceneCanvas(c, cs); if (!cv) return null;
   const i = cs.clues.indexOf(c);
-  cv.title = cv.getAttribute('aria-label') + ' (click to enlarge)'; cv.tabIndex = 0;
+  cv.title = cv.getAttribute('aria-label') + tx(' (click to enlarge)'); cv.tabIndex = 0;
   const open = () => openSceneZoom(c, cs, i);
   cv.addEventListener('click', open);
   cv.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
@@ -1267,7 +1392,7 @@ function sceneEntry(c, cs) {
 }
 function openSceneZoom(c, cs, i) {
   const big = sceneCanvas(c, cs, 2.4); big.classList.add('scene-zoomed');
-  $('scene-zoom-title').textContent = `Entry ${i + 1}`;
+  $('scene-zoom-title').textContent = tx('Entry {n}', { n: i + 1 });
   $('scene-zoom-text').textContent = big.getAttribute('aria-label');
   const box = $('scene-zoom-body'); box.innerHTML = ''; box.append(big);
   const d = $('scene-zoom'); if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
@@ -1277,17 +1402,19 @@ function openSceneZoom(c, cs, i) {
 const BASIC = ['crates', 'shadow', 'dark', 'curtain', 'blanket', 'gap'], FUZZY = ['steam', 'redlamp'];
 // what each spot lets the camera see
 const STATIONS = {
-  crates:  { label:'antennae above the crates in the cargo hold', shows:['ant'], note:'The hold is lit from inside, so only the antennae above the crates show, black against the light. Count them.' },
-  shadow:  { label:'a hand\'s shadow at the shadow theatre', shows:['fingers','cups'], note:'Only the shadow of one hand falls on the screen. Count the fingers, and look for round suction cups at the tips.' },
-  dark:    { label:'eyes in the dark storeroom', shows:['eyes'], note:'The light is out. Only the eyes shine: count them.' },
-  curtain: { label:'a hand from the changing booth', shows:['fingers','cups','color'], note:'A hand reaches through the curtain: the fingers, any suction cups, and the colour of the skin.' },
-  blanket: { label:'asleep in a nap pod', shows:['color'], note:'Under the blanket only the glow of the sleeper\'s colour shows.' },
-  gap:     { label:'through the little window in the shop door', shows:['pattern'], note:'The shop door is solid wood, with one small window of thick, smoked glass at belly height. Through it you see the markings on the belly (plain, spots or stripes), but no colour and nothing of the alien\'s outline.' },
-  steam:   { label:'eyes in the steam room (1–2 or 3–4)', shows:['eyesFuzzy'], note:'The steam blurs the eyes. One round glow means 1 or 2 eyes, and a wide band means 3 or 4.' },
-  redlamp: { label:'a hand in the darkroom\'s red light', shows:['fingers','cups','warmth'], note:'The fingers and any suction cups show clearly. Under red light, warm colours (pink, orange) glow bright and cool colours (green, blue, purple) look dark.' },
-  gate:    { label:'the two arriving together in one pod', shows:[], note:'Two aliens arrive in a two-seat pod. You see one thing of each (their eyes through the tinted windows, or their antennae over the rim) and hear both answers, but not who said which.' },
-  shuttle: { label:'the shuttle with one seat empty', shows:[], note:'Everyone is aboard but one. Compare the passengers with the cards to see what the missing one looks like.' }
+  crates:  { label:N_('antennae above the crates in the cargo hold'), shows:['ant'], note:N_('The hold is lit from inside, so only the antennae above the crates show, black against the light. Count them.') },
+  shadow:  { label:N_('a hand\'s shadow at the shadow theatre'), shows:['fingers','cups'], note:N_('Only the shadow of one hand falls on the screen. Count the fingers, and look for round suction cups at the tips.') },
+  dark:    { label:N_('eyes in the dark storeroom'), shows:['eyes'], note:N_('The light is out. Only the eyes shine: count them.') },
+  curtain: { label:N_('a hand from the changing booth'), shows:['fingers','cups','color'], note:N_('A hand reaches through the curtain: the fingers, any suction cups, and the colour of the skin.') },
+  blanket: { label:N_('asleep in a nap pod'), shows:['color'], note:N_('Under the blanket only the glow of the sleeper\'s colour shows.') },
+  gap:     { label:N_('through the little window in the shop door'), shows:['pattern'], note:N_('The shop door is solid wood, with one small window of thick, smoked glass at belly height. Through it you see the markings on the belly (plain, spots or stripes), but no colour and nothing of the alien\'s outline.') },
+  steam:   { label:N_('eyes in the steam room (1–2 or 3–4)'), shows:['eyesFuzzy'], note:N_('The steam blurs the eyes. One round glow means 1 or 2 eyes, and a wide band means 3 or 4.') },
+  redlamp: { label:N_('a hand in the darkroom\'s red light'), shows:['fingers','cups','warmth'], note:N_('The fingers and any suction cups show clearly. Under red light, warm colours (pink, orange) glow bright and cool colours (green, blue, purple) look dark.') },
+  gate:    { label:N_('the two arriving together in one pod'), shows:[], note:N_('Two aliens arrive in a two-seat pod. You see one thing of each (their eyes through the tinted windows, or their antennae over the rim) and hear both answers, but not who said which.') },
+  shuttle: { label:N_('the shuttle with one seat empty'), shows:[], note:N_('Everyone is aboard but one. Compare the passengers with the cards to see what the missing one looks like.') }
 };
+// a station's name and note in the reader's language
+const stLabel = s => tx(STATIONS[s].label), stNote = s => STATIONS[s].note ? tx(STATIONS[s].note) : '';
 const SPOT_LETTERS = 'abcdefgh';
 const spotTag = (pi, j) => `${pi + 1}${SPOT_LETTERS[j]}`;
 const WARM = [1, 3];   // pink and orange glow bright under the red lamp; green, blue and purple look dark
@@ -1299,7 +1426,7 @@ const fw = f => f.group || f.absence ? SW * 2 : SW;
 function drawShuttle(ctx, x0, f, cs) {
   const W = SW * 2, n = f.order.length, hx = x0 + 150, hw = W - 176, py = 168;
   ctx.font = '600 13px "JetBrains Mono", monospace'; ctx.fillStyle = '#ffc857'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-  ctx.fillText('SHUTTLE TO ORBIT · ALL ABOARD BUT ONE', x0 + W / 2 + 60, 96); ctx.textAlign = 'start';
+  ctx.fillText(tx('SHUTTLE TO ORBIT · ALL ABOARD BUT ONE'), x0 + W / 2 + 60, 96); ctx.textAlign = 'start';
   rrect(ctx, hx, 116, hw, 106, 40); ctx.fillStyle = '#c9cfdc'; ctx.fill(); ctx.strokeStyle = '#7d8598'; ctx.lineWidth = 3; ctx.stroke();
   ctx.fillStyle = '#9aa2b6'; ctx.fillRect(hx + 20, 206, hw - 40, 6);
   ctx.fillStyle = '#1c1738'; ctx.fillRect(hx + 30, 222, 8, FLOOR - 222); ctx.fillRect(hx + hw - 38, 222, 8, FLOOR - 222);
@@ -1642,7 +1769,7 @@ function drawGate(ctx, x0, f, cs) {
 // antennae as dark shapes above a line (crate edge, pod rim), against a lit wall
 function gateSign(ctx, x0, W) {
   ctx.fillStyle = '#3a3270'; ctx.fillRect(x0 + 40, 70, W - 80, 20);
-  ctx.font = '600 13px "JetBrains Mono", monospace'; ctx.fillStyle = '#ffc857'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('GATE 2 · ARRIVING TOGETHER', x0 + W / 2, 80); ctx.textAlign = 'start';
+  ctx.font = '600 13px "JetBrains Mono", monospace'; ctx.fillStyle = '#ffc857'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(tx('GATE 2 · ARRIVING TOGETHER'), x0 + W / 2, 80); ctx.textAlign = 'start';
 }
 function antennaSilhouettes(ctx, fx, a, S, cy, line) {
   const g = geom(a, .6), k = S / 100, X = u => fx + (u - 50) * k, Y = v => cy + (v - 50) * k;
@@ -1702,7 +1829,7 @@ function drawStation(ctx, x0, f, cs, dpr, lit, showAside = true) {
   ctx.save(); ctx.beginPath(); ctx.rect(x0, 0, w, PH); ctx.clip();
   if (f.absence) {
     drawShuttle(ctx, x0, f, cs);
-    const items = [{ k:'text', t:'Still missing:' }, { k: cs.cols[f.d], t: cs.vals[f.d][cs.T[f.d][f.missing]] }];
+    const items = [{ k:'text', t:tx('Still missing:') }, { k: cs.cols[f.d], t: cs.vals[f.d][cs.T[f.d][f.missing]] }];
     drawBubble(ctx, x0, w, items, x0 + 70, 138);
   } else if (f.group) {
     drawGate(ctx, x0, f, cs);
@@ -1727,8 +1854,8 @@ function drawStation(ctx, x0, f, cs, dpr, lit, showAside = true) {
   if (showAside && cs.spotAside.has(f.id)) {
     ctx.fillStyle = 'rgba(14,12,32,.8)'; ctx.fillRect(x0, 0, w - 5, PH);
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = '#b3add6';
-    ctx.font = '600 13px "JetBrains Mono", monospace'; ctx.fillText('PUT ASIDE', x0 + w / 2, PH / 2 - 8);
-    ctx.font = '400 11px "JetBrains Mono", monospace'; ctx.fillText('tap to look again', x0 + w / 2, PH / 2 + 12); ctx.textAlign = 'start';
+    ctx.font = '600 13px "JetBrains Mono", monospace'; ctx.fillText(tx('PUT ASIDE'), x0 + w / 2, PH / 2 - 8);
+    ctx.font = '400 11px "JetBrains Mono", monospace'; ctx.fillText(tx('tap to look again'), x0 + w / 2, PH / 2 + 12); ctx.textAlign = 'start';
   }
   if (lit) { ctx.strokeStyle = '#ffc857'; ctx.lineWidth = 5; ctx.strokeRect(x0 + 4, 4, w - 12, PH - 8); }
   ctx.restore();
@@ -1745,7 +1872,7 @@ function photoCanvas(cs, ph, pi, lit) {
   ph.forEach((f, j) => spotBadge(ctx, starts[j] + fw(f) - 20, spotTag(pi, j)));
   ctx.font = '600 12px "JetBrains Mono", monospace'; ctx.fillStyle = 'rgba(244,237,220,.75)'; ctx.textBaseline = 'alphabetic';
   ctx.fillText(`CAM ${pi + 1} · ${['14:32', '14:47', '15:02', '15:17'][pi] || ''}`, 10, PH - 10);
-  cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', `Photo ${pi + 1}: ` + ph.map((f, j) => `${spotTag(pi, j)}, ${STATIONS[f.station].label}`).join('; ')); cv.tabIndex = 0;
+  cv.setAttribute('role', 'img'); cv.setAttribute('aria-label', tx('Photo {n}: {spots}', { n: pi + 1, spots: ph.map((f, j) => `${spotTag(pi, j)}, ${stLabel(f.station)}`).join('; ') })); cv.tabIndex = 0;
   cv.addEventListener('click', e => {
     const r = cv.getBoundingClientRect(), px = (e.clientX - r.left) * W / r.width;
     let j = starts.length - 1; while (j > 0 && px < starts[j]) j--;
@@ -1761,10 +1888,10 @@ function openSpotZoom(cs, f, pi) {
   cv.width = w * s; cv.height = PH * s;
   const ctx = cv.getContext('2d'); ctx.scale(s, s); drawRoom(ctx, w); drawStation(ctx, 0, f, cs, s, false, false);
   const j = cs.photos[pi].indexOf(f);
-  $('spot-title').textContent = `Spot ${spotTag(pi, j)}: ${STATIONS[f.station].label}`;
-  $('spot-note').textContent = STATIONS[f.station].note || ''; $('spot-note').hidden = !STATIONS[f.station].note;
+  $('spot-title').textContent = tx('Spot {tag}: {label}', { tag: spotTag(pi, j), label: stLabel(f.station) });
+  $('spot-note').textContent = stNote(f.station) || ''; $('spot-note').hidden = !stNote(f.station);
   const ab = $('spot-aside');
-  ab.textContent = cs.spotAside.has(f.id) ? '↺ Bring this spot back' : '✕ Put this spot aside';
+  ab.textContent = cs.spotAside.has(f.id) ? tx('↺ Bring this spot back') : tx('✕ Put this spot aside');
   ab.onclick = () => { cs.spotAside.has(f.id) ? cs.spotAside.delete(f.id) : cs.spotAside.add(f.id); renderPhotos(); closeSpotZoom(); };
   cv.style.setProperty('--ar', String(w / PH));
   const b = $('spot-body'); b.innerHTML = ''; b.append(cv);
@@ -1772,7 +1899,7 @@ function openSpotZoom(cs, f, pi) {
   const d = $('spot-zoom'); if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
 }
 
-const COL_TITLE = { name:'Name', planet:'Home', cargo:'Carries' };
+
 /* Two rows, like a photo app: the photos in play, one at a time, swiped or stepped left and right;
    underneath, the ones you have put aside with ✕, each with ↺ to bring it back. */
 let litNow = new Set();
@@ -1787,7 +1914,7 @@ function renderPhotos(lit = litNow) {
     const cv = photoCanvas(cs, cs.photos[pi], pi, lit); f.append(cv);
     if (spots) cs.photos[pi].forEach((sp, j) => {
       const off = cs.spotAside.has(sp.id), b = document.createElement('button'); b.type = 'button'; b.className = 'spotx';
-      b.textContent = off ? '↺' : '✕'; b.title = `${off ? 'Bring back' : 'Put aside'} spot ${spotTag(pi, j)}`; b.setAttribute('aria-label', b.title);
+      b.textContent = off ? '↺' : '✕'; b.title = off ? tx('Bring back spot {tag}', { tag: spotTag(pi, j) }) : tx('Put aside spot {tag}', { tag: spotTag(pi, j) }); b.setAttribute('aria-label', b.title);
       b.style.left = `calc(${((cv._starts[j] + fw(sp)) / cv._W * 100).toFixed(3)}% - 6px)`;
       b.addEventListener('click', e => { e.stopPropagation(); off ? cs.spotAside.delete(sp.id) : cs.spotAside.add(sp.id); renderPhotos(); });
       f.append(b);
@@ -1798,7 +1925,7 @@ function renderPhotos(lit = litNow) {
   const main = document.createElement('div'); main.className = 'carousel';
   const head = document.createElement('div'); head.className = 'carousel-head';
   const count = document.createElement('span'); count.className = 'count';
-  const track = document.createElement('div'); track.className = 'track'; track.tabIndex = 0; track.setAttribute('aria-label', 'Photos in play');
+  const track = document.createElement('div'); track.className = 'track'; track.tabIndex = 0; track.setAttribute('aria-label', tx('Photos in play'));
   // as many photos side by side as fit; the edge arrows step to the next photo not yet fully in view
   const slides = () => [...track.querySelectorAll('.slide')];
   const step = dir => {
@@ -1807,25 +1934,25 @@ function renderPhotos(lit = litNow) {
     if (to) track.scrollTo({ left: dir > 0 ? to.offsetLeft : Math.max(0, to.offsetLeft + to.offsetWidth - track.clientWidth), behavior: reduceMotion ? 'auto' : 'smooth' });
   };
   const body = document.createElement('div'); body.className = 'carousel-body';
-  const prev = btn('‹', 'Previous photos', () => step(-1)), next = btn('›', 'Next photos', () => step(1));
+  const prev = btn('‹', tx('Previous photos'), () => step(-1)), next = btn('›', tx('Next photos'), () => step(1));
   prev.classList.add('edge', 'left'); next.classList.add('edge', 'right');
   body.append(track, prev, next);
   head.append(count); main.append(head, body);
-  if (!inPlay.length) { const e = document.createElement('p'); e.className = 'grade'; e.textContent = 'Every photo is put aside. Bring one back from the row below.'; track.append(e); }
+  if (!inPlay.length) { const e = document.createElement('p'); e.className = 'grade'; e.textContent = tx('Every photo is put aside. Bring one back from the row below.'); track.append(e); }
   inPlay.forEach(pi => {
     const slide = document.createElement('div'); slide.className = 'slide'; slide.dataset.pi = pi;
     const W = cs.photos[pi].reduce((s, f) => s + fw(f), 0);
     slide.style.width = `min(${W + 12}px, calc(var(--ph) * ${(W / PH).toFixed(4)} + 12px), 100%)`;
     const bar = document.createElement('div'); bar.className = 'slide-bar';
-    const t = document.createElement('h3'); t.textContent = `Photo ${pi + 1} of ${cs.photos.length}`;
-    const x = btn('✕', `Put the whole of photo ${pi + 1} aside`, () => { cs.aside.add(pi); renderPhotos(); }); x.classList.add('tiny');
+    const t = document.createElement('h3'); t.textContent = tx('Photo {n} of {m}', { n: pi + 1, m: cs.photos.length });
+    const x = btn('✕', tx('Put the whole of photo {n} aside', { n: pi + 1 }), () => { cs.aside.add(pi); renderPhotos(); }); x.classList.add('tiny');
     bar.append(t, x);
     slide.append(bar, frame(pi)); track.append(slide);
   });
   const where = () => {
     const L = track.scrollLeft, Rt = L + track.clientWidth;
     const full = slides().filter(s => s.offsetLeft >= L - 4 && s.offsetLeft + s.offsetWidth <= Rt + 4).map(s => +s.dataset.pi);
-    count.textContent = !inPlay.length ? 'No photos in play' : full.length === inPlay.length ? `All ${inPlay.length} in play shown` : `Photo ${full.length ? full.map(p => p + 1).join(', ') : '…'} in view · ${inPlay.length} in play`;
+    count.textContent = !inPlay.length ? tx('No photos in play') : full.length === inPlay.length ? tx('All {n} in play shown', { n: inPlay.length }) : tx('Photo {list} in view · {n} in play', { list: full.length ? full.map(p => p + 1).join(', ') : '…', n: inPlay.length });
     const first = slides().find(s => s.offsetLeft + s.offsetWidth > L + 8);
     if (first) cs._slide = +first.dataset.pi;
     cs._scroll = { key: inPlay.join(','), left: L };
@@ -1837,13 +1964,13 @@ function renderPhotos(lit = litNow) {
   // the row put aside
   if (aside.length) {
     const side = document.createElement('div'); side.className = 'carousel aside';
-    const h = document.createElement('div'); h.className = 'carousel-head'; h.innerHTML = `<span class="count">Put aside · ${aside.length}</span>`;
-    const t2 = document.createElement('div'); t2.className = 'track'; t2.setAttribute('aria-label', 'Photos put aside');
+    const h = document.createElement('div'); h.className = 'carousel-head'; h.innerHTML = `<span class="count">${tx('Put aside · {n}', { n: aside.length })}</span>`;
+    const t2 = document.createElement('div'); t2.className = 'track'; t2.setAttribute('aria-label', tx('Photos put aside'));
     aside.forEach(pi => {
       const slide = document.createElement('div'); slide.className = 'slide';
       const bar = document.createElement('div'); bar.className = 'slide-bar';
-      const t = document.createElement('h3'); t.textContent = `Photo ${pi + 1}`;
-      const back = btn('↺', `Bring photo ${pi + 1} back`, () => { cs.aside.delete(pi); cs._slide = pi; renderPhotos(); }); back.classList.add('tiny');
+      const t = document.createElement('h3'); t.textContent = tx('Photo {n}', { n: pi + 1 });
+      const back = btn('↺', tx('Bring photo {n} back', { n: pi + 1 }), () => { cs.aside.delete(pi); cs._slide = pi; renderPhotos(); }); back.classList.add('tiny');
       bar.append(t, back);
       slide.append(bar, frame(pi, false)); t2.append(slide);
     });
@@ -1860,21 +1987,49 @@ function renderPhotos(lit = litNow) {
 function renderWords() {
   const body = $('words-body'); body.innerHTML = '';
   CASE.photos.forEach((ph, pi) => {
-    const h = document.createElement('h4'); h.textContent = `Photo ${pi + 1}`; body.append(h);
+    const h = document.createElement('h4'); h.textContent = tx('Photo {n}', { n: pi + 1 }); body.append(h);
     const ul = document.createElement('ul');
     ph.forEach((f, j) => {
-      const li = document.createElement('li'), lab = STATIONS[f.station].label;
-      li.textContent = `${spotTag(pi, j)}, ${lab}: ` + CASE.clues.filter(c => c.fig === f.id).map(c => partsText(clueParts(c, CASE)).replace(/\.$/, '')).join('; ') + '.';
+      const li = document.createElement('li'), lab = stLabel(f.station);
+      li.textContent = `${spotTag(pi, j)}, ${lab}: ` + CASE.clues.filter(c => c.fig === f.id).map(c => partsText(clueParts(c, CASE)).replace(/[.。]$/, '')).join(tx('; ')) + STOP;
       ul.append(li);
     });
     body.append(ul);
   });
 }
 
+/* ---------- the page's own words: what the HTML says, in the reader's language ----------
+   A block marked data-t is looked up whole, markup and all; every other piece of text, and every
+   title, aria-label and placeholder, by its own words. Whatever a language lacks stays English. */
+const normWS = s => s.replace(/\s+/g, ' ').trim();
+function pageWords() {
+  if (!LANGPACK) return;
+  document.querySelectorAll('[data-t]').forEach(el => { const t = TR[normWS(el.innerHTML)]; if (t != null) el.innerHTML = t; });
+  const walk = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: n => n.parentElement && /^(SCRIPT|STYLE)$/.test(n.parentElement.tagName) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT });
+  const nodes = []; while (walk.nextNode()) nodes.push(walk.currentNode);
+  for (const n of nodes) {
+    const key = normWS(n.nodeValue); if (!key || TR[key] == null) continue;
+    const lead = /^\s*/.exec(n.nodeValue)[0], tail = /\s*$/.exec(n.nodeValue)[0];
+    n.nodeValue = lead + TR[key] + tail;
+  }
+  for (const a of ['title', 'aria-label', 'placeholder'])
+    document.querySelectorAll(`[${a}]`).forEach(el => { const t = TR[normWS(el.getAttribute(a))]; if (t != null) el.setAttribute(a, t); });
+}
+pageWords();
+// the language picker in the top bar: the same setting as the Typing Pool's pages (pool.lang)
+{
+  const s = $('langpick'); s.value = LANG;
+  s.addEventListener('change', () => {
+    try { localStorage.setItem('pool.lang', s.value); } catch (e) {}
+    try { const u = new URL(location.href); u.searchParams.set('lang', s.value); location.href = u.toString(); } catch (e) { location.reload(); }
+  });
+}
+const LOCALE = (LANGPACK && LANGPACK.locale) || 'en-GB';
+
 /* ---------- game state ---------- */
 // count: how the crew signals the next pier, from Toddler (one member, count the fingers) to Full (up to three places)
 const helps = { colour:true, grey:true, key:true, explain:true, hints:true, scan:true, count:'full', tick:true, spent:false, chart:'decimal' };
-const COUNT_NAME = { toddler:'Toddler', kids:'Kids', youth:'Youth', full:'Full' };
+const COUNT_NAME = { toddler:N_('Toddler'), kids:N_('Kids'), youth:N_('Youth'), full:N_('Full') };
 try {
   const kept = JSON.parse(localStorage.getItem('lab2-helps') || '{}');
   if (kept.simple && !kept.count) kept.count = 'toddler';   // the old "simple counting" switch
@@ -1886,7 +2041,7 @@ const saveHelps = () => { try { localStorage.setItem('lab2-helps', JSON.stringif
 const score = { piers:1, hints:0, explained:0, shown:0, scans:0, tries:0 };
 let hintExplained = false;   // the open hint has had its Explain press
 // "3 hints", "3 hints (2 explained, 1 shown)": the three levels of help, for the counter, the result line and the finale
-const hintCount = (n, ex, sh) => { const more = [ex ? `${ex} explained` : '', sh ? `${sh} shown` : ''].filter(Boolean); return `${n} ${n === 1 ? 'hint' : 'hints'}${more.length ? ` (${more.join(', ')})` : ''}`; };
+const hintCount = (n, ex, sh) => { const more = [ex ? tx('{n} explained', { n: ex }) : '', sh ? tx('{n} shown', { n: sh }) : ''].filter(Boolean); return tn(n, '{n} hint', '{n} hints') + (more.length ? ` (${more.join(', ')})` : ''); };
 let ledgerMode = 'pictures', caseStyle = 'photos';
 let scrollToCast = false, playMode = 'voyage';
 let level = 'standard', numMode = 'plain', CASE = null, caseViews = [], pendingHint = null, daily = false;
@@ -1897,15 +2052,15 @@ function startVoyage() {
   Object.assign(score, { piers:1, hints:0, explained:0, shown:0, scans:0, tries:0 });
 }
 function updateChips() {
-  $('c-pier').textContent = ship.planet.name; $('c-map').textContent = `${voyage.pieces} of ${voyage.len}`;
+  $('c-pier').textContent = ship.planet.name; $('c-map').textContent = tx('{n} of {m}', { n: voyage.pieces, m: voyage.len });
   const st = playMode === 'single' && CASE && CASE.start ? CASE.start : {}, less = k => (score[k] || 0) - (st[k] || 0);
   const hints = less('hints'), ex = less('explained'), sh = less('shown');
-  $('c-hints').textContent = [hints, ex ? `${ex} explained` : '', sh ? `${sh} shown` : ''].filter(x => x !== '').join(' · '); $('c-scans').textContent = less('scans'); $('c-tries').textContent = less('tries');
+  $('c-hints').textContent = [hints, ex ? tx('{n} explained', { n: ex }) : '', sh ? tx('{n} shown', { n: sh }) : ''].filter(x => x !== '').join(' · '); $('c-scans').textContent = less('scans'); $('c-tries').textContent = less('tries');
   const on = ['colour','grey','key','explain','hints','scan','spent'].filter(k => helps[k]).length;
-  $('helps-sum').textContent = `Helps · ${on} of 7 on · counting: ${COUNT_NAME[helps.count]}`;
+  $('helps-sum').textContent = tx('Helps · {n} of 7 on · counting: {how}', { n: on, how: tx(COUNT_NAME[helps.count]) });
 }
-const cellPhrase = (p, d) => { const k = CASE.cols[d]; return k === 'name' ? `Alien ${LETTERS[p]}'s name` : k === 'planet' ? `Alien ${LETTERS[p]}'s home` : `what Alien ${LETTERS[p]} carries`; };
-const cellFact = (cs, p, d, v) => { const k = cs.cols[d], t = cs.vals[d][v]; return k === 'name' ? `Alien ${LETTERS[p]} is ${t}` : k === 'planet' ? `Alien ${LETTERS[p]} comes from ${t}` : `Alien ${LETTERS[p]} carries ${t}`; };
+const cellPhrase = (p, d) => { const k = CASE.cols[d], l = LETTERS[p]; return k === 'name' ? tx("Alien {l}'s name", { l }) : k === 'planet' ? tx("Alien {l}'s home", { l }) : tx('what Alien {l} carries', { l }); };
+const cellFact = (cs, p, d, v) => { const k = cs.cols[d], t = valWord(cs, d, v), l = LETTERS[p]; return k === 'name' ? tx('Alien {l} is {t}', { l, t }) : k === 'planet' ? tx('Alien {l} comes from {t}', { l, t }) : tx('Alien {l} carries {t}', { l, t }); };
 
 // The tag next to the name in the top bar: today's case (or the day it belongs to, or a free case),
 // its number in the bank, and its stars. The number is drawn in hand numerals of five-fingered
@@ -1914,34 +2069,34 @@ function caseTag() {
   const el = $('case-tag'); el.innerHTML = ''; el.hidden = !CASE; if (!CASE) return;
   const m = /^(daily|free)-(\w+)-(\w+)-(\d+)$/.exec(CASE.id || ''), no = m ? +m[4] + 1 : 0, isDaily = m && m[1] === 'daily';
   const today = isDaily && dailyDay() === ymd(new Date());
-  const what = !isDaily ? 'Free case' : today ? "Today's case" : fromYmd(dailyDay()).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+  const what = !isDaily ? tx('Free case') : today ? tx("Today's case") : fromYmd(dailyDay()).toLocaleDateString(LOCALE, { day: 'numeric', month: 'short' });
   el.classList.toggle('today', !!today);
   const w = document.createElement('span'); w.textContent = what; el.append(w);
-  if (no) { const g = glyphCanvas(no, 5), n = document.createElement('span'); n.className = 'no'; n.textContent = no; el.append('No.', g, n); }
+  if (no) { const g = glyphCanvas(no, 5), n = document.createElement('span'); n.className = 'no'; n.textContent = no; el.append(tx('No.'), g, n); }
   const st = document.createElement('span'); st.className = 'stars'; st.textContent = starRow(caseStars(CASE)); el.append(st);
-  el.title = `${what}${m ? `, ${m[2]} ${m[3]} case number ${no}` : ''}, ${STAR_WORD[caseStars(CASE)].toLowerCase()} (${caseStars(CASE)} of 4 stars)`;
+  el.title = `${what}${m ? tx(', {len} {style} case number {no}', { len: tx(LEN_WORD[m[3]] || m[3]).toLowerCase(), style: m[2] === 'photos' ? tx('photo') : tx('ledger'), no }) : ''}, ${tx(STAR_WORD[caseStars(CASE)]).toLowerCase()} (${tx('{n} of 4 stars', { n: caseStars(CASE) })})`;
 }
 function renderCase() {
-  caseViews.forEach(dropView); caseViews = []; pendingHint = null; hintExplained = false; $('case-hint').textContent = 'Hint';
+  caseViews.forEach(dropView); caseViews = []; pendingHint = null; hintExplained = false; $('case-hint').textContent = tx('Hint');
   $('ledger-park').append($('ledger-tools'));
   $('cast').innerHTML = ''; $('log').innerHTML = '';
   if (CASE) $('cast').style.setProperty('--n', CASE.n); $('verdict').textContent = ''; $('verdict').className = 'verdict';
   $('hintbox').hidden = true; $('signal').hidden = true; signal = null; $('share').hidden = true; $('log').hidden = $('words-slot').hidden = false; $('single-done').hidden = true;
-  if (!CASE) { buildCrewbar(); caseTag(); $('grade').textContent = 'The case could not be loaded. Check the connection, then press New case.'; return; }
+  if (!CASE) { buildCrewbar(); caseTag(); $('grade').textContent = tx('The case could not be loaded. Check the connection, then press New case.'); return; }
   const cs = CASE;
   cs.al.forEach((a, p) => {
     const card = document.createElement('div'); card.className = 'card'; card.id = `card-${p}`;
-    card.innerHTML = `<div class="pid"><span>ALIEN ${LETTERS[p]}</span><span class="st"></span></div>`;
-    const look = document.createElement('button'); look.type = 'button'; look.className = 'look'; look.setAttribute('aria-label', `Look closer at alien ${LETTERS[p]}`);
+    card.innerHTML = `<div class="pid"><span>${tx('ALIEN {l}', { l: LETTERS[p] })}</span><span class="st"></span></div>`;
+    const look = document.createElement('button'); look.type = 'button'; look.className = 'look'; look.setAttribute('aria-label', tx('Look closer at alien {l}', { l: LETTERS[p] }));
     const cv = document.createElement('canvas'); look.append(cv); card.append(look);
-    look.addEventListener('click', () => openZoom(a, null, `Alien ${LETTERS[p]}`));
+    look.addEventListener('click', () => openZoom(a, null, capFirst(tx('Alien {l}', { l: LETTERS[p] }))));
     for (let d = 0; d < cs.D; d++) {
       const f = document.createElement('div'); f.className = 'field';
       const id = `case-${p}-${d}`;
-      const opts = cs.vals[d].map((t, i) => [t, i]).sort((x, y) => x[0].localeCompare(y[0]));
+      const opts = cs.vals[d].map((t, i) => [say(valWord(cs, d, i)), i]).sort((x, y) => x[0].localeCompare(y[0], LOCALE));
       // the field name sits inside the menu until something is picked, which keeps the card short
-      const lab = COL_LABEL[cs.cols[d]];
-      f.innerHTML = `<label class="sr" for="pick-${p}-${d}">${lab}</label><button type="button" class="pick" id="pick-${p}-${d}" aria-haspopup="listbox" aria-expanded="false"></button><select class="native" id="${id}" tabindex="-1" aria-hidden="true"><option value="">${lab}…</option>${opts.map(([t, i]) => `<option value="${i}" data-t="${t}">${t}</option>`).join('')}</select>`;
+      const lab = colLabel(cs.cols[d]);
+      f.innerHTML = `<label class="sr" for="pick-${p}-${d}">${lab}</label><button type="button" class="pick" id="pick-${p}-${d}" aria-haspopup="listbox" aria-expanded="false"></button><select class="native" id="${id}" tabindex="-1" aria-hidden="true"><option value="">${lab}…</option>${opts.map(([t, i]) => `<option value="${i}" data-t="${cs.vals[d][i]}">${t}</option>`).join('')}</select>`;
       card.append(f);
       f.querySelector('select').addEventListener('change', refreshPicks);
       const pb = f.querySelector('.pick'), pd = d;
@@ -1949,7 +2104,7 @@ function renderCase() {
     }
     const foot = document.createElement('div'); foot.className = 'card-foot';
     if (cargoCol(cs) >= 0) {
-      const xb = document.createElement('button'); xb.type = 'button'; xb.className = 'btn small ghost xray'; xb.dataset.p = p; xb.textContent = 'X-ray';
+      const xb = document.createElement('button'); xb.type = 'button'; xb.className = 'btn small ghost xray'; xb.dataset.p = p; xb.textContent = tx('X-ray');
       xb.addEventListener('click', () => scan(p));
       card.querySelector('.pid').append(xb);
     }
@@ -1970,15 +2125,15 @@ function renderCase() {
   cs.done = new Set();
   $('log').classList.toggle('photomode', cs.style === 'photos');
   $('words-slot').innerHTML = '';
-  if (cs.style === 'photos') { $('log').innerHTML = '<div class="photos" id="photos"></div>'; $('words-slot').innerHTML = '<details class="words"><summary>What the photos show, in words</summary><div id="words-body"></div></details>'; litNow = new Set(); renderWords(); }
-  else { $('log').innerHTML = `<div class="log-head"><h3>Cargo ledger, ${ship.planet.name} · Pier 7</h3></div><p class="sub" id="log-sub"></p><div class="key" id="numkey"></div><div id="entries"></div>`; $('log').querySelector('.log-head').append($('ledger-tools')); }
-  const fair = cs.supposes ? `It can be solved step by step, and ${cs.supposes === 1 ? 'one of the steps needs' : cs.supposes + ' of the steps need'} a "suppose" (try a value, watch it break).` : 'It can be worked out step by step, without ever having to guess.';
+  if (cs.style === 'photos') { $('log').innerHTML = '<div class="photos" id="photos"></div>'; $('words-slot').innerHTML = `<details class="words"><summary>${tx('What the photos show, in words')}</summary><div id="words-body"></div></details>`; litNow = new Set(); renderWords(); }
+  else { $('log').innerHTML = `<div class="log-head"><h3>${tx('Cargo ledger, {planet} · Pier 7', { planet: ship.planet.name })}</h3></div><p class="sub" id="log-sub"></p><div class="key" id="numkey"></div><div id="entries"></div>`; $('log').querySelector('.log-head').append($('ledger-tools')); }
+  const fair = cs.supposes ? tn(cs.supposes, 'It can be solved step by step, and one of the steps needs a "suppose" (try a value, watch it break).', 'It can be solved step by step, and {n} of the steps need a "suppose" (try a value, watch it break).') : tx('It can be worked out step by step, without ever having to guess.');
   if (cs.style === 'photos') {
     const figs = cs.photos.reduce((t, ph) => t + ph.reduce((u, f) => u + (f.absence ? cs.n - 1 : f.group ? 2 : 1), 0), 0), hard = cs.level === 'hard';
-    $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}${cs.photos.length} ${cs.photos.length === 1 ? 'photo' : 'photos'}, ${figs} hidden figures, one answer.</strong> ${starsHtml(cs)} ${fair} ${hard ? 'The gate and the shuttle stay on purpose; every other figure the case could spare was taken out. The cast is made of look-alikes.' : 'Every figure left in the photos is needed.'} Tap a spot to look closer.`;
-  } else $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}${cs.clues.length} entries in the ledger, and only one answer fits them all.</strong> ${starsHtml(cs)} ${fair}`;
+    $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}${tn(cs.photos.length, '{n} photo, {figs} hidden figures, one answer.', '{n} photos, {figs} hidden figures, one answer.', { figs })}</strong> ${starsHtml(cs)} ${fair} ${hard ? tx('The gate and the shuttle stay on purpose; every other figure the case could spare was taken out. The cast is made of look-alikes.') : tx('Every figure left in the photos is needed.')} ${tx('Tap a spot to look closer.')}`;
+  } else $('grade').innerHTML = `<strong>${daily ? dailyLabel() + '. ' : ''}${tx('{n} entries in the ledger, and only one answer fits them all.', { n: cs.clues.length })}</strong> ${starsHtml(cs)} ${fair}`;
   buildCrewbar(); caseTag();
-  $('case-kicker').textContent = `The case at ${ship.planet.name}`;
+  $('case-kicker').textContent = tx('The case at {planet}', { planet: ship.planet.name });
   applyHelps();
   if (scrollToCast) { scrollToCast = false; requestAnimationFrame(toCase); }
 }
@@ -2002,8 +2157,8 @@ function renderEntries() {
   box.innerHTML = '';
   const hand = numMode === 'hand', sub = $('log-sub'), key = $('numkey');
   sub.textContent = hand
-    ? `Kept by a scribe with ${cs.scribe} fingers on each hand. Every number is written in base ${cs.scribe * 2} hand numerals.`
-    : 'Every entry is true. Together they allow exactly one answer.';
+    ? tx('Kept by a scribe with {f} fingers on each hand. Every number is written in base {b} hand numerals.', { f: cs.scribe, b: cs.scribe * 2 })
+    : tx('Every entry is true. Together they allow exactly one answer.');
   key.innerHTML = ''; key.hidden = !(hand && helps.key);
   if (hand) for (let d = 0; d < 2 * cs.scribe; d++) { const s = document.createElement('span'); s.append(glyphCanvas(d, cs.scribe), `= ${d}`); key.append(s); }
   const mk = (i, done) => {
@@ -2012,13 +2167,13 @@ function renderEntries() {
     if (sc) li.append(sc);
     else if (ledgerMode !== 'words') {
       li.append(picEntry(cs.clues[i], cs));
-      if (ledgerMode === 'scenes') { const n = document.createElement('span'); n.className = 'noscene'; n.textContent = 'no scene for this kind of entry yet'; li.append(n); }
+      if (ledgerMode === 'scenes') { const n = document.createElement('span'); n.className = 'noscene'; n.textContent = tx('no scene for this kind of entry yet'); li.append(n); }
     } else renderParts(li, clueParts(cs.clues[i], cs), cs);
     if (helps.spent && spentEntry(cs, cs.clues[i])) li.classList.add('spent');
     if (helps.tick) {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'tick';
-      b.textContent = done ? '↺' : '✓'; b.title = done ? 'Bring this entry back' : 'Done with this entry';
-      b.setAttribute('aria-label', b.title + ` (entry ${i + 1})`);
+      b.textContent = done ? '↺' : '✓'; b.title = done ? tx('Bring this entry back') : tx('Done with this entry');
+      b.setAttribute('aria-label', b.title + ' ' + tx('(entry {n})', { n: i + 1 }));
       b.addEventListener('click', () => { done ? cs.done.delete(i) : cs.done.add(i); renderEntries(); });
       li.append(b);
     }
@@ -2027,7 +2182,7 @@ function renderEntries() {
   const open = document.createElement('ol'), shut = document.createElement('ol'); shut.className = 'done';
   cs.clues.forEach((c, i) => { const done = helps.tick && cs.done.has(i); (done ? shut : open).append(mk(i, done)); });
   box.append(open);
-  if (shut.children.length) { const h = document.createElement('p'); h.className = 'done-head'; h.textContent = 'Done with'; box.append(h, shut); }
+  if (shut.children.length) { const h = document.createElement('p'); h.className = 'done-head'; h.textContent = tx('Done with'); box.append(h, shut); }
   // an open hint keeps its entries marked when the ledger is redrawn (Words, Pictures, Scenes, ticks)
   if (pendingHint) markCited(pendingHint.suppose ? pendingHint.suppose.why : pendingHint.cites);
 }
@@ -2048,12 +2203,12 @@ function applyHelps() {
   $('play-mode').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.p === playMode)));
   $('c-map').parentElement.hidden = $('voyage-restart').hidden = playMode === 'single';
   $('case-hint').hidden = !helps.hints || shut; $('case-check').hidden = $('case-reveal').hidden = $('case-clear').hidden = shut;
-  if (!helps.hints) { $('hintbox').hidden = true; pendingHint = null; $('case-hint').textContent = 'Hint'; }
+  if (!helps.hints) { $('hintbox').hidden = true; pendingHint = null; $('case-hint').textContent = tx('Hint'); }
   document.querySelectorAll('.xray').forEach(b => {
     const p = +b.dataset.p, mine = CASE && CASE.scanned === p;
     b.hidden = !helps.scan && !mine;
     b.disabled = !CASE || (CASE.scanned >= 0 && !mine) || (CASE.closed && !mine);
-    if (mine) { const v = caseViews.find(x => x.portrait === p); b.textContent = v && v.dither ? 'Normal' : 'X-ray'; }
+    if (mine) { const v = caseViews.find(x => x.portrait === p); b.textContent = v && v.dither ? tx('Normal') : tx('X-ray'); }
   });
   if (signal && !$('signal').hidden) { renderSignalText(); renderChart(); }
   refreshPicks(); updateChips();
@@ -2067,7 +2222,7 @@ function refreshPicks() {
       for (const o of $(`case-${p}-${d}`).options) {
         if (o.value === '') continue;
         const u = used.get(o.value), taken = helps.grey && u !== undefined && u !== p;
-        o.disabled = taken; o.textContent = o.dataset.t + (taken ? ` · ${LETTERS[u]}` : '');
+        o.disabled = taken; o.textContent = (CASE.cols[d] === 'cargo' ? say(cargoWord(o.dataset.t)) : o.dataset.t) + (taken ? ` · ${LETTERS[u]}` : '');
       }
       syncPick(p, d);
     }
@@ -2075,7 +2230,7 @@ function refreshPicks() {
   // a hint the player worked out alone is not given away
   if (pendingHint && knows(CASE, pendingHint.p, pendingHint.d)) {
     const h = pendingHint; pendingHint = null;
-    $('hintbox').textContent = `Well worked out: ${cellFact(CASE, h.p, h.d, h.v)}.`; $('case-hint').textContent = 'Hint';
+    $('hintbox').textContent = tx('Well worked out: {fact}.', { fact: cellFact(CASE, h.p, h.d, h.v) }); $('case-hint').textContent = tx('Hint');
     if (CASE.style === 'photos') renderPhotos(new Set()); else markCited([]);
   }
 }
@@ -2095,9 +2250,9 @@ function syncPick(p, d) {
   const k = CASE.cols[d], t = sel.value === '' ? null : sel.selectedOptions[0].dataset.t;
   b.innerHTML = '';
   if (t && k !== 'name') b.append(emblem(k, t, 22));
-  const sp = document.createElement('span'); sp.textContent = t ? optLabel(k, t) : COL_LABEL[k] + '…'; if (!t) sp.className = 'ph'; b.append(sp);
+  const sp = document.createElement('span'); sp.textContent = t ? optLabel(k, t) : colLabel(k) + '…'; if (!t) sp.className = 'ph'; b.append(sp);
   b.disabled = sel.disabled; b.classList.toggle('hinted', sel.classList.contains('hinted'));
-  b.setAttribute('aria-label', `${COL_LABEL[k]} of alien ${LETTERS[p]}: ${t || 'not chosen'}`);
+  b.setAttribute('aria-label', tx('{what} of alien {l}: {t}', { what: colLabel(k), l: LETTERS[p], t: t ? optLabel(k, t) : tx('not chosen') }));
   syncCrewCell(p);
 }
 /* the crew strip (see .crewbar): one small cell per alien with its face and the picks so far;
@@ -2109,7 +2264,7 @@ function buildCrewbar() {
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
   CASE.al.forEach((a, p) => {
     const b = document.createElement('button'); b.type = 'button'; b.className = 'crewcell'; b.id = `crewcell-${p}`; b.tabIndex = -1;
-    const lt = document.createElement('span'); lt.className = 'lt'; lt.textContent = LETTERS[p];
+    const lt = document.createElement('span'); lt.className = 'lt'; lt.textContent = tx('ALIEN {l}', { l: LETTERS[p] });
     const cv = document.createElement('canvas'); cv.width = cv.height = 44 * dpr;
     const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr); drawAlien(ctx, a, 22, 25, 54, 0);
     const nm = document.createElement('span'); nm.className = 'nm';
@@ -2133,7 +2288,7 @@ function syncCrewCell(p) {
       nm.textContent = t || '?';
       nm.className = 'nm' + (!t ? ' ph' : sel.disabled ? (sel.classList.contains('hinted') ? ' hinted' : ' ok') : '');
     } else if (t) { const c = emblem(k, t, 18); c.title = optLabel(k, t); em.append(c); }
-    else { const s = document.createElement('span'); s.className = 'slot'; s.title = COL_LABEL[k] + ' not picked yet'; em.append(s); }
+    else { const s = document.createElement('span'); s.className = 'slot'; s.title = tx('{what} not picked yet', { what: colLabel(k) }); em.append(s); }
   }
   b.classList.toggle('locked', all);
 }
@@ -2155,7 +2310,7 @@ function closePick(focusBack) {
 function openPick(p, d) {
   closePick();
   const sel = $(`case-${p}-${d}`), btn = $(`pick-${p}-${d}`), k = CASE.cols[d];
-  const el = document.createElement('div'); el.className = 'pickmenu'; el.setAttribute('role', 'listbox'); el.setAttribute('aria-label', `${COL_LABEL[k]} of alien ${LETTERS[p]}`);
+  const el = document.createElement('div'); el.className = 'pickmenu'; el.setAttribute('role', 'listbox'); el.setAttribute('aria-label', tx('{what} of alien {l}', { what: colLabel(k), l: LETTERS[p] }));
   const items = [];
   const add = (value, text, t, who, off) => {
     const it = document.createElement('button'); it.type = 'button'; it.setAttribute('role', 'option'); it.setAttribute('aria-selected', String(sel.value === value));
@@ -2166,8 +2321,8 @@ function openPick(p, d) {
     it.addEventListener('click', () => { sel.value = value; sel.dispatchEvent(new Event('change')); closePick(true); });
     el.append(it); items.push(it);
   };
-  add('', COL_LABEL[k] + '…', null, '', false);
-  for (const o of sel.options) if (o.value !== '') add(o.value, optLabel(k, o.dataset.t), o.dataset.t, o.textContent.split(' · ')[1] ? 'Alien ' + o.textContent.split(' · ')[1] : '', o.disabled);
+  add('', colLabel(k) + '…', null, '', false);
+  for (const o of sel.options) if (o.value !== '') add(o.value, optLabel(k, o.dataset.t), o.dataset.t, o.textContent.split(' · ')[1] ? capFirst(tx('Alien {l}', { l: o.textContent.split(' · ')[1] })) : '', o.disabled);
   document.body.append(el);
   const rc = btn.getBoundingClientRect(), h = el.offsetHeight, below = innerHeight - rc.bottom;
   el.style.left = Math.max(8, Math.min(rc.left, innerWidth - el.offsetWidth - 8)) + 'px';
@@ -2204,7 +2359,7 @@ function scan(p) {
 function showScan(p, on) {
   CASE.scanned = p;
   const cap = document.createElement('span'); cap.className = 'xcap';
-  cap.textContent = `X-ray: ${CASE.vals[cargoCol(CASE)][CASE.T[cargoCol(CASE)][p]]}`;
+  cap.textContent = tx('X-ray: {t}', { t: valWord(CASE, cargoCol(CASE), CASE.T[cargoCol(CASE)][p]) });
   $(`card-${p}`).querySelector('.card-foot').prepend(cap);
   const v = caseViews.find(x => x.portrait === p);
   v.dither = on; v.scanT = performance.now() / 1000; sizeView(v); v.dirty = true;
@@ -2223,53 +2378,54 @@ function lockRow(p, label) {
 }
 // How hard a case is, 1 to 4 stars, from its own hints: the biggest step (entries, or spots in a
 // photo case) and how many "suppose" steps it takes. Worked out the same way for every length.
-const STAR_WORD = ['', 'Easy', 'Medium', 'Hard', 'Very hard'];
+const STAR_WORD = ['', N_('Easy'), N_('Medium'), N_('Hard'), N_('Very hard')];
+const LEN_WORD = { quick: N_('Quick'), short: N_('Short'), standard: N_('Standard'), long: N_('Long'), hard: N_('Long') };
 function caseStars(cs) {
   const size = h => cs.style === 'photos' ? new Set(h.cites.flatMap(i => figsOf(cs.clues[i]))).size : h.cites.length;
   const big = Math.max(0, ...(cs.hints || []).map(size)), sup = cs.supposes || 0;
   return sup >= 3 ? 4 : sup >= 1 || big >= 4 ? 3 : big >= 3 ? 2 : 1;
 }
 const starRow = k => '★'.repeat(k) + '☆'.repeat(4 - k);
-const starsHtml = cs => { const k = caseStars(cs); return `<span class="stars" title="Difficulty ${k} of 4">${starRow(k)} ${STAR_WORD[k]}.</span>`; };
+const starsHtml = cs => { const k = caseStars(cs); return `<span class="stars" title="${tx('Difficulty {n} of 4', { n: k })}">${starRow(k)} ${tx(STAR_WORD[k])}${STOP}</span>`; };
 // One line of a daily case's result: no squares, no score from anywhere but this page.
 function shareText() {
   const c = CASE, st = c.start || { hints: 0, explained: 0, shown: 0, tries: 0 }, day = dailyDay();
   const hints = score.hints - st.hints, tries = score.tries - st.tries;
   const explained = (score.explained || 0) - (st.explained || 0), shown = (score.shown || 0) - (st.shown || 0);
-  const len = { quick: 'Quick', short: 'Short', standard: 'Standard', long: 'Long', hard: 'Long' }[c.level] || c.level;
-  const date = fromYmd(day).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-  const how = c.shown ? '🔭 answer shown'
-    : `${'👽'.repeat(c.n)} all ${c.n} found · ${tries} ${tries === 1 ? 'report' : 'reports'} · ${hints ? hintCount(hints, explained, shown) : 'no hints'}${c.scanned >= 0 ? ' · 1 X-ray' : ''}`;
-  return `Pier 7 · ${date} · ${len}, ${c.style === 'photos' ? 'photos' : 'ledger'} · ${starRow(caseStars(c))}\n${how}\nhttps://typingpoolgame.com/pier7/?day=${day}`;
+  const len = LEN_WORD[c.level] ? tx(LEN_WORD[c.level]) : c.level;
+  const date = fromYmd(day).toLocaleDateString(LOCALE, { day: 'numeric', month: 'short', year: 'numeric' });
+  const how = c.shown ? tx('🔭 answer shown')
+    : `${'👽'.repeat(c.n)} ${tx('all {n} found', { n: c.n })} · ${tn(tries, '{n} report', '{n} reports')} · ${hints ? hintCount(hints, explained, shown) : tx('no hints')}${c.scanned >= 0 ? ' · ' + tx('1 X-ray') : ''}`;
+  return `Pier 7 · ${date} · ${len}, ${c.style === 'photos' ? tx('photos') : tx('ledger')} · ${starRow(caseStars(c))}\n${how}\nhttps://typingpoolgame.com/pier7/?day=${day}${LANG === 'en' ? '' : '&lang=' + LANG}`;
 }
 function showShare() {
   const on = !!(CASE && CASE.closed && daily);
   $('share').hidden = !on; if (!on) return;
-  $('share-head').textContent = dailyDay() === ymd(new Date()) ? "Today's result, to share" : 'Your result, to share';
+  $('share-head').textContent = dailyDay() === ymd(new Date()) ? tx("Today's result, to share") : tx('Your result, to share');
   $('share-text').textContent = shareText(); $('share-note').textContent = '';
 }
 $('share-copy').addEventListener('click', () => {
   const text = $('share-text').textContent, note = $('share-note');
-  const fallback = () => { const range = document.createRange(); range.selectNodeContents($('share-text')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range); note.textContent = 'Selected: copy it with Ctrl+C or ⌘C.'; };
-  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => { note.textContent = 'Copied.'; }, fallback); else fallback();
+  const fallback = () => { const range = document.createRange(); range.selectNodeContents($('share-text')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range); note.textContent = tx('Selected: copy it with Ctrl+C or ⌘C.'); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => { note.textContent = tx('Copied.'); }, fallback); else fallback();
 });
 function closeCase(shown) {
   CASE.closed = true; CASE.shown = shown; showShare(); crewbarCheck();
-  $('hintbox').hidden = true; pendingHint = null; $('case-hint').textContent = 'Hint';
+  $('hintbox').hidden = true; pendingHint = null; $('case-hint').textContent = tx('Hint');
   applyHelps();
   if (playMode === 'single') { if (!shown) score.solved = (score.solved || 0) + 1; showSingleDone(true); } else openSignal();
 }
 // single puzzles: the result, a count, and the next puzzle; the case folds away as on a voyage
 function showSingleDone(scroll) {
   const n = score.solved || 0;
-  $('single-title').textContent = CASE.shown ? 'The answer is shown' : 'Puzzle solved';
-  $('single-text').textContent = (CASE.shown ? 'Try the next one.' : `Well read. ${n} ${n === 1 ? 'puzzle' : 'puzzles'} solved in this session.`) + ' Change the length or the style above at any time.';
+  $('single-title').textContent = CASE.shown ? tx('The answer is shown') : tx('Puzzle solved');
+  $('single-text').textContent = (CASE.shown ? tx('Try the next one.') : tn(n, 'Well read. {n} puzzle solved in this session.', 'Well read. {n} puzzles solved in this session.')) + SP + tx('Change the length or the style above at any time.');
   $('single-done').hidden = false; singleCase(false);
   if (scroll) $('case-actions').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
 }
 function singleCase(on) {
   $('log').hidden = $('words-slot').hidden = !on;
-  $('single-again').textContent = on ? (CASE && CASE.style === 'photos' ? 'Fold the photos away' : 'Fold the ledger away') : (CASE && CASE.style === 'photos' ? 'Show the photos again' : 'Show the ledger again');
+  $('single-again').textContent = on ? (CASE && CASE.style === 'photos' ? tx('Fold the photos away') : tx('Fold the ledger away')) : (CASE && CASE.style === 'photos' ? tx('Show the photos again') : tx('Show the ledger again'));
 }
 $('single-again').addEventListener('click', () => singleCase($('log').hidden));
 $('single-next').addEventListener('click', () => { daily = false; R = Math.random; scrollToCast = true; newCase(); });
@@ -2292,17 +2448,17 @@ $('case-check').addEventListener('click', () => {
   score.tries++; updateChips();
   const remaining = locked.filter(x => !x).length, v = $('verdict');
   if (right.length >= 2 || (right.length > 0 && right.length === remaining)) {
-    right.forEach(p => lockRow(p, hinted.some(r => r[p]) ? 'CONFIRMED · HINT' : 'CONFIRMED'));
+    right.forEach(p => lockRow(p, hinted.some(r => r[p]) ? tx('CONFIRMED · HINT') : tx('CONFIRMED')));
     const left = locked.filter(x => !x).length;
     v.className = 'verdict good';
-    if (left) { v.textContent = `${right.length} ${right.length === 1 ? 'alien' : 'aliens'} confirmed. ${left} to go.`; pendingHint = null; $('case-hint').textContent = 'Hint'; $('hintbox').hidden = true; }
+    if (left) { v.textContent = tn(right.length, '{n} alien confirmed. {left} to go.', '{n} aliens confirmed. {left} to go.', { left }); pendingHint = null; $('case-hint').textContent = tx('Hint'); $('hintbox').hidden = true; }
     else {
       const clean = score.hintsAtStart === score.hints && CASE.scanned < 0;
-      v.textContent = clean ? 'Case closed, with no hints and no scans.' : 'Case closed.';
+      v.textContent = clean ? tx('Case closed, with no hints and no scans.') : tx('Case closed.');
       closeCase(false);
     }
   } else {
-    v.textContent = 'Nothing confirmed. The relay only confirms correctly identified aliens two at a time, and never says which ones are wrong.';
+    v.textContent = tx('Nothing confirmed. The relay only confirms correctly identified aliens two at a time, and never says which ones are wrong.');
     v.className = 'verdict bad';
   }
 });
@@ -2310,21 +2466,21 @@ $('case-check').addEventListener('click', () => {
 // What the relay confirmed and what a hint filled in stay, and so do the voyage and the counters.
 $('case-clear').addEventListener('click', () => {
   if (!CASE || CASE.closed) return;
-  if (!confirm('Start this case over? Your picks and the answers hints filled in are cleared, and everything you put aside comes back. What the relay confirmed stays, and so do the counters.')) return;
+  if (!confirm(tx('Start this case over? Your picks and the answers hints filled in are cleared, and everything you put aside comes back. What the relay confirmed stays, and so do the counters.'))) return;
   for (let p = 0; p < CASE.n; p++) for (let d = 0; d < CASE.D; d++) {
     const sel = $(`case-${p}-${d}`);
     if (CASE.hinted[d][p] && !CASE.locked[p]) { CASE.hinted[d][p] = false; sel.disabled = false; sel.classList.remove('hinted'); }
     if (!sel.disabled) sel.value = '';
   }
   if (CASE.done) CASE.done.clear(); if (CASE.aside) CASE.aside.clear(); if (CASE.spotAside) CASE.spotAside.clear();
-  pendingHint = null; $('hintbox').hidden = true; $('case-hint').textContent = 'Hint'; $('verdict').textContent = '';
+  pendingHint = null; $('hintbox').hidden = true; $('case-hint').textContent = tx('Hint'); $('verdict').textContent = '';
   if (CASE.style === 'photos') renderPhotos(new Set()); else { renderEntries(); markCited([]); }
   refreshPicks();
 });
 $('case-reveal').addEventListener('click', () => {
   if (!CASE || CASE.closed) return;
-  for (let p = 0; p < CASE.n; p++) if (!CASE.locked[p]) lockRow(p, 'SHOWN');
-  $('verdict').textContent = 'Answer shown. The crew signals anyway.'; $('verdict').className = 'verdict';
+  for (let p = 0; p < CASE.n; p++) if (!CASE.locked[p]) lockRow(p, tx('SHOWN'));
+  $('verdict').textContent = tx('Answer shown. The crew signals anyway.'); $('verdict').className = 'verdict';
   closeCase(true);
 });
 
@@ -2353,11 +2509,13 @@ function trimHint(cs, h) {
   }
   return { ...h, steps: steps.length ? steps : null, cites: [...new Set(ids)].sort((i, j) => i - j) };
 }
-const entryList = xs => { const s = xs.map(x => x + 1); return s.length < 2 ? `entry ${s[0]}` : `entries ${s.slice(0, -1).join(', ')} and ${s[s.length - 1]}`; };
+const entryList = xs => tn(xs.length, 'entry {list}', 'entries {list}', { list: andList(xs.map(x => String(x + 1))) });
+// "each name belongs to exactly one alien", for the column a hint is about
+const NOUN_OF = { name: 0, planet: 1, cargo: 2 };
+const byCol = (k, a, b, c) => [a, b, c][NOUN_OF[k]];
 // A hint's small steps (worked out when the cases were built) in words: each says which values an
 // entry rules out, with the entry's own words the first time it comes up.
-const orList = xs => xs.length < 2 ? xs[0] : xs.slice(0, -1).join(', ') + ' or ' + xs[xs.length - 1];
-const andList = xs => xs.length < 2 ? xs[0] : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1];
+
 function stepLines(cs, steps) {
   const groups = [];
   for (const [by, d, p, v, x] of steps) {
@@ -2372,90 +2530,93 @@ function stepLines(cs, steps) {
   const tagOf = id => { const pi = cs.photos ? cs.photos.findIndex(ph => ph.some(x => x.id === id)) : -1; return pi < 0 ? '?' : spotTag(pi, cs.photos[pi].findIndex(x => x.id === id)); };
   const spotsOf = ids => [...new Set(ids.flatMap(i => figsOf(cs.clues[i])))];
   const spotsHead = ids => { const t = spotsOf(ids).map(tagOf), one = ids.some(i => cs.clues[i].figs);
-    return `${t.length > 1 ? 'Spots' : 'Spot'} ${andList(t)}${one ? ' (spots in the same photo show two different aliens)' : ''}`; };
+    return tn(t.length, 'Spot {list}', 'Spots {list}', { list: andList(t) }) + (one ? tx(' (spots in the same photo show two different aliens)') : ''); };
   // "Alien C is not from Pim", "Aliens A and B are not Gim", "Alien C does not carry the star key or the glow seed"
+  const aliens = ps => tn(ps.length, 'Alien {list}', 'Aliens {list}', { list: andList(ps.map(p => LETTERS[p])) });
   const isNot = (ps, d, vs) => {
-    const k = cs.cols[d], t = vs.map(v => cs.vals[d][v]), many = ps.length > 1, who = (many ? 'Aliens ' : 'Alien ') + andList(ps.map(p => LETTERS[p]));
-    return k === 'name' ? `${who} ${many ? 'are' : 'is'} not ${orList(t)}` : k === 'planet' ? `${who} ${many ? 'are' : 'is'} not from ${orList(t)}` : `${who} ${many ? 'do' : 'does'} not carry ${orList(t)}`;
+    const k = cs.cols[d], t = items(vs.map(v => valWord(cs, d, v)), 'or'), n = ps.length, v = { who: aliens(ps), t };
+    return k === 'name' ? tn(n, '{who} is not {t::or}', '{who} are not {t::or}', v) : k === 'planet' ? tn(n, '{who} is not from {t::or}', '{who} are not from {t::or}', v) : tn(n, '{who} does not carry {t::or}', '{who} do not carry {t::or}', v);
   };
   // a comparison rules a value out only through the other aliens: say which ones could have been the other side
   const why = (c, g) => {
     if (c.type !== 'compare' || g.ps.length > 1 || g.vs.length > 1) return '';
-    const p = g.ps[0], noun = NUMKEYS[c.key].noun, mine = cs.al[p][c.key], A = 'Alien ' + LETTERS[p];
+    const p = g.ps[0], noun = c.key === 'eyes' ? tx('eyes') : c.key === 'ant' ? tx('antennae') : tx('fingers'), mine = cs.al[p][c.key], A = tx('Alien {l}', { l: LETTERS[p] });
     const more = g.d === c.db && g.vs[0] === c.vb;   // p is not the one with fewer, so look for someone with more than p
     const qs = cs.al.map((a, q) => q).filter(q => q !== p && (more ? cs.al[q][c.key] > mine : cs.al[q][c.key] < mine));
-    const W = (qs.length > 1 ? 'Aliens ' : 'Alien ') + andList(qs.map(q => LETTERS[q])), has = qs.length > 1 ? 'have' : 'has';
-    if (!qs.length) return more ? ` No alien has more ${noun} than ${A}.` : ` No alien has fewer ${noun} than ${A}.`;
-    return ` Only ${W} ${has} ${more ? 'more' : 'fewer'} ${noun} than ${A}, and ${isNot(qs, more ? c.da : c.db, [more ? c.va : c.vb])}.`;
+    if (!qs.length) return SP + (more ? tx('No alien has more {noun} than {A}.', { noun, A }) : tx('No alien has fewer {noun} than {A}.', { noun, A }));
+    const v = { W: aliens(qs), noun, A, rest: isNot(qs, more ? c.da : c.db, [more ? c.va : c.vb]) };
+    return SP + (more ? tn(qs.length, 'Only {W} has more {noun} than {A}, and {rest}.', 'Only {W} have more {noun} than {A}, and {rest}.', v) : tn(qs.length, 'Only {W} has fewer {noun} than {A}, and {rest}.', 'Only {W} have fewer {noun} than {A}, and {rest}.', v));
   };
   return groups.map(g => {
     const what = isNot(g.ps, g.d, g.vs);
     const noun = { name:'name', planet:'home', cargo:'cargo' }[cs.cols[g.d]];
     // already settled on another alien, or the only alien left for some other value
-    if (g.by === -1) return `${cellFact(cs, g.x, g.d, g.vs[0])}, and each ${noun} belongs to exactly one alien, so ${what}.`;
+    if (g.by === -1) { const v = { fact: cellFact(cs, g.x, g.d, g.vs[0]), what }; return byCol(cs.cols[g.d], tx('{fact}, and each name belongs to exactly one alien, so {what}.', v), tx('{fact}, and each home belongs to exactly one alien, so {what}.', v), tx('{fact}, and each cargo belongs to exactly one alien, so {what}.', v)); }
     if (g.by === -2) {
-      const k = cs.cols[g.d], t = cs.vals[g.d][g.x], P = 'Alien ' + LETTERS[g.ps[0]];
-      const only = k === 'name' ? `Only ${P} can be ${t}` : k === 'planet' ? `Only ${P} can come from ${t}` : `Only ${P} can carry ${t}`;
-      return `${only}, so ${what}.`;
+      const k = cs.cols[g.d], v = { t: valWord(cs, g.d, g.x), P: tx('Alien {l}', { l: LETTERS[g.ps[0]] }), what };
+      return k === 'name' ? tx('Only {P} can be {t}, so {what}.', v) : k === 'planet' ? tx('Only {P} can come from {t}, so {what}.', v) : tx('Only {P} can carry {t}, so {what}.', v);
     }
     // a pair or a triple: as many values as aliens, so between them they take all of those values and nothing else
     if (g.by === -3 || g.by === -4) {
       const vs = [...Array(cs.n).keys()].filter(v => (g.x >> v) & 1), ps = [...Array(cs.n).keys()].filter(p => (g.x >> (8 + p)) & 1);
-      const k = cs.cols[g.d], t = vs.map(v => cs.vals[g.d][v]), W = 'Aliens ' + andList(ps.map(p => LETTERS[p]));
-      const num = ['', 'one', 'two', 'three', 'four'][vs.length], many = { name:'names', planet:'homes', cargo:'cargoes' }[k];
-      const can = k === 'name' ? `be ${orList(t)}` : k === 'planet' ? `come from ${orList(t)}` : `carry ${orList(t)}`;
-      const head = g.by === -3 ? `Only ${W} can ${can}` : `${W} can only ${can}`;
-      return `${head}: ${num} ${many} for ${num} aliens, so they share them out between them, and ${what}.`;
+      const k = cs.cols[g.d], t = items(vs.map(v => valWord(cs, g.d, v)), 'or'), W = aliens(ps);
+      const num = tx(['', N_('one'), N_('two'), N_('three'), N_('four')][vs.length]), v = { W, t };
+      const head = g.by === -3
+        ? (k === 'name' ? tx('Only {W} can be {t::or}', v) : k === 'planet' ? tx('Only {W} can come from {t::or}', v) : tx('Only {W} can carry {t::or}', v))
+        : (k === 'name' ? tx('{W} can only be {t::or}', v) : k === 'planet' ? tx('{W} can only come from {t::or}', v) : tx('{W} can only carry {t::or}', v));
+      const w = { head, num, what };
+      return byCol(k, tx('{head}: {num} names for {num} aliens, so they share them out between them, and {what}.', w), tx('{head}: {num} homes for {num} aliens, so they share them out between them, and {what}.', w), tx('{head}: {num} cargoes for {num} aliens, so they share them out between them, and {what}.', w));
     }
     // entries that keep one value apart from every value this alien could still have in another column
     if (g.by === -5) {
       // [column, entries] (cases written before 18 October 2026 packed both into one number)
       const [d2, ids] = Array.isArray(g.x) ? g.x : [Math.floor(g.x / 2 ** 24), [...Array(24).keys()].filter(i => ((g.x % 2 ** 24) >> i) & 1)];
       const opts = [...new Set(ids.map(i => { const c = cs.clues[i]; return c.type === 'notlink' ? (c.d1 === d2 ? c.v1 : c.v2) : (c.da === d2 ? c.va : c.vb); }))];
-      const k1 = cs.cols[g.d], t1 = cs.vals[g.d][g.vs[0]], k2 = cs.cols[d2], t2 = orList(opts.map(v => cs.vals[d2][v]));
-      const subj = k1 === 'name' ? t1 : k1 === 'planet' ? `the alien from ${t1}` : `whoever carries ${t1}`;
-      const pred = k2 === 'name' ? `is not ${t2}` : k2 === 'planet' ? `is not from ${t2}` : `does not carry ${t2}`;
-      const P = 'Alien ' + LETTERS[g.ps[0]], can = k2 === 'name' ? `can only be ${t2}` : k2 === 'planet' ? `can only come from ${t2}` : `can only carry ${t2}`;
-      const head = cs.style === 'photos' ? spotsHead(ids) + (spotsOf(ids).length > 1 ? ' mean' : ' means') : ids.length > 1 ? `Entries ${andList(ids.map(i => String(i + 1)))} mean` : `Entry ${ids[0] + 1} means`;
-      return `${head} that ${subj} ${pred}. ${P} ${can}, so ${what}.`;
+      const k1 = cs.cols[g.d], t1 = valWord(cs, g.d, g.vs[0]), k2 = cs.cols[d2], t2 = items(opts.map(v => valWord(cs, d2, v)), 'or');
+      const subj = k1 === 'name' ? t1 : k1 === 'planet' ? tx('the alien from {t}', { t: t1 }) : tx('whoever carries {t}', { t: t1 });
+      const pred = k2 === 'name' ? tx('is not {t::or}', { t: t2 }) : k2 === 'planet' ? tx('is not from {t::or}', { t: t2 }) : tx('does not carry {t::or}', { t: t2 });
+      const P = tx('Alien {l}', { l: LETTERS[g.ps[0]] }), can = k2 === 'name' ? tx('can only be {t::or}', { t: t2 }) : k2 === 'planet' ? tx('can only come from {t::or}', { t: t2 }) : tx('can only carry {t::or}', { t: t2 });
+      const head = cs.style === 'photos' ? tn(spotsOf(ids).length, '{spots} means', '{spots} mean', { spots: spotsHead(ids) }) : tn(ids.length, 'Entry {list} means', 'Entries {list} mean', { list: andList(ids.map(i => String(i + 1))) });
+      return tx('{head} that {subj} {pred}. {P} {can}, so {what}.', { head, subj: say(subj), pred, P, can, what });
     }
     // two values on different aliens that only two aliens can hold: they hold one each, so a value
     // kept apart from both goes to neither
     if (g.by === -6) {
       const n = cs.n, low = g.x % 2 ** 24, hi = Math.floor(g.x / 2 ** 24);
       const [a, b, H, ids] = Array.isArray(g.x) ? g.x : [hi % 16, Math.floor(hi / 16) % 16, Math.floor(hi / 256), [...Array(24).keys()].filter(i => (low >> i) & 1)];
-      const who = (d, v) => { const k = cs.cols[d], t = cs.vals[d][v]; return k === 'name' ? t : k === 'planet' ? `the alien from ${t}` : `whoever carries ${t}`; };
+      const who = (d, v) => { const k = cs.cols[d], t = valWord(cs, d, v); return k === 'name' ? t : k === 'planet' ? tx('the alien from {t}', { t }) : tx('whoever carries {t}', { t }); };
       const X = who(Math.floor(a / n), a % n), Y = who(Math.floor(b / n), b % n), Z = g.vs.map(v => who(g.d, v));
-      const W = 'Aliens ' + andList([...Array(n).keys()].filter(p => (H >> p) & 1).map(p => LETTERS[p]));
-      const head = cs.style === 'photos' ? spotsHead(ids) : ids.length > 1 ? `Entries ${andList(ids.map(i => String(i + 1)))}` : `Entry ${ids[0] + 1}`;
-      return `${head}: ${X} and ${Y} are two different aliens, and only ${W} can be either, so ${W} are those two, one each. ${andList(Z).replace(/^./, c => c.toUpperCase())} ${Z.length > 1 ? 'are' : 'is'} neither of them, so ${what}.`;
+      const W = aliens([...Array(n).keys()].filter(p => (H >> p) & 1));
+      const head = cs.style === 'photos' ? spotsHead(ids) : tn(ids.length, 'Entry {list}', 'Entries {list}', { list: andList(ids.map(i => String(i + 1))) });
+      return tx('{head}: {X} and {Y} are two different aliens, and only {W} can be either, so {W} are those two, one each.', { head, X, Y, W }) + SP
+        + tn(Z.length, '{Z} is neither of them, so {what}.', '{Z} are neither of them, so {what}.', { Z: capFirst(andList(Z)), what });
     }
     const c = cs.clues[g.by], r = why(c, g);
-    let head = `Entry ${g.by + 1}`, verb = 'says';
+    let head = tx('Entry {n}', { n: g.by + 1 }), shows = false;
     if (cs.style === 'photos' && c.figs) {
       // two spots of one photo: one moment, so two different aliens
-      const s = partsText(clueParts(c, cs)).replace(/\.$/, '');
-      return `Spots ${andList(c.figs.map(tagOf))} are in the same photo, so they show two different aliens: ${s}. So ${what}.`;
+      const s = partsText(clueParts(c, cs)).replace(/[.。]$/, '');
+      return tx('Spots {tags} are in the same photo, so they show two different aliens: {s}. So {what}.', { tags: andList(c.figs.map(tagOf)), s, what });
     }
     if (cs.style === 'photos') {
       const pi = cs.photos.findIndex(ph => ph.some(x => x.id === c.fig)), j = pi < 0 ? -1 : cs.photos[pi].findIndex(x => x.id === c.fig);
-      head = j < 0 ? 'A spot' : `Spot ${spotTag(pi, j)}`; verb = 'shows';
-      if (j >= 0 && !seen.has('spot' + c.fig)) { seen.add('spot' + c.fig); head += ` (${STATIONS[cs.photos[pi][j].station].label})`; }
+      head = j < 0 ? tx('A spot') : tx('Spot {tag}', { tag: spotTag(pi, j) }); shows = true;
+      if (j >= 0 && !seen.has('spot' + c.fig)) { seen.add('spot' + c.fig); head = tx('{head} ({label})', { head, label: stLabel(cs.photos[pi][j].station) }); }
     }
     if (!seen.has(g.by)) {
       seen.add(g.by);
-      const parts = clueParts(c, cs); let s = partsText(parts).replace(/\.$/, '');
-      if (typeof parts[0] === 'string') s = s[0].toLowerCase() + s.slice(1);
-      head += ` ${verb} ${s}`;
+      const parts = clueParts(c, cs); let s = partsText(parts).replace(/[.。]$/, '');
+      if (typeof parts[0] === 'string' && !(LANGPACK && LANGPACK.keepCase)) s = s[0].toLowerCase() + s.slice(1);
+      head = shows ? tx('{head} shows {s}', { head, s }) : tx('{head} says {s}', { head, s });
     }
-    return r ? `${head}.${r} So ${what}.` : `${head}, so ${what}.`;
-  });
+    return r ? tx('{head}.{r} So {what}.', { head, r, what }) : tx('{head}, so {what}.', { head, what });
+  }).map(capFirst);   // a step is a sentence (in some languages a template may start with a lower-case article)
 }
 function showSteps(h) {
   const box = $('hintbox'), b = box.querySelector('.explain'); if (b) b.remove();
   const ol = document.createElement('ol'); ol.className = 'steps';
   stepLines(CASE, h.steps).forEach(t => { const li = document.createElement('li'); li.textContent = t; ol.append(li); });
-  const so = document.createElement('p'); so.className = 'so'; so.textContent = `So ${cellFact(CASE, h.p, h.d, h.v)}.`;
+  const so = document.createElement('p'); so.className = 'so'; so.textContent = tx('So {fact}.', { fact: cellFact(CASE, h.p, h.d, h.v) });
   box.append(ol); if (pendingHint === h) box.append(so);
 }
 function markCited(xs) { document.querySelectorAll('.log li.cited').forEach(li => li.classList.remove('cited')); xs.forEach(x => { const li = $(`entry-${x}`); if (li) li.classList.add('cited'); }); }
@@ -2464,44 +2625,44 @@ $('case-hint').addEventListener('click', () => {
   const box = $('hintbox'); box.hidden = false;
   if (!pendingHint) {
     pendingHint = computeHint(CASE);
-    if (!pendingHint) { box.textContent = 'Everything is already settled. Send it to the relay.'; return; }
+    if (!pendingHint) { box.textContent = tx('Everything is already settled. Send it to the relay.'); return; }
     score.hints++; updateChips();
     const h = pendingHint;
-    const noun = { name:'name', planet:'home', cargo:'cargo' }[CASE.cols[h.d]];
-    const once = h.col ? ` Remember that each ${noun} belongs to exactly one alien.` : '';
+    const col = CASE.cols[h.d], cell = cellPhrase(h.p, h.d);
+    const once = h.col ? SP + byCol(col, tx('Remember that each name belongs to exactly one alien.'), tx('Remember that each home belongs to exactly one alien.'), tx('Remember that each cargo belongs to exactly one alien.')) : '';
     let txt;
-    if (h.suppose) txt = `This one needs a "suppose". Imagine ${cellFact(CASE, h.suppose.p, h.suppose.d, h.suppose.v).replace('Alien', 'alien')}, then follow ${entryList(h.suppose.why.length ? h.suppose.why : h.cites)} until two of them clash. Working on from there settles ${cellPhrase(h.p, h.d)}.`;
-    else if (h.cites.length) txt = `Look at ${entryList(h.cites)}. ${h.cites.length > 1 ? 'Together they settle' : 'It settles'} ${cellPhrase(h.p, h.d)}.${once}`;
-    else txt = `Each ${noun} belongs to exactly one alien, and what is already settled leaves only one choice for ${cellPhrase(h.p, h.d)}.`;
+    if (h.suppose) { const fact = cellFact(CASE, h.suppose.p, h.suppose.d, h.suppose.v); txt = tx('This one needs a "suppose". Imagine {fact}, then follow {entries} until two of them clash. Working on from there settles {cell}.', { fact: LANG === 'en' ? fact.replace('Alien', 'alien') : fact, entries: entryList(h.suppose.why.length ? h.suppose.why : h.cites), cell }); }
+    else if (h.cites.length) txt = tn(h.cites.length, 'Look at {entries}. It settles {cell}.', 'Look at {entries}. Together they settle {cell}.', { entries: entryList(h.cites), cell }) + once;
+    else txt = byCol(col, tx('Each name belongs to exactly one alien, and what is already settled leaves only one choice for {cell}.', { cell }), tx('Each home belongs to exactly one alien, and what is already settled leaves only one choice for {cell}.', { cell }), tx('Each cargo belongs to exactly one alien, and what is already settled leaves only one choice for {cell}.', { cell }));
     if (CASE.style === 'photos') {
       const photoOf = id => CASE.photos.findIndex(ph => ph.some(x => x.id === id));
-      const spot = id => { const pi = photoOf(id); if (pi < 0) return ''; const j = CASE.photos[pi].findIndex(x => x.id === id), f = CASE.photos[pi][j]; return `spot ${spotTag(pi, j)} (${STATIONS[f.station].label})${CASE.aside.has(pi) || CASE.spotAside.has(id) ? ', which you put aside' : ''}`; };
+      const spot = id => { const pi = photoOf(id); if (pi < 0) return ''; const j = CASE.photos[pi].findIndex(x => x.id === id), f = CASE.photos[pi][j]; return tx('spot {tag} ({label})', { tag: spotTag(pi, j), label: stLabel(f.station) }) + (CASE.aside.has(pi) || CASE.spotAside.has(id) ? tx(', which you put aside') : ''); };
       const figs = [...new Set((h.suppose ? h.suppose.why : h.cites).flatMap(i => figsOf(CASE.clues[i])))], list = figs.map(spot);
-      const where = list.length ? `Look at ${list.length > 1 ? list.slice(0, -1).join('; ') + ' and ' + list[list.length - 1] : list[0]}.` : `Each ${noun} belongs to exactly one alien.`;
-      txt = `${where} ${h.suppose ? 'It takes a "suppose": try a value and watch it clash. ' : ''}That settles ${cellPhrase(h.p, h.d)}.`;
+      const where = list.length ? tx('Look at {spots}.', { spots: list.length > 1 ? list.slice(0, -1).join(tx('; ')) + tx(' and ') + list[list.length - 1] : list[0] }) : byCol(col, tx('Each name belongs to exactly one alien.'), tx('Each home belongs to exactly one alien.'), tx('Each cargo belongs to exactly one alien.'));
+      txt = where + SP + (h.suppose ? tx('It takes a "suppose": try a value and watch it clash.') + SP : '') + tx('That settles {cell}.', { cell });
       const first = figs.map(photoOf).find(pi => pi >= 0 && !CASE.aside.has(pi)); if (first != null) { CASE._slide = first; CASE._scroll = null; }
       renderPhotos(new Set(figs));
     }
     const off = (h.suppose ? h.suppose.why : h.cites).filter(i => CASE.done && CASE.done.has(i));
-    if (off.length && CASE.style !== 'photos') txt += off.length > 1 ? ` Entries ${off.map(i => i + 1).join(' and ')} are among the ones you ticked off.` : ` Entry ${off[0] + 1} is among the ones you ticked off.`;
+    if (off.length && CASE.style !== 'photos') txt += SP + tn(off.length, 'Entry {list} is among the ones you ticked off.', 'Entries {list} are among the ones you ticked off.', { list: andList(off.map(i => String(i + 1))) });
     box.textContent = txt; if (CASE.style !== 'photos') markCited(h.suppose ? h.suppose.why : h.cites);
     // three presses: Hint (where to look), Explain (the steps, when there are any), Show me (the answer)
     hintExplained = false;
-    $('case-hint').textContent = h.steps && !h.suppose ? 'Explain' : 'Show me';
+    $('case-hint').textContent = h.steps && !h.suppose ? tx('Explain') : tx('Show me');
   } else if (pendingHint.steps && !pendingHint.suppose && !hintExplained) {
     hintExplained = true; score.explained = (score.explained || 0) + 1; updateChips();
     showSteps(pendingHint);
-    $('case-hint').textContent = 'Show me';
+    $('case-hint').textContent = tx('Show me');
   } else {
     const h = pendingHint; pendingHint = null;
     CASE.hinted[h.d][h.p] = true; score.shown = (score.shown || 0) + 1;
     setCell(h.p, h.d, 'hint'); refreshPicks(); updateChips();
     if (helps.spent) renderEntries();
     const keep = [...box.querySelectorAll('ol.steps')];
-    box.textContent = `${cellFact(CASE, h.p, h.d, h.v)}. It is filled in and marked in yellow.`;
+    box.textContent = tx('{fact}. It is filled in and marked in yellow.', { fact: cellFact(CASE, h.p, h.d, h.v) });
     keep.forEach(e => box.append(e));
     if (CASE.style === 'photos') renderPhotos(new Set()); else markCited([]);
-    $('case-hint').textContent = 'Hint';
+    $('case-hint').textContent = tx('Hint');
   }
 });
 
@@ -2541,7 +2702,7 @@ function signalNumbers(sg) {
     for (const g of [2, 3, 4, 5]) if (g !== f && opts.size < 4 && digits.every(d => d < 2 * g)) opts.add(digits.reduce((s, d) => s * 2 * g + d, 0));
   }
   while (opts.size < 4) opts.add(counting ? 1 + r(2 * base + 2) : mode === 'youth' ? base + r(base * base - base) : 20 + r(230));
-  Object.assign(sg, { coord, crew, mode, choices: shuffle([...opts]).map((v, i) => ({ v, world: last ? 'An uncharted star' : worlds[i], wrong: false })) });
+  Object.assign(sg, { coord, crew, mode, choices: shuffle([...opts]).map((v, i) => ({ v, world: last ? tx('An uncharted star') : worlds[i], wrong: false })) });
 }
 const sigMode = sg => sg.mode || (sg.simple ? 'toddler' : 'full');   // signals saved before the counting levels
 const placesMode = sg => { const m = sigMode(sg); return m === 'youth' || m === 'full'; };
@@ -2559,12 +2720,12 @@ function showSignal(scroll) {
         ctx.fillStyle = '#ffc857'; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
         ctx.font = `600 ${Math.round(Math.max(12, h * .065))}px "JetBrains Mono", monospace`;
         const pv = base ** (crew.length - 1 - i);
-        ctx.fillText(pv === 1 ? 'ones' : `${pv}s`, sw * (i + .5), h * .96);
+        ctx.fillText(pv === 1 ? tx('ones') : tx('{n}s', { n: pv }), sw * (i + .5), h * .96);
         ctx.textAlign = 'start';
       }
     });
   }, { animated: !reduceMotion });
-  cv.setAttribute('aria-label', `${name}'s crew signals: ${digits.map(d => { const l = Math.min(d, f), r = Math.max(0, d - f); return `left hand ${l} raised, right hand ${r} raised`; }).join('; then ')}. Each hand has ${f} fingers.`);
+  cv.setAttribute('aria-label', tx("{name}'s crew signals: {digits}. Each hand has {f} fingers.", { name, f, digits: digits.map(d => { const l = Math.min(d, f), r = Math.max(0, d - f); return tx('left hand {l} raised, right hand {r} raised', { l, r }); }).join(tx('; then ')) }));
   renderChart();
   $('sig-verdict').textContent = ''; $('sig-verdict').className = 'verdict';
   $('signal').hidden = false; showCaseAgain(false);
@@ -2572,7 +2733,7 @@ function showSignal(scroll) {
 }
 function showCaseAgain(on) {
   $('log').hidden = $('words-slot').hidden = !on;
-  $('case-again').textContent = on ? (CASE && CASE.style === 'photos' ? 'Fold the photos away' : 'Fold the ledger away') : (CASE && CASE.style === 'photos' ? 'Show the photos again' : 'Show the ledger again');
+  $('case-again').textContent = on ? (CASE && CASE.style === 'photos' ? tx('Fold the photos away') : tx('Fold the ledger away')) : (CASE && CASE.style === 'photos' ? tx('Show the photos again') : tx('Show the ledger again'));
   $('case-again').setAttribute('aria-expanded', String(on));
 }
 $('case-again').addEventListener('click', () => showCaseAgain($('log').hidden));
@@ -2585,26 +2746,26 @@ function placeTable(base, real) {
     const pv = (n === 3 ? [b * b, b, 1] : [b, 1]), parts = ex.map((d, i) => d * pv[i]);
     return `<tr><th scope="row">${label}</th>${ex.map((d, i) => `<td>${d} × ${pv[i]} = ${parts[i]}</td>`).join('')}<td class="sum">${parts.reduce((x, y) => x + y, 0)}</td></tr>`;
   };
-  const heads = ['1st member', '2nd member', '3rd member'].slice(0, n).map(t => `<th scope="col">${t}</th>`).join('');
-  return `<span class="ex-head">For example, ${n === 3 ? 'three' : 'two'} crew members showing ${andList(ex.map(String))}:</span>`
-    + `<span class="placetab-wrap"><table class="placetab"><thead><tr><th></th>${heads}<th scope="col">number</th></tr></thead><tbody>`
-    + row(10, 'In tens, as we count') + row(base, `In ${base}s, as they count`)
-    + `</tbody></table></span><span class="ex-foot">${n === 3 ? `In tens the places are worth 100 (10 × 10), 10 and 1. In ${base}s they are worth ${base * base} (${base} × ${base}), ${base} and 1.` : `In tens the places are worth 10 and 1. In ${base}s they are worth ${base} and 1.`}</span>`;
+  const heads = [tx('1st member'), tx('2nd member'), tx('3rd member')].slice(0, n).map(t => `<th scope="col">${t}</th>`).join('');
+  return `<span class="ex-head">${n === 3 ? tx('For example, three crew members showing {list}:', { list: andList(ex.map(String)) }) : tx('For example, two crew members showing {list}:', { list: andList(ex.map(String)) })}</span>`
+    + `<span class="placetab-wrap"><table class="placetab"><thead><tr><th></th>${heads}<th scope="col">${tx('number')}</th></tr></thead><tbody>`
+    + row(10, tx('In tens, as we count')) + row(base, tx('In {b}s, as they count', { b: base }))
+    + `</tbody></table></span><span class="ex-foot">${n === 3 ? tx('In tens the places are worth 100 (10 × 10), 10 and 1. In {b}s they are worth {bb} ({b} × {b}), {b} and 1.', { b: base, bb: base * base }) : tx('In tens the places are worth 10 and 1. In {b}s they are worth {b} and 1.', { b: base })}</span>`;
 }
 function renderSignalText() {
   const { name, f, base, crew } = signal, mode = sigMode(signal);
-  const who = `<strong>${name}</strong> carries the map fragment.`;
+  const who = tx('<strong>{name}</strong> carries the map fragment.', { name });
   let txt;
-  if (mode === 'toddler') txt = `${who} ${name} holds up the number of the next pier. Count the raised fingers on both hands together. Folded stubs count as nothing.`;
-  else if (mode === 'kids') txt = `${who} ${name}'s crew holds up the number of the next pier together. Count every raised finger on all their hands and add them up. Folded stubs count as nothing.`;
-  else if (!helps.explain) txt = `${who} ${name}'s crew signals the coordinates.`;
-  else txt = `${who} ${name}'s crew signals the coordinates, and <strong>each crew member shows one digit</strong>. To read a digit, add up the raised fingers on both hands together. It doesn't matter which hand, and folded stubs count as nothing. ${name}'s species has ${f} fingers on each hand, ${base} in all, so they count in ${base}s where we count in tens. A member shows a digit from 0 to ${base - 1}. All ${base} fingers up is never a digit: just as our ten is written 10, ${base} moves one place to the left as a 1, with a 0 after it. Read the digits left to right: each place is worth ${base} times the place to its right.` + placeTable(base, crew.map(c => c.pose.l + c.pose.r));
-  $('sig-title').textContent = signal.last ? 'The last piece of the map' : `Map piece ${voyage.pieces} of ${voyage.len}`;
-  if (signal.last) txt += ' <strong>The map is complete. These coordinates lead to the treasure.</strong>';
+  if (mode === 'toddler') txt = `${who} ${tx('{name} holds up the number of the next pier. Count the raised fingers on both hands together. Folded stubs count as nothing.', { name })}`;
+  else if (mode === 'kids') txt = `${who} ${tx("{name}'s crew holds up the number of the next pier together. Count every raised finger on all their hands and add them up. Folded stubs count as nothing.", { name })}`;
+  else if (!helps.explain) txt = `${who} ${tx("{name}'s crew signals the coordinates.", { name })}`;
+  else txt = `${who} ${tx("{name}'s crew signals the coordinates, and <strong>each crew member shows one digit</strong>. To read a digit, add up the raised fingers on both hands together. It doesn't matter which hand, and folded stubs count as nothing. {name}'s species has {f} fingers on each hand, {b} in all, so they count in {b}s where we count in tens. A member shows a digit from 0 to {top}. All {b} fingers up is never a digit: just as our ten is written 10, {b} moves one place to the left as a 1, with a 0 after it. Read the digits left to right: each place is worth {b} times the place to its right.", { name, f, b: base, top: base - 1 })}` + placeTable(base, crew.map(c => c.pose.l + c.pose.r));
+  $('sig-title').textContent = signal.last ? tx('The last piece of the map') : tx('Map piece {n} of {m}', { n: voyage.pieces, m: voyage.len });
+  if (signal.last) txt += ' <strong>' + tx('The map is complete. These coordinates lead to the treasure.') + '</strong>';
   $('sig-text').innerHTML = txt;
   $('chart-ask').textContent = helps.chart === 'hand'
-    ? `The star chart writes coordinates the way ${name}'s species does. Which star matches the signal?`
-    : 'The ship\'s star chart lists coordinates in base 10. Which star are they pointing to?';
+    ? tx("The star chart writes coordinates the way {name}'s species does. Which star matches the signal?", { name })
+    : tx("The ship's star chart lists coordinates in base 10. Which star are they pointing to?");
 }
 function renderChart() {
   const chart = $('chart'); chart.innerHTML = '';
@@ -2624,20 +2785,20 @@ $('crew-look').addEventListener('click', e => {
   if (!signal) return;
   const r = $('crew').getBoundingClientRect(), k = signal.crew.length;
   const i = Math.max(0, Math.min(k - 1, Math.floor((e.clientX - r.left) / r.width * k)));
-  openZoom(signal.crew[i], signal.crew[i].pose, `Crew member ${i + 1} of ${k}`);
+  openZoom(signal.crew[i], signal.crew[i].pose, tx('Crew member {n} of {m}', { n: i + 1, m: k }));
 });
 function chooseStar(ch, btn) {
   if (ship.phase !== 'idle' || cine.on || gate) return;
   if (ch.v !== signal.coord) {
     btn.disabled = true; ch.wrong = true;
-    $('sig-verdict').textContent = `Nothing at ${signal.last ? 'that star' : ch.world} but dust. Count the raised fingers of each crew member again, and read in their base.`;
+    $('sig-verdict').textContent = signal.last ? tx('Nothing at that star but dust. Count the raised fingers of each crew member again, and read in their base.') : tx('Nothing at {world} but dust. Count the raised fingers of each crew member again, and read in their base.', { world: ch.world });
     $('sig-verdict').className = 'verdict bad'; return;
   }
   ch.right = true;
   $('chart').querySelectorAll('button').forEach(b => b.disabled = true);
-  $('sig-verdict').textContent = signal.last ? 'Course set for the uncharted star. Hold on.' : `Course set for ${ch.world}. Hold on.`; $('sig-verdict').className = 'verdict good';
+  $('sig-verdict').textContent = signal.last ? tx('Course set for the uncharted star. Hold on.') : tx('Course set for {world}. Hold on.', { world: ch.world }); $('sig-verdict').className = 'verdict good';
   if (signal.last) {
-    ship.next = { name: 'the Hidden Star', kind: 'gas', label: 'treasure world', hue: 42, ring: true, seed: 4242, tilt: -.25, tex: null };
+    ship.next = { name: tx('the Hidden Star'), kind: 'gas', label: N_('treasure world'), hue: 42, ring: true, seed: 4242, tilt: -.25, tex: null };
     ship.onArrive = showFinale;
   } else {
     ship.next = makePlanet(ch.world);
@@ -2694,8 +2855,8 @@ const finaleView = makeView($('finale-canvas'), (ctx, w, h, t) => {
 function showFinale() {
   const tidy = score.hints === 0 && score.scans === 0;
   const names = voyage.holders.map(a => a.name);
-  const list = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names[0];
-  $('finale-text').textContent = `${voyage.len} piers, ${voyage.len} map pieces, carried by ${list}. You used ${hintCount(score.hints, score.explained || 0, score.shown || 0)} and ${score.scans} ${score.scans === 1 ? 'scan' : 'scans'}, and sent ${score.tries} ${score.tries === 1 ? 'report' : 'reports'} to the relay.${tidy ? ' A clean voyage: no hints, no scans.' : ''}`;
+  const list = andList(names);
+  $('finale-text').textContent = tx('{n} piers, {n} map pieces, carried by {list}. You used {hints} and {scans}, and sent {reports} to the relay.', { n: voyage.len, list, hints: hintCount(score.hints, score.explained || 0, score.shown || 0), scans: tn(score.scans, '{n} scan', '{n} scans'), reports: tn(score.tries, '{n} report', '{n} reports') }) + (tidy ? SP + tx('A clean voyage: no hints, no scans.') : '');
   caseViews.forEach(v => v.visible = false);
   $('case-bench').hidden = true; $('finale').hidden = false;
   finaleT0 = performance.now() / 1000; sizeView(finaleView); finaleView.dirty = true;
@@ -2746,7 +2907,7 @@ const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')
 const fromYmd = t => { const [y, m, d] = t.split('-').map(Number); return new Date(y, m - 1, d); };
 const dailyDay = () => typeof daily === 'string' ? daily : ymd(new Date());
 // "Today's case", or "The case of 12 October 2026" for an earlier day
-const dailyLabel = () => { const t = dailyDay(); return t === ymd(new Date()) ? "Today's case" : 'The case of ' + fromYmd(t).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }); };
+const dailyLabel = () => { const t = dailyDay(); return t === ymd(new Date()) ? tx("Today's case") : tx('The case of {date}', { date: fromYmd(t).toLocaleDateString(LOCALE, { day: 'numeric', month: 'long', year: 'numeric' }) }); };
 const RECENT_KEY = 'starport-recent';
 function recentList(key) { try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '{}')[key] || []; } catch (e) { return []; } }
 function noteRecent(key, i, size) {
@@ -2786,7 +2947,7 @@ let caseTicket = 0;
 // A voyage takes random cases at every pier.
 const firstCase = () => playMode === 'single' ? ymd(new Date()) : false;
 function newCase() {
-  $('grade').textContent = 'Fetching a case…';
+  $('grade').textContent = tx('Fetching a case…');
   const ticket = ++caseTicket, isDaily = daily === true ? ymd(new Date()) : daily;
   syncDayPick();
   fetchCase(isDaily).then(c => {
@@ -2851,8 +3012,8 @@ $('case-day').addEventListener('change', e => {
 syncDayPick();
 
 /* ---------- the cinema: the story, take-off, the jump and the landing, over the whole window ---------- */
-const HOME = { name: 'Home Port', kind: 'rocky', hue: 205, ring: false, seed: 777, tilt: 0, tex: null, label: 'where every voyage starts' };
-const HIDDEN = { name: 'the Hidden Star', kind: 'gas', label: 'treasure world', hue: 42, ring: true, seed: 4242, tilt: -.25, tex: null };
+const HOME = { name: tx('Home Port'), kind: 'rocky', hue: 205, ring: false, seed: 777, tilt: 0, tex: null, label: N_('where every voyage starts') };
+const HIDDEN = { name: tx('the Hidden Star'), kind: 'gas', label: N_('treasure world'), hue: 42, ring: true, seed: 4242, tilt: -.25, tex: null };
 const CAPTAIN = { fingers: 4, eyes: 2, ant: 2, color: 3, pattern: 'plain', cups: false, shape: 'round', seed: 12 };
 const cine = { on: false, segs: [], t0: 0, done: null, cap: null, last: null, segStart: 0, stars: Array.from({ length: 260 }, () => newStar(false)) };
 const ease = k => k < .5 ? 2 * k * k : 1 - (-2 * k + 2) ** 2 / 2;
@@ -2947,12 +3108,12 @@ function docked(ctx, w, h, p) {
   ctx.fillStyle = '#f4eddc'; ctx.textBaseline = 'alphabetic';
   ctx.font = `600 ${small}px "JetBrains Mono", monospace`; ctx.fillText('DOCKED AT PIER 7', w * .07, h * .3);
   ctx.font = `600 ${big}px Fredoka, "Trebuchet MS", sans-serif`; ctx.fillText(p.name, w * .07, h * .3 + big * 1.05);
-  ctx.font = `400 ${small}px "JetBrains Mono", monospace`; ctx.fillStyle = '#b3add6'; ctx.fillText(p.label || `${p.kind} world`, w * .07, h * .3 + big * 1.05 + small * 1.7);
+  ctx.font = `400 ${small}px "JetBrains Mono", monospace`; ctx.fillStyle = '#b3add6'; ctx.fillText(worldLabel(p), w * .07, h * .3 + big * 1.05 + small * 1.7);
 }
 function space(ctx, w, h) { ctx.fillStyle = '#090717'; ctx.fillRect(0, 0, w, h); }
 function jumpSegs(from, to, firstCap) {
   return [
-    { dur: 2.8, cap: firstCap || `Leaving ${from.name}`, draw(ctx, w, h, k, t, dt) {
+    { dur: 2.8, cap: firstCap || tx('Leaving {planet}', { planet: from.name }), draw(ctx, w, h, k, t, dt) {
       const lift = ease(clamp01((k - .2) / .8)), alt = lift * lift, m = clamp01((k - .7) / .3), s0 = shipSize(w, h);
       space(ctx, w, h); cineStars(ctx, w, h, 0, dt, alt);
       ctx.globalAlpha = 1 - m; const G = drawGround(ctx, w, h, from, alt, t); ctx.globalAlpha = 1;
@@ -2971,7 +3132,7 @@ function jumpSegs(from, to, firstCap) {
       const s = shipSize(w, h) * .65 * (1 - .45 * ease(k));
       drawShip(ctx, w / 2 + Math.sin(t * 3) * 4, lerp(h * .38, h * .5, ease(k)), s, t, 1);
     } },
-    { dur: 4, cap: `Arriving at ${to.name}`, draw(ctx, w, h, k, t, dt) {
+    { dur: 4, cap: tx('Arriving at {planet}', { planet: to.name }), draw(ctx, w, h, k, t, dt) {
       space(ctx, w, h); cineStars(ctx, w, h, .03 + 2.4 * clamp01(1 - k / .5) ** 2, dt);
       // first the whole planet grows into view in the middle, then it holds, then we sink towards the pier
       const e = ease(k), a = ease(clamp01(k / .5)), c = ease(clamp01((k - .62) / .38));
@@ -3020,12 +3181,12 @@ function drawMap(ctx, cx, cy, mw, mh) {
 function storySegs() {
   const twinkle = (ctx, w, h, t) => { for (let i = 0; i < 160; i++) { const x = (Math.sin(i * 91.7) * .5 + .5) * w, y = (Math.sin(i * 47.3 + 1) * .5 + .5) * h, a = .35 + .35 * Math.sin(t * 2 + i); ctx.fillStyle = `rgba(235,240,255,${a})`; ctx.fillRect(x, y, 1.6, 1.6); } };
   return [
-    { dur: 5.5, story: true, cap: 'Far out among the stars lies the Hidden Star, with a treasure no one has ever found.', draw(ctx, w, h, k, t) {
+    { dur: 5.5, story: true, cap: tx('Far out among the stars lies the Hidden Star, with a treasure no one has ever found.'), draw(ctx, w, h, k, t) {
       space(ctx, w, h); twinkle(ctx, w, h, t);
       const r = Math.min(w, h) * (.22 + .03 * k); drawPlanet(ctx, HIDDEN, w / 2, h * .42, r);
       const keep = finaleT0; finaleT0 = cine.segStart + 1.2; drawChest(ctx, w / 2, h * .44, r * .7, t); finaleT0 = keep;
     } },
-    { dur: 5.5, story: true, cap: 'Its map was torn into pieces, and every piece went to a different starport.', draw(ctx, w, h, k, t) {
+    { dur: 5.5, story: true, cap: tx('Its map was torn into pieces, and every piece went to a different starport.'), draw(ctx, w, h, k, t) {
       space(ctx, w, h); twinkle(ctx, w, h, t);
       MAP_WORLDS.forEach(m => drawPlanet(ctx, m.p, m.x * w, m.y * h, Math.min(w, h) * .07));
       const mw = Math.min(w * .5, h * .8) * .9, mh = mw * .62, mx = w / 2, my = h * .44, q = ease(clamp01((k - .3) / .55));
@@ -3041,7 +3202,7 @@ function storySegs() {
         ctx.closePath(); ctx.clip(); drawMap(ctx, 0, 0, mw, mh); ctx.restore();
       }
     } },
-    { dur: 6, story: true, cap: 'At every starport one traveller carries a piece. Work out who is who, and who has it.', draw(ctx, w, h, k, t) {
+    { dur: 6, story: true, cap: tx('At every starport one traveller carries a piece. Work out who is who, and who has it.'), draw(ctx, w, h, k, t) {
       const g = ctx.createLinearGradient(0, 0, 0, h); g.addColorStop(0, '#231d47'); g.addColorStop(.72, '#2f2858'); g.addColorStop(.72, '#3a2f5c'); g.addColorStop(1, '#2a2350'); ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
       const A = Math.min(w / 5.2, h * .42), feet = h * .74;
       INTRO_CAST.forEach((a, i) => {
@@ -3053,7 +3214,7 @@ function storySegs() {
       ctx.font = `600 ${Math.round(A * .45)}px Fredoka, sans-serif`; ctx.fillStyle = '#ffc857'; ctx.textAlign = 'center';
       ctx.fillText('?', w / 2 + Math.sin(t * 2) * 6, h * .2 + Math.sin(t * 3) * 4); ctx.textAlign = 'start';
     } },
-    { dur: 6, story: true, cap: 'Its crew signals the next stop on their fingers. Read the number, pick the star, and jump.', draw(ctx, w, h, k, t) {
+    { dur: 6, story: true, cap: tx('Its crew signals the next stop on their fingers. Read the number, pick the star, and jump.'), draw(ctx, w, h, k, t) {
       paintBench(ctx, w, h);
       const A = Math.min(w / 3.4, h * .5), a = INTRO_CAST[1], feet = h * .74, crew = [{ ...a, seed: 1, pose: { l: 4, r: 0 } }, { ...a, seed: 7, pose: { l: 1, r: 1 } }];
       crew.forEach((c, i) => {
@@ -3087,7 +3248,7 @@ function drawCine(ctx, w, h, t) {
     requestAnimationFrame(() => { c.style.transition = 'opacity .8s ease'; c.style.opacity = 1; });
   }
   const waiting = sg.story && el >= sg.dur - .01;
-  $('cine-tap').hidden = !sg.story; $('cine-tap').textContent = waiting ? 'Press any key or tap to go on' : 'Tap to see it all';
+  $('cine-tap').hidden = !sg.story; $('cine-tap').textContent = waiting ? tx('Press any key or tap to go on') : tx('Tap to see it all');
   sg.draw(ctx, w, h, Math.min(1, el / sg.dur), t, dt);
   const prevStory = i > 0 && cine.segs[i - 1].story;
   if ((sg.story || prevStory) && el < .8) { ctx.fillStyle = `rgba(9,7,23,${1 - el / .8})`; ctx.fillRect(0, 0, w, h); }
@@ -3137,7 +3298,7 @@ function warmPlanet(p) {
 function playJump(from, to, intro, done) {
   if (intro === 'intro') { introGate(() => playJump(from, to, 'go', done), done); return; }
   [from, to].concat(intro ? [HIDDEN] : []).forEach(warmPlanet);
-  playCine((intro ? storySegs() : []).concat(jumpSegs(from, to, intro ? 'Collect every piece. The last one leads to the treasure. Off you go, captain!' : null)), done);
+  playCine((intro ? storySegs() : []).concat(jumpSegs(from, to, intro ? tx('Collect every piece. The last one leads to the treasure. Off you go, captain!') : null)), done);
 }
 $('cine-skip').addEventListener('click', () => {
   if (gate) { const { done } = gate; gate = null; $('cine-start').hidden = true; $('cine').hidden = true; cover(false); if (done) done(); return; }
@@ -3164,7 +3325,7 @@ $('story').addEventListener('click', () => { if (ship.phase === 'idle' && !cine.
 if (document.fullscreenEnabled) {
   const fs = $('fullscreen'); fs.hidden = false;
   fs.addEventListener('click', () => { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(() => {}); });
-  document.addEventListener('fullscreenchange', () => { fs.textContent = document.fullscreenElement ? '⛶ Leave full screen' : '⛶ Full screen'; });
+  document.addEventListener('fullscreenchange', () => { fs.textContent = document.fullscreenElement ? tx('⛶ Leave full screen') : tx('⛶ Full screen'); });
 }
 
 /* ---------- the spot guide under How to play: every spot, drawn with a sample alien ---------- */
@@ -3175,26 +3336,27 @@ function legendCase() {
   const al = [{ ...INTRO_CAST[0] }, { ...INTRO_CAST[1] }, { ...INTRO_CAST[2], ant: 0, eyes: 2 }];
   const cs = { al, n: 3, D: 3, cols: ['name', 'planet', 'cargo'], vals: [['Zib', 'Mox', 'Lulu'], ['Glorp', 'Vex', 'Mimbo'], [CARGO[0], CARGO[1], CARGO[2]]], T: [[0, 1, 2], [0, 1, 2], [0, 1, 2]], scribe: 5 };
   const P = (key, extra, pos, neg) => ({ pos, neg, meta: { key, ...extra } });
+  // the words are kept English here (N_) and translated where the legend is drawn
   const L = [
-    ['A count', 'The number of eyes, antennae or fingers on each hand.', 'The scene shows the feature itself, here the eyes shining in the dark.',
+    [N_('A count'), N_('The number of eyes, antennae or fingers on each hand.'), N_('The scene shows the feature itself, here the eyes shining in the dark.'),
       { type: 'feat', d: 0, v: 0, neg: false, pr: P('eyes', { k: 2, kind: 'eq' }, ['has ', { n: 2 }, ' eyes'], ['does not have ', { n: 2 }, ' eyes']) }],
-    ['None', 'A crossed-out feature means none at all.', 'Nothing shows above the crates: no antennae at all.',
+    [N_('None'), N_('A crossed-out feature means none at all.'), N_('Nothing shows above the crates: no antennae at all.'),
       { type: 'feat', d: 1, v: 2, neg: false, pr: P('ant', { k: 0, kind: 'eq' }, ['has ', { n: 0 }, ' antennae'], ['has antennae']) }],
-    ['Not', 'A red stroke means "not".', 'A screen with the feature and a red ✗: not.',
+    [N_('Not'), N_('A red stroke means "not".'), N_('A screen with the feature and a red ✗: not.'),
       { type: 'notfeat', d: 2, v: 2, neg: true, pr: P('color', { v: 0 }, ['is green'], ['is not green']) }],
-    ['At least', '≥ means this many or more; ≤ this many or fewer. A ? on a fingertip: suction cups or not, the entry doesn\'t say.', 'A screen with ≥ and a green ✓: this many or more. A ? on a fingertip: suction cups or not, the entry doesn\'t say.',
+    [N_('At least'), N_('≥ means this many or more; ≤ this many or fewer. A ? on a fingertip: suction cups or not, the entry doesn\'t say.'), N_('A screen with ≥ and a green ✓: this many or more. A ? on a fingertip: suction cups or not, the entry doesn\'t say.'),
       { type: 'feat', d: 0, v: 1, neg: false, pr: P('fingers', { k: 4, kind: 'ge' }, ['has at least ', { n: 4 }, ' fingers on each hand'], ['has fewer than ', { n: 4 }, ' fingers on each hand']) }],
-    ['Markings', 'Plain, spots or stripes, whatever the colour.', 'The markings on the belly, seen through the strip in a door.',
+    [N_('Markings'), N_('Plain, spots or stripes, whatever the colour.'), N_('The markings on the belly, seen through the little window in a door.'),
       { type: 'feat', d: 0, v: 1, neg: false, pr: P('pattern', { v: 'stripes' }, ['is striped'], ['has no stripes']) }],
-    ['Suction cups', 'Round cups on the fingertips.', 'Prints on a window: round rings are suction cups.',
+    [N_('Suction cups'), N_('Round cups on the fingertips.'), N_('Prints on a window: round rings are suction cups.'),
       { type: 'feat', d: 1, v: 1, neg: false, pr: P('cups', {}, ['has suction cups on its fingertips'], ['has no suction cups']) }],
-    ['Together', 'A box: both belong to the same alien.', 'One suitcase with a name tag and a home world or a cargo: both belong to the same alien.',
+    [N_('Together'), N_('A box: both belong to the same alien.'), N_('One suitcase with a name tag and a home world or a cargo: both belong to the same alien.'),
       { type: 'link', d1: 0, v1: 1, d2: 1, v2: 1 }],
-    ['Never together', '≠: they belong to two different aliens.', 'Two suitcases with ≠ between them: they belong to two different aliens.',
+    [N_('Never together'), N_('≠: they belong to two different aliens.'), N_('Two suitcases with ≠ between them: they belong to two different aliens.'),
       { type: 'notlink', d1: 0, v1: 2, d2: 2, v2: 0 }],
-    ['More', 'The one on the left has more of it than the one on the right.', 'A balance: the side with more sinks.',
+    [N_('More'), N_('The one on the left has more of it than the one on the right.'), N_('A balance: the side with more sinks.'),
       { type: 'compare', key: 'eyes', da: 0, va: 1, db: 1, vb: 2 }],
-    ['The same', 'Both have the same amount, or the same colour or markings, and they are two different aliens.', 'A level balance: the same amount (or colour, or markings), and two different aliens.',
+    [N_('The same'), N_('Both have the same amount, or the same colour or markings, and they are two different aliens.'), N_('A level balance: the same amount (or colour, or markings), and two different aliens.'),
       { type: 'same', key: 'eyes', da: 0, va: 0, db: 2, vb: 2 }]
   ];
   cs.clues = L.map(x => x[3]);
@@ -3206,16 +3368,16 @@ function renderGuide(force) {
   const kind = caseStyle === 'photos' ? 'photos' : ledgerMode;
   if (!force && kind === guideKey) return; guideKey = kind;
   box.innerHTML = ''; box.className = 'guide' + (kind === 'pictures' ? ' pics' : kind === 'scenes' ? ' scenes' : '');
-  $('guide-head').textContent = { photos: 'What each spot in the photos shows', pictures: 'What the pictures in the ledger mean', scenes: 'What the scenes in the ledger show', words: 'What the ledger can say' }[kind];
+  $('guide-head').textContent = { photos: tx('What each spot in the photos shows'), pictures: tx('What the pictures in the ledger mean'), scenes: tx('What the scenes in the ledger show'), words: tx('What the ledger can say') }[kind];
   $('guide-note').hidden = kind === 'photos';
-  $('guide-note').textContent = { pictures: 'A name stands in a yellow tag, a home world as its planet, the cargo as its picture. The arrow points from who it is about to what is true of them.', scenes: 'Each scene stages one entry. A suitcase with a home world or a cargo stands for its owner; a balance compares two aliens; a screen with ✓ or ✗ says yes or no. Tap a scene to enlarge it.', words: 'Every entry is true, and together they leave exactly one answer. Switch to Pictures or Scenes to see the same entries drawn.' }[kind] || '';
+  $('guide-note').textContent = { pictures: tx('A name stands in a yellow tag, a home world as its planet, the cargo as its picture. The arrow points from who it is about to what is true of them.'), scenes: tx('Each scene stages one entry. A suitcase with a home world or a cargo stands for its owner; a balance compares two aliens; a screen with ✓ or ✗ says yes or no. Tap a scene to enlarge it.'), words: tx('Every entry is true, and together they leave exactly one answer. Switch to Pictures or Scenes to see the same entries drawn.') }[kind] || '';
   if (kind !== 'photos') {
     if (kind === 'words') return;
     const { cs, L } = legendCase(), keep = numMode; numMode = 'plain';
     L.forEach(([title, picNote, sceneNote, c]) => {
       const fig = document.createElement('figure'), cap = document.createElement('figcaption'), b = document.createElement('b');
       const pic = kind === 'scenes' ? (sceneCanvas(c, cs) || picEntry(c, cs)) : picEntry(c, cs);
-      b.textContent = title; cap.append(b, (kind === 'scenes' ? sceneNote : picNote) + ' For example: ' + partsText(clueParts(c, cs)));
+      b.textContent = tx(title); cap.append(b, tx(kind === 'scenes' ? sceneNote : picNote) + ' ' + tx('For example: {s}', { s: partsText(clueParts(c, cs)) }));
       fig.append(pic, cap); box.append(fig);
     });
     numMode = keep;
@@ -3228,7 +3390,7 @@ function renderGuide(force) {
     const w = fw(f), dpr = Math.min(window.devicePixelRatio || 1, 2), cv = document.createElement('canvas'); cv.width = w * dpr; cv.height = PH * dpr;
     const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr); drawRoom(ctx, w); drawStation(ctx, 0, f, cs, dpr, false, false);
     const fig = document.createElement('figure'), cap = document.createElement('figcaption'), b = document.createElement('b');
-    b.textContent = STATIONS[f.station].label; cap.append(b, STATIONS[f.station].note); fig.append(cv, cap); box.append(fig);
+    b.textContent = stLabel(f.station); cap.append(b, stNote(f.station)); fig.append(cv, cap); box.append(fig);
   });
 }
 renderGuide(true); document.fonts?.ready?.then(() => renderGuide(true));
