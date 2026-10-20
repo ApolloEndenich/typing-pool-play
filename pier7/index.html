@@ -2323,7 +2323,24 @@ $('case-reveal').addEventListener('click', () => {
 // the page only skips hints about cells the player already has). Each hint in the chain rests
 // only on the cells before it, so the first one not known never leans on something unseen.
 const knows = (cs, p, d) => cs.locked[p] || cs.hinted[d][p] || ($(`case-${p}-${d}`) || {}).value === String(cs.T[d][p]);
-const computeHint = cs => cs.hints.find(h => !knows(cs, h.p, h.d)) || null;
+const computeHint = cs => trimHint(cs, cs.hints.find(h => !knows(cs, h.p, h.d)) || null);
+// The chain was worked out in one order. A player who solved other cells first already has some of
+// its steps: a step ruling a value out for an alien whose value in that column they know, or ruling
+// out a value they have already placed on another alien, tells them nothing. Drop those steps, and
+// cite only the entries the remaining steps use (so a hint never points at an entry they don't need).
+function trimHint(cs, h) {
+  if (!h || h.suppose || !h.steps) return h;
+  const has = (d, p) => knows(cs, p, d);
+  const placed = (d, v) => [...Array(cs.n).keys()].some(q => cs.T[d][q] === v && has(d, q));
+  const steps = h.steps.filter(([by, d, p, v]) => !(has(d, p) || placed(d, v)));
+  if (steps.length === h.steps.length) return h;
+  const ids = [];
+  for (const [by, , , , x] of steps) {
+    if (by >= 0) ids.push(by);
+    else if (by === -5 || by === -6) { if (!Array.isArray(x)) return h; ids.push(...x[by === -5 ? 1 : 3]); }   // old packed form: keep the hint as written
+  }
+  return { ...h, steps: steps.length ? steps : null, cites: [...new Set(ids)].sort((i, j) => i - j) };
+}
 const entryList = xs => { const s = xs.map(x => x + 1); return s.length < 2 ? `entry ${s[0]}` : `entries ${s.slice(0, -1).join(', ')} and ${s[s.length - 1]}`; };
 // A hint's small steps (worked out when the cases were built) in words: each says which values an
 // entry rules out, with the entry's own words the first time it comes up.
