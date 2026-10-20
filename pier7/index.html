@@ -754,42 +754,54 @@ function makePlanet(name) {
   const r = Math.random;
   return { name, kind: ['rocky','gas','ice'][Math.floor(r() * 3)], hue: r() * 360, ring: r() < .45, seed: 1 + Math.floor(r() * 99999), tilt: (r() - .5) * .9, tex: null };
 }
-// the unlit colour of the surface at a point of the disc; land: the poles sit left and right, so the top (the landing point) is never ice
-function surfaceAt(p, nx, ny, land) {
+// The planet is one body turned as a whole: (nx, ny) are its own coordinates, poles at the top and
+// bottom, the equator (and any ring) across the middle. In space it is turned by its tilt; in the
+// landing views an eighth of a turn, the way it already leans, so the landing point at the top sits
+// at about 40 degrees of latitude, clear of the ice caps, and the ring crosses at a slant.
+const planetTurn = (p, land) => land ? (p.tilt < 0 ? -1 : 1) * Math.PI / 4 : p.tilt;
+// the landing point (the top of the landing views, 0.9 of the radius up) in the planet's own coordinates
+const landPoint = p => { const A = planetTurn(p, true); return [-.9 * Math.sin(A), -.9 * Math.cos(A)]; };
+// the unlit colour of the surface at a point of the disc, in the planet's own coordinates
+function surfaceAt(p, nx, ny) {
   const A = hsl2rgb(p.hue, 55, 58), B = hsl2rgb(p.hue + 35, 50, 34), Cc = hsl2rgb(p.hue + 150, 45, 52), Sea = hsl2rgb(p.hue, 60, 26), W = [240,246,255], Ic = hsl2rgb(p.hue, 40, 68);
-  const nz = Math.sqrt(Math.max(0, 1 - nx * nx - ny * ny)), n = fbm(nx * 2.4 + 7 + (land ? landShift(p) : 0), ny * 2.4, nz * 2.4, p.seed);
+  const nz = Math.sqrt(Math.max(0, 1 - nx * nx - ny * ny)), n = fbm(nx * 2.4 + 7 + landShift(p), ny * 2.4, nz * 2.4, p.seed);
   if (p.kind === 'gas') return mix(A, B, .5 + .5 * Math.sin(ny * 11 + n * 5));
-  if (p.kind === 'rocky') { const col = n > .53 ? mix(Cc, A, (n - .53) * 3) : mix(B, Sea, (.53 - n) * 3); return Math.abs(land ? nx : ny) > .84 + n * .08 ? W : col; }
+  if (p.kind === 'rocky') { const col = n > .53 ? mix(Cc, A, (n - .53) * 3) : mix(B, Sea, (.53 - n) * 3); return Math.abs(ny) > .84 + n * .08 ? W : col; }
   return mix(W, Ic, Math.min(1, Math.abs(n - .5) * 4));
 }
-// in the landing views a rocky world turns a little, so the pad at the top stands on land, not in the sea
+// a rocky world's land is shifted a little, so the landing point stands on land, not in the sea
 function landShift(p) {
   if (p.shift != null) return p.shift;
   p.shift = 0; if (p.kind !== 'rocky') return 0;
-  const nz = Math.sqrt(1 - .81);
-  for (let i = 0; i < 60; i++) if (fbm(7 + i * .37, -.9 * 2.4, nz * 2.4, p.seed) > .58) { p.shift = i * .37; break; }
+  const nz = Math.sqrt(1 - .81), L = landPoint(p);
+  for (let i = 0; i < 60; i++) if (fbm(7 + i * .37 + L[0] * 2.4, L[1] * 2.4, nz * 2.4, p.seed) > .58) { p.shift = i * .37; break; }
   return p.shift;
 }
 function planetTexture(p, land) {
   const S = 200, Rr = S / 2, c = document.createElement('canvas'); c.width = c.height = S;
   const g = c.getContext('2d'), img = g.createImageData(S, S), D = img.data;
   const Lv = [-.55, -.45, .7], ln = Math.hypot(...Lv); Lv.forEach((v, i) => Lv[i] = v / ln);
+  // the light stays at the top left of the screen while the surface turns under it
+  const A = planetTurn(p, land), ca = Math.cos(A), sa = Math.sin(A);
   for (let y = 0; y < S; y++) for (let x = 0; x < S; x++) {
     const nx = (x + .5 - Rr) / Rr, ny = (y + .5 - Rr) / Rr, d2 = nx * nx + ny * ny;
     if (d2 > 1) continue;
-    const nz = Math.sqrt(1 - d2), col = surfaceAt(p, nx, ny, land);
+    const nz = Math.sqrt(1 - d2), col = surfaceAt(p, nx * ca + ny * sa, -nx * sa + ny * ca);
     let li = Math.max(0, nx * Lv[0] + ny * Lv[1] + nz * Lv[2]); li = .12 + .88 * Math.pow(li, .8);
     const i = (y * S + x) * 4;
     D[i] = col[0] * li; D[i+1] = col[1] * li; D[i+2] = col[2] * li; D[i+3] = d2 > .985 ? 255 * (1 - d2) / .015 : 255;
   }
   g.putImageData(img, 0, 0); return c;
 }
-function drawPlanet(ctx, p, cx, cy, r, land) {
+// ringA fades the ring near the ground, where it would arch over the pier (the ground view has none)
+function drawPlanet(ctx, p, cx, cy, r, land, ringA = 1) {
   if (r < .5) return;
-  const rx = r * 1.9, ry = r * .42;
+  const rx = r * 1.9, ry = r * .42, A = planetTurn(p, land);
   const ring = (a0, a1) => {
-    ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, p.tilt, a0, a1); ctx.strokeStyle = `hsl(${p.hue + 60} 45% 75% / .85)`; ctx.lineWidth = Math.max(1, r * .09); ctx.stroke();
-    ctx.beginPath(); ctx.ellipse(cx, cy, rx * .86, ry * .86, p.tilt, a0, a1); ctx.lineWidth = Math.max(1, r * .04); ctx.strokeStyle = `hsl(${p.hue + 60} 35% 60% / .6)`; ctx.stroke();
+    if (ringA <= 0) return; const ga = ctx.globalAlpha; ctx.globalAlpha = ga * ringA;
+    ctx.beginPath(); ctx.ellipse(cx, cy, rx, ry, A, a0, a1); ctx.strokeStyle = `hsl(${p.hue + 60} 45% 75% / .85)`; ctx.lineWidth = Math.max(1, r * .09); ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(cx, cy, rx * .86, ry * .86, A, a0, a1); ctx.lineWidth = Math.max(1, r * .04); ctx.strokeStyle = `hsl(${p.hue + 60} 35% 60% / .6)`; ctx.stroke();
+    ctx.globalAlpha = ga;
   };
   if (p.ring) ring(Math.PI, TAU);
   if (!p.tex) p.tex = planetTexture(p);
@@ -2893,7 +2905,7 @@ function drawGround(ctx, w, h, p, alt, t, parked) {
   ctx.fillStyle = rim; ctx.beginPath(); ctx.arc(0, R0, R0 * 1.04, 0, TAU); ctx.fill();
   ctx.save(); ctx.beginPath(); ctx.arc(0, R0, R0 + 50, 0, TAU); ctx.clip();
   const yC = x => R0 - Math.sqrt(Math.max(0, R0 * R0 - x * x));
-  if (!p.soil) p.soil = surfaceAt(p, 0, -.9, true);
+  if (!p.soil) p.soil = surfaceAt(p, ...landPoint(p));
   const tone = k => `rgb(${p.soil.map(c => Math.round(k < 1 ? c * k : c + (255 - c) * (k - 1))).join(',')})`;
   const near = ctx.createLinearGradient(0, 0, 0, h * .7); near.addColorStop(0, tone(.85)); near.addColorStop(1, tone(.35));
   [[tone(1.12), 40, 1.3], [near, 20, 2.1]].forEach(([col, amp, ph]) => {
@@ -2944,7 +2956,7 @@ function jumpSegs(from, to, firstCap) {
       const lift = ease(clamp01((k - .2) / .8)), alt = lift * lift, m = clamp01((k - .7) / .3), s0 = shipSize(w, h);
       space(ctx, w, h); cineStars(ctx, w, h, 0, dt, alt);
       ctx.globalAlpha = 1 - m; const G = drawGround(ctx, w, h, from, alt, t); ctx.globalAlpha = 1;
-      if (m > 0) { ctx.globalAlpha = m; drawPlanet(ctx, from, G.circle.cx, G.circle.cy, G.circle.r, true); ctx.globalAlpha = 1; }
+      if (m > 0) { ctx.globalAlpha = m; drawPlanet(ctx, from, G.circle.cx, G.circle.cy, G.circle.r, true, m * m); ctx.globalAlpha = 1; }
       dust(ctx, w / 2, G.padY, G.pw, clamp01((k - .1) / .55));
       const s = s0 * (1 - .35 * lift), padTop = G.padY - s * .1, y = lerp(padTop, h * .38, ease(clamp01((k - .2) / .5)));
       drawShip(ctx, w / 2, y, s, t, k < .2 ? .2 + k / .2 * .5 : 1);
@@ -2965,7 +2977,7 @@ function jumpSegs(from, to, firstCap) {
       const e = ease(k), a = ease(clamp01(k / .5)), c = ease(clamp01((k - .62) / .38));
       const top = groundTop(h, 1), r1 = groundR(w) / 6, rA = Math.min(w, h) * .3, cyA = h * .47;
       const r = c > 0 ? lerp(rA, r1, c * c) : lerp(3, rA, a * a), cy = c > 0 ? lerp(cyA, top + r1, c) : lerp(h * .5, cyA, a);
-      drawPlanet(ctx, to, w / 2, cy, r, true);
+      drawPlanet(ctx, to, w / 2, cy, r, true, 1 - c);
       const m = clamp01((k - .9) / .1);
       if (m > 0) { ctx.globalAlpha = m; drawGround(ctx, w, h, to, 1, t); ctx.globalAlpha = 1; }
       const s0 = shipSize(w, h); drawShip(ctx, w / 2, lerp(h * .5, h * .3, e), s0 * lerp(.36, .65, e), t, .7);
@@ -3120,7 +3132,7 @@ $('cine-here').addEventListener('click', () => passGate(false));
 function warmPlanet(p) {
   if (!p.tex) p.tex = planetTexture(p);
   if (!p.texLand) p.texLand = planetTexture(p, true);
-  if (!p.soil) p.soil = surfaceAt(p, 0, -.9, true);
+  if (!p.soil) p.soil = surfaceAt(p, ...landPoint(p));
 }
 function playJump(from, to, intro, done) {
   if (intro === 'intro') { introGate(() => playJump(from, to, 'go', done), done); return; }
