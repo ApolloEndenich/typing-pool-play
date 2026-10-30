@@ -2184,7 +2184,7 @@ function renderEntries() {
   box.append(open);
   if (shut.children.length) { const h = document.createElement('p'); h.className = 'done-head'; h.textContent = tx('Done with'); box.append(h, shut); }
   // an open hint keeps its entries marked when the ledger is redrawn (Words, Pictures, Scenes, ticks)
-  if (pendingHint) markCited(pendingHint.suppose ? pendingHint.suppose.why : pendingHint.cites);
+  if (pendingHint) markCited(pendingHint.cites);
 }
 $('h-chart').addEventListener('change', e => { helps.chart = e.target.value; saveHelps(); applyHelps(); });
 function applyHelps() {
@@ -2631,21 +2631,36 @@ $('case-hint').addEventListener('click', () => {
     const col = CASE.cols[h.d], cell = cellPhrase(h.p, h.d);
     const once = h.col ? SP + byCol(col, tx('Remember that each name belongs to exactly one alien.'), tx('Remember that each home belongs to exactly one alien.'), tx('Remember that each cargo belongs to exactly one alien.')) : '';
     let txt;
-    if (h.suppose) { const fact = cellFact(CASE, h.suppose.p, h.suppose.d, h.suppose.v); txt = tx('This one needs a "suppose". Imagine {fact}, then follow {entries} until two of them clash. Working on from there settles {cell}.', { fact: LANG === 'en' ? fact.replace('Alien', 'alien') : fact, entries: entryList(h.suppose.why.length ? h.suppose.why : h.cites), cell }); }
+    if (h.suppose) {
+      // the clash, then the entries that settle the cell once the supposed value is struck out (h.cites
+      // is both); cases written before 30 October 2026 have no `then` and cited the clash only
+      const low = f => LANG === 'en' ? f.replace('Alien', 'alien') : f;
+      const fact = cellFact(CASE, h.suppose.p, h.suppose.d, h.suppose.v), why = h.suppose.why.length ? [...h.suppose.why] : [...h.cites];
+      txt = tx('This one needs a "suppose". Imagine {fact}, then follow {entries} until two of them clash.', { fact: low(fact), entries: entryList(why) }) + SP;
+      // (rarely) one clash is not enough: each further one, from what the ones before it ruled out
+      for (const m of h.suppose.more || []) {
+        txt += tx('So that is wrong. Now imagine {fact}, then follow {entries} until two of them clash.', { fact: low(cellFact(CASE, m.p, m.d, m.v)), entries: entryList(m.why) }) + SP;
+        m.why.forEach(i => { if (!why.includes(i)) why.push(i); });
+      }
+      const more = (h.suppose.then || []).filter(i => !why.includes(i));
+      txt += more.length ? tx('So that is wrong, and with that ruled out, adding {more} settles {cell}.', { more: entryList(more), cell })
+        : tn(why.length, 'So that is wrong, and with that ruled out, the same entry settles {cell}.', 'So that is wrong, and with that ruled out, the same entries settle {cell}.', { cell });
+      txt += once;
+    }
     else if (h.cites.length) txt = tn(h.cites.length, 'Look at {entries}. It settles {cell}.', 'Look at {entries}. Together they settle {cell}.', { entries: entryList(h.cites), cell }) + once;
     else txt = byCol(col, tx('Each name belongs to exactly one alien, and what is already settled leaves only one choice for {cell}.', { cell }), tx('Each home belongs to exactly one alien, and what is already settled leaves only one choice for {cell}.', { cell }), tx('Each cargo belongs to exactly one alien, and what is already settled leaves only one choice for {cell}.', { cell }));
     if (CASE.style === 'photos') {
       const photoOf = id => CASE.photos.findIndex(ph => ph.some(x => x.id === id));
       const spot = id => { const pi = photoOf(id); if (pi < 0) return ''; const j = CASE.photos[pi].findIndex(x => x.id === id), f = CASE.photos[pi][j]; return tx('spot {tag} ({label})', { tag: spotTag(pi, j), label: stLabel(f.station) }) + (CASE.aside.has(pi) || CASE.spotAside.has(id) ? tx(', which you put aside') : ''); };
-      const figs = [...new Set((h.suppose ? h.suppose.why : h.cites).flatMap(i => figsOf(CASE.clues[i])))], list = figs.map(spot);
+      const figs = [...new Set(h.cites.flatMap(i => figsOf(CASE.clues[i])))], list = figs.map(spot);
       const where = list.length ? tx('Look at {spots}.', { spots: list.length > 1 ? list.slice(0, -1).join(tx('; ')) + tx(' and ') + list[list.length - 1] : list[0] }) : byCol(col, tx('Each name belongs to exactly one alien.'), tx('Each home belongs to exactly one alien.'), tx('Each cargo belongs to exactly one alien.'));
       txt = where + SP + (h.suppose ? tx('It takes a "suppose": try a value and watch it clash.') + SP : '') + tx('That settles {cell}.', { cell });
       const first = figs.map(photoOf).find(pi => pi >= 0 && !CASE.aside.has(pi)); if (first != null) { CASE._slide = first; CASE._scroll = null; }
       renderPhotos(new Set(figs));
     }
-    const off = (h.suppose ? h.suppose.why : h.cites).filter(i => CASE.done && CASE.done.has(i));
+    const off = h.cites.filter(i => CASE.done && CASE.done.has(i));
     if (off.length && CASE.style !== 'photos') txt += SP + tn(off.length, 'Entry {list} is among the ones you ticked off.', 'Entries {list} are among the ones you ticked off.', { list: andList(off.map(i => String(i + 1))) });
-    box.textContent = txt; if (CASE.style !== 'photos') markCited(h.suppose ? h.suppose.why : h.cites);
+    box.textContent = txt; if (CASE.style !== 'photos') markCited(h.cites);
     // three presses: Hint (where to look), Explain (the steps, when there are any), Show me (the answer)
     hintExplained = false;
     $('case-hint').textContent = h.steps && !h.suppose ? tx('Explain') : tx('Show me');
