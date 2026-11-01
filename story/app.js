@@ -143,24 +143,129 @@ async function boot() {
   const shut = c => c.untranslated ? tx("not yet in this language")
     : c.held ? tx("not in this sample")
     : yearOf(c) >= 1971 ? tx("sketched") : tx("in progress");
-  const button = c =>
-    `<button data-id="${c.id}"${c.built ? "" : " disabled"} class="${c.built ? "" : "tocome"}">` +
-    `<span class="num">${esc(c.key || "·")}</span>${esc(c.title)}` +
-    (c.german ? ` <i class="de">${esc(c.german)}</i>` : "") +
-    `<small>${esc(c.stated)}${c.built ? "" : " · " + shut(c)}</small></button>`;
-  $("cases").innerHTML = SEASONS.map(([name, years, has]) => {
-    const cs = index.filter(c => has(yearOf(c)));
-    return cs.length ? `<div class="season"><h3>${name} <span>${years}</span></h3>` +
-      `<div class="seasoncases">${cs.map(button).join("")}</div></div>` : "";
-  }).join("");
-  $("cases").querySelectorAll("button:not([disabled])").forEach(b =>
-    b.onclick = () => load(b.dataset.id));
+  const shutNow = c => c.locked && !c.untranslated ? tx("shut: it needs a passcode") : shut(c);
+  const button = c => {
+    const open = playable(c);
+    return `<button data-id="${c.id}"${open ? "" : " disabled"} class="${open ? "" : "tocome"}">` +
+      `<span class="num">${esc(c.key || "·")}</span>${esc(c.title)}` +
+      (c.german ? ` <i class="de">${esc(c.german)}</i>` : "") +
+      `<small>${esc(c.stated)}${open ? "" : " · " + shutNow(c)}</small></button>`;
+  };
+  INDEX = index;
+  DRAWCASES = () => {
+    $("cases").innerHTML = SEASONS.map(([name, years, has]) => {
+      const cs = index.filter(c => has(yearOf(c)));
+      return cs.length ? `<div class="season"><h3>${name} <span>${years}</span></h3>` +
+        `<div class="seasoncases">${cs.map(button).join("")}</div></div>` : "";
+    }).join("") + passForm();
+    $("cases").querySelectorAll("button[data-id]:not([disabled])").forEach(b =>
+      b.onclick = () => load(b.dataset.id));
+    if (CASE) $("cases").querySelectorAll("button[data-id]").forEach(b =>
+      b.classList.toggle("on", b.dataset.id === CASE.id));
+    bindPassForm();
+  };
+  DRAWCASES();
   KEYOF = Object.fromEntries(index.map(c => [c.id, c.key || c.id]));
   /* the chapter a player was in last, so that Continue is where they were */
   const last = recall("_", "last", null);
   front();
   titleSequence();
-  load((index.find(c => c.id === last && c.built) || index.find(c => c.opens) || index.find(c => c.built)).id);
+  load((index.find(c => c.id === last && playable(c)) || index.find(c => c.opens) || index.find(c => c.built)).id);
+}
+
+/* ------------------------------------------------------------ passcodes
+   AS IN LEMMINGS (the user, 1 November 2026). Solving W gives the passcode
+   for E, E gives R's, R gives T's, and nothing past T goes out. A shut
+   chapter's file is encrypted under its passcode (publish.py, _ship_case),
+   and the passcode is inside the chapter before it, encrypted with that
+   chapter's answers: a player who has signed every part holds the key to
+   it. The passcodes a browser has been given are kept with the settings,
+   for every language. */
+let INDEX = [], DRAWCASES = () => {};
+const passcodes = () => recall("_", "passcodes", {});
+const playable = c => c.built || (c.locked && !c.untranslated && !!passcodes()[c.id]);
+function keepPasscode(id, code) {
+  remember("_", "passcodes", Object.assign({}, passcodes(), {[id]: code}));
+}
+/* what a player types: any case, spaces and hyphens forgiven, and an
+   Umlaut written either way */
+const passWord = s => String(s || "").toUpperCase()
+  .replace(/Ä/g, "AE").replace(/Ö/g, "OE").replace(/Ü/g, "UE").replace(/ß/g, "SS")
+  .replace(/[^A-Z0-9]/g, "");
+const unb64 = s => Uint8Array.from(atob(s), ch => ch.charCodeAt(0));
+/* publish.py _box, opened: PBKDF2-SHA256 to an AES-GCM key. Null when the
+   secret is not the one it was shut with. */
+async function openBox(box, secret) {
+  try {
+    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(secret),
+      "PBKDF2", false, ["deriveKey"]);
+    const key = await crypto.subtle.deriveKey(
+      {name: "PBKDF2", hash: "SHA-256", salt: unb64(box.salt), iterations: box.rounds},
+      base, {name: "AES-GCM", length: 256}, false, ["decrypt"]);
+    const out = await crypto.subtle.decrypt({name: "AES-GCM", iv: unb64(box.iv)}, key, unb64(box.ct));
+    return new TextDecoder().decode(out);
+  } catch (e) { return null; }
+}
+/* publish.py _answers, from what the player signed: one line a part */
+const passSecret = () => CASE.parts.map(p =>
+  [p.id, ...(PICKED[p.id] || [])].map(x => String(x).trim().toLowerCase()).join("|")).join("\n");
+
+function passForm() {
+  if (!INDEX.some(c => c.locked)) return "";
+  return `<form class="passcode" id="passform" autocomplete="off">` +
+    `<label for="passin">${esc(tx("A passcode from an earlier chapter:"))}</label> ` +
+    `<input id="passin" spellcheck="false" autocapitalize="characters" size="18"> ` +
+    `<button type="submit">${esc(tx("Open"))}</button> <span id="passsay" role="status"></span></form>`;
+}
+function bindPassForm() {
+  const f = $("passform");
+  if (!f) return;
+  const sayIt = t => { if ($("passsay")) $("passsay").textContent = t; };
+  f.onsubmit = async e => {
+    e.preventDefault();
+    const code = passWord($("passin").value);
+    if (!code) return;
+    sayIt(tx("Trying it ..."));
+    for (const c of INDEX.filter(c => c.locked)) {
+      if (await openBox(c.gate, code) !== c.id) continue;
+      keepPasscode(c.id, code);
+      milestone(`${c.key}/code`);
+      DRAWCASES();
+      if (c.untranslated)
+        return sayIt(tx("That opens {key}, {title}, which is not in this language yet; it is open in the languages that have it.",
+                        {key: c.key, title: c.title}));
+      return load(c.id);
+    }
+    sayIt(tx("That passcode opens nothing here."));
+  };
+}
+
+/* THE CARD THAT GIVES THE NEXT ONE, once every part holds. The chapter it
+   opens is opened at once in this browser; the passcode is for another. */
+const GIVEN = {};
+async function givePasscode() {
+  const pc = $("passcard"), give = CASE && CASE.passcode;
+  if (!pc || !give) return;
+  const id = CASE.id;
+  if (!(id in GIVEN)) {
+    GIVEN[id] = null;
+    const code = await openBox(give.box, passSecret());
+    if (!code) { delete GIVEN[id]; return; }
+    GIVEN[id] = code;
+    keepPasscode(give.opens, code);
+    DRAWCASES();
+  }
+  const code = GIVEN[id];
+  if (!code || !CASE || CASE.id !== id || !$("invite") || $("invite").hidden) return;
+  const next = INDEX.find(c => c.id === give.opens) || {key: "?", title: ""};
+  pc.innerHTML = `<span class="passhead">${esc(tx("Passcode for chapter {key}, {title}", {key: next.key, title: next.title}))}</span>` +
+    `<b class="password">${esc(code)}</b>` +
+    `<span>${esc(next.untranslated
+      ? tx("The chapter is not in this language yet; it is open now in the languages that have it.")
+      : tx("The chapter is open now in this browser. In another, type the passcode under the list of chapters."))}</span>` +
+    (playable(next) ? ` <button type="button" id="passopen">${esc(tx("Open chapter {key}", {key: next.key}))}</button>` : "");
+  pc.hidden = false;
+  if ($("passopen")) $("passopen").onclick = () => load(next.id);
 }
 
 /* THE FRONT PAGE (index.html, #front). It stands in front of the chapter
@@ -347,7 +452,17 @@ function briefShut(shut) {
 }
 
 async function load(id) {
-  CASE = await (await fetch(casePath(`${id}.json`))).json();
+  let data = await (await fetch(casePath(`${id}.json`))).json();
+  if (data.locked) {
+    const code = passcodes()[id];
+    const text = code && await openBox(data.box, code);
+    if (!text) {
+      const first = INDEX.find(c => c.opens);
+      return first && first.id !== id ? load(first.id) : undefined;
+    }
+    data = JSON.parse(text);
+  }
+  CASE = data;
   remember("_", "last", id);
   chapterStep("open");
   DAY = 1;
@@ -1531,6 +1646,7 @@ function tally() {
      once every part holds and not before. It is the chapter's last word. */
   const after = $("after");
   if (after) { after.hidden = true; after.textContent = ""; }
+  if ($("passcard")) $("passcard").hidden = true;
   const walk = CASE && CASE.walk;
   if (!walk || typeof questions !== "function" || !walking()) { el.textContent = ""; return; }
   const notes = CASE.memo && levelOf() === "notes";
@@ -1548,7 +1664,7 @@ function tally() {
   const closing = solved && CASE.memo && CASE.memo.mauser && CASE.memo.mauser.solved;
   if (closing) el.append(mauserLine(closing));
   $("invite").hidden = !solved;
-  if (solved) chapterStep("solved");
+  if (solved) { chapterStep("solved"); givePasscode(); }
   if (after && solved && CASE.after) { after.textContent = CASE.after; after.hidden = false; }
 }
 

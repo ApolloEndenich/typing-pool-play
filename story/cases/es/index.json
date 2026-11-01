@@ -33,7 +33,13 @@
   "built": false,
   "opens": false,
   "free": false,
-  "held": true
+  "locked": true,
+  "gate": {
+   "rounds": 200000,
+   "salt": "pQ/uOLvc/bkt7iG50J8/4w==",
+   "iv": "EELGTf9/zBdeE+vG",
+   "ct": "dKIfBLglgY3bEkTKAMphI4BG2AmIKJ5987U="
+  }
  },
  {
   "id": "rueckstand",
@@ -45,7 +51,13 @@
   "built": false,
   "opens": false,
   "free": false,
-  "held": true
+  "locked": true,
+  "gate": {
+   "rounds": 200000,
+   "salt": "LHEkscUPRy3vto+jqB1JBw==",
+   "iv": "doB/goFfUR1/F1rA",
+   "ct": "KAgJP0BcZheJHmfGnK74hKsBOZa7cYIjupo="
+  }
  },
  {
   "id": "schublade",
@@ -57,7 +69,14 @@
   "built": false,
   "opens": false,
   "free": false,
-  "held": true
+  "untranslated": true,
+  "locked": true,
+  "gate": {
+   "rounds": 200000,
+   "salt": "D6+vdJAlMLh8jZMhIelvzQ==",
+   "iv": "FUnTHHXYf6+mgP3v",
+   "ct": "EbWlMYq9RDKP1lI0TcCMdfcbp6AfcCi6rQ=="
+  }
  },
  {
   "id": "dreinamen",

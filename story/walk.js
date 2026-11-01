@@ -451,6 +451,43 @@ const floorName = f => f === -1 ? tx("cellar") : f === 0 ? tx("ground")
 /* A room's short name on the map is the export's (p.short, export_cases.short),
    so that another language can say it. */
 
+const PAINTED = new Set();
+let PAINTWAIT = null, PRELOADED = null;
+function paintingFirst(art) {
+  const sc = $("scene");
+  /* outside a browser (tests/walk-test.js) there is nothing to wait for */
+  if (typeof Image === "undefined" || !sc || !sc.classList || !sc.classList.add) return;
+  clearTimeout(PAINTWAIT);
+  if (!art || PAINTED.has(art)) { sc.classList.remove("waiting"); preloadRooms(); return; }
+  sc.classList.add("waiting");
+  const done = () => {
+    PAINTED.add(art);
+    if (sc.style.backgroundImage.includes(art)) sc.classList.remove("waiting");
+    preloadRooms();
+  };
+  const im = new Image();
+  im.onload = im.onerror = done;
+  im.src = art;
+  if (im.complete) done();
+  /* never hide the people for long on a slow line */
+  PAINTWAIT = setTimeout(() => sc.classList.remove("waiting"), 4000);
+}
+function preloadRooms() {
+  if (typeof WALK === "undefined" || !WALK || PRELOADED === WALK) return;
+  PRELOADED = WALK;
+  const queue = [...new Set(WALK.places.flatMap(p => Object.values(p.art || {})).filter(Boolean))]
+    .filter(a => !PAINTED.has(a));
+  const next = () => {
+    if (PRELOADED !== WALK || !queue.length) return;
+    const a = queue.shift();
+    const im = new Image();
+    im.onload = () => { PAINTED.add(a); next(); };
+    im.onerror = next;
+    im.src = a;
+  };
+  next();
+}
+
 /* The room, with whoever is in it standing on its floor, Sarah to one side.
    Both face the viewer (the staging MEETINGS.md asks for). */
 function scene() {
@@ -459,6 +496,14 @@ function scene() {
   const people = here();
   $("scene").style.backgroundImage = art ? `url("${art}")` : "none";
   $("scene").classList.toggle("noart", !art);
+  /* PAINTING FIRST (the user, 1 November 2026: "it first loads the people in
+     there and then the background"). A painting is large and a figure is
+     small, so on a first visit the people stood on bare paper. Until the
+     painting is in, what stands on it is hidden (app.css, #scene.waiting),
+     and then it all comes in together. Once one painting is in, the others
+     of the chapter are fetched quietly, one at a time, so the next rooms are
+     already there. */
+  paintingFirst(art);
   const n = people.length;
   /* Everybody to one scale: a 180 cm figure stands 72% of the picture's
      height, and nobody's picture is stretched to anybody else's height. */
@@ -502,8 +547,16 @@ function scene() {
       `style="left:${(x.x * 100).toFixed(2)}%;top:${(x.y * 100).toFixed(2)}%;width:${(x.w * 100).toFixed(2)}%" ` +
       `title="${esc(tx("Look at {thing}", {thing: thingIn(x.thing)}))}"><img src="${esc(x.file)}" alt="${esc(cap(thingName(x.thing)))}" ` +
       `style="transform:scaleY(${x.flat})"></button>`).join("");
+  /* SARAH ALONE (the user, 1 November 2026: "when Sarah is alone in a room,
+     she always stands very far to the left ... quite close to the wall").
+     Her place at the side is for talking to somebody; with nobody here she
+     takes the spot the painting leaves for one figure (p.stand, the same as
+     a lone person's, 62% where the room names none), centred on it. */
+  const sarahAt = n === 0
+    ? `left:${(p.stand ? p.stand * 100 : 62).toFixed(1)}%;transform:translateX(-50%)`
+    : `left:${p.sarah_at ? (p.sarah_at * 100).toFixed(1) : 9}%`;
   $("scene").innerHTML = props +
-    `<div class="fig sarah" style="left:${p.sarah_at ? (p.sarah_at * 100).toFixed(1) : 9}%;height:${tall(WALK.sarah_height)}"><img src="${esc(WALK.sarah)}" alt=""><span class="label">Sarah</span></div>` +
+    `<div class="fig sarah" style="${sarahAt};height:${tall(WALK.sarah_height)}"><img src="${esc(WALK.sarah)}" alt=""><span class="label">Sarah</span></div>` +
     figs;
   $("scene").querySelectorAll(".prop").forEach(b => b.onclick = () => readThing(b.dataset.thing));
   $("scene").querySelectorAll("[data-meet]").forEach(b => b.onclick = () => {
