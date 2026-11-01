@@ -325,6 +325,8 @@ function nextPhase() {
   } else {
     return;
   }
+  /* how far players get (app.js, milestone): the day and the part of it */
+  if (typeof chapterStep === "function") chapterStep(`walk-day${W.day}-${W.phase + 1}`);
   const stay = W.phase > 0 && WALK.repeat && isOpen(W.at);
   enter(stay ? W.at : phase().start);
 }

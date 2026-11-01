@@ -8,5 +8,30 @@
   "code": "de",
   "name": "Deutsch",
   "released": true
+ },
+ {
+  "code": "es",
+  "name": "Español",
+  "released": true
+ },
+ {
+  "code": "fr",
+  "name": "Français",
+  "released": true
+ },
+ {
+  "code": "it",
+  "name": "Italiano",
+  "released": true
+ },
+ {
+  "code": "ja",
+  "name": "日本語",
+  "released": true
+ },
+ {
+  "code": "zh",
+  "name": "中文",
+  "released": true
  }
 ]

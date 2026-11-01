@@ -1,0 +1,2060 @@
+{
+ "id": "dienstweg",
+ "subtitle": "上申の道筋",
+ "title": "DER DIENSTWEG",
+ "engine": "procedure",
+ "preamble": "十月、タイピスト室には臨時のタイピスト、Vogt嬢がいた。10月22日（火）、彼女は部長（Unterabteilungsleiter）であるVahle氏（Ministerialdirigent）についての苦情を、局長（Abteilungsleiter）宛てで省に郵送した。一週間もしないうちにVahle氏は中身を知っており、彼女の雇用は更新されなかった。\n\n以下は、見つかったこと、語られたことのすべてである。",
+ "question": "Vogt嬢の苦情は局長が見るべきものだった。誰がそれをVahle氏に渡したのか？ 報告書に記入してください。",
+ "days": [
+  {
+   "n": 1,
+   "name": "一週間",
+   "note": "",
+   "sections": [
+    {
+     "where": "郵便室",
+     "lines": [
+      "郵便室の書留記録簿：10月23日（水）、Vogt嬢からの書留一通、省あて、局長宛。課の欄には Z A 1 と書かれている。",
+      "仕分け台の上の掲示：庁舎の職員に名指しで宛て、「親展」と記した手紙は、開封せずに本人へ渡す。省に宛てた手紙は、誰宛てであっても、ここで開封し、宛名の横に印を押し、その印の中に担当課の記号を記入する。"
+     ]
+    },
+    {
+     "where": "記録室",
+     "lines": [
+      "人事課の登録簿（Simon氏の窓口に備付け）。10月23日（水）：Vogt嬢の書簡、受付。同日 Z A 1 へ、課長本人に手渡し。タイピスト室の郵便巡回によらず。10月28日（月）：返戻、綴込みへ。"
+     ]
+    },
+    {
+     "where": "407号室の秘書室",
+     "lines": [
+      "秘書室の一覧表（Pohlmann女史の手書き）、その机を通ったもの。10月23日（水）：Vogt嬢の書簡、記録室より、書き込みなし。直接課長へ回付、事務員（Kern夫人）を経由せず。10月28日（月）：課長より記録室へ返戻。茶色の鉛筆でR、イニシャルなし。青なし。その間：部長宛てなし。"
+     ]
+    },
+    {
+     "where": "Pohlmann女史",
+     "lines": [
+      "自分の一覧を見せられると、彼女は一度上から下まで目を通し、これは自分の字で、日付もそのとおりだと言う。そして、その週にこの課から部長へ何かが上がったとしても、それはこの机からではないし、ほかに道があるとも思えない、と言う。",
+      "課の郵便は私の仕事です。Vahle氏はこの課へは下りてきません。Grau氏に用があれば、呼びにやらせます。",
+      "Grau氏宛てのものはすべてこの机を通って入り、この机を通って出ていきます。もう十年になります。書類がどこにあるか知りたければ、ここにあるか、ここに書いてあります。"
+     ]
+    },
+    {
+     "where": "Simon氏",
+     "lines": [
+      "宛てられた課へまっすぐです。この庁舎では、郵便はまず局長のところへ上がって配られるのではありません。印がついて私のところへ来て、私がその印の課へ回し、課長はその日のうちに受け取ります。",
+      "Pohlmann女史は自分で書類をあの課の外へ持ち出したりはしません。あそこから出るものは発送トレーに入ってこの窓口まで下りてきて、登録簿に載ります。そして書類を取りにあの課へ下りていく人もいません。Vahle氏はGrau氏を呼びにやらせます。",
+      "Vogt嬢の手紙は私が自分で持って上がりました。印がそう指示していましたから。そして課長ご本人の手にお渡ししました。Pohlmann女史は机にいましたが、私は手紙を持ってその前を通り、事務員の戸棚の前も立ち止まらずに通りました。",
+      "課が郵便をどうするかは私の言うことではありません。ですがVogt嬢の手紙は、茶色の鉛筆でRとだけ、横にイニシャルもなく、どこにも青の一筆もない状態で、ファイルに綴じるため私のところへ戻ってきました。気づきましたよ。私はそういうことに気づく性分なんです。"
+     ]
+    },
+    {
+     "where": "407号室",
+     "lines": [
+      "Grau氏の卓上カレンダー。その週のところが開かれ、本人の手で：10月24日（木）に「部長」とあり、その日はほかに何も書かれていない。"
+     ]
+    },
+    {
+     "where": "Grau参事官",
+     "lines": [
+      "タイピスト室？ 誰が誰だか私には見分けがつかないし、そうしなくて済むようにPohlmann女史が取り計らってくれている。"
+     ]
+    },
+    {
+     "where": "タイピスト室",
+     "lines": [
+      "Litt夫人の組織図（Organisationsplan）の写し。新人のために色鉛筆で色分けしてある：大臣（Minister）、緑。事務次官（Staatssekretär）、赤。Z局（Abteilung Z）とその長である局長（Abteilungsleiter）、青。Z A部（Unterabteilung Z A）とその長である部長（Unterabteilungsleiter）、すなわちVahle部長（Ministerialdirigent）、茶色。誰かの代理を務める者は同じ色を使い、横に自分のイニシャルを添える。",
+      "Litt夫人の組織図の写し：Z A部の下に、Z A 1課、すなわち人事課（Personalreferat）、407号室：Grau参事官（Ministerialrat）、課長（Referent）で課を率いる役人。色は使わずイニシャルで書き込む。その秘書、Pohlmann女史。課の事務員、Kern夫人。",
+      "Litt夫人の組織図の写し：庁舎全体のものとして、郵便室（Poststelle）。記録室（Registratur）、Simon氏。そしてタイピスト室。手紙が入ってくる道筋：郵便室、記録室、秘書室、課長。書類が上がっていく道筋：課長、部長、局長。"
+     ]
+    },
+    {
+     "where": "Litt夫人",
+     "lines": [
+      "あなたの机はVogt嬢の机です。あの子は速かった。秘書室から私たちへのものは、あそこから出るほかのものと同じく、トレーに入って下りてきます。Pohlmann女史は自分で書類を運んだりしません。",
+      "下りてくる書類に鉛筆の記号が書かれているのを見るでしょうが、当て推量をしてはいけません。Vは口頭での詳しい説明（Vortrag）、Rは処理している人との打ち合わせ（Rücksprache）。そして課では、届いた手紙を処理するのは課長です。あとは私に聞いてください。"
+     ]
+    },
+    {
+     "where": "Ostrowski嬢",
+     "lines": [
+      "執務規程（Geschäftsordnung）は二度読みました。この部屋のほかの誰よりも一度多く。局（Abteilung）の誰かについての苦情は、局長が決めることです。はっきりそう書いてあります。",
+      "これも載っていますよ、お知りになりたければ。書類が処理されている間は、処理している人がそれに責任を負い、課ではそれは課長です。記録室が責任を負うのは、その前と後だけです。",
+      "執務規程の第18条にあるのであって、Litt夫人の組織図だけの話ではありません。局長は青で、部長は茶色で書き込み、そのどちらかの代理を務める者は同じ色を使ってイニシャルを添えるのです。"
+     ]
+    }
+   ]
+  }
+ ],
+ "words": [
+  {
+   "text": "Grau",
+   "kind": "person"
+  },
+  {
+   "text": "Vahle",
+   "kind": "person"
+  },
+  {
+   "text": "Pohlmann",
+   "kind": "person"
+  },
+  {
+   "text": "Kern",
+   "kind": "person"
+  },
+  {
+   "text": "Simon",
+   "kind": "person"
+  },
+  {
+   "text": "Litt",
+   "kind": "person"
+  },
+  {
+   "text": "Ostrowski",
+   "kind": "person"
+  },
+  {
+   "text": "Vogt",
+   "kind": "person"
+  },
+  {
+   "text": "局長",
+   "kind": "thing"
+  },
+  {
+   "text": "部長",
+   "kind": "thing"
+  },
+  {
+   "text": "課長",
+   "kind": "thing"
+  },
+  {
+   "text": "事務次官",
+   "kind": "thing"
+  },
+  {
+   "text": "茶色",
+   "kind": "thing"
+  },
+  {
+   "text": "青",
+   "kind": "thing"
+  },
+  {
+   "text": "緑",
+   "kind": "thing"
+  },
+  {
+   "text": "赤",
+   "kind": "thing"
+  },
+  {
+   "text": "イニシャル",
+   "kind": "thing"
+  },
+  {
+   "text": "Z A 1",
+   "kind": "thing"
+  },
+  {
+   "text": "秘書室",
+   "kind": "thing"
+  },
+  {
+   "text": "記録室",
+   "kind": "thing"
+  },
+  {
+   "text": "仕分け台",
+   "kind": "thing"
+  },
+  {
+   "text": "タイピスト室",
+   "kind": "thing"
+  },
+  {
+   "text": "10月23日",
+   "kind": "time"
+  },
+  {
+   "text": "10月28日",
+   "kind": "time"
+  },
+  {
+   "text": "十年",
+   "kind": "time"
+  }
+ ],
+ "parts": [
+  {
+   "id": "marks",
+   "title": "誰の扱いだったか",
+   "text": "この手紙について決めるべき者：___。手紙はRの書き込みつきで、ファイルに綴じるため戻ってきた。Rの色：___。どこにもない色：___。",
+   "kinds": [
+    "thing",
+    "thing",
+    "thing"
+   ],
+   "sealed": "e696e8b29ea04ba70b2856978c0966109dabc076aacb804dd76ff37b735e9881",
+   "blanks": [
+    "cb3c14d4aa74e9ef3d19cd656ccb16f14898a7755cf4140044dd4e4050518763",
+    "ab426fb473192ce9c9b05364869b7dab9abf356cb52da23962841d8333e42f94",
+    "0350a11c891bff5509d8b246be5e4fd39ac24b5afc6b0771d6156ce1a0348a8f"
+   ],
+   "hints": [
+    "Ostrowski嬢に規程のことを、Simon氏に戻ってきたときの手紙のことを聞いてください。",
+    "局の誰かについての苦情を、執務規程は誰の決定に委ねていますか？ 手紙のRは何色で、どの色が欠けていますか？",
+    "言葉：局長、茶色、青。"
+   ]
+  },
+  {
+   "id": "custody",
+   "title": "五日間",
+   "text": "期間の始まり：___。終わり：___。その間、手紙はそれに責任を負う者の手元にあった。その者の職：___。",
+   "kinds": [
+    "time",
+    "time",
+    "thing"
+   ],
+   "sealed": "7d342f0506e3514b150a8a0e948d0d21d07c0528386cef03e5a45e9128ca140c",
+   "blanks": [
+    "ad0a9ee62903abbeb8cfd47d1e660c56aa8e03be57db60134b6013f2ba96f7b1",
+    "da9cd7c1e29eede21afae67fb9d1bc579b61920cae2a85401b800ec6b86e75a7",
+    "550ac462955af7560fe49c2a7ca3bc525641f9d62803108df18a1ba8d84f4faa"
+   ],
+   "hints": [
+    "窓口にあるSimon氏の登録簿と、Pohlmann女史の手書きの秘書室の一覧。",
+    "どちらも手紙が上がった日と戻った日を示しています。Ostrowski嬢は、処理中の書類に誰が責任を負うかを言っています。",
+    "言葉：10月23日、10月28日、課長。"
+   ]
+  },
+  {
+   "id": "passed",
+   "title": "上申の道筋",
+   "text": "手紙を渡した者：___。渡された相手は、手紙が問題にしていた男。その男の職：___。",
+   "kinds": [
+    "person",
+    "thing"
+   ],
+   "sealed": "d877947d153e264769c41521cc7c4b45ca69cb127da645fc5ca01b32e1318d37",
+   "blanks": [
+    "839a9d25c976648b334ab31840cee4c1603e2467110c180fabf9fcc771acbd28",
+    "6da301ebb6d4ea1d973815300248879e399f9756410d8cf157c45275a78fb207"
+   ],
+   "hints": [
+    "タイピスト室にあるLitt夫人の組織図と、色鉛筆についてOstrowski嬢が言うこと。",
+    "Rは茶色で、横にイニシャルはありません。茶色は誰の色ですか？ そして五日間、手紙を前にしていたのは誰ですか？",
+    "言葉：Grau、部長。"
+   ]
+  }
+ ],
+ "memo": {
+  "form": {
+   "office": "ボン",
+   "kind": "報告書",
+   "to": "ボン刑事警察 Mauser警部殿",
+   "by": "私立探偵 S. Wessen",
+   "facts": "I. 判明したこと",
+   "excluded": "II. 誰が説明でき、その証拠は何か",
+   "result": "III. 結論",
+   "evidence": "証拠"
+  },
+  "marks": {
+   "holds": "✓ M.",
+   "words": "？ — 成り立たない",
+   "proof": "ほかに証拠は？",
+   "own": "本人の供述",
+   "ring": "互いに保証し合っている",
+   "empty": "引用なし",
+   "others": "ほかの人は？"
+  },
+  "mauser": {
+   "words": {
+    "en": "You think you know something, and life comes along and says: if only.",
+    "de": "Wenn man glaubt, man weiß was, kommt das Leben und sagt: 'Schön wär's.'",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "何かを分かったつもりでいると、人生がやって来てこう言う。そうだったらよかったのにね、と。"
+   },
+   "own": {
+    "en": "They all claim something.",
+    "de": "Behaupten tun sie alle was.",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "みんな何かを主張している。"
+   },
+   "ring": {
+    "en": "A collective alibi. You can't fill a report with that.",
+    "de": "Kollektives Alibi. Damit kann man kein Protokoll füllen.",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "集団アリバイか。それでは報告書は埋まらんよ。"
+   },
+   "proof": {
+    "en": "Maybe. But a little digging never hurts.",
+    "de": "Vielleicht. Aber ein bisschen recherchieren schadet nie.",
+    "src": "Schmiss und Wessen, Band 6",
+    "text": "かもしれん。だが少し掘ってみて損はない。"
+   },
+   "empty": {
+    "en": "But at least write me a report that looks like a police document.",
+    "de": "Aber schreiben Sie mir wenigstens einen Bericht, der wie ein Polizeidokument aussieht.",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "せめて警察の書類らしく見える報告書を書いてくれ。"
+   },
+   "others": {
+    "en": "Slowly. It's not that simple, I'm afraid.",
+    "de": "Langsam. So einfach ist es leider nicht.",
+    "src": "Schmiss und Wessen, Band 7",
+    "text": "ゆっくりだ。残念だが、そう簡単な話じゃない。"
+   },
+   "solved": {
+    "en": "Everyone has their own small truth. But in the end there's only one that counts.",
+    "de": "Und doch hat jeder seine eigene kleine Wahrheit. Aber am Ende gibt's nur eine, die zählt.",
+    "src": "Schmiss und Wessen, Band 3",
+    "text": "誰にでも自分の小さな真実がある。だが最後に意味を持つのは一つだけだ。"
+   }
+  },
+  "subject": "1968年10月22日付のVogt嬢の苦情と、それがVahle氏に届いた経緯",
+  "result": [
+   "passed"
+  ],
+  "cite": {
+   "marks": {
+    "need": "49d87355f86ce38f2cd9ef2b85a224eaaf136d20c3ac3a838ac0fb441c384218",
+    "marks": [
+     "0636fd3fff25a5f0c59617b2d54842d3ca018eb4f94a1c56bce164edfaec8bf6",
+     "07fe856b961678697e239bd65a9497183289a7a43dc92d6c933a3a4a2db8e64c",
+     "123a1807d0067c54e8ec7d78b7c40b5612eeb570d46e00ce81677162dcdfaee2",
+     "1892614df0e524a43ca57fa0042393d2146c01b326ccb9c2e0e5013904aa7d3e",
+     "243ec136da135bb28354d2798cae98fbb7889abfa52d328b7c9763cff9e1c69f",
+     "272087f60510309a03f46527ea423f3692390322b68324169c40168944c71729",
+     "283b4a5e59f18d1688ff8b741aabc22b287b3c6f276d14b1d10282c4ca0552e0",
+     "2fc8397abfd7c922713fb5fae5aa0c8181791fdb7362bd1ea54429527eafdc6b",
+     "3704d2ea7ea1ebce9ea145b8a63e5d1a147b69dbaf76202d2cb0e51a5007e042",
+     "3e6be059974557746ec51ccf2c689eccec6d5efa1489f92e2925574914a33982",
+     "477fe8523b50916fc914ddc7e88b280fc21081d6d5147f8b64d4be8c0df35258",
+     "4bd61c05fc8157d8d1692452023f7a793ea00e84a289f5de97307ddfbb5095f5",
+     "4d351d20daeb4bc79aae28857ea73f43c07e817cadfff236de68db7b62d0ea8b",
+     "577fbb09d83c29c7fef01b25e8b2ba2649522929f059324afbdd27a240780429",
+     "5a1173986db38390ed31532301b0ab8382a8fcd12eb4dfb739a84ade2a80166c",
+     "5d48a33be04f4cb02fdd2e2ff76de73569ea67e61b7938735bf2b1b61777e906",
+     "5eeeeda7678e8109dd83eef4110537c99bdb2e008f08e0be7d9bbc0307430b75",
+     "62c9a08059569097d004cf23ed770b3b7dc39f5593b5d5f2983c117dc6b7a71d",
+     "649c2fedecf7eb38d93a870f30f70b51fe31f7c6a0fac77bb578ee60bcb6b9dd",
+     "72266d9a482df6795b84e73f2f6940ba513c24091df5fb76f7e9630e57b4fe67",
+     "7e44fc50e07469cbc2fb97f6c4e17df36713f74b3a465086c3109da59245f01b",
+     "82b31e02bc8e9907dcbfd63925f9d6eab680524ea711175696f8f9cabfdda506",
+     "8aa1e964f342240d74c73f41a6572d4d7ccbfc335d6ff4553336917bcf36ce48",
+     "9debb8f302a1be3f76535224781e9caf6b9fb779753b37ddea986c6031c16678",
+     "9fe33a70df6c4edb3f533b4b2ae2e9821011d8943a90523171f9de27fb64dac5",
+     "b3b9b5a0111c1e196d84d2bae08a850198556d1144d631b54819e5fe7794f33c",
+     "bb60e25d669c87edbe2e50e5a9e3f8755db3d03664e33057644f87684cef2ae2",
+     "c390601c1e1be2eb592e51ccc7fb13b042523f1f68f83b7e1587c292cb639edd",
+     "d939863c6dc2fa62fd6a085f052592874e59cf197ddf19d679c3b543f22e6d5c",
+     "df773c82a65c6255e5557876a7b7e6c7b927ea2eed863a9e8b2d895e1efda0a1",
+     "e011915066ab21194e81a0dd25a447cfcfa60cc939dd2bc1666809a86a411af6",
+     "e13847135f095bb311151d7a0916e143fbea291eaa5352cb4f519625019efff8",
+     "e8283d15f363237b22755d387d6957f7a63a02bcbc04ad44fe177caeec9c8546",
+     "ebe0fd11ddd15ebab8be639ac8cf5d904b69c5e3df118f9b6fffa63ef8b8a7e5",
+     "ed8135c68680459893b70bf162647ee8daefb393cedaa4a8a9070e3c106d12b9",
+     "f18b228b1401fc111971f4f3d86caa894f30d7bebeaa1a96940bc192d228d054",
+     "f56d7cf9f20e3c93e61af58735ee133ac4edc178966d351a23e2ceb28c9a2c51",
+     "f5ab8f51eeca272fb3dd7c27cffdf32987ea43abfbab4139bbb68012f035f5e3",
+     "f654600b97d4459f4fc1f5dc7191c87061341716fbc140d94600b7727b05575f",
+     "fba56caf31fdcbd2ad35dbf1cd24b31656dcbf27dacede23aad485719081ca57"
+    ]
+   },
+   "custody": {
+    "need": "3374ce8d7511e62666741761e1789342fa53cf5fa0176c1046565cb2c8db5ea7",
+    "marks": [
+     "093ab7d5edd63f56dfccf087f8b596ee117471b491f073ede87f421c04229271",
+     "0c5d2f1f42ea42382f77d3dffab27f00e2a5d9e3f7f2f72b8ca7a2d1b8987295",
+     "0fba54285eecabe33c5d76542dac90b2a69ca46b3988e3c9399a0cf87721014f",
+     "16402083a8d4df1579cb8a17cbeb36f250c1340d81b629349a4b8ec2b0bc2665",
+     "19eb63bc0479325864becc9db6cdb0fa573965e68d4a521423527a2cdc5a49bc",
+     "243f6fb2d19afacb84b489959152febf3eb464548d05ba211d0ae81374737db5",
+     "2a9356a07498d77c859bc6d079ddc320046f786643f6b30ea6c23cd4c32d4f04",
+     "2d1edd327b72362983281b4f74a390875a198abd9549c1e63254d6f5bc27c013",
+     "36198f04d0136058b7785206953afecb9fc4a5387afe6735edf5889229a20717",
+     "504c7f01e1e4c694300897e8d35bfa94133436cc7371f67359cdf57d90575046",
+     "52b69008061cc16977c1f5fd50575d0e87ddef73da55cb77ec3139aa49e9df7e",
+     "547638e5b6c79b26206b53935c91a61450a7ebd680f96516f34d2fbf66bb678a",
+     "5dc4ec346da4914e9a669417b2050ee7cdff80d0a31a87fd07e24d5fb70ec3cc",
+     "62c7678757f25d9df34115460ee3899f1a3ea0b1ea0ed526445e79d4fcab89e7",
+     "6a26826af4a83a01e1fead0585f5cc0e9a2b96990bccf103faf59af07a1375ca",
+     "6cf27bdaaf136d0df07589e6a15f4a535a6d67215c2d434a60fc772737053fd6",
+     "79e894e6408a024b2b063e5b6c4c363d8bff7a7391c4e089ecc86fd76ef74fa7",
+     "7f6155a5bc3fb9851d63977c5abb6f88d1129b706056673c0654b71023ca96be",
+     "8b6ebfde9fe99f4cb439ac024c08ceb085a22a55653da16a122d9940d98f4ea9",
+     "9b1c958ebd4b5f53ba417bbed2ea29d7797ca574cd495909cab752a670ba0c2f",
+     "9ed77d35a1de9e8daad23a45889b827a582c57edfbf67f6a9ddccc7053255e8c",
+     "a95de404839f8b94aefa09371e69397076b20482b20781124a09c756b8fe94e4",
+     "b00c1e3130e96d603217be0b20a454972d1691134827785720d12f744ab11f93",
+     "b3b89073c365bb2ff4b109d626d96aff69015eb68543f3a2fd47ba91cd3f4173",
+     "b7d96bdd279ae9f50bfcf1110cdec515da8e98c5573c3d2069f3caa19c906094",
+     "bd66ba6a4101241221a54238eb30df7fd70bd31c9bbe6c9fe0a8ecc906c6ba24",
+     "be24dba6603e70da54e483bd7a86f906efc918a944fdaa296620501f27581b4c",
+     "c1b853c2b6d08ee42b49396a330019fbb05b4caeb77b7ae5ff457773c11c7893",
+     "c58e51510b19558982650cb05432f3393cf617005467dde19794e29e51b623d0",
+     "d3e7939040a6448132ec72d8d01c2c1cb4f108c84af9bdf1746a101e290d6bce",
+     "d40afbc4d64b387490185a2323413acb6caa5f43c01918d4a27969e24c68c9c1",
+     "d425ed9c974013d098405c42d43a4def953c247158f6732e1b505856e72c1c4f",
+     "d6dd78eb5356f82f27978539eb368336ae75f36f5e4ffe39b6ebec0fef12429b",
+     "e4701cc9c218f1cac2d448f2bb79bd0ac6659e06218247580f8389473c1c7182",
+     "ebdf4b03d9a15275379e1bf6789bb46de03786f13828d80341c249137eb35892",
+     "ee7937673eee88cdafab923303d5c4f8f3c86df12f2c8f672a1c70c5d246fc0e",
+     "f16830a039f4fea27aa8e145edb68a7f3849b767e0857366a28db5cb41f65b85",
+     "f2f66518d3de9f7593808807efb69b34b60e5fe49a8363fc259131d9d61fcd2b",
+     "f67ada391dfd417ba8632549880632d1ee1e0dc83767f2f1f516a0fe8d319f17",
+     "f89f141b49e5e17eb75cfc23ed97a49ae786f57565f2c69dc563132675116769"
+    ]
+   },
+   "passed": {
+    "need": "daafa720990d7905bb18c76a66c5df315a96a542cdc3c564cb6c4106db5d9c52",
+    "marks": [
+     "040b0379d8124feb22f5d4b977894e1a5ead40b67eecbf8d53e68099edbe9a3b",
+     "0521a988f1d12fb60e351718eeb190a602837e43899358bb1e8e80201de8c144",
+     "05eab2909f9ee705e74e0abd6116a5f425f7bed87e408ff303384704e44723bf",
+     "1570238216fe01c93d04897055fddfe76e8e5dcc3394806b8bae68a343b2b645",
+     "1d727602b7b75c954e3940801b314302f09b6b958c152300f09997324f3ad3f8",
+     "2606c010680882d5220101bd6e2ba24704b3a63f7c30572a6cba4087e3ca8a4d",
+     "29d708d47c976f4b9a7b849ac9acc4db33483b21642ca85f9fcdfd113d03444d",
+     "32455272ece77365eef8009fe5dc55af6a05a3531ed3c98785dc5ab6363bbd4e",
+     "35c88aba49dcc8250fbbd8b25d0b6af4c0aef9abce6c659f31564b7f91f6c90a",
+     "382a52a4f6228564e5566b8ae6a18d6b5075bc566f6692c583c5d5ef679bedb3",
+     "3addd02ad5d1b8d35a676c4d88672eed74c934d27b2147aa3f27a7e1bdd3b990",
+     "3b5ffacb9cf90307749be7054079b5e32a0c0fc67b4a488d2288c298b893834e",
+     "40a7a25fba4dc4318bb23f8d23aae978d30f3346f60d16abf1285a104a8b960e",
+     "45ac487b2fd0d01c4c79b7094f84dd21b1641d54d8f1c48e24032ce9cf9b23ac",
+     "45d4bb3e0904216a8e315ad2e4cfc8e2851481ce3ac8b246290262720c7e16f4",
+     "4e1ca3c0359301e073f22c83d628509a1f106121d383abe3475cafa39d40991f",
+     "52b15489b1a64754c17828ceb7dea364e47e9557e11f4731f735f6a0f3ac7c59",
+     "559c427bfa456fadf77b3ebebdfca4be88f274b16ecef760647103d8b2e35fe1",
+     "5f84dd03bb6ec8a6e3bbfa4c379bb5a17a047cf0957d0e272e9216e9e8c75176",
+     "6c0b57e1c3909fbc78e3e5ade61337a82e285080da990ac93e6aa21f371fc2aa",
+     "72f2362d2b2f774a6fde16a65591038130fcc2d6723830d5bb8ed9542267c14c",
+     "7692fe287dba390e752864dae12d9833825b3912a6e7ad3b00aec4b45332f4ab",
+     "7698269511d33cea2e6974e7422a9acf9c3f5fd3a6a09de0da1d74cdd071ac33",
+     "8203cb509879da2ee8e1b18b0040ebf9ee806f6d4a0ad57716a71407621665cb",
+     "82229f25d4a6b39c2e9abac295f42f061b2ed1af31ef1b68f58f37ba503c16d9",
+     "8327026dd7e47bdf6a46f2e9117b5d382f9aa1d9a5153d7c0d5055252ce80412",
+     "83dc7ffdd0f79ae622e890ab0848113a91ab7812bf6d1277349ae83e30477c97",
+     "951575cbf343a529908f68987ef980233370edf5a2d9aa117966690b1082b2a9",
+     "995ab7996a57744b22bcae75f6a1b8b6ba144fef4a913cfdf5afa9d10d9a7462",
+     "abeea712b19772ee1f1e0293beecff0d98013d864ac2b362b139206c48fa9032",
+     "b22a4ca1877d940f629a4c102509b97285db3ffacf099317fca292e4ece15d2b",
+     "b4e125c7994fff7b769671f45400b3151364de66c5077eeb6df1b2f9b4bdeab7",
+     "ba92ee437a210909c3d60d8583861442538eb3bb220e6ccd68740e4983e53c9c",
+     "c2e0d2b16539c131bc83b659ae33de53ed4a83fac903dac045d84a842d99feff",
+     "c5e5288b28d14699a9e647d01814f73e97a4d55092c75a933481493ff5b34a83",
+     "cc7a76c7107893e88a1d42937ccafff21a56b0f4624014ff827bf1200e1d515b",
+     "ce6690c92e1675c7e9f5da7dd413915fc32e7ec729aceb99750c21563c76e7e8",
+     "e47572f8a0c2f5d1d45e91c6f8c10f5ca19fd63c06c31484c64f27ed2506f55d",
+     "e4dee5732416291a9397aaa27d3cf2dc67fdfb5aa8444770416768584dbf8f5e",
+     "fabcf26b746de353447dd270418857305bf2ff91c9d0eef5174709bc8940dfe1"
+    ]
+   }
+  },
+  "rows": [
+   {
+    "id": "誰も渡していない：局長が下へ回しただけ",
+    "label": "誰も渡していない：局長が下へ回しただけ",
+    "need": "004ca6b84c87426a8c4ef45582737ac63c1df76624d877462c9b6af8a0ae52b7",
+    "marks": [
+     "063cebd7127b9885f4cc5ecb6a4b28e58e3b977f20aa419967c56eb4b930bbe3",
+     "0d770bec3e9a0bba0cb0a375eba3fa74c4ae1039806aee8911b9c5b0404abb6c",
+     "0de70ae10d7285ae3f83a17477d38235d43f2c6fcc254b19349d42adb9e0690d",
+     "14fa694b7094f2fad79bd99aa8b9b71d6c47a1b2c1b3d8c3708d3faa545492a4",
+     "15708683533bd5945a6db32ea30badc256732b83509b319dff2687158443a02b",
+     "20e28c713ad10164e34514ce9034eca4bbfbfc5541f3d1bb0457177e249f3e58",
+     "2bd2c4ec40db343939aeb1aa88895bbfba7c31907e4ba290b08d7ba4da79057b",
+     "2dde7b3e5094a8a12226ae85c3465073f39ca0f192f2fa585f4e73679316e360",
+     "327153d842d2b484c350fea74ee2a5ecb8939de43a4694da3c3b50c32c76f961",
+     "368d3a1ae85f5ec103ef4f0f7e83bec7e5fc74fd68b923225f2ab71e6b4b77d5",
+     "3e50ffa44737e329914b9b42f507994544b820d98b0c2428c0f98ebaa6e7a614",
+     "3e8381cb074fec394c309a1f44e0709c21361e87a0aa3d9424fd2c3b5bba96b9",
+     "48f80fa215cc88e59eb5a7eabfc67c01f2e0fb8e4ffdd339f4b178d7a5d943ce",
+     "49c2b720d91ec3362640c407c7fe2cc322a49f021c7a8d472e875b81d90267f0",
+     "4b15462c86889b9fc74c7379f479bf2483f22f6d4440af773f0b636c41b348f1",
+     "4bf65beafe965d99469f6cd15fcb11169a7d9b02b1cb165fbfac8217134c4beb",
+     "61307f1102a6e5d59198db5b6e93a93e9815fd1da902416573e13d45e10e9cff",
+     "6394ceab80d6b166fb317120778d362e3c543c3d2a46fcb803eff2f13cb0599b",
+     "672582843fdf884bd7629558e740ebac00f8cb125ca148818f9095941a001bab",
+     "678fa92a320b7a844c07605e7e29b24798d2a9cc3ae468be24dfe27e64685cae",
+     "70d1ab883de3732ccc164f64a418684784b4556871d05382b55619dfdd9a14e0",
+     "87725281f54f7ab07d027986ed408cd5f49d32170b0db0818a701122175c3337",
+     "87b78fe0c617240e39345add23d6e8045950f4d38a4aa2eaa1c45c14e22e0f6f",
+     "9118ed578f6fe55a57ffd1462c6d83415a8614d567e2385df6aead535e7ec263",
+     "94955756ae6445ad732fa6227f82275b97db15e7da370ed1a1f165c207de2cf1",
+     "9b85b20a456a05fab6aafeabd636bb38acaa9df68716b2bed51844d55d05c2dc",
+     "9fd5487d0f7adfe177342a8190fb4f7ea1dbcfc82f4594c8f6b721a8137d9d17",
+     "a4b5b71121c87889b7d71f27dfe5448e89f8fa25339270981f559e12b692a26e",
+     "aa2a3d6ceba5823c0a3439f8f4eea9408814b09ef6e2a8c6289f340a837b16e3",
+     "acc859442f20e78ed34935687a5726a051a89ec88e9521eb1e1cf35fbfe43be7",
+     "b9b42ce27cec3d8de1fcbc5dbe746b191c930a12164f87d2568c8246c8cd57e3",
+     "bad0b6bac06d52fb84acc80ef83c6c5d4c8067a6a9d036799c97ff48248c7cd0",
+     "c420217d4f147f4d49807275eb4cf4d69ab1196241ebb733b9f8c58d88cd4383",
+     "c73243ed2cf152ff95dbdfa8b84085e02b784c3e023f1128607d655f506106a2",
+     "c8b859afd571e2449faf031460adffb409a81317b69d93ec1123f2f863aa3adf",
+     "c8f07851fc79d99ba3c4ae0fca585474d69ab60425a67445ef16181c8e176338",
+     "cdb92b56460df5203091642eb27f1322741535de21eb73bb2a4a1dd0a70a7b10",
+     "e11001af4a38d71ecab287e42c403ba3764f1eef20702bbd4b5184836ec83739",
+     "e214099eb56d59b854ea32cf1f82c3c625170e3a27bd6a760e9c382d8d615c91",
+     "ea59c3b51b284096991413a5b30679993b49d00427f09122bc1fb4588a3cdea9"
+    ]
+   },
+   {
+    "id": "誰も渡していない：Vahle氏が自分で机から持っていった",
+    "label": "誰も渡していない：Vahle氏が自分で机から持っていった",
+    "need": "60c222480feeba57f3f3fb9d7654017a8a21faedfe7ed6bcd044eb84302df430",
+    "marks": [
+     "04c00cbbc5051abca7d5a7415a60939df0031123cd0386174751607363dc7a03",
+     "0aca1ba320ba0297855a3da9e3c16d134a869171f8ec4d02145d8cfde303115f",
+     "0c74e201a27f82d1a41e7692ddbfaba098823a01cd1ca97345f59edf4519cee8",
+     "15d5ceb59a3453eefe3dc3edba44037633ca44602a86187ea38ff0529d22af35",
+     "294841667043c59c7ef2f4d0900c09638243aee644a78b304cf82d0d4fa0dbd4",
+     "30726506981c2e5e7a4b3d2f873fd16f3f7ca01147bc9c93650384b57f4acafe",
+     "34f5d4e8989d50dd9fc5c702fb03c4677c763043bae1d88402056cce9201bd78",
+     "4379c59bab003afebf0c4645c6b8ffa1bf5da53af2187b5a848d97ad518cb3f6",
+     "44c7893e6b0f76d7f915c55294e56f9237e7567a4a9c9431a02a3e1ead8f19b1",
+     "489e58a0c8369cd80b403792e596e359e1ea8323e1c14a86fca6c0bd415dde54",
+     "4e229abd5acac0cf23caf1d65cc036515b7f481061570430bdcc708dc68384aa",
+     "58ac03a38bfa06820aa460055f969b342c51d0871e1d27fd348adb1d22d688bc",
+     "5ac95bd88ada36d5017d1d3fa5fd4338ee34e57ee641e3791c72a3f6bb9c9209",
+     "63aabe69f655f1433e0aa843a75f3a50c960427c2809ac11a38e201173dbbded",
+     "668ef9f7e8f6075764bd3d66cc73cf89d773cfb4c6d1e1699d7750e15f6597a9",
+     "672ab13e4f5967d9b0a06e0a054c48cac7f0af907cb7e68e79dc00c61247e842",
+     "6c6fd585e5a8f751c76079169d9da573e91d6788886fda75e2c336db49414194",
+     "6eafb69f59f77ef7515c38be4f0f78d1f95c1afb142e92b9e4c9f7fac0fd21b8",
+     "70ecab7bed27d43bcfc9f4ebd220ba9274a808bc6e6155e26225e8a258a80981",
+     "7a7492e4cd94cf5041f91730e85dbf74861a1699a48f49b3734969a62ed23c2a",
+     "7ca0c74b410cece8e35eae6892bc4a54a95d8f4afbb2ee5917436e09e32ecec9",
+     "89d975a5f36810f68278e7c69844bef5d563f2d82bb45a9c8438a98eba433ee6",
+     "8ca96a4662b0dd77afe26ff142baa4a4601b88ffe6f3235409752e22118a71fb",
+     "8cc8503552f744fba55b7e7a7c301da516b18a9c1a07d20accf0eb1b7ac04498",
+     "8cfc03ed05add01092c8e6dd8b253d185de5280fb5bcc224a17c734cae7b57e4",
+     "958f821b8d7adb38e852a2faee0aeb13999e8a5f229f4fdb62a68b3611e06c37",
+     "99e885d4fd9227c21817d7f61a18c72f21db0a6aa01ff451206361a442b6b315",
+     "9e1f2ca25bafb69aa4ee1f202487e62a382072fcc4044770fef616cdbc186439",
+     "a350a72f223443adc055826fbc8bc725ea3d5bf18df385128ff6136a6f644632",
+     "b826b1f586f8634ad042f5af7805c343efd90425ba24b02a43689c503a36785b",
+     "c683e4bc18fd4510537812e2952738feff07b499bb7c05dcb38ee733ee452565",
+     "d0d93ed06d5f9aca1ba07f889bf43b5c589030f0a0369fb5019dd02c46ef2be3",
+     "d8a632689efb37e8d3c65734a1412e016a1d39383420b2a38841e18483482c5f",
+     "eb9e705c9f6d088f1daa488356a820ed145198cac6d5ce942a80a0f2c3b5a4b3",
+     "ec44ece1c4da20aa0700419898d0786b7402139a14c9c5226ce560d7614cd79f",
+     "f109315e85ccdfb228ced5635c7e2ea0425bf60abf9c4f706bf2e501c0c2b01e",
+     "f22add5e905b711ab94eeaa2401617a449eb0697089fcf2ff05d9c3dc3593443",
+     "f2b71f65b68a49c7e78cee0620492cc1fa77491c655f3975eb700d9907741f6e",
+     "f5db076aafebbc613e426c9171acb3dec348510b0fd20f091d1ad58eb3936e05",
+     "ff4898d9ab8f6b70840694a2627aa8c0fd5f5e9a1bc887b867f4e2ba40fdea3c"
+    ]
+   },
+   {
+    "id": "Grau",
+    "label": "Grau",
+    "need": "f8d461abb5fcc1642095b2d62cf9fdf8d9a2e290f3433f6885eec4dc369d4e03",
+    "marks": [
+     "00877ed7e479b415ba6a98f8794f4ac53c7a74d9de8e80adb1e0cfeec4fb2f75",
+     "0a0b7bf3e1652f270cdd5b7e547841197807700e676ff98f88aac6f71d731eac",
+     "0e3dff55be17765ce733595671c7030d791634ab0df04e294ad5ed98c794dcd9",
+     "145ce3ee76a2c4407f75a6f208cc036f767c35022b52642882055b1dffd9335a",
+     "1b026c2eb5bb8b2c6bdcb59f2a0dba33c3cf2247f672fd2ee69822a84e69f85d",
+     "1c5ae9e63563c5cc95b2b600d8b060f42bebc0de9bffc4ae817a80e9c21301e1",
+     "2b6893cdc183e6aa2e173f2b749a6b55a7e9fb68c681218917e0818c492cd48a",
+     "2dd5131e20aef1921c7d3e543bffe67f2ae625befa995ea8364f1d5ae4037d33",
+     "3052a3f5998052bc81b8e9def07f14b7d7b2ad751f7fff2235716f047cecd8ae",
+     "3d70ca69f09e71dd03f307655c6b574ea0ac981a7974ca1adf18fa90d2dd9ade",
+     "3fb88fd6b4defc0d7a2ac2cb7ce8a0f12f78573213171ff48d4899e930a6f6e9",
+     "4b38681144b1d0902c1a64fc2cf1f217aae0f4ceb83e7bad934d52efe3e37529",
+     "5eef64bdab8008fcc05b441ef29bc86f84ee8680adf5633b9211578fc3e6248b",
+     "6175cb98e6218fbafe689be4a95d59f1876b0af560e4c093e9dc608e8fc144ba",
+     "75f4748a475c68c8c9d75176c450a79dd909c12b6e2a58753d3fe190abac5af9",
+     "7795f9ff7653d270c2dfa5a9ede998a77a4fea294996752a075e3aa2a084a3a9",
+     "7ce0c00b84a54d67abbf1993a171e9ce9df3fdc5741547deee986be739dff180",
+     "7d956b3561f5a3cd6c7d4d2bff92f46f4689d411ab5066631ea453e11d341094",
+     "815546d8d840e3eaca50c6766117c82b3000183972b87051664006ae1a914d7e",
+     "81ba7c8bdf53ccdc1923c731981ca1f42436fd7c6ca6835c7a977d7888c90dfa",
+     "83be5642025f437b9cb0ba5e29f719200c0e4e29adb43f49815d1a514a0d5785",
+     "8520bacb1c055b4fe874ea7b7d284f82a6cdabd4a497dcfc45a59a777ae3ae2b",
+     "8ff18c98b3a177b84dd354adf212ae196a7c934644cb049935b84967558fc5e7",
+     "909baa8894d666179e9d8e086250eed2706ed4bbca57bff8ff21d23a81630292",
+     "9542ec63ee546862ebe70cfd0d2fc890649152082db15a76d4c4bc7c3d6d0ba2",
+     "9aa9986dfdea38225c9db06e0b9ef7ff815c5b20bc928c8b45023943104a3118",
+     "9ab202910f84612261eeccc979d96f3ff1c7aaca90fb4ac8b55403ad01af7bed",
+     "a82a81ae727986717e5bbb26d04c3fd806f4e12f5be10fd3686ea1deed97da73",
+     "a88d488bb80818c8c644877aeb7d547d800dc80526d1450b66bca471bc70b526",
+     "b18150b4e7b949da9db4b5a01e0094c3df9df11a46698116f9712270da5c3ea6",
+     "b619a2165066808807145a97ccf46df899cf07679f798abae7629f1c0c39d670",
+     "bcfafdda94f78b4b20775aabf3cf180e919cb7e5f60aaede4d39007552340dc9",
+     "c2991ed7a278a05e60c851f829ba75b093ca8e8dbff845891af0f4932a1bc5ca",
+     "cb71372e74bc6e2b4f06671dbd43e71e7fba6363db10480a829d93db5eb23bf7",
+     "cff69da2768dc869835c3b7f05eea68330ad598933a849fdbe94f76de10aa9e3",
+     "d936eeb7df3424863b26e8e92cba603859ad408cd7daee03373bfcf2e61ad24a",
+     "dc5d582d60553c2720c9189a4ccd7577a85027cb8735ee3d6dd3cfe073e0ff55",
+     "e250fdefc197b9688a60782ab38f6b36bc5d86f3d92d1ed31a69149435dc059f",
+     "ee0d7e77965904efe500ca25024415e12a54be3c879c83aa89f28e46a51bbfcc",
+     "ef8baca5b318a26b63f9d7fd0f25c72071ec3bcf3d988abeba2281f4618c8c98"
+    ]
+   },
+   {
+    "id": "Pohlmann",
+    "label": "Pohlmann",
+    "need": "74368d827b67a3e0b5369affa87974937308baca92065eefe5851acca977a229",
+    "marks": [
+     "07370e1bbbad26cb4dd0f3205633c12682f42c740ffedffd6584d0844f779d1e",
+     "0777090e366a96370081f44cfb7035662debe06a65302541676dc535bff2a500",
+     "0fe7ee1717e3a3c9194dd705a0cb2cfb286fb66a34156aaa1e690b185cb1614c",
+     "12453520f55478647c06888467b24e887f38ac1e32a7c29e72ec494b043889a7",
+     "19356d18c079764a16127e5b7ef3e35c6785ea13e9eae997c383873a2a2bdefb",
+     "1dd0655e84cbd31b0232c2d323212782454225cbd8105984fbadbdba9490664b",
+     "2bc42ce2e7d2e417ac9e11535ab444f1db39197e168cd7b340ee6bff52483906",
+     "3a8707d850ae8f9e6aee1d611dea125b09484f581b6de6bec8291bf82ddd4fd1",
+     "3e1e57ba4bf546ac27e6f83583d3a75d1bdf8be7c9b00db0e0bc64f039accc44",
+     "580058f41345274af0050d75cd5268ecc3a4f354907f77d4c1cc405197c33578",
+     "5925be2256ab6e4d85fc4711b4c8dcb914db55264c813f341bf9a67363313e1d",
+     "62ac112572664f64f388a8524e18dd4017fd72093d662b7a571f97987aa9abd6",
+     "6548af03b0724cd72e5906349e94639eaa73b7082198ae38727c33ffa03f9dcb",
+     "6ec33f7da6752e99e4009c2a5d7a54d6efa94dd8a9e456259f48c2139f492e67",
+     "783dc0ff99a871a226ab12dee1c1a12237993260fc494b7bc00eaca1e70989ae",
+     "7d1ab01f6a81aa3f9662b594a29e8a9a2a37ec787ed6e0ef52e565abcf7ddc17",
+     "8829ce018495615017de6812229d24d871103e93623d34ad2cd03d5f6afe3404",
+     "8bbb3e93ac7a3019006f10f1ac38a269c7602f4e0b81ae901fb492775071b94e",
+     "8be18012c3a1586652b3c0be707b157a8a473c41415732165cd03740b350b538",
+     "9ef4a83329d570e17a3ffeefa0a67a30f755882e1c8e3a78ce775e4a256ac506",
+     "a0d3c6604c2bcf82dc35631b3cf75b17912d9ff09481bcef0d24ee961f3627f5",
+     "a51887a506de01b64fcacb9dc3d28edb2097cf5a7b4f81f175a255468fd41cc8",
+     "a576086defd9817cd1321191982749e558d09f298e71d72e69bb24289fad7ab3",
+     "a7bb5fd6c163e9b77842dc04424619c667978d465f399faa6db72a8b66f44ffa",
+     "a9dd35b831a7678df281960ce4b7c822edd862e5c4a963d485ba0f3a3395150d",
+     "b00b681b48481e7f8d22dfdadc12de70aebce48f60858f5a4cfa3fe535786f9a",
+     "b12f5163ec83f3c882e4d5d2825af55f161305e40d6a952b2fc9b2ed3dc4849f",
+     "b17f0fd2261e4d9cf6b596afcee6c9f6879c96746f63049a834f4ce26c53d257",
+     "bbbcec6518fe6fb698c27d5ed7115627838e60bd442eaa390fa812c69ff78c6e",
+     "c336ad059e56e92df696770fa496f919f77be02150b7cc9a9dabf47949c29488",
+     "ca191b26def87cc03361b4ad005ea9c8e548c2fc59824e9ce42cf756ff8d1e22",
+     "cbd7666e8d6e60b3c832d796bf0e095f25f10d985013050e8785e59d695e38a3",
+     "dd9fb6c8df8053f3126dae5d62714614650c7a40175ab440bbb88719a7bbd893",
+     "e65d58b2e43e5d783443248dafd1c49d563dfaa1406a28e14b914a6c1a089d3f",
+     "e86392745e7a08f6d1b0fd8c2ff3be9c9a3da610f8f3d249975b1013642e0d56",
+     "e891f21a00cdd55511c394f5b6b6d816aff6af7de87d13ce8c073a7aa7662371",
+     "f1a25444408b0a9d17fb4c2c8413730f39721e9f48f6280301163b5747bf3b92",
+     "f32dfa37c0b60cfa68279aede8e26f8b1db5bc04a224a1cfa76f6d42627dcbd6",
+     "f428e9a31156ac14f6664cb2b090c840092a660287f7c7b5c163a6f016ef9947",
+     "fc50d5c963fd1a17e6f2b5bfad19474da46cde0127a68b6f0bdcb0b1574f8282"
+    ]
+   },
+   {
+    "id": "Simon",
+    "label": "Simon",
+    "need": "ae459382bf7a7a9896a3ab7172c11a7fea9c91aa1d29decf42ddf728a27feaa8",
+    "marks": [
+     "08276f606fd0aa42d1e971eba6e48ce2e64fbbf6b076f4a1dabd4f04959dcc57",
+     "0a0e6288fd98aa17d09f4f4a85e66e2ed724a6a8a988c631a92cb3f522e147d9",
+     "0ba84c62d7389c92a63dfd8688c526397f003ae10a32aa1deaf5cf7e764e50bc",
+     "0c76ab2b9a1f2aacd0d71af912439f0664f8d8462851d94d4b5d6b0bf4ee6b4e",
+     "18c633a4349ab3eae5365928da37d2215771fbfb2db61cd177557227db64f6fa",
+     "1a95a735506e41f31523c6615a792a4c24c37b318559a53a88b2e02920106123",
+     "1ac56a9a915e4ab01c836f4a1e89a037393fdc90f5b5fd39143eb86022c5a873",
+     "213dc5c89a449e1ef02408b6b35f824ce67908f8ac69dc85f8ba82e5864e1280",
+     "261f0e29686abff53657f8968903dad751f135ea1efa8a1de1dfb5bc76514cf5",
+     "2add69d45b1e65d186d1d11dda97e51e920301a7b13efaa64c92434910c78429",
+     "2bd063c87654669b19132c95a0cc506a399bb221709edd6e7b86a932958fd689",
+     "2e30320fb915290c59d22608421e607aaa7f4420fb6d848ca1c58795effa7d7e",
+     "45e98b0191a6bd856a42563f9b4d11f8769072fd8b2b253773ae77a544a70e47",
+     "4a0f62e11efc838a4fad9f66416f4efb9625978e7a5fae2b9bdeb5cb322962d4",
+     "4b40bfdfc4e57a4dc26d511dfd2e271ed1d0cb6356171fbdcf039bb854955387",
+     "4b90d932e454c699505c5403e1544cd20947b83a5e47637fc291555509cfe612",
+     "4d55a64e39a9c5bb40ca5ecd3b869c8abe9b911d5a613f01cff0780ab294cf74",
+     "640a5a909552d46ae104cde0cb7d0ce80deda15a3a255b6a976bcfe102d8d099",
+     "65838685e132ffb2f8834bcf3aae4774d03e8c4ed27cb3322b657c65d782b5cc",
+     "691677f0e9bbdca34bedfaf493108ccb64e0b90aa355a3a6b0d03d11f5eb6924",
+     "69a4530b0f1506cd2b826844d0d312899336907eb7173e543776570128e379f1",
+     "6f88fc973e7470b01ae8daf17af032c552269578d1e44d90e89503dbeb4d805d",
+     "7564b1457c2048053dcfaf694960231d0497acf63ef0bca825b0a6913b11e870",
+     "75b9fb057ef673dfa35eaf886d2ebe3cd856280e53bdc6da7ddaae0e0a5ff8ca",
+     "798a5c1162381a6accf4b5fc310818c7fc7660f8c17b7b5a32ead74a24398f65",
+     "7e9e59061d60fdefc94cc593ac9c334b0ddef9b832a52789583b39a44ef9ba01",
+     "81811bcee856456ba431308b477c3c62ea66c3bf3fe9e2eaebb3d0d63793b324",
+     "86d83ddc7314eccbe1ec7fde62bd57ca643bb5c6d015eeab69bb5b4ba5df317b",
+     "8956e0e1a24d076cefabe8b69aec5a6de08a55854abfd6de01bcac19333b8628",
+     "97466ba56312f3d04a4f2e2f3bc86046c65ffa67b592c343e36aeca1eab1a76b",
+     "9c0fdba9378c83e7b1e75d7f4192134d9d251913f0ede7412ac83482e3250a3f",
+     "a3aedfb8bfa3232db5612d137c85c28b0641e38cd3cc9d5b8f7cf2d439ed1251",
+     "b35fd993038668cce4332f9549c981b289bb8983de42301fc6b286e3938aa535",
+     "c8fe5d02c7c594efa8cbe79551e31786bbfbc24f74532b408accceef36f04250",
+     "cd4f0d095ac1256250fc7b7f069e8a49e1dd439924628b9bd2732c11bff9a5df",
+     "cea6c6e6d071f8a39593fe653ce313c014f6cf20b6faadebd8476c491ce3b9a5",
+     "cf95161e9a132c17061ffdd022d853424ab720ddc0350468825eeef4a48f87ee",
+     "d527bf7bd76c162755212f717133efb6927582ccab40a55ab5936dceec4ce393",
+     "e2e05a7cfb9da2af2339c4cd3ead5d33a5dd879475a156dbf55e59bc8d5d1a4a",
+     "f670477c95189361a39f737832cc1e6cdc70e020276e84d8aab1c96afa88ed27"
+    ]
+   },
+   {
+    "id": "郵便室",
+    "label": "郵便室",
+    "need": "1dea69ccf2fa323a177c5a9f65244a47f56ce69422d391cace39605188f18d96",
+    "marks": [
+     "05d2f73d01801fc13081cbf0b5fa33b9f45216cd1048a4cd4646a9730aab82e8",
+     "094ac15870865d0240699632a9f57b0374ebb13e1797fd9a73867c77b8a34d6a",
+     "196c5ebc32acafb10cdf4c81b81ac849caad4f50c801aba922c130b24a2f39e4",
+     "1cf3433789f5b46a6a4b307771c0b5fe9a63909953a0570b3f9bcf9d06fedd0d",
+     "1dec1ef28a80b0115f3a55c5465f5dafb118bd3837cbcff7d42c200d599cd6d3",
+     "1ded3b38ed4c0e5fb97ada94684e3fa6ca2e4031a6c0f41bdc2ca4dae51d7836",
+     "1ea133fdd8bd6ffae78dc0ff8f15992233348d1bb2be36c8f345fc0adeeb9b56",
+     "2136ae9724b0d10a69d10d786cf6c97d632243d5eb32e101d97bb6f967649a67",
+     "281acb113c67896cc570bcb17fb6ab98cc3ccb70961ac66d742f602230045868",
+     "291cc8dbc28b906c18a4b7a35732f57e90696fd804e0c1ae1124992d5d27200d",
+     "2a279bb302cabde2c49cbe2e4aa5985b2edf2f3e4ce9a2193cc67c552e70ee76",
+     "302d1ad581ffa6c5bfd973cdf4e260bb103c2667da2d72ab0afeeeea14ccca94",
+     "3417491f2bf2e48102a696f27ad938715f177cc72dcef664b595a83708daf7b4",
+     "3fa1d05e404716f1d54705c9ba72ca72f4f49d55690bf786637ebdcba8604fa0",
+     "46c682e255d352d903a52421b73ebf67fc250cdcc54d6a146b464f957795a970",
+     "49a32e125028ae9424568e41361c3661fbb3a83ae39a14d496f66fdff0e6b3f3",
+     "51a5db65764f13417692a4aeca0299d8a4661b184f4010425378048574b899ed",
+     "53f84bf6d1d0e2508ef7d9d6f3dea04147f454c31caed759e138beea6cb253f3",
+     "577542fc7de2870cbf20f2989c71ae09ad7459a5003ee6f10c9417f4f7166a79",
+     "58c3c561453522880ff073decab223d6840ac0d7e0692352622630f48a509d7f",
+     "5cfe9fb645f0633a20a80725a2747659200acad1caf5b7886b0ded6e7e8f927c",
+     "5e7a9eb375ada2d75c3dd139ae66d17a0b15650635a532e0068e1d1229d167e8",
+     "5e9e5404b8e0f168bdd0bf15cd5801a131f830ae56889adce4d5cbd7e9b9a6e2",
+     "6590642bf6018eb93e9e28c4d1f05e336b36c267d1fb39e69a62a4fd9b859866",
+     "6a12cb39556987299eb563549daa7a886f7ba597d29a7b2262829c3e954cd5d7",
+     "6d46936d5ce058e16334b5fd6d1b5144f89b0abaaa9676d7face39bbb3938ab1",
+     "77fc2800f1193f8274f894cb01733b7419807dcbfe04ae3d015ce1a9d92a5f28",
+     "915f169ad30985a7a632c38be425ccbb9736be6fba7c1532bfeca24dbba7983d",
+     "94724fdcc1df097cf92cf59ef6fc0eabb73a63528064753fcf6db55a6ead4ef2",
+     "974e1965c207087c055047d916e3ce804eb3753cf45cdf31adc0707280e6b188",
+     "99819e803321c71763887f18859241388d763008a3019de9a0b55d438fed5785",
+     "a14c97c9e6c6a566fbdb1ebb69fe00b804842528c23b5ac21fa30b7fb265f294",
+     "a94104a747f8e92ee9002b011137445daf08504a0b0a8f3e9e7c1f6ebf42cbaa",
+     "a9c4e939cca050a15cac493e5516e4101e5bcbc4b9ccd3818a736a166fd4b300",
+     "b462c3aad8ca883df83ee7e29a9b9cfcb989f005e29685af2871d88f11ef1cfc",
+     "b8d2ac69ef3ac4600183c18ae804a27993f30904dcd956bb2cab447c87de709d",
+     "c022df100ae30d88c8ab9bd69615aaf7186542a2e8733a802efc88c449741401",
+     "ca83bb14518b2d15c0a023e14d0ce6be935f7ce9ec64b30a8697d37570337072",
+     "da7d2739e7bf583044aed242c6d5f9df7098248ea5c5b26b6065da162c73b538",
+     "ff24f1af3cd0c3ed7890ba80a2b2e042d6d2fb82e63b9f512f484cb70b1268f5"
+    ]
+   },
+   {
+    "id": "タイピスト室",
+    "label": "タイピスト室",
+    "need": "f37314a8c79e25fc3aebc955d23a47baeded8b082b9b3298e00a851902f48251",
+    "marks": [
+     "0cf1ae408e688cf539adda9dab65c42ae423d4f3a12a3d7c3b9f4c081ac5b8d9",
+     "0e54496c56ea8ee7b1403238d0bafe04f1f68e604966f363948491a4015597de",
+     "0f49a9e98db3354258d442fc1e0c648a45c7b04e2ffa1608a84951754648a715",
+     "13361cb6378df868e860d706be1cb4e6487433b1e8a67ab5f04d3a513f010f24",
+     "14343b35e1df4d36834229427a36a96f882d78e7852354eef4bce34caa9344e4",
+     "24906fd83757f5cbff655ec64a89087755d712a823f69b31ead0675b0def596b",
+     "2c194dc5b6cd4960c4e09c40a69f0287b3b54a179178a975bce86332710946d1",
+     "4ca4ce33e0bf625b3294673c125bab8fd24e6e977e7084c4c48795e40a17137f",
+     "5048856356affcdc161731e5b3c09b68295a8c5d54c3aa43652fe969adcdc4be",
+     "5ce775c12822157c4dde9801ece1c29b90f78ab5df5aa485bdfcd660a26e2868",
+     "64711168fcfc21a99c758bd25754484e3c0eb8f9e657be4eb105498f28fa9c54",
+     "6838986ebe374c024fca369917ebf462927709ab800efc82e1e0a20e7ef5931a",
+     "6a650aa029d602b7ddcf8a30a8adc1ceb1acc27906f73572d7e087b8929bcd8f",
+     "799e6e69ab11b70ce71c04cb4426c1b8df02111c85cedc88bbef665b0dbe52d5",
+     "7ff34c67afae51833ece24eea3633731f9e4723c61c0656204c6b381b041e499",
+     "86122b4cb1fe9a1215aa3b7551527ee87cecd0df0de8fbdf77ea33612709c363",
+     "9111be11391d6cbc8a164eddb0efa445026b07735663f86fcb1f1730e03e9892",
+     "97069d4e18ae38da9410cfb9ed2a8e99526d69f5eea06b827901ecf093285567",
+     "a0a44a92d39b1cd0ea8f29744cd7b0b5857a0951ecfafc648d2f913081d7bb37",
+     "b36d3c7bc1c9d583dbfd1bf01a49ea188ccaf518b3c8d152bd971600d0f0de9d",
+     "b3fe547f27a86b48f37da9e0f5705f5e68e388d60c188c52bcdd542542598508",
+     "b69ac0515062b1f69daec963ce3fc0bb9ae88f27d672a7e400282bddb64a9216",
+     "b88fbc924763db6c24092c63c4c9e2b7f82a084acbe1c02cfc64ddd52b726ce2",
+     "bde0249417fd499dd0fec63fa270478e6ad831ad65817d521137f895b2f2ab01",
+     "c2f8b96dd473136973c31e70fe305143c7898a109311015f79218e334170951c",
+     "cee2b28a0c66a9bec76e05358848c6d87796ea7610e4146894d436ecb5260c0a",
+     "cfb2c681e59ec876a161ec9950aa70f398ca74691fe780c45967b81eb81cc420",
+     "d2ff8876fb1212b0d7619761b59a35eeb2a394762ab971c32d89cf2c992ca940",
+     "d58699187da7c0513bfa43c6001d128b25b954118a5a06764d8b0f3ce0a15d91",
+     "d825cdd45863f1d962a37b8a575caf09cb84b2d111a61c5f0d149b7596dbbf6a",
+     "d887e99d6d66da69cdbf5fd56cd582aa819985eb9d594dd0ee3543b2cf33727c",
+     "e1898d3992dc16fa79f0c6d39ab9528118cf1ecaddd0b76f3fdb06d0c374eebe",
+     "e3bdb8e613671adef43b587caebc27c2ad22ec8d72f466d1614397981d7d75b3",
+     "e6dc571a5e28049523b2a25d3d8980f8f7ccfd9aa482133eff1f7f623ca92b18",
+     "e82c348c0217f8792bfe464c0c3ca55debde01e556247afd0f4747dad3133571",
+     "e895218e6363ff56dc505aa6c8a418aa361275ee5013c1af83e10f5bb1b77a13",
+     "f289a0ab2fe99e4f7c423acdbd3f270f81d18b579bd9062f5d698fd04acb9e5f",
+     "f313ce4fd9905e9329d8b76de8c2dc0ffbaee1f4b0c6794f4be6d411d8aacff7",
+     "fb52a912544c80615e1c70b1ee02241bbebc557ba1b3b08c72f5d021da083fbd",
+     "fff45ac6a24f67dca6cc70645be38c36d68ac27f76629b0b95ce85dedfc0e91b"
+    ]
+   },
+   {
+    "id": "Kern",
+    "label": "Kern",
+    "need": "76960b2cc182d7a386e3c580e289d8fe127b9b520350233e6e9c40f2f96bcab8",
+    "marks": [
+     "0e2b90dc0746337913103d7c8be7fd2914960f52a4e3550db0fc7e647e2f3f4e",
+     "14e0c4a5a4a231021efc9b4f8b8dc24a22d09a37dec8994b22cd4028f066d6eb",
+     "163c17663a7a36f5237eefe30c4ef87af5cdbdd92688e57c530bdbd9bf134868",
+     "1704777eaa7cfbbda2784f503f4a24bad0b1e2a798b1adaa2ddd097e8825a25d",
+     "17dba0c6ab785d6d245004573a0b6dc37a1fbde862e33036a7b9bb165df1dd77",
+     "1cf37d77b5c2b0c9fd72bd65aaba9bcebc1f138c19c2c377ec9b9320aded1cb2",
+     "1eb575c0420d731030270fc66aa605e4637278603ba99007789e0a168a1e125b",
+     "20ebe8e26d9f8fc2a0c5709c706d5bcd9f1aa5905a575ad5082224c1c5640313",
+     "21f58906820d25f5e540b5ecc5d6fbecb28a89e127af75fb7c4b607581124760",
+     "251e5d9c5e46b30fe75e00c3c91bc75aa28c55e9006e5dad7a3e7bc269d16143",
+     "25e9dc1ca30690bceb3ce62f00c4fcabe7257362880845339b1ce8b1e006652d",
+     "2b7a045be95cd7d9d9aa3d830a9f9265e4f7ed71557504ab591872c9d516e564",
+     "33d46c4e696fa516ec2f0bf0af0cf94cc8e8b1c9bb6bdd830cf9729ccea9a565",
+     "36081a479322070dbca74d36e6991bc86989c63e4ad27853b1dc66f6b247e121",
+     "4b593824c3eb128f3d3f2d343647fe37d837b3bc204192dcc485b4edc37c30ac",
+     "574a19b026a8deaa30edccab95c0e514294dfa1d4d1a67c56ebe65259e1cfad2",
+     "59de6da06fb18004d69e28c85fa367b0669091d18535dd272a35d8a64a9e4d60",
+     "744066f623147df69e4431a232d771e5eb2a402031690bffce5e73e77cd1f197",
+     "75ed3742ca658e2b8e4554ac34e94bd6685e372a0a9ea9f3f368bc7a78dfec2e",
+     "8c7b06bbc727f39f578578ec8db1da5aedef5608b41920e45419d77cae913c5a",
+     "8dc34e4a93906dc5956060e8e7f07da2f51ee55427a9c8b8d58c552b8bb11aa0",
+     "97852c0c0fc136e466b0bbf01d29464593644f85c291602cf683957adeb737bb",
+     "99a9923332c99f39f3cd9277965f395a4cf81ee010a209d879e1b0ae6f56d98d",
+     "a326bde568fdf015ebebfcdf9d11b526cbdad097c7f875e67bb58c05b44a9688",
+     "a8da122d8cab3b4dd7764a2f38ab0ab1c709856bef2fb2bec73169719960c05c",
+     "ac8f426edcb83df4bab89e8c78b97d623ced5c0401656bdb20dc0eec896267d1",
+     "ae74e26f88b7e01a21a085ec508e6ae1b900635f2fc4c7f499886f0c7f5670b7",
+     "af6daacf878fc4b6f9b69035b36a2af023ce770495de6b3a58b957a67a0e3a90",
+     "b0cbd28bc01d002c308a325c8515510da482d0e00a05a69054d59d64657b6206",
+     "b0d23a8c9c9b4eea7290f5198e3d9f6cb5b90f6c159543e60590c5edaadfc4fa",
+     "b339c604293663ac344b12006f117a78cdc2de23500671df2c82811621a0724c",
+     "b504d43bceeb0404d7123cbe8ba348c4914eb7543f989c72c2327bd5d3f74e0e",
+     "b6191abacee958a0b925308233240063bed21dc543cc89c1fcf4cdc89d5032c5",
+     "c7fd9d96f8dcf7a58d6ef9245698cce82d9b78a59e8eb6269368c144b8f0e384",
+     "d7bb1ae494a52a620484834861f09dd48f0d9c01e76be141c1b8c5851a0651ce",
+     "de3d55980e4ca5e04933f6999bf76de072c520470c57e7f93b690c6b7b013b1d",
+     "e8ec8cb7fc85f3de25696effff57a73649ab76a091e4ddb86e280959b36f8a0f",
+     "f48d701a49907e994da72e4c401755d3d2f2fd6f9b46a7182e7b57ee2c153f9e",
+     "f81108102df819e6ee27a2657e49becd391c741707af8f7902ce79ad9f71def4",
+     "f8c77d4a7adf08c96a67550eb510790c9eb301aa74a473ee0ce1c9077e95968e"
+    ]
+   }
+  ],
+  "max_need": 6,
+  "levels": [
+   {
+    "id": "notes",
+    "name": "Sarahのメモ",
+    "head": "メモ · 私立探偵 S. Wessen",
+    "says": "空欄だけ。誰かを書面で除外する必要はありません。署名はすべて数えられます。"
+   },
+   {
+    "id": "report",
+    "name": "Mauserへの報告書",
+    "head": "報告書 · ボン刑事警察 Mauser警部殿 · 私立探偵 S. Wessen より",
+    "says": "空欄と、除外される人々。部分がすでに示していないことだけを引用します。"
+   },
+   {
+    "id": "court",
+    "name": "Mauserの裁判用ファイル",
+    "head": "裁判用ファイル · ボン刑事警察 Mauser警部 · 私立探偵 S. Wessen の証拠に基づく",
+    "says": "どの部分もどの人も、すべての証拠を引用します。ひとりでに数えられるものは何もありません。"
+   }
+  ]
+ },
+ "dossiers": [
+  {
+   "who": "Vahle部長",
+   "de": "Ministerialdirigent, und seit dem Sommer nicht mehr im Hause. Versetzt, in ein anderes Ministerium, und im Schreibdienst hat das niemanden überrascht, was für sich genommen schon etwas heißt. Er galt als ausgesucht höflich und als schwer zu fassen: er hörte einen zu Ende an, stimmte zu, und erst hinterher merkte man, dass er nichts zugesagt hatte. Seinen Schreibtisch hat er leer hinterlassen, so leer, wie ihn hier noch keiner hinterlassen hat. Frau Adam hat es vorher gewusst. Frau Adam weiß so etwas vorher.",
+   "en": "A Ministerialdirigent, and since the summer no longer in the building. Transferred to another ministry, and among the typists nobody was surprised, which by itself is worth something. He was reckoned exceedingly courteous and hard to get hold of: he heard you out, he agreed, and only afterwards did you notice he had agreed to nothing. He left his desk empty behind him, emptier than anybody here has ever left one. Frau Adam knew beforehand. Frau Adam knows that sort of thing beforehand.",
+   "sprite": "art/people/vahle.png",
+   "text": "部長級の高官（Ministerialdirigent）で、夏からはもう庁舎にいない。別の省へ異動になり、タイピストたちの間では誰も驚かなかった。それだけでも何かを物語っている。非常に礼儀正しく、つかみどころのない人だと思われていた。最後まで話を聞き、同意し、あとになって何一つ同意していなかったと気づくのだ。机は空にして去った。ここの誰が残したよりも空っぽに。Adam夫人は前から知っていた。Adam夫人はそういうことを前から知っているのだ。"
+  },
+  {
+   "who": "Grau参事官",
+   "de": "Ministerialrat, Mitte fünfzig, im Haus seit dem Umzug. Er hört einem bis zum Ende zu und entscheidet dann, was er ohnehin entschieden hatte, und hält beides für dasselbe. Ein Mann, der Namen nie vergisst und Gesichter schon. Er redet über die Arbeit wie über das Wetter: sachlich, unaufhörlich und ohne dass jemand klüger wird. Zu Hause wird er anders sein, sagt das Haus, und das Haus weiß es nicht.",
+   "en": "Ministerialrat, in his middle fifties, in the building since the move. He hears you out and then decides what he had decided already, and considers those the same thing. A man who never forgets a name and does forget faces. He talks about work the way other people talk about weather: steadily, at length, and without anybody coming away wiser. He must be different at home, the building says, and the building does not know.",
+   "sprite": "art/people/grau.png",
+   "text": "参事官（Ministerialrat）、五十代半ば、庁舎の移転以来ここにいる。最後まで話を聞き、それからすでに決めていたことを決め、その二つを同じことだと思っている。名前は決して忘れないが、顔は忘れる男。仕事の話を、ほかの人が天気の話をするように話す。淡々と、長々と、そして誰も何一つ賢くならずに。家では違うに違いない、と庁舎は言うが、庁舎は知らない。"
+  },
+  {
+   "who": "Pohlmann女史",
+   "de": "Fünfundvierzig, seit elf Jahren die Schreibkraft des Personalreferats, drei Referenten lang; ihr Zimmer nennt das Haus das Vorzimmer. Frau, nicht Fräulein, und niemand im Haus könnte sagen, wann das angefangen hat. Sie ist die Einzige, die weiß, was ihr Chef wirklich meint, wenn er nichts sagt, und sie sagt es nicht weiter. Höflich zu allen, vertraut mit keiner; die Damen aus dem Saal grüßt sie freundlich und beim Nachnamen. Sie hat einen Mantel für den Winter und einen für den Herbst und trägt beide, bis sie nicht mehr gehen.",
+   "en": "Forty-five, eleven years the Personalreferat's own typist, three Referenten, in a room the house has always called by a grander name than the rules give it. Frau, not Fräulein, and nobody in the building could tell you when that began. She is the only person who knows what her chief means when he says nothing, and she does not pass it on. Civil to everybody and close to nobody; she greets the women from the pool kindly and by their surnames. She has one coat for winter and one for autumn and wears each until it will not do.",
+   "sprite": "art/people/pohlmann.png",
+   "text": "四十五歳、十一年間人事課専属のタイピストで、課長（Referent）は三人目。庁舎はその部屋を規程が与えるより立派な名前で昔から呼んでいる。嬢ではなく女史だが、それがいつからなのかは庁舎の誰にも分からない。上司が何も言わないときに何を言いたいのかが分かるのは彼女だけで、彼女はそれを人に伝えない。誰にも礼儀正しく、誰とも親しくない。タイピスト室の女性たちには、名字で、愛想よく挨拶する。冬用と秋用のコートを一着ずつ持ち、どちらももう着られなくなるまで着る。"
+  },
+  {
+   "who": "Simon氏",
+   "de": "Vierundfünfzig, Registraturvorsteher, seit zwanzig Jahren in der Registratur, und er sagt jeden Satz so, als hätte er ihn schon zwanzig Jahre gesagt, was stimmt. Ordnung ist bei ihm keine Tugend, sondern eine Gewohnheit, die er sich nicht mehr abgewöhnen könnte. Er verwechselt nie eine Nummer und selten einen Namen. Wenn etwas nicht zurückkommt, ärgert er sich still und lange. Sein Bruder hatte eine Gastwirtschaft, und davon erzählt er einmal im Jahr.",
+   "en": "Fifty-four, twenty years in the Registratur, and he says every sentence like a man who has been saying it for twenty years, which he has. Order is not a virtue with him but a habit he could no longer break. He never mixes up a number and rarely a name. When something does not come back he is quietly and lastingly annoyed. His brother kept an inn, and he tells you about it once a year.",
+   "sprite": "art/people/simon.png",
+   "text": "五十四歳、記録室に二十年。どの文も二十年言い続けてきた男のように言い、実際そのとおりだ。彼にとって秩序は美徳ではなく、もうやめられない習慣である。番号を取り違えることは決してなく、名前を取り違えることもめったにない。何かが戻ってこないと、黙って、いつまでも腹を立てている。兄が宿屋をやっていて、年に一度その話をする。"
+  },
+  {
+   "who": "Litt夫人",
+   "de": "Einundvierzig, Kanzleivorsteherin, seit 1953 im Haus: drei Minister, zwei Umzüge. Witwe seit 1957 — im Haus gilt das als lange her, ihr nicht. Den Ring trägt sie noch, rechts, was die Jüngeren für eine Marotte halten und die Älteren nicht. Sie ist die Einzige, die noch weiß, wie es vorher war, und sie sagt es bereitwillig, aber immer erst, wenn sie den Bogen zu Ende getippt hat. Bei ihr beschweren sich die anderen, weil sie zuhört, ohne etwas daraus zu machen. Ein Blatt, das noch zu retten ist, hat sie noch nie weggeworfen. Sie nennt das Sparsamkeit. Sie hat 1946 auch schon nichts weggeworfen.",
+   "en": "Forty-one, in the building since 1953: three ministers and two removals. Widowed since 1957 — the building considers that a long time ago; she does not. She still wears the ring, on the right hand, which the younger ones take for an eccentricity and the older ones do not. She is the only one who still knows how it used to be, and she will say so readily, but never before she has finished the sheet she is on. The others complain to her, because she listens without making anything of it. She has never thrown away a sheet that could still be saved. She calls it thrift. She didn't throw anything away in 1946 either.",
+   "sprite": "art/people/litt.png",
+   "text": "四十一歳、1953年から庁舎にいる。大臣は三人、引っ越しは二回。1957年から未亡人 — 庁舎はそれをずいぶん昔のことだと思っているが、彼女はそうは思っていない。今も指輪をはめている、右手に。若い人たちは変わった癖だと思い、年配の人たちはそうは思わない。昔どうだったかを今も知っているのは彼女だけで、喜んで話してくれるが、手元の一枚を打ち終えるまでは決して話さない。ほかの人たちは彼女に愚痴をこぼす。彼女は大げさにせずに聞いてくれるからだ。まだ救える紙を捨てたことは一度もない。本人は倹約と呼んでいる。1946年にも、何一つ捨てなかった。"
+  },
+  {
+   "who": "Adam夫人",
+   "de": "Verheiratet mit einem Mann bei der Bundesbahn, zwei Söhne: Der eine soll Ingenieur werden, der andere weiß schon, dass er keiner wird. Sie bringt Kuchen mit und behauptet jedes Mal, er sei diesmal nichts geworden. Sie weiß, wer ein Kind erwartet, wer umzieht und wer sich trennt, und sie erzählt es nur Leuten, die es ohnehin schon wissen. Das hält sie für Diskretion. Es ist auch welche, ungefähr.",
+   "en": "Married to a man on the railways, two sons: one is to become an engineer and the other already knows he won't. She brings cake and claims every time that it didn't turn out. She knows who is expecting, who is moving and who is separating, and she tells it only to people who know already. She considers this discretion. It more or less is.",
+   "sprite": "art/people/adam.png",
+   "text": "鉄道員の夫と、息子が二人。一人は技師になる予定で、もう一人はならないことをもう自分で分かっている。ケーキを持ってきては、毎回失敗したと言う。誰が身ごもっているか、誰が引っ越すか、誰が別れるかを知っていて、それをすでに知っている人にだけ話す。本人はそれを口が堅いと思っている。まあ、だいたいそうだ。"
+  },
+  {
+   "who": "Bühl嬢",
+   "de": "Achtundzwanzig, seit vier Jahren im Haus, verlobt seit Ostern. Geheiratet wird im Frühjahr, und was danach kommt, hat das Haus schon entschieden, ohne dass es jemand ausgesprochen hätte. Sie kleidet sich eine Gehaltsstufe über ihrer Gehaltsstufe und trägt dazu ein Gesicht, das zu einer Bemerkung einlädt. Gemacht hat sie noch niemand. Sie tippt gut und gern und redet dabei nicht, was sie für Höflichkeit hält und die anderen für Hochmut. Auf die Frage, ob sie danach bleibt, sagt sie „Mal sehen“, und zwar so, als hätte sie schon gesehen.",
+   "en": "Twenty-eight, four years in the building, engaged since Easter. The wedding is in the spring, and what happens after that the building has already decided without anyone saying it aloud. She dresses one salary grade above her salary grade and wears an expression that invites a remark. Nobody has made one yet. She types well and willingly and does not talk while she does it, which she considers courtesy and the others consider airs. Asked whether she will stay on afterwards she says we'll see, in the tone of somebody who has already seen.",
+   "sprite": "art/people/buehl.png",
+   "text": "二十八歳、庁舎に四年、復活祭から婚約中。結婚式は春で、その後どうなるかは、誰も口に出さないまま庁舎がもう決めている。自分の俸給等級より一つ上の等級の服を着て、何か言われるのを待っているような顔をしている。まだ誰も言っていない。タイプは上手で進んで打ち、打っている間はしゃべらない。本人はそれを礼儀だと思い、ほかの人たちは気取りだと思っている。結婚後も残るのかと聞かれると、さあどうでしょう、ともう答えを知っている人の口調で言う。"
+  },
+  {
+   "who": "Kern夫人",
+   "de": "Kam im Frühjahr herüber. Ohne Beförderung, ohne Erklärung. Auf die Frage warum sagt sie, hier sei es wärmer. Ein Ehering, kein Foto auf dem Schreibtisch. Sie schreibt schnell, sauber und ohne jede Neugier auf den Inhalt — in einem Haus wie diesem eine erlernbare Fähigkeit, und bei ihr wirkt sie sehr gut erlernt. Wenn im Raum über Vorgesetzte gesprochen wird, prüft sie ihr Farbband.",
+   "en": "Came across in the spring. No promotion, no explanation. Asked why, she says it is warmer here. A wedding ring, no photograph on the desk. She types fast, cleanly and with no curiosity whatever about the content — in a building like this one a learnable skill, and in her case a very well learned one. When the room starts talking about superiors, she checks her ribbon.",
+   "sprite": "art/people/kern.png",
+   "text": "春によそから移ってきた。昇進でもなく、説明もない。理由を聞かれると、ここのほうが暖かいからと言う。結婚指輪をしているが、机に写真はない。速く、きれいに、内容への好奇心はまったくなしに打つ — こういう庁舎では身につけられる技能であり、彼女の場合は実によく身についている。部屋が上司の話を始めると、彼女はリボンを点検する。"
+  },
+  {
+   "who": "Ostrowski嬢",
+   "de": "Kam 1946 als Kind aus dem Osten, mit einem Koffer und einer Mutter, die unterwegs aufhörte, Polnisch zu sprechen. Ihr Deutsch ist deshalb besser als das der meisten hier: Sie hat es lernen müssen, statt es nur mitzubekommen. Fremde Kommafehler korrigiert sie mit Bleistift, sehr leicht, damit man es wegradieren kann. Über Schlesien redet sie nicht. Über ihren Namen auch nicht, obwohl er im Haus schon dreimal falsch geschrieben worden ist. Sie hat ihn jedes Mal stehen lassen.",
+   "en": "Came west in 1946 as a child, with one suitcase and a mother who stopped speaking Polish somewhere along the way. Her German is better than most people's here because she had to learn it rather than simply pick it up. She corrects other people's commas in pencil, very lightly, so it can be rubbed out. She does not talk about Schlesien. She does not talk about her name either, though the building has misspelled it three times now. She let it stand every time.",
+   "sprite": "art/people/ostrowski.png",
+   "text": "1946年、子どもの頃に西へ来た。スーツケース一つと、途中のどこかでポーランド語を話すのをやめた母親と一緒に。彼女のドイツ語はここのたいていの人より上手だ。自然に覚えたのではなく、学ばなければならなかったからだ。ほかの人のコンマを鉛筆で、消せるようにごく薄く直す。シレジア（Schlesien）のことは話さない。自分の名前のことも話さない。庁舎はもう三度もそのつづりを間違えているのだが。そのたびに、そのままにしておいた。"
+  },
+  {
+   "who": "Wenzel嬢",
+   "de": "Zweiundzwanzig, seit vier Jahren im Haus. Handelsschule in Koblenz, Stenografie mit Auszeichnung — was sie erwähnt, ohne dass jemand fragt. Sie tippt schneller als alle anderen und macht dabei die meisten Fehler; sie hält das für einen fairen Handel. Abends besucht sie einen Englischkurs und spricht von der Botschaft in London wie von einer Adresse, bei der man sich nur noch zu melden braucht. Das Wort „Schreibkraft“ benutzt sie nicht. Sie sagt „vorläufig“. Frau Adam sagt, das habe sie damals auch gesagt.",
+   "en": "Twenty-two, four years in the building. Commercial college in Koblenz, shorthand with distinction, which she mentions without being asked. She types faster than anyone else and makes the most mistakes doing it; she considers that a fair trade. Evenings she takes an English class, and she talks about the embassy in London the way you talk about an address where you only have to present yourself. She does not use the word typist. She says for now. Frau Adam says she used to say that too.",
+   "sprite": "art/people/wenzel.png",
+   "text": "二十二歳、庁舎に四年。コブレンツ（Koblenz）の商業学校、速記は優等で、聞かれなくてもそう言う。誰よりも速く打ち、誰よりも間違いが多い。それは公平な取引だと思っている。夜は英語の講座に通い、ロンドンの大使館のことを、顔を出しさえすればいい住所のように話す。タイピストという言葉は使わない。今のところは、と言う。Adam夫人は、自分も昔そう言っていたと言う。"
+  },
+  {
+   "who": "Sarah Wessen",
+   "de": "Sarah Wessen, Privatdetektivin in Bonn. An den meisten Tagen ein schlichter Wollmantel mit einem großen Knopf am Hals, die Sonnenbrille auch drinnen. Für das Ministerium zieht sie den roten Mantel mit dem Gürtel an und lässt die Sonnenbrille in der Tasche, denn ein Haus voller Beamter will einem in die Augen sehen. Im Laden an der Ecke ruft man ihr „die Detektivin mit dem Schnüffler“ hinterher. Sie lächelt charmant wie ein Fräulein vom Filmfunk, wenn es nützt, und sie hat ein zweites Lächeln, das heißt: Ich habe das schon zu Ende gedacht. Mit Leuten, die nicht reden wollen, geht sie um wie eine ältere Schwester, die den kleinen Bruder zum Reden bringen will. Ob jemand unschuldig ist, weiß sie nach ihrem eigenen untrüglichen Gefühl, lange bevor sie es belegen kann.",
+   "en": "Sarah Wessen, private detective in Bonn. Most days a plain wool coat with one big button at the throat, and the sunglasses stay on indoors. For the ministry she puts on the red coat with the belt and leaves the sunglasses in her bag, because a building full of officials wants to see a person's eyes. In the shop on the corner they call after her: the detective with the sniffer. She smiles charmingly, like a young lady off the film pages, when it is useful, and she has a second smile that means: I have already thought this through to the end. With people who would rather not talk she works the way an older sister works on a younger brother. Whether somebody is innocent she knows by her own unerring feeling, long before she can show it.",
+   "sprite": "art/people/sarah.png",
+   "text": "Sarah Wessen、ボンの私立探偵。たいていは襟元に大きなボタンが一つの地味なウールのコートで、サングラスは屋内でもかけたまま。省へ行くときはベルトつきの赤いコートを着て、サングラスはバッグにしまう。役人だらけの建物は人の目を見たがるからだ。角の店ではみんなに後ろから声をかけられる。鼻のきく探偵さん、と。役に立つときには映画雑誌の女優のように魅力的に微笑み、もう一つ、それはもう最後まで考えてある、という意味の微笑みも持っている。話したがらない相手には、姉が弟に接するように接する。誰かが無実かどうかは、それを示せるずっと前から、自分の確かな勘で分かっている。"
+  },
+  {
+   "who": "Mauser警部",
+   "de": "Kommissar Friedrich Mauser von der Bonner Kriminalpolizei. Ein Mann, der seine Brille etwa siebzehnmal in der Stunde zurechtrückt und über den Rand hinwegsieht, wenn ihm etwas nicht passt. Das Hemd zerknittert, das Jackett rückt er sich zurecht, als säße eine Wespe darin. Hinter dem Schreibtisch sitzt er wie ein grummeliger Wachhund, und die Falten auf seiner Stirn werden tiefer, je länger man redet. Auf dem Tisch ein eingetrockneter Kaffeefleck, ein wachsender Papierstapel und ein Notizblock, der längst aussieht wie ein Kunstprojekt aus Tinte und Kaffeespuren. Wenn nichts anliegt, nimmt er sich alte ungelöste Akten noch einmal vor. Über gewisse Formulierungen sagt er, sie röchen noch deutlich nach der alten Zeit.",
+   "en": "Kommissar Friedrich Mauser of the Bonn criminal police. A man who straightens his glasses about seventeen times an hour and looks at you over the rim of them when something does not suit him. The shirt creased, the jacket tugged straight as though a wasp were sitting in it. Behind his desk he sits like a grumpy watchdog, and the furrows on his forehead deepen the longer you talk. On the desk a coffee stain two days dry, a growing pile of paper, and a notepad long since like an art project made of ink and coffee marks. When nothing is on, he goes back through the old unsolved files. Of certain turns of phrase he says you can still smell the old regime on them.",
+   "sprite": "art/people/mauser.png",
+   "text": "ボン刑事警察のFriedrich Mauser警部。一時間に十七回ほど眼鏡を直し、気に入らないことがあると縁の上から人を見る男。シャツはしわくちゃ、上着はまるで中に蜂でもいるかのようにぐいと引っ張って整える。机の向こうでは不機嫌な番犬のように座り、話が長くなるほど額のしわが深くなる。机の上には二日前から乾いたコーヒーのしみ、増えていく書類の山、そしてとっくにインクとコーヒーの輪でできた芸術作品のようになったメモ帳。何も事件がないときは、古い未解決のファイルを読み返す。ある種の言い回しについては、まだ旧体制の匂いがすると言う。"
+  }
+ ],
+ "walk": {
+  "days": 1,
+  "repeat": false,
+  "reset": "phase",
+  "phases": [
+   {
+    "name": "勤務時間",
+    "light": "autumn",
+    "day": null,
+    "start": "pool",
+    "open": [
+     "lodge",
+     "canteen",
+     "hall2",
+     "pool",
+     "washroom",
+     "paternoster",
+     "registratur",
+     "landing",
+     "poststelle",
+     "vorzimmer",
+     "z407"
+    ]
+   },
+   {
+    "name": "翌日",
+    "light": "autumn",
+    "day": null,
+    "start": "pool",
+    "open": [
+     "lodge",
+     "canteen",
+     "hall2",
+     "pool",
+     "washroom",
+     "paternoster",
+     "registratur",
+     "landing",
+     "poststelle",
+     "vorzimmer"
+    ]
+   }
+  ],
+  "cover": "Sarah Wessenは私立探偵（Privatdetektivin）だが、この庁舎の誰もそれを知ってはならない。Mauser警部が、警察では力になれなかった若い女性を彼女のもとへよこし、こうして人事課（Personalreferat）はSarahを臨時のタイピストとしてタイピスト室に雇い入れた。タイピストは仕事を持たされて庁舎を上へ下へと行き来し、途中で何を目にしようと誰も気にしない。質問をするとなると話は別だ。人々は毎日、彼女に少しだけ時間を割いてくれるが、それ以上はない。",
+  "places": [
+   {
+    "id": "canteen",
+    "name": "食堂",
+    "floor": -1,
+    "links": [
+     "lodge"
+    ],
+    "text": "ホールから一階分下りたところ。湯沸かしの置かれたカウンターと、部屋の端から端まで続く一台の長いテーブル。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/canteen-friday.jpeg",
+     "翌日": "art/rooms/canteen-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "食堂"
+   },
+   {
+    "id": "hall2",
+    "name": "2階の廊下",
+    "floor": 2,
+    "links": [
+     "lodge",
+     "pool",
+     "washroom",
+     "paternoster"
+    ],
+    "text": "",
+    "passage": true,
+    "art": {
+     "勤務時間": null,
+     "翌日": null
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "廊下"
+   },
+   {
+    "id": "landing",
+    "name": "4階の踊り場",
+    "floor": 4,
+    "links": [
+     "paternoster",
+     "vorzimmer",
+     "poststelle"
+    ],
+    "text": "階段を上りきったところ。壁際に飾り気のないテーブル、その横に留められた掲示、そして下へ続く狭い裏階段。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/landing-autumn.jpeg",
+     "翌日": "art/rooms/landing-autumn.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "踊り場"
+   },
+   {
+    "id": "lodge",
+    "name": "玄関ホール",
+    "floor": 0,
+    "links": [
+     "hall2",
+     "canteen"
+    ],
+    "text": "通りからの入口。その横にガラス張りの守衛室、そして上へ続く大階段。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/lodge-friday.jpeg",
+     "翌日": "art/rooms/lodge-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": [
+     32,
+     58
+    ],
+    "sees": [],
+    "short": "ホール、守衛室"
+   },
+   {
+    "id": "paternoster",
+    "name": "3階の踊り場",
+    "floor": 3,
+    "links": [
+     "hall2",
+     "registratur",
+     "landing"
+    ],
+    "text": "大階段とパターノスター（扉のないエレベーター）がどちらもここを通り、踊り場の向こう側には窓口つきの扉がある。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/paternoster-sunday.jpeg",
+     "翌日": "art/rooms/paternoster-sunday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "踊り場"
+   },
+   {
+    "id": "pool",
+    "name": "タイピスト室",
+    "floor": 2,
+    "links": [
+     "hall2"
+    ],
+    "text": "高い窓に向かって並んだ六つの机、それぞれに一台のタイプライター、そして部屋が仕事をしているときのその騒音。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/pool-autumn.jpeg",
+     "翌日": "art/rooms/pool-autumn.jpeg"
+    },
+    "stand": null,
+    "sarah_at": 0.1,
+    "spread": null,
+    "sees": [
+     {
+      "text": "Litt夫人の組織図（Organisationsplan）の写し。新人のために色鉛筆で色分けしてある：大臣（Minister）、緑。事務次官（Staatssekretär）、赤。Z局（Abteilung Z）とその長である局長（Abteilungsleiter）、青。Z A部（Unterabteilung Z A）とその長である部長（Unterabteilungsleiter）、すなわちVahle部長（Ministerialdirigent）、茶色。誰かの代理を務める者は同じ色を使い、横に自分のイニシャルを添える。",
+      "phase": null
+     },
+     {
+      "text": "Litt夫人の組織図の写し：Z A部の下に、Z A 1課、すなわち人事課（Personalreferat）、407号室：Grau参事官（Ministerialrat）、課長（Referent）で課を率いる役人。色は使わずイニシャルで書き込む。その秘書、Pohlmann女史。課の事務員、Kern夫人。",
+      "phase": "翌日"
+     },
+     {
+      "text": "Litt夫人の組織図の写し：庁舎全体のものとして、郵便室（Poststelle）。記録室（Registratur）、Simon氏。そしてタイピスト室。手紙が入ってくる道筋：郵便室、記録室、秘書室、課長。書類が上がっていく道筋：課長、部長、局長。",
+      "phase": "翌日"
+     }
+    ],
+    "short": "タイピスト室"
+   },
+   {
+    "id": "poststelle",
+    "name": "郵便室",
+    "floor": 4,
+    "links": [
+     "landing"
+    ],
+    "text": "仕分け台、整理棚、そして発送用のトレー。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/poststelle-autumn.jpeg",
+     "翌日": "art/rooms/poststelle-autumn.jpeg"
+    },
+    "stand": 0.4,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [
+     {
+      "text": "郵便室の書留記録簿：10月23日（水）、Vogt嬢からの書留一通、省あて、局長宛。課の欄には Z A 1 と書かれている。",
+      "phase": null
+     },
+     {
+      "text": "仕分け台の上の掲示：庁舎の職員に名指しで宛て、「親展」と記した手紙は、開封せずに本人へ渡す。省に宛てた手紙は、誰宛てであっても、ここで開封し、宛名の横に印を押し、その印の中に担当課の記号を記入する。",
+      "phase": null
+     }
+    ],
+    "short": "郵便室"
+   },
+   {
+    "id": "registratur",
+    "name": "記録室",
+    "floor": 3,
+    "links": [
+     "paternoster"
+    ],
+    "text": "部屋を横切る窓口、その奥に天井まで届くファイルの棚、そして係の椅子の後ろに鋼鉄の戸棚。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/registratur-autumn.jpeg",
+     "翌日": "art/rooms/registratur-autumn.jpeg"
+    },
+    "stand": 0.4,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [
+     {
+      "text": "人事課の登録簿（Simon氏の窓口に備付け）。10月23日（水）：Vogt嬢の書簡、受付。同日 Z A 1 へ、課長本人に手渡し。タイピスト室の郵便巡回によらず。10月28日（月）：返戻、綴込みへ。",
+      "phase": "翌日"
+     }
+    ],
+    "short": "記録室"
+   },
+   {
+    "id": "vorzimmer",
+    "name": "407号室の秘書室",
+    "floor": 4,
+    "links": [
+     "landing",
+     "z407"
+    ],
+    "text": "秘書の机、その向こうに閉じた木の扉。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/vorzimmer-autumn.jpeg",
+     "翌日": "art/rooms/vorzimmer-autumn.jpeg"
+    },
+    "stand": 0.5,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [
+     {
+      "text": "秘書室の一覧表（Pohlmann女史の手書き）、その机を通ったもの。10月23日（水）：Vogt嬢の書簡、記録室より、書き込みなし。直接課長へ回付、事務員（Kern夫人）を経由せず。10月28日（月）：課長より記録室へ返戻。茶色の鉛筆でR、イニシャルなし。青なし。その間：部長宛てなし。",
+      "phase": null
+     }
+    ],
+    "short": "秘書室"
+   },
+   {
+    "id": "washroom",
+    "name": "2階の洗面所",
+    "floor": 2,
+    "links": [
+     "hall2"
+    ],
+    "text": "片側の壁に洗面台が並び、反対側には個室が並ぶ。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/washroom-friday.jpeg",
+     "翌日": "art/rooms/washroom-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "洗面所"
+   },
+   {
+    "id": "z407",
+    "name": "407号室",
+    "floor": 4,
+    "links": [
+     "vorzimmer"
+    ],
+    "text": "課長（Referatsleiter）の部屋：大きな机、その横に古い鋼鉄のカード箱。",
+    "passage": false,
+    "art": {
+     "勤務時間": "art/rooms/z407-autumn.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": [
+     56,
+     80
+    ],
+    "sees": [
+     {
+      "text": "Grau氏の卓上カレンダー。その週のところが開かれ、本人の手で：10月24日（木）に「部長」とあり、その日はほかに何も書かれていない。",
+      "phase": "勤務時間"
+     }
+    ],
+    "short": "407号室"
+   }
+  ],
+  "people": [
+   {
+    "id": "Grau",
+    "name": "Grau氏",
+    "at": {
+     "勤務時間": "z407"
+    },
+    "patience": 2,
+    "shrugs": [
+     "「Pohlmann女史なら知っているだろう」とGrau氏は言い、書類に戻る。",
+     "Grau氏はそれ以上何も付け加えない。",
+     "その件ではGrau氏はSarahの役に立てない。"
+    ],
+    "looked": "「ふむ」とGrau氏は言い、それきりだ。",
+    "tired": "「人を待たせているので」とGrau氏は言う。",
+    "height": 180,
+    "sprite": "art/people/grau.png",
+    "hello": [
+     {
+      "text": "タイピスト室？ 誰が誰だか私には見分けがつかないし、そうしなくて済むようにPohlmann女史が取り計らってくれている。",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "vogt": {
+      "lines": [],
+      "talk": null,
+      "evade": "「人事は課の問題であって、タイピスト室の問題ではない」とGrau氏は言い、ペンを取り上げる。"
+     }
+    },
+    "shows": {
+     "Grau氏の卓上カレンダー": {
+      "lines": [],
+      "talk": "Grau氏は、気詰まりなほど長く彼女を見る。「タイピストにしてはずいぶんよく読むね、Wessen嬢。」",
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Pohlmann",
+    "name": "Pohlmann女史",
+    "at": {
+     "勤務時間": "vorzimmer",
+     "翌日": "vorzimmer"
+    },
+    "patience": 4,
+    "shrugs": [
+     "「本当に申し上げられません」とPohlmann女史は言う。",
+     "Pohlmann女史はそれ以上何も付け加えない。",
+     "その件ではPohlmann女史はSarahの役に立てない。"
+    ],
+    "looked": "「それは私が口を出すことではありません」とPohlmann女史は言う。",
+    "tired": "Pohlmann女史の電話が鳴り、彼女は詫びとも言えない詫びを言って受話器を取る。",
+    "height": 167,
+    "sprite": "art/people/pohlmann.png",
+    "hello": [
+     {
+      "text": "Grau氏宛てのものはすべてこの机を通って入り、この机を通って出ていきます。もう十年になります。書類がどこにあるか知りたければ、ここにあるか、ここに書いてあります。",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "post": {
+      "lines": [
+       {
+        "text": "課の郵便は私の仕事です。Vahle氏はこの課へは下りてきません。Grau氏に用があれば、呼びにやらせます。",
+        "phase": "翌日"
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "vogt": {
+      "lines": [],
+      "talk": null,
+      "evade": "「Vogt嬢の雇用は期限が来ただけです」とPohlmann女史は言い、次の書類挟みをSarahに差し出す。"
+     }
+    },
+    "shows": {
+     "秘書室の一覧": {
+      "lines": [
+       {
+        "text": "自分の一覧を見せられると、彼女は一度上から下まで目を通し、これは自分の字で、日付もそのとおりだと言う。そして、その週にこの課から部長へ何かが上がったとしても、それはこの机からではないし、ほかに道があるとも思えない、と言う。",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "Grau氏の卓上カレンダー": {
+      "lines": [],
+      "talk": "「Grau氏のカレンダーはGrau氏の机の上にあります」とPohlmann女史は言う。「そしてそこから動きません。」",
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Kern",
+    "name": "Kern夫人",
+    "at": {
+     "勤務時間": "z407"
+    },
+    "patience": 2,
+    "shrugs": [
+     "「Pohlmann女史に聞いてください」とKern夫人は言い、カードの引き出しを閉める。",
+     "Kern夫人はそれ以上何も付け加えない。",
+     "その件ではKern夫人はSarahの役に立てない。"
+    ],
+    "looked": "Kern夫人は目をやるが、それについて言うことは何もない。",
+    "tired": "Kern夫人には並べ直さなければならないカードの引き出しがある。",
+    "height": 153,
+    "sprite": "art/people/kern.png",
+    "hello": [],
+    "topics": {
+     "cards": {
+      "lines": [],
+      "talk": "Kern夫人は、カードの一枚一枚が誰かであり、引き出しはどれも閉めておくのだと言う。",
+      "evade": null
+     },
+     "vogt": {
+      "lines": [],
+      "talk": null,
+      "evade": "Kern夫人は、臨時の娘のカードはないし、それを残念に思ったことは一度もないと言う。"
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Simon",
+    "name": "Simon氏",
+    "at": {
+     "勤務時間": "registratur",
+     "翌日": "registratur"
+    },
+    "patience": 3,
+    "shrugs": [
+     "「それは」とSimon氏は言う。「記録室の扱うことではありません。」",
+     "Simon氏はそれ以上何も付け加えない。",
+     "その件ではSimon氏はSarahの役に立てない。"
+    ],
+    "looked": "「なるほど」とSimon氏は言い、それについてはもう何も言わない。",
+    "tired": "「戻ってきたものは勝手に片づいてはくれません」とSimon氏は言い、台車のほうを向く。",
+    "height": 172,
+    "sprite": "art/people/simon.png",
+    "hello": [],
+    "topics": {
+     "post": {
+      "lines": [
+       {
+        "text": "宛てられた課へまっすぐです。この庁舎では、郵便はまず局長のところへ上がって配られるのではありません。印がついて私のところへ来て、私がその印の課へ回し、課長はその日のうちに受け取ります。",
+        "phase": null
+       },
+       {
+        "text": "Pohlmann女史は自分で書類をあの課の外へ持ち出したりはしません。あそこから出るものは発送トレーに入ってこの窓口まで下りてきて、登録簿に載ります。そして書類を取りにあの課へ下りていく人もいません。Vahle氏はGrau氏を呼びにやらせます。",
+        "phase": "翌日"
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "vogt": {
+      "lines": [
+       {
+        "text": "課が郵便をどうするかは私の言うことではありません。ですがVogt嬢の手紙は、茶色の鉛筆でRとだけ、横にイニシャルもなく、どこにも青の一筆もない状態で、ファイルに綴じるため私のところへ戻ってきました。気づきましたよ。私はそういうことに気づく性分なんです。",
+        "phase": null
+       },
+       {
+        "text": "Vogt嬢の手紙は私が自分で持って上がりました。印がそう指示していましたから。そして課長ご本人の手にお渡ししました。Pohlmann女史は机にいましたが、私は手紙を持ってその前を通り、事務員の戸棚の前も立ち止まらずに通りました。",
+        "phase": "翌日"
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "shows": {
+     "人事課の登録簿": {
+      "lines": [],
+      "talk": "「全部登録簿にあります、お嬢さん」とSimon氏は言う。「覚えておかなくて済むように書いておくのです。」",
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Litt",
+    "name": "Litt夫人",
+    "at": {
+     "勤務時間": "pool",
+     "翌日": "pool"
+    },
+    "patience": 3,
+    "shrugs": [
+     "「それはタイピスト室に聞くことではありません」とLitt夫人は言う。",
+     "Litt夫人はそれ以上何も付け加えない。",
+     "その件ではLitt夫人はSarahの役に立てない。"
+    ],
+    "looked": "Litt夫人は目をやるが、それについて言うことは何もない。",
+    "tired": "「仕事のある者もいますので」とLitt夫人は言う。",
+    "height": 144,
+    "sprite": "art/people/litt.png",
+    "hello": [
+     {
+      "text": "あなたの机はVogt嬢の机です。あの子は速かった。秘書室から私たちへのものは、あそこから出るほかのものと同じく、トレーに入って下りてきます。Pohlmann女史は自分で書類を運んだりしません。",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "letters": {
+      "lines": [
+       {
+        "text": "下りてくる書類に鉛筆の記号が書かれているのを見るでしょうが、当て推量をしてはいけません。Vは口頭での詳しい説明（Vortrag）、Rは処理している人との打ち合わせ（Rücksprache）。そして課では、届いた手紙を処理するのは課長です。あとは私に聞いてください。",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "rules": {
+      "lines": [],
+      "talk": "Litt夫人は、三十年間それを二度読まずにやってきたと言う。",
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Ostrowski",
+    "name": "Ostrowski嬢",
+    "at": {
+     "勤務時間": "pool",
+     "翌日": "pool"
+    },
+    "patience": 3,
+    "shrugs": [
+     "「存じません」とOstrowski嬢は言う。",
+     "Ostrowski嬢はそれ以上何も付け加えない。",
+     "その件ではOstrowski嬢はSarahの役に立てない。"
+    ],
+    "looked": "Ostrowski嬢は目をやるが、それについて言うことは何もない。",
+    "tired": "Ostrowski嬢はタイプライターに新しい紙を差し込み、もう顔を上げない。",
+    "height": 140,
+    "sprite": "art/people/ostrowski.png",
+    "hello": [],
+    "topics": {
+     "vogt": {
+      "lines": [
+       {
+        "text": "執務規程（Geschäftsordnung）は二度読みました。この部屋のほかの誰よりも一度多く。局（Abteilung）の誰かについての苦情は、局長が決めることです。はっきりそう書いてあります。",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "rules": {
+      "lines": [
+       {
+        "text": "これも載っていますよ、お知りになりたければ。書類が処理されている間は、処理している人がそれに責任を負い、課ではそれは課長です。記録室が責任を負うのは、その前と後だけです。",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "pencils": {
+      "lines": [
+       {
+        "text": "執務規程の第18条にあるのであって、Litt夫人の組織図だけの話ではありません。局長は青で、部長は茶色で書き込み、そのどちらかの代理を務める者は同じ色を使ってイニシャルを添えるのです。",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Adam",
+    "name": "Adam夫人",
+    "at": {
+     "勤務時間": "pool",
+     "翌日": "pool"
+    },
+    "patience": 3,
+    "shrugs": [
+     "Adam夫人はそのことについて山ほど言うことがあるが、どれも的外れだ。",
+     "Adam夫人はそれ以上何も付け加えない。",
+     "その件ではAdam夫人はSarahの役に立てない。"
+    ],
+    "looked": "Adam夫人は目をやるが、それについて言うことは何もない。",
+    "tired": "Adam夫人はタイプライターに呼び戻され、残念そうにそう言う。",
+    "height": 174,
+    "sprite": "art/people/adam.png",
+    "hello": [],
+    "topics": {
+     "vogt": {
+      "lines": [],
+      "talk": "Adam夫人は、臨時の娘は天気のように来ては去るものだが、あの子は好きだったと言う。",
+      "evade": null
+     },
+     "cards": {
+      "lines": [],
+      "talk": null,
+      "evade": "Adam夫人は、あのカードに何が書いてあるかは知らずにいるほうがいい、結構です、と言う。"
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Bühl",
+    "name": "Bühl嬢",
+    "at": {
+     "勤務時間": "pool",
+     "翌日": "pool"
+    },
+    "patience": 2,
+    "shrugs": [
+     "「考えたこともありませんでした」とBühl嬢は言う。",
+     "Bühl嬢はそれ以上何も付け加えない。",
+     "その件ではBühl嬢はSarahの役に立てない。"
+    ],
+    "looked": "Bühl嬢は目をやるが、それについて言うことは何もない。",
+    "tired": "Bühl嬢は郵便を取りに行かなければならない。",
+    "height": 158,
+    "sprite": "art/people/buehl.png",
+    "hello": [],
+    "topics": {
+     "post": {
+      "lines": [],
+      "talk": "Bühl嬢は、踊り場から郵便を取ってきて印のついたところに置くだけで、知っているのはそれだけだと言う。",
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Wenzel",
+    "name": "Wenzel嬢",
+    "at": {
+     "勤務時間": "pool",
+     "翌日": "pool"
+    },
+    "patience": 2,
+    "shrugs": [
+     "「誰も私には何も教えてくれないんです」とWenzel嬢は言う。",
+     "Wenzel嬢はそれ以上何も付け加えない。",
+     "その件ではWenzel嬢はSarahの役に立てない。"
+    ],
+    "looked": "Wenzel嬢は目をやるが、それについて言うことは何もない。",
+    "tired": "Wenzel嬢は使いに出される。",
+    "height": 168,
+    "sprite": "art/people/wenzel.png",
+    "hello": [],
+    "topics": {
+     "letters": {
+      "lines": [],
+      "talk": "Wenzel嬢は、Vを一度見たことがあるだけで、聞く勇気がなかったと言う。",
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   }
+  ],
+  "fewest": 9,
+  "topics": [
+   {
+    "id": "post",
+    "label": "郵便の回り方",
+    "ask": "Sarahは、自分は新人でその一部を運ぶことになるのだからと、郵便が郵便室から正しい机までどうやって行き着くのかを尋ねる。",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "郵便室の書留記録簿：10月23日（水）、Vogt嬢からの書留一通、省あて、局長宛。課の欄には Z A 1 と書かれている。",
+     "宛てられた課へまっすぐです。この庁舎では、郵便はまず局長のところへ上がって配られるのではありません。印がついて私のところへ来て、私がその印の課へ回し、課長はその日のうちに受け取ります。",
+     "人事課の登録簿（Simon氏の窓口に備付け）。10月23日（水）：Vogt嬢の書簡、受付。同日 Z A 1 へ、課長本人に手渡し。タイピスト室の郵便巡回によらず。10月28日（月）：返戻、綴込みへ。",
+     "課の郵便は私の仕事です。Vahle氏はこの課へは下りてきません。Grau氏に用があれば、呼びにやらせます。",
+     "課が郵便をどうするかは私の言うことではありません。ですがVogt嬢の手紙は、茶色の鉛筆でRとだけ、横にイニシャルもなく、どこにも青の一筆もない状態で、ファイルに綴じるため私のところへ戻ってきました。気づきましたよ。私はそういうことに気づく性分なんです。",
+     "Litt夫人の組織図の写し：庁舎全体のものとして、郵便室（Poststelle）。記録室（Registratur）、Simon氏。そしてタイピスト室。手紙が入ってくる道筋：郵便室、記録室、秘書室、課長。書類が上がっていく道筋：課長、部長、局長。"
+    ]
+   },
+   {
+    "id": "vogt",
+    "label": "Vogt嬢",
+    "ask": "SarahはVogt嬢の机をもらったと言い、彼女はどうなったのだろうと口にする。",
+    "ask_of": {},
+    "always": true,
+    "raised_by": [
+     "郵便室の書留記録簿：10月23日（水）、Vogt嬢からの書留一通、省あて、局長宛。課の欄には Z A 1 と書かれている。",
+     "人事課の登録簿（Simon氏の窓口に備付け）。10月23日（水）：Vogt嬢の書簡、受付。同日 Z A 1 へ、課長本人に手渡し。タイピスト室の郵便巡回によらず。10月28日（月）：返戻、綴込みへ。",
+     "Vogt嬢の手紙は私が自分で持って上がりました。印がそう指示していましたから。そして課長ご本人の手にお渡ししました。Pohlmann女史は机にいましたが、私は手紙を持ってその前を通り、事務員の戸棚の前も立ち止まらずに通りました。",
+     "課が郵便をどうするかは私の言うことではありません。ですがVogt嬢の手紙は、茶色の鉛筆でRとだけ、横にイニシャルもなく、どこにも青の一筆もない状態で、ファイルに綴じるため私のところへ戻ってきました。気づきましたよ。私はそういうことに気づく性分なんです。",
+     "秘書室の一覧表（Pohlmann女史の手書き）、その机を通ったもの。10月23日（水）：Vogt嬢の書簡、記録室より、書き込みなし。直接課長へ回付、事務員（Kern夫人）を経由せず。10月28日（月）：課長より記録室へ返戻。茶色の鉛筆でR、イニシャルなし。青なし。その間：部長宛てなし。",
+     "あなたの机はVogt嬢の机です。あの子は速かった。秘書室から私たちへのものは、あそこから出るほかのものと同じく、トレーに入って下りてきます。Pohlmann女史は自分で書類を運んだりしません。"
+    ]
+   },
+   {
+    "id": "letters",
+    "label": "書類に鉛筆で書かれた文字",
+    "ask": "Sarahは、みなが書類に鉛筆で書き込む文字は何を意味するのかと尋ねる。",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "課が郵便をどうするかは私の言うことではありません。ですがVogt嬢の手紙は、茶色の鉛筆でRとだけ、横にイニシャルもなく、どこにも青の一筆もない状態で、ファイルに綴じるため私のところへ戻ってきました。気づきましたよ。私はそういうことに気づく性分なんです。",
+     "秘書室の一覧表（Pohlmann女史の手書き）、その机を通ったもの。10月23日（水）：Vogt嬢の書簡、記録室より、書き込みなし。直接課長へ回付、事務員（Kern夫人）を経由せず。10月28日（月）：課長より記録室へ返戻。茶色の鉛筆でR、イニシャルなし。青なし。その間：部長宛てなし。",
+     "下りてくる書類に鉛筆の記号が書かれているのを見るでしょうが、当て推量をしてはいけません。Vは口頭での詳しい説明（Vortrag）、Rは処理している人との打ち合わせ（Rücksprache）。そして課では、届いた手紙を処理するのは課長です。あとは私に聞いてください。"
+    ]
+   },
+   {
+    "id": "rules",
+    "label": "執務規程",
+    "ask": "Sarahは、執務規程は本当にそこまで書いているのかと尋ねる。",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "執務規程（Geschäftsordnung）は二度読みました。この部屋のほかの誰よりも一度多く。局（Abteilung）の誰かについての苦情は、局長が決めることです。はっきりそう書いてあります。",
+     "執務規程の第18条にあるのであって、Litt夫人の組織図だけの話ではありません。局長は青で、部長は茶色で書き込み、そのどちらかの代理を務める者は同じ色を使ってイニシャルを添えるのです。"
+    ]
+   },
+   {
+    "id": "pencils",
+    "label": "組織図の色鉛筆",
+    "ask": "Sarahは、Litt夫人の組織図の色は庁舎の規則なのか、それともLitt夫人が新人に教えるときのやり方にすぎないのかと尋ねる。",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "課が郵便をどうするかは私の言うことではありません。ですがVogt嬢の手紙は、茶色の鉛筆でRとだけ、横にイニシャルもなく、どこにも青の一筆もない状態で、ファイルに綴じるため私のところへ戻ってきました。気づきましたよ。私はそういうことに気づく性分なんです。",
+     "秘書室の一覧表（Pohlmann女史の手書き）、その机を通ったもの。10月23日（水）：Vogt嬢の書簡、記録室より、書き込みなし。直接課長へ回付、事務員（Kern夫人）を経由せず。10月28日（月）：課長より記録室へ返戻。茶色の鉛筆でR、イニシャルなし。青なし。その間：部長宛てなし。"
+    ]
+   },
+   {
+    "id": "cards",
+    "label": "課の事務員の仕事",
+    "ask": "Sarahは、いつかタイピスト室から上の階へ貸し出されたときのために、課の事務員は一日何をしているのかと尋ねる。",
+    "ask_of": {},
+    "always": true,
+    "raised_by": [
+     "Vogt嬢の手紙は私が自分で持って上がりました。印がそう指示していましたから。そして課長ご本人の手にお渡ししました。Pohlmann女史は机にいましたが、私は手紙を持ってその前を通り、事務員の戸棚の前も立ち止まらずに通りました。",
+     "秘書室の一覧表（Pohlmann女史の手書き）、その机を通ったもの。10月23日（水）：Vogt嬢の書簡、記録室より、書き込みなし。直接課長へ回付、事務員（Kern夫人）を経由せず。10月28日（月）：課長より記録室へ返戻。茶色の鉛筆でR、イニシャルなし。青なし。その間：部長宛てなし。",
+     "Litt夫人の組織図の写し：Z A部の下に、Z A 1課、すなわち人事課（Personalreferat）、407号室：Grau参事官（Ministerialrat）、課長（Referent）で課を率いる役人。色は使わずイニシャルで書き込む。その秘書、Pohlmann女史。課の事務員、Kern夫人。"
+    ]
+   }
+  ],
+  "exhibits": [
+   {
+    "thing": "郵便室の書留記録簿",
+    "line": "郵便室の書留記録簿：10月23日（水）、Vogt嬢からの書留一通、省あて、局長宛。課の欄には Z A 1 と書かれている。",
+    "portable": false
+   },
+   {
+    "thing": "仕分け台の上の掲示",
+    "line": "仕分け台の上の掲示：庁舎の職員に名指しで宛て、「親展」と記した手紙は、開封せずに本人へ渡す。省に宛てた手紙は、誰宛てであっても、ここで開封し、宛名の横に印を押し、その印の中に担当課の記号を記入する。",
+    "portable": false
+   },
+   {
+    "thing": "人事課の登録簿",
+    "line": "人事課の登録簿（Simon氏の窓口に備付け）。10月23日（水）：Vogt嬢の書簡、受付。同日 Z A 1 へ、課長本人に手渡し。タイピスト室の郵便巡回によらず。10月28日（月）：返戻、綴込みへ。",
+    "portable": false
+   },
+   {
+    "thing": "秘書室の一覧",
+    "line": "秘書室の一覧表（Pohlmann女史の手書き）、その机を通ったもの。10月23日（水）：Vogt嬢の書簡、記録室より、書き込みなし。直接課長へ回付、事務員（Kern夫人）を経由せず。10月28日（月）：課長より記録室へ返戻。茶色の鉛筆でR、イニシャルなし。青なし。その間：部長宛てなし。",
+    "portable": false
+   },
+   {
+    "thing": "Grau氏の卓上カレンダー",
+    "line": "Grau氏の卓上カレンダー。その週のところが開かれ、本人の手で：10月24日（木）に「部長」とあり、その日はほかに何も書かれていない。",
+    "portable": false
+   },
+   {
+    "thing": "Litt夫人の組織図の写し",
+    "line": "Litt夫人の組織図（Organisationsplan）の写し。新人のために色鉛筆で色分けしてある：大臣（Minister）、緑。事務次官（Staatssekretär）、赤。Z局（Abteilung Z）とその長である局長（Abteilungsleiter）、青。Z A部（Unterabteilung Z A）とその長である部長（Unterabteilungsleiter）、すなわちVahle部長（Ministerialdirigent）、茶色。誰かの代理を務める者は同じ色を使い、横に自分のイニシャルを添える。",
+    "portable": false
+   },
+   {
+    "thing": "Litt夫人の組織図の写し",
+    "line": "Litt夫人の組織図の写し：Z A部の下に、Z A 1課、すなわち人事課（Personalreferat）、407号室：Grau参事官（Ministerialrat）、課長（Referent）で課を率いる役人。色は使わずイニシャルで書き込む。その秘書、Pohlmann女史。課の事務員、Kern夫人。",
+    "portable": false
+   },
+   {
+    "thing": "Litt夫人の組織図の写し",
+    "line": "Litt夫人の組織図の写し：庁舎全体のものとして、郵便室（Poststelle）。記録室（Registratur）、Simon氏。そしてタイピスト室。手紙が入ってくる道筋：郵便室、記録室、秘書室、課長。書類が上がっていく道筋：課長、部長、局長。",
+    "portable": false
+   }
+  ],
+  "documents": {
+   "Litt夫人の組織図の写し": {
+    "kind": "tree",
+    "nodes": [
+     {
+      "label": "大臣（Minister）",
+      "mark": "green",
+      "children": [
+       {
+        "label": "事務次官（Staatssekretär）",
+        "mark": "red",
+        "children": [
+         {
+          "label": "Z局（Abteilung Z）",
+          "who": "その長である局長（Abteilungsleiter）",
+          "mark": "blue",
+          "children": [
+           {
+            "label": "Z A部（Unterabteilung Z A）",
+            "who": "その長である部長（Unterabteilungsleiter）、すなわちVahle部長（Ministerialdirigent）",
+            "mark": "brown",
+            "children": [
+             {
+              "label": "Z A 1課、すなわち人事課（Personalreferat）、407号室",
+              "who": "Grau参事官（Ministerialrat）、課長（Referent）で課を率いる役人",
+              "mark": "initials",
+              "children": [
+               {
+                "label": "その秘書室",
+                "who": "Pohlmann女史"
+               },
+               {
+                "label": "課の事務員",
+                "who": "Kern夫人"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ],
+        "who": null
+       }
+      ],
+      "who": null
+     }
+    ],
+    "sections": [
+     {
+      "title": "庁舎全体のものとして",
+      "items": [
+       "郵便室（Poststelle）",
+       "記録室（Registratur）、Simon氏",
+       "タイピスト室"
+      ]
+     }
+    ],
+    "routes": [
+     {
+      "title": "手紙が入ってくる道筋",
+      "steps": [
+       "郵便室",
+       "記録室",
+       "秘書室",
+       "課長"
+      ]
+     },
+     {
+      "title": "書類が上がっていく道筋",
+      "steps": [
+       "課長",
+       "部長",
+       "局長"
+      ]
+     }
+    ],
+    "columns": []
+   }
+  },
+  "pictures": {
+   "郵便室の書留記録簿": "art/documents/registered-post-book-cut.png",
+   "仕分け台の上の掲示": "art/documents/sorting-card-cut.png",
+   "人事課の登録簿": "art/documents/tall-register-cut.png",
+   "秘書室の一覧": "art/documents/clipboard-list-cut.png",
+   "Litt夫人の組織図の写し": "art/documents/org-chart-cut.png",
+   "Grau氏の卓上カレンダー": "art/documents/desk-calendar-cut.png"
+  },
+  "props": [
+   {
+    "thing": "郵便室の書留記録簿",
+    "prop": "P04",
+    "places": [
+     "poststelle"
+    ],
+    "files": {
+     "art/rooms/poststelle-autumn.jpeg": "art/props/painted-p04-autumn.png",
+     "art/rooms/poststelle-friday.jpeg": "art/props/painted-p04-friday.png",
+     "art/rooms/poststelle-spring.jpeg": "art/props/painted-p04-spring.png"
+    },
+    "box": [
+     0.57617,
+     0.47005,
+     0.10254,
+     0.05469
+    ],
+    "under": null
+   },
+   {
+    "thing": "仕分け台の上の掲示",
+    "prop": "P05",
+    "places": [
+     "poststelle"
+    ],
+    "files": {
+     "art/rooms/poststelle-autumn.jpeg": "art/props/sorting-card-autumn.png",
+     "art/rooms/poststelle-friday.jpeg": "art/props/sorting-card-friday.png",
+     "art/rooms/poststelle-spring.jpeg": "art/props/sorting-card-spring.png"
+    },
+    "box": [
+     0.47144,
+     0.36458,
+     0.02197,
+     0.02865
+    ],
+    "under": null
+   },
+   {
+    "thing": "人事課の登録簿",
+    "prop": "P06",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/tall-register-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/tall-register-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/tall-register-spring.png"
+    },
+    "box": [
+     0.43774,
+     0.48698,
+     0.10181,
+     0.02344
+    ],
+    "under": null
+   },
+   {
+    "thing": "秘書室の一覧",
+    "prop": "P07",
+    "places": [
+     "vorzimmer"
+    ],
+    "files": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/clipboard-list-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/clipboard-list-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/clipboard-list-spring.png"
+    },
+    "box": [
+     0.59229,
+     0.61068,
+     0.04175,
+     0.02214
+    ],
+    "under": null
+   },
+   {
+    "thing": "Litt夫人の組織図の写し",
+    "prop": "P08",
+    "places": [
+     "pool"
+    ],
+    "files": {
+     "art/rooms/pool-autumn.jpeg": "art/props/org-chart-autumn.png",
+     "art/rooms/pool-friday.jpeg": "art/props/org-chart-friday.png",
+     "art/rooms/pool-spring.jpeg": "art/props/org-chart-spring.png",
+     "art/rooms/pool-sunday.jpeg": "art/props/org-chart-sunday.png"
+    },
+    "box": [
+     0.29053,
+     0.32682,
+     0.0498,
+     0.0638
+    ],
+    "under": null
+   },
+   {
+    "thing": "Grau氏の卓上カレンダー",
+    "prop": "P57",
+    "places": [
+     "z407"
+    ],
+    "files": {
+     "art/rooms/z407-autumn.jpeg": "art/props/desk-calendar-autumn.png",
+     "art/rooms/z407-friday.jpeg": "art/props/desk-calendar-friday.png",
+     "art/rooms/z407-spring.jpeg": "art/props/desk-calendar-spring.png"
+    },
+    "box": [
+     0.31323,
+     0.60156,
+     0.07251,
+     0.02995
+    ],
+    "under": null
+   }
+  ],
+  "opens": {},
+  "sarah": "art/people/sarah.png",
+  "sarah_height": 172,
+  "forms": {}
+ },
+ "glossary": [
+  {
+   "term": "Abteilung",
+   "also": [],
+   "short": "局",
+   "long": "省の指導部の下にある最も大きな区分で、局長（Abteilungsleiter）が率いる。Z局は庁舎そのものを動かしている局である。"
+  },
+  {
+   "term": "Abteilungsleiter",
+   "also": [],
+   "short": "局長",
+   "long": "局（Abteilung）の長。いくつもの課（Referat）を一人で束ねる。部長（Unterabteilungsleiter）より上、事務次官（Staatssekretär）より下。青鉛筆は彼のもの。"
+  },
+  {
+   "term": "Dienstweg",
+   "also": [],
+   "short": "上申の道筋",
+   "long": "正式な経路。書類はまず自分の上司へ上がり、その上司からさらにその上司へ、一段ずつ上がっていく。"
+  },
+  {
+   "term": "Geschäftsordnung",
+   "also": [
+    "Geschaeftsordnung"
+   ],
+   "short": "執務規程",
+   "long": "連邦各省共通執務規程（Gemeinsame Geschäftsordnung der Bundesministerien）。誰が何を、どの書式で、どの順序で、何色の鉛筆でしてよいかを定めた常設の規則。ほとんどの人は読んだことがない。"
+  },
+  {
+   "term": "Ministerialdirigent",
+   "also": [],
+   "short": "省のごく上級の職階",
+   "long": "参事官（Ministerialrat）より上の職階で、通例は部（Unterabteilung）を率いる者のもの。"
+  },
+  {
+   "term": "Ministerialrat",
+   "also": [],
+   "short": "省の上級の職階",
+   "long": "Regierungsdirektor より上の職階。重みのある課を率いる者か、さらに上へ向かう途中の者。"
+  },
+  {
+   "term": "Organisationsplan",
+   "also": [],
+   "short": "組織図",
+   "long": "どの省にもある。大臣から各課まで、誰が何を率いているか。"
+  },
+  {
+   "term": "Personalreferat",
+   "also": [],
+   "short": "人事課",
+   "long": "職員そのものを扱う課。任用、異動、休暇、そして誰を辞めさせるか。"
+  },
+  {
+   "term": "Poststelle",
+   "also": [],
+   "short": "郵便室",
+   "long": "庁舎の郵便を仕分け、受け取り、発送する所。"
+  },
+  {
+   "term": "Referent",
+   "also": [],
+   "short": "それを処理する課長",
+   "long": "課の中で実際にファイルを処理する役人。課を率いる者とは区別される。"
+  },
+  {
+   "term": "Registratur",
+   "also": [],
+   "short": "記録室",
+   "long": "ファイルを保管し、一つ一つの貸し出しと返却を記録する部屋。貸出簿に署名がなければ何も外へ出ない。"
+  },
+  {
+   "term": "Staatssekretär",
+   "also": [
+    "Staatssekretaer"
+   ],
+   "short": "事務次官",
+   "long": "大臣のすぐ下にいる、省で最も上級の役人。赤鉛筆は彼のもの。"
+  },
+  {
+   "term": "Unterabteilung",
+   "also": [],
+   "short": "部",
+   "long": "局のすぐ下の区分で、部長（Unterabteilungsleiter）が率い、その下にいくつもの課がある。"
+  },
+  {
+   "term": "Unterabteilungsleiter",
+   "also": [],
+   "short": "部長",
+   "long": "局長とその下の課長たちの間に立つ。茶色の鉛筆は彼のもの。"
+  }
+ ],
+ "lang": {
+  "code": "ja",
+  "sep": "：",
+  "boundary": false,
+  "articles": [],
+  "bare": false
+ }
+}

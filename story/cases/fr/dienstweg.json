@@ -1,0 +1,2128 @@
+{
+ "id": "dienstweg",
+ "subtitle": "Par la voie hiérarchique",
+ "title": "DER DIENSTWEG",
+ "engine": "procedure",
+ "preamble": "En octobre, le pool dactylographique avait une dactylo de remplacement, Fräulein Vogt. Le mardi 22 octobre, elle a envoyé par la poste une plainte au sujet du Ministerialdirigent Vahle, l'Unterabteilungsleiter, adressée au ministère, à l'attention de l'Abteilungsleiter. Dans la semaine, Herr Vahle savait ce qu'elle contenait, et l'engagement de Fräulein Vogt n'a pas été renouvelé.\n\nVoici tout ce qui a été trouvé ou dit.",
+ "question": "La plainte de Fräulein Vogt n'était destinée qu'à l'Abteilungsleiter. Qui l'a transmise à Herr Vahle ? Remplissez le rapport.",
+ "days": [
+  {
+   "n": 1,
+   "name": "Une semaine",
+   "note": "",
+   "sections": [
+    {
+     "where": "la Poststelle",
+     "lines": [
+      "Le registre des recommandés de la Poststelle : mercredi 23 octobre, une lettre recommandée de Fräulein Vogt, adressée au ministère à l'attention de l'Abteilungsleiter, et Z A 1 inscrit dans la colonne du Referat.",
+      "L'avis au-dessus de la table de tri : une lettre adressée nommément à un membre de la maison et portant la mention « Personnel » lui est remise sans être ouverte ; une lettre adressée au ministère, à l'attention de qui que ce soit, est ouverte ici, revêtue du cachet d'arrivée à côté de l'adresse, et le cachet porte l'indicatif de son Referat."
+     ]
+    },
+    {
+     "where": "la Registratur",
+     "lines": [
+      "Le registre du Personalreferat, tenu au guichet de Herr Simon. Mercredi 23 octobre : lettre de Fräulein Vogt enregistrée ; montée à Z A 1 le jour même, remise au Referent en mains propres, non par la tournée de courrier du pool. Lundi 28 octobre : retour, pour classement."
+     ]
+    },
+    {
+     "where": "le secrétariat du 407",
+     "lines": [
+      "La liste du secrétariat, de la main de Frau Pohlmann, de ce qui est passé par son bureau. Mercredi 23 octobre : lettre de Fräulein Vogt, venue de la Registratur, sans annotation ; présentée aussitôt au Referent, sans passer par la rédactrice (Frau Kern). Lundi 28 octobre : rendue par le Referent à la Registratur ; R au crayon brun, sans paraphe ; pas de bleu. Entre les deux : rien pour l'Unterabteilungsleiter."
+     ]
+    },
+    {
+     "where": "Frau Pohlmann",
+     "lines": [
+      "Quand on lui montre sa propre liste, elle la parcourt une fois de haut en bas et dit que c'est son écriture et que ce sont bien les bonnes dates, et que si quelque chose est monté de ce Referat chez l'Unterabteilungsleiter cette semaine-là, ce n'est pas parti de ce bureau, et qu'elle ne connaît pas d'autre chemin.",
+      "Le courrier du Referat, c'est mon affaire. Herr Vahle ne descend pas dans ce Referat ; s'il veut Herr Grau, il le fait appeler.",
+      "Tout ce qui est pour Herr Grau passe par ce bureau et repart par ce bureau, et cela depuis dix ans. Si vous voulez savoir où se trouve une pièce : elle est ici, ou c'est noté ici."
+     ]
+    },
+    {
+     "where": "Herr Simon",
+     "lines": [
+      "Directement au Referat auquel il est destiné. Dans cette maison, le courrier ne monte pas d'abord chez l'Abteilungsleiter pour être réparti. Il m'arrive marqué, je le fais suivre au Referat dont il porte la marque, et le Referent l'a le jour même.",
+      "Frau Pohlmann ne porte pas elle-même les pièces hors de ce Referat. Ce qui en sort passe par sa corbeille de départ, arrive à ce guichet et va au registre. Et personne ne descend dans ce Referat pour une pièce : Herr Vahle fait appeler Herr Grau.",
+      "J'ai monté moi-même la lettre de Fräulein Vogt, parce que c'est ce que me disait de faire la marque qu'elle portait, et je l'ai remise au Referent en mains propres. Frau Pohlmann était à son bureau ; je suis passé devant elle avec la lettre, puis devant l'armoire de la rédactrice, sans m'arrêter.",
+      "Ce n'est pas à moi de dire ce qu'un Referat fait de son courrier. Mais la lettre de Fräulein Vogt m'est revenue pour classement avec un R au crayon brun, seul, sans paraphe à côté, et pas un trait de bleu nulle part. Je l'ai remarqué. Je remarque ces choses."
+     ]
+    },
+    {
+     "where": "Bureau 407",
+     "lines": [
+      "L'agenda de bureau de Herr Grau, ouvert à cette semaine-là, de sa propre main : au jeudi 24 octobre, « Unterabteilungsleiter », et rien d'autre d'écrit ce jour-là."
+     ]
+    },
+    {
+     "where": "Ministerialrat Grau",
+     "lines": [
+      "Le pool ? Je serais incapable de distinguer ces dames les unes des autres, et Frau Pohlmann veille à ce que je n'aie pas à le faire."
+     ]
+    },
+    {
+     "where": "le pool dactylographique",
+     "lines": [
+      "L'exemplaire de l'organigramme (Organisationsplan) de Frau Litt, avec les couleurs portées au crayon à l'intention des nouvelles venues : le Minister, vert ; le Staatssekretär, rouge ; l'Abteilung Z, la direction, et son directeur, l'Abteilungsleiter, bleu ; l'Unterabteilung Z A, la sous-direction, et son sous-directeur, l'Unterabteilungsleiter, le Ministerialdirigent Vahle, brun. Celui qui remplace l'un d'eux prend la même couleur et met son paraphe à côté.",
+      "L'exemplaire de l'organigramme de Frau Litt : sous l'Unterabteilung Z A, le Referat Z A 1, le Personalreferat, la section du personnel, bureau 407 : le Ministerialrat Grau, le Referent, le fonctionnaire à sa tête, qui vise d'un simple paraphe, sans couleur ; son secrétariat, Frau Pohlmann ; la rédactrice du Referat, Frau Kern.",
+      "L'exemplaire de l'organigramme de Frau Litt : pour toute la maison, la Poststelle, le service du courrier ; la Registratur, les archives courantes, Herr Simon ; et le pool dactylographique. Comment une lettre arrive : la Poststelle, la Registratur, le secrétariat, le Referent. Comment une pièce monte : le Referent, l'Unterabteilungsleiter, l'Abteilungsleiter."
+     ]
+    },
+    {
+     "where": "Frau Litt",
+     "lines": [
+      "Vous êtes à la place de Fräulein Vogt. Elle était rapide. Tout ce que le secrétariat a pour nous est déposé dans la corbeille de départ de Frau Pohlmann et descend de là, comme tout ce qui sort du secrétariat ; Frau Pohlmann ne porte pas les pièces elle-même.",
+      "Vous verrez des sigles au crayon sur les pièces qui descendent, et vous n'avez pas à chercher à les deviner. V, c'est pour un exposé en bonne et due forme, R pour un bref entretien avec celui qui traite la pièce, et dans un Referat, le courrier à l'arrivée est traité par le Referent. Le reste, vous pouvez me le demander."
+     ]
+    },
+    {
+     "where": "Fräulein Ostrowski",
+     "lines": [
+      "J'ai lu deux fois le règlement intérieur, la Geschäftsordnung, soit une fois de plus que n'importe qui dans cette salle. Une plainte visant quelqu'un de l'Abteilung, c'est à l'Abteilungsleiter d'en décider. C'est écrit en toutes lettres.",
+      "Cela aussi s'y trouve, si vous y tenez : tant qu'une pièce est en cours de traitement, c'est celui qui la traite qui en répond, et dans un Referat, c'est le Referent. La Registratur n'en répond qu'avant et après.",
+      "C'est dans la Geschäftsordnung, § 18, et pas seulement sur l'organigramme de Frau Litt : l'Abteilungsleiter vise en bleu, l'Unterabteilungsleiter en brun, et celui qui remplace l'un d'eux prend la même couleur et ajoute son paraphe."
+     ]
+    }
+   ]
+  }
+ ],
+ "words": [
+  {
+   "text": "Grau",
+   "kind": "person"
+  },
+  {
+   "text": "Vahle",
+   "kind": "person"
+  },
+  {
+   "text": "Pohlmann",
+   "kind": "person"
+  },
+  {
+   "text": "Kern",
+   "kind": "person"
+  },
+  {
+   "text": "Simon",
+   "kind": "person"
+  },
+  {
+   "text": "Litt",
+   "kind": "person"
+  },
+  {
+   "text": "Ostrowski",
+   "kind": "person"
+  },
+  {
+   "text": "Vogt",
+   "kind": "person"
+  },
+  {
+   "text": "Abteilungsleiter",
+   "kind": "thing"
+  },
+  {
+   "text": "Unterabteilungsleiter",
+   "kind": "thing"
+  },
+  {
+   "text": "Referent",
+   "kind": "thing"
+  },
+  {
+   "text": "Staatssekretär",
+   "kind": "thing"
+  },
+  {
+   "text": "brun",
+   "kind": "thing"
+  },
+  {
+   "text": "bleu",
+   "kind": "thing"
+  },
+  {
+   "text": "vert",
+   "kind": "thing"
+  },
+  {
+   "text": "rouge",
+   "kind": "thing"
+  },
+  {
+   "text": "paraphe",
+   "kind": "thing"
+  },
+  {
+   "text": "Z A 1",
+   "kind": "thing"
+  },
+  {
+   "text": "le secrétariat",
+   "kind": "thing"
+  },
+  {
+   "text": "la Registratur",
+   "kind": "thing"
+  },
+  {
+   "text": "la table de tri",
+   "kind": "thing"
+  },
+  {
+   "text": "le pool dactylographique",
+   "kind": "thing"
+  },
+  {
+   "text": "23 octobre",
+   "kind": "time"
+  },
+  {
+   "text": "28 octobre",
+   "kind": "time"
+  },
+  {
+   "text": "dix ans",
+   "kind": "time"
+  }
+ ],
+ "parts": [
+  {
+   "id": "marks",
+   "title": "À qui elle revenait",
+   "text": "Qui devait statuer sur la lettre : ___. Elle est revenue pour être classée, portant un R. Couleur du R : ___ ; couleur absente : ___.",
+   "kinds": [
+    "thing",
+    "thing",
+    "thing"
+   ],
+   "sealed": "3b5819e8394442acbd1001a67f489fc04f1f31e7284a928261878a90337c8b22",
+   "blanks": [
+    "9d1c178ed6335cc1192a93f975330960a4d7f47445131987c65c4dec8bfb0ae5",
+    "2c572567de484cc5fc040e6bb157c34e6c12743db1cd34d0266477f0f1740bd7",
+    "c5e6e155ac0006baac9ccfb64693cb01f477347cbb5740290c3e507ad1340d11"
+   ],
+   "hints": [
+    "Interrogez Fräulein Ostrowski sur le règlement, et Herr Simon sur la lettre telle qu'elle est revenue.",
+    "À qui la Geschäftsordnung confie-t-elle la décision sur une plainte visant quelqu'un de l'Abteilung ? De quelle couleur est le R sur la lettre, et quelle couleur manque ?",
+    "Les mots : Abteilungsleiter, brun, bleu."
+   ]
+  },
+  {
+   "id": "custody",
+   "title": "Cinq jours",
+   "text": "Du ___ au ___, elle est restée entre les mains de celui qui en répondait. Fonction : ___.",
+   "kinds": [
+    "time",
+    "time",
+    "thing"
+   ],
+   "sealed": "034d797ccb04d6e20be9a42e9795652e89b293e82de2a4ac907b45bee0bd4239",
+   "blanks": [
+    "d61d8490248deb0fd2e9cbc780d002cc1331382e0d9acfc432d8a067903c970a",
+    "5140449ceb7eaba890ba7b02c2530bb69e836ea502c8a452a6702b2f7549c867",
+    "6f2a5b6cd232ad138dc4739a2f8b3c2e67e487898a4b251589b396f5d3f8f38b"
+   ],
+   "hints": [
+    "Le registre de Herr Simon au guichet, et la liste du secrétariat, de la main de Frau Pohlmann.",
+    "Tous deux donnent le jour où la lettre est montée et le jour où elle est revenue. Fräulein Ostrowski dit qui répond d'une pièce pendant qu'elle est traitée.",
+    "Les mots : 23 octobre, 28 octobre, Referent."
+   ]
+  },
+  {
+   "id": "passed",
+   "title": "Par la voie hiérarchique",
+   "text": "Elle a été transmise par ___ à l'homme qu'elle visait. La fonction de cet homme : ___.",
+   "kinds": [
+    "person",
+    "thing"
+   ],
+   "sealed": "b93e60aa97f1ecedb0e970b2afab137a17429400e7ba3aa0fbf9edb40c54ce40",
+   "blanks": [
+    "839a9d25c976648b334ab31840cee4c1603e2467110c180fabf9fcc771acbd28",
+    "d6bf15d150b8539f8a56aaaeaf0cf30688c584629273e93c47dd90046ae9e4fe"
+   ],
+   "hints": [
+    "L'organigramme de Frau Litt au pool dactylographique, et ce que dit Fräulein Ostrowski des crayons de couleur.",
+    "Le R est brun, sans paraphe à côté. À qui appartient le brun ? Et qui a eu la lettre devant lui pendant cinq jours ?",
+    "Les mots : Grau, Unterabteilungsleiter."
+   ]
+  }
+ ],
+ "memo": {
+  "form": {
+   "office": "Bonn",
+   "kind": "Rapport",
+   "to": "Kommissar Mauser, Kriminalpolizei de Bonn",
+   "by": "S. Wessen, détective privée",
+   "facts": "I. Constatations",
+   "excluded": "II. Qui peut être mis hors de cause, et sur quelles preuves",
+   "result": "III. Résultat",
+   "evidence": "Preuves"
+  },
+  "marks": {
+   "holds": "✓ M.",
+   "words": "? — cela ne tient pas",
+   "proof": "D'autres preuves disponibles ?",
+   "own": "Sa propre déclaration",
+   "ring": "Ils se portent garants l'un de l'autre",
+   "empty": "Rien de cité",
+   "others": "Et les autres ?"
+  },
+  "mauser": {
+   "words": {
+    "en": "You think you know something, and life comes along and says: if only.",
+    "de": "Wenn man glaubt, man weiß was, kommt das Leben und sagt: 'Schön wär's.'",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "On croit savoir quelque chose, et la vie arrive et dit : si seulement."
+   },
+   "own": {
+    "en": "They all claim something.",
+    "de": "Behaupten tun sie alle was.",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "Ils affirment tous quelque chose."
+   },
+   "ring": {
+    "en": "A collective alibi. You can't fill a report with that.",
+    "de": "Kollektives Alibi. Damit kann man kein Protokoll füllen.",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "Un alibi collectif. On ne remplit pas un rapport avec cela."
+   },
+   "proof": {
+    "en": "Maybe. But a little digging never hurts.",
+    "de": "Vielleicht. Aber ein bisschen recherchieren schadet nie.",
+    "src": "Schmiss und Wessen, Band 6",
+    "text": "Peut-être. Mais creuser un peu ne fait jamais de mal."
+   },
+   "empty": {
+    "en": "But at least write me a report that looks like a police document.",
+    "de": "Aber schreiben Sie mir wenigstens einen Bericht, der wie ein Polizeidokument aussieht.",
+    "src": "Schmiss und Wessen ermitteln",
+    "text": "Mais écrivez-moi au moins un rapport qui ressemble à un document de police."
+   },
+   "others": {
+    "en": "Slowly. It's not that simple, I'm afraid.",
+    "de": "Langsam. So einfach ist es leider nicht.",
+    "src": "Schmiss und Wessen, Band 7",
+    "text": "Doucement. Ce n'est pas si simple, je le crains."
+   },
+   "solved": {
+    "en": "Everyone has their own small truth. But in the end there's only one that counts.",
+    "de": "Und doch hat jeder seine eigene kleine Wahrheit. Aber am Ende gibt's nur eine, die zählt.",
+    "src": "Schmiss und Wessen, Band 3",
+    "text": "Chacun a sa petite vérité. Mais à la fin il n'y en a qu'une qui compte."
+   }
+  },
+  "subject": "La plainte de Fräulein Vogt du 22 octobre 1968, et comment elle est parvenue à Herr Vahle",
+  "result": [
+   "passed"
+  ],
+  "cite": {
+   "marks": {
+    "need": "49d87355f86ce38f2cd9ef2b85a224eaaf136d20c3ac3a838ac0fb441c384218",
+    "marks": [
+     "0636fd3fff25a5f0c59617b2d54842d3ca018eb4f94a1c56bce164edfaec8bf6",
+     "07fe856b961678697e239bd65a9497183289a7a43dc92d6c933a3a4a2db8e64c",
+     "123a1807d0067c54e8ec7d78b7c40b5612eeb570d46e00ce81677162dcdfaee2",
+     "1892614df0e524a43ca57fa0042393d2146c01b326ccb9c2e0e5013904aa7d3e",
+     "243ec136da135bb28354d2798cae98fbb7889abfa52d328b7c9763cff9e1c69f",
+     "272087f60510309a03f46527ea423f3692390322b68324169c40168944c71729",
+     "283b4a5e59f18d1688ff8b741aabc22b287b3c6f276d14b1d10282c4ca0552e0",
+     "2fc8397abfd7c922713fb5fae5aa0c8181791fdb7362bd1ea54429527eafdc6b",
+     "3704d2ea7ea1ebce9ea145b8a63e5d1a147b69dbaf76202d2cb0e51a5007e042",
+     "3e6be059974557746ec51ccf2c689eccec6d5efa1489f92e2925574914a33982",
+     "4bd61c05fc8157d8d1692452023f7a793ea00e84a289f5de97307ddfbb5095f5",
+     "4d351d20daeb4bc79aae28857ea73f43c07e817cadfff236de68db7b62d0ea8b",
+     "577fbb09d83c29c7fef01b25e8b2ba2649522929f059324afbdd27a240780429",
+     "5a1173986db38390ed31532301b0ab8382a8fcd12eb4dfb739a84ade2a80166c",
+     "5d48a33be04f4cb02fdd2e2ff76de73569ea67e61b7938735bf2b1b61777e906",
+     "5eeeeda7678e8109dd83eef4110537c99bdb2e008f08e0be7d9bbc0307430b75",
+     "649c2fedecf7eb38d93a870f30f70b51fe31f7c6a0fac77bb578ee60bcb6b9dd",
+     "6e000694d4792f162cf8c8bce4f434cdf2e6a67785b0bce3c16bf3c5aa63a12e",
+     "72266d9a482df6795b84e73f2f6940ba513c24091df5fb76f7e9630e57b4fe67",
+     "7e44fc50e07469cbc2fb97f6c4e17df36713f74b3a465086c3109da59245f01b",
+     "8123cdd6ccd4e740b6ac16b2de0ee16a6147f58b64aac2e066c468726bb698bb",
+     "82b31e02bc8e9907dcbfd63925f9d6eab680524ea711175696f8f9cabfdda506",
+     "8aa1e964f342240d74c73f41a6572d4d7ccbfc335d6ff4553336917bcf36ce48",
+     "9debb8f302a1be3f76535224781e9caf6b9fb779753b37ddea986c6031c16678",
+     "b3b9b5a0111c1e196d84d2bae08a850198556d1144d631b54819e5fe7794f33c",
+     "bb60e25d669c87edbe2e50e5a9e3f8755db3d03664e33057644f87684cef2ae2",
+     "c21b0062adacb5167a6862390c50346af99757ee5ac26f247948da1fb438ab6f",
+     "c390601c1e1be2eb592e51ccc7fb13b042523f1f68f83b7e1587c292cb639edd",
+     "d939863c6dc2fa62fd6a085f052592874e59cf197ddf19d679c3b543f22e6d5c",
+     "df773c82a65c6255e5557876a7b7e6c7b927ea2eed863a9e8b2d895e1efda0a1",
+     "e011915066ab21194e81a0dd25a447cfcfa60cc939dd2bc1666809a86a411af6",
+     "e13847135f095bb311151d7a0916e143fbea291eaa5352cb4f519625019efff8",
+     "e8283d15f363237b22755d387d6957f7a63a02bcbc04ad44fe177caeec9c8546",
+     "ebe0fd11ddd15ebab8be639ac8cf5d904b69c5e3df118f9b6fffa63ef8b8a7e5",
+     "ed8135c68680459893b70bf162647ee8daefb393cedaa4a8a9070e3c106d12b9",
+     "f18b228b1401fc111971f4f3d86caa894f30d7bebeaa1a96940bc192d228d054",
+     "f56d7cf9f20e3c93e61af58735ee133ac4edc178966d351a23e2ceb28c9a2c51",
+     "f5ab8f51eeca272fb3dd7c27cffdf32987ea43abfbab4139bbb68012f035f5e3",
+     "f654600b97d4459f4fc1f5dc7191c87061341716fbc140d94600b7727b05575f",
+     "fba56caf31fdcbd2ad35dbf1cd24b31656dcbf27dacede23aad485719081ca57"
+    ]
+   },
+   "custody": {
+    "need": "3374ce8d7511e62666741761e1789342fa53cf5fa0176c1046565cb2c8db5ea7",
+    "marks": [
+     "0025ada59f9437e9057e00f3005cd6bedc08746fced43989fd0751971aa03f8a",
+     "08c006550bc0432dfc72e3b5a453019925d283c7b3c580bb5799c6b1646afb8c",
+     "0c5d2f1f42ea42382f77d3dffab27f00e2a5d9e3f7f2f72b8ca7a2d1b8987295",
+     "0fba54285eecabe33c5d76542dac90b2a69ca46b3988e3c9399a0cf87721014f",
+     "16402083a8d4df1579cb8a17cbeb36f250c1340d81b629349a4b8ec2b0bc2665",
+     "19eb63bc0479325864becc9db6cdb0fa573965e68d4a521423527a2cdc5a49bc",
+     "1fde21958abbf9b12176ad1337f2be96c6d8a3138fe2a06906d2697c7587ad3e",
+     "2a9356a07498d77c859bc6d079ddc320046f786643f6b30ea6c23cd4c32d4f04",
+     "2d1edd327b72362983281b4f74a390875a198abd9549c1e63254d6f5bc27c013",
+     "36198f04d0136058b7785206953afecb9fc4a5387afe6735edf5889229a20717",
+     "504c7f01e1e4c694300897e8d35bfa94133436cc7371f67359cdf57d90575046",
+     "52b69008061cc16977c1f5fd50575d0e87ddef73da55cb77ec3139aa49e9df7e",
+     "547638e5b6c79b26206b53935c91a61450a7ebd680f96516f34d2fbf66bb678a",
+     "62c7678757f25d9df34115460ee3899f1a3ea0b1ea0ed526445e79d4fcab89e7",
+     "6a26826af4a83a01e1fead0585f5cc0e9a2b96990bccf103faf59af07a1375ca",
+     "6cf27bdaaf136d0df07589e6a15f4a535a6d67215c2d434a60fc772737053fd6",
+     "79e894e6408a024b2b063e5b6c4c363d8bff7a7391c4e089ecc86fd76ef74fa7",
+     "7f6155a5bc3fb9851d63977c5abb6f88d1129b706056673c0654b71023ca96be",
+     "8b6ebfde9fe99f4cb439ac024c08ceb085a22a55653da16a122d9940d98f4ea9",
+     "9b1c958ebd4b5f53ba417bbed2ea29d7797ca574cd495909cab752a670ba0c2f",
+     "9ed77d35a1de9e8daad23a45889b827a582c57edfbf67f6a9ddccc7053255e8c",
+     "a95de404839f8b94aefa09371e69397076b20482b20781124a09c756b8fe94e4",
+     "b00c1e3130e96d603217be0b20a454972d1691134827785720d12f744ab11f93",
+     "b3b89073c365bb2ff4b109d626d96aff69015eb68543f3a2fd47ba91cd3f4173",
+     "b7d96bdd279ae9f50bfcf1110cdec515da8e98c5573c3d2069f3caa19c906094",
+     "bd66ba6a4101241221a54238eb30df7fd70bd31c9bbe6c9fe0a8ecc906c6ba24",
+     "be24dba6603e70da54e483bd7a86f906efc918a944fdaa296620501f27581b4c",
+     "c1b853c2b6d08ee42b49396a330019fbb05b4caeb77b7ae5ff457773c11c7893",
+     "c58e51510b19558982650cb05432f3393cf617005467dde19794e29e51b623d0",
+     "d3e7939040a6448132ec72d8d01c2c1cb4f108c84af9bdf1746a101e290d6bce",
+     "d40afbc4d64b387490185a2323413acb6caa5f43c01918d4a27969e24c68c9c1",
+     "d425ed9c974013d098405c42d43a4def953c247158f6732e1b505856e72c1c4f",
+     "d6dd78eb5356f82f27978539eb368336ae75f36f5e4ffe39b6ebec0fef12429b",
+     "e4701cc9c218f1cac2d448f2bb79bd0ac6659e06218247580f8389473c1c7182",
+     "ec53c8649e3695f55d55f699db3cd2aaa1f614fc38083a058b9f49fe01bcab0d",
+     "ee7937673eee88cdafab923303d5c4f8f3c86df12f2c8f672a1c70c5d246fc0e",
+     "f16830a039f4fea27aa8e145edb68a7f3849b767e0857366a28db5cb41f65b85",
+     "f2f66518d3de9f7593808807efb69b34b60e5fe49a8363fc259131d9d61fcd2b",
+     "f67ada391dfd417ba8632549880632d1ee1e0dc83767f2f1f516a0fe8d319f17",
+     "f89f141b49e5e17eb75cfc23ed97a49ae786f57565f2c69dc563132675116769"
+    ]
+   },
+   "passed": {
+    "need": "daafa720990d7905bb18c76a66c5df315a96a542cdc3c564cb6c4106db5d9c52",
+    "marks": [
+     "040b0379d8124feb22f5d4b977894e1a5ead40b67eecbf8d53e68099edbe9a3b",
+     "0521a988f1d12fb60e351718eeb190a602837e43899358bb1e8e80201de8c144",
+     "05eab2909f9ee705e74e0abd6116a5f425f7bed87e408ff303384704e44723bf",
+     "1570238216fe01c93d04897055fddfe76e8e5dcc3394806b8bae68a343b2b645",
+     "1d727602b7b75c954e3940801b314302f09b6b958c152300f09997324f3ad3f8",
+     "29d708d47c976f4b9a7b849ac9acc4db33483b21642ca85f9fcdfd113d03444d",
+     "35c88aba49dcc8250fbbd8b25d0b6af4c0aef9abce6c659f31564b7f91f6c90a",
+     "382a52a4f6228564e5566b8ae6a18d6b5075bc566f6692c583c5d5ef679bedb3",
+     "3addd02ad5d1b8d35a676c4d88672eed74c934d27b2147aa3f27a7e1bdd3b990",
+     "3b5ffacb9cf90307749be7054079b5e32a0c0fc67b4a488d2288c298b893834e",
+     "40a7a25fba4dc4318bb23f8d23aae978d30f3346f60d16abf1285a104a8b960e",
+     "45ac487b2fd0d01c4c79b7094f84dd21b1641d54d8f1c48e24032ce9cf9b23ac",
+     "45d4bb3e0904216a8e315ad2e4cfc8e2851481ce3ac8b246290262720c7e16f4",
+     "4e1ca3c0359301e073f22c83d628509a1f106121d383abe3475cafa39d40991f",
+     "50f361b1efcaff38366005376a2c8d879105b9f647b6f272c8ef102bf066df87",
+     "52b15489b1a64754c17828ceb7dea364e47e9557e11f4731f735f6a0f3ac7c59",
+     "559c427bfa456fadf77b3ebebdfca4be88f274b16ecef760647103d8b2e35fe1",
+     "5f84dd03bb6ec8a6e3bbfa4c379bb5a17a047cf0957d0e272e9216e9e8c75176",
+     "6c0b57e1c3909fbc78e3e5ade61337a82e285080da990ac93e6aa21f371fc2aa",
+     "72f2362d2b2f774a6fde16a65591038130fcc2d6723830d5bb8ed9542267c14c",
+     "7692fe287dba390e752864dae12d9833825b3912a6e7ad3b00aec4b45332f4ab",
+     "7698269511d33cea2e6974e7422a9acf9c3f5fd3a6a09de0da1d74cdd071ac33",
+     "8203cb509879da2ee8e1b18b0040ebf9ee806f6d4a0ad57716a71407621665cb",
+     "82229f25d4a6b39c2e9abac295f42f061b2ed1af31ef1b68f58f37ba503c16d9",
+     "8327026dd7e47bdf6a46f2e9117b5d382f9aa1d9a5153d7c0d5055252ce80412",
+     "83dc7ffdd0f79ae622e890ab0848113a91ab7812bf6d1277349ae83e30477c97",
+     "951575cbf343a529908f68987ef980233370edf5a2d9aa117966690b1082b2a9",
+     "995ab7996a57744b22bcae75f6a1b8b6ba144fef4a913cfdf5afa9d10d9a7462",
+     "abeea712b19772ee1f1e0293beecff0d98013d864ac2b362b139206c48fa9032",
+     "b22a4ca1877d940f629a4c102509b97285db3ffacf099317fca292e4ece15d2b",
+     "b4e125c7994fff7b769671f45400b3151364de66c5077eeb6df1b2f9b4bdeab7",
+     "ba92ee437a210909c3d60d8583861442538eb3bb220e6ccd68740e4983e53c9c",
+     "c2e0d2b16539c131bc83b659ae33de53ed4a83fac903dac045d84a842d99feff",
+     "c5e5288b28d14699a9e647d01814f73e97a4d55092c75a933481493ff5b34a83",
+     "c65a2796afb34536fc49c15c8e5b8b6ca570d11472231c7f8c2d97b95b4f2e4a",
+     "cc7a76c7107893e88a1d42937ccafff21a56b0f4624014ff827bf1200e1d515b",
+     "ce6690c92e1675c7e9f5da7dd413915fc32e7ec729aceb99750c21563c76e7e8",
+     "cec3801ee6f0638250d35bb6e90a1a8f26559b6152f32a635da7724794e35788",
+     "e47572f8a0c2f5d1d45e91c6f8c10f5ca19fd63c06c31484c64f27ed2506f55d",
+     "e4dee5732416291a9397aaa27d3cf2dc67fdfb5aa8444770416768584dbf8f5e"
+    ]
+   }
+  },
+  "rows": [
+   {
+    "id": "personne ne l'a transmise : c'est l'Abteilungsleiter qui l'a renvoyée vers le bas",
+    "label": "Personne ne l'a transmise : c'est l'Abteilungsleiter qui l'a renvoyée vers le bas",
+    "need": "237fceab3290b21687802961b685f564a9334f474dec150e358ccc7b0a1f0335",
+    "marks": [
+     "0d7a74869f32ec07aa36881aec2ad5e238d7623b04096e95884e25ef309916d8",
+     "158ac5a10b7ddfe4fb1cc7f9e599b6b307034a4f69f5d2e611ef7b0ab95fe8f9",
+     "166b4a5ffedc5d3fbc94b200a1f9a6330ff63125e107714691d19b8b8e6555e1",
+     "16c35ccec227b1eaccbb0efcefbdd64c45c33b3ef8c654a3798dfaba8f2c526f",
+     "2488f823c65c546eed8299b46076b67afc4f2e10f6c30280af50ad0e4e3c3751",
+     "30a61cb0e896927c45a2c236e97b7ec03116fbb22e4dce4e35941e308d5eae88",
+     "38ef534a57b47ca715623ba178a8c684f7092ca81fcaa85ec25e6b9ef0f36852",
+     "3c82e7315726002640f943b4f44cf7a7fadef55bc657d7a06ac0a6bd850e8c3f",
+     "3e12a24326a3db7647392b1933c9ed1e60af6a82e9688be5805909b7ab9bdc73",
+     "50bf470c43fabb9f2ca66027f15f1046093c2e1eebde957f10c1e40dd7625302",
+     "55f1cfa693baa91d4e4e3232e860fe58f687f5082f963c1e712baf8dcd62ecf2",
+     "5eb9a63ad66f03b052fb0bccab7009cc093d9f3ce8634caa4af2d8ff474c04c2",
+     "642810b5fe4efe3832fa68bd3113f2bc087fa27be716f500dc79346842a35497",
+     "6489918322d60e3a49f407972c11197a1e372042f5fb8ffbbe29000de8f88d1d",
+     "7336d623dbee5fb47a4fd2708a96bb37d67caaf47989c3e703b40bd30ffced6b",
+     "96e25404c8f8f7a1fae946099d2a9d90c4988b29ef68935559814f3f3d993e27",
+     "98eac69cc0bc0e5199c28d2e4db52947c15a4ad09c882d51a50ebe99c744e878",
+     "9c386f78cb53e3affdfe4fab6554f246f347df17d0627454231288372e0aa568",
+     "a08effca1fd35cca1b2079c7f594be498740af9ef982f47c52af150b50d10460",
+     "ab565b75644e907f070bf10c7287c42cc589dbd8e08a46e8caf22dc6c2db6f6e",
+     "b00dbfd963941c64b2c69dd8e8b02a10020f2fb754c669864a89db81a128aecb",
+     "b353ac0cba8d50e46063b7c4ede3eee1e079fdccfb9db1f738d79d779bc02a1a",
+     "b3dcdad40f293ead5995645cba408268ba4c45dfc1de6d5bef859bba67d37951",
+     "b89af9088dd75fac465ef7b6985cfc5251c9fb4ada3c5809c131c8abae801d86",
+     "bc8a7f0ac3e48e7818f4b7a409613e7defcb9ac350519a53f0b95a22b7991b9b",
+     "bcc414c0343f414dd5a4dea0ec6ea5ab094d3210af36fc9edacae4a138a65744",
+     "bedfd7feee9eedd83999426d365bcf2bbb396152a684f1dde94c4164b7e7550b",
+     "c3aa39e04d19b117da627f46cce7a09e6078c752fa3e483282e8d93e760990f6",
+     "c58297a0a08ac17c52c9e2262ef37e85d0c763d23dea785baaf415fade7ba7a6",
+     "c5c6232f5f96991f9847d8080b1bef0be8d1949ba71a5982b65b28b271fc3f3e",
+     "cdbba001eeea136e2176ccd914971f7a3dedfb7c2582e9d4985bf61a310b3bde",
+     "d35988bd383e728e23292ff08fb748c631117444074d27f9c2ebc960b59d9dc5",
+     "d43217a25644921176dda1ff435151071c1c94fcddf570c195713d53bb3ed602",
+     "dbceae42fa3ba164221ad3c8a7411ff36580642873a74dcf65258a59e20f80fc",
+     "e239969c00a222ec6be3818aefb2836ef4abdb3d6ed64ca3e77f60325f4dfda0",
+     "ebeacba2aa301ee1f548d96c1fe05af1760b21fc4f0d436bbbd8a658f55f6542",
+     "f6e34415df807a0da6865777303f0654a9bee7f2d310f16a8e0010dc3edc13ed",
+     "fbba8845c72e0bafe1ca1ac25d3d7b0033b2302001a0790ab80498fe7a97fbaa",
+     "fc3f14db810d9f95ddcdfa75a981140809be65d34b9a4786365557d9e447a64a",
+     "ffda90e615f92d0a06fea20881c9f09ee5c77af6bc6822b7d7cb455b5c335503"
+    ]
+   },
+   {
+    "id": "elle n'a jamais été transmise : Herr Vahle l'a prise lui-même sur le bureau",
+    "label": "Elle n'a jamais été transmise : Herr Vahle l'a prise lui-même sur le bureau",
+    "need": "a017823b7e1cc7c8c8aa49ef26bdf15a4b436b5f05a9c4043177f8d6719c81a6",
+    "marks": [
+     "028090203eddb3e8c9b3ae43d0bd8601971a4e23632960681e596d2178e8946f",
+     "0f48fce60993aa1d0bdd395eaa733d4a025f9a5ae4749bfb0714c0bc50f0223f",
+     "0f8baee474588349449706f5dccf4241267812956fab3e728a9e58969aabfc7f",
+     "1c4d78a5e1b7e7a71ac092bdb8d216305de3fc8b74223bba0b3fdb73ade5d29e",
+     "1dab319e6533bf26642843c1d8002a1828ebc89a55d4471a575e3512b70a3d63",
+     "1f087d6ad4f25358e874614a5ea979f9aaf0f4ba9e901399970d93fe011fa1b9",
+     "3360e8e75e2026f7ce6aae4f8e5124cb73607a973e4334f32e1549692c0f09a4",
+     "3625593a0919fae10a3ed336701a728c87388fad40c0e351c0379254f5f57ce7",
+     "36f0e11843f1f3993d16d833cc0528dbb5909d51ff536d02b165d567241c835f",
+     "4220cae2f5c6baec3629396cdedc0f0c8abf8597e2cd9a6f6e3ea4aef636e046",
+     "456a80a1eed1d42751d1b94072d90d02d56fa14f6569919346d4552dff5bb14d",
+     "46381f77a45b34463285fc37f42ea6dd2d3ac4dcde5b750deced23be676034ea",
+     "4a856c36cb72301f36ea454902869962725b7e176160684f96798a06bfeb5559",
+     "59f89ab741bcd1bd67247e251a97adcd42b94942bd77e9e749009e13a6255fe6",
+     "5b4fee363daa85c55da8976f2dd9d467ee9c927ed240d8f3f7b52199c106563f",
+     "5c527f0ef627e9a09914c3766980b81f013fcac69f567e54309a7a94e6e8f80f",
+     "5d3a9a04b13d6418c8ec46be6a8b1b18a884e0dfc28e646730c3271f85759676",
+     "69672f50552da7bbba416fbfbab56dbdf3b703310f572e41f58f6a4d822c11c8",
+     "6d23221f41a6f3f58fdfb5808c7c1143244cac4a1262048303fada78747e5941",
+     "82ae68c709827a889ef57be7ef74c179f23da827f82911fdb219eb0fd66b6880",
+     "847727a36efed4fce3bdf2f9ee1f73451694ea0d1dce5a7682849fa264e6954a",
+     "8592b88c78768461cbc35e6e6228540ccfb78a3059f44e4d5cdbd4a1ed1d4aba",
+     "8908b6e2b134bd09129b89e04490bfea50f0f545fc0353138844f923ceaf5003",
+     "8d8876a4ff136668fa545b5647f3f33a575a7f5b1b708ca679ef0aaaf0decd27",
+     "984590f6102cd7eff2dcd563355450aedd4974b64d2a15b69a5020e9f4482979",
+     "9b61a4fc2442b5ee57e7af52df35c2416baa1dae709b706a56eea606cc15c301",
+     "a456937f02ab173765a0840f870a8ac3ce7c48a93c565093077b2f92e460b8c1",
+     "a48853ea0fbc8e9ce2f722b6c8e0111d6c19109ac3edb92193a83b985e0f6629",
+     "a6726e60e5d5e73c58b21ed3c7f6f9cc93df832efb3103d9f6f3e0a687eb06a4",
+     "b5e9c6bcdcc5162945a3902c9d981887a00f6da4c1ccce2d7d3f04df55275687",
+     "be1ce8a55e2aca34ea1f6f9ea58605c975614d2f739fbfbb1d5c328dfd80407e",
+     "cb9815b949f41f227131fab53b25253e837911aba13edf47f37ffc66c3f162ac",
+     "d106fdc92b931b150e137962f30ad46f2a2ad52422ab320f346bd3b71ae4b424",
+     "d1842314898535c6c728cee4a5361792a0214a537eb81115e9594477d8157120",
+     "d34f8840c509a2475e39425b41174d4c81bd1371f4d5e796e2bc84e13237eeb7",
+     "d94f1cb93c714440dad6b25b0cb1ef06e80cc25d0063e9556e81ceeba96949e3",
+     "df187d6b79a5b6d82ce084c110b7351c00025fc3ffc78a27e121b764b9bb64b0",
+     "e8d68dfff32e231f594122857741791c82e48f44426994879696964ac7b10cfc",
+     "f7dd6335cd387fc169099e5118f3335f82489ae0b15dffd0aeacfda0d7b45dc0",
+     "fca292a34703f044b47179db9cd41bbc1da9d22ee3f96f09dc0663bcf73c8eeb"
+    ]
+   },
+   {
+    "id": "Grau",
+    "label": "Grau",
+    "need": "f8d461abb5fcc1642095b2d62cf9fdf8d9a2e290f3433f6885eec4dc369d4e03",
+    "marks": [
+     "00877ed7e479b415ba6a98f8794f4ac53c7a74d9de8e80adb1e0cfeec4fb2f75",
+     "0a0b7bf3e1652f270cdd5b7e547841197807700e676ff98f88aac6f71d731eac",
+     "0e3dff55be17765ce733595671c7030d791634ab0df04e294ad5ed98c794dcd9",
+     "145ce3ee76a2c4407f75a6f208cc036f767c35022b52642882055b1dffd9335a",
+     "1b026c2eb5bb8b2c6bdcb59f2a0dba33c3cf2247f672fd2ee69822a84e69f85d",
+     "1c5ae9e63563c5cc95b2b600d8b060f42bebc0de9bffc4ae817a80e9c21301e1",
+     "2b6893cdc183e6aa2e173f2b749a6b55a7e9fb68c681218917e0818c492cd48a",
+     "2dd5131e20aef1921c7d3e543bffe67f2ae625befa995ea8364f1d5ae4037d33",
+     "3052a3f5998052bc81b8e9def07f14b7d7b2ad751f7fff2235716f047cecd8ae",
+     "3d70ca69f09e71dd03f307655c6b574ea0ac981a7974ca1adf18fa90d2dd9ade",
+     "3fb88fd6b4defc0d7a2ac2cb7ce8a0f12f78573213171ff48d4899e930a6f6e9",
+     "4b38681144b1d0902c1a64fc2cf1f217aae0f4ceb83e7bad934d52efe3e37529",
+     "5eef64bdab8008fcc05b441ef29bc86f84ee8680adf5633b9211578fc3e6248b",
+     "6175cb98e6218fbafe689be4a95d59f1876b0af560e4c093e9dc608e8fc144ba",
+     "75f4748a475c68c8c9d75176c450a79dd909c12b6e2a58753d3fe190abac5af9",
+     "7795f9ff7653d270c2dfa5a9ede998a77a4fea294996752a075e3aa2a084a3a9",
+     "7ce0c00b84a54d67abbf1993a171e9ce9df3fdc5741547deee986be739dff180",
+     "7d956b3561f5a3cd6c7d4d2bff92f46f4689d411ab5066631ea453e11d341094",
+     "815546d8d840e3eaca50c6766117c82b3000183972b87051664006ae1a914d7e",
+     "81ba7c8bdf53ccdc1923c731981ca1f42436fd7c6ca6835c7a977d7888c90dfa",
+     "83be5642025f437b9cb0ba5e29f719200c0e4e29adb43f49815d1a514a0d5785",
+     "8520bacb1c055b4fe874ea7b7d284f82a6cdabd4a497dcfc45a59a777ae3ae2b",
+     "8ff18c98b3a177b84dd354adf212ae196a7c934644cb049935b84967558fc5e7",
+     "909baa8894d666179e9d8e086250eed2706ed4bbca57bff8ff21d23a81630292",
+     "9542ec63ee546862ebe70cfd0d2fc890649152082db15a76d4c4bc7c3d6d0ba2",
+     "9aa9986dfdea38225c9db06e0b9ef7ff815c5b20bc928c8b45023943104a3118",
+     "9ab202910f84612261eeccc979d96f3ff1c7aaca90fb4ac8b55403ad01af7bed",
+     "a82a81ae727986717e5bbb26d04c3fd806f4e12f5be10fd3686ea1deed97da73",
+     "a88d488bb80818c8c644877aeb7d547d800dc80526d1450b66bca471bc70b526",
+     "b18150b4e7b949da9db4b5a01e0094c3df9df11a46698116f9712270da5c3ea6",
+     "b619a2165066808807145a97ccf46df899cf07679f798abae7629f1c0c39d670",
+     "bcfafdda94f78b4b20775aabf3cf180e919cb7e5f60aaede4d39007552340dc9",
+     "c2991ed7a278a05e60c851f829ba75b093ca8e8dbff845891af0f4932a1bc5ca",
+     "cb71372e74bc6e2b4f06671dbd43e71e7fba6363db10480a829d93db5eb23bf7",
+     "cff69da2768dc869835c3b7f05eea68330ad598933a849fdbe94f76de10aa9e3",
+     "d936eeb7df3424863b26e8e92cba603859ad408cd7daee03373bfcf2e61ad24a",
+     "dc5d582d60553c2720c9189a4ccd7577a85027cb8735ee3d6dd3cfe073e0ff55",
+     "e250fdefc197b9688a60782ab38f6b36bc5d86f3d92d1ed31a69149435dc059f",
+     "ee0d7e77965904efe500ca25024415e12a54be3c879c83aa89f28e46a51bbfcc",
+     "ef8baca5b318a26b63f9d7fd0f25c72071ec3bcf3d988abeba2281f4618c8c98"
+    ]
+   },
+   {
+    "id": "Pohlmann",
+    "label": "Pohlmann",
+    "need": "74368d827b67a3e0b5369affa87974937308baca92065eefe5851acca977a229",
+    "marks": [
+     "021e09d609186474a0e64b612482220e8c06989147c7bd65b5dd26ab180a55c1",
+     "07370e1bbbad26cb4dd0f3205633c12682f42c740ffedffd6584d0844f779d1e",
+     "0777090e366a96370081f44cfb7035662debe06a65302541676dc535bff2a500",
+     "0fe7ee1717e3a3c9194dd705a0cb2cfb286fb66a34156aaa1e690b185cb1614c",
+     "19356d18c079764a16127e5b7ef3e35c6785ea13e9eae997c383873a2a2bdefb",
+     "2bc42ce2e7d2e417ac9e11535ab444f1db39197e168cd7b340ee6bff52483906",
+     "3a8707d850ae8f9e6aee1d611dea125b09484f581b6de6bec8291bf82ddd4fd1",
+     "3e1e57ba4bf546ac27e6f83583d3a75d1bdf8be7c9b00db0e0bc64f039accc44",
+     "580058f41345274af0050d75cd5268ecc3a4f354907f77d4c1cc405197c33578",
+     "62ac112572664f64f388a8524e18dd4017fd72093d662b7a571f97987aa9abd6",
+     "6548af03b0724cd72e5906349e94639eaa73b7082198ae38727c33ffa03f9dcb",
+     "65d367b18afbe581e36c674709d71c8fe6b4e5a4f314285da67358032144ba7d",
+     "6ec33f7da6752e99e4009c2a5d7a54d6efa94dd8a9e456259f48c2139f492e67",
+     "7d1ab01f6a81aa3f9662b594a29e8a9a2a37ec787ed6e0ef52e565abcf7ddc17",
+     "7d88bbce5eb987dc908ef33d0b78fc76254acabefd14cdbe010721aee2624bd3",
+     "8829ce018495615017de6812229d24d871103e93623d34ad2cd03d5f6afe3404",
+     "8bbb3e93ac7a3019006f10f1ac38a269c7602f4e0b81ae901fb492775071b94e",
+     "8be18012c3a1586652b3c0be707b157a8a473c41415732165cd03740b350b538",
+     "a0d3c6604c2bcf82dc35631b3cf75b17912d9ff09481bcef0d24ee961f3627f5",
+     "a51887a506de01b64fcacb9dc3d28edb2097cf5a7b4f81f175a255468fd41cc8",
+     "a576086defd9817cd1321191982749e558d09f298e71d72e69bb24289fad7ab3",
+     "a7bb5fd6c163e9b77842dc04424619c667978d465f399faa6db72a8b66f44ffa",
+     "a9dd35b831a7678df281960ce4b7c822edd862e5c4a963d485ba0f3a3395150d",
+     "b00b681b48481e7f8d22dfdadc12de70aebce48f60858f5a4cfa3fe535786f9a",
+     "b17f0fd2261e4d9cf6b596afcee6c9f6879c96746f63049a834f4ce26c53d257",
+     "b97b344581b0973ed29f7831ee4b476ec3e4db04ed9c633788df998b54471a35",
+     "bbbcec6518fe6fb698c27d5ed7115627838e60bd442eaa390fa812c69ff78c6e",
+     "c336ad059e56e92df696770fa496f919f77be02150b7cc9a9dabf47949c29488",
+     "ca191b26def87cc03361b4ad005ea9c8e548c2fc59824e9ce42cf756ff8d1e22",
+     "ca468b6d1ec17351b5583f637e3322cc184b2783d0c895303446dcbf865f572f",
+     "cbd7666e8d6e60b3c832d796bf0e095f25f10d985013050e8785e59d695e38a3",
+     "dd9fb6c8df8053f3126dae5d62714614650c7a40175ab440bbb88719a7bbd893",
+     "de358526cb5d133e5ffe6ce5e668d4954d4b0bc8fd3b539e09e311a033edccb7",
+     "e65d58b2e43e5d783443248dafd1c49d563dfaa1406a28e14b914a6c1a089d3f",
+     "e86392745e7a08f6d1b0fd8c2ff3be9c9a3da610f8f3d249975b1013642e0d56",
+     "e891f21a00cdd55511c394f5b6b6d816aff6af7de87d13ce8c073a7aa7662371",
+     "f32dfa37c0b60cfa68279aede8e26f8b1db5bc04a224a1cfa76f6d42627dcbd6",
+     "f428e9a31156ac14f6664cb2b090c840092a660287f7c7b5c163a6f016ef9947",
+     "fb31776f2449942964efdff798292b43a28e2583c8f6d5ef9fde64faeb76fe14",
+     "fc50d5c963fd1a17e6f2b5bfad19474da46cde0127a68b6f0bdcb0b1574f8282"
+    ]
+   },
+   {
+    "id": "Simon",
+    "label": "Simon",
+    "need": "ae459382bf7a7a9896a3ab7172c11a7fea9c91aa1d29decf42ddf728a27feaa8",
+    "marks": [
+     "08276f606fd0aa42d1e971eba6e48ce2e64fbbf6b076f4a1dabd4f04959dcc57",
+     "0a0e6288fd98aa17d09f4f4a85e66e2ed724a6a8a988c631a92cb3f522e147d9",
+     "0ba84c62d7389c92a63dfd8688c526397f003ae10a32aa1deaf5cf7e764e50bc",
+     "0c76ab2b9a1f2aacd0d71af912439f0664f8d8462851d94d4b5d6b0bf4ee6b4e",
+     "18c633a4349ab3eae5365928da37d2215771fbfb2db61cd177557227db64f6fa",
+     "1a95a735506e41f31523c6615a792a4c24c37b318559a53a88b2e02920106123",
+     "1ac56a9a915e4ab01c836f4a1e89a037393fdc90f5b5fd39143eb86022c5a873",
+     "213dc5c89a449e1ef02408b6b35f824ce67908f8ac69dc85f8ba82e5864e1280",
+     "261f0e29686abff53657f8968903dad751f135ea1efa8a1de1dfb5bc76514cf5",
+     "2add69d45b1e65d186d1d11dda97e51e920301a7b13efaa64c92434910c78429",
+     "2bd063c87654669b19132c95a0cc506a399bb221709edd6e7b86a932958fd689",
+     "2e30320fb915290c59d22608421e607aaa7f4420fb6d848ca1c58795effa7d7e",
+     "45e98b0191a6bd856a42563f9b4d11f8769072fd8b2b253773ae77a544a70e47",
+     "4a0f62e11efc838a4fad9f66416f4efb9625978e7a5fae2b9bdeb5cb322962d4",
+     "4b40bfdfc4e57a4dc26d511dfd2e271ed1d0cb6356171fbdcf039bb854955387",
+     "4b90d932e454c699505c5403e1544cd20947b83a5e47637fc291555509cfe612",
+     "4d55a64e39a9c5bb40ca5ecd3b869c8abe9b911d5a613f01cff0780ab294cf74",
+     "640a5a909552d46ae104cde0cb7d0ce80deda15a3a255b6a976bcfe102d8d099",
+     "65838685e132ffb2f8834bcf3aae4774d03e8c4ed27cb3322b657c65d782b5cc",
+     "691677f0e9bbdca34bedfaf493108ccb64e0b90aa355a3a6b0d03d11f5eb6924",
+     "69a4530b0f1506cd2b826844d0d312899336907eb7173e543776570128e379f1",
+     "6f88fc973e7470b01ae8daf17af032c552269578d1e44d90e89503dbeb4d805d",
+     "7564b1457c2048053dcfaf694960231d0497acf63ef0bca825b0a6913b11e870",
+     "75b9fb057ef673dfa35eaf886d2ebe3cd856280e53bdc6da7ddaae0e0a5ff8ca",
+     "7e9e59061d60fdefc94cc593ac9c334b0ddef9b832a52789583b39a44ef9ba01",
+     "81811bcee856456ba431308b477c3c62ea66c3bf3fe9e2eaebb3d0d63793b324",
+     "86d83ddc7314eccbe1ec7fde62bd57ca643bb5c6d015eeab69bb5b4ba5df317b",
+     "8956e0e1a24d076cefabe8b69aec5a6de08a55854abfd6de01bcac19333b8628",
+     "97466ba56312f3d04a4f2e2f3bc86046c65ffa67b592c343e36aeca1eab1a76b",
+     "9c0fdba9378c83e7b1e75d7f4192134d9d251913f0ede7412ac83482e3250a3f",
+     "a3aedfb8bfa3232db5612d137c85c28b0641e38cd3cc9d5b8f7cf2d439ed1251",
+     "aef9e9b86cd204a3da699a98df73901e8604c5abdc9eb939f4524150c5ce2122",
+     "b35fd993038668cce4332f9549c981b289bb8983de42301fc6b286e3938aa535",
+     "c7ee4dc63dfc842e2b8f3ac18f564508eae1faa851b5af63607bc7214801dec8",
+     "c8fe5d02c7c594efa8cbe79551e31786bbfbc24f74532b408accceef36f04250",
+     "cd4f0d095ac1256250fc7b7f069e8a49e1dd439924628b9bd2732c11bff9a5df",
+     "cf95161e9a132c17061ffdd022d853424ab720ddc0350468825eeef4a48f87ee",
+     "d527bf7bd76c162755212f717133efb6927582ccab40a55ab5936dceec4ce393",
+     "e2e05a7cfb9da2af2339c4cd3ead5d33a5dd879475a156dbf55e59bc8d5d1a4a",
+     "f670477c95189361a39f737832cc1e6cdc70e020276e84d8aab1c96afa88ed27"
+    ]
+   },
+   {
+    "id": "la Poststelle",
+    "label": "La Poststelle",
+    "need": "3b5f94ec4e1ec103eed0aab8716c0f6a9df2d5712f89d2ec16496eeb930b8002",
+    "marks": [
+     "02a22b27be7326e3942be515a7e8e1b3107420f3a95ea67bcd31ef864f0120e0",
+     "07c0bde5a175243179bbf78f989c5e0f2e9bf87b7c0aebebb198a5294061f31e",
+     "10069ff70f73a0da6b266a1e3432eac1fb4d083aaf3ebaa433315c6dcf8af2da",
+     "1939a447e13248ed9a4f864fdd12ef65be64ce35663ff1a938c6476061e04770",
+     "3745a53295a736e323ba95d57a7418ad28009a5279013ab8d1c57afc78c0b866",
+     "457cc8080ecae87a30099eab61edb83d8d3caa5341a21e05afbfd5c818656327",
+     "45bf1fa6f656426b60e377f802c63c09106cd33ea0f58845d3f20b0b1f372bc3",
+     "467cc8b1f4e7d067e19c1e8dd360abb8f4d4d22ee4bea18cb8b2c1572d19e73b",
+     "48eb253c625c29c3580d4c4a95776290521a5560d469a63ef5a77882b8f3cd60",
+     "4f49fc3795347b7913001aeda5dff308802170a7669405fac6baa01e313031c0",
+     "5809061fbb350e453eb781ad3ddfad7a25eee3f0cbb69ac34801310e617058db",
+     "58ded39e54eb52c8234af6faaea405a52ba76c7cdffdccb667f444a6f667ea30",
+     "5fc3102ea8678a9046d24723077a2f60761c64b6ba0a54214452315d69456363",
+     "6634958759e95c1d8c9b9a26ae518632a99dd2749f4027ce645ead45ce230c0d",
+     "68b373cb7fcd1346a2d830453f25624e277f9263bc6beb21648b3db0a0c8786c",
+     "68c29c854b64ef6fbb4a89401c3a6d3803de78aae6e37ef42a835c653bc0cec5",
+     "6a6753a64ab6559278dd146c264759fa3aebb7edc87fc9e1058d5b000be5e479",
+     "6adcd98c511b7d85196f00ca8cbda66c920e8398e7687964a9b68c4e56cdf2fe",
+     "6bfa4960492a27940b9e546f1c5803cd3606a0448b5a0cd177e8139546dd769a",
+     "6c67769883ef97e5fe93ab2fc0b37cda267634f77fecc5adc63a447ae89c90d3",
+     "6d6e489e20f247c76f8a417fcacb730abd1c010ef373dca5c942c3d84155a84c",
+     "7659b6530ab63b1fb9b068470440ed1e4694743a8b91dee549659a65930a9bfe",
+     "7857fe71531a2516bc70ceb8ade70e9310397bcfcc7ab70f8cdf38bdca5d5eed",
+     "826fef547e1e6b90115f17485d6121322a6aed8272275c31725380815956b8bc",
+     "82cc0476f90ee675d8765e0f7caf329653b34b372c40fb8c00071661b7bbd6e9",
+     "a1d3aaefaf22e720c5c58141bdf4b94c7c2e3bc05e55311f9de37e74443ead21",
+     "a71e3f07eb4b602a686191dd84d4fb4ab70d2478532498c0b7038c0f413948be",
+     "aef951ae2fcd220cc16158299bbff8d84aed9d6fd13c755321b1b76e514652f2",
+     "b12e75e2e905ceef54957853944ae97770eecf21fe0e4afeb111ae36aa9440cd",
+     "b5fccd8343ba12574ad0722866ae478d45fa45d6ab3208a2b4282eca1f055b2f",
+     "b66d404c6353c0927c34879b359ad6afd63af4adb678875ef33b550fedcd19ea",
+     "b76fc2c82e45b871713cca0518d51ec3b25ec07c37c0a96325a6a78f4f3c9cd7",
+     "c32c9569c0a1188e35f3fd6105a323cdc6728bcf4dd6ba8acaf31a9b2ca7f34a",
+     "c557c6332a26593fd6d67d1395c2b28748275786592933fa4de66d20b875d8be",
+     "c753b5ef9d6374b0613af235dfdf80c988134147faa01498eabe50530ad88d4c",
+     "cf2ec80fc346852cb8e2bbbfa5fa9920eaf19ca0f6088e45c0de9a29970bb2d1",
+     "e45b0ff89501929f7d223b37d47a3763b07c6b430286a8d4c4e661855a3da074",
+     "e83fc87b6d96f2b7fa790fc31a716fdcf8570fa707efe1af1ba96105bc09232d",
+     "e9f5da60a82d61c74c77682a0296e16f70cfd312690ed221c66196542b230f52",
+     "fe59d1846b84a2e60c020a6508cf7157a3cc1280fce992c7cdb66aae8963a429"
+    ]
+   },
+   {
+    "id": "le pool",
+    "label": "Le pool",
+    "need": "e5fa54ce4876a4a8c911592e692c51af13eba8bdf3c87c8bdb658e817636ec99",
+    "marks": [
+     "0115d603474c9fe4fb8f42e976ea7ac21ed7d0847636d48b53b1fd29fe746fd2",
+     "02ac80204613d73fb8270c21a7564505a97d7acde9cfd1071aafdbaa6f850df5",
+     "0d7f678a688c842bb9e2c3ad987e175e823765fb0b7a0e351868accb501e79e8",
+     "0d882e8cc999ed45f903d255230a03760762af77cad574633ebbf3332267f34b",
+     "0fbbc17fd2c6461ae80c047363bf0e218140d55b9b5c13011683a0c9cac5717b",
+     "10949c36a33fb6ea6b1f6d6f55ecad3d8c4a998f09a0a54289183f306ea250a6",
+     "147c82c0fae7c86ee719661c704d202767e692858dd28d0c9c62403c09018e32",
+     "191c1095e119155fb1bf60a10f0703c410ed3ef32f23755c0be3292f34ddef84",
+     "1aa078f6d4e1175a95f4c0f726da2765e3924c3664c269ce1a850bc082a5b371",
+     "1ae0ccd19cff2ff8bf1138613c96f91f01ee7600868d87312b2436fb2c3c9131",
+     "1eff4a8588702d51922a58cbe7c7a1eeb730bda156a4ee6190b8c7a05fe00b8b",
+     "1f8f8e27da794b750512b0e0245a2b0ef8930592e9493e264814c989088bde10",
+     "22be286e9730ef5613d0c1c67e29af6d01b441371ae2114651b117e883065e69",
+     "24a9a934bb26ce8efea2860049c0b12277de7165a3db4e9fd3561b6deed99b96",
+     "2644a54bbd7c550e2213d4ff14333615626e72322a1f97f657d49bb8670c896d",
+     "2647e4501b33232b1f78331864afac4b64824b70d560fa228233375c6536e761",
+     "314d434bec97379ec8cd7e0b5885a907db3c5e9b18bf1ca9dc64dcc039aae4f0",
+     "3d2d8a9d64c4bc11245a8de2fd6909ab410926f8c1f71fbcdbff8d7238806818",
+     "46d4ed3a0e181b5fc7546fa36277f043b681a064d237ca9338101b17eaf4fd0b",
+     "4dc4988538eab5ef76500894e4c30a2c122b9f22b625ded9555619be8639ed8f",
+     "65013778bd938834874aa82f5594e9ad894d490d97625de2cd93ff6768a1215a",
+     "6ab971587bafd9d37c70a5118d6aeadcb02b8552a176ac71be37342953ba9e76",
+     "6ea8b1eb064dbd94cd733ee1f76bf20c88c69afd5f92633cf098464aec04ddd6",
+     "76d65f2de14f686dec66b2facfbfd815f7de5fa13a0d32499574702d85b0e146",
+     "93b65ca2d0a667a2a1872752e8c58dc76eecda190cca5d7bcf6339824b0afb8b",
+     "9854ae5286d886e189d505868b80cb0d5de1589508bbd4e7336ce59f21efd45a",
+     "a8501da830dd513a68d3cf4e5360d60cb30d0c45cac0430c0773c2954e63d05e",
+     "aac702794d0e89effcb2ca918d8d283d9b4fd3159452594ce46a8829788c1453",
+     "b3c8e8396bb73371f8816b8a2ecf694c5b3584a2ad6917c8195fb6cc69b3d7b0",
+     "b4e640a675ca7193a587ffdb5e295d6493b285c1f427aa09423020dca7d7f254",
+     "b4fe2313082e5752814f4996a382d957f179adcf839a2f17b528b063e3dd0803",
+     "ba79c64386e23bb070b0c5b9e13294cf4369ec6b4798d19f08b76c84d3c8a72d",
+     "c9a744888427a8c45e6b39c3a400854b9dd29fe6ff620504a73e5a96b01b6585",
+     "d373ef846b940ae2d48af9d3325491960e8501b040a8f6c0b3af86edeb65a319",
+     "d90d28b564fd7570bdc755bf1c70f15a8524b07f998b109d1acaed77ff915abc",
+     "dac16175ac7a9f10680439cabccc3157bda0c60889eb100529eb8ea6c976cebc",
+     "e04375ef1c30c4dcf7b1d9248d445caf5b60baab5d4034f4b7fc1073731f5b39",
+     "f0e7a5503f106df6c0ffdc80b192856ade770aec93be1905d985c476cdc51668",
+     "f3bc08204a4e35b6420d06342289a66954a9f1ee23f95ef58db1438299c0054e",
+     "f77fe3b4b928640bcf0360c41b7f359faae558be17bc875fad801d7f346b8476"
+    ]
+   },
+   {
+    "id": "Kern",
+    "label": "Kern",
+    "need": "76960b2cc182d7a386e3c580e289d8fe127b9b520350233e6e9c40f2f96bcab8",
+    "marks": [
+     "0e2b90dc0746337913103d7c8be7fd2914960f52a4e3550db0fc7e647e2f3f4e",
+     "0fd3ecb19dab62c57619af1675f50a30f363238dfa580f549360324414e70a98",
+     "14e0c4a5a4a231021efc9b4f8b8dc24a22d09a37dec8994b22cd4028f066d6eb",
+     "163c17663a7a36f5237eefe30c4ef87af5cdbdd92688e57c530bdbd9bf134868",
+     "1704777eaa7cfbbda2784f503f4a24bad0b1e2a798b1adaa2ddd097e8825a25d",
+     "17dba0c6ab785d6d245004573a0b6dc37a1fbde862e33036a7b9bb165df1dd77",
+     "1eb575c0420d731030270fc66aa605e4637278603ba99007789e0a168a1e125b",
+     "20ebe8e26d9f8fc2a0c5709c706d5bcd9f1aa5905a575ad5082224c1c5640313",
+     "21f58906820d25f5e540b5ecc5d6fbecb28a89e127af75fb7c4b607581124760",
+     "251e5d9c5e46b30fe75e00c3c91bc75aa28c55e9006e5dad7a3e7bc269d16143",
+     "25e9dc1ca30690bceb3ce62f00c4fcabe7257362880845339b1ce8b1e006652d",
+     "2b7a045be95cd7d9d9aa3d830a9f9265e4f7ed71557504ab591872c9d516e564",
+     "33d46c4e696fa516ec2f0bf0af0cf94cc8e8b1c9bb6bdd830cf9729ccea9a565",
+     "36081a479322070dbca74d36e6991bc86989c63e4ad27853b1dc66f6b247e121",
+     "44076e978f55fcb8348b0f51501002aaa47b8158667599de8099fc67d06540b0",
+     "4b593824c3eb128f3d3f2d343647fe37d837b3bc204192dcc485b4edc37c30ac",
+     "574a19b026a8deaa30edccab95c0e514294dfa1d4d1a67c56ebe65259e1cfad2",
+     "5f49f3b19713d82e4cbc237771841c7bf4244b48242e3c2155f3c4bb488234f8",
+     "72d0b8a7199e08de3065baa7dee8f5d44d8deb5fee30e410766a2209a1a83dc5",
+     "744066f623147df69e4431a232d771e5eb2a402031690bffce5e73e77cd1f197",
+     "75ed3742ca658e2b8e4554ac34e94bd6685e372a0a9ea9f3f368bc7a78dfec2e",
+     "8c7b06bbc727f39f578578ec8db1da5aedef5608b41920e45419d77cae913c5a",
+     "8dc34e4a93906dc5956060e8e7f07da2f51ee55427a9c8b8d58c552b8bb11aa0",
+     "97852c0c0fc136e466b0bbf01d29464593644f85c291602cf683957adeb737bb",
+     "99a9923332c99f39f3cd9277965f395a4cf81ee010a209d879e1b0ae6f56d98d",
+     "a326bde568fdf015ebebfcdf9d11b526cbdad097c7f875e67bb58c05b44a9688",
+     "a8da122d8cab3b4dd7764a2f38ab0ab1c709856bef2fb2bec73169719960c05c",
+     "ac8f426edcb83df4bab89e8c78b97d623ced5c0401656bdb20dc0eec896267d1",
+     "af6daacf878fc4b6f9b69035b36a2af023ce770495de6b3a58b957a67a0e3a90",
+     "b0cbd28bc01d002c308a325c8515510da482d0e00a05a69054d59d64657b6206",
+     "b0d23a8c9c9b4eea7290f5198e3d9f6cb5b90f6c159543e60590c5edaadfc4fa",
+     "b339c604293663ac344b12006f117a78cdc2de23500671df2c82811621a0724c",
+     "b504d43bceeb0404d7123cbe8ba348c4914eb7543f989c72c2327bd5d3f74e0e",
+     "b6191abacee958a0b925308233240063bed21dc543cc89c1fcf4cdc89d5032c5",
+     "c7fd9d96f8dcf7a58d6ef9245698cce82d9b78a59e8eb6269368c144b8f0e384",
+     "d7bb1ae494a52a620484834861f09dd48f0d9c01e76be141c1b8c5851a0651ce",
+     "de3d55980e4ca5e04933f6999bf76de072c520470c57e7f93b690c6b7b013b1d",
+     "f48d701a49907e994da72e4c401755d3d2f2fd6f9b46a7182e7b57ee2c153f9e",
+     "f81108102df819e6ee27a2657e49becd391c741707af8f7902ce79ad9f71def4",
+     "f8c77d4a7adf08c96a67550eb510790c9eb301aa74a473ee0ce1c9077e95968e"
+    ]
+   }
+  ],
+  "max_need": 6,
+  "levels": [
+   {
+    "id": "notes",
+    "name": "Les notes de Sarah",
+    "head": "Notes · S. Wessen, détective privée",
+    "says": "Les blancs seulement. Personne n'a besoin d'être écarté par écrit ; chaque signature est comptée."
+   },
+   {
+    "id": "report",
+    "name": "Rapport à Mauser",
+    "head": "Rapport · au Kommissar Mauser, Kriminalpolizei de Bonn · de S. Wessen, détective privée",
+    "says": "Les blancs, et les personnes écartées, en ne citant que ce que les parties ne montrent pas déjà."
+   },
+   {
+    "id": "court",
+    "name": "Le dossier de Mauser pour le tribunal",
+    "head": "Dossier pour le tribunal · Kommissar Mauser, Kriminalpolizei de Bonn · sur les preuves de S. Wessen, détective privée",
+    "says": "Chaque partie et chaque personne cite toutes ses preuves ; rien ne compte de lui-même."
+   }
+  ]
+ },
+ "dossiers": [
+  {
+   "who": "Ministerialdirigent Vahle",
+   "de": "Ministerialdirigent, und seit dem Sommer nicht mehr im Hause. Versetzt, in ein anderes Ministerium, und im Schreibdienst hat das niemanden überrascht, was für sich genommen schon etwas heißt. Er galt als ausgesucht höflich und als schwer zu fassen: er hörte einen zu Ende an, stimmte zu, und erst hinterher merkte man, dass er nichts zugesagt hatte. Seinen Schreibtisch hat er leer hinterlassen, so leer, wie ihn hier noch keiner hinterlassen hat. Frau Adam hat es vorher gewusst. Frau Adam weiß so etwas vorher.",
+   "en": "A Ministerialdirigent, and since the summer no longer in the building. Transferred to another ministry, and among the typists nobody was surprised, which by itself is worth something. He was reckoned exceedingly courteous and hard to get hold of: he heard you out, he agreed, and only afterwards did you notice he had agreed to nothing. He left his desk empty behind him, emptier than anybody here has ever left one. Frau Adam knew beforehand. Frau Adam knows that sort of thing beforehand.",
+   "sprite": "art/people/vahle.png",
+   "text": "Un Ministerialdirigent, et depuis l'été plus dans la maison. Muté dans un autre ministère, et parmi les dactylos personne n'en a été surpris, ce qui en soi veut déjà dire quelque chose. Il passait pour extrêmement courtois et difficile à saisir : il vous écoutait jusqu'au bout, il approuvait, et ce n'est qu'ensuite qu'on s'apercevait qu'il n'avait rien approuvé du tout. Il a laissé son bureau vide derrière lui, plus vide que personne ici n'en a jamais laissé un. Frau Adam le savait d'avance. Frau Adam sait ce genre de choses d'avance."
+  },
+  {
+   "who": "Ministerialrat Grau",
+   "de": "Ministerialrat, Mitte fünfzig, im Haus seit dem Umzug. Er hört einem bis zum Ende zu und entscheidet dann, was er ohnehin entschieden hatte, und hält beides für dasselbe. Ein Mann, der Namen nie vergisst und Gesichter schon. Er redet über die Arbeit wie über das Wetter: sachlich, unaufhörlich und ohne dass jemand klüger wird. Zu Hause wird er anders sein, sagt das Haus, und das Haus weiß es nicht.",
+   "en": "Ministerialrat, in his middle fifties, in the building since the move. He hears you out and then decides what he had decided already, and considers those the same thing. A man who never forgets a name and does forget faces. He talks about work the way other people talk about weather: steadily, at length, and without anybody coming away wiser. He must be different at home, the building says, and the building does not know.",
+   "sprite": "art/people/grau.png",
+   "text": "Ministerialrat, dans le milieu de la cinquantaine, dans la maison depuis le déménagement. Il vous écoute jusqu'au bout, puis décide ce qu'il avait déjà décidé, et tient les deux pour la même chose. Un homme qui n'oublie jamais un nom et qui oublie les visages. Il parle du travail comme d'autres parlent du temps qu'il fait : avec constance, longuement, et sans que personne en sorte plus avancé. Chez lui il doit être différent, dit la maison, et la maison n'en sait rien."
+  },
+  {
+   "who": "Frau Pohlmann",
+   "de": "Fünfundvierzig, seit elf Jahren die Schreibkraft des Personalreferats, drei Referenten lang; ihr Zimmer nennt das Haus das Vorzimmer. Frau, nicht Fräulein, und niemand im Haus könnte sagen, wann das angefangen hat. Sie ist die Einzige, die weiß, was ihr Chef wirklich meint, wenn er nichts sagt, und sie sagt es nicht weiter. Höflich zu allen, vertraut mit keiner; die Damen aus dem Saal grüßt sie freundlich und beim Nachnamen. Sie hat einen Mantel für den Winter und einen für den Herbst und trägt beide, bis sie nicht mehr gehen.",
+   "en": "Forty-five, eleven years the Personalreferat's own typist, three Referenten, in a room the house has always called by a grander name than the rules give it. Frau, not Fräulein, and nobody in the building could tell you when that began. She is the only person who knows what her chief means when he says nothing, and she does not pass it on. Civil to everybody and close to nobody; she greets the women from the pool kindly and by their surnames. She has one coat for winter and one for autumn and wears each until it will not do.",
+   "sprite": "art/people/pohlmann.png",
+   "text": "Quarante-cinq ans, depuis onze ans la dactylo attitrée du Personalreferat, sous trois Referenten, dans une pièce que la maison appelle depuis toujours d'un nom plus grand que le règlement ne lui en donne. Frau, et non Fräulein, et personne dans la maison ne saurait dire depuis quand. Elle est la seule à savoir ce que son chef veut dire quand il ne dit rien, et elle ne le répète pas. Polie avec tous et proche de personne ; elle salue les femmes du pool aimablement, par leur nom de famille. Elle a un manteau pour l'hiver et un pour l'automne, et porte chacun jusqu'à ce qu'il ne soit plus mettable."
+  },
+  {
+   "who": "Herr Simon",
+   "de": "Vierundfünfzig, Registraturvorsteher, seit zwanzig Jahren in der Registratur, und er sagt jeden Satz so, als hätte er ihn schon zwanzig Jahre gesagt, was stimmt. Ordnung ist bei ihm keine Tugend, sondern eine Gewohnheit, die er sich nicht mehr abgewöhnen könnte. Er verwechselt nie eine Nummer und selten einen Namen. Wenn etwas nicht zurückkommt, ärgert er sich still und lange. Sein Bruder hatte eine Gastwirtschaft, und davon erzählt er einmal im Jahr.",
+   "en": "Fifty-four, twenty years in the Registratur, and he says every sentence like a man who has been saying it for twenty years, which he has. Order is not a virtue with him but a habit he could no longer break. He never mixes up a number and rarely a name. When something does not come back he is quietly and lastingly annoyed. His brother kept an inn, and he tells you about it once a year.",
+   "sprite": "art/people/simon.png",
+   "text": "Cinquante-quatre ans, vingt ans à la Registratur, et il dit chaque phrase en homme qui la dit depuis vingt ans, ce qui est le cas. L'ordre n'est pas chez lui une vertu mais une habitude dont il ne pourrait plus se défaire. Il ne confond jamais un numéro et rarement un nom. Quand quelque chose ne revient pas, il en est contrarié, en silence et durablement. Son frère tenait une auberge, et il vous en parle une fois par an."
+  },
+  {
+   "who": "Frau Litt",
+   "de": "Einundvierzig, Kanzleivorsteherin, seit 1953 im Haus: drei Minister, zwei Umzüge. Witwe seit 1957 — im Haus gilt das als lange her, ihr nicht. Den Ring trägt sie noch, rechts, was die Jüngeren für eine Marotte halten und die Älteren nicht. Sie ist die Einzige, die noch weiß, wie es vorher war, und sie sagt es bereitwillig, aber immer erst, wenn sie den Bogen zu Ende getippt hat. Bei ihr beschweren sich die anderen, weil sie zuhört, ohne etwas daraus zu machen. Ein Blatt, das noch zu retten ist, hat sie noch nie weggeworfen. Sie nennt das Sparsamkeit. Sie hat 1946 auch schon nichts weggeworfen.",
+   "en": "Forty-one, in the building since 1953: three ministers and two removals. Widowed since 1957 — the building considers that a long time ago; she does not. She still wears the ring, on the right hand, which the younger ones take for an eccentricity and the older ones do not. She is the only one who still knows how it used to be, and she will say so readily, but never before she has finished the sheet she is on. The others complain to her, because she listens without making anything of it. She has never thrown away a sheet that could still be saved. She calls it thrift. She didn't throw anything away in 1946 either.",
+   "sprite": "art/people/litt.png",
+   "text": "Quarante et un ans, dans la maison depuis 1953 : trois ministres et deux déménagements. Veuve depuis 1957 — la maison trouve que c'est loin ; elle, non. Elle porte toujours l'alliance, à la main droite, ce que les plus jeunes prennent pour une excentricité et pas les plus âgées. Elle est la seule à savoir encore comment c'était avant, et elle le dit volontiers, mais jamais avant d'avoir fini la feuille en cours. Les autres viennent se plaindre auprès d'elle, parce qu'elle écoute sans en faire une histoire. Elle n'a jamais jeté une feuille qu'on pouvait encore sauver. Elle appelle cela de l'économie. En 1946 non plus, elle ne jetait rien."
+  },
+  {
+   "who": "Frau Adam",
+   "de": "Verheiratet mit einem Mann bei der Bundesbahn, zwei Söhne: Der eine soll Ingenieur werden, der andere weiß schon, dass er keiner wird. Sie bringt Kuchen mit und behauptet jedes Mal, er sei diesmal nichts geworden. Sie weiß, wer ein Kind erwartet, wer umzieht und wer sich trennt, und sie erzählt es nur Leuten, die es ohnehin schon wissen. Das hält sie für Diskretion. Es ist auch welche, ungefähr.",
+   "en": "Married to a man on the railways, two sons: one is to become an engineer and the other already knows he won't. She brings cake and claims every time that it didn't turn out. She knows who is expecting, who is moving and who is separating, and she tells it only to people who know already. She considers this discretion. It more or less is.",
+   "sprite": "art/people/adam.png",
+   "text": "Mariée à un homme des chemins de fer, deux fils : l'un doit devenir ingénieur et l'autre sait déjà qu'il ne le sera pas. Elle apporte des gâteaux et prétend chaque fois qu'ils sont ratés. Elle sait qui attend un enfant, qui déménage et qui se sépare, et elle ne le dit qu'à ceux qui le savent déjà. Elle tient cela pour de la discrétion. C'en est, plus ou moins."
+  },
+  {
+   "who": "Fräulein Bühl",
+   "de": "Achtundzwanzig, seit vier Jahren im Haus, verlobt seit Ostern. Geheiratet wird im Frühjahr, und was danach kommt, hat das Haus schon entschieden, ohne dass es jemand ausgesprochen hätte. Sie kleidet sich eine Gehaltsstufe über ihrer Gehaltsstufe und trägt dazu ein Gesicht, das zu einer Bemerkung einlädt. Gemacht hat sie noch niemand. Sie tippt gut und gern und redet dabei nicht, was sie für Höflichkeit hält und die anderen für Hochmut. Auf die Frage, ob sie danach bleibt, sagt sie „Mal sehen“, und zwar so, als hätte sie schon gesehen.",
+   "en": "Twenty-eight, four years in the building, engaged since Easter. The wedding is in the spring, and what happens after that the building has already decided without anyone saying it aloud. She dresses one salary grade above her salary grade and wears an expression that invites a remark. Nobody has made one yet. She types well and willingly and does not talk while she does it, which she considers courtesy and the others consider airs. Asked whether she will stay on afterwards she says we'll see, in the tone of somebody who has already seen.",
+   "sprite": "art/people/buehl.png",
+   "text": "Vingt-huit ans, quatre ans dans la maison, fiancée depuis Pâques. Le mariage est pour le printemps, et ce qui se passera ensuite, la maison l'a déjà décidé sans que personne le dise tout haut. Elle s'habille un échelon au-dessus de son traitement et arbore une expression qui appelle une remarque. Personne n'en a encore fait. Elle tape bien et volontiers et ne parle pas en tapant, ce qu'elle tient pour de la politesse et les autres pour des airs. Quand on lui demande si elle restera ensuite, elle dit qu'on verra, du ton de quelqu'un qui a déjà vu."
+  },
+  {
+   "who": "Frau Kern",
+   "de": "Kam im Frühjahr herüber. Ohne Beförderung, ohne Erklärung. Auf die Frage warum sagt sie, hier sei es wärmer. Ein Ehering, kein Foto auf dem Schreibtisch. Sie schreibt schnell, sauber und ohne jede Neugier auf den Inhalt — in einem Haus wie diesem eine erlernbare Fähigkeit, und bei ihr wirkt sie sehr gut erlernt. Wenn im Raum über Vorgesetzte gesprochen wird, prüft sie ihr Farbband.",
+   "en": "Came across in the spring. No promotion, no explanation. Asked why, she says it is warmer here. A wedding ring, no photograph on the desk. She types fast, cleanly and with no curiosity whatever about the content — in a building like this one a learnable skill, and in her case a very well learned one. When the room starts talking about superiors, she checks her ribbon.",
+   "sprite": "art/people/kern.png",
+   "text": "Arrivée au printemps. Pas de promotion, pas d'explication. Quand on lui demande pourquoi, elle dit qu'il fait plus chaud ici. Une alliance, pas de photographie sur le bureau. Elle tape vite, proprement et sans la moindre curiosité pour le contenu — dans une maison comme celle-ci, un savoir-faire qui s'apprend, et chez elle très bien appris. Quand la salle se met à parler des supérieurs, elle vérifie son ruban."
+  },
+  {
+   "who": "Fräulein Ostrowski",
+   "de": "Kam 1946 als Kind aus dem Osten, mit einem Koffer und einer Mutter, die unterwegs aufhörte, Polnisch zu sprechen. Ihr Deutsch ist deshalb besser als das der meisten hier: Sie hat es lernen müssen, statt es nur mitzubekommen. Fremde Kommafehler korrigiert sie mit Bleistift, sehr leicht, damit man es wegradieren kann. Über Schlesien redet sie nicht. Über ihren Namen auch nicht, obwohl er im Haus schon dreimal falsch geschrieben worden ist. Sie hat ihn jedes Mal stehen lassen.",
+   "en": "Came west in 1946 as a child, with one suitcase and a mother who stopped speaking Polish somewhere along the way. Her German is better than most people's here because she had to learn it rather than simply pick it up. She corrects other people's commas in pencil, very lightly, so it can be rubbed out. She does not talk about Schlesien. She does not talk about her name either, though the building has misspelled it three times now. She let it stand every time.",
+   "sprite": "art/people/ostrowski.png",
+   "text": "Arrivée à l'Ouest en 1946, enfant, avec une valise et une mère qui a cessé de parler polonais quelque part en chemin. Son allemand est meilleur que celui de la plupart des gens d'ici, parce qu'elle a dû l'apprendre au lieu de l'attraper au passage. Elle corrige au crayon les virgules des autres, très légèrement, pour qu'on puisse l'effacer. Elle ne parle pas de la Silésie. Elle ne parle pas non plus de son nom, bien que la maison l'ait déjà mal orthographié trois fois. Chaque fois, elle a laissé faire."
+  },
+  {
+   "who": "Fräulein Wenzel",
+   "de": "Zweiundzwanzig, seit vier Jahren im Haus. Handelsschule in Koblenz, Stenografie mit Auszeichnung — was sie erwähnt, ohne dass jemand fragt. Sie tippt schneller als alle anderen und macht dabei die meisten Fehler; sie hält das für einen fairen Handel. Abends besucht sie einen Englischkurs und spricht von der Botschaft in London wie von einer Adresse, bei der man sich nur noch zu melden braucht. Das Wort „Schreibkraft“ benutzt sie nicht. Sie sagt „vorläufig“. Frau Adam sagt, das habe sie damals auch gesagt.",
+   "en": "Twenty-two, four years in the building. Commercial college in Koblenz, shorthand with distinction, which she mentions without being asked. She types faster than anyone else and makes the most mistakes doing it; she considers that a fair trade. Evenings she takes an English class, and she talks about the embassy in London the way you talk about an address where you only have to present yourself. She does not use the word typist. She says for now. Frau Adam says she used to say that too.",
+   "sprite": "art/people/wenzel.png",
+   "text": "Vingt-deux ans, quatre ans dans la maison. École de commerce à Koblenz, sténographie avec mention, ce qu'elle signale sans qu'on le lui demande. Elle tape plus vite que toutes les autres et fait le plus de fautes ; elle trouve le marché honnête. Le soir elle suit un cours d'anglais, et elle parle de l'ambassade à Londres comme on parle d'une adresse où il suffit de se présenter. Elle n'emploie pas le mot dactylo. Elle dit pour l'instant. Frau Adam dit qu'elle le disait aussi, autrefois."
+  },
+  {
+   "who": "Sarah Wessen",
+   "de": "Sarah Wessen, Privatdetektivin in Bonn. An den meisten Tagen ein schlichter Wollmantel mit einem großen Knopf am Hals, die Sonnenbrille auch drinnen. Für das Ministerium zieht sie den roten Mantel mit dem Gürtel an und lässt die Sonnenbrille in der Tasche, denn ein Haus voller Beamter will einem in die Augen sehen. Im Laden an der Ecke ruft man ihr „die Detektivin mit dem Schnüffler“ hinterher. Sie lächelt charmant wie ein Fräulein vom Filmfunk, wenn es nützt, und sie hat ein zweites Lächeln, das heißt: Ich habe das schon zu Ende gedacht. Mit Leuten, die nicht reden wollen, geht sie um wie eine ältere Schwester, die den kleinen Bruder zum Reden bringen will. Ob jemand unschuldig ist, weiß sie nach ihrem eigenen untrüglichen Gefühl, lange bevor sie es belegen kann.",
+   "en": "Sarah Wessen, private detective in Bonn. Most days a plain wool coat with one big button at the throat, and the sunglasses stay on indoors. For the ministry she puts on the red coat with the belt and leaves the sunglasses in her bag, because a building full of officials wants to see a person's eyes. In the shop on the corner they call after her: the detective with the sniffer. She smiles charmingly, like a young lady off the film pages, when it is useful, and she has a second smile that means: I have already thought this through to the end. With people who would rather not talk she works the way an older sister works on a younger brother. Whether somebody is innocent she knows by her own unerring feeling, long before she can show it.",
+   "sprite": "art/people/sarah.png",
+   "text": "Sarah Wessen, détective privée à Bonn. La plupart du temps un simple manteau de laine fermé d'un gros bouton au col, et les lunettes de soleil restent sur le nez à l'intérieur. Pour le ministère, elle met le manteau rouge à ceinture et laisse les lunettes de soleil dans son sac, parce qu'une maison pleine de fonctionnaires veut voir les yeux des gens. À la boutique du coin on lui lance : la détective au flair. Elle sourit avec charme, comme une starlette de magazine, quand c'est utile, et elle a un second sourire qui veut dire : j'ai déjà réfléchi à cela jusqu'au bout. Avec ceux qui préféreraient ne pas parler, elle s'y prend comme une sœur aînée avec un petit frère. Si quelqu'un est innocent, elle le sait par un sentiment à elle, infaillible, bien avant de pouvoir le montrer."
+  },
+  {
+   "who": "Kommissar Mauser",
+   "de": "Kommissar Friedrich Mauser von der Bonner Kriminalpolizei. Ein Mann, der seine Brille etwa siebzehnmal in der Stunde zurechtrückt und über den Rand hinwegsieht, wenn ihm etwas nicht passt. Das Hemd zerknittert, das Jackett rückt er sich zurecht, als säße eine Wespe darin. Hinter dem Schreibtisch sitzt er wie ein grummeliger Wachhund, und die Falten auf seiner Stirn werden tiefer, je länger man redet. Auf dem Tisch ein eingetrockneter Kaffeefleck, ein wachsender Papierstapel und ein Notizblock, der längst aussieht wie ein Kunstprojekt aus Tinte und Kaffeespuren. Wenn nichts anliegt, nimmt er sich alte ungelöste Akten noch einmal vor. Über gewisse Formulierungen sagt er, sie röchen noch deutlich nach der alten Zeit.",
+   "en": "Kommissar Friedrich Mauser of the Bonn criminal police. A man who straightens his glasses about seventeen times an hour and looks at you over the rim of them when something does not suit him. The shirt creased, the jacket tugged straight as though a wasp were sitting in it. Behind his desk he sits like a grumpy watchdog, and the furrows on his forehead deepen the longer you talk. On the desk a coffee stain two days dry, a growing pile of paper, and a notepad long since like an art project made of ink and coffee marks. When nothing is on, he goes back through the old unsolved files. Of certain turns of phrase he says you can still smell the old regime on them.",
+   "sprite": "art/people/mauser.png",
+   "text": "Le Kommissar Friedrich Mauser, de la police criminelle de Bonn. Un homme qui rajuste ses lunettes environ dix-sept fois par heure et vous regarde par-dessus leur monture quand quelque chose ne lui convient pas. La chemise froissée, la veste tirée d'un coup sec comme si une guêpe s'y était posée. Derrière son bureau il a l'air d'un chien de garde grognon, et les rides de son front se creusent à mesure que vous parlez. Sur le bureau, une tache de café sèche depuis deux jours, une pile de papier qui grandit, et un bloc-notes qui ressemble depuis longtemps à un projet artistique fait d'encre et de ronds de café. Quand il n'y a rien en cours, il reprend les vieux dossiers non résolus. De certaines tournures, il dit qu'on y sent encore l'ancien régime."
+  }
+ ],
+ "walk": {
+  "days": 1,
+  "repeat": false,
+  "reset": "phase",
+  "phases": [
+   {
+    "name": "les heures de service",
+    "light": "autumn",
+    "day": null,
+    "start": "pool",
+    "open": [
+     "lodge",
+     "canteen",
+     "hall2",
+     "pool",
+     "washroom",
+     "paternoster",
+     "registratur",
+     "landing",
+     "poststelle",
+     "vorzimmer",
+     "z407"
+    ]
+   },
+   {
+    "name": "le lendemain",
+    "light": "autumn",
+    "day": null,
+    "start": "pool",
+    "open": [
+     "lodge",
+     "canteen",
+     "hall2",
+     "pool",
+     "washroom",
+     "paternoster",
+     "registratur",
+     "landing",
+     "poststelle",
+     "vorzimmer"
+    ]
+   }
+  ],
+  "cover": "Sarah Wessen est détective privée (Privatdetektivin), et personne dans cette maison ne doit le savoir. Le Kommissar Mauser lui a adressé une jeune femme que la police ne pouvait pas aider, et c'est ainsi que le Personalreferat a engagé Sarah comme dactylo de remplacement au pool. On envoie une dactylo d'un étage à l'autre avec du travail, et personne ne se soucie de ce qu'elle voit en chemin. Poser des questions, c'est autre chose. Les gens lui accordent chaque jour un peu de leur temps, et pas davantage.",
+  "places": [
+   {
+    "id": "canteen",
+    "name": "la cantine",
+    "floor": -1,
+    "links": [
+     "lodge"
+    ],
+    "text": "Un étage plus bas que le hall : un comptoir avec une fontaine à café et une seule table qui court sur toute la longueur de la salle.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/canteen-friday.jpeg",
+     "le lendemain": "art/rooms/canteen-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "cantine"
+   },
+   {
+    "id": "hall2",
+    "name": "le couloir du deuxième étage",
+    "floor": 2,
+    "links": [
+     "lodge",
+     "pool",
+     "washroom",
+     "paternoster"
+    ],
+    "text": "",
+    "passage": true,
+    "art": {
+     "les heures de service": null,
+     "le lendemain": null
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "couloir"
+   },
+   {
+    "id": "landing",
+    "name": "le palier du quatrième étage",
+    "floor": 4,
+    "links": [
+     "paternoster",
+     "vorzimmer",
+     "poststelle"
+    ],
+    "text": "Le haut de l'escalier, une table toute simple contre le mur, des avis épinglés à côté, et un étroit escalier de service qui descend.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/landing-autumn.jpeg",
+     "le lendemain": "art/rooms/landing-autumn.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "palier"
+   },
+   {
+    "id": "lodge",
+    "name": "le hall d'entrée",
+    "floor": 0,
+    "links": [
+     "hall2",
+     "canteen"
+    ],
+    "text": "L'entrée depuis la rue, à côté la loge vitrée du portier, et le grand escalier qui monte.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/lodge-friday.jpeg",
+     "le lendemain": "art/rooms/lodge-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": [
+     32,
+     58
+    ],
+    "sees": [],
+    "short": "hall, loge"
+   },
+   {
+    "id": "paternoster",
+    "name": "le palier du troisième étage",
+    "floor": 3,
+    "links": [
+     "hall2",
+     "registratur",
+     "landing"
+    ],
+    "text": "Le grand escalier et le paternoster passent tous deux par ici, et de l'autre côté du palier se trouve une porte à guichet.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/paternoster-sunday.jpeg",
+     "le lendemain": "art/rooms/paternoster-sunday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "palier"
+   },
+   {
+    "id": "pool",
+    "name": "le pool dactylographique",
+    "floor": 2,
+    "links": [
+     "hall2"
+    ],
+    "text": "Six tables en rangées vers les hautes fenêtres, une machine sur chacune, et leur vacarme quand la salle travaille.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/pool-autumn.jpeg",
+     "le lendemain": "art/rooms/pool-autumn.jpeg"
+    },
+    "stand": null,
+    "sarah_at": 0.1,
+    "spread": null,
+    "sees": [
+     {
+      "text": "L'exemplaire de l'organigramme (Organisationsplan) de Frau Litt, avec les couleurs portées au crayon à l'intention des nouvelles venues : le Minister, vert ; le Staatssekretär, rouge ; l'Abteilung Z, la direction, et son directeur, l'Abteilungsleiter, bleu ; l'Unterabteilung Z A, la sous-direction, et son sous-directeur, l'Unterabteilungsleiter, le Ministerialdirigent Vahle, brun. Celui qui remplace l'un d'eux prend la même couleur et met son paraphe à côté.",
+      "phase": null
+     },
+     {
+      "text": "L'exemplaire de l'organigramme de Frau Litt : sous l'Unterabteilung Z A, le Referat Z A 1, le Personalreferat, la section du personnel, bureau 407 : le Ministerialrat Grau, le Referent, le fonctionnaire à sa tête, qui vise d'un simple paraphe, sans couleur ; son secrétariat, Frau Pohlmann ; la rédactrice du Referat, Frau Kern.",
+      "phase": "le lendemain"
+     },
+     {
+      "text": "L'exemplaire de l'organigramme de Frau Litt : pour toute la maison, la Poststelle, le service du courrier ; la Registratur, les archives courantes, Herr Simon ; et le pool dactylographique. Comment une lettre arrive : la Poststelle, la Registratur, le secrétariat, le Referent. Comment une pièce monte : le Referent, l'Unterabteilungsleiter, l'Abteilungsleiter.",
+      "phase": "le lendemain"
+     }
+    ],
+    "short": "pool"
+   },
+   {
+    "id": "poststelle",
+    "name": "la Poststelle",
+    "floor": 4,
+    "links": [
+     "landing"
+    ],
+    "text": "Des tables de tri, des casiers, et les corbeilles du courrier au départ.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/poststelle-autumn.jpeg",
+     "le lendemain": "art/rooms/poststelle-autumn.jpeg"
+    },
+    "stand": 0.4,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [
+     {
+      "text": "Le registre des recommandés de la Poststelle : mercredi 23 octobre, une lettre recommandée de Fräulein Vogt, adressée au ministère à l'attention de l'Abteilungsleiter, et Z A 1 inscrit dans la colonne du Referat.",
+      "phase": null
+     },
+     {
+      "text": "L'avis au-dessus de la table de tri : une lettre adressée nommément à un membre de la maison et portant la mention « Personnel » lui est remise sans être ouverte ; une lettre adressée au ministère, à l'attention de qui que ce soit, est ouverte ici, revêtue du cachet d'arrivée à côté de l'adresse, et le cachet porte l'indicatif de son Referat.",
+      "phase": null
+     }
+    ],
+    "short": "Poststelle"
+   },
+   {
+    "id": "registratur",
+    "name": "la Registratur",
+    "floor": 3,
+    "links": [
+     "paternoster"
+    ],
+    "text": "Un guichet en travers de la pièce, derrière lui des rayonnages de dossiers jusqu'au plafond, et une armoire d'acier derrière la chaise du préposé.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/registratur-autumn.jpeg",
+     "le lendemain": "art/rooms/registratur-autumn.jpeg"
+    },
+    "stand": 0.4,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [
+     {
+      "text": "Le registre du Personalreferat, tenu au guichet de Herr Simon. Mercredi 23 octobre : lettre de Fräulein Vogt enregistrée ; montée à Z A 1 le jour même, remise au Referent en mains propres, non par la tournée de courrier du pool. Lundi 28 octobre : retour, pour classement.",
+      "phase": "le lendemain"
+     }
+    ],
+    "short": "Registratur"
+   },
+   {
+    "id": "vorzimmer",
+    "name": "le secrétariat du 407",
+    "floor": 4,
+    "links": [
+     "landing",
+     "z407"
+    ],
+    "text": "Le bureau de la secrétaire, et derrière lui une porte de bois fermée.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/vorzimmer-autumn.jpeg",
+     "le lendemain": "art/rooms/vorzimmer-autumn.jpeg"
+    },
+    "stand": 0.5,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [
+     {
+      "text": "La liste du secrétariat, de la main de Frau Pohlmann, de ce qui est passé par son bureau. Mercredi 23 octobre : lettre de Fräulein Vogt, venue de la Registratur, sans annotation ; présentée aussitôt au Referent, sans passer par la rédactrice (Frau Kern). Lundi 28 octobre : rendue par le Referent à la Registratur ; R au crayon brun, sans paraphe ; pas de bleu. Entre les deux : rien pour l'Unterabteilungsleiter.",
+      "phase": null
+     }
+    ],
+    "short": "secrétariat"
+   },
+   {
+    "id": "washroom",
+    "name": "les lavabos du deuxième étage",
+    "floor": 2,
+    "links": [
+     "hall2"
+    ],
+    "text": "Des lavabos le long d'un mur et une rangée de cabines le long de l'autre.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/washroom-friday.jpeg",
+     "le lendemain": "art/rooms/washroom-friday.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": null,
+    "sees": [],
+    "short": "lavabos"
+   },
+   {
+    "id": "z407",
+    "name": "Bureau 407",
+    "floor": 4,
+    "links": [
+     "vorzimmer"
+    ],
+    "text": "Le bureau du Referatsleiter : une grande table de travail et, à côté, un vieux fichier d'acier.",
+    "passage": false,
+    "art": {
+     "les heures de service": "art/rooms/z407-autumn.jpeg"
+    },
+    "stand": null,
+    "sarah_at": null,
+    "spread": [
+     56,
+     80
+    ],
+    "sees": [
+     {
+      "text": "L'agenda de bureau de Herr Grau, ouvert à cette semaine-là, de sa propre main : au jeudi 24 octobre, « Unterabteilungsleiter », et rien d'autre d'écrit ce jour-là.",
+      "phase": "les heures de service"
+     }
+    ],
+    "short": "Bureau 407"
+   }
+  ],
+  "people": [
+   {
+    "id": "Grau",
+    "name": "Herr Grau",
+    "at": {
+     "les heures de service": "z407"
+    },
+    "patience": 2,
+    "shrugs": [
+     "« Frau Pohlmann le saura », dit Herr Grau, et il retourne à ses papiers.",
+     "Herr Grau n'a rien à ajouter à cela.",
+     "Là-dessus, Herr Grau ne peut pas aider Sarah."
+    ],
+    "looked": "« Hm », dit Herr Grau, et rien de plus.",
+    "tired": "« On m'attend », dit Herr Grau.",
+    "height": 180,
+    "sprite": "art/people/grau.png",
+    "hello": [
+     {
+      "text": "Le pool ? Je serais incapable de distinguer ces dames les unes des autres, et Frau Pohlmann veille à ce que je n'aie pas à le faire.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "vogt": {
+      "lines": [],
+      "talk": null,
+      "evade": "« Les questions de personnel regardent le Referat, dit Herr Grau, et non le pool », et il reprend sa plume."
+     }
+    },
+    "shows": {
+     "l'agenda de bureau de Herr Grau": {
+      "lines": [],
+      "talk": "Herr Grau la regarde un instant de plus qu'il n'est agréable. « Vous lisez beaucoup, pour une dactylo, Fräulein Wessen. »",
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Pohlmann",
+    "name": "Frau Pohlmann",
+    "at": {
+     "les heures de service": "vorzimmer",
+     "le lendemain": "vorzimmer"
+    },
+    "patience": 4,
+    "shrugs": [
+     "« Je ne saurais vraiment pas vous dire », dit Frau Pohlmann.",
+     "Frau Pohlmann n'a rien à ajouter à cela.",
+     "Là-dessus, Frau Pohlmann ne peut pas aider Sarah."
+    ],
+    "looked": "« Ce n'est pas à moi d'en parler », dit Frau Pohlmann.",
+    "tired": "Le téléphone de Frau Pohlmann sonne, et elle décroche avec une excuse qui n'en est pas une.",
+    "height": 167,
+    "sprite": "art/people/pohlmann.png",
+    "hello": [
+     {
+      "text": "Tout ce qui est pour Herr Grau passe par ce bureau et repart par ce bureau, et cela depuis dix ans. Si vous voulez savoir où se trouve une pièce : elle est ici, ou c'est noté ici.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "post": {
+      "lines": [
+       {
+        "text": "Le courrier du Referat, c'est mon affaire. Herr Vahle ne descend pas dans ce Referat ; s'il veut Herr Grau, il le fait appeler.",
+        "phase": "le lendemain"
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "vogt": {
+      "lines": [],
+      "talk": null,
+      "evade": "« L'engagement de Fräulein Vogt est arrivé à son terme », dit Frau Pohlmann, et elle tend à Sarah la chemise suivante."
+     }
+    },
+    "shows": {
+     "la liste du secrétariat": {
+      "lines": [
+       {
+        "text": "Quand on lui montre sa propre liste, elle la parcourt une fois de haut en bas et dit que c'est son écriture et que ce sont bien les bonnes dates, et que si quelque chose est monté de ce Referat chez l'Unterabteilungsleiter cette semaine-là, ce n'est pas parti de ce bureau, et qu'elle ne connaît pas d'autre chemin.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "l'agenda de bureau de Herr Grau": {
+      "lines": [],
+      "talk": "« L'agenda de Herr Grau est sur le bureau de Herr Grau, dit Frau Pohlmann, et c'est là qu'il reste. »",
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Kern",
+    "name": "Frau Kern",
+    "at": {
+     "les heures de service": "z407"
+    },
+    "patience": 2,
+    "shrugs": [
+     "« Il faudrait demander à Frau Pohlmann », dit Frau Kern, et elle referme un tiroir de fiches.",
+     "Frau Kern n'a rien à ajouter à cela.",
+     "Là-dessus, Frau Kern ne peut pas aider Sarah."
+    ],
+    "looked": "Frau Kern regarde, et n'a rien à en dire.",
+    "tired": "Frau Kern a un tiroir de fiches à remettre en ordre.",
+    "height": 153,
+    "sprite": "art/people/kern.png",
+    "hello": [],
+    "topics": {
+     "cards": {
+      "lines": [],
+      "talk": "Frau Kern dit que chaque fiche est quelqu'un, et que chaque tiroir reste fermé.",
+      "evade": null
+     },
+     "vogt": {
+      "lines": [],
+      "talk": null,
+      "evade": "Frau Kern dit qu'il n'y a pas de fiche pour une remplaçante, et qu'elle ne l'a jamais regretté."
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Simon",
+    "name": "Herr Simon",
+    "at": {
+     "les heures de service": "registratur",
+     "le lendemain": "registratur"
+    },
+    "patience": 3,
+    "shrugs": [
+     "« Cela, dit Herr Simon, ne regarde pas la Registratur. »",
+     "Herr Simon n'a rien à ajouter à cela.",
+     "Là-dessus, Herr Simon ne peut pas aider Sarah."
+    ],
+    "looked": "« Je vois », dit Herr Simon, et il n'en dit pas davantage.",
+    "tired": "« Les retours ne se rangent pas tout seuls », dit Herr Simon, et il se tourne vers le chariot.",
+    "height": 172,
+    "sprite": "art/people/simon.png",
+    "hello": [],
+    "topics": {
+     "post": {
+      "lines": [
+       {
+        "text": "Directement au Referat auquel il est destiné. Dans cette maison, le courrier ne monte pas d'abord chez l'Abteilungsleiter pour être réparti. Il m'arrive marqué, je le fais suivre au Referat dont il porte la marque, et le Referent l'a le jour même.",
+        "phase": null
+       },
+       {
+        "text": "Frau Pohlmann ne porte pas elle-même les pièces hors de ce Referat. Ce qui en sort passe par sa corbeille de départ, arrive à ce guichet et va au registre. Et personne ne descend dans ce Referat pour une pièce : Herr Vahle fait appeler Herr Grau.",
+        "phase": "le lendemain"
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "vogt": {
+      "lines": [
+       {
+        "text": "Ce n'est pas à moi de dire ce qu'un Referat fait de son courrier. Mais la lettre de Fräulein Vogt m'est revenue pour classement avec un R au crayon brun, seul, sans paraphe à côté, et pas un trait de bleu nulle part. Je l'ai remarqué. Je remarque ces choses.",
+        "phase": null
+       },
+       {
+        "text": "J'ai monté moi-même la lettre de Fräulein Vogt, parce que c'est ce que me disait de faire la marque qu'elle portait, et je l'ai remise au Referent en mains propres. Frau Pohlmann était à son bureau ; je suis passé devant elle avec la lettre, puis devant l'armoire de la rédactrice, sans m'arrêter.",
+        "phase": "le lendemain"
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "shows": {
+     "le registre du Personalreferat": {
+      "lines": [],
+      "talk": "« Tout y est, Fräulein, dit Herr Simon. Je l'écris pour ne pas avoir à m'en souvenir. »",
+      "evade": null
+     }
+    },
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Litt",
+    "name": "Frau Litt",
+    "at": {
+     "les heures de service": "pool",
+     "le lendemain": "pool"
+    },
+    "patience": 3,
+    "shrugs": [
+     "« Ce n'est pas une question pour le pool », dit Frau Litt.",
+     "Frau Litt n'a rien à ajouter à cela.",
+     "Là-dessus, Frau Litt ne peut pas aider Sarah."
+    ],
+    "looked": "Frau Litt regarde, et n'a rien à en dire.",
+    "tired": "« Certaines d'entre nous ont du travail », dit Frau Litt.",
+    "height": 144,
+    "sprite": "art/people/litt.png",
+    "hello": [
+     {
+      "text": "Vous êtes à la place de Fräulein Vogt. Elle était rapide. Tout ce que le secrétariat a pour nous est déposé dans la corbeille de départ de Frau Pohlmann et descend de là, comme tout ce qui sort du secrétariat ; Frau Pohlmann ne porte pas les pièces elle-même.",
+      "phase": null
+     }
+    ],
+    "topics": {
+     "letters": {
+      "lines": [
+       {
+        "text": "Vous verrez des sigles au crayon sur les pièces qui descendent, et vous n'avez pas à chercher à les deviner. V, c'est pour un exposé en bonne et due forme, R pour un bref entretien avec celui qui traite la pièce, et dans un Referat, le courrier à l'arrivée est traité par le Referent. Le reste, vous pouvez me le demander.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "rules": {
+      "lines": [],
+      "talk": "Frau Litt dit qu'elle a tenu trente ans sans jamais le lire deux fois.",
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Ostrowski",
+    "name": "Fräulein Ostrowski",
+    "at": {
+     "les heures de service": "pool",
+     "le lendemain": "pool"
+    },
+    "patience": 3,
+    "shrugs": [
+     "« Je l'ignore », dit Fräulein Ostrowski.",
+     "Fräulein Ostrowski n'a rien à ajouter à cela.",
+     "Là-dessus, Fräulein Ostrowski ne peut pas aider Sarah."
+    ],
+    "looked": "Fräulein Ostrowski regarde, et n'a rien à en dire.",
+    "tired": "Fräulein Ostrowski engage une feuille neuve dans sa machine et ne relève plus les yeux.",
+    "height": 140,
+    "sprite": "art/people/ostrowski.png",
+    "hello": [],
+    "topics": {
+     "vogt": {
+      "lines": [
+       {
+        "text": "J'ai lu deux fois le règlement intérieur, la Geschäftsordnung, soit une fois de plus que n'importe qui dans cette salle. Une plainte visant quelqu'un de l'Abteilung, c'est à l'Abteilungsleiter d'en décider. C'est écrit en toutes lettres.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "rules": {
+      "lines": [
+       {
+        "text": "Cela aussi s'y trouve, si vous y tenez : tant qu'une pièce est en cours de traitement, c'est celui qui la traite qui en répond, et dans un Referat, c'est le Referent. La Registratur n'en répond qu'avant et après.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     },
+     "pencils": {
+      "lines": [
+       {
+        "text": "C'est dans la Geschäftsordnung, § 18, et pas seulement sur l'organigramme de Frau Litt : l'Abteilungsleiter vise en bleu, l'Unterabteilungsleiter en brun, et celui qui remplace l'un d'eux prend la même couleur et ajoute son paraphe.",
+        "phase": null
+       }
+      ],
+      "talk": null,
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Adam",
+    "name": "Frau Adam",
+    "at": {
+     "les heures de service": "pool",
+     "le lendemain": "pool"
+    },
+    "patience": 3,
+    "shrugs": [
+     "Frau Adam a beaucoup à dire là-dessus, et rien qui s'y rapporte.",
+     "Frau Adam n'a rien à ajouter à cela.",
+     "Là-dessus, Frau Adam ne peut pas aider Sarah."
+    ],
+    "looked": "Frau Adam regarde, et n'a rien à en dire.",
+    "tired": "On réclame Frau Adam à sa machine, et elle le dit avec regret.",
+    "height": 174,
+    "sprite": "art/people/adam.png",
+    "hello": [],
+    "topics": {
+     "vogt": {
+      "lines": [],
+      "talk": "Frau Adam dit qu'une remplaçante va et vient comme le temps qu'il fait, et que celle-ci, elle l'aimait bien.",
+      "evade": null
+     },
+     "cards": {
+      "lines": [],
+      "talk": null,
+      "evade": "Frau Adam dit qu'elle aime autant ne pas savoir ce qu'il y a sur ces fiches, merci bien."
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Bühl",
+    "name": "Fräulein Bühl",
+    "at": {
+     "les heures de service": "pool",
+     "le lendemain": "pool"
+    },
+    "patience": 2,
+    "shrugs": [
+     "« Je n'y avais pas réfléchi », dit Fräulein Bühl.",
+     "Fräulein Bühl n'a rien à ajouter à cela.",
+     "Là-dessus, Fräulein Bühl ne peut pas aider Sarah."
+    ],
+    "looked": "Fräulein Bühl regarde, et n'a rien à en dire.",
+    "tired": "Fräulein Bühl a le courrier à aller chercher.",
+    "height": 158,
+    "sprite": "art/people/buehl.png",
+    "hello": [],
+    "topics": {
+     "post": {
+      "lines": [],
+      "talk": "Fräulein Bühl dit qu'elle va le chercher sur le palier et le dépose là où il est adressé, et que c'est tout ce qu'elle en sait.",
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   },
+   {
+    "id": "Wenzel",
+    "name": "Fräulein Wenzel",
+    "at": {
+     "les heures de service": "pool",
+     "le lendemain": "pool"
+    },
+    "patience": 2,
+    "shrugs": [
+     "« On ne me dit jamais rien », dit Fräulein Wenzel.",
+     "Fräulein Wenzel n'a rien à ajouter à cela.",
+     "Là-dessus, Fräulein Wenzel ne peut pas aider Sarah."
+    ],
+    "looked": "Fräulein Wenzel regarde, et n'a rien à en dire.",
+    "tired": "On envoie Fräulein Wenzel faire une course.",
+    "height": 168,
+    "sprite": "art/people/wenzel.png",
+    "hello": [],
+    "topics": {
+     "letters": {
+      "lines": [],
+      "talk": "Fräulein Wenzel dit qu'elle n'a jamais vu qu'un V, une fois, et qu'elle n'a pas osé demander.",
+      "evade": null
+     }
+    },
+    "shows": {},
+    "files": {},
+    "file_talk": {}
+   }
+  ],
+  "fewest": 9,
+  "topics": [
+   {
+    "id": "post",
+    "label": "comment circule le courrier",
+    "ask": "Sarah demande comment le courrier trouve son chemin de la Poststelle jusqu'au bon bureau, puisqu'elle est nouvelle et qu'elle en portera une partie.",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "Le registre des recommandés de la Poststelle : mercredi 23 octobre, une lettre recommandée de Fräulein Vogt, adressée au ministère à l'attention de l'Abteilungsleiter, et Z A 1 inscrit dans la colonne du Referat.",
+     "Directement au Referat auquel il est destiné. Dans cette maison, le courrier ne monte pas d'abord chez l'Abteilungsleiter pour être réparti. Il m'arrive marqué, je le fais suivre au Referat dont il porte la marque, et le Referent l'a le jour même.",
+     "Le registre du Personalreferat, tenu au guichet de Herr Simon. Mercredi 23 octobre : lettre de Fräulein Vogt enregistrée ; montée à Z A 1 le jour même, remise au Referent en mains propres, non par la tournée de courrier du pool. Lundi 28 octobre : retour, pour classement.",
+     "Le courrier du Referat, c'est mon affaire. Herr Vahle ne descend pas dans ce Referat ; s'il veut Herr Grau, il le fait appeler.",
+     "Ce n'est pas à moi de dire ce qu'un Referat fait de son courrier. Mais la lettre de Fräulein Vogt m'est revenue pour classement avec un R au crayon brun, seul, sans paraphe à côté, et pas un trait de bleu nulle part. Je l'ai remarqué. Je remarque ces choses.",
+     "L'exemplaire de l'organigramme de Frau Litt : pour toute la maison, la Poststelle, le service du courrier ; la Registratur, les archives courantes, Herr Simon ; et le pool dactylographique. Comment une lettre arrive : la Poststelle, la Registratur, le secrétariat, le Referent. Comment une pièce monte : le Referent, l'Unterabteilungsleiter, l'Abteilungsleiter."
+    ]
+   },
+   {
+    "id": "vogt",
+    "label": "Fräulein Vogt",
+    "ask": "Sarah dit qu'on lui a donné la place de Fräulein Vogt, et se demande ce qu'elle est devenue.",
+    "ask_of": {},
+    "always": true,
+    "raised_by": [
+     "Le registre des recommandés de la Poststelle : mercredi 23 octobre, une lettre recommandée de Fräulein Vogt, adressée au ministère à l'attention de l'Abteilungsleiter, et Z A 1 inscrit dans la colonne du Referat.",
+     "Le registre du Personalreferat, tenu au guichet de Herr Simon. Mercredi 23 octobre : lettre de Fräulein Vogt enregistrée ; montée à Z A 1 le jour même, remise au Referent en mains propres, non par la tournée de courrier du pool. Lundi 28 octobre : retour, pour classement.",
+     "J'ai monté moi-même la lettre de Fräulein Vogt, parce que c'est ce que me disait de faire la marque qu'elle portait, et je l'ai remise au Referent en mains propres. Frau Pohlmann était à son bureau ; je suis passé devant elle avec la lettre, puis devant l'armoire de la rédactrice, sans m'arrêter.",
+     "Ce n'est pas à moi de dire ce qu'un Referat fait de son courrier. Mais la lettre de Fräulein Vogt m'est revenue pour classement avec un R au crayon brun, seul, sans paraphe à côté, et pas un trait de bleu nulle part. Je l'ai remarqué. Je remarque ces choses.",
+     "La liste du secrétariat, de la main de Frau Pohlmann, de ce qui est passé par son bureau. Mercredi 23 octobre : lettre de Fräulein Vogt, venue de la Registratur, sans annotation ; présentée aussitôt au Referent, sans passer par la rédactrice (Frau Kern). Lundi 28 octobre : rendue par le Referent à la Registratur ; R au crayon brun, sans paraphe ; pas de bleu. Entre les deux : rien pour l'Unterabteilungsleiter.",
+     "Vous êtes à la place de Fräulein Vogt. Elle était rapide. Tout ce que le secrétariat a pour nous est déposé dans la corbeille de départ de Frau Pohlmann et descend de là, comme tout ce qui sort du secrétariat ; Frau Pohlmann ne porte pas les pièces elle-même."
+    ]
+   },
+   {
+    "id": "letters",
+    "label": "les lettres portées au crayon sur les pièces",
+    "ask": "Sarah demande ce que veulent dire les lettres que l'on porte au crayon sur les pièces.",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "Ce n'est pas à moi de dire ce qu'un Referat fait de son courrier. Mais la lettre de Fräulein Vogt m'est revenue pour classement avec un R au crayon brun, seul, sans paraphe à côté, et pas un trait de bleu nulle part. Je l'ai remarqué. Je remarque ces choses.",
+     "La liste du secrétariat, de la main de Frau Pohlmann, de ce qui est passé par son bureau. Mercredi 23 octobre : lettre de Fräulein Vogt, venue de la Registratur, sans annotation ; présentée aussitôt au Referent, sans passer par la rédactrice (Frau Kern). Lundi 28 octobre : rendue par le Referent à la Registratur ; R au crayon brun, sans paraphe ; pas de bleu. Entre les deux : rien pour l'Unterabteilungsleiter.",
+     "Vous verrez des sigles au crayon sur les pièces qui descendent, et vous n'avez pas à chercher à les deviner. V, c'est pour un exposé en bonne et due forme, R pour un bref entretien avec celui qui traite la pièce, et dans un Referat, le courrier à l'arrivée est traité par le Referent. Le reste, vous pouvez me le demander."
+    ]
+   },
+   {
+    "id": "rules",
+    "label": "le règlement intérieur",
+    "ask": "Sarah demande si le règlement intérieur en dit vraiment autant.",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "J'ai lu deux fois le règlement intérieur, la Geschäftsordnung, soit une fois de plus que n'importe qui dans cette salle. Une plainte visant quelqu'un de l'Abteilung, c'est à l'Abteilungsleiter d'en décider. C'est écrit en toutes lettres.",
+     "C'est dans la Geschäftsordnung, § 18, et pas seulement sur l'organigramme de Frau Litt : l'Abteilungsleiter vise en bleu, l'Unterabteilungsleiter en brun, et celui qui remplace l'un d'eux prend la même couleur et ajoute son paraphe."
+    ]
+   },
+   {
+    "id": "pencils",
+    "label": "les crayons de couleur de l'organigramme",
+    "ask": "Sarah demande si les couleurs de l'organigramme de Frau Litt sont la règle de la maison ou seulement la manière qu'a Frau Litt de former les nouvelles.",
+    "ask_of": {},
+    "always": false,
+    "raised_by": [
+     "Ce n'est pas à moi de dire ce qu'un Referat fait de son courrier. Mais la lettre de Fräulein Vogt m'est revenue pour classement avec un R au crayon brun, seul, sans paraphe à côté, et pas un trait de bleu nulle part. Je l'ai remarqué. Je remarque ces choses.",
+     "La liste du secrétariat, de la main de Frau Pohlmann, de ce qui est passé par son bureau. Mercredi 23 octobre : lettre de Fräulein Vogt, venue de la Registratur, sans annotation ; présentée aussitôt au Referent, sans passer par la rédactrice (Frau Kern). Lundi 28 octobre : rendue par le Referent à la Registratur ; R au crayon brun, sans paraphe ; pas de bleu. Entre les deux : rien pour l'Unterabteilungsleiter."
+    ]
+   },
+   {
+    "id": "cards",
+    "label": "ce que fait la rédactrice du Referat",
+    "ask": "Sarah demande ce que fait toute la journée la rédactrice d'un Referat, pour le cas où le pool la prêterait un jour là-haut.",
+    "ask_of": {},
+    "always": true,
+    "raised_by": [
+     "J'ai monté moi-même la lettre de Fräulein Vogt, parce que c'est ce que me disait de faire la marque qu'elle portait, et je l'ai remise au Referent en mains propres. Frau Pohlmann était à son bureau ; je suis passé devant elle avec la lettre, puis devant l'armoire de la rédactrice, sans m'arrêter.",
+     "La liste du secrétariat, de la main de Frau Pohlmann, de ce qui est passé par son bureau. Mercredi 23 octobre : lettre de Fräulein Vogt, venue de la Registratur, sans annotation ; présentée aussitôt au Referent, sans passer par la rédactrice (Frau Kern). Lundi 28 octobre : rendue par le Referent à la Registratur ; R au crayon brun, sans paraphe ; pas de bleu. Entre les deux : rien pour l'Unterabteilungsleiter.",
+     "L'exemplaire de l'organigramme de Frau Litt : sous l'Unterabteilung Z A, le Referat Z A 1, le Personalreferat, la section du personnel, bureau 407 : le Ministerialrat Grau, le Referent, le fonctionnaire à sa tête, qui vise d'un simple paraphe, sans couleur ; son secrétariat, Frau Pohlmann ; la rédactrice du Referat, Frau Kern."
+    ]
+   }
+  ],
+  "exhibits": [
+   {
+    "thing": "le registre des recommandés de la Poststelle",
+    "line": "Le registre des recommandés de la Poststelle : mercredi 23 octobre, une lettre recommandée de Fräulein Vogt, adressée au ministère à l'attention de l'Abteilungsleiter, et Z A 1 inscrit dans la colonne du Referat.",
+    "portable": false
+   },
+   {
+    "thing": "l'avis au-dessus de la table de tri",
+    "line": "L'avis au-dessus de la table de tri : une lettre adressée nommément à un membre de la maison et portant la mention « Personnel » lui est remise sans être ouverte ; une lettre adressée au ministère, à l'attention de qui que ce soit, est ouverte ici, revêtue du cachet d'arrivée à côté de l'adresse, et le cachet porte l'indicatif de son Referat.",
+    "portable": false
+   },
+   {
+    "thing": "le registre du Personalreferat",
+    "line": "Le registre du Personalreferat, tenu au guichet de Herr Simon. Mercredi 23 octobre : lettre de Fräulein Vogt enregistrée ; montée à Z A 1 le jour même, remise au Referent en mains propres, non par la tournée de courrier du pool. Lundi 28 octobre : retour, pour classement.",
+    "portable": false
+   },
+   {
+    "thing": "la liste du secrétariat",
+    "line": "La liste du secrétariat, de la main de Frau Pohlmann, de ce qui est passé par son bureau. Mercredi 23 octobre : lettre de Fräulein Vogt, venue de la Registratur, sans annotation ; présentée aussitôt au Referent, sans passer par la rédactrice (Frau Kern). Lundi 28 octobre : rendue par le Referent à la Registratur ; R au crayon brun, sans paraphe ; pas de bleu. Entre les deux : rien pour l'Unterabteilungsleiter.",
+    "portable": false
+   },
+   {
+    "thing": "l'agenda de bureau de Herr Grau",
+    "line": "L'agenda de bureau de Herr Grau, ouvert à cette semaine-là, de sa propre main : au jeudi 24 octobre, « Unterabteilungsleiter », et rien d'autre d'écrit ce jour-là.",
+    "portable": false
+   },
+   {
+    "thing": "L'exemplaire de l'organigramme de Frau Litt",
+    "line": "L'exemplaire de l'organigramme (Organisationsplan) de Frau Litt, avec les couleurs portées au crayon à l'intention des nouvelles venues : le Minister, vert ; le Staatssekretär, rouge ; l'Abteilung Z, la direction, et son directeur, l'Abteilungsleiter, bleu ; l'Unterabteilung Z A, la sous-direction, et son sous-directeur, l'Unterabteilungsleiter, le Ministerialdirigent Vahle, brun. Celui qui remplace l'un d'eux prend la même couleur et met son paraphe à côté.",
+    "portable": false
+   },
+   {
+    "thing": "L'exemplaire de l'organigramme de Frau Litt",
+    "line": "L'exemplaire de l'organigramme de Frau Litt : sous l'Unterabteilung Z A, le Referat Z A 1, le Personalreferat, la section du personnel, bureau 407 : le Ministerialrat Grau, le Referent, le fonctionnaire à sa tête, qui vise d'un simple paraphe, sans couleur ; son secrétariat, Frau Pohlmann ; la rédactrice du Referat, Frau Kern.",
+    "portable": false
+   },
+   {
+    "thing": "L'exemplaire de l'organigramme de Frau Litt",
+    "line": "L'exemplaire de l'organigramme de Frau Litt : pour toute la maison, la Poststelle, le service du courrier ; la Registratur, les archives courantes, Herr Simon ; et le pool dactylographique. Comment une lettre arrive : la Poststelle, la Registratur, le secrétariat, le Referent. Comment une pièce monte : le Referent, l'Unterabteilungsleiter, l'Abteilungsleiter.",
+    "portable": false
+   }
+  ],
+  "documents": {
+   "L'exemplaire de l'organigramme de Frau Litt": {
+    "kind": "tree",
+    "nodes": [
+     {
+      "label": "le Minister",
+      "mark": "green",
+      "children": [
+       {
+        "label": "le Staatssekretär",
+        "mark": "red",
+        "children": [
+         {
+          "label": "l'Abteilung Z, la direction",
+          "who": "le directeur, l'Abteilungsleiter",
+          "mark": "blue",
+          "children": [
+           {
+            "label": "l'Unterabteilung Z A, la sous-direction",
+            "who": "le sous-directeur, l'Unterabteilungsleiter, le Ministerialdirigent Vahle",
+            "mark": "brown",
+            "children": [
+             {
+              "label": "le Referat Z A 1, le Personalreferat, la section du personnel, bureau 407",
+              "who": "le Ministerialrat Grau, le Referent, le fonctionnaire à sa tête",
+              "mark": "initials",
+              "children": [
+               {
+                "label": "son secrétariat",
+                "who": "Frau Pohlmann"
+               },
+               {
+                "label": "la rédactrice du Referat",
+                "who": "Frau Kern"
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ],
+        "who": null
+       }
+      ],
+      "who": null
+     }
+    ],
+    "sections": [
+     {
+      "title": "pour toute la maison",
+      "items": [
+       "la Poststelle, le service du courrier",
+       "la Registratur, les archives courantes, Herr Simon",
+       "le pool dactylographique"
+      ]
+     }
+    ],
+    "routes": [
+     {
+      "title": "Comment une lettre arrive",
+      "steps": [
+       "la Poststelle",
+       "la Registratur",
+       "le secrétariat",
+       "le Referent"
+      ]
+     },
+     {
+      "title": "Comment une pièce monte",
+      "steps": [
+       "le Referent",
+       "l'Unterabteilungsleiter",
+       "l'Abteilungsleiter"
+      ]
+     }
+    ],
+    "columns": []
+   }
+  },
+  "pictures": {
+   "le registre des recommandés de la Poststelle": "art/documents/registered-post-book-cut.png",
+   "l'avis au-dessus de la table de tri": "art/documents/sorting-card-cut.png",
+   "le registre du Personalreferat": "art/documents/tall-register-cut.png",
+   "la liste du secrétariat": "art/documents/clipboard-list-cut.png",
+   "L'exemplaire de l'organigramme de Frau Litt": "art/documents/org-chart-cut.png",
+   "l'agenda de bureau de Herr Grau": "art/documents/desk-calendar-cut.png"
+  },
+  "props": [
+   {
+    "thing": "le registre des recommandés de la Poststelle",
+    "prop": "P04",
+    "places": [
+     "poststelle"
+    ],
+    "files": {
+     "art/rooms/poststelle-autumn.jpeg": "art/props/painted-p04-autumn.png",
+     "art/rooms/poststelle-friday.jpeg": "art/props/painted-p04-friday.png",
+     "art/rooms/poststelle-spring.jpeg": "art/props/painted-p04-spring.png"
+    },
+    "box": [
+     0.57617,
+     0.47005,
+     0.10254,
+     0.05469
+    ],
+    "under": null
+   },
+   {
+    "thing": "l'avis au-dessus de la table de tri",
+    "prop": "P05",
+    "places": [
+     "poststelle"
+    ],
+    "files": {
+     "art/rooms/poststelle-autumn.jpeg": "art/props/sorting-card-autumn.png",
+     "art/rooms/poststelle-friday.jpeg": "art/props/sorting-card-friday.png",
+     "art/rooms/poststelle-spring.jpeg": "art/props/sorting-card-spring.png"
+    },
+    "box": [
+     0.47144,
+     0.36458,
+     0.02197,
+     0.02865
+    ],
+    "under": null
+   },
+   {
+    "thing": "le registre du Personalreferat",
+    "prop": "P06",
+    "places": [
+     "registratur"
+    ],
+    "files": {
+     "art/rooms/registratur-autumn.jpeg": "art/props/tall-register-autumn.png",
+     "art/rooms/registratur-friday.jpeg": "art/props/tall-register-friday.png",
+     "art/rooms/registratur-spring.jpeg": "art/props/tall-register-spring.png"
+    },
+    "box": [
+     0.43774,
+     0.48698,
+     0.10181,
+     0.02344
+    ],
+    "under": null
+   },
+   {
+    "thing": "la liste du secrétariat",
+    "prop": "P07",
+    "places": [
+     "vorzimmer"
+    ],
+    "files": {
+     "art/rooms/vorzimmer-autumn.jpeg": "art/props/clipboard-list-autumn.png",
+     "art/rooms/vorzimmer-friday.jpeg": "art/props/clipboard-list-friday.png",
+     "art/rooms/vorzimmer-spring.jpeg": "art/props/clipboard-list-spring.png"
+    },
+    "box": [
+     0.59229,
+     0.61068,
+     0.04175,
+     0.02214
+    ],
+    "under": null
+   },
+   {
+    "thing": "L'exemplaire de l'organigramme de Frau Litt",
+    "prop": "P08",
+    "places": [
+     "pool"
+    ],
+    "files": {
+     "art/rooms/pool-autumn.jpeg": "art/props/org-chart-autumn.png",
+     "art/rooms/pool-friday.jpeg": "art/props/org-chart-friday.png",
+     "art/rooms/pool-spring.jpeg": "art/props/org-chart-spring.png",
+     "art/rooms/pool-sunday.jpeg": "art/props/org-chart-sunday.png"
+    },
+    "box": [
+     0.29053,
+     0.32682,
+     0.0498,
+     0.0638
+    ],
+    "under": null
+   },
+   {
+    "thing": "l'agenda de bureau de Herr Grau",
+    "prop": "P57",
+    "places": [
+     "z407"
+    ],
+    "files": {
+     "art/rooms/z407-autumn.jpeg": "art/props/desk-calendar-autumn.png",
+     "art/rooms/z407-friday.jpeg": "art/props/desk-calendar-friday.png",
+     "art/rooms/z407-spring.jpeg": "art/props/desk-calendar-spring.png"
+    },
+    "box": [
+     0.31323,
+     0.60156,
+     0.07251,
+     0.02995
+    ],
+    "under": null
+   }
+  ],
+  "opens": {},
+  "sarah": "art/people/sarah.png",
+  "sarah_height": 172,
+  "forms": {
+   "Herr Grau": {
+    "a": "à Herr Grau"
+   },
+   "Frau Pohlmann": {
+    "a": "à Frau Pohlmann"
+   },
+   "Frau Kern": {
+    "a": "à Frau Kern"
+   },
+   "Herr Simon": {
+    "a": "à Herr Simon"
+   },
+   "Frau Litt": {
+    "a": "à Frau Litt"
+   },
+   "Fräulein Ostrowski": {
+    "a": "à Fräulein Ostrowski"
+   },
+   "Frau Adam": {
+    "a": "à Frau Adam"
+   },
+   "Fräulein Bühl": {
+    "a": "à Fräulein Bühl"
+   },
+   "Fräulein Wenzel": {
+    "a": "à Fräulein Wenzel"
+   },
+   "le registre des recommandés de la Poststelle": {
+    "mid": "le registre des recommandés de la Poststelle",
+    "in": "dans le registre des recommandés de la Poststelle"
+   },
+   "l'avis au-dessus de la table de tri": {
+    "mid": "l'avis au-dessus de la table de tri",
+    "in": "sur l'avis au-dessus de la table de tri"
+   },
+   "le registre du Personalreferat": {
+    "mid": "le registre du Personalreferat",
+    "in": "dans le registre du Personalreferat"
+   },
+   "la liste du secrétariat": {
+    "mid": "la liste du secrétariat",
+    "in": "sur la liste du secrétariat"
+   },
+   "l'agenda de bureau de Herr Grau": {
+    "mid": "l'agenda de bureau de Herr Grau",
+    "in": "dans l'agenda de bureau de Herr Grau"
+   },
+   "L'exemplaire de l'organigramme de Frau Litt": {
+    "mid": "l'exemplaire de l'organigramme de Frau Litt",
+    "in": "sur l'exemplaire de l'organigramme de Frau Litt"
+   }
+  }
+ },
+ "glossary": [
+  {
+   "term": "Abteilung",
+   "also": [],
+   "short": "une direction",
+   "long": "La plus grande division d'un ministère au-dessous de ses dirigeants, avec à sa tête un Abteilungsleiter. L'Abteilung Z est celle qui fait marcher la maison elle-même."
+  },
+  {
+   "term": "Abteilungsleiter",
+   "also": [],
+   "short": "directeur",
+   "long": "Le chef d'une Abteilung, une direction : plusieurs Referate sous un seul homme. Au-dessus d'un Unterabteilungsleiter, au-dessous du Staatssekretär. Le crayon bleu est le sien."
+  },
+  {
+   "term": "Dienstweg",
+   "also": [],
+   "short": "par la voie hiérarchique",
+   "long": "Le chemin officiel : une pièce monte chez votre propre supérieur, et de lui chez le sien, un échelon à la fois."
+  },
+  {
+   "term": "Geschäftsordnung",
+   "also": [
+    "Geschaeftsordnung"
+   ],
+   "short": "le règlement intérieur",
+   "long": "La Gemeinsame Geschäftsordnung der Bundesministerien : le règlement permanent qui dit qui peut faire quoi, sur quel formulaire, dans quel ordre, et avec quelle couleur de crayon. La plupart des gens ne l'ont jamais lu."
+  },
+  {
+   "term": "Ministerialdirigent",
+   "also": [],
+   "short": "un grade très élevé du ministère",
+   "long": "Le grade au-dessus de Ministerialrat, en règle générale celui d'un homme qui dirige une Unterabteilung."
+  },
+  {
+   "term": "Ministerialrat",
+   "also": [],
+   "short": "un grade élevé du ministère",
+   "long": "Le grade au-dessus de Regierungsdirektor : un homme qui dirige un Referat de poids, ou qui est en route vers davantage."
+  },
+  {
+   "term": "Organisationsplan",
+   "also": [],
+   "short": "l'organigramme",
+   "long": "Chaque ministère en a un : qui dirige quoi, du Minister jusqu'à chaque Referat."
+  },
+  {
+   "term": "Personalreferat",
+   "also": [],
+   "short": "la section du personnel",
+   "long": "Le Referat qui s'occupe du personnel lui-même : nominations, mutations, congés, et qui l'on remercie."
+  },
+  {
+   "term": "Poststelle",
+   "also": [],
+   "short": "le service du courrier",
+   "long": "Là où le courrier de la maison est trié, reçu et expédié."
+  },
+  {
+   "term": "Referat",
+   "also": [
+    "Referate"
+   ],
+   "short": "une section",
+   "long": "La plus petite unité de travail d'un ministère : une poignée de personnes sous un Referatsleiter, chargées d'une matière et de ses dossiers."
+  },
+  {
+   "term": "Referent",
+   "also": [],
+   "short": "le fonctionnaire qui traite la pièce",
+   "long": "Le fonctionnaire qui, dans un Referat, traite réellement un dossier, par opposition à l'homme qui dirige le Referat."
+  },
+  {
+   "term": "Registratur",
+   "also": [],
+   "short": "les archives courantes",
+   "long": "La pièce qui garde les dossiers, et qui inscrit la sortie et le retour de chacun. Rien n'en sort sans une signature dans le registre."
+  },
+  {
+   "term": "Staatssekretär",
+   "also": [
+    "Staatssekretaer"
+   ],
+   "short": "secrétaire d'État",
+   "long": "Le plus haut fonctionnaire d'un ministère, juste au-dessous du Minister. Le crayon rouge est le sien."
+  },
+  {
+   "term": "Unterabteilung",
+   "also": [],
+   "short": "une sous-direction",
+   "long": "La division immédiatement inférieure à une direction, avec à sa tête un Unterabteilungsleiter et plusieurs Referate sous elle."
+  },
+  {
+   "term": "Unterabteilungsleiter",
+   "also": [],
+   "short": "sous-directeur",
+   "long": "Entre un Abteilungsleiter et les Referatsleiter placés sous lui. Le crayon brun est le sien."
+  }
+ ],
+ "lang": {
+  "code": "fr",
+  "sep": " : ",
+  "boundary": true,
+  "articles": [
+   "le",
+   "la",
+   "les",
+   "un",
+   "une",
+   "des",
+   "du"
+  ],
+  "bare": true
+ }
+}

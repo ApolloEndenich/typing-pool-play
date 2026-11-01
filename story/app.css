@@ -703,3 +703,67 @@ body.front #openfront { display:none }
   .frontcard { right:4%; left:34%; max-width:none; top:8%; transform:none; padding:10px 12px }
   .frontcard h2 { font-size:20px; letter-spacing:.1em }
 }
+
+/* THE TITLE, TYPED (index.html, #titleseq; app.js, titleSequence). The pool
+   in the dark behind, a sheet in front, the name struck letter by letter in
+   the machine's face, the stamp last. Its own dark scene, so it keeps its
+   colours whatever the page's. */
+body.titling { overflow:hidden }
+#titleseq { position:fixed; inset:0; z-index:60; display:grid; place-items:center;
+  padding:16px; overflow:auto; background:#0e0d0b; color:#1c1a17 }
+#titleseq[hidden] { display:none }
+.ts-room { position:absolute; inset:-4%; background:url("art/rooms/pool-autumn.jpeg") center/cover;
+  filter:blur(3px) brightness(.3) sepia(.35); animation:ts-drift 40s ease-in-out infinite alternate }
+#titleseq::after { content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse at 50% 45%, transparent 30%, rgba(0,0,0,.72) 100%) }
+@keyframes ts-drift { from { transform:scale(1.04) translate(0,0) } to { transform:scale(1.12) translate(-1.5%,1%) } }
+.ts-sheet { position:relative; z-index:1; box-sizing:border-box; width:min(660px, calc(100vw - 32px));
+  padding:46px 56px 38px; transform:rotate(-.6deg);
+  font-family:"Courier New", Courier, monospace;
+  background:
+    linear-gradient(transparent 0 calc(100% - 1px), rgba(60,50,30,.05) 0) 0 0/100% 1.7em,
+    radial-gradient(ellipse at 30% 20%, #f8f3e7, #ece4d1 80%);
+  box-shadow:0 30px 60px rgba(0,0,0,.55), 0 2px 0 rgba(0,0,0,.2);
+  animation:ts-feed 1.1s cubic-bezier(.2,.7,.2,1) both }
+@keyframes ts-feed { from { transform:translateY(60px) rotate(-.6deg); opacity:0 } }
+.ts-head { margin:0; font-size:13px; letter-spacing:.06em; color:#4a443b; min-height:1.3em }
+.ts-title { margin:26px 0 22px; font-size:clamp(28px, 6.6vw, 52px); line-height:1.08; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase; min-height:2.16em; color:#15130f }
+.ts-lines p { margin:3px 0; font-size:16px; line-height:1.55; min-height:1.55em }
+.ts-lines .ts-last { margin-top:14px; font-weight:700 }
+/* a struck letter: in with a jolt, then left a touch off its line and a
+   little lighter or darker, the way a ribbon leaves it */
+#titleseq .ch { opacity:0 }
+#titleseq .ch.on { opacity:var(--o, 1); display:inline-block; white-space:pre;
+  transform:translateY(var(--y, 0)) rotate(var(--r, 0)); animation:ts-strike .11s ease-out }
+@keyframes ts-strike { from { opacity:0; transform:translateY(-4px) scale(1.3); filter:blur(1.2px) } }
+.ts-caret { display:inline-block; width:.55em; height:1em; margin-left:1px; vertical-align:-.12em;
+  background:currentColor; opacity:.7; animation:ts-blink 1s steps(1) infinite }
+@keyframes ts-blink { 50% { opacity:0 } }
+.ts-stamp { position:absolute; right:7%; bottom:84px; padding:4px 14px 3px;
+  border:4px double #b02a1f; color:#b02a1f; font:700 28px/1 "Courier New", Courier, monospace;
+  letter-spacing:.24em; transform:rotate(-11deg); opacity:0; mix-blend-mode:multiply; pointer-events:none }
+.ts-stamp.on { opacity:.82; animation:ts-stamp .32s cubic-bezier(.3,1.6,.5,1) }
+@keyframes ts-stamp { from { opacity:0; transform:rotate(-11deg) scale(2.6) } }
+.ts-go { margin:30px 0 0; opacity:0; transition:opacity .6s }
+.ts-go.on { opacity:1 }
+#tsenter { font:700 15px "Courier New", Courier, monospace; letter-spacing:.14em; text-transform:uppercase;
+  cursor:pointer; padding:11px 26px; background:#15130f; color:#f4efe3; border:1px solid #15130f }
+#tsenter:hover, #tsenter:focus-visible { background:#E8C766; color:#15130f; outline:none }
+.ts-go:not(.on) #tsenter { visibility:hidden }
+.ts-skip { position:absolute; z-index:1; bottom:14px; left:0; right:0; margin:0; text-align:center;
+  font:12px "Courier New", Courier, monospace; letter-spacing:.14em; color:rgba(244,239,227,.45) }
+#titleseq.done .ts-skip { visibility:hidden }
+#titleseq.leave { animation:ts-fade .7s ease-in forwards }
+#titleseq.leave .ts-sheet { animation:ts-out .7s ease-in forwards }
+@keyframes ts-fade { to { opacity:0 } }
+@keyframes ts-out { to { transform:translateY(-70px) rotate(-.6deg) } }
+@media (max-width:640px) {
+  .ts-sheet { padding:30px 22px 26px }
+  .ts-lines p { font-size:15px }
+  .ts-stamp { font-size:20px; bottom:112px; right:5% }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ts-room, .ts-sheet, #titleseq .ch.on, .ts-stamp.on, .ts-caret,
+  #titleseq.leave, #titleseq.leave .ts-sheet { animation:none }
+}

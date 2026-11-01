@@ -155,9 +155,11 @@ async function boot() {
   }).join("");
   $("cases").querySelectorAll("button:not([disabled])").forEach(b =>
     b.onclick = () => load(b.dataset.id));
+  KEYOF = Object.fromEntries(index.map(c => [c.id, c.key || c.id]));
   /* the chapter a player was in last, so that Continue is where they were */
   const last = recall("_", "last", null);
   front();
+  titleSequence();
   load((index.find(c => c.id === last && c.built) || index.find(c => c.opens) || index.find(c => c.built)).id);
 }
 
@@ -169,6 +171,8 @@ function front() {
   $("frontbegin").textContent = recall("_", "begun", false) ? tx("Continue") : tx("Begin");
   $("frontbegin").onclick = () => {
     remember("_", "begun", true);
+    milestone("begin");
+    if (CASE) milestone(`${chapterKey()}/open`);
     document.body.classList.remove("front");
     $("front").hidden = true;
     window.scrollTo(0, 0);
@@ -180,6 +184,157 @@ function front() {
   window.scrollTo(0, 0);
   $("frontbegin").focus();
 }
+
+/* THE TITLE, TYPED (the user, 1 November 2026; index.html, #titleseq). Once
+   per visit, over the front page: the sheet feeds in, every piece marked
+   data-type is struck a letter at a time, the stamp comes down, and "Open the
+   file" takes it away to the front page underneath. A key or a click before
+   the end finishes it at once; after the end, either goes on. With reduced
+   motion it stands there typed, and ?notitle leaves it out (for us). */
+function titleSequence() {
+  const seq = $("titleseq");
+  let seen = false;
+  try { seen = sessionStorage.getItem("faelle.titled") === "1"; } catch (e) {}
+  if (!seq || seen || new URLSearchParams(location.search).has("notitle")) return;
+  try { sessionStorage.setItem("faelle.titled", "1"); } catch (e) {}
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const wide = /[　-鿿＀-￯]/;
+  const jitter = (a) => ((Math.random() * 2 - 1) * a).toFixed(2);
+  /* each piece into letters; a word is kept whole across a line end, and in
+     Japanese and Chinese, which break anywhere, each character is a word */
+  const pieces = [...seq.querySelectorAll("[data-type]")].map(el => {
+    const text = el.textContent.replace(/\s+/g, " ").trim();
+    el.textContent = "";
+    el.setAttribute("aria-label", text);
+    const chars = [];
+    for (const word of text.split(/( )/)) {
+      if (word === " ") { el.append(" "); chars.push(null); continue; }
+      const groups = wide.test(word) ? [...word] : [word];
+      for (const g of groups) {
+        const w = document.createElement("span");
+        w.style.whiteSpace = "nowrap";
+        w.setAttribute("aria-hidden", "true");
+        for (const c of g) {
+          const s = document.createElement("span");
+          s.className = "ch";
+          s.textContent = c;
+          s.style.setProperty("--o", (0.8 + Math.random() * 0.2).toFixed(2));
+          s.style.setProperty("--y", jitter(0.7) + "px");
+          s.style.setProperty("--r", jitter(1.1) + "deg");
+          w.append(s);
+          chars.push(s);
+        }
+        el.append(w);
+      }
+    }
+    return { el, chars, slow: el.classList.contains("ts-title") };
+  });
+  const caret = document.createElement("span");
+  caret.className = "ts-caret";
+  caret.setAttribute("aria-hidden", "true");
+  let fast = still;
+  const waiting = new Set();
+  const wait = ms => fast ? Promise.resolve() : new Promise(r => {
+    const t = setTimeout(() => { waiting.delete(go); r(); }, ms);
+    const go = () => { clearTimeout(t); r(); };
+    waiting.add(go);
+  });
+  const finish = () => { fast = true; waiting.forEach(go => go()); waiting.clear(); };
+  let done = false, gone = false;
+  const leave = () => {
+    if (gone) return;
+    gone = true;
+    milestone("title");
+    document.removeEventListener("keydown", onKey, true);
+    seq.classList.add("leave");
+    setTimeout(() => {
+      seq.hidden = true;
+      seq.classList.remove("leave");
+      document.body.classList.remove("titling");
+      $("frontbegin").focus();
+    }, still ? 0 : 700);
+  };
+  const onKey = e => {
+    if (e.ctrlKey || e.altKey || e.metaKey) return;
+    e.preventDefault();
+    e.stopPropagation();
+    if (!done) finish(); else leave();
+  };
+  seq.onclick = e => { if (!done) finish(); else if (e.target !== $("tsenter")) leave(); };
+  $("tsenter").onclick = e => { e.stopPropagation(); leave(); };
+  document.addEventListener("keydown", onKey, true);
+  document.body.classList.add("titling");
+  seq.hidden = false;
+  /* front() has just focused Begin, which scrolls a short window down to it */
+  window.scrollTo(0, 0);
+
+  (async () => {
+    await wait(900);
+    for (const { el, chars, slow } of pieces) {
+      for (const s of chars) {
+        if (!s) { await wait(slow ? 180 : 45); continue; }
+        if (!fast) s.after(caret);
+        s.classList.add("on");
+        await wait(slow ? 95 + Math.random() * 70 : 22 + Math.random() * 30);
+      }
+      await wait(slow ? 600 : 300);
+    }
+    caret.remove();
+    await wait(250);
+    seq.querySelector(".ts-stamp").classList.add("on");
+    await wait(550);
+    seq.querySelector(".ts-go").classList.add("on");
+    seq.classList.add("done");
+    done = true;
+    $("tsenter").focus({ preventScroll: true });
+  })();
+}
+
+/* HOW FAR PLAYERS GET (the user, 1 November 2026: "is there any way at all
+   how the goat counter can track whether people actually make progress in
+   the game and go to different chapters?"). Each step is sent to GoatCounter
+   as an event, ONCE PER BROWSER (remembered under "_", so a reload or a
+   second language does not count it again), as
+   ministry/<site|itch>/<key>/<what>: Q/open, Q/day2, Q/held-<part>,
+   Q/solved, and begin and title for the two front screens. Nothing typed,
+   no word, no answer: only that a step was reached. count.js loads after the
+   page, so a step taken before it is there waits a little; where it is
+   blocked or refuses (localhost, an add-on), nothing is sent and nothing is
+   marked sent. The manual says so (manual.feedback). */
+let KEYOF = {};
+const chapterKey = () => (CASE && KEYOF[CASE.id]) || (CASE && CASE.id) || "?";
+const WHERE = typeof location !== "undefined" &&
+  /(^|\.)itch\.(zone|io)$|hwcdn\.net$/.test(location.hostname) ? "itch" : "site";
+const MILESTONES = [];
+let MILESTONE_TRIES = 0, MILESTONE_TIMER = null;
+function milestone(what) {
+  if (recall("_", "counted", []).includes(what) || MILESTONES.includes(what)) return;
+  MILESTONES.push(what);
+  MILESTONE_TRIES = 0;
+  sendMilestones();
+}
+function sendMilestones() {
+  clearTimeout(MILESTONE_TIMER);
+  const gc = window.goatcounter;
+  if (!gc || typeof gc.count !== "function" || typeof gc.filter !== "function") {
+    if (++MILESTONE_TRIES < 30) MILESTONE_TIMER = setTimeout(sendMilestones, 1000);
+    else MILESTONES.length = 0;
+    return;
+  }
+  if (gc.filter()) { MILESTONES.length = 0; return; }
+  const sent = recall("_", "counted", []);
+  for (const what of MILESTONES.splice(0)) {
+    if (sent.includes(what)) continue;
+    try { gc.count({ path: `ministry/${WHERE}/${what}`, title: `Ministry of Secrets: ${what}`, event: true }); }
+    catch (e) { continue; }
+    sent.push(what);
+  }
+  remember("_", "counted", sent);
+}
+/* a step inside a chapter counts only once the front page is out of the way:
+   the chapter is loaded behind it for everybody who merely looks */
+const playing = () => !document.body.classList.contains("front");
+const chapterStep = what => { if (CASE && playing()) milestone(`${chapterKey()}/${what}`); };
 
 /* The introduction folds away, per chapter, and the question stays (the user,
    14 September 2026: "so that I can actually work on the notebook and the
@@ -194,6 +349,7 @@ function briefShut(shut) {
 async function load(id) {
   CASE = await (await fetch(casePath(`${id}.json`))).json();
   remember("_", "last", id);
+  chapterStep("open");
   DAY = 1;
   VERDICT = {};
   SEEN = new Set(recall(id, "days", [1]));
@@ -601,6 +757,7 @@ function draw() {
   const before = SEEN.size;
   SEEN.add(DAY);
   remember(CASE.id, "days", [...SEEN]);
+  if (DAY > 1) chapterStep(`day${DAY}`);
   /* Opening an evening is what makes its words writable, so the report has to
      be told. Without this a player reads the Sunday and then cannot type a
      word he has just read. */
@@ -1318,6 +1475,7 @@ async function remark() {
 
 function setVerdict(id, text, cls) {
   VERDICT[id] = [text, cls];
+  if (cls === "good") chapterStep(`held-${id}`);
   const el = $(`verdict-${id}`);
   if (el) { el.textContent = text; el.className = "verdict " + cls; mauserSays(el, text); }
 }
@@ -1390,6 +1548,7 @@ function tally() {
   const closing = solved && CASE.memo && CASE.memo.mauser && CASE.memo.mauser.solved;
   if (closing) el.append(mauserLine(closing));
   $("invite").hidden = !solved;
+  if (solved) chapterStep("solved");
   if (after && solved && CASE.after) { after.textContent = CASE.after; after.hidden = false; }
 }
 

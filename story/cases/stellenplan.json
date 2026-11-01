@@ -55,7 +55,7 @@
      "where": "Frau Adam",
      "lines": [
       "Frau Litt had Fräulein Bühl up at that window with a spent ribbon inside a week of her starting, the same as she does with all of them, and Fräulein Bühl was politer about it than most of them are.",
-      "The girls who are getting married all go down to the Registratur for the pension file and look up the marriage refund, the money you used to get back from your pension when you married, and it was done away with at the start of last year and nobody ever tells them.",
+      "The girls who are getting married all go up to the Registratur for the pension file and look up the marriage refund, the money you used to get back from your pension when you married, and it was done away with at the start of last year and nobody ever tells them.",
       "She heard about the return when everybody else did and was put out about it, and being put out about not knowing a thing first is the one thing she cannot act.",
       "Her elder boy has finished and the younger one has not, and she tells you which of them she worries about and it is not the one you expect.",
       "Coal has gone up again and she says the figure, and it is right."
@@ -92,7 +92,7 @@
       "The stairs and the paternoster both pass the landing outside his counter. He sees the newest girl go up for the post most days, and he has not seen Frau Litt go up in years.",
       "Asked what the enclosure column counts, he says whatever is in the envelope, and that it is there so a thing that goes out with three comes back with three, and that it has never meant anything else.",
       "Files go out on the book and come back on the book, and roughly one a month does not, and each one of those he remembers.",
-      "He locks the Registratur last thing. By then the pool is long gone, every one of them down the stairs past his counter, and the cleaners come up past it while he turns the key, the charwoman who does the fourth floor among them. In the morning he is at his counter before any of the pool comes in, and the cleaners have been and gone."
+      "He locks the Registratur last thing. By then the pool has long gone home, and the cleaners come up past his counter while he turns the key, the charwoman who does the fourth floor among them. In the morning he is at his counter before any of the pool comes in, and the cleaners have been and gone."
      ]
     },
     {
@@ -510,7 +510,6 @@
      "a56ee2ea729deb8d9aa66092ab119d6339b35031e853d280172d63626fe1aa7c",
      "ab47fcd11f441a5da36f6136a31732b11f450420e1692394f08e43e2457385c1",
      "ace05e68f313d9666cef069980e1d79d4f07f830461333f8f376b7752056d61a",
-     "af93c42b4fc931fdd547a5fa9e015086d15e9a6f8e3255d7eeb0d562f7fa8d48",
      "b483f6a456cbb18c1f9c3cbb029739f89bc500f1375ad459a5c6a9ade13ac254",
      "bdaabeaf923381a2b2d2d05ab0b9ab2cbb4b95862fab0393985d6445aefb0a56",
      "c05b499c78d159bf8e60185db2f699429da1c8ac55b90d75ce1b4552e2e216db",
@@ -518,6 +517,7 @@
      "c52d7b6cff43d22d5921691cf902cfa920e77dbaef12b298813632a11b5a6df5",
      "d9247cc9b53af51c13ad4798c5cc3d7723a3a866045abe1814eea9558ea8882b",
      "da8a5d79625693298a1e10509da74617703c55f0c497e471943a6f906a30262e",
+     "dd327eb9c372011f0c959de357681214dea79a58faba1a0ef47f618c539634fe",
      "e153df341e61156c304152b55687ebb17a49b7b93d492a13acb0bd17428b45c1",
      "e9bcc70a5e5c417b3ea38772fa7ec994bc0ab7d2368589c24b4dc31cb67474f9",
      "ee1cf2a3e148843d014f3ae40a302509249a56667959ff09481e203929a6153a",
@@ -769,10 +769,10 @@
      "02ab848bdf7c0de79f24b68d6670482fe8b0ede6b00bb113399f43c06dbb40f4",
      "02d1f8274d440f7cdf59193ef6fadb0e7ca4f5de0909c8f29a7fc76bef1e67b7",
      "04698f3fd2e7b3ea62f26e58904fc0e0b2f74177ad3b1bd00c89a33e81ab2254",
-     "0976331e5e8bdcd256037725e6ba96d01580201673b9ae753c9f079ef98b16d1",
      "0edba980b884699c559febb9698be71fb1f140751f6e0803f2d7b49f0ddb4632",
      "196b348c0b64b7bd0cd4d1ca4c5bbf82e7c65040478b5aeae2bbd9d1e366d86d",
      "1f5d12f829e0ae173226ca4443dc3e772c171204f2cb7101507013c62dbb6ed0",
+     "2e190688a99521e2a2eb87cca173fb7af8465bbf6600e2e650755bbe757d1743",
      "2f55544e172675c6d85481777142ad0f42d446728f5f9b56ee2106df89293145",
      "36987b20dda0bb8d861c631ae8b8e91083c28ce752859b187fcafccc2bb0ea05",
      "36de6c77f74da47fb0d3b56ce2d3b2ed35886dbb345b25aadbc5bd8777cfb06c",
@@ -1367,7 +1367,7 @@
         "phase": null
        },
        {
-        "text": "He locks the Registratur last thing. By then the pool is long gone, every one of them down the stairs past his counter, and the cleaners come up past it while he turns the key, the charwoman who does the fourth floor among them. In the morning he is at his counter before any of the pool comes in, and the cleaners have been and gone.",
+        "text": "He locks the Registratur last thing. By then the pool has long gone home, and the cleaners come up past his counter while he turns the key, the charwoman who does the fourth floor among them. In the morning he is at his counter before any of the pool comes in, and the cleaners have been and gone.",
         "phase": null
        }
       ],
@@ -1510,7 +1510,7 @@
      "married": {
       "lines": [
        {
-        "text": "The girls who are getting married all go down to the Registratur for the pension file and look up the marriage refund, the money you used to get back from your pension when you married, and it was done away with at the start of last year and nobody ever tells them.",
+        "text": "The girls who are getting married all go up to the Registratur for the pension file and look up the marriage refund, the money you used to get back from your pension when you married, and it was done away with at the start of last year and nobody ever tells them.",
         "phase": null
        }
       ],
@@ -1814,7 +1814,6 @@
     "raised_by": [
      "The stairs and the paternoster both pass the landing outside his counter. He sees the newest girl go up for the post most days, and he has not seen Frau Litt go up in years.",
      "She has cooked for this building for nine years and serves at the hatch herself, and knows everybody who eats here by what they take. The pool comes down together and sits at the long table by the radiator. Frau Pohlmann from 407 she knows by sight, from the stairs, and has never once served.",
-     "He locks the Registratur last thing. By then the pool is long gone, every one of them down the stairs past his counter, and the cleaners come up past it while he turns the key, the charwoman who does the fourth floor among them. In the morning he is at his counter before any of the pool comes in, and the cleaners have been and gone.",
      "She will not use the paternoster and takes the stairs, and says so without being asked, the way people do about the things that frighten them."
     ]
    },
@@ -1857,7 +1856,7 @@
     "ask_of": {},
     "always": false,
     "raised_by": [
-     "The girls who are getting married all go down to the Registratur for the pension file and look up the marriage refund, the money you used to get back from your pension when you married, and it was done away with at the start of last year and nobody ever tells them.",
+     "The girls who are getting married all go up to the Registratur for the pension file and look up the marriage refund, the money you used to get back from your pension when you married, and it was done away with at the start of last year and nobody ever tells them.",
      "She is to be married next spring and means to go on working, which her mother thinks is a phase."
     ]
    },

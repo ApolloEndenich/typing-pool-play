@@ -2,8 +2,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ministry of Secrets</title>
-<!-- Visits counted by GoatCounter (the user, 18 September 2026): no cookies, nothing personal, and localhost is not counted. -->
+<!-- Visits counted by GoatCounter (the user, 18 September 2026): no cookies, nothing personal, and localhost is not counted.
+     allow_frame (1 November 2026): itch.io runs the game inside a frame, and
+     count.js counts nothing in a frame unless told to, so until today no play
+     on itch.io was ever counted. app.js also counts how far a player gets
+     (milestone), once per browser. -->
 <script data-goatcounter="https://typingpoolgame.goatcounter.com/count"
+        data-goatcounter-settings='{"allow_frame": true}'
         async src="//gc.zgo.at/count.js"></script>
 <link rel="icon" href="art/favicon.png" type="image/png">
 <link rel="stylesheet" href="app.css">
@@ -49,6 +54,31 @@
      odd."). What the game is, in the room it is named after, and one button.
      It stands in front of the chapter every time the page is opened; the
      manual no longer opens by itself. Nothing here is evidence. -->
+<!-- THE TITLE, TYPED (the user, 1 November 2026, for the Cold Case Jam: "the
+     subtitle comes flying in like typed on a typewriter"). A sheet on the
+     desk in the dark pool; the name is struck letter by letter, the lines
+     under it follow, and the house's stamp comes down last. Once per visit
+     (sessionStorage), any key or click finishes it at once, and with reduced
+     motion it simply stands there typed. It opens onto #front. The name is
+     the same in every language and stays out of data-i18n. The four lines
+     are MINE, put to the user, not ruled. -->
+<section id="titleseq" hidden aria-label="Ministry of Secrets">
+  <div class="ts-room" aria-hidden="true"></div>
+  <div class="ts-sheet">
+    <p class="ts-head" data-type data-i18n="titleseq.head">Bonn, 1968 to 1972</p>
+    <h2 class="ts-title" data-type>Ministry of Secrets</h2>
+    <div class="ts-lines">
+      <p data-type data-i18n="titleseq.1">Papers that were forged.</p>
+      <p data-type data-i18n="titleseq.2">Files that went missing.</p>
+      <p data-type data-i18n="titleseq.3">Lies sent through channels.</p>
+      <p data-type data-i18n="titleseq.4" class="ts-last">And in the end, murder.</p>
+    </div>
+    <div class="ts-stamp" aria-hidden="true">GEHEIM</div>
+    <p class="ts-go"><button type="button" id="tsenter" data-i18n="titleseq.enter">Open the file</button></p>
+  </div>
+  <p class="ts-skip" data-i18n="titleseq.skip">Press any key</p>
+</section>
+
 <section id="front" hidden>
   <div class="frontpic">
     <img id="frontsarah" src="art/people/sarah.png" alt="">
@@ -316,8 +346,9 @@
     by itself. You copy what you wrote, or send it by email (to
     typingpool1969@gmail.com) or on GitHub, and you see everything, the play
     log included, before it goes. The only thing that goes anywhere by
-    itself is a count of visits to the page (GoatCounter: no cookies, nothing
-    about who you are).</p>
+    itself is a count of visits to the page, and of how far players get: a
+    chapter opened, a part of a report that holds (GoatCounter: no cookies,
+    nothing about who you are, never a word you wrote).</p>
 
     <h3 data-i18n="manual.pictures.head">The pictures</h3>
     <p data-i18n="manual.pictures">The rooms and the people are generated with AI from
