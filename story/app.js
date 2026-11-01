@@ -1092,7 +1092,7 @@ function slot(key) {
   }).join("");
   const open = ACTIVE === key;
   return `<div class="evidence${open ? " open" : ""}"><span class="elabel">${
-    esc(f.evidence)}:</span> ${chips || `<span class="none">${tx("none cited")}</span>`} ` +
+    esc(f.evidence + lineSep().trimEnd())}</span> ${chips || `<span class="none">${tx("none cited")}</span>`} ` +
     `<button class="attach" data-slot="${esc(key)}">${
       open ? tx("done") : tx("＋ cite")}</button>${open
       ? `<span class="hint"> ${tx("click ＋ beside any line")}</span>` : ""}</div>`;

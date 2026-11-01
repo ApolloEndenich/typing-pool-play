@@ -15,7 +15,7 @@
      "where": "das Vorzimmer von 407",
      "lines": [
       "Das Farbband in Frau Pohlmanns Maschine ist kaum benutzt. Sie hat es am Tag nach dem Abgang des Stellenplans ans Finanzministerium eingelegt.",
-      "Frau Pohlmann hat den Stellenplan selbst geschrieben, bei geschlossener Tür, wie bei allem, wo Namen drinstehen, und sie hat ihn nicht in den Schreibsaal gegeben."
+      "Frau Pohlmann hat den Stellenplan selbst geschrieben, bei geschlossener Flurtür, wie bei allem, wo Namen drinstehen, und sie hat ihn nicht in den Schreibsaal gegeben."
      ]
     },
     {
@@ -34,21 +34,21 @@
     {
      "where": "die Registratur",
      "lines": [
-      "Die Rentenakte an Herrn Simons Schalter, wo die Mädchen sie liegen lassen: Über die Seite zur Heiratserstattung ist ein gedruckter Zettel der Rentenversicherung geklebt. Danach wurde die Erstattung Anfang letzten Jahres abgeschafft.",
+      "Die Rentenakte an Herrn Simons Schalter, wo die Mädchen sie liegen lassen, aufgeschlagen bei der Seite zur Heiratserstattung. Über die Seite geklebt, ein gedruckter Zettel der Rentenversicherung: „Aufgehoben mit Wirkung vom 1. Januar 1968.“",
       "Der Stellenplan ging versiegelt hinüber, und das Siegel wurde im Finanzministerium gebrochen. Herr Simon hatte ihn nie offen vor sich.",
-      "Ins Aktenausgabebuch geheftet, neben dem Eintrag für den Stellenplan: die Empfangsbestätigung des Finanzministeriums. „1 Umschlag, Siegel des Personalreferats. Siegel unverletzt. Empfangen:“, darunter Stempel und Unterschrift des Empfängers.",
-      "Das Aktenausgabebuch hat eine Spalte für Anlagen, und Herr Simon füllt sie für alles aus, auch für einen versiegelten Stellenplan: In diesem Haus wird er hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinunterträgt. Beim Eintrag für den Stellenplan steht in dieser Spalte: „3“.",
-      "Fräulein Bühl hat in jener Woche im Buch für eine Rentensache unterschrieben, die mit ihr nichts zu tun hatte, und das Buch lag aufgeschlagen am Schalter, wo es immer liegt."
+      "Ins Aktenausgabebuch geheftet, neben dem Eintrag für den Stellenplan: die Empfangsbestätigung des Finanzministeriums. „Erhalten: 1 Umschlag unter Siegel des Personalreferats, Siegel unverletzt. Inhalt lt. Aufschrift: Stellenplanmeldung in zweifacher Ausfertigung nebst Begleitschreiben; 3 Stück.“ Darunter Stempel und Unterschrift des Finanzministeriums.",
+      "Das Aktenausgabebuch, beim Eintrag für den Stellenplan: versiegelt; hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinuntertrug, wie es in diesem Haus üblich ist; Anlagen: 3. Die Anlagenspalte wird bei jedem Eintrag ausgefüllt, ob versiegelt oder nicht.",
+      "Fräulein Bühl hat in jener Woche im Buch für eine Rentenakte unterschrieben, die mit ihr nichts zu tun hatte, und das Buch lag aufgeschlagen am Schalter, wo es immer liegt."
      ]
     },
     {
      "where": "der Schreibsaal",
      "lines": [
-      "Das Auftragsbuch des Schreibsaals: in der Woche, in der der Stellenplan geschrieben wurde, kein Eintrag aus 407. Was sonst aus 407 darin steht, Woche für Woche, trägt in der Spalte „Auftraggeber“ den Vermerk „Vorzimmer 407“, und keine einzige Zeile fordert eine Schreibkraft namentlich an.",
+      "Das Auftragsbuch des Schreibsaals: in der Woche, in der der Stellenplan geschrieben wurde, kein Eintrag aus 407. Jeder Eintrag aus 407, in jeder Woche, trägt in der Spalte „Auftraggeber“ den Vermerk „Vorzimmer 407“; keiner nennt eine Schreibkraft mit Namen.",
       "Die Dienstaltersliste hängt neben der Tür und wird jeden Januar auf den neuesten Stand gebracht. Sie ist keine Entlassungsliste, und jede im Raum weiß, dass dieser Unterschied die letzten Namen darauf noch nie gerettet hat.",
-      "Die neuen Farbbänder kommen auf zwei Spulen in einer Dose, und dafür gibt es eine Anforderung, und die Anforderung fragt, wie viele im letzten Quartal verbraucht wurden, und das hat noch nie jemand beantworten können.",
+      "Die neuen Kohlebänder kommen auf zwei Spulen in einer Dose, und dafür gibt es eine Anforderung, und die Anforderung fragt, wie viele im letzten Quartal verbraucht wurden, und das hat noch nie jemand beantworten können.",
       "Der Anspitzer auf dem Fensterbrett ist seit September kaputt, und für einen Anspitzer gibt es kein Formular.",
-      "Die neuen Maschinen haben einen leichteren Anschlag, und Frau Litt hält das nicht für eine Verbesserung, denn mit leichtem Anschlag tippt man schneller, als man denken kann. Zwei davon gibt es bisher, und sie nehmen die neuen Kohlebänder, die nur einmal durchlaufen; der Rest des Schreibsaals schreibt noch mit Stoffband."
+      "Die neuen Maschinen haben einen leichteren Anschlag, und Frau Litt hält das nicht für eine Verbesserung, denn mit leichtem Anschlag tippt man schneller, als man denken kann. Zwei davon gibt es bisher, und sie nehmen die neuen Kohlebänder, die nur ein einziges Mal durch die Maschine laufen; der Rest des Schreibsaals schreibt noch mit Stoffbändern."
      ]
     },
     {
@@ -75,12 +75,12 @@
     {
      "where": "Frau Pohlmann",
      "lines": [
-      "Das Farbband wechselt sie selbst und hat es immer getan, und das alte kommt mit allem anderen in den Papierkorb bei Frau Pohlmann. Das Vorzimmer hat die neuen Kohlebänder vor dem Schreibsaal bekommen, und ein Stoffband war nicht mehr in ihrer Maschine, seit der Winter angefangen hat.",
+      "Das Farbband wechselt sie selbst und hat es immer getan, und das alte kommt mit allem anderen in den Papierkorb neben ihrem Schreibtisch. Das Vorzimmer hat die neuen Kohlebänder vor dem Schreibsaal bekommen, und ein Stoffband war nicht mehr in ihrer Maschine, seit der Winter angefangen hat.",
       "Ihre halbe Stunde Mittag verbringt sie seit elf Jahren am eigenen Schreibtisch. Der Schreibsaal isst in der Kantine. In elf Jahren hat sie die Kantine nicht ein einziges Mal betreten.",
       "Die Post für den Schreibsaal liegt auf dem Tisch auf dem Treppenabsatz. Das Mädchen, das sie holen kommt, war nie in ihrer Tür, und Frau Pohlmann ist nicht am Tisch, wenn sie kommt.",
       "Früher kam Frau Litt selbst auf diesen Stock herauf, um über Farbbänder zu streiten, und seit der Schreibsaal eine eigene Anforderung hat, tut sie es nicht mehr. Im vierten Stock war sie seit Jahren nicht; sie käme nicht herauf, ohne an dieser Tür hereinzuschauen.",
       "Herr Grau hatte mit dem Schreibsaal nichts zu tun und hätte nicht gewusst, welche der Schreibkräfte Fräulein Bühl war. Alles für den Schreibsaal ging über diesen Schreibtisch, schriftlich.",
-      "Sie geht an den meisten Abenden als Letzte von diesem Stock, und so sieht sie die Putzkolonne kommen: nie, bevor der Schreibsaal nach Hause gegangen ist, mit der Kolonne die Putzfrau für diesen Stock, und wieder fort, bevor morgens jemand kommt.",
+      "Sie geht an den meisten Abenden als Letzte von diesem Stock, und so sieht sie die Putzkolonne kommen, darunter die Putzfrau, die auf diesem Stock putzt: nie, bevor der Schreibsaal nach Hause gegangen ist, und wieder fort, bevor morgens jemand kommt.",
       "Elf Jahre in diesem Vorzimmer und drei Referatsleiter, und der erste schrieb alles mit der Hand, und sie tippte es ab, und sie dachte damals, damit gehe etwas zu Ende."
      ]
     },
@@ -92,7 +92,7 @@
       "Die Treppe und der Paternoster kommen beide am Absatz vor seinem Schalter vorbei. Die Neue aus dem Schreibsaal sieht er an den meisten Tagen wegen der Post hinaufgehen, und Frau Litt hat er seit Jahren nicht hinaufgehen sehen.",
       "Gefragt, was die Anlagenspalte zählt, sagt er: alles, was der Umschlag enthält, und sie sei dafür da, dass etwas, das mit drei hinausgeht, mit drei zurückkommt, und etwas anderes habe sie nie bedeutet.",
       "Akten gehen nur gegen Eintrag hinaus, über den Schalter, und kommen gegen Eintrag zurück, und ungefähr eine im Monat kommt nicht, und an jede davon erinnert er sich.",
-      "Er schließt die Registratur als Letzter ab. Dann ist der Schreibsaal längst fort, jede von ihnen die Treppe hinunter an seinem Schalter vorbei, und die Putzkolonne kommt daran vorbei herauf, während er den Schlüssel umdreht, und die Putzfrau mit der Kolonne. Morgens steht er an seinem Schalter, bevor eine aus dem Schreibsaal kommt, und die Putzkolonne war schon da und ist wieder fort."
+      "Er schließt die Registratur als Letzter ab. Dann ist der Schreibsaal längst fort, jede von ihnen die Treppe hinunter an seinem Schalter vorbei, und die Putzkolonne kommt daran vorbei herauf, während er den Schlüssel umdreht, darunter die Putzfrau, die im vierten Stock putzt. Morgens steht er an seinem Schalter, bevor eine aus dem Schreibsaal kommt, und die Putzkolonne war schon da und ist wieder fort."
      ]
     },
     {
@@ -106,9 +106,9 @@
     {
      "where": "die Putzfrau",
      "lines": [
-      "Sie hat Herrn Simon einmal beim Abschließen gefragt, warum in den weggeworfenen Bändern die Buchstaben der Reihe nach ausgestanzt sind, und er hat es ihr gezeigt: Der Typenhebel schwingt hoch, das Band liegt zwischen ihm und dem Papier, und was der Anschlag vom Band abhebt, das steht dann auf dem Blatt.",
+      "Sie hat den Pförtner einmal, als er sie an der Seitentür hereinließ, gefragt, warum in den weggeworfenen Bändern die Buchstaben der Reihe nach ausgestanzt sind, und er hat es ihr gezeigt: Der Typenhebel schwingt hoch, das Band liegt zwischen ihm und dem Papier, und was der Anschlag vom Band abhebt, das steht dann auf dem Blatt.",
       "Frau Pohlmann zerreißt ihre vertippten Blätter klein, bevor sie in den Papierkorb kommen, jedes einzelne, was sonst niemand in diesem Haus tut, und die Schnipsel aus den Ecken zu kriegen ist eine Höllenarbeit.",
-      "Aus Frau Pohlmanns Papierkorb, alle paar Wochen: das Farbband, das sie aus ihrer Maschine genommen hat, die neue glänzende Sorte, nicht die Stoffbänder, die der Schreibsaal wegwirft. Es kommt mit dem Rest in den Sack.",
+      "Aus dem Papierkorb neben Frau Pohlmanns Schreibtisch, alle paar Wochen: das Farbband, das sie aus ihrer Maschine genommen hat, die neue glänzende Sorte, nicht die Stoffbänder, die der Schreibsaal wegwirft. Es kommt mit dem Rest in den Sack.",
       "Sie trägt hinaus, was in den Papierkörben ist, und liest nichts davon, und hätte auch nicht viel damit anfangen können, wenn sie es gelesen hätte, und sagt das ohne jede Verlegenheit.",
       "Der Wagen hat ein Rad, das sich querstellt, und dafür gibt es ein Formular, und sie hat das Formular zweimal ausgefüllt."
      ]
@@ -161,7 +161,7 @@
    "release": "Das Farbband in Frau Pohlmanns Maschine ist kaum benutzt. Sie hat es am Tag nach dem Abgang des Stellenplans ans Finanzministerium eingelegt."
   },
   {
-   "text": "der Papierkorb bei Frau Pohlmann",
+   "text": "der Papierkorb",
    "kind": "thing"
   },
   {
@@ -266,22 +266,22 @@
   {
    "id": "reached",
    "title": "Wie es zu ihr kam",
-   "text": "Ihre Quelle war dies: ___. Zu ihr gelangt war es über zwei Stationen: erst ___, dann ___.",
+   "text": "Ihre Quelle: ___. Der Weg zu ihr, erst: ___, dann: ___.",
    "kinds": [
     "thing",
     "thing",
     "thing"
    ],
-   "sealed": "74122f38e9924a340e3076d1a06d9f86610231f9292c121a08371fc39a01f1f7",
+   "sealed": "15de68e6d2b2443af3f119fc8fd550dd0bd52e2c639499135cab4a4d19043def",
    "blanks": [
     "e5c58f620930aef0bbb1cc4c1abf7433d13a6e58d4597b7276a756ee3880ca37",
-    "33a1f4c3de49dfb2bd068ff3781c04f72c742df693bd8494118d31d249957a57",
+    "46e28b40cd454acc8f6e95b02b67eeb2b16d05eaa208372d90c558776532e35f",
     "73a4296302a4279be3d6a8d4892df4fc49815f84880ac7d572ecd1966669298a"
    ],
    "hints": [
     "Nach Dienstschluss: das Vorzimmer von 407 und der Treppenabsatz im vierten Stock. Fragen Sie Frau Pohlmann nach den Maschinen und die Putzfrau nach den Papierkörben.",
     "Frau Pohlmanns Farbband wurde am Tag gewechselt, nachdem der Stellenplan hinübergegangen war; das alte kommt in den Papierkorb, und der Papierkorb kommt in den Sack auf dem Treppenabsatz.",
-    "Die Wörter: das Farbband, der Papierkorb bei Frau Pohlmann, der Sack."
+    "Die Wörter: das Farbband, der Papierkorb, der Sack."
    ]
   },
   {
@@ -308,7 +308,7 @@
   {
    "id": "why",
    "title": "Warum sie nicht warten konnte",
-   "text": "Heiraten wird sie ___ und will weiterarbeiten, und abgeschafft ist: ___, und zwar seit ___.",
+   "text": "Heiraten wird sie: ___. Sie will weiterarbeiten. Abgeschafft ist: ___. Seit wann: ___.",
    "kinds": [
     "time",
     "thing",
@@ -410,6 +410,7 @@
      "3b7ce44cc1f08a609483706753ef05e8985e80beeb8edc117285538ddfaf983d",
      "3ed7a50549daef084f551c2694543a44e669d95a43ea05030be6d0a807234869",
      "4844f5fd359ab5b64e72d5e13f9e993f0e5213ad00a9015e00fbe172691a91d3",
+     "51f0f04e5ec829eb0a0b2261dd71770679228cf5385650bd98e4d77695c1d6fa",
      "5563ac6c504466dce1f348ae49c0a4c0c7816ce09b0ffa03d159a4c1fb5a0ead",
      "59cf6a014698ad64be9a6e29cf0a5c00534de089c6bcae366e3bec5c94fc2de2",
      "5da8a4c23f68f1d1b70e0e8a408ec542b3657ae740d3a9ab230790a3bc56a079",
@@ -423,7 +424,7 @@
      "91eb78094238c3a7a40709163ba33f44ee162ee5d1bbb537d60ebe9534d56776",
      "9ad8f15e4ca4a4985ccc2579cab286552fb8d3b32b3574372e38d36a67739e5a",
      "9e92372a3cc36535b5f59b6fdd5b3434adb9dc8f01e4ae823449ae6c3a73d72f",
-     "a9da7489072b87efd934cc3cfc1ef9d3a8ba3b40d1c65c9b86d242f72efd2f52",
+     "b2f25c9a05a34a90914931423857ec148a8546ef721ebc6420010d81b5fc9961",
      "c9a99f2e635b9b7606280c37998e7c836aa6d897696735da2ec0263c8a3faaf6",
      "cb89d52242750433e4d1093cc08b9477fcbab5a4e58a64ed2023384ce79a414a",
      "cc91dbb5796f7badceeb888b5d54bceaf15dc6b6cd64fd8cf70d65163787336e",
@@ -432,7 +433,6 @@
      "d5bce02fd0814201d6dd44a287f6677ab33cf2cd5be77ff3a741fc238fb1656d",
      "d60521d6f79228cc090369fcb61d74da9248d4646a2b553cb1506ae60f97f6ba",
      "d70d2527fabf84b178e768d1641d2dd3fdd09d58365cb6dadebe3e7668c91b03",
-     "dd34868dce523688dd7e0fb833a72a284bf55137f0067f482808bbfe916f4cae",
      "de4e7c2db4125abde81687181fffccfd0e6e1df2e672a4d72e224bfa7a018b96",
      "e04b03898526a4ed105d1cbd7209fc0735341c398699ec342350223e7b1691dd",
      "e403bb6c928d8a0e45cd38550dd6ca1c49a4c1df4dd011c01285e738d22c442b",
@@ -522,10 +522,10 @@
      "c05b499c78d159bf8e60185db2f699429da1c8ac55b90d75ce1b4552e2e216db",
      "c4f6dbd079091e01eb0586ef9e68bb6cbc14f5ceb216a8e982a9923f518fd999",
      "c52d7b6cff43d22d5921691cf902cfa920e77dbaef12b298813632a11b5a6df5",
+     "d85b747fb64cba094ccad9e71c20c12bc8492cbe8f11a400016464ff0348523b",
      "d9247cc9b53af51c13ad4798c5cc3d7723a3a866045abe1814eea9558ea8882b",
      "da8a5d79625693298a1e10509da74617703c55f0c497e471943a6f906a30262e",
      "e153df341e61156c304152b55687ebb17a49b7b93d492a13acb0bd17428b45c1",
-     "e600ece7d955be0ccbc32614c76330d11ac7fc785199c6b8cd70050c8f1b8396",
      "e9bcc70a5e5c417b3ea38772fa7ec994bc0ab7d2368589c24b4dc31cb67474f9",
      "ee1cf2a3e148843d014f3ae40a302509249a56667959ff09481e203929a6153a",
      "fc4e71e11854fd877d1d0d9d9ebb275f8be0824983434dfd6a477431a6ef9374"
@@ -551,6 +551,7 @@
      "3d043ef9652c836694aaba10da1621b74866731117b3a92d19963532aa4255c2",
      "4a00afc5377cff9f4eb990d1792f297cfc379091db05231f0f4728418d86fd3e",
      "585f0d3bbef52a4e8ef48f5e43c035e0a6bdeb4bc7da3723df3fab0152bca1e1",
+     "58da6b9639774e597f743380e2e809a9a3ffe14a1c5526236b74c7dc4100d48c",
      "5a2510cff59e2bbb1bf3587fad024569c277b9fd52a6c7c0be1bee0a02553c1c",
      "5f477b8f346b88d8e664b09bbb3c1e32c9324bbb73246f77611b4960e55a6791",
      "5fc210ecc26819392d04735785138568cdf35a6e8252ffef17c8551633bcafc9",
@@ -567,7 +568,6 @@
      "a43b9b3f9c3fa9dad1c6f02dcb56f964cb846d0c16861ba98d439da0b4e1e2ab",
      "a57edb2f10910ea65f9086e5dcc9fd2d8024e790c40cabd855478ecd9bd0759c",
      "c9307f9f585bf8c874f1c349813830bd278a6689703543ae4e724289b3ccf9e1",
-     "ca244116b2c3d0c1fff815491d641e42014f404cffe816b503fc55a940c9c288",
      "cf0b368140ff8d7a57c23e517d5c35dae25eaa7ff06164ea194789be08790bff",
      "d6ce20f817142eb2499632841391c28701fe29c17e4362205339b9617d7faec8",
      "e20ee46dda72238f7de2cee871f5f15c361542b24413b1dddb0549defce07e22",
@@ -649,7 +649,6 @@
      "40e0b75145ecd84963ec74251b811aacc83c89886411e82f303a6ca493b65a97",
      "5edf211b7cf097b952e6d9554af61b880de86705fda4ab845b2515f04ee24ed8",
      "6bd0fc5fa9ad9a150b7b3edfe66f3e5e9b89f6bbcdba8f0a9ca2831185ab8117",
-     "7dd88b831ce8f6f625e565ab929292ed0676ede5b0f7a519c851436b6e48445b",
      "8232bb35c55ba5d52bb9b88ec73b1fa06766affc0d9a8f42df1413ec2261f512",
      "8308ed1cc48968d0ed7a24e614a6c2570922c4d7e194a21db209bc9d55e34bbc",
      "87494d1364b420b354d265458f00454b75f7d69f000de1399ae40958c49a5bfe",
@@ -657,6 +656,7 @@
      "92ec6901e2721c2220e613fcfb89f91a44afe3033eadb8f3cc07f4868cc4e8e0",
      "959ae3feeb5870ac9751e342f60be8c1cb2119a32e43de6104337e7fb74053c5",
      "a1d03a3b9aa4d553c3b1dc00bbb671a3fc17d819566320572bf2d1e7cc4633eb",
+     "a68e51313cbd378916490b58977b687c28a5c691847aea443aabc0f541dfd21d",
      "a9606b749cdb8da872d5d529757bcdb03b2255544f76c6b55999991b3f6b0f9e",
      "a9b471711bce34855d48f3a2ece879ff747f13f33b1cf4ce862324cc020a1a92",
      "a9eba343368f3fb6f50f218e1d0ebc951323ce20171ed0dbad8f60f53733c36d",
@@ -789,7 +789,7 @@
      "5a0c894e788f2f278c2036ce629ad315c352a4ecda896f57c1517c26113a7a00",
      "606602a39e1049f9fc8362fb78c44673c4d77712ed669532ac2c94a7453b02fb",
      "661429269a116ee5082d2274bce91d1063c1cfd9eeec2b6a048558725d978c18",
-     "79c2648579eb8cd46a23b177fdf350609095437a2fbe7aa7ca9ed3ea16d1d1f6",
+     "6b27e564fcfc574be8160f99e630fd78dc6c4c017f066d5e3ccc7d85b0bdbd7e",
      "818bd6c39b94641aca473489456d5e4567db5246561dc18018775172a4fc9d59",
      "838d12c38d81a1f47ebe5d6a918dbadcf3117e7dd67484e53a42ed22aaa29e9e",
      "881bd546efba1518077b4e7081dadf55908ceb72ca53d8ce23cb720db52e4976",
@@ -805,7 +805,7 @@
      "abe8743bcd690628d3fc2476a8741d40e5a27d5708304dd868a107cc2b60621c",
      "ad651d41168d42560434544c9acaf4c45557364d82448b97b855183614ecff22",
      "c1a530e8e92ac1652d4b9e099ab9ca6fda415b1ed5a6337cdaee0e795507c228",
-     "c4cfc011d0bdd0750150f17b3fff2f8a2913f70532c6ebc50cca680a864de6e0",
+     "c9d200fc0ef413e23ba715fd4981b64f20ddbd370391020b7824ac4e37c978a7",
      "ce063da251521be3877ffe7dd2e0c30c5b4df2d08447fb1656c90e490eca7845",
      "dc72e7f3238f64aa34c2bfe70beae7bd165dc74eead36eff9a1e5fc5a7ad0097",
      "e9814a91870f168651b3a17f7eeb5522416b7340fb008995e026ef4e8d4b54c2",
@@ -1074,7 +1074,7 @@
     "spread": null,
     "sees": [
      {
-      "text": "Das Auftragsbuch des Schreibsaals: in der Woche, in der der Stellenplan geschrieben wurde, kein Eintrag aus 407. Was sonst aus 407 darin steht, Woche für Woche, trägt in der Spalte „Auftraggeber“ den Vermerk „Vorzimmer 407“, und keine einzige Zeile fordert eine Schreibkraft namentlich an.",
+      "text": "Das Auftragsbuch des Schreibsaals: in der Woche, in der der Stellenplan geschrieben wurde, kein Eintrag aus 407. Jeder Eintrag aus 407, in jeder Woche, trägt in der Spalte „Auftraggeber“ den Vermerk „Vorzimmer 407“; keiner nennt eine Schreibkraft mit Namen.",
       "phase": null
      },
      {
@@ -1082,7 +1082,7 @@
       "phase": null
      },
      {
-      "text": "Die neuen Farbbänder kommen auf zwei Spulen in einer Dose, und dafür gibt es eine Anforderung, und die Anforderung fragt, wie viele im letzten Quartal verbraucht wurden, und das hat noch nie jemand beantworten können.",
+      "text": "Die neuen Kohlebänder kommen auf zwei Spulen in einer Dose, und dafür gibt es eine Anforderung, und die Anforderung fragt, wie viele im letzten Quartal verbraucht wurden, und das hat noch nie jemand beantworten können.",
       "phase": null
      },
      {
@@ -1109,19 +1109,19 @@
     "spread": null,
     "sees": [
      {
-      "text": "Das Aktenausgabebuch hat eine Spalte für Anlagen, und Herr Simon füllt sie für alles aus, auch für einen versiegelten Stellenplan: In diesem Haus wird er hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinunterträgt. Beim Eintrag für den Stellenplan steht in dieser Spalte: „3“.",
+      "text": "Das Aktenausgabebuch, beim Eintrag für den Stellenplan: versiegelt; hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinuntertrug, wie es in diesem Haus üblich ist; Anlagen: 3. Die Anlagenspalte wird bei jedem Eintrag ausgefüllt, ob versiegelt oder nicht.",
       "phase": null
      },
      {
-      "text": "Fräulein Bühl hat in jener Woche im Buch für eine Rentensache unterschrieben, die mit ihr nichts zu tun hatte, und das Buch lag aufgeschlagen am Schalter, wo es immer liegt.",
+      "text": "Fräulein Bühl hat in jener Woche im Buch für eine Rentenakte unterschrieben, die mit ihr nichts zu tun hatte, und das Buch lag aufgeschlagen am Schalter, wo es immer liegt.",
       "phase": null
      },
      {
-      "text": "Ins Aktenausgabebuch geheftet, neben dem Eintrag für den Stellenplan: die Empfangsbestätigung des Finanzministeriums. „1 Umschlag, Siegel des Personalreferats. Siegel unverletzt. Empfangen:“, darunter Stempel und Unterschrift des Empfängers.",
+      "text": "Ins Aktenausgabebuch geheftet, neben dem Eintrag für den Stellenplan: die Empfangsbestätigung des Finanzministeriums. „Erhalten: 1 Umschlag unter Siegel des Personalreferats, Siegel unverletzt. Inhalt lt. Aufschrift: Stellenplanmeldung in zweifacher Ausfertigung nebst Begleitschreiben; 3 Stück.“ Darunter Stempel und Unterschrift des Finanzministeriums.",
       "phase": null
      },
      {
-      "text": "Die Rentenakte an Herrn Simons Schalter, wo die Mädchen sie liegen lassen: Über die Seite zur Heiratserstattung ist ein gedruckter Zettel der Rentenversicherung geklebt. Danach wurde die Erstattung Anfang letzten Jahres abgeschafft.",
+      "text": "Die Rentenakte an Herrn Simons Schalter, wo die Mädchen sie liegen lassen, aufgeschlagen bei der Seite zur Heiratserstattung. Über die Seite geklebt, ein gedruckter Zettel der Rentenversicherung: „Aufgehoben mit Wirkung vom 1. Januar 1968.“",
       "phase": null
      }
     ],
@@ -1260,7 +1260,7 @@
       "phase": null
      },
      {
-      "text": "Sie geht an den meisten Abenden als Letzte von diesem Stock, und so sieht sie die Putzkolonne kommen: nie, bevor der Schreibsaal nach Hause gegangen ist, mit der Kolonne die Putzfrau für diesen Stock, und wieder fort, bevor morgens jemand kommt.",
+      "text": "Sie geht an den meisten Abenden als Letzte von diesem Stock, und so sieht sie die Putzkolonne kommen, darunter die Putzfrau, die auf diesem Stock putzt: nie, bevor der Schreibsaal nach Hause gegangen ist, und wieder fort, bevor morgens jemand kommt.",
       "phase": null
      },
      {
@@ -1272,7 +1272,7 @@
      "return": {
       "lines": [
        {
-        "text": "Frau Pohlmann hat den Stellenplan selbst geschrieben, bei geschlossener Tür, wie bei allem, wo Namen drinstehen, und sie hat ihn nicht in den Schreibsaal gegeben.",
+        "text": "Frau Pohlmann hat den Stellenplan selbst geschrieben, bei geschlossener Flurtür, wie bei allem, wo Namen drinstehen, und sie hat ihn nicht in den Schreibsaal gegeben.",
         "phase": null
        }
       ],
@@ -1282,7 +1282,7 @@
      "machines": {
       "lines": [
        {
-        "text": "Das Farbband wechselt sie selbst und hat es immer getan, und das alte kommt mit allem anderen in den Papierkorb bei Frau Pohlmann. Das Vorzimmer hat die neuen Kohlebänder vor dem Schreibsaal bekommen, und ein Stoffband war nicht mehr in ihrer Maschine, seit der Winter angefangen hat.",
+        "text": "Das Farbband wechselt sie selbst und hat es immer getan, und das alte kommt mit allem anderen in den Papierkorb neben ihrem Schreibtisch. Das Vorzimmer hat die neuen Kohlebänder vor dem Schreibsaal bekommen, und ein Stoffband war nicht mehr in ihrer Maschine, seit der Winter angefangen hat.",
         "phase": null
        },
        {
@@ -1383,7 +1383,7 @@
         "phase": null
        },
        {
-        "text": "Er schließt die Registratur als Letzter ab. Dann ist der Schreibsaal längst fort, jede von ihnen die Treppe hinunter an seinem Schalter vorbei, und die Putzkolonne kommt daran vorbei herauf, während er den Schlüssel umdreht, und die Putzfrau mit der Kolonne. Morgens steht er an seinem Schalter, bevor eine aus dem Schreibsaal kommt, und die Putzkolonne war schon da und ist wieder fort.",
+        "text": "Er schließt die Registratur als Letzter ab. Dann ist der Schreibsaal längst fort, jede von ihnen die Treppe hinunter an seinem Schalter vorbei, und die Putzkolonne kommt daran vorbei herauf, während er den Schlüssel umdreht, darunter die Putzfrau, die im vierten Stock putzt. Morgens steht er an seinem Schalter, bevor eine aus dem Schreibsaal kommt, und die Putzkolonne war schon da und ist wieder fort.",
         "phase": null
        }
       ],
@@ -1429,7 +1429,7 @@
     "sprite": "art/people/litt.png",
     "hello": [
      {
-      "text": "Die neuen Maschinen haben einen leichteren Anschlag, und Frau Litt hält das nicht für eine Verbesserung, denn mit leichtem Anschlag tippt man schneller, als man denken kann. Zwei davon gibt es bisher, und sie nehmen die neuen Kohlebänder, die nur einmal durchlaufen; der Rest des Schreibsaals schreibt noch mit Stoffband.",
+      "text": "Die neuen Maschinen haben einen leichteren Anschlag, und Frau Litt hält das nicht für eine Verbesserung, denn mit leichtem Anschlag tippt man schneller, als man denken kann. Zwei davon gibt es bisher, und sie nehmen die neuen Kohlebänder, die nur ein einziges Mal durch die Maschine laufen; der Rest des Schreibsaals schreibt noch mit Stoffbändern.",
       "phase": null
      },
      {
@@ -1648,7 +1648,7 @@
     "sprite": "art/people/the-charwoman.png",
     "hello": [
      {
-      "text": "Sie hat Herrn Simon einmal beim Abschließen gefragt, warum in den weggeworfenen Bändern die Buchstaben der Reihe nach ausgestanzt sind, und er hat es ihr gezeigt: Der Typenhebel schwingt hoch, das Band liegt zwischen ihm und dem Papier, und was der Anschlag vom Band abhebt, das steht dann auf dem Blatt.",
+      "text": "Sie hat den Pförtner einmal, als er sie an der Seitentür hereinließ, gefragt, warum in den weggeworfenen Bändern die Buchstaben der Reihe nach ausgestanzt sind, und er hat es ihr gezeigt: Der Typenhebel schwingt hoch, das Band liegt zwischen ihm und dem Papier, und was der Anschlag vom Band abhebt, das steht dann auf dem Blatt.",
       "phase": null
      },
      {
@@ -1668,7 +1668,7 @@
         "phase": null
        },
        {
-        "text": "Aus Frau Pohlmanns Papierkorb, alle paar Wochen: das Farbband, das sie aus ihrer Maschine genommen hat, die neue glänzende Sorte, nicht die Stoffbänder, die der Schreibsaal wegwirft. Es kommt mit dem Rest in den Sack.",
+        "text": "Aus dem Papierkorb neben Frau Pohlmanns Schreibtisch, alle paar Wochen: das Farbband, das sie aus ihrer Maschine genommen hat, die neue glänzende Sorte, nicht die Stoffbänder, die der Schreibsaal wegwirft. Es kommt mit dem Rest in den Sack.",
         "phase": null
        }
       ],
@@ -1772,14 +1772,14 @@
     "always": true,
     "raised_by": [
      "Das Farbband in Frau Pohlmanns Maschine ist kaum benutzt. Sie hat es am Tag nach dem Abgang des Stellenplans ans Finanzministerium eingelegt.",
-     "Frau Pohlmann hat den Stellenplan selbst geschrieben, bei geschlossener Tür, wie bei allem, wo Namen drinstehen, und sie hat ihn nicht in den Schreibsaal gegeben.",
+     "Frau Pohlmann hat den Stellenplan selbst geschrieben, bei geschlossener Flurtür, wie bei allem, wo Namen drinstehen, und sie hat ihn nicht in den Schreibsaal gegeben.",
      "Sie hat vom Stellenplan gehört, als alle anderen davon hörten, und war gekränkt darüber, und gekränkt sein, weil sie etwas nicht als Erste wusste, ist das Einzige, was sie nicht spielen kann.",
      "Er isst seit zwanzig Jahren an jedem Arbeitstag in der Kantine, und in all der Zeit ist Frau Pohlmann nicht ein einziges Mal heruntergekommen. Am Morgen, als am Tisch des Schreibsaals zum ersten Mal vom Stellenplan die Rede war, war es Frau Adam, die alle fragte, was es damit auf sich habe.",
-     "Das Auftragsbuch des Schreibsaals: in der Woche, in der der Stellenplan geschrieben wurde, kein Eintrag aus 407. Was sonst aus 407 darin steht, Woche für Woche, trägt in der Spalte „Auftraggeber“ den Vermerk „Vorzimmer 407“, und keine einzige Zeile fordert eine Schreibkraft namentlich an.",
+     "Das Auftragsbuch des Schreibsaals: in der Woche, in der der Stellenplan geschrieben wurde, kein Eintrag aus 407. Jeder Eintrag aus 407, in jeder Woche, trägt in der Spalte „Auftraggeber“ den Vermerk „Vorzimmer 407“; keiner nennt eine Schreibkraft mit Namen.",
      "Frau Adam hat am selben Morgen vom Stellenplan gehört wie der Rest des Schreibsaals und war die ganze Woche gekränkt darüber, und das sieht man bei Frau Adam quer durch den Raum.",
      "Der Stellenplan ging versiegelt hinüber, und das Siegel wurde im Finanzministerium gebrochen. Herr Simon hatte ihn nie offen vor sich.",
-     "Ins Aktenausgabebuch geheftet, neben dem Eintrag für den Stellenplan: die Empfangsbestätigung des Finanzministeriums. „1 Umschlag, Siegel des Personalreferats. Siegel unverletzt. Empfangen:“, darunter Stempel und Unterschrift des Empfängers.",
-     "Das Aktenausgabebuch hat eine Spalte für Anlagen, und Herr Simon füllt sie für alles aus, auch für einen versiegelten Stellenplan: In diesem Haus wird er hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinunterträgt. Beim Eintrag für den Stellenplan steht in dieser Spalte: „3“."
+     "Ins Aktenausgabebuch geheftet, neben dem Eintrag für den Stellenplan: die Empfangsbestätigung des Finanzministeriums. „Erhalten: 1 Umschlag unter Siegel des Personalreferats, Siegel unverletzt. Inhalt lt. Aufschrift: Stellenplanmeldung in zweifacher Ausfertigung nebst Begleitschreiben; 3 Stück.“ Darunter Stempel und Unterschrift des Finanzministeriums.",
+     "Das Aktenausgabebuch, beim Eintrag für den Stellenplan: versiegelt; hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinuntertrug, wie es in diesem Haus üblich ist; Anlagen: 3. Die Anlagenspalte wird bei jedem Eintrag ausgefüllt, ob versiegelt oder nicht."
     ]
    },
    {
@@ -1790,9 +1790,10 @@
     "always": true,
     "raised_by": [
      "Sie hält jeder im Schreibsaal, die still genug steht, ein verbrauchtes Farbband gegen das Fenster und liest daran ab, was damit geschrieben wurde, und sie hält es für eine sündhafte Verschwendung, ein Band wegzuwerfen, das nur einmal durch die Maschine gelaufen ist.",
-     "Das Farbband wechselt sie selbst und hat es immer getan, und das alte kommt mit allem anderen in den Papierkorb bei Frau Pohlmann. Das Vorzimmer hat die neuen Kohlebänder vor dem Schreibsaal bekommen, und ein Stoffband war nicht mehr in ihrer Maschine, seit der Winter angefangen hat.",
+     "Das Farbband wechselt sie selbst und hat es immer getan, und das alte kommt mit allem anderen in den Papierkorb neben ihrem Schreibtisch. Das Vorzimmer hat die neuen Kohlebänder vor dem Schreibsaal bekommen, und ein Stoffband war nicht mehr in ihrer Maschine, seit der Winter angefangen hat.",
      "Das Farbband in Frau Pohlmanns Maschine ist kaum benutzt. Sie hat es am Tag nach dem Abgang des Stellenplans ans Finanzministerium eingelegt.",
-     "Aus Frau Pohlmanns Papierkorb, alle paar Wochen: das Farbband, das sie aus ihrer Maschine genommen hat, die neue glänzende Sorte, nicht die Stoffbänder, die der Schreibsaal wegwirft. Es kommt mit dem Rest in den Sack."
+     "Aus dem Papierkorb neben Frau Pohlmanns Schreibtisch, alle paar Wochen: das Farbband, das sie aus ihrer Maschine genommen hat, die neue glänzende Sorte, nicht die Stoffbänder, die der Schreibsaal wegwirft. Es kommt mit dem Rest in den Sack.",
+     "Die neuen Maschinen haben einen leichteren Anschlag, und Frau Litt hält das nicht für eine Verbesserung, denn mit leichtem Anschlag tippt man schneller, als man denken kann. Zwei davon gibt es bisher, und sie nehmen die neuen Kohlebänder, die nur ein einziges Mal durch die Maschine laufen; der Rest des Schreibsaals schreibt noch mit Stoffbändern."
     ]
    },
    {
@@ -1817,7 +1818,7 @@
      "Die Post für den Schreibsaal liegt auf dem Tisch auf dem Treppenabsatz. Das Mädchen, das sie holen kommt, war nie in ihrer Tür, und Frau Pohlmann ist nicht am Tisch, wenn sie kommt.",
      "Wenn er Akten nach 407 hinaufbringt, steht das Mädchen aus dem Schreibsaal oft genug am Tisch auf dem Treppenabsatz wegen der Post, und er hat sie nie zu Frau Pohlmanns Tür hineingehen sehen, oder Frau Pohlmann zum Tisch herauskommen.",
      "Die Treppe und der Paternoster kommen beide am Absatz vor seinem Schalter vorbei. Die Neue aus dem Schreibsaal sieht er an den meisten Tagen wegen der Post hinaufgehen, und Frau Litt hat er seit Jahren nicht hinaufgehen sehen.",
-     "Das Aktenausgabebuch hat eine Spalte für Anlagen, und Herr Simon füllt sie für alles aus, auch für einen versiegelten Stellenplan: In diesem Haus wird er hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinunterträgt. Beim Eintrag für den Stellenplan steht in dieser Spalte: „3“."
+     "Das Aktenausgabebuch, beim Eintrag für den Stellenplan: versiegelt; hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinuntertrug, wie es in diesem Haus üblich ist; Anlagen: 3. Die Anlagenspalte wird bei jedem Eintrag ausgefüllt, ob versiegelt oder nicht."
     ]
    },
    {
@@ -1829,7 +1830,7 @@
     "raised_by": [
      "Die Treppe und der Paternoster kommen beide am Absatz vor seinem Schalter vorbei. Die Neue aus dem Schreibsaal sieht er an den meisten Tagen wegen der Post hinaufgehen, und Frau Litt hat er seit Jahren nicht hinaufgehen sehen.",
      "Sie kocht seit neun Jahren für dieses Haus und gibt selbst an der Durchreiche aus, und sie erkennt jeden, der hier isst, daran, was er nimmt. Der Schreibsaal kommt zusammen herunter und sitzt am langen Tisch beim Heizkörper. Frau Pohlmann aus 407 ist ihr vom Sehen bekannt, von der Treppe, und sie hat ihr nicht ein einziges Mal ein Essen über die Durchreiche gereicht.",
-     "Er schließt die Registratur als Letzter ab. Dann ist der Schreibsaal längst fort, jede von ihnen die Treppe hinunter an seinem Schalter vorbei, und die Putzkolonne kommt daran vorbei herauf, während er den Schlüssel umdreht, und die Putzfrau mit der Kolonne. Morgens steht er an seinem Schalter, bevor eine aus dem Schreibsaal kommt, und die Putzkolonne war schon da und ist wieder fort.",
+     "Er schließt die Registratur als Letzter ab. Dann ist der Schreibsaal längst fort, jede von ihnen die Treppe hinunter an seinem Schalter vorbei, und die Putzkolonne kommt daran vorbei herauf, während er den Schlüssel umdreht, darunter die Putzfrau, die im vierten Stock putzt. Morgens steht er an seinem Schalter, bevor eine aus dem Schreibsaal kommt, und die Putzkolonne war schon da und ist wieder fort.",
      "Den Paternoster benutzt sie nicht, sie nimmt die Treppe, und sie sagt es ungefragt, wie man es mit den Dingen macht, vor denen man Angst hat."
     ]
    },
@@ -1840,7 +1841,7 @@
     "ask_of": {},
     "always": false,
     "raised_by": [
-     "Das Aktenausgabebuch hat eine Spalte für Anlagen, und Herr Simon füllt sie für alles aus, auch für einen versiegelten Stellenplan: In diesem Haus wird er hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinunterträgt. Beim Eintrag für den Stellenplan steht in dieser Spalte: „3“."
+     "Das Aktenausgabebuch, beim Eintrag für den Stellenplan: versiegelt; hier eingetragen, bevor Herr Simon ihn selbst in die Poststelle hinuntertrug, wie es in diesem Haus üblich ist; Anlagen: 3. Die Anlagenspalte wird bei jedem Eintrag ausgefüllt, ob versiegelt oder nicht."
     ]
    },
    {
@@ -1900,17 +1901,17 @@
   "exhibits": [
    {
     "thing": "die Rentenakte",
-    "line": "Die Rentenakte an Herrn Simons Schalter, wo die Mädchen sie liegen lassen: Über die Seite zur Heiratserstattung ist ein gedruckter Zettel der Rentenversicherung geklebt. Danach wurde die Erstattung Anfang letzten Jahres abgeschafft.",
+    "line": "Die Rentenakte an Herrn Simons Schalter, wo die Mädchen sie liegen lassen, aufgeschlagen bei der Seite zur Heiratserstattung. Über die Seite geklebt, ein gedruckter Zettel der Rentenversicherung: „Aufgehoben mit Wirkung vom 1. Januar 1968.“",
     "portable": false
    },
    {
     "thing": "das Auftragsbuch des Schreibsaals",
-    "line": "Das Auftragsbuch des Schreibsaals: in der Woche, in der der Stellenplan geschrieben wurde, kein Eintrag aus 407. Was sonst aus 407 darin steht, Woche für Woche, trägt in der Spalte „Auftraggeber“ den Vermerk „Vorzimmer 407“, und keine einzige Zeile fordert eine Schreibkraft namentlich an.",
+    "line": "Das Auftragsbuch des Schreibsaals: in der Woche, in der der Stellenplan geschrieben wurde, kein Eintrag aus 407. Jeder Eintrag aus 407, in jeder Woche, trägt in der Spalte „Auftraggeber“ den Vermerk „Vorzimmer 407“; keiner nennt eine Schreibkraft mit Namen.",
     "portable": false
    },
    {
     "thing": "die Empfangsbestätigung des Finanzministeriums",
-    "line": "Ins Aktenausgabebuch geheftet, neben dem Eintrag für den Stellenplan: die Empfangsbestätigung des Finanzministeriums. „1 Umschlag, Siegel des Personalreferats. Siegel unverletzt. Empfangen:“, darunter Stempel und Unterschrift des Empfängers.",
+    "line": "Ins Aktenausgabebuch geheftet, neben dem Eintrag für den Stellenplan: die Empfangsbestätigung des Finanzministeriums. „Erhalten: 1 Umschlag unter Siegel des Personalreferats, Siegel unverletzt. Inhalt lt. Aufschrift: Stellenplanmeldung in zweifacher Ausfertigung nebst Begleitschreiben; 3 Stück.“ Darunter Stempel und Unterschrift des Finanzministeriums.",
     "portable": false
    }
   ],

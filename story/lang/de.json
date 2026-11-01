@@ -93,6 +93,7 @@
   "1st": "1. Stock",
   "2nd": "2. Stock",
   "3rd": "3. Stock",
+  "4th": "4. Stock",
   "{n}th": "{n}. Stock",
   "Talk to {person}": "Mit {person:dat} sprechen",
   "Look at {thing}": "Ansehen: {thing}",

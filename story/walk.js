@@ -439,8 +439,12 @@ function map() {
   });
 }
 
+/* The fourth floor has a name of its own (14 October 2026): Chinese and
+   Japanese count the ground floor as the first, so the house's top floor is
+   五楼 / 5階, which "{n}th" cannot say. No chapter goes above it. */
 const floorName = f => f === -1 ? tx("cellar") : f === 0 ? tx("ground")
-  : f === 1 ? tx("1st") : f === 2 ? tx("2nd") : f === 3 ? tx("3rd") : tx("{n}th", {n: f});
+  : f === 1 ? tx("1st") : f === 2 ? tx("2nd") : f === 3 ? tx("3rd")
+  : f === 4 ? tx("4th") : tx("{n}th", {n: f});
 
 /* A room's short name on the map is the export's (p.short, export_cases.short),
    so that another language can say it. */

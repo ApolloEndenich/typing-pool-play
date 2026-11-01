@@ -21,13 +21,13 @@
     {
      "where": "the Registratur",
      "lines": [
-      "The Personalreferat's register, kept at Herr Simon's counter: Fräulein Vogt's letter entered on Wednesday 23 October and sent up to Z A 1 the same day, into the Referent's own hands and not by the post run the pool's girl makes; back on Monday 28 October, for filing."
+      "The Personalreferat's register, kept at Herr Simon's counter. Wednesday 23 October: Fräulein Vogt's letter entered; up to Z A 1 the same day, into the Referent's own hands, not by the pool's post run. Monday 28 October: back, for filing."
      ]
     },
     {
      "where": "the outer office of 407",
      "lines": [
-      "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk: Fräulein Vogt's letter in from the Registratur on Wednesday 23 October, \"no mark on it\", and put straight before the Referent, without going to the clerk's cabinet at all; back from him to the Registratur on Monday 28 October, with an R on it in brown pencil, bare, and no blue anywhere; nothing to the Unterabteilungsleiter in between. It did not go past Frau Kern's cabinet because it did not go to the clerk at all."
+      "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk. Wednesday 23 October: Fräulein Vogt's letter, in from the Registratur, no mark on it; straight before the Referent, not to the clerk (Frau Kern). Monday 28 October: back from the Referent to the Registratur; R in brown pencil, no initials; no blue. Between the two: nothing to the Unterabteilungsleiter."
      ]
     },
     {
@@ -43,7 +43,7 @@
      "lines": [
       "Straight to the Referat it is for. In this house the post does not go up to the Abteilungsleiter first to be given out. It comes to me marked, I send it on to the Referat it is marked for, and the Referent has it the same day.",
       "Frau Pohlmann does not carry papers out of that Referat herself. What leaves it comes down in its out-tray, to this counter, and goes in the register. And nobody comes down to that Referat for a paper: Herr Vahle sends for Herr Grau.",
-      "He took Fräulein Vogt's letter up himself, because that is what the marking on it told him to do, and he put it into the Referent's own hand. Frau Pohlmann was at her desk and he went by her with it, and by the clerk's cabinet.",
+      "I took Fräulein Vogt's letter up myself, because that is what the marking on it told me to do, and I put it into the Referent's own hand. Frau Pohlmann was at her desk and I went by her with it, and past the clerk's cabinet without stopping.",
       "It is not my place to say what a Referat does with its post. But Fräulein Vogt's letter came back to me for filing with an R on it in brown pencil, bare, no initials beside it, and not a stroke of blue anywhere on it. I noticed. I notice."
      ]
     },
@@ -324,7 +324,6 @@
      "283b4a5e59f18d1688ff8b741aabc22b287b3c6f276d14b1d10282c4ca0552e0",
      "2e77e39659077f22a18f729460cb4f0782bebc4f73d7785ac678de695d62fa24",
      "2fc8397abfd7c922713fb5fae5aa0c8181791fdb7362bd1ea54429527eafdc6b",
-     "33dc93899fc4cc0d4d11b076c3954559899d5727e7ee6dab4062af0c2acfca63",
      "3704d2ea7ea1ebce9ea145b8a63e5d1a147b69dbaf76202d2cb0e51a5007e042",
      "3e6be059974557746ec51ccf2c689eccec6d5efa1489f92e2925574914a33982",
      "4bd61c05fc8157d8d1692452023f7a793ea00e84a289f5de97307ddfbb5095f5",
@@ -339,6 +338,7 @@
      "7e44fc50e07469cbc2fb97f6c4e17df36713f74b3a465086c3109da59245f01b",
      "82b31e02bc8e9907dcbfd63925f9d6eab680524ea711175696f8f9cabfdda506",
      "8aa1e964f342240d74c73f41a6572d4d7ccbfc335d6ff4553336917bcf36ce48",
+     "937f673bd8a1f4f9cfbddd0525ec103235fe2e11633bfaf3b3d52cd3bdf82926",
      "9debb8f302a1be3f76535224781e9caf6b9fb779753b37ddea986c6031c16678",
      "b3b9b5a0111c1e196d84d2bae08a850198556d1144d631b54819e5fe7794f33c",
      "bb60e25d669c87edbe2e50e5a9e3f8755db3d03664e33057644f87684cef2ae2",
@@ -360,21 +360,20 @@
    "custody": {
     "need": "3374ce8d7511e62666741761e1789342fa53cf5fa0176c1046565cb2c8db5ea7",
     "marks": [
+     "04cfc237a51415696d127d9845e3bb3528accc91fdca98bbd3b247ca80bcca60",
      "0c5d2f1f42ea42382f77d3dffab27f00e2a5d9e3f7f2f72b8ca7a2d1b8987295",
      "0fba54285eecabe33c5d76542dac90b2a69ca46b3988e3c9399a0cf87721014f",
      "10b63a3ea53e25b8f9ad7b85b4cb27dd93688f18c7281bd3d41836408680f230",
+     "1387891bd6bd0943ef8defb7118b75454252dbfd45196271c92af97a55535a3a",
      "16402083a8d4df1579cb8a17cbeb36f250c1340d81b629349a4b8ec2b0bc2665",
      "19eb63bc0479325864becc9db6cdb0fa573965e68d4a521423527a2cdc5a49bc",
      "2a9356a07498d77c859bc6d079ddc320046f786643f6b30ea6c23cd4c32d4f04",
      "2d1edd327b72362983281b4f74a390875a198abd9549c1e63254d6f5bc27c013",
-     "2ef8856983932420b5e0a37bae02f21efcc33129d037d87b0d72e678af3df683",
      "36198f04d0136058b7785206953afecb9fc4a5387afe6735edf5889229a20717",
-     "41eacb948430498c53e7e8007abfbfeccba6c670ef1ace3f190bb3783b1a49d6",
      "504c7f01e1e4c694300897e8d35bfa94133436cc7371f67359cdf57d90575046",
      "52b69008061cc16977c1f5fd50575d0e87ddef73da55cb77ec3139aa49e9df7e",
      "547638e5b6c79b26206b53935c91a61450a7ebd680f96516f34d2fbf66bb678a",
      "62c7678757f25d9df34115460ee3899f1a3ea0b1ea0ed526445e79d4fcab89e7",
-     "64b9fbb8dc63f9850cee4c563fe494d370a24b3fd46881b234a20b4779bb2ce8",
      "6a26826af4a83a01e1fead0585f5cc0e9a2b96990bccf103faf59af07a1375ca",
      "6cf27bdaaf136d0df07589e6a15f4a535a6d67215c2d434a60fc772737053fd6",
      "79e894e6408a024b2b063e5b6c4c363d8bff7a7391c4e089ecc86fd76ef74fa7",
@@ -382,6 +381,7 @@
      "8b6ebfde9fe99f4cb439ac024c08ceb085a22a55653da16a122d9940d98f4ea9",
      "9b1c958ebd4b5f53ba417bbed2ea29d7797ca574cd495909cab752a670ba0c2f",
      "9ed77d35a1de9e8daad23a45889b827a582c57edfbf67f6a9ddccc7053255e8c",
+     "a10543dfa756a6abd7912a2c8584108a03c96e93a5eddd2641862262bfa483fa",
      "a95de404839f8b94aefa09371e69397076b20482b20781124a09c756b8fe94e4",
      "b00c1e3130e96d603217be0b20a454972d1691134827785720d12f744ab11f93",
      "b3b89073c365bb2ff4b109d626d96aff69015eb68543f3a2fd47ba91cd3f4173",
@@ -476,6 +476,7 @@
      "7390349a2110c628b1717537a5ff4f069a7ad197706463f8b9cf72213f757e2b",
      "79b66a29f34ce6a732643a9abacfdd526cf9a16eac8ba7391590f86da67b850d",
      "7aa00ad936b042ae2c8fa66a96ba974d6b0d5b870053cd9abced30fc06b014ce",
+     "7b38f59eab6d1b0a063adf9f2296cd7bae0bd90beb9b0cfd0c86cf6d934e9201",
      "91b388e35709f8b7891749a6c126c597aaec311193953843f3df85b6bb9d82f9",
      "94b83ab843942961b448aeb209abb46a52a88c8d18e9e9b41fb1517286c0a6da",
      "98b6cedb48d6eebe36b145e1d695062cf5c3a99eb12cfde68f9cf34a480e525b",
@@ -484,7 +485,6 @@
      "a9d06899368fa113d3fea12e221b518d7884bcce1611ef6f97b185b9b3234169",
      "aab4fccc19515becca9cc3f24359c19f2c1264ae758c49283187b460f388cbe0",
      "b8f571d024d0a2f91ded9ea7b7718bf28c3b5e815927beac8a0f039d529f2ec7",
-     "cbee5926f57b64ebb5ad8dee368dbf1dceec48a3494ce0128eccbfbc4abc86d3",
      "d879e7195cfb3d1243e825185593a6ecebdf0548901f746acac7a452006a716e",
      "e5040daaf51a6d752bfc303170b60104ce45042a41f40f479c92f81354ba260d",
      "e971fc6e6e1bd2d893282af1ec40e67beb3a8a56ced815db2a85771d422688f5",
@@ -598,11 +598,11 @@
      "07370e1bbbad26cb4dd0f3205633c12682f42c740ffedffd6584d0844f779d1e",
      "0777090e366a96370081f44cfb7035662debe06a65302541676dc535bff2a500",
      "0fe7ee1717e3a3c9194dd705a0cb2cfb286fb66a34156aaa1e690b185cb1614c",
-     "163858be8d9303519064c76d49e46e8552144301f15d7f5fb184186ea0d0c746",
      "19356d18c079764a16127e5b7ef3e35c6785ea13e9eae997c383873a2a2bdefb",
      "2bc42ce2e7d2e417ac9e11535ab444f1db39197e168cd7b340ee6bff52483906",
      "3a8707d850ae8f9e6aee1d611dea125b09484f581b6de6bec8291bf82ddd4fd1",
      "3e1e57ba4bf546ac27e6f83583d3a75d1bdf8be7c9b00db0e0bc64f039accc44",
+     "4716d591795cf115671376e0255034084d4fef451325d48f2f66d593373fe7e8",
      "580058f41345274af0050d75cd5268ecc3a4f354907f77d4c1cc405197c33578",
      "62ac112572664f64f388a8524e18dd4017fd72093d662b7a571f97987aa9abd6",
      "6548af03b0724cd72e5906349e94639eaa73b7082198ae38727c33ffa03f9dcb",
@@ -618,14 +618,15 @@
      "a9dd35b831a7678df281960ce4b7c822edd862e5c4a963d485ba0f3a3395150d",
      "b00b681b48481e7f8d22dfdadc12de70aebce48f60858f5a4cfa3fe535786f9a",
      "b17f0fd2261e4d9cf6b596afcee6c9f6879c96746f63049a834f4ce26c53d257",
-     "b1e2b3818ce4b639885d760b546211d40c25ac64955e88f1464f5e873d850f94",
      "bbbcec6518fe6fb698c27d5ed7115627838e60bd442eaa390fa812c69ff78c6e",
      "c336ad059e56e92df696770fa496f919f77be02150b7cc9a9dabf47949c29488",
      "ca191b26def87cc03361b4ad005ea9c8e548c2fc59824e9ce42cf756ff8d1e22",
      "cbd7666e8d6e60b3c832d796bf0e095f25f10d985013050e8785e59d695e38a3",
      "ccd6f8bdbd9deae73987fa29a2155fc5f127cc28c49403c8fc41f3cd4c9899fd",
+     "d4ff78c90a039f30f1543d3b31cc95959ff1f0fc486fe6e4242b2fc92915b215",
      "dd9fb6c8df8053f3126dae5d62714614650c7a40175ab440bbb88719a7bbd893",
      "de2928b0a515a472a6ed3800df7e3fa6bf1a8c4b5c423601715f979a9b06ba22",
+     "dfcc7912236b30f00fd010e5b55a3fc2a569b03453afa6d054cde8567db576c2",
      "e31a647f3113bc6a2205c3e3f38a2b7ea53aafab726e4c5fb2ae280e58de9358",
      "e65d58b2e43e5d783443248dafd1c49d563dfaa1406a28e14b914a6c1a089d3f",
      "e86392745e7a08f6d1b0fd8c2ff3be9c9a3da610f8f3d249975b1013642e0d56",
@@ -633,8 +634,7 @@
      "f32dfa37c0b60cfa68279aede8e26f8b1db5bc04a224a1cfa76f6d42627dcbd6",
      "f428e9a31156ac14f6664cb2b090c840092a660287f7c7b5c163a6f016ef9947",
      "f5c1c7fcd7840eaec6319610592cd2d564a86063150d0c06b965fee49150f135",
-     "fc50d5c963fd1a17e6f2b5bfad19474da46cde0127a68b6f0bdcb0b1574f8282",
-     "fd8f47000486c119a4209a0bab2cb5b792ce9d7285a8fd81fa1699c9e6a17c30"
+     "fc50d5c963fd1a17e6f2b5bfad19474da46cde0127a68b6f0bdcb0b1574f8282"
     ]
    },
    {
@@ -654,7 +654,6 @@
      "2add69d45b1e65d186d1d11dda97e51e920301a7b13efaa64c92434910c78429",
      "2bd063c87654669b19132c95a0cc506a399bb221709edd6e7b86a932958fd689",
      "2e30320fb915290c59d22608421e607aaa7f4420fb6d848ca1c58795effa7d7e",
-     "2e31a224408790175d15c0358480280b8fa211cefa45c55395a9a4a70761eece",
      "45e98b0191a6bd856a42563f9b4d11f8769072fd8b2b253773ae77a544a70e47",
      "4a0f62e11efc838a4fad9f66416f4efb9625978e7a5fae2b9bdeb5cb322962d4",
      "4b40bfdfc4e57a4dc26d511dfd2e271ed1d0cb6356171fbdcf039bb854955387",
@@ -680,6 +679,7 @@
      "cd4f0d095ac1256250fc7b7f069e8a49e1dd439924628b9bd2732c11bff9a5df",
      "cf95161e9a132c17061ffdd022d853424ab720ddc0350468825eeef4a48f87ee",
      "d527bf7bd76c162755212f717133efb6927582ccab40a55ab5936dceec4ce393",
+     "d54b4a0e5406227f5a06108f79caa110c415bd3aeb3d44b79fd63fc514e9872e",
      "e2e05a7cfb9da2af2339c4cd3ead5d33a5dd879475a156dbf55e59bc8d5d1a4a",
      "f670477c95189361a39f737832cc1e6cdc70e020276e84d8aab1c96afa88ed27"
     ]
@@ -740,6 +740,7 @@
      "08a59ff825a2521efb82a1124c00137c407574a2295f494bc32336e303789cb7",
      "1292b41ee4fb06d500117c76c783511f96d2df2e94ac1e3c35cae4d8848266f1",
      "12ba604b791c7aed48115abdcda42ba1a61532f8e966753691512b021d9f5095",
+     "145e64140894333b8029aa6b0547f8003388283bf1f74400de70c1b02f6b92d6",
      "1481292460e16ba45bcb5ca8ce044ad5975526f61fa7ab6c10e1809d2ae07eb2",
      "1a7aed853b6ae544bbd82d4afaaf6751e7bab0eb8f876d3c46614e2f00e67213",
      "36e30ba74481256dd7bed3a2fb5a500676595cef2b3d2ea267fc1781ef97476f",
@@ -749,6 +750,7 @@
      "4e25d4b167e55b19f58aebdf4f0ea4efac12cc451b74789e7a65acbe1d3393f8",
      "4e49b42e1dbd4e34a45409c80b0a464f21ea4b94a73ca398b106f410e6ec68c5",
      "4f64ea871f2a165c9be156f3fe2b6137c351c0cc276a7a6e15fddf25e00f972c",
+     "583c445f1cd7bb944f604b72d727050f2b5faff390a99cfd344a62768618bb30",
      "5f5dfb85ff4249cabb261917d16a6f3f2725d2dd16bd10dc12fefe9480084e24",
      "77007fd59d6fb94b05a36f7264b12de3785526acf194daff7211576ac258ad76",
      "7b88ed7b54badca12c94f14e2ab07eddd6680f2d008a736a591b2310b7bf299b",
@@ -759,13 +761,11 @@
      "8b7f15f7dcdd010b55e8a01e312a2a727a83cd9db7575bdb5cd46a27a8a6d8cc",
      "8dc3d7771b4c5a3e26d4bda1f00c205a552eaad6e818fe8100d09ad410230d73",
      "c3ca631bae25af3a0ca588d9204337abe87a69f9ccb01043a80d3776bef0fad9",
-     "c9855261f003a6210df26c188b62c84912ffe68e730fc3a82abd944967796490",
      "cbc619ef425b9cde5b5e9f86f16ebb4c430bd06dd083744687d1aa36b3cbdb11",
      "cc1623462eea4e7741ec5b4b5957ea73829365563658fb3431080e37cdc3042e",
      "d1551ad76a19acd4ebb8766de9b6d3a9646c8ce947f1bde9ffc6759a7630a02f",
      "d39764384959439ac263c7243bb5eb8bcdbb54da2f252bc997e5053bf979f896",
      "d3d4dc4ed6e0a99dad4fbdc460343ad2168557f6efb346570a1d5af0615c3c65",
-     "db74ba3e155cec4ed177af98fc8614e8da2dace4fe14ea4bd6f114114a840722",
      "e1f12a500447ee8334629d9cf91015f7c82f76d36736763896889544fda05ebd",
      "e467a37da0a2348eb903bbe3f949af085ed0fd213c5a5234e216c2704b98a51e",
      "e7a596134e3a6c194cbd422a0e179abd73ae8a5422890281cb267ca0bfa1a39c",
@@ -783,7 +783,7 @@
     "label": "Kern",
     "need": "76960b2cc182d7a386e3c580e289d8fe127b9b520350233e6e9c40f2f96bcab8",
     "marks": [
-     "06a40752104d459ba5b16356f66b5fb2dc0f1e8bce1e5f1fd2831603f05f4201",
+     "07a728093ce1d40d12b88d0a680518df0d62e67bf9d2bb9a321564a8ef281bb6",
      "0e2b90dc0746337913103d7c8be7fd2914960f52a4e3550db0fc7e647e2f3f4e",
      "14e0c4a5a4a231021efc9b4f8b8dc24a22d09a37dec8994b22cd4028f066d6eb",
      "163c17663a7a36f5237eefe30c4ef87af5cdbdd92688e57c530bdbd9bf134868",
@@ -798,6 +798,7 @@
      "33d46c4e696fa516ec2f0bf0af0cf94cc8e8b1c9bb6bdd830cf9729ccea9a565",
      "36081a479322070dbca74d36e6991bc86989c63e4ad27853b1dc66f6b247e121",
      "4b593824c3eb128f3d3f2d343647fe37d837b3bc204192dcc485b4edc37c30ac",
+     "55a8833ef81de0fd280dc3bc4d2007f9ba812da8dbb354992d06f570c7530786",
      "574a19b026a8deaa30edccab95c0e514294dfa1d4d1a67c56ebe65259e1cfad2",
      "744066f623147df69e4431a232d771e5eb2a402031690bffce5e73e77cd1f197",
      "75ed3742ca658e2b8e4554ac34e94bd6685e372a0a9ea9f3f368bc7a78dfec2e",
@@ -807,6 +808,7 @@
      "99a9923332c99f39f3cd9277965f395a4cf81ee010a209d879e1b0ae6f56d98d",
      "a326bde568fdf015ebebfcdf9d11b526cbdad097c7f875e67bb58c05b44a9688",
      "a8da122d8cab3b4dd7764a2f38ab0ab1c709856bef2fb2bec73169719960c05c",
+     "ab5f84f9d4b71d6ef4805cbb7d77d5864dbf4857e120bae393b6a11cd0ee3973",
      "ac8f426edcb83df4bab89e8c78b97d623ced5c0401656bdb20dc0eec896267d1",
      "af6daacf878fc4b6f9b69035b36a2af023ce770495de6b3a58b957a67a0e3a90",
      "b0cbd28bc01d002c308a325c8515510da482d0e00a05a69054d59d64657b6206",
@@ -817,12 +819,10 @@
      "c7fd9d96f8dcf7a58d6ef9245698cce82d9b78a59e8eb6269368c144b8f0e384",
      "d7bb1ae494a52a620484834861f09dd48f0d9c01e76be141c1b8c5851a0651ce",
      "de3d55980e4ca5e04933f6999bf76de072c520470c57e7f93b690c6b7b013b1d",
-     "dfa7f47e4ee349b8d824e7dece389cf773f5fbe50d8f1f2d643ee3f053a537b6",
      "e94412be4d00c76bf10a14a5d0c0bdf104928af72226c8c1e63167799005365c",
      "f48d701a49907e994da72e4c401755d3d2f2fd6f9b46a7182e7b57ee2c153f9e",
      "f81108102df819e6ee27a2657e49becd391c741707af8f7902ce79ad9f71def4",
-     "f8c77d4a7adf08c96a67550eb510790c9eb301aa74a473ee0ce1c9077e95968e",
-     "fc7e2d830be878ba732fc2fd1fe1f5616f8db9387358adb5461b41d865100081"
+     "f8c77d4a7adf08c96a67550eb510790c9eb301aa74a473ee0ce1c9077e95968e"
     ]
    }
   ],
@@ -1151,7 +1151,7 @@
     "spread": null,
     "sees": [
      {
-      "text": "The Personalreferat's register, kept at Herr Simon's counter: Fräulein Vogt's letter entered on Wednesday 23 October and sent up to Z A 1 the same day, into the Referent's own hands and not by the post run the pool's girl makes; back on Monday 28 October, for filing.",
+      "text": "The Personalreferat's register, kept at Herr Simon's counter. Wednesday 23 October: Fräulein Vogt's letter entered; up to Z A 1 the same day, into the Referent's own hands, not by the pool's post run. Monday 28 October: back, for filing.",
       "phase": "the next day"
      }
     ],
@@ -1176,7 +1176,7 @@
     "spread": null,
     "sees": [
      {
-      "text": "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk: Fräulein Vogt's letter in from the Registratur on Wednesday 23 October, \"no mark on it\", and put straight before the Referent, without going to the clerk's cabinet at all; back from him to the Registratur on Monday 28 October, with an R on it in brown pencil, bare, and no blue anywhere; nothing to the Unterabteilungsleiter in between. It did not go past Frau Kern's cabinet because it did not go to the clerk at all.",
+      "text": "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk. Wednesday 23 October: Fräulein Vogt's letter, in from the Registratur, no mark on it; straight before the Referent, not to the clerk (Frau Kern). Monday 28 October: back from the Referent to the Registratur; R in brown pencil, no initials; no blue. Between the two: nothing to the Unterabteilungsleiter.",
       "phase": null
      }
     ],
@@ -1401,7 +1401,7 @@
         "phase": null
        },
        {
-        "text": "He took Fräulein Vogt's letter up himself, because that is what the marking on it told him to do, and he put it into the Referent's own hand. Frau Pohlmann was at her desk and he went by her with it, and by the clerk's cabinet.",
+        "text": "I took Fräulein Vogt's letter up myself, because that is what the marking on it told me to do, and I put it into the Referent's own hand. Frau Pohlmann was at her desk and I went by her with it, and past the clerk's cabinet without stopping.",
         "phase": "the next day"
        }
       ],
@@ -1621,7 +1621,7 @@
     "raised_by": [
      "The Poststelle's book of registered post: Wednesday 23 October, one registered letter from Fräulein Vogt, addressed to the ministry for the attention of the Abteilungsleiter, and Z A 1 written in the column for the Referat.",
      "Straight to the Referat it is for. In this house the post does not go up to the Abteilungsleiter first to be given out. It comes to me marked, I send it on to the Referat it is marked for, and the Referent has it the same day.",
-     "The Personalreferat's register, kept at Herr Simon's counter: Fräulein Vogt's letter entered on Wednesday 23 October and sent up to Z A 1 the same day, into the Referent's own hands and not by the post run the pool's girl makes; back on Monday 28 October, for filing.",
+     "The Personalreferat's register, kept at Herr Simon's counter. Wednesday 23 October: Fräulein Vogt's letter entered; up to Z A 1 the same day, into the Referent's own hands, not by the pool's post run. Monday 28 October: back, for filing.",
      "The Referat's post is my business. Herr Vahle does not come down to this Referat; if he wants Herr Grau, he sends for him.",
      "It is not my place to say what a Referat does with its post. But Fräulein Vogt's letter came back to me for filing with an R on it in brown pencil, bare, no initials beside it, and not a stroke of blue anywhere on it. I noticed. I notice.",
      "Frau Litt's copy of the organisation chart: for the whole house, the Poststelle, the post room; the Registratur, the registry, Herr Simon; and the typing pool. How a letter comes in: the Poststelle, the Registratur, the outer office, the Referent. How a paper goes up: the Referent, the Unterabteilungsleiter, the Abteilungsleiter."
@@ -1635,10 +1635,10 @@
     "always": true,
     "raised_by": [
      "The Poststelle's book of registered post: Wednesday 23 October, one registered letter from Fräulein Vogt, addressed to the ministry for the attention of the Abteilungsleiter, and Z A 1 written in the column for the Referat.",
-     "The Personalreferat's register, kept at Herr Simon's counter: Fräulein Vogt's letter entered on Wednesday 23 October and sent up to Z A 1 the same day, into the Referent's own hands and not by the post run the pool's girl makes; back on Monday 28 October, for filing.",
-     "He took Fräulein Vogt's letter up himself, because that is what the marking on it told him to do, and he put it into the Referent's own hand. Frau Pohlmann was at her desk and he went by her with it, and by the clerk's cabinet.",
+     "The Personalreferat's register, kept at Herr Simon's counter. Wednesday 23 October: Fräulein Vogt's letter entered; up to Z A 1 the same day, into the Referent's own hands, not by the pool's post run. Monday 28 October: back, for filing.",
+     "I took Fräulein Vogt's letter up myself, because that is what the marking on it told me to do, and I put it into the Referent's own hand. Frau Pohlmann was at her desk and I went by her with it, and past the clerk's cabinet without stopping.",
      "It is not my place to say what a Referat does with its post. But Fräulein Vogt's letter came back to me for filing with an R on it in brown pencil, bare, no initials beside it, and not a stroke of blue anywhere on it. I noticed. I notice.",
-     "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk: Fräulein Vogt's letter in from the Registratur on Wednesday 23 October, \"no mark on it\", and put straight before the Referent, without going to the clerk's cabinet at all; back from him to the Registratur on Monday 28 October, with an R on it in brown pencil, bare, and no blue anywhere; nothing to the Unterabteilungsleiter in between. It did not go past Frau Kern's cabinet because it did not go to the clerk at all.",
+     "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk. Wednesday 23 October: Fräulein Vogt's letter, in from the Registratur, no mark on it; straight before the Referent, not to the clerk (Frau Kern). Monday 28 October: back from the Referent to the Registratur; R in brown pencil, no initials; no blue. Between the two: nothing to the Unterabteilungsleiter.",
      "You have Fräulein Vogt's desk. She was quick. Anything for us from the outer office comes down in its tray, like everything else that leaves it; Frau Pohlmann does not carry papers herself."
     ]
    },
@@ -1650,7 +1650,7 @@
     "always": false,
     "raised_by": [
      "It is not my place to say what a Referat does with its post. But Fräulein Vogt's letter came back to me for filing with an R on it in brown pencil, bare, no initials beside it, and not a stroke of blue anywhere on it. I noticed. I notice.",
-     "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk: Fräulein Vogt's letter in from the Registratur on Wednesday 23 October, \"no mark on it\", and put straight before the Referent, without going to the clerk's cabinet at all; back from him to the Registratur on Monday 28 October, with an R on it in brown pencil, bare, and no blue anywhere; nothing to the Unterabteilungsleiter in between. It did not go past Frau Kern's cabinet because it did not go to the clerk at all.",
+     "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk. Wednesday 23 October: Fräulein Vogt's letter, in from the Registratur, no mark on it; straight before the Referent, not to the clerk (Frau Kern). Monday 28 October: back from the Referent to the Registratur; R in brown pencil, no initials; no blue. Between the two: nothing to the Unterabteilungsleiter.",
      "You will see letters on the papers that come down, and you are not to guess at them. V is for a talk at length, R is for a short word with whoever is working on it, and in a Referat a letter that has come in is worked on by the Referent. The rest you can ask me."
     ]
    },
@@ -1673,7 +1673,7 @@
     "always": false,
     "raised_by": [
      "It is not my place to say what a Referat does with its post. But Fräulein Vogt's letter came back to me for filing with an R on it in brown pencil, bare, no initials beside it, and not a stroke of blue anywhere on it. I noticed. I notice.",
-     "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk: Fräulein Vogt's letter in from the Registratur on Wednesday 23 October, \"no mark on it\", and put straight before the Referent, without going to the clerk's cabinet at all; back from him to the Registratur on Monday 28 October, with an R on it in brown pencil, bare, and no blue anywhere; nothing to the Unterabteilungsleiter in between. It did not go past Frau Kern's cabinet because it did not go to the clerk at all."
+     "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk. Wednesday 23 October: Fräulein Vogt's letter, in from the Registratur, no mark on it; straight before the Referent, not to the clerk (Frau Kern). Monday 28 October: back from the Referent to the Registratur; R in brown pencil, no initials; no blue. Between the two: nothing to the Unterabteilungsleiter."
     ]
    },
    {
@@ -1683,8 +1683,8 @@
     "ask_of": {},
     "always": true,
     "raised_by": [
-     "He took Fräulein Vogt's letter up himself, because that is what the marking on it told him to do, and he put it into the Referent's own hand. Frau Pohlmann was at her desk and he went by her with it, and by the clerk's cabinet.",
-     "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk: Fräulein Vogt's letter in from the Registratur on Wednesday 23 October, \"no mark on it\", and put straight before the Referent, without going to the clerk's cabinet at all; back from him to the Registratur on Monday 28 October, with an R on it in brown pencil, bare, and no blue anywhere; nothing to the Unterabteilungsleiter in between. It did not go past Frau Kern's cabinet because it did not go to the clerk at all.",
+     "I took Fräulein Vogt's letter up myself, because that is what the marking on it told me to do, and I put it into the Referent's own hand. Frau Pohlmann was at her desk and I went by her with it, and past the clerk's cabinet without stopping.",
+     "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk. Wednesday 23 October: Fräulein Vogt's letter, in from the Registratur, no mark on it; straight before the Referent, not to the clerk (Frau Kern). Monday 28 October: back from the Referent to the Registratur; R in brown pencil, no initials; no blue. Between the two: nothing to the Unterabteilungsleiter.",
      "Frau Litt's copy of the organisation chart: under Unterabteilung Z A, Referat Z A 1, the Personalreferat, the personnel section, Room 407: Ministerialrat Grau, the Referent, the officer at its head, who marks with his initials and no colour; his outer office, Frau Pohlmann; the Referat's clerk, Frau Kern."
     ]
    }
@@ -1702,12 +1702,12 @@
    },
    {
     "thing": "the Personalreferat's register",
-    "line": "The Personalreferat's register, kept at Herr Simon's counter: Fräulein Vogt's letter entered on Wednesday 23 October and sent up to Z A 1 the same day, into the Referent's own hands and not by the post run the pool's girl makes; back on Monday 28 October, for filing.",
+    "line": "The Personalreferat's register, kept at Herr Simon's counter. Wednesday 23 October: Fräulein Vogt's letter entered; up to Z A 1 the same day, into the Referent's own hands, not by the pool's post run. Monday 28 October: back, for filing.",
     "portable": false
    },
    {
     "thing": "the outer office's list",
-    "line": "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk: Fräulein Vogt's letter in from the Registratur on Wednesday 23 October, \"no mark on it\", and put straight before the Referent, without going to the clerk's cabinet at all; back from him to the Registratur on Monday 28 October, with an R on it in brown pencil, bare, and no blue anywhere; nothing to the Unterabteilungsleiter in between. It did not go past Frau Kern's cabinet because it did not go to the clerk at all.",
+    "line": "The outer office's list, in Frau Pohlmann's hand, of what crossed her desk. Wednesday 23 October: Fräulein Vogt's letter, in from the Registratur, no mark on it; straight before the Referent, not to the clerk (Frau Kern). Monday 28 October: back from the Referent to the Registratur; R in brown pencil, no initials; no blue. Between the two: nothing to the Unterabteilungsleiter.",
     "portable": false
    },
    {

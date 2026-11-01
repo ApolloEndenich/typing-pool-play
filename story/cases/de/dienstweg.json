@@ -21,13 +21,13 @@
     {
      "where": "die Registratur",
      "lines": [
-      "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht durch Boten.“ Darunter: „Mo., 28. Oktober. Zurück von Z A 1, zur Ablage.“ Die Botengänge macht sonst das Mädchen aus dem Schreibsaal."
+      "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht über den Botengang des Schreibsaals.“ Darunter: „Mo., 28. Oktober. Zurück, zur Ablage.“"
      ]
     },
     {
      "where": "das Vorzimmer von 407",
      "lines": [
-      "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk darauf. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin.“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. Ein bloßes R in Braun, nirgends Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen. In Frau Kerns Schrank ist der Brief nie gekommen, weil er gar nicht an die Sachbearbeiterin ging."
+      "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin (Frau Kern).“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. R in Braun, ohne Namenszeichen. Kein Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen."
      ]
     },
     {
@@ -43,7 +43,7 @@
      "lines": [
       "Direkt an das Referat, für das sie bestimmt ist. In diesem Haus geht die Post nicht erst zum Abteilungsleiter hinauf, um verteilt zu werden. Sie kommt mit dem Zeichen ihres Referats zu mir, ich gebe sie an das Referat weiter, das im Stempel steht, und der Referent hat sie am selben Tag.",
       "Frau Pohlmann trägt selbst keine Schriftstücke aus dem Referat. Was es verlässt, kommt in seinem Ausgangskorb herunter, an diesen Schalter, und wird ins Tagebuch eingetragen. Und es geht auch niemand ins Referat, um sich ein Schriftstück zu holen: Herr Vahle lässt Herrn Grau rufen.",
-      "Herr Simon hat Fräulein Vogts Brief selbst hinaufgetragen, weil das Zeichen im Stempel dieses Referat nannte, und der Referent bekam ihn persönlich. Frau Pohlmann saß an ihrem Schreibtisch, und er trug ihn an ihrem Schreibtisch und am Schrank der Sachbearbeiterin vorbei zum Referenten hinein.",
+      "Ich habe Fräulein Vogts Brief selbst hinaufgetragen, weil das Zeichen darauf es so verlangte, und der Referent hat ihn aus meiner Hand bekommen. Frau Pohlmann saß an ihrem Schreibtisch; ich bin mit dem Brief an ihr vorbeigegangen und, ohne stehen zu bleiben, am Schrank der Sachbearbeiterin.",
       "Es steht mir nicht zu, zu sagen, was ein Referat mit seiner Post macht. Aber Fräulein Vogts Brief kam zur Ablage zu mir zurück, mit einem bloßen R in Braun darauf, ohne Namenszeichen daneben, und nirgends ein Strich Blau. Das ist mir aufgefallen. Mir fällt so etwas auf."
      ]
     },
@@ -326,6 +326,7 @@
      "07fe856b961678697e239bd65a9497183289a7a43dc92d6c933a3a4a2db8e64c",
      "123a1807d0067c54e8ec7d78b7c40b5612eeb570d46e00ce81677162dcdfaee2",
      "1892614df0e524a43ca57fa0042393d2146c01b326ccb9c2e0e5013904aa7d3e",
+     "1cc6f01e590e604d53f674cfb183c3c2cd2c5799c77cf2d8ad4e0ae2acf552a4",
      "243ec136da135bb28354d2798cae98fbb7889abfa52d328b7c9763cff9e1c69f",
      "272087f60510309a03f46527ea423f3692390322b68324169c40168944c71729",
      "283b4a5e59f18d1688ff8b741aabc22b287b3c6f276d14b1d10282c4ca0552e0",
@@ -343,7 +344,6 @@
      "7e44fc50e07469cbc2fb97f6c4e17df36713f74b3a465086c3109da59245f01b",
      "82b31e02bc8e9907dcbfd63925f9d6eab680524ea711175696f8f9cabfdda506",
      "8aa1e964f342240d74c73f41a6572d4d7ccbfc335d6ff4553336917bcf36ce48",
-     "97de35262da72822f42986816d1b997a43ff4b5c2ae5cce81edd81a8ba613175",
      "9debb8f302a1be3f76535224781e9caf6b9fb779753b37ddea986c6031c16678",
      "b3b9b5a0111c1e196d84d2bae08a850198556d1144d631b54819e5fe7794f33c",
      "b709034d0972614c98b2e7bb9bd6dd7f813a7d74f9ba6ddc092c64d973fab660",
@@ -367,14 +367,15 @@
    "custody": {
     "need": "3374ce8d7511e62666741761e1789342fa53cf5fa0176c1046565cb2c8db5ea7",
     "marks": [
+     "001eb9d36b890ad94ee601d894e4d5e72225b3734be0b418b60ecf944205f7c0",
      "0c5d2f1f42ea42382f77d3dffab27f00e2a5d9e3f7f2f72b8ca7a2d1b8987295",
      "0fba54285eecabe33c5d76542dac90b2a69ca46b3988e3c9399a0cf87721014f",
      "16402083a8d4df1579cb8a17cbeb36f250c1340d81b629349a4b8ec2b0bc2665",
      "19eb63bc0479325864becc9db6cdb0fa573965e68d4a521423527a2cdc5a49bc",
      "2a9356a07498d77c859bc6d079ddc320046f786643f6b30ea6c23cd4c32d4f04",
      "2d1edd327b72362983281b4f74a390875a198abd9549c1e63254d6f5bc27c013",
+     "3357c36b00de9ecdb56d88f0ee385a380cd0ce026b927899d397b30544994d41",
      "36198f04d0136058b7785206953afecb9fc4a5387afe6735edf5889229a20717",
-     "3f4225b1e3a37343a72ec59dbfda7ba5ee3b3462a645076086eba49eed814011",
      "504c7f01e1e4c694300897e8d35bfa94133436cc7371f67359cdf57d90575046",
      "52b69008061cc16977c1f5fd50575d0e87ddef73da55cb77ec3139aa49e9df7e",
      "547638e5b6c79b26206b53935c91a61450a7ebd680f96516f34d2fbf66bb678a",
@@ -386,13 +387,13 @@
      "7f6155a5bc3fb9851d63977c5abb6f88d1129b706056673c0654b71023ca96be",
      "8b6ebfde9fe99f4cb439ac024c08ceb085a22a55653da16a122d9940d98f4ea9",
      "9b1c958ebd4b5f53ba417bbed2ea29d7797ca574cd495909cab752a670ba0c2f",
-     "9d5e3afdfc0d6a0906abf08aa773f2724ca43c1211f8302ae2972d2d03dcc06c",
      "9ed77d35a1de9e8daad23a45889b827a582c57edfbf67f6a9ddccc7053255e8c",
      "a95de404839f8b94aefa09371e69397076b20482b20781124a09c756b8fe94e4",
      "b00c1e3130e96d603217be0b20a454972d1691134827785720d12f744ab11f93",
      "b3b89073c365bb2ff4b109d626d96aff69015eb68543f3a2fd47ba91cd3f4173",
      "b7d96bdd279ae9f50bfcf1110cdec515da8e98c5573c3d2069f3caa19c906094",
      "bd66ba6a4101241221a54238eb30df7fd70bd31c9bbe6c9fe0a8ecc906c6ba24",
+     "bdcaf7197f2e78a5dd83bc617731baac2eb868607a11c77db56294e8ff5ed82f",
      "be24dba6603e70da54e483bd7a86f906efc918a944fdaa296620501f27581b4c",
      "c1b853c2b6d08ee42b49396a330019fbb05b4caeb77b7ae5ff457773c11c7893",
      "c58e51510b19558982650cb05432f3393cf617005467dde19794e29e51b623d0",
@@ -405,8 +406,7 @@
      "f16830a039f4fea27aa8e145edb68a7f3849b767e0857366a28db5cb41f65b85",
      "f2f66518d3de9f7593808807efb69b34b60e5fe49a8363fc259131d9d61fcd2b",
      "f67ada391dfd417ba8632549880632d1ee1e0dc83767f2f1f516a0fe8d319f17",
-     "f89f141b49e5e17eb75cfc23ed97a49ae786f57565f2c69dc563132675116769",
-     "fe2f5cb9054a210d99f65d7c869a5c28b2f4e89b300f43bcd4711ae317ed9a84"
+     "f89f141b49e5e17eb75cfc23ed97a49ae786f57565f2c69dc563132675116769"
     ]
    },
    "passed": {
@@ -462,6 +462,7 @@
     "need": "2b5bd3854fa2358b99c3b1dd2991d5dcff499e3c776d6f2351af157df7917a02",
     "marks": [
      "0179bd8a60f2e052314698faef1cb2179b139b0c491fa863b08b22c55f2af36f",
+     "099568a800167bc20aeb22dbf8120b0374ca33c0e40e255914cdbcd68bb06c30",
      "17d2196d8fef558b75e9627388a7f68dc80241b0f9e13f2205f80bff6f7aa46c",
      "2552d5dd895120d4e7e18180a0f40d6d5dd19bd24adf9ce22a452e24d9561495",
      "2b6186cef11649eeec752109e61d2f1f1fbde5352e7e6094a974595e8cd88b69",
@@ -489,7 +490,6 @@
      "9a6c38278bd388c44b106460304c675f86cdf9e51cfb9b60ff4270a1808d63cf",
      "a122a4384a8946556833cabaf97422209f51140021dd8f40b688ed44abddd017",
      "b18f1242a18402b1146d8849159eb164e3cb315cb78fb792eae5cfbf4eed7916",
-     "b54da7e9f3479405e4aae57d639eac08792aa54a7aed22c499c8a738c76f5687",
      "b658fb30a01e1b51495f8f493519ebf9dbbe7f5d14dafccf1d9a046e3283bbd5",
      "bedb965cb13e8981c6e2dce65676e504baaa87568f4a4ad72b010955edfbf8c7",
      "bf3ee90f2e89ad36826b81afb189f9ec23d40e7e115a6e486c55b1d764a6b6d8",
@@ -605,17 +605,17 @@
      "07370e1bbbad26cb4dd0f3205633c12682f42c740ffedffd6584d0844f779d1e",
      "0777090e366a96370081f44cfb7035662debe06a65302541676dc535bff2a500",
      "0fe7ee1717e3a3c9194dd705a0cb2cfb286fb66a34156aaa1e690b185cb1614c",
-     "1890421dc0b74163b45d98ed57eef64034b3ee0b19f2ccf44aff38027471db61",
      "19356d18c079764a16127e5b7ef3e35c6785ea13e9eae997c383873a2a2bdefb",
      "2bc42ce2e7d2e417ac9e11535ab444f1db39197e168cd7b340ee6bff52483906",
      "3a8707d850ae8f9e6aee1d611dea125b09484f581b6de6bec8291bf82ddd4fd1",
      "3e1e57ba4bf546ac27e6f83583d3a75d1bdf8be7c9b00db0e0bc64f039accc44",
      "580058f41345274af0050d75cd5268ecc3a4f354907f77d4c1cc405197c33578",
+     "5be6324525091bce464e13e23751a7412b0a83a7d4423f8690fa263633663252",
      "62ac112572664f64f388a8524e18dd4017fd72093d662b7a571f97987aa9abd6",
      "6548af03b0724cd72e5906349e94639eaa73b7082198ae38727c33ffa03f9dcb",
-     "689ea2d66b0e119229014e8fcc9f22aca90fd7520f3699005050ed7ea61ca4fb",
      "6ec33f7da6752e99e4009c2a5d7a54d6efa94dd8a9e456259f48c2139f492e67",
      "74e4834244ad47989fde9817a7092686ccaa5740d67ea9e29effd081079bd540",
+     "7af0ed249a90159a2f4d7e85555e84fb167b9542b38c056440f7f956f8b35439",
      "7d1ab01f6a81aa3f9662b594a29e8a9a2a37ec787ed6e0ef52e565abcf7ddc17",
      "84473da42cb5f2e1a42a699e1fad2500dddae1859c6952036cb512faff31eaaa",
      "8782daa2e2453453aa58687eeaf449cadb9180df80f9e96ba7b618d50ae2dac9",
@@ -633,7 +633,6 @@
      "c336ad059e56e92df696770fa496f919f77be02150b7cc9a9dabf47949c29488",
      "ca191b26def87cc03361b4ad005ea9c8e548c2fc59824e9ce42cf756ff8d1e22",
      "cbd7666e8d6e60b3c832d796bf0e095f25f10d985013050e8785e59d695e38a3",
-     "cc43a7854cfadcf4694ba3289d9f8b2844599c42b8c20adafb474ca8eca52cf4",
      "dd9fb6c8df8053f3126dae5d62714614650c7a40175ab440bbb88719a7bbd893",
      "e65d58b2e43e5d783443248dafd1c49d563dfaa1406a28e14b914a6c1a089d3f",
      "e86392745e7a08f6d1b0fd8c2ff3be9c9a3da610f8f3d249975b1013642e0d56",
@@ -641,6 +640,7 @@
      "f32dfa37c0b60cfa68279aede8e26f8b1db5bc04a224a1cfa76f6d42627dcbd6",
      "f3a603f507cc6a059c339de0bacddc66bd8017078fc48abe65535273ab8514aa",
      "f428e9a31156ac14f6664cb2b090c840092a660287f7c7b5c163a6f016ef9947",
+     "fbbaa1407551c1d37bbd37da0aa0d9c060b89e4eb72e79e73996cdb66a1c7341",
      "fc50d5c963fd1a17e6f2b5bfad19474da46cde0127a68b6f0bdcb0b1574f8282"
     ]
    },
@@ -662,6 +662,7 @@
      "2add69d45b1e65d186d1d11dda97e51e920301a7b13efaa64c92434910c78429",
      "2bd063c87654669b19132c95a0cc506a399bb221709edd6e7b86a932958fd689",
      "2e30320fb915290c59d22608421e607aaa7f4420fb6d848ca1c58795effa7d7e",
+     "40f4d6f2c2b51ec73e70e26f9223e8edcd57050d530a408dc33d19b1b7f95b54",
      "45e98b0191a6bd856a42563f9b4d11f8769072fd8b2b253773ae77a544a70e47",
      "4a0f62e11efc838a4fad9f66416f4efb9625978e7a5fae2b9bdeb5cb322962d4",
      "4b40bfdfc4e57a4dc26d511dfd2e271ed1d0cb6356171fbdcf039bb854955387",
@@ -672,7 +673,6 @@
      "691677f0e9bbdca34bedfaf493108ccb64e0b90aa355a3a6b0d03d11f5eb6924",
      "69a4530b0f1506cd2b826844d0d312899336907eb7173e543776570128e379f1",
      "6f88fc973e7470b01ae8daf17af032c552269578d1e44d90e89503dbeb4d805d",
-     "700219d52b30a4680245d938a483ea3f98e2e4f9cb74fed5a9967a659bcd3f03",
      "7564b1457c2048053dcfaf694960231d0497acf63ef0bca825b0a6913b11e870",
      "75b9fb057ef673dfa35eaf886d2ebe3cd856280e53bdc6da7ddaae0e0a5ff8ca",
      "7e9e59061d60fdefc94cc593ac9c334b0ddef9b832a52789583b39a44ef9ba01",
@@ -745,7 +745,6 @@
     "marks": [
      "0492ef0ed26e1af7039322186ba2ac802e92ec94e3416040c63a26dc493e45ba",
      "100bb95e81a5e321a6012362ac90b92ac2493be995b63745df14fbcf3f478bd7",
-     "23917256330cfdb5b2255b2f84d825fa944f14535ab5f253c27c29d1815ee89e",
      "26f0ac9318ef124d647c45980a4a24fac198603e5aaf6855ed8806b10e6fc062",
      "294659fbdcac046ddc6149353c045b537574af12808077bfd5cb7a68a0eda363",
      "2ecd9d0eb4c262c7b81c71022fe746bff0dac1adba6e37a8e3f977c7c5aaba21",
@@ -755,6 +754,7 @@
      "4a93f580e585dfa3ef64b37ef0a625a4fce5c9da2ab7d5d69f71a45e9489fa9a",
      "4aece222bce08d56c0ad6099ea079c149afcc668da57fef38e0e513f3b5fe950",
      "501780ba89619efb698cb7e255231f6ee5f3088012ede6f4dfed8ea2d4c01194",
+     "565d84bdf5bfb92e6b2da809ab0cabee8efc2647fcdfcb055dc1173b41fac4f7",
      "5ca3942de920931cf9f0c37eeb7562086f564537c50920675ab0774395695091",
      "6c7f16ce74b2a4d1c2a950a5711da47287acef8601a47094a39efef45e1631f5",
      "798c05f97c230124d952f158bc41afdd7a5e5c3847bd6abd7a60ba8a9485f967",
@@ -778,10 +778,10 @@
      "da28008247e1d4c41a0770753db05a370e755eccabd996143ed81310bf242dfb",
      "db9c26d0af203a892cf12c8f880e72d337c7d4087388af47a57684c74c5c7dc1",
      "dce8ebd1e378403e29d0c6d43253525219c7f77939e1173e103bbd889431ff47",
+     "e39dbb14adfad22ee93de0696d4834b5417699b789641af3e69e28185639f18c",
      "e53d8ec0338bb1d115107958981bd6b891f68e6bd4ae2e1a56d3c0f3060f96a9",
      "e9e09b83355090461ffdadeac5a34827888951309b68f4d0da727999c1211845",
      "f19bd6d1d3d65ae4e2541d3e0b7eee233e59fd914b710fd3d3102673ee71adad",
-     "f270976c944cd6e93d637cd14b7a77233ff25e9f43cced2c6f23ff4ac7fe828d",
      "f30aa6a8f0163c9f72f06da898733d43ebda10c517c37efe190c7078f273339b"
     ]
    },
@@ -800,17 +800,16 @@
      "21f58906820d25f5e540b5ecc5d6fbecb28a89e127af75fb7c4b607581124760",
      "251e5d9c5e46b30fe75e00c3c91bc75aa28c55e9006e5dad7a3e7bc269d16143",
      "25e9dc1ca30690bceb3ce62f00c4fcabe7257362880845339b1ce8b1e006652d",
+     "2649cb3604c26d6ce8fa5880d3338ac26657441c30aa8d0d2bde71e0afc69c46",
      "2b7a045be95cd7d9d9aa3d830a9f9265e4f7ed71557504ab591872c9d516e564",
      "33d46c4e696fa516ec2f0bf0af0cf94cc8e8b1c9bb6bdd830cf9729ccea9a565",
      "36081a479322070dbca74d36e6991bc86989c63e4ad27853b1dc66f6b247e121",
-     "4072d54c8ee07054f0fff7b9af80048cddd5d9e1bfa1377f619652d2162ba778",
      "4b593824c3eb128f3d3f2d343647fe37d837b3bc204192dcc485b4edc37c30ac",
-     "4d4a45487e4ee000f20e335e5aac8526f6ddd89312e39297cadc92bb0ee64b33",
      "4eb3325ba07566bba0be18c7de1b3633c867e6d860240076c07a634d838b2036",
      "574a19b026a8deaa30edccab95c0e514294dfa1d4d1a67c56ebe65259e1cfad2",
+     "73076e25632ac6cfb61e1edc21bf804f7c33c570e78f598ae2599628487259cf",
      "744066f623147df69e4431a232d771e5eb2a402031690bffce5e73e77cd1f197",
      "75ed3742ca658e2b8e4554ac34e94bd6685e372a0a9ea9f3f368bc7a78dfec2e",
-     "8a747a49904e87e5e0b8fe9e052775e9f747e446ebe6ccf41e14d7039a043fb2",
      "8c7b06bbc727f39f578578ec8db1da5aedef5608b41920e45419d77cae913c5a",
      "8dc34e4a93906dc5956060e8e7f07da2f51ee55427a9c8b8d58c552b8bb11aa0",
      "97852c0c0fc136e466b0bbf01d29464593644f85c291602cf683957adeb737bb",
@@ -825,6 +824,7 @@
      "b504d43bceeb0404d7123cbe8ba348c4914eb7543f989c72c2327bd5d3f74e0e",
      "b6191abacee958a0b925308233240063bed21dc543cc89c1fcf4cdc89d5032c5",
      "c7fd9d96f8dcf7a58d6ef9245698cce82d9b78a59e8eb6269368c144b8f0e384",
+     "cf982956130456b8dc5b3cfc1f3f7c6059e5b8cdbd8bbb1148959221977ab32a",
      "d7bb1ae494a52a620484834861f09dd48f0d9c01e76be141c1b8c5851a0651ce",
      "de3d55980e4ca5e04933f6999bf76de072c520470c57e7f93b690c6b7b013b1d",
      "f48d701a49907e994da72e4c401755d3d2f2fd6f9b46a7182e7b57ee2c153f9e",
@@ -1170,7 +1170,7 @@
     "spread": null,
     "sees": [
      {
-      "text": "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht durch Boten.“ Darunter: „Mo., 28. Oktober. Zurück von Z A 1, zur Ablage.“ Die Botengänge macht sonst das Mädchen aus dem Schreibsaal.",
+      "text": "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht über den Botengang des Schreibsaals.“ Darunter: „Mo., 28. Oktober. Zurück, zur Ablage.“",
       "phase": "der nächste Tag"
      }
     ],
@@ -1195,7 +1195,7 @@
     "spread": null,
     "sees": [
      {
-      "text": "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk darauf. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin.“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. Ein bloßes R in Braun, nirgends Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen. In Frau Kerns Schrank ist der Brief nie gekommen, weil er gar nicht an die Sachbearbeiterin ging.",
+      "text": "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin (Frau Kern).“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. R in Braun, ohne Namenszeichen. Kein Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen.",
       "phase": null
      }
     ],
@@ -1420,7 +1420,7 @@
         "phase": null
        },
        {
-        "text": "Herr Simon hat Fräulein Vogts Brief selbst hinaufgetragen, weil das Zeichen im Stempel dieses Referat nannte, und der Referent bekam ihn persönlich. Frau Pohlmann saß an ihrem Schreibtisch, und er trug ihn an ihrem Schreibtisch und am Schrank der Sachbearbeiterin vorbei zum Referenten hinein.",
+        "text": "Ich habe Fräulein Vogts Brief selbst hinaufgetragen, weil das Zeichen darauf es so verlangte, und der Referent hat ihn aus meiner Hand bekommen. Frau Pohlmann saß an ihrem Schreibtisch; ich bin mit dem Brief an ihr vorbeigegangen und, ohne stehen zu bleiben, am Schrank der Sachbearbeiterin.",
         "phase": "der nächste Tag"
        }
       ],
@@ -1640,7 +1640,7 @@
     "raised_by": [
      "Das Einschreibbuch der Poststelle: Mittwoch, 23. Oktober, „Einschreiben, Abs. Frl. Vogt, an das Ministerium, z. Hd. des Abteilungsleiters“; in der Spalte für das Referat: „Z A 1“.",
      "Direkt an das Referat, für das sie bestimmt ist. In diesem Haus geht die Post nicht erst zum Abteilungsleiter hinauf, um verteilt zu werden. Sie kommt mit dem Zeichen ihres Referats zu mir, ich gebe sie an das Referat weiter, das im Stempel steht, und der Referent hat sie am selben Tag.",
-     "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht durch Boten.“ Darunter: „Mo., 28. Oktober. Zurück von Z A 1, zur Ablage.“ Die Botengänge macht sonst das Mädchen aus dem Schreibsaal.",
+     "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht über den Botengang des Schreibsaals.“ Darunter: „Mo., 28. Oktober. Zurück, zur Ablage.“",
      "Die Post des Referats ist meine Sache. Herr Vahle kommt nicht herunter in dieses Referat; wenn er Herrn Grau sprechen will, lässt er ihn rufen.",
      "Es steht mir nicht zu, zu sagen, was ein Referat mit seiner Post macht. Aber Fräulein Vogts Brief kam zur Ablage zu mir zurück, mit einem bloßen R in Braun darauf, ohne Namenszeichen daneben, und nirgends ein Strich Blau. Das ist mir aufgefallen. Mir fällt so etwas auf.",
      "Frau Litts Exemplar des Organisationsplans: für das ganze Haus die Poststelle; die Registratur, Herr Simon; und der Schreibsaal. Wie ein Brief hereinkommt: die Poststelle, die Registratur, das Vorzimmer, der Referent. Wie ein Vorgang hinaufgeht: der Referent, der Unterabteilungsleiter, der Abteilungsleiter."
@@ -1654,10 +1654,10 @@
     "always": true,
     "raised_by": [
      "Das Einschreibbuch der Poststelle: Mittwoch, 23. Oktober, „Einschreiben, Abs. Frl. Vogt, an das Ministerium, z. Hd. des Abteilungsleiters“; in der Spalte für das Referat: „Z A 1“.",
-     "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht durch Boten.“ Darunter: „Mo., 28. Oktober. Zurück von Z A 1, zur Ablage.“ Die Botengänge macht sonst das Mädchen aus dem Schreibsaal.",
-     "Herr Simon hat Fräulein Vogts Brief selbst hinaufgetragen, weil das Zeichen im Stempel dieses Referat nannte, und der Referent bekam ihn persönlich. Frau Pohlmann saß an ihrem Schreibtisch, und er trug ihn an ihrem Schreibtisch und am Schrank der Sachbearbeiterin vorbei zum Referenten hinein.",
+     "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht über den Botengang des Schreibsaals.“ Darunter: „Mo., 28. Oktober. Zurück, zur Ablage.“",
+     "Ich habe Fräulein Vogts Brief selbst hinaufgetragen, weil das Zeichen darauf es so verlangte, und der Referent hat ihn aus meiner Hand bekommen. Frau Pohlmann saß an ihrem Schreibtisch; ich bin mit dem Brief an ihr vorbeigegangen und, ohne stehen zu bleiben, am Schrank der Sachbearbeiterin.",
      "Es steht mir nicht zu, zu sagen, was ein Referat mit seiner Post macht. Aber Fräulein Vogts Brief kam zur Ablage zu mir zurück, mit einem bloßen R in Braun darauf, ohne Namenszeichen daneben, und nirgends ein Strich Blau. Das ist mir aufgefallen. Mir fällt so etwas auf.",
-     "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk darauf. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin.“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. Ein bloßes R in Braun, nirgends Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen. In Frau Kerns Schrank ist der Brief nie gekommen, weil er gar nicht an die Sachbearbeiterin ging.",
+     "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin (Frau Kern).“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. R in Braun, ohne Namenszeichen. Kein Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen.",
      "Sie sitzen an Fräulein Vogts Platz. Sie war schnell. Was das Vorzimmer für uns hat, kommt in seinem Korb herunter, wie alles andere, was es verlässt; Frau Pohlmann trägt keine Schriftstücke selbst."
     ]
    },
@@ -1669,7 +1669,7 @@
     "always": false,
     "raised_by": [
      "Es steht mir nicht zu, zu sagen, was ein Referat mit seiner Post macht. Aber Fräulein Vogts Brief kam zur Ablage zu mir zurück, mit einem bloßen R in Braun darauf, ohne Namenszeichen daneben, und nirgends ein Strich Blau. Das ist mir aufgefallen. Mir fällt so etwas auf.",
-     "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk darauf. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin.“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. Ein bloßes R in Braun, nirgends Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen. In Frau Kerns Schrank ist der Brief nie gekommen, weil er gar nicht an die Sachbearbeiterin ging.",
+     "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin (Frau Kern).“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. R in Braun, ohne Namenszeichen. Kein Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen.",
      "Sie werden Buchstaben auf den Schriftstücken sehen, die herunterkommen, und Sie sollen nicht daran herumrätseln. V heißt Vortrag, ein längeres Gespräch, R heißt Rücksprache, eine kurze Besprechung mit dem, der es bearbeitet, und in einem Referat bearbeitet einen eingegangenen Brief der Referent. Alles andere können Sie mich fragen."
     ]
    },
@@ -1692,7 +1692,7 @@
     "always": false,
     "raised_by": [
      "Es steht mir nicht zu, zu sagen, was ein Referat mit seiner Post macht. Aber Fräulein Vogts Brief kam zur Ablage zu mir zurück, mit einem bloßen R in Braun darauf, ohne Namenszeichen daneben, und nirgends ein Strich Blau. Das ist mir aufgefallen. Mir fällt so etwas auf.",
-     "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk darauf. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin.“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. Ein bloßes R in Braun, nirgends Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen. In Frau Kerns Schrank ist der Brief nie gekommen, weil er gar nicht an die Sachbearbeiterin ging."
+     "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin (Frau Kern).“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. R in Braun, ohne Namenszeichen. Kein Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen."
     ]
    },
    {
@@ -1702,8 +1702,8 @@
     "ask_of": {},
     "always": true,
     "raised_by": [
-     "Herr Simon hat Fräulein Vogts Brief selbst hinaufgetragen, weil das Zeichen im Stempel dieses Referat nannte, und der Referent bekam ihn persönlich. Frau Pohlmann saß an ihrem Schreibtisch, und er trug ihn an ihrem Schreibtisch und am Schrank der Sachbearbeiterin vorbei zum Referenten hinein.",
-     "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk darauf. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin.“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. Ein bloßes R in Braun, nirgends Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen. In Frau Kerns Schrank ist der Brief nie gekommen, weil er gar nicht an die Sachbearbeiterin ging.",
+     "Ich habe Fräulein Vogts Brief selbst hinaufgetragen, weil das Zeichen darauf es so verlangte, und der Referent hat ihn aus meiner Hand bekommen. Frau Pohlmann saß an ihrem Schreibtisch; ich bin mit dem Brief an ihr vorbeigegangen und, ohne stehen zu bleiben, am Schrank der Sachbearbeiterin.",
+     "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin (Frau Kern).“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. R in Braun, ohne Namenszeichen. Kein Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen.",
      "Frau Litts Exemplar des Organisationsplans: unter der Unterabteilung Z A das Referat Z A 1, das Personalreferat, Zimmer 407: Ministerialrat Grau, der Referent, der es leitet und mit seinem Namenszeichen zeichnet, ohne Farbe; sein Vorzimmer, Frau Pohlmann; die Sachbearbeiterin des Referats, Frau Kern."
     ]
    }
@@ -1721,12 +1721,12 @@
    },
    {
     "thing": "das Tagebuch des Personalreferats",
-    "line": "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht durch Boten.“ Darunter: „Mo., 28. Oktober. Zurück von Z A 1, zur Ablage.“ Die Botengänge macht sonst das Mädchen aus dem Schreibsaal.",
+    "line": "Das Tagebuch des Personalreferats, an Herrn Simons Schalter geführt: „Mi., 23. Oktober. Eingang: Schreiben Frl. Vogt. Am selben Tag an Z A 1, dem Referenten persönlich übergeben, nicht über den Botengang des Schreibsaals.“ Darunter: „Mo., 28. Oktober. Zurück, zur Ablage.“",
     "portable": false
    },
    {
     "thing": "die Liste des Vorzimmers",
-    "line": "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk darauf. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin.“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. Ein bloßes R in Braun, nirgends Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen. In Frau Kerns Schrank ist der Brief nie gekommen, weil er gar nicht an die Sachbearbeiterin ging.",
+    "line": "Die Liste des Vorzimmers, von Frau Pohlmanns Hand, über alles, was über ihren Schreibtisch ging: „Mi., 23. Oktober. Schreiben Frl. Vogt, von der Registratur. Noch kein Vermerk. Sofort dem Referenten vorgelegt, nicht über die Sachbearbeiterin (Frau Kern).“ Darunter: „Mo., 28. Oktober. Vom Referenten zurück an die Registratur. R in Braun, ohne Namenszeichen. Kein Blau.“ Dazwischen ist nichts an den Unterabteilungsleiter eingetragen.",
     "portable": false
    },
    {
