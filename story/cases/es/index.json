@@ -36,9 +36,9 @@
   "locked": true,
   "gate": {
    "rounds": 200000,
-   "salt": "iRWV9fKkSh0EfQ2U4wCNPg==",
-   "iv": "gyGHhFxcUp2JbbQp",
-   "ct": "Rau6O7jAIYz1ZRcUG/LzpWQnYAoom3TH/wQ="
+   "salt": "DEPC9+YRqI6QllKCGvySrA==",
+   "iv": "kznt0DtFVsGxa+40",
+   "ct": "Opa2kAaN5P6lkxwmoayxX8CNrkx5B9AxDJg="
   }
  },
  {
@@ -54,9 +54,9 @@
   "locked": true,
   "gate": {
    "rounds": 200000,
-   "salt": "3tpBFEwB5o0ALow6xLHotQ==",
-   "iv": "uTYbycTg8zIAIcNm",
-   "ct": "4YE32zLYyNTacm/f1+wxtCYBJnSL8U8ND/I="
+   "salt": "Xw7IzOukdMzx6lKoUkKrQg==",
+   "iv": "PGep+EIMCUnRAGhd",
+   "ct": "kULE6DS23ou0n+3HvTe/qH2hP0Lxgkgdt6w="
   }
  },
  {
@@ -69,13 +69,12 @@
   "built": false,
   "opens": false,
   "free": false,
-  "untranslated": true,
   "locked": true,
   "gate": {
    "rounds": 200000,
-   "salt": "WUEYtnlIDIkiPHW22LwnDQ==",
-   "iv": "MDxOL1c7u8CC9RKx",
-   "ct": "BuMjFokpld9MeEB5Vmp/HkHTYKx2bV4pqw=="
+   "salt": "w/kdagABnfv4HRLQkciHNA==",
+   "iv": "qr/fBBWvyFzHdZH3",
+   "ct": "ecIy/1fXUyj2GGkTtNiyBhh5cE8G/tZiRA=="
   }
  },
  {
