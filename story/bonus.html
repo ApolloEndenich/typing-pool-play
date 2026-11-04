@@ -1,0 +1,963 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An Afternoon at the Exchange</title>
+<link rel="icon" href="art/favicon.png" type="image/png">
+<link rel="stylesheet" href="app.css">
+<!--
+  THE BONUS (the user, 3 November 2026: "after chapter 11, for free, as bonus,
+  and a page"). spinoff/bonus/ is the text, read cold twice; this page is that
+  text, with the board drawn and stepped instead of read as a table. Every
+  time, jack, cord and word here is the generated episode's (switchboard seed
+  16); the answers are spinoff/out/packet-switchboard-seed16-answer.md.
+
+  SEVEN LANGUAGES, ONE PAGE (the user, 3 November 2026: "single page with
+  table"). TEXT below holds every word of the page per language; the board,
+  the answers and the plugs are shared. The language is ?lang= (app.js passes
+  it), else the site's `pool.lang`, else the browser's.
+
+  THE CROSSING IS FOUND BY THE WORDS, so each language says each call's
+  question, yes and stop ONCE, in W, and both ends of a call quote W: the
+  desk's note and the far end's book cannot drift apart in any language.
+  tests/bonus_lang.js counts them.
+-->
+<style>
+  main { display:block; max-width:860px; margin:0 auto; grid-template-columns:none }
+  .back { display:inline-block; margin:16px 0 4px; color:var(--ink) }
+  .kicker { font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--faint) }
+  h2 { font-size:15px; letter-spacing:.12em; text-transform:uppercase; margin:28px 0 8px;
+       border-bottom:1px solid var(--rule); padding-bottom:4px }
+  h3 { font-size:14px; margin:18px 0 6px }
+  p, li { max-width:72ch }
+  table { border-collapse:collapse; margin:8px 0 }
+  td, th { border:1px solid var(--hair); padding:3px 8px; text-align:left; vertical-align:top }
+  .paper { background:var(--wash); border:1px solid var(--hair); padding:8px 12px; margin:8px 0 }
+  .paper b { display:block; margin-bottom:2px }
+  .boardwrap { background:var(--wash); border:1px solid var(--hair); padding:10px; margin:10px 0 }
+  .boardwrap svg { width:100%; height:auto; display:block }
+  .controls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:8px }
+  .controls input[type=range] { flex:1 1 220px }
+  .controls button, .report button { font:inherit; cursor:pointer; padding:4px 10px;
+       background:var(--paper); color:var(--ink); border:2px solid var(--ink) }
+  .now { min-height:3em; margin-top:6px }
+  .now .t { font-weight:bold }
+  details { margin:8px 0 }
+  summary { cursor:pointer }
+  .report { border:2px solid var(--ink); padding:10px 14px; margin:12px 0; background:var(--paper) }
+  .report.locked { opacity:.45 }
+  .report label { display:block; margin:10px 0 2px }
+  .report select, .report textarea { font:inherit; max-width:100%; padding:3px; border:1px solid var(--rule);
+       background:var(--paper); color:var(--ink) }
+  .report textarea { width:100%; min-height:3.2em }
+  .verdict { margin-top:8px; min-height:1.4em }
+  .verdict.ok { color:var(--good) }
+  .verdict.no { color:var(--red) }
+  .card { border:1px solid var(--rule); padding:10px 14px; margin:18px 0; background:var(--wash) }
+  .faint { color:var(--faint) }
+  #reset { font:inherit; cursor:pointer; background:none; border:none; text-decoration:underline;
+       color:var(--faint); padding:0 }
+  @media (max-width:560px) { td, th { padding:2px 4px } }
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="index.html" id="back"></a>
+<div class="kicker" id="kicker"></div>
+<h1 id="title"></h1>
+<div class="faint" id="date"></div>
+<div id="intro"></div>
+
+<h2 id="rulesHead"></h2>
+<ul id="rules"></ul>
+
+<h2 id="sawHead"></h2>
+<p class="faint" id="sawNote"></p>
+<div class="boardwrap">
+  <svg id="board" viewBox="0 0 640 230" role="img"></svg>
+  <div class="controls">
+    <button id="prev">◀</button>
+    <input id="tick" type="range" min="0" max="26" value="0">
+    <button id="next">▶</button>
+  </div>
+  <div class="now" id="now"></div>
+</div>
+<details><summary id="listSummary"></summary><table id="ticks"></table></details>
+
+<h2 id="papersHead"></h2>
+<div id="papers0"></div>
+
+<h2 id="reportHead"></h2>
+<p class="faint" id="reportNote"></p>
+<div id="parts"></div>
+<div id="card" class="card" hidden></div>
+<p class="faint" style="margin-top:28px"><button id="reset"></button></p>
+</main>
+
+<script>
+"use strict";
+/* ------------------------------------------------ the afternoon, as seen */
+const JACKS = ["14", "23", "31", "41", "A1", "A2", "A3", "A4"];
+const TICKS = [
+  ["15.39", 1, "in", "31"], ["15.39", 1, "out"], ["15.39", 2, "in", "14"], ["15.39", 2, "in", "A1"],
+  ["15.40", 3, "in", "23"], ["15.40", 3, "out"], ["15.40", 2, "out"], ["15.42", 4, "in", "A2"],
+  ["15.42", 1, "in", "A3"], ["15.43", 4, "in", "23"], ["15.43", 1, "in", "31"], ["15.44", 1, "out"],
+  ["15.45", 4, "out"], ["15.46", 3, "in", "23"], ["15.46", 3, "out"], ["15.46", 2, "in", "41"],
+  ["15.46", 2, "out"], ["15.48", 1, "in", "A4"], ["15.48", 4, "in", "A1"], ["15.49", 1, "in", "41"],
+  ["15.49", 4, "in", "23"], ["15.50", 4, "out"], ["15.52", 1, "out"], ["15.53", 3, "in", "A3"],
+  ["15.53", 3, "in", "41"], ["15.55", 3, "out"]];
+
+/* The answers, by part and blank: indices into each language's option lists,
+   which are kept in the same order in every language. */
+const ANSWERS = [[0, 1, 2, 3], [1, 5], [1, 0]];
+
+/* ------------------------------------------------------- the words, x 7 */
+const TEXT = {
+
+en: (() => {
+  const W = {qGo: "Is it going ahead as arranged?", qOn: "Is it still on, as we said?",
+             yGo: "Yes, as arranged.", yOn: "Yes, we are expecting it.",
+             nGo: "Not before the holidays. Nothing more is taken in until the new year.",
+             nOn: "Not until he is back. Nothing is to leave the house.",
+             letter: "No, it is to wait until he is back."};
+  const N = {station: "Bonn main station, express goods", archive: "the Zwischenarchiv",
+             fm: "the Finance Ministry", carrier: "Spedition Rhein, the carrier", stw: "the Bonn Stadtwerke"};
+  return {W, N,
+  title: "An Afternoon at the Exchange", kicker: "Bonus · after the story · free",
+  date: "Thursday 21 December 1972, a ministry in Bonn", back: "← Ministry of Secrets",
+  intro: [
+    `At four o'clock a draft left the house that should have stayed in it: the regrading list, for the Finance Ministry, in the messenger's van at 15.57. Frau Pohlmann of Z A 1's outer office took it down to the messenger herself. The note for the file, written that evening, says the Finance Ministry had told her on the telephone "${W.nOn}", and that she sent it all the same. Her Christmas leave begins in the morning.`,
+    `Sarah spent that afternoon on the chair by the open door of the exchange on the ground floor, waiting for a call of her own that never came, with the Fräulein's desk in front of her and the clock above it. She did not know what she was watching. She knows now that nobody else saw it, and that nobody in this house writes down where a plug sat.`,
+    `<b>The question is the report at the end: answer every part of it from the papers, and from what Sarah saw.</b>`],
+  rulesHead: "How the telephone works in this house",
+  rules: [
+    `A call from one room to another is dialled direct. Nobody sees it and nothing is written down.`,
+    `The desks may not dial out. They lift the receiver and ask the Fräulein at the exchange for the party they want.`,
+    `If she can raise the party at once, she puts the desk through. If not, she says she will ring back: one plug goes into the desk's jack while she listens, and comes out again.`,
+    `When the party she has dialled answers, she tells them which office of this house is calling and asks them to wait. At that moment, by the clock above her desk, she writes the call slip: the time, the extension that asked, the party wanted. Then she rings the desk back and joins the two.`,
+    `A call from outside comes in on a line; she answers it and joins it to the desk it asks for. No slip is written for it.`,
+    `<b>A cord has a plug at each end.</b> With both plugs in, the two jacks are joined. A party on an outside line stays on it for as long as a plug sits in it.`],
+  sawHead: "What Sarah saw",
+  sawNote: `The Fräulein's desk: 14 the typing pool, 23 the Registratur, 31 the Poststelle, 41 Z A 1's outer office; A1 to A4 the lines out of the house. Step through the afternoon one plug at a time.`,
+  aria: {board: "The exchange board", prev: "One plug back", next: "One plug on", tick: "The afternoon, plug by plug"},
+  short: {"14": "typing pool", "23": "Registratur", "31": "Poststelle", "41": "outer office", out: "line out"},
+  cord: c => `cord ${c}`,
+  mv: {one: (c, j) => `cord ${c}, one plug into ${j}`, other: (c, j) => `cord ${c}, the other plug into ${j}`,
+       again: c => `cord ${c}, out again`, both: c => `cord ${c}, both plugs out`},
+  empty: "the board is empty; Frau Ohlig has just sat down at it.",
+  of: (n, all) => `${n} of ${all}`,
+  list: "The whole afternoon as a list", th: ["time", "what she saw"],
+  papersHead: "The papers on the file that evening",
+  papers0: [
+    ["Frau Pohlmann's telephone pad, in her hand.", `"15.52. Finance Ministry. Asked: ${W.qOn} Answer: ${W.yOn}" Under it, in the same hand, later: "No other word came."`],
+    ["Herr Perlbach's telephone note, the Poststelle.", `"15.44. ${N.station}. Asked: ${W.qGo} Answer: ${W.yGo}"`],
+    ["The messenger's book.", `15.45: Herr Perlbach took the parcel down himself.`],
+    ["Herr Simon's telephone note, the Registratur.", `"15.45. The Zwischenarchiv. Asked: ${W.qGo} Answer: ${W.nGo}"`],
+    ["The messenger's book.", `15.46: Herr Simon had the cart unloaded.`],
+    ["Herr Simon's telephone note, the Registratur.", `"15.50. ${N.carrier}. Asked: ${W.qOn} Answer: ${W.nOn}"`],
+    ["The messenger's book.", `15.51: Herr Simon, the carrier is not to come.`],
+    ["The Finance Ministry, by letter the next morning.", `They rang the house again that afternoon to be sure, asked for Frau Pohlmann by name, and told whoever answered: "${W.letter}"`],
+    ["The exchange's duty roster.", `At the board from 15.39: Frau Ohlig, from the Kanzlei. The regular Fräulein at the doctor's.`],
+    ["The cover sheet of the draft.", `It is the regrading list. Frau Adam's post is on it, to go up a grade from the new year, if the list is with the Finance Ministry before Christmas.`],
+    ["The leave book.", `Frau Pohlmann, from tomorrow. Had the draft been held back, she would have done it again tonight before she went.`],
+    ["The exchange's call slips for the afternoon, filed by extension, in Frau Ohlig's hand.",
+     `15.39 · extension 14 · wanted: ${N.stw}<br>15.42 · extension 23 · wanted: ${N.archive}<br>15.48 · extension 23 · wanted: ${N.carrier}<br>15.42 · extension 31 · wanted: ${N.station}<br>15.48 · extension 41 · wanted: ${N.fm}`]],
+  reportHead: "The report",
+  reportNote: "For the file, in three parts. Each part's papers are given out when the part before it holds.",
+  parties: [N.station, N.archive, N.fm, N.carrier, N.stw],
+  people: ["Frau Pohlmann", "Frau Adam", "Fräulein Lüdtke", "Fräulein Ostrowski", "Herr Simon", "Herr Perlbach", "Frau Ohlig", "nobody"],
+  falsePapers: ["Frau Pohlmann's telephone pad (Frau Pohlmann)", "Herr Perlbach's note (Herr Perlbach)",
+    "Herr Simon's notes (Herr Simon)", "the Finance Ministry's letter (the Finance Ministry)",
+    "the call slips (Frau Ohlig)", "Frau Adam's statement (Frau Adam)",
+    "Fräulein Lüdtke's statement (Fräulein Lüdtke)", "the canteen book (the canteen)"],
+  yesno: ["yes", "no"],
+  parts: [
+    {title: "Part 1: the calls",
+     papers: [
+       ["Bonn main station, the express goods counter's day book.", `"The ministry rang (their exchange gave the office). ${W.qGo} We said: ${W.nGo} They rang off 15.45."`],
+       ["The Zwischenarchiv's telephone book.", `"15.43, the ministry, put through by their exchange with the office named: ${W.qGo} ${W.yGo} Off at 15.44."`],
+       ["A note kept at the Finance Ministry, in the Referent's own hand.", `"The other ministry on the line; their exchange announced the office. Asked: ${W.qOn} I told them: ${W.nOn} They rang off at 15.50."`],
+       ["Spedition Rhein, the carrier: the dispatcher's book.", `"Ministry, the office given by their switchboard. ${W.qOn} Answered: ${W.yOn} Line closed 15.52."`]],
+     blanks: [
+       "The call joined to the Registratur's telephone at 15.43, which ended at 15.45: who was on the line?",
+       "The call joined to the Poststelle's telephone at 15.43, which ended at 15.44: who was on the line?",
+       "The call joined to the Registratur's telephone at 15.49, which ended at 15.50: who was on the line?",
+       "The call joined to Z A 1's outer office at 15.49, which ended at 15.52: who was on the line?"]},
+    {title: "Part 2: the outer office",
+     papers: [
+       ["The porter's book.", `Frau Pohlmann, at the lodge: 15.52.`],
+       ["The Poststelle's book.", `Frau Pohlmann, at the Poststelle counter: 15.53, the draft handed in by her for the messenger's van.`],
+       ["The canteen book.", `Frau Pohlmann: from 15.55 to 15.56. No message came for her while she was there.`],
+       ["The pool's work book, 15.52 to 15.56.", `Frau Adam: fair copies, in Z A 1's outer office. Fräulein Lüdtke: the typing pool. Fräulein Ostrowski: carbons, in the Registratur.`],
+       ["The messenger's round.", `15.53, Z A 1's outer office: the second post, signed for by Frau Adam, who had the room to herself. She signed it with the telephone receiver held to her ear, and was still listening when he went.`],
+       ["Frau Adam, asked.", `"I sat at the fair copies in Z A 1's outer office from 15.52. No call came for anyone while I was there."`],
+       ["Fräulein Lüdtke, asked.", `"I was in the typing pool all afternoon. Our telephone did not ring after half past three."`],
+       ["The porter's van book.", `15.57: the draft, out of the house.`]],
+     blanks: [
+       "Who answered the telephone in Z A 1's outer office at 15.53?",
+       "One paper in this case says what its writer knew was untrue. Which, and who wrote it?"]},
+    {title: "Part 3: for the file", papers: [],
+     blanks: [
+       "Did Frau Pohlmann go against the word the Finance Ministry gave her?",
+       "Are Frau Pohlmann's own notes true to what she heard?"],
+     sentence: "In one sentence, why the draft went:",
+     file: `The exchange crossed two calls, so that Frau Pohlmann heard the carrier's "yes" as the Finance Ministry's; and when the Finance Ministry rang back at 15.53 to stop it, Frau Adam took the call alone in the outer office and passed it on to nobody.`}],
+  locked: "Its papers come when the part before it holds.",
+  withPart: "With this part:", noMore: "No more papers come. This part is answered from what you have.",
+  holds: "It holds.", forFile: "For the file:", sign: "Sign this part",
+  needAll: "Every blank wants an answer first.", needSentence: "Write the sentence for the file first.",
+  notYet: "It does not hold yet: one answer or more in this part is not what the papers and the board show.",
+  card: [`Frau Pohlmann went on leave in the morning, and the note for the file was written again before she came back.`,
+         `Sarah's own call never came. She went home at five, past the porter, who said it had been a quiet afternoon.`],
+  reset: "Start the report again", confirm: "Start the report again? What you have signed is forgotten."};
+})(),
+
+de: (() => {
+  const W = {qGo: "Bleibt es bei der Abmachung?", qOn: "Gilt es noch, wie besprochen?",
+             yGo: "Ja, wie abgemacht.", yOn: "Ja, wir erwarten es.",
+             nGo: "Nicht vor den Feiertagen. Bis zum neuen Jahr wird nichts mehr angenommen.",
+             nOn: "Erst, wenn er zurück ist. Nichts darf aus dem Haus.",
+             letter: "Nein, es soll warten, bis er zurück ist."};
+  const N = {station: "Bonn Hauptbahnhof, Expressgut", archive: "das Zwischenarchiv",
+             fm: "das Finanzministerium", carrier: "die Spedition Rhein", stw: "die Stadtwerke Bonn"};
+  return {W, N,
+  title: "Ein Nachmittag an der Vermittlung", kicker: "Bonus · nach der Geschichte · kostenlos",
+  date: "Donnerstag, 21. Dezember 1972, ein Ministerium in Bonn", back: "← Ministry of Secrets",
+  intro: [
+    `Um vier Uhr ging ein Entwurf aus dem Haus, der im Haus hätte bleiben sollen: die Liste der Höhergruppierungen, für das Finanzministerium, um 15.57 im Botenwagen. Frau Pohlmann aus dem Vorzimmer von Z A 1 hat ihn selbst zum Boten hinuntergebracht. Der Vermerk für die Akte, am selben Abend geschrieben, sagt, das Finanzministerium habe ihr am Telefon gesagt: „${W.nOn}“, und sie habe ihn trotzdem geschickt. Morgen früh beginnt ihr Weihnachtsurlaub.`,
+    `Sarah hat diesen Nachmittag auf dem Stuhl an der offenen Tür der Vermittlung im Erdgeschoss verbracht. Sie wartete auf einen eigenen Anruf, der nie kam, den Klappenschrank des Fräuleins vor sich und die Uhr darüber. Sie wusste nicht, was sie da sah. Jetzt weiß sie, dass es sonst niemand gesehen hat und dass in diesem Haus niemand aufschreibt, wo ein Stöpsel gesteckt hat.`,
+    `<b>Die Frage ist der Bericht am Ende: Beantworten Sie jeden Teil aus den Papieren und aus dem, was Sarah gesehen hat.</b>`],
+  rulesHead: "Wie das Telefon in diesem Haus geht",
+  rules: [
+    `Ein Gespräch von Zimmer zu Zimmer wird direkt gewählt. Niemand sieht es, und nichts wird aufgeschrieben.`,
+    `Die Apparate dürfen nicht nach draußen wählen. Man nimmt den Hörer ab und verlangt beim Fräulein an der Vermittlung, wen man sprechen will.`,
+    `Erreicht sie den Teilnehmer sofort, stellt sie durch. Wenn nicht, sagt sie, sie rufe zurück: ein Stöpsel geht in die Klinke des Apparats, solange sie zuhört, und kommt wieder heraus.`,
+    `Meldet sich der Teilnehmer, den sie gewählt hat, sagt sie ihm, welche Stelle des Hauses anruft, und bittet ihn zu warten. In diesem Augenblick schreibt sie nach der Uhr über ihrem Platz den Gesprächszettel: die Uhrzeit, den Apparat, der verlangt hat, und wen er verlangt hat. Dann ruft sie den Apparat zurück und verbindet die beiden.`,
+    `Ein Gespräch von draußen kommt auf einer Amtsleitung an; sie nimmt es an und verbindet es mit dem Apparat, nach dem gefragt wird. Dafür wird kein Zettel geschrieben.`,
+    `<b>Eine Schnur hat an jedem Ende einen Stöpsel.</b> Stecken beide, sind die zwei Klinken verbunden. Wer auf einer Amtsleitung ist, bleibt darauf, solange ein Stöpsel in ihr steckt.`],
+  sawHead: "Was Sarah gesehen hat",
+  sawNote: `Der Klappenschrank: 14 der Schreibsaal, 23 die Registratur, 31 die Poststelle, 41 das Vorzimmer von Z A 1; A1 bis A4 die Amtsleitungen. Gehen Sie den Nachmittag Stöpsel für Stöpsel durch.`,
+  aria: {board: "Der Klappenschrank", prev: "Einen Stöpsel zurück", next: "Einen Stöpsel weiter", tick: "Der Nachmittag, Stöpsel für Stöpsel"},
+  short: {"14": "Schreibsaal", "23": "Registratur", "31": "Poststelle", "41": "Vorzimmer", out: "Amt"},
+  cord: c => `Schnur ${c}`,
+  mv: {one: (c, j) => `Schnur ${c}, ein Stöpsel in ${j}`, other: (c, j) => `Schnur ${c}, der andere Stöpsel in ${j}`,
+       again: c => `Schnur ${c}, wieder heraus`, both: c => `Schnur ${c}, beide Stöpsel heraus`},
+  empty: "der Klappenschrank ist leer; Frau Ohlig hat sich eben davorgesetzt.",
+  of: (n, all) => `${n} von ${all}`,
+  list: "Der ganze Nachmittag als Liste", th: ["Uhrzeit", "was sie sah"],
+  papersHead: "Die Papiere, die am Abend bei der Akte lagen",
+  papers0: [
+    ["Frau Pohlmanns Telefonblock, in ihrer Hand.", `„15.52. Finanzministerium. Gefragt: ${W.qOn} Antwort: ${W.yOn}“ Darunter, in derselben Hand, später: „Sonst kam keine Nachricht.“`],
+    ["Herrn Perlbachs Telefonnotiz, Poststelle.", `„15.44. ${N.station}. Gefragt: ${W.qGo} Antwort: ${W.yGo}“`],
+    ["Das Botenbuch.", `15.45: Herr Perlbach hat das Paket selbst hinuntergebracht.`],
+    ["Herrn Simons Telefonnotiz, Registratur.", `„15.45. Das Zwischenarchiv. Gefragt: ${W.qGo} Antwort: ${W.nGo}“`],
+    ["Das Botenbuch.", `15.46: Herr Simon hat den Wagen wieder abladen lassen.`],
+    ["Herrn Simons Telefonnotiz, Registratur.", `„15.50. Spedition Rhein. Gefragt: ${W.qOn} Antwort: ${W.nOn}“`],
+    ["Das Botenbuch.", `15.51: Herr Simon, die Spedition soll nicht kommen.`],
+    ["Das Finanzministerium, mit Schreiben vom nächsten Morgen.", `Man habe am Nachmittag noch einmal im Haus angerufen, um sicherzugehen, nach Frau Pohlmann mit Namen gefragt und dem, der abnahm, gesagt: „${W.letter}“`],
+    ["Der Dienstplan der Vermittlung.", `Am Klappenschrank ab 15.39: Frau Ohlig, aus der Kanzlei. Das Fräulein, das sonst dort sitzt, beim Arzt.`],
+    ["Das Deckblatt des Entwurfs.", `Es ist die Liste der Höhergruppierungen. Frau Adams Stelle steht darauf: eine Stufe höher ab dem neuen Jahr, wenn die Liste vor Weihnachten beim Finanzministerium ist.`],
+    ["Das Urlaubsbuch.", `Frau Pohlmann, ab morgen. Wäre der Entwurf zurückgehalten worden, hätte sie ihn heute Abend vor dem Gehen noch einmal gemacht.`],
+    ["Die Gesprächszettel der Vermittlung für den Nachmittag, nach Apparaten abgelegt, in Frau Ohligs Hand.",
+     `15.39 · Apparat 14 · verlangt: ${N.stw}<br>15.42 · Apparat 23 · verlangt: ${N.archive}<br>15.48 · Apparat 23 · verlangt: ${N.carrier}<br>15.42 · Apparat 31 · verlangt: ${N.station}<br>15.48 · Apparat 41 · verlangt: ${N.fm}`]],
+  reportHead: "Der Bericht",
+  reportNote: "Für die Akte, in drei Teilen. Die Papiere eines Teils werden ausgegeben, wenn der Teil davor hält.",
+  parties: [N.station, N.archive, N.fm, N.carrier, N.stw],
+  people: ["Frau Pohlmann", "Frau Adam", "Fräulein Lüdtke", "Fräulein Ostrowski", "Herr Simon", "Herr Perlbach", "Frau Ohlig", "niemand"],
+  falsePapers: ["Frau Pohlmanns Telefonblock (Frau Pohlmann)", "Herrn Perlbachs Notiz (Herr Perlbach)",
+    "Herrn Simons Notizen (Herr Simon)", "das Schreiben des Finanzministeriums (das Finanzministerium)",
+    "die Gesprächszettel (Frau Ohlig)", "Frau Adams Aussage (Frau Adam)",
+    "Fräulein Lüdtkes Aussage (Fräulein Lüdtke)", "das Kantinenbuch (die Kantine)"],
+  yesno: ["ja", "nein"],
+  parts: [
+    {title: "Teil 1: die Gespräche",
+     papers: [
+       ["Bonn Hauptbahnhof, das Tagebuch der Expressgutabfertigung.", `„Das Ministerium rief an (ihre Vermittlung nannte die Stelle). ${W.qGo} Wir sagten: ${W.nGo} Aufgelegt 15.45.“`],
+       ["Das Telefonbuch des Zwischenarchivs.", `„15.43, das Ministerium, von ihrer Vermittlung durchgestellt, die Stelle genannt: ${W.qGo} ${W.yGo} Aufgelegt 15.44.“`],
+       ["Eine Notiz im Finanzministerium, in der eigenen Hand des Referenten.", `„Das andere Ministerium am Apparat; ihre Vermittlung hat die Stelle angesagt. Gefragt: ${W.qOn} Ich habe gesagt: ${W.nOn} Aufgelegt 15.50.“`],
+       ["Spedition Rhein: das Buch des Disponenten.", `„Ministerium, die Stelle von ihrer Vermittlung genannt. ${W.qOn} Geantwortet: ${W.yOn} Leitung frei 15.52.“`]],
+     blanks: [
+       "Das Gespräch, das um 15.43 mit dem Apparat der Registratur verbunden wurde und um 15.45 endete: Wer war am anderen Ende?",
+       "Das Gespräch, das um 15.43 mit dem Apparat der Poststelle verbunden wurde und um 15.44 endete: Wer war am anderen Ende?",
+       "Das Gespräch, das um 15.49 mit dem Apparat der Registratur verbunden wurde und um 15.50 endete: Wer war am anderen Ende?",
+       "Das Gespräch, das um 15.49 mit dem Vorzimmer von Z A 1 verbunden wurde und um 15.52 endete: Wer war am anderen Ende?"]},
+    {title: "Teil 2: das Vorzimmer",
+     papers: [
+       ["Das Pförtnerbuch.", `Frau Pohlmann, an der Pförtnerloge: 15.52.`],
+       ["Das Buch der Poststelle.", `Frau Pohlmann, am Schalter der Poststelle: 15.53, den Entwurf für den Botenwagen abgegeben.`],
+       ["Das Kantinenbuch.", `Frau Pohlmann: von 15.55 bis 15.56. Während sie dort war, kam keine Nachricht für sie.`],
+       ["Das Auftragsbuch des Schreibsaals, 15.52 bis 15.56.", `Frau Adam: Reinschriften, im Vorzimmer von Z A 1. Fräulein Lüdtke: der Schreibsaal. Fräulein Ostrowski: Durchschläge, in der Registratur.`],
+       ["Der Rundgang des Boten.", `15.53, Vorzimmer von Z A 1: die zweite Post, quittiert von Frau Adam, die allein im Zimmer war. Sie unterschrieb mit dem Telefonhörer am Ohr und hörte noch zu, als er ging.`],
+       ["Frau Adam, befragt.", `„Ich saß ab 15.52 an den Reinschriften im Vorzimmer von Z A 1. Solange ich dort war, kam für niemanden ein Anruf.“`],
+       ["Fräulein Lüdtke, befragt.", `„Ich war den ganzen Nachmittag im Schreibsaal. Unser Telefon hat nach halb vier nicht mehr geklingelt.“`],
+       ["Das Wagenbuch des Pförtners.", `15.57: der Entwurf, aus dem Haus.`]],
+     blanks: [
+       "Wer hat um 15.53 im Vorzimmer von Z A 1 das Telefon abgenommen?",
+       "Ein Papier in diesem Fall sagt etwas, von dem sein Verfasser wusste, dass es nicht stimmt. Welches, und wer hat es geschrieben?"]},
+    {title: "Teil 3: für die Akte", papers: [],
+     blanks: [
+       "Hat Frau Pohlmann gegen das gehandelt, was das Finanzministerium ihr gesagt hat?",
+       "Geben Frau Pohlmanns eigene Notizen wahrheitsgetreu wieder, was sie gehört hat?"],
+     sentence: "In einem Satz, warum der Entwurf hinausging:",
+     file: `Die Vermittlung hat zwei Gespräche vertauscht, so dass Frau Pohlmann das „Ja“ der Spedition für das des Finanzministeriums hielt; und als das Finanzministerium um 15.53 zurückrief, um ihn aufzuhalten, nahm Frau Adam den Anruf allein im Vorzimmer an und gab ihn an niemanden weiter.`}],
+  locked: "Seine Papiere kommen, wenn der Teil davor hält.",
+  withPart: "Mit diesem Teil:", noMore: "Es kommen keine Papiere mehr. Dieser Teil wird aus dem beantwortet, was Sie haben.",
+  holds: "Es hält.", forFile: "Für die Akte:", sign: "Diesen Teil unterschreiben",
+  needAll: "Jede Lücke braucht zuerst eine Antwort.", needSentence: "Schreiben Sie zuerst den Satz für die Akte.",
+  notYet: "Es hält noch nicht: eine Antwort oder mehrere in diesem Teil sind nicht das, was die Papiere und der Klappenschrank zeigen.",
+  card: [`Frau Pohlmann ging am Morgen in Urlaub, und der Vermerk für die Akte wurde neu geschrieben, bevor sie zurückkam.`,
+         `Sarahs eigener Anruf kam nie. Sie ging um fünf nach Hause, am Pförtner vorbei, der sagte, es sei ein ruhiger Nachmittag gewesen.`],
+  reset: "Den Bericht neu beginnen", confirm: "Den Bericht neu beginnen? Was Sie unterschrieben haben, ist dann vergessen."};
+})(),
+
+fr: (() => {
+  const W = {qGo: "Cela se fait-il comme convenu ?", qOn: "C'est toujours d'accord, comme nous l'avions dit ?",
+             yGo: "Oui, comme convenu.", yOn: "Oui, nous l'attendons.",
+             nGo: "Pas avant les fêtes. Plus rien n'est pris avant la nouvelle année.",
+             nOn: "Pas avant son retour. Rien ne doit sortir de la maison.",
+             letter: "Non, cela doit attendre son retour."};
+  const N = {station: "la gare centrale de Bonn, messageries express", archive: "les archives intermédiaires",
+             fm: "le ministère des Finances", carrier: "Spedition Rhein, le transporteur", stw: "les services municipaux de Bonn"};
+  return {W, N,
+  title: "Un après-midi au standard", kicker: "Bonus · après l'histoire · gratuit",
+  date: "Jeudi 21 décembre 1972, un ministère à Bonn", back: "← Ministry of Secrets",
+  intro: [
+    `À quatre heures, un brouillon a quitté la maison alors qu'il aurait dû y rester : la liste des reclassements, pour le ministère des Finances, dans la camionnette des coursiers à 15.57. Frau Pohlmann, du secrétariat de Z A 1, l'a descendu elle-même au coursier. La note au dossier, écrite le soir même, dit que le ministère des Finances lui avait répondu au téléphone « ${W.nOn} », et qu'elle l'a envoyé malgré tout. Son congé de Noël commence demain matin.`,
+    `Sarah a passé cet après-midi-là sur la chaise près de la porte ouverte du standard, au rez-de-chaussée, à attendre un appel pour elle qui n'est jamais venu, le tableau de la demoiselle du standard devant elle et l'horloge au-dessus. Elle ne savait pas ce qu'elle regardait. Elle sait maintenant que personne d'autre ne l'a vu, et que personne dans cette maison n'écrit où une fiche était enfoncée.`,
+    `<b>La question, c'est le rapport à la fin : répondez à chacune de ses parties à partir des papiers et de ce que Sarah a vu.</b>`],
+  rulesHead: "Comment marche le téléphone dans cette maison",
+  rules: [
+    `Un appel d'un bureau à un autre se compose directement. Personne ne le voit et rien n'est noté.`,
+    `Les postes ne peuvent pas appeler l'extérieur. On décroche et on demande à la demoiselle du standard le correspondant voulu.`,
+    `Si elle obtient le correspondant tout de suite, elle passe la communication. Sinon, elle dit qu'elle rappellera : une fiche entre dans le jack du poste le temps qu'elle écoute, et ressort.`,
+    `Quand le correspondant qu'elle a composé répond, elle lui dit quel service de la maison appelle et le prie d'attendre. À ce moment-là, d'après l'horloge au-dessus de sa place, elle remplit le ticket d'appel : l'heure, le poste qui a demandé, le correspondant voulu. Puis elle rappelle le poste et relie les deux.`,
+    `Un appel de l'extérieur arrive sur une ligne ; elle répond et le relie au poste demandé. Aucun ticket n'est rempli pour lui.`,
+    `<b>Un cordon a une fiche à chaque bout.</b> Les deux fiches enfoncées, les deux jacks sont reliés. Un correspondant sur une ligne extérieure y reste tant qu'une fiche y est enfoncée.`],
+  sawHead: "Ce que Sarah a vu",
+  sawNote: `Le tableau du standard : 14 le pool dactylographique, 23 la Registratur, 31 la Poststelle, 41 le secrétariat de Z A 1 ; A1 à A4 les lignes vers l'extérieur. Parcourez l'après-midi une fiche à la fois.`,
+  aria: {board: "Le tableau du standard", prev: "Une fiche en arrière", next: "Une fiche en avant", tick: "L'après-midi, fiche par fiche"},
+  short: {"14": "pool", "23": "Registratur", "31": "Poststelle", "41": "secrétariat", out: "ligne ext."},
+  cord: c => `cordon ${c}`,
+  mv: {one: (c, j) => `cordon ${c}, une fiche dans ${j}`, other: (c, j) => `cordon ${c}, l'autre fiche dans ${j}`,
+       again: c => `cordon ${c}, ressorti`, both: c => `cordon ${c}, les deux fiches sorties`},
+  empty: "le tableau est vide ; Frau Ohlig vient de s'y asseoir.",
+  of: (n, all) => `${n} sur ${all}`,
+  list: "Tout l'après-midi sous forme de liste", th: ["heure", "ce qu'elle a vu"],
+  papersHead: "Les papiers au dossier ce soir-là",
+  papers0: [
+    ["Le bloc téléphonique de Frau Pohlmann, de sa main.", `« 15.52. Ministère des Finances. Demandé : ${W.qOn} Réponse : ${W.yOn} » Dessous, de la même main, plus tard : « Pas d'autre nouvelle. »`],
+    ["La note téléphonique de Herr Perlbach, la Poststelle.", `« 15.44. Gare centrale de Bonn, messageries express. Demandé : ${W.qGo} Réponse : ${W.yGo} »`],
+    ["Le cahier des coursiers.", `15.45 : Herr Perlbach a descendu le colis lui-même.`],
+    ["La note téléphonique de Herr Simon, la Registratur.", `« 15.45. Les archives intermédiaires. Demandé : ${W.qGo} Réponse : ${W.nGo} »`],
+    ["Le cahier des coursiers.", `15.46 : Herr Simon a fait décharger le chariot.`],
+    ["La note téléphonique de Herr Simon, la Registratur.", `« 15.50. ${N.carrier}. Demandé : ${W.qOn} Réponse : ${W.nOn} »`],
+    ["Le cahier des coursiers.", `15.51 : Herr Simon, le transporteur ne doit pas venir.`],
+    ["Le ministère des Finances, par lettre le lendemain matin.", `Ils ont rappelé la maison cet après-midi-là pour être sûrs, ont demandé Frau Pohlmann par son nom et ont dit à la personne qui a répondu : « ${W.letter} »`],
+    ["Le tableau de service du standard.", `Au tableau à partir de 15.39 : Frau Ohlig, de la Kanzlei. La demoiselle habituelle chez le médecin.`],
+    ["La page de garde du brouillon.", `C'est la liste des reclassements. Le poste de Frau Adam y figure : un échelon de plus à partir de la nouvelle année, si la liste est au ministère des Finances avant Noël.`],
+    ["Le registre des congés.", `Frau Pohlmann, à partir de demain. Si le brouillon avait été retenu, elle l'aurait refait ce soir avant de partir.`],
+    ["Les tickets d'appel du standard pour l'après-midi, classés par poste, de la main de Frau Ohlig.",
+     `15.39 · poste 14 · demandé : ${N.stw}<br>15.42 · poste 23 · demandé : ${N.archive}<br>15.48 · poste 23 · demandé : ${N.carrier}<br>15.42 · poste 31 · demandé : ${N.station}<br>15.48 · poste 41 · demandé : ${N.fm}`]],
+  reportHead: "Le rapport",
+  reportNote: "Pour le dossier, en trois parties. Les papiers de chaque partie sont remis quand la partie précédente tient.",
+  parties: [N.station, N.archive, N.fm, N.carrier, N.stw],
+  people: ["Frau Pohlmann", "Frau Adam", "Fräulein Lüdtke", "Fräulein Ostrowski", "Herr Simon", "Herr Perlbach", "Frau Ohlig", "personne"],
+  falsePapers: ["le bloc téléphonique de Frau Pohlmann (Frau Pohlmann)", "la note de Herr Perlbach (Herr Perlbach)",
+    "les notes de Herr Simon (Herr Simon)", "la lettre du ministère des Finances (le ministère des Finances)",
+    "les tickets d'appel (Frau Ohlig)", "la déclaration de Frau Adam (Frau Adam)",
+    "la déclaration de Fräulein Lüdtke (Fräulein Lüdtke)", "le cahier de la cantine (la cantine)"],
+  yesno: ["oui", "non"],
+  parts: [
+    {title: "Partie 1 : les appels",
+     papers: [
+       ["Gare centrale de Bonn, le journal du guichet des messageries express.", `« Le ministère a appelé (leur standard a donné le service). ${W.qGo} Nous avons dit : ${W.nGo} Raccroché à 15.45. »`],
+       ["Le carnet téléphonique des archives intermédiaires.", `« 15.43, le ministère, passé par leur standard avec le service nommé : ${W.qGo} ${W.yGo} Raccroché à 15.44. »`],
+       ["Une note gardée au ministère des Finances, de la main même du Referent.", `« L'autre ministère en ligne ; leur standard a annoncé le service. Demandé : ${W.qOn} Je leur ai dit : ${W.nOn} Raccroché à 15.50. »`],
+       ["Spedition Rhein, le transporteur : le cahier du répartiteur.", `« Ministère, le service donné par leur standard. ${W.qOn} Répondu : ${W.yOn} Ligne libérée à 15.52. »`]],
+     blanks: [
+       "L'appel relié au téléphone de la Registratur à 15.43, terminé à 15.45 : qui était au bout du fil ?",
+       "L'appel relié au téléphone de la Poststelle à 15.43, terminé à 15.44 : qui était au bout du fil ?",
+       "L'appel relié au téléphone de la Registratur à 15.49, terminé à 15.50 : qui était au bout du fil ?",
+       "L'appel relié au secrétariat de Z A 1 à 15.49, terminé à 15.52 : qui était au bout du fil ?"]},
+    {title: "Partie 2 : le secrétariat",
+     papers: [
+       ["Le cahier du portier.", `Frau Pohlmann, à la loge : 15.52.`],
+       ["Le cahier de la Poststelle.", `Frau Pohlmann, au guichet de la Poststelle : 15.53, le brouillon remis par elle pour la camionnette des coursiers.`],
+       ["Le cahier de la cantine.", `Frau Pohlmann : de 15.55 à 15.56. Aucun message n'est arrivé pour elle pendant qu'elle y était.`],
+       ["Le cahier de travail du pool, de 15.52 à 15.56.", `Frau Adam : mises au net, au secrétariat de Z A 1. Fräulein Lüdtke : le pool dactylographique. Fräulein Ostrowski : doubles, à la Registratur.`],
+       ["La tournée du coursier.", `15.53, secrétariat de Z A 1 : le deuxième courrier, signé par Frau Adam, qui avait la pièce pour elle seule. Elle a signé le combiné du téléphone à l'oreille, et écoutait encore quand il est reparti.`],
+       ["Frau Adam, interrogée.", `« J'étais aux mises au net au secrétariat de Z A 1 à partir de 15.52. Aucun appel n'est venu pour personne pendant que j'y étais. »`],
+       ["Fräulein Lüdtke, interrogée.", `« J'ai été au pool tout l'après-midi. Notre téléphone n'a plus sonné après trois heures et demie. »`],
+       ["Le cahier des véhicules du portier.", `15.57 : le brouillon, sorti de la maison.`]],
+     blanks: [
+       "Qui a répondu au téléphone du secrétariat de Z A 1 à 15.53 ?",
+       "Un papier de cette affaire dit ce que son auteur savait faux. Lequel, et qui l'a écrit ?"]},
+    {title: "Partie 3 : pour le dossier", papers: [],
+     blanks: [
+       "Frau Pohlmann est-elle allée contre ce que le ministère des Finances lui a dit ?",
+       "Les notes de Frau Pohlmann sont-elles fidèles à ce qu'elle a entendu ?"],
+     sentence: "En une phrase, pourquoi le brouillon est parti :",
+     file: `Le standard a croisé deux appels, si bien que Frau Pohlmann a pris le « oui » du transporteur pour celui du ministère des Finances ; et quand le ministère des Finances a rappelé à 15.53 pour l'arrêter, Frau Adam a pris l'appel seule au secrétariat et ne l'a transmis à personne.`}],
+  locked: "Ses papiers viennent quand la partie précédente tient.",
+  withPart: "Avec cette partie :", noMore: "Plus aucun papier ne vient. On répond à cette partie avec ce que vous avez.",
+  holds: "Cela tient.", forFile: "Pour le dossier :", sign: "Signer cette partie",
+  needAll: "Chaque blanc demande d'abord une réponse.", needSentence: "Écrivez d'abord la phrase pour le dossier.",
+  notYet: "Cela ne tient pas encore : une réponse ou plus dans cette partie n'est pas ce que montrent les papiers et le tableau.",
+  card: [`Frau Pohlmann est partie en congé le lendemain matin, et la note au dossier a été réécrite avant son retour.`,
+         `L'appel de Sarah n'est jamais venu. Elle est rentrée chez elle à cinq heures, en passant devant le portier, qui a dit que l'après-midi avait été calme.`],
+  reset: "Recommencer le rapport", confirm: "Recommencer le rapport ? Ce que vous avez signé sera oublié."};
+})(),
+
+es: (() => {
+  const W = {qGo: "¿Sigue adelante según lo acordado?", qOn: "¿Sigue en pie, como dijimos?",
+             yGo: "Sí, según lo acordado.", yOn: "Sí, lo estamos esperando.",
+             nGo: "No antes de las fiestas. Hasta el año nuevo no se recibe nada más.",
+             nOn: "No hasta que él vuelva. No debe salir nada de la casa.",
+             letter: "No, tiene que esperar a que él vuelva."};
+  const N = {station: "la estación central de Bonn, paquetería exprés", archive: "el archivo intermedio",
+             fm: "el Ministerio de Hacienda", carrier: "Spedition Rhein, la agencia de transportes", stw: "los servicios municipales de Bonn"};
+  return {W, N,
+  title: "Una tarde en la centralita", kicker: "Extra · después de la historia · gratis",
+  date: "Jueves 21 de diciembre de 1972, un ministerio en Bonn", back: "← Ministry of Secrets",
+  intro: [
+    `A las cuatro salió de la casa un borrador que debía haberse quedado en ella: la lista de reclasificaciones, para el Ministerio de Hacienda, en la furgoneta de los ordenanzas a las 15.57. Frau Pohlmann, de la secretaría de Z A 1, se lo bajó ella misma al ordenanza. La nota para el expediente, escrita esa misma tarde, dice que el Ministerio de Hacienda le había dicho por teléfono «${W.nOn}», y que lo envió de todos modos. Sus vacaciones de Navidad empiezan mañana por la mañana.`,
+    `Sarah pasó aquella tarde en la silla junto a la puerta abierta de la centralita, en la planta baja, esperando una llamada suya que nunca llegó, con el cuadro de la señorita de la centralita delante y el reloj encima. No sabía lo que estaba mirando. Ahora sabe que nadie más lo vio, y que en esta casa nadie apunta dónde estuvo una clavija.`,
+    `<b>La pregunta es el informe del final: responda a cada parte a partir de los papeles y de lo que vio Sarah.</b>`],
+  rulesHead: "Cómo funciona el teléfono en esta casa",
+  rules: [
+    `Una llamada de un despacho a otro se marca directamente. Nadie la ve y no se apunta nada.`,
+    `Los teléfonos de los despachos no pueden llamar fuera. Se descuelga y se pide a la señorita de la centralita con quién se quiere hablar.`,
+    `Si ella consigue al interlocutor enseguida, pasa la llamada. Si no, dice que volverá a llamar: una clavija entra en la toma del teléfono mientras escucha, y vuelve a salir.`,
+    `Cuando contesta el interlocutor al que ha llamado, ella le dice qué oficina de la casa llama y le pide que espere. En ese momento, por el reloj que tiene encima, escribe la ficha de llamada: la hora, la extensión que la pidió, el interlocutor pedido. Luego vuelve a llamar a la extensión y une a los dos.`,
+    `Una llamada de fuera entra por una línea; ella contesta y la une a la extensión que se pide. Para ella no se escribe ficha.`,
+    `<b>Un cordón tiene una clavija en cada extremo.</b> Con las dos clavijas puestas, las dos tomas quedan unidas. Quien está en una línea exterior sigue en ella mientras haya una clavija puesta.`],
+  sawHead: "Lo que vio Sarah",
+  sawNote: `El cuadro de la centralita: 14 la sala de mecanógrafas, 23 la Registratur, 31 la Poststelle, 41 la secretaría de Z A 1; A1 a A4 las líneas al exterior. Recorra la tarde clavija a clavija.`,
+  aria: {board: "El cuadro de la centralita", prev: "Una clavija atrás", next: "Una clavija adelante", tick: "La tarde, clavija a clavija"},
+  short: {"14": "mecanógrafas", "23": "Registratur", "31": "Poststelle", "41": "secretaría", out: "línea ext."},
+  cord: c => `cordón ${c}`,
+  mv: {one: (c, j) => `cordón ${c}, una clavija en ${j}`, other: (c, j) => `cordón ${c}, la otra clavija en ${j}`,
+       again: c => `cordón ${c}, fuera otra vez`, both: c => `cordón ${c}, las dos clavijas fuera`},
+  empty: "el cuadro está vacío; Frau Ohlig acaba de sentarse ante él.",
+  of: (n, all) => `${n} de ${all}`,
+  list: "Toda la tarde en una lista", th: ["hora", "lo que vio"],
+  papersHead: "Los papeles del expediente aquella tarde",
+  papers0: [
+    ["El bloc de teléfono de Frau Pohlmann, de su puño y letra.", `«15.52. Ministerio de Hacienda. Pregunta: ${W.qOn} Respuesta: ${W.yOn}» Debajo, con la misma letra, más tarde: «No llegó ningún otro aviso.»`],
+    ["La nota telefónica de Herr Perlbach, la Poststelle.", `«15.44. Estación central de Bonn, paquetería exprés. Pregunta: ${W.qGo} Respuesta: ${W.yGo}»`],
+    ["El libro de los ordenanzas.", `15.45: Herr Perlbach bajó el paquete él mismo.`],
+    ["La nota telefónica de Herr Simon, la Registratur.", `«15.45. El archivo intermedio. Pregunta: ${W.qGo} Respuesta: ${W.nGo}»`],
+    ["El libro de los ordenanzas.", `15.46: Herr Simon mandó descargar el carro.`],
+    ["La nota telefónica de Herr Simon, la Registratur.", `«15.50. ${N.carrier}. Pregunta: ${W.qOn} Respuesta: ${W.nOn}»`],
+    ["El libro de los ordenanzas.", `15.51: Herr Simon, la agencia de transportes no tiene que venir.`],
+    ["El Ministerio de Hacienda, por carta a la mañana siguiente.", `Volvieron a llamar a la casa aquella tarde para asegurarse, preguntaron por Frau Pohlmann por su nombre y dijeron a quien contestó: «${W.letter}»`],
+    ["El cuadrante de servicio de la centralita.", `En el cuadro desde las 15.39: Frau Ohlig, de la Kanzlei. La señorita de siempre, en el médico.`],
+    ["La portada del borrador.", `Es la lista de reclasificaciones. El puesto de Frau Adam está en ella: un grado más desde el año nuevo, si la lista está en el Ministerio de Hacienda antes de Navidad.`],
+    ["El libro de vacaciones.", `Frau Pohlmann, desde mañana. Si el borrador se hubiera retenido, lo habría rehecho esta noche antes de irse.`],
+    ["Las fichas de llamada de la centralita de la tarde, archivadas por extensión, con la letra de Frau Ohlig.",
+     `15.39 · extensión 14 · pedido: ${N.stw}<br>15.42 · extensión 23 · pedido: ${N.archive}<br>15.48 · extensión 23 · pedido: ${N.carrier}<br>15.42 · extensión 31 · pedido: ${N.station}<br>15.48 · extensión 41 · pedido: ${N.fm}`]],
+  reportHead: "El informe",
+  reportNote: "Para el expediente, en tres partes. Los papeles de cada parte se entregan cuando la parte anterior se sostiene.",
+  parties: [N.station, N.archive, N.fm, N.carrier, N.stw],
+  people: ["Frau Pohlmann", "Frau Adam", "Fräulein Lüdtke", "Fräulein Ostrowski", "Herr Simon", "Herr Perlbach", "Frau Ohlig", "nadie"],
+  falsePapers: ["el bloc de teléfono de Frau Pohlmann (Frau Pohlmann)", "la nota de Herr Perlbach (Herr Perlbach)",
+    "las notas de Herr Simon (Herr Simon)", "la carta del Ministerio de Hacienda (el Ministerio de Hacienda)",
+    "las fichas de llamada (Frau Ohlig)", "la declaración de Frau Adam (Frau Adam)",
+    "la declaración de Fräulein Lüdtke (Fräulein Lüdtke)", "el libro de la cantina (la cantina)"],
+  yesno: ["sí", "no"],
+  parts: [
+    {title: "Parte 1: las llamadas",
+     papers: [
+       ["Estación central de Bonn, el diario del mostrador de paquetería exprés.", `«Llamó el ministerio (su centralita dio la oficina). ${W.qGo} Dijimos: ${W.nGo} Colgaron a las 15.45.»`],
+       ["El libro de teléfono del archivo intermedio.", `«15.43, el ministerio, pasado por su centralita con la oficina nombrada: ${W.qGo} ${W.yGo} Colgado a las 15.44.»`],
+       ["Una nota guardada en el Ministerio de Hacienda, de puño y letra del Referent.", `«El otro ministerio al teléfono; su centralita anunció la oficina. Pregunta: ${W.qOn} Les dije: ${W.nOn} Colgaron a las 15.50.»`],
+       ["Spedition Rhein, la agencia de transportes: el libro del despachador.", `«Ministerio, la oficina dada por su centralita. ${W.qOn} Respondido: ${W.yOn} Línea libre a las 15.52.»`]],
+     blanks: [
+       "La llamada unida al teléfono de la Registratur a las 15.43, que terminó a las 15.45: ¿quién estaba al otro lado?",
+       "La llamada unida al teléfono de la Poststelle a las 15.43, que terminó a las 15.44: ¿quién estaba al otro lado?",
+       "La llamada unida al teléfono de la Registratur a las 15.49, que terminó a las 15.50: ¿quién estaba al otro lado?",
+       "La llamada unida a la secretaría de Z A 1 a las 15.49, que terminó a las 15.52: ¿quién estaba al otro lado?"]},
+    {title: "Parte 2: la secretaría",
+     papers: [
+       ["El libro del conserje.", `Frau Pohlmann, en la portería: 15.52.`],
+       ["El libro de la Poststelle.", `Frau Pohlmann, en el mostrador de la Poststelle: 15.53, el borrador entregado por ella para la furgoneta de los ordenanzas.`],
+       ["El libro de la cantina.", `Frau Pohlmann: de 15.55 a 15.56. Mientras estuvo allí no llegó ningún recado para ella.`],
+       ["El libro de trabajo de la sala de mecanógrafas, de 15.52 a 15.56.", `Frau Adam: copias en limpio, en la secretaría de Z A 1. Fräulein Lüdtke: la sala de mecanógrafas. Fräulein Ostrowski: copias de calco, en la Registratur.`],
+       ["La ronda del ordenanza.", `15.53, secretaría de Z A 1: el segundo correo, firmado por Frau Adam, que tenía la sala para ella sola. Firmó con el auricular del teléfono pegado a la oreja, y seguía escuchando cuando él se fue.`],
+       ["Frau Adam, preguntada.", `«Estuve con las copias en limpio en la secretaría de Z A 1 desde las 15.52. Mientras estuve allí no llegó ninguna llamada para nadie.»`],
+       ["Fräulein Lüdtke, preguntada.", `«Estuve en la sala de mecanógrafas toda la tarde. Nuestro teléfono no sonó después de las tres y media.»`],
+       ["El libro de vehículos del conserje.", `15.57: el borrador, fuera de la casa.`]],
+     blanks: [
+       "¿Quién contestó al teléfono en la secretaría de Z A 1 a las 15.53?",
+       "Un papel de este caso dice lo que su autor sabía que no era verdad. ¿Cuál, y quién lo escribió?"]},
+    {title: "Parte 3: para el expediente", papers: [],
+     blanks: [
+       "¿Fue Frau Pohlmann en contra de lo que le dijo el Ministerio de Hacienda?",
+       "¿Son fieles las notas de Frau Pohlmann a lo que ella oyó?"],
+     sentence: "En una frase, por qué salió el borrador:",
+     file: `La centralita cruzó dos llamadas, de modo que Frau Pohlmann tomó el «sí» de la agencia de transportes por el del Ministerio de Hacienda; y cuando el Ministerio de Hacienda volvió a llamar a las 15.53 para pararlo, Frau Adam atendió la llamada sola en la secretaría y no se la pasó a nadie.`}],
+  locked: "Sus papeles llegan cuando la parte anterior se sostiene.",
+  withPart: "Con esta parte:", noMore: "No llegan más papeles. Esta parte se responde con lo que tiene.",
+  holds: "Se sostiene.", forFile: "Para el expediente:", sign: "Firmar esta parte",
+  needAll: "Cada hueco necesita antes una respuesta.", needSentence: "Escriba antes la frase para el expediente.",
+  notYet: "Todavía no se sostiene: una respuesta o más de esta parte no es lo que muestran los papeles y el cuadro.",
+  card: [`Frau Pohlmann se fue de vacaciones por la mañana, y la nota para el expediente se volvió a escribir antes de que volviera.`,
+         `La llamada de Sarah nunca llegó. Se fue a casa a las cinco, pasando por delante del conserje, que dijo que había sido una tarde tranquila.`],
+  reset: "Empezar el informe de nuevo", confirm: "¿Empezar el informe de nuevo? Lo que haya firmado se olvida."};
+})(),
+
+it: (() => {
+  const W = {qGo: "Si procede come concordato?", qOn: "È ancora valido, come dicevamo?",
+             yGo: "Sì, come concordato.", yOn: "Sì, lo aspettiamo.",
+             nGo: "Non prima delle feste. Fino all'anno nuovo non si accetta più niente.",
+             nOn: "Non finché lui non torna. Non deve uscire niente dalla casa.",
+             letter: "No, deve aspettare che lui torni."};
+  const N = {station: "la stazione centrale di Bonn, spedizioni espresse", archive: "l'archivio intermedio",
+             fm: "il ministero delle Finanze", carrier: "Spedition Rhein, lo spedizioniere", stw: "l'azienda municipale di Bonn"};
+  return {W, N,
+  title: "Un pomeriggio al centralino", kicker: "Bonus · dopo la storia · gratis",
+  date: "Giovedì 21 dicembre 1972, un ministero a Bonn", back: "← Ministry of Secrets",
+  intro: [
+    `Alle quattro è uscita dalla casa una minuta che sarebbe dovuta restarci: l'elenco dei passaggi di grado, per il ministero delle Finanze, nel furgone dei commessi alle 15.57. Frau Pohlmann, della segreteria di Z A 1, l'ha portata giù lei stessa al commesso. La nota per il fascicolo, scritta quella sera, dice che il ministero delle Finanze le aveva detto al telefono «${W.nOn}», e che lei l'ha mandata lo stesso. Le sue ferie di Natale cominciano domattina.`,
+    `Sarah ha passato quel pomeriggio sulla sedia accanto alla porta aperta del centralino, al pianterreno, aspettando una telefonata sua che non è mai arrivata, con il quadro della signorina del centralino davanti e l'orologio sopra. Non sapeva che cosa stava guardando. Ora sa che nessun altro l'ha visto, e che in questa casa nessuno annota dove stava una spina.`,
+    `<b>La domanda è il rapporto alla fine: risponda a ogni sua parte dalle carte e da ciò che Sarah ha visto.</b>`],
+  rulesHead: "Come funziona il telefono in questa casa",
+  rules: [
+    `Una telefonata da una stanza all'altra si fa in teleselezione. Nessuno la vede e non si annota niente.`,
+    `Gli apparecchi degli uffici non possono chiamare fuori. Si alza il ricevitore e si chiede alla signorina del centralino con chi si vuole parlare.`,
+    `Se lei trova subito l'interlocutore, passa la linea. Se no, dice che richiamerà: una spina entra nella presa dell'apparecchio mentre lei ascolta, ed esce di nuovo.`,
+    `Quando l'interlocutore che ha chiamato risponde, lei gli dice quale ufficio della casa chiama e gli chiede di attendere. In quel momento, secondo l'orologio sopra il suo posto, scrive il foglietto della chiamata: l'ora, l'interno che ha chiesto, l'interlocutore voluto. Poi richiama l'interno e collega i due.`,
+    `Una telefonata da fuori arriva su una linea; lei risponde e la collega all'interno richiesto. Per questa non si scrive nessun foglietto.`,
+    `<b>Un cordone ha una spina a ogni capo.</b> Con tutte e due le spine inserite, le due prese sono collegate. Chi è su una linea esterna ci resta finché una spina vi è inserita.`],
+  sawHead: "Ciò che Sarah ha visto",
+  sawNote: `Il quadro del centralino: 14 la sala dattilografe, 23 la Registratur, 31 la Poststelle, 41 la segreteria di Z A 1; da A1 a A4 le linee verso l'esterno. Ripercorra il pomeriggio una spina alla volta.`,
+  aria: {board: "Il quadro del centralino", prev: "Una spina indietro", next: "Una spina avanti", tick: "Il pomeriggio, spina per spina"},
+  short: {"14": "dattilografe", "23": "Registratur", "31": "Poststelle", "41": "segreteria", out: "linea est."},
+  cord: c => `cordone ${c}`,
+  mv: {one: (c, j) => `cordone ${c}, una spina in ${j}`, other: (c, j) => `cordone ${c}, l'altra spina in ${j}`,
+       again: c => `cordone ${c}, di nuovo fuori`, both: c => `cordone ${c}, fuori tutte e due le spine`},
+  empty: "il quadro è vuoto; Frau Ohlig si è appena seduta davanti.",
+  of: (n, all) => `${n} di ${all}`,
+  list: "Tutto il pomeriggio in un elenco", th: ["ora", "ciò che ha visto"],
+  papersHead: "Le carte nel fascicolo quella sera",
+  papers0: [
+    ["Il blocco del telefono di Frau Pohlmann, di suo pugno.", `«15.52. Ministero delle Finanze. Chiesto: ${W.qOn} Risposta: ${W.yOn}» Sotto, della stessa mano, più tardi: «Nessun'altra notizia.»`],
+    ["L'appunto telefonico di Herr Perlbach, la Poststelle.", `«15.44. Stazione centrale di Bonn, spedizioni espresse. Chiesto: ${W.qGo} Risposta: ${W.yGo}»`],
+    ["Il registro dei commessi.", `15.45: Herr Perlbach ha portato giù il pacco di persona.`],
+    ["L'appunto telefonico di Herr Simon, la Registratur.", `«15.45. L'archivio intermedio. Chiesto: ${W.qGo} Risposta: ${W.nGo}»`],
+    ["Il registro dei commessi.", `15.46: Herr Simon ha fatto scaricare il carrello.`],
+    ["L'appunto telefonico di Herr Simon, la Registratur.", `«15.50. ${N.carrier}. Chiesto: ${W.qOn} Risposta: ${W.nOn}»`],
+    ["Il registro dei commessi.", `15.51: Herr Simon, lo spedizioniere non deve venire.`],
+    ["Il ministero delle Finanze, per lettera la mattina dopo.", `Quel pomeriggio hanno richiamato la casa per sicurezza, hanno chiesto di Frau Pohlmann per nome e hanno detto a chi ha risposto: «${W.letter}»`],
+    ["Il turno di servizio del centralino.", `Al quadro dalle 15.39: Frau Ohlig, della Kanzlei. La signorina di sempre dal medico.`],
+    ["Il frontespizio della minuta.", `È l'elenco dei passaggi di grado. C'è anche il posto di Frau Adam: un grado in più dall'anno nuovo, se l'elenco arriva al ministero delle Finanze prima di Natale.`],
+    ["Il registro delle ferie.", `Frau Pohlmann, da domani. Se la minuta fosse stata trattenuta, l'avrebbe rifatta stasera prima di andare.`],
+    ["I foglietti delle chiamate del centralino per il pomeriggio, archiviati per interno, di mano di Frau Ohlig.",
+     `15.39 · interno 14 · chiesto: ${N.stw}<br>15.42 · interno 23 · chiesto: ${N.archive}<br>15.48 · interno 23 · chiesto: ${N.carrier}<br>15.42 · interno 31 · chiesto: ${N.station}<br>15.48 · interno 41 · chiesto: ${N.fm}`]],
+  reportHead: "Il rapporto",
+  reportNote: "Per il fascicolo, in tre parti. Le carte di ogni parte vengono date quando la parte prima regge.",
+  parties: [N.station, N.archive, N.fm, N.carrier, N.stw],
+  people: ["Frau Pohlmann", "Frau Adam", "Fräulein Lüdtke", "Fräulein Ostrowski", "Herr Simon", "Herr Perlbach", "Frau Ohlig", "nessuno"],
+  falsePapers: ["il blocco del telefono di Frau Pohlmann (Frau Pohlmann)", "l'appunto di Herr Perlbach (Herr Perlbach)",
+    "gli appunti di Herr Simon (Herr Simon)", "la lettera del ministero delle Finanze (il ministero delle Finanze)",
+    "i foglietti delle chiamate (Frau Ohlig)", "la dichiarazione di Frau Adam (Frau Adam)",
+    "la dichiarazione di Fräulein Lüdtke (Fräulein Lüdtke)", "il registro della mensa (la mensa)"],
+  yesno: ["sì", "no"],
+  parts: [
+    {title: "Parte 1: le telefonate",
+     papers: [
+       ["Stazione centrale di Bonn, il giornale dello sportello spedizioni espresse.", `«Ha chiamato il ministero (il loro centralino ha detto l'ufficio). ${W.qGo} Abbiamo detto: ${W.nGo} Riattaccato alle 15.45.»`],
+       ["Il registro telefonico dell'archivio intermedio.", `«15.43, il ministero, passato dal loro centralino con l'ufficio nominato: ${W.qGo} ${W.yGo} Riattaccato alle 15.44.»`],
+       ["Un appunto tenuto al ministero delle Finanze, di pugno del Referent.", `«L'altro ministero in linea; il loro centralino ha annunciato l'ufficio. Chiesto: ${W.qOn} Ho detto loro: ${W.nOn} Riattaccato alle 15.50.»`],
+       ["Spedition Rhein, lo spedizioniere: il registro del dispatcher.", `«Ministero, l'ufficio detto dal loro centralino. ${W.qOn} Risposto: ${W.yOn} Linea chiusa alle 15.52.»`]],
+     blanks: [
+       "La telefonata collegata al telefono della Registratur alle 15.43, finita alle 15.45: chi era in linea?",
+       "La telefonata collegata al telefono della Poststelle alle 15.43, finita alle 15.44: chi era in linea?",
+       "La telefonata collegata al telefono della Registratur alle 15.49, finita alle 15.50: chi era in linea?",
+       "La telefonata collegata alla segreteria di Z A 1 alle 15.49, finita alle 15.52: chi era in linea?"]},
+    {title: "Parte 2: la segreteria",
+     papers: [
+       ["Il registro del portiere.", `Frau Pohlmann, in portineria: 15.52.`],
+       ["Il registro della Poststelle.", `Frau Pohlmann, allo sportello della Poststelle: 15.53, la minuta consegnata da lei per il furgone dei commessi.`],
+       ["Il registro della mensa.", `Frau Pohlmann: dalle 15.55 alle 15.56. Mentre era lì non è arrivato nessun messaggio per lei.`],
+       ["Il quaderno di lavoro della sala dattilografe, dalle 15.52 alle 15.56.", `Frau Adam: bella copia, nella segreteria di Z A 1. Fräulein Lüdtke: la sala dattilografe. Fräulein Ostrowski: copie carbone, nella Registratur.`],
+       ["Il giro del commesso.", `15.53, segreteria di Z A 1: la seconda posta, firmata da Frau Adam, che aveva la stanza tutta per sé. Ha firmato con il ricevitore del telefono all'orecchio, e stava ancora ascoltando quando lui se n'è andato.`],
+       ["Frau Adam, interrogata.", `«Ero alla bella copia nella segreteria di Z A 1 dalle 15.52. Mentre ero lì non è arrivata nessuna telefonata per nessuno.»`],
+       ["Fräulein Lüdtke, interrogata.", `«Sono stata nella sala dattilografe tutto il pomeriggio. Il nostro telefono non ha più suonato dopo le tre e mezza.»`],
+       ["Il registro dei veicoli del portiere.", `15.57: la minuta, fuori dalla casa.`]],
+     blanks: [
+       "Chi ha risposto al telefono nella segreteria di Z A 1 alle 15.53?",
+       "Una carta di questo caso dice ciò che chi l'ha scritta sapeva falso. Quale, e chi l'ha scritta?"]},
+    {title: "Parte 3: per il fascicolo", papers: [],
+     blanks: [
+       "Frau Pohlmann è andata contro ciò che le ha detto il ministero delle Finanze?",
+       "Gli appunti di Frau Pohlmann sono fedeli a ciò che ha sentito?"],
+     sentence: "In una frase, perché la minuta è partita:",
+     file: `Il centralino ha incrociato due telefonate, così che Frau Pohlmann ha preso il «sì» dello spedizioniere per quello del ministero delle Finanze; e quando il ministero delle Finanze ha richiamato alle 15.53 per fermarla, Frau Adam ha preso la telefonata da sola in segreteria e non l'ha passata a nessuno.`}],
+  locked: "Le sue carte arrivano quando la parte prima regge.",
+  withPart: "Con questa parte:", noMore: "Non arrivano altre carte. A questa parte si risponde con ciò che ha.",
+  holds: "Regge.", forFile: "Per il fascicolo:", sign: "Firmare questa parte",
+  needAll: "Ogni spazio vuole prima una risposta.", needSentence: "Scriva prima la frase per il fascicolo.",
+  notYet: "Non regge ancora: una o più risposte di questa parte non sono ciò che mostrano le carte e il quadro.",
+  card: [`Frau Pohlmann è andata in ferie la mattina dopo, e la nota per il fascicolo è stata riscritta prima che tornasse.`,
+         `La telefonata di Sarah non è mai arrivata. È andata a casa alle cinque, passando davanti al portiere, che ha detto che era stato un pomeriggio tranquillo.`],
+  reset: "Ricominciare il rapporto", confirm: "Ricominciare il rapporto? Ciò che ha firmato viene dimenticato."};
+})(),
+
+ja: (() => {
+  const W = {qGo: "手はずどおりに進みますか？", qOn: "お話ししたとおりで、変わりありませんか？",
+             yGo: "はい、手はずどおりです。", yOn: "はい、お待ちしています。",
+             nGo: "休暇明けまでは無理です。新年までもう何も受け付けません。",
+             nOn: "彼が戻るまではだめです。何ひとつ外へ出してはいけません。",
+             letter: "いいえ、彼が戻るまで待つように。"};
+  const N = {station: "ボン中央駅の急行小荷物係", archive: "中間書庫",
+             fm: "財務省", carrier: "運送会社Spedition Rhein", stw: "ボン市公益事業局"};
+  return {W, N,
+  title: "交換台の午後", kicker: "ボーナス · 物語のあとで · 無料",
+  date: "1972年12月21日 木曜日、ボンのある省", back: "← Ministry of Secrets",
+  intro: [
+    `四時、省内に留まるはずだった下書きが外へ出た。財務省あての等級改定の名簿で、15.57に連絡係の車で出ていった。Z A 1課の秘書室のPohlmann女史が、自分で連絡係のところまで持って下りた。その晩に書かれたファイル用の覚え書きによれば、財務省は電話で彼女に「${W.nOn}」と告げていたのに、彼女はそれでも送ったという。彼女のクリスマス休暇は明朝から始まる。`,
+    `Sarahはその午後、一階の電話交換室の開いた戸口のそばの椅子で、結局かかってこなかった自分あての電話を待っていた。目の前には交換手の交換台、その上には時計があった。自分が何を見ているのか、彼女は知らなかった。今は知っている。ほかに誰もそれを見ていなかったこと、そしてこの省ではプラグがどこに挿さっていたかを書き留める者はいないことを。`,
+    `<b>問いは最後の報告書です。その各部を、書類とSarahが見たものから答えてください。</b>`],
+  rulesHead: "この省の電話のしくみ",
+  rules: [
+    `部屋から部屋への電話は直接ダイヤルする。誰にも見えず、何も記録されない。`,
+    `各部屋の電話は外へダイヤルできない。受話器を上げて、交換手に相手先を頼む。`,
+    `すぐに相手が出れば、そのままつなぐ。出なければ、折り返すと言う。そのあいだ、聞いているうちはその部屋のジャックにプラグが一本挿さり、また抜かれる。`,
+    `ダイヤルした相手が出ると、交換手は省内のどの部署からの電話かを告げ、待ってもらう。その瞬間に、自分の席の上の時計で通話票を書く。時刻、頼んできた内線、頼まれた相手。それから部屋に折り返し、両者をつなぐ。`,
+    `外からの電話は外線で入ってくる。交換手が出て、求められた内線につなぐ。これには通話票は書かれない。`,
+    `<b>コードの両端にはプラグが一本ずつある。</b>両方のプラグが挿さると、二つのジャックがつながる。外線の相手は、そこにプラグが挿さっているあいだは線の上に残る。`],
+  sawHead: "Sarahが見たもの",
+  sawNote: `交換台：14 タイピスト室、23 記録室、31 郵便室、41 Z A 1課の秘書室。A1〜A4 は外線。午後を、プラグ一本ずつたどってください。`,
+  aria: {board: "交換台", prev: "プラグ一本戻る", next: "プラグ一本進む", tick: "午後を、プラグ一本ずつ"},
+  short: {"14": "タイピスト室", "23": "記録室", "31": "郵便室", "41": "秘書室", out: "外線"},
+  cord: c => `コード${c}`,
+  mv: {one: (c, j) => `コード${c}、片方のプラグを${j}へ`, other: (c, j) => `コード${c}、もう片方のプラグを${j}へ`,
+       again: c => `コード${c}、また抜く`, both: c => `コード${c}、両方のプラグを抜く`},
+  empty: "交換台には何も挿さっていない。Ohlig夫人が席に着いたところ。",
+  of: (n, all) => `${n} / ${all}`,
+  list: "午後のすべてを一覧で", th: ["時刻", "彼女が見たもの"],
+  papersHead: "その晩ファイルにあった書類",
+  papers0: [
+    ["Pohlmann女史の電話メモ、本人の筆跡。", `「15.52。財務省。問い：${W.qOn} 答え：${W.yOn}」その下に、同じ筆跡で、あとから：「ほかに連絡はなかった。」`],
+    ["Perlbach氏の電話メモ、郵便室。", `「15.44。${N.station}。問い：${W.qGo} 答え：${W.yGo}」`],
+    ["連絡係の記録簿。", `15.45：Perlbach氏が自分で小包を下へ運んだ。`],
+    ["Simon氏の電話メモ、記録室。", `「15.45。中間書庫。問い：${W.qGo} 答え：${W.nGo}」`],
+    ["連絡係の記録簿。", `15.46：Simon氏が台車の荷を降ろさせた。`],
+    ["Simon氏の電話メモ、記録室。", `「15.50。${N.carrier}。問い：${W.qOn} 答え：${W.nOn}」`],
+    ["連絡係の記録簿。", `15.51：Simon氏より、運送会社は来なくてよい。`],
+    ["財務省、翌朝の書簡。", `その日の午後、念のためもう一度省に電話をかけ、Pohlmann女史を名指しで呼び、出た相手に「${W.letter}」と伝えた。`],
+    ["交換台の勤務表。", `15.39から交換台に：文書課のOhlig夫人。いつもの交換手は医者へ。`],
+    ["下書きの表紙。", `等級改定の名簿である。Adam夫人のポストも載っている。名簿がクリスマス前に財務省に届けば、新年から一等級上がる。`],
+    ["休暇簿。", `Pohlmann女史、明日から。下書きが差し止められていたら、今夜帰る前にもう一度作り直していたはずだった。`],
+    ["午後の交換台の通話票、内線ごとに綴じたもの、Ohlig夫人の筆跡。",
+     `15.39 · 内線14 · 相手：${N.stw}<br>15.42 · 内線23 · 相手：${N.archive}<br>15.48 · 内線23 · 相手：${N.carrier}<br>15.42 · 内線31 · 相手：${N.station}<br>15.48 · 内線41 · 相手：${N.fm}`]],
+  reportHead: "報告書",
+  reportNote: "ファイル用、三部構成。各部の書類は、その前の部が成り立ったときに渡されます。",
+  parties: [N.station, N.archive, N.fm, N.carrier, N.stw],
+  people: ["Pohlmann女史", "Adam夫人", "Lüdtke嬢", "Ostrowski嬢", "Simon氏", "Perlbach氏", "Ohlig夫人", "誰でもない"],
+  falsePapers: ["Pohlmann女史の電話メモ（Pohlmann女史）", "Perlbach氏のメモ（Perlbach氏）",
+    "Simon氏のメモ（Simon氏）", "財務省の書簡（財務省）",
+    "通話票（Ohlig夫人）", "Adam夫人の供述（Adam夫人）",
+    "Lüdtke嬢の供述（Lüdtke嬢）", "食堂の記録簿（食堂）"],
+  yesno: ["はい", "いいえ"],
+  parts: [
+    {title: "第1部：電話",
+     papers: [
+       ["ボン中央駅、急行小荷物窓口の日誌。", `「省から電話（先方の交換手が部署を告げた）。${W.qGo} こちらの返事：${W.nGo} 15.45に切れた。」`],
+       ["中間書庫の電話記録簿。", `「15.43、省から、先方の交換手がつなぎ、部署を告げた：${W.qGo} ${W.yGo} 15.44に終了。」`],
+       ["財務省に保管されたメモ、課長本人の筆跡。", `「もう一方の省から電話。先方の交換手が部署を告げた。問い：${W.qOn} こちらから：${W.nOn} 15.50に切れた。」`],
+       ["運送会社Spedition Rhein：配車係の記録簿。", `「省から、部署は先方の交換台が告げた。${W.qOn} 返答：${W.yOn} 15.52に回線終了。」`]],
+     blanks: [
+       "15.43に記録室の電話につながれ、15.45に終わった通話：相手は誰だったか？",
+       "15.43に郵便室の電話につながれ、15.44に終わった通話：相手は誰だったか？",
+       "15.49に記録室の電話につながれ、15.50に終わった通話：相手は誰だったか？",
+       "15.49にZ A 1課の秘書室につながれ、15.52に終わった通話：相手は誰だったか？"]},
+    {title: "第2部：秘書室",
+     papers: [
+       ["守衛の記録簿。", `Pohlmann女史、守衛室にて：15.52。`],
+       ["郵便室の記録簿。", `Pohlmann女史、郵便室の窓口にて：15.53、連絡係の車のために下書きを本人が差し出した。`],
+       ["食堂の記録簿。", `Pohlmann女史：15.55から15.56まで。そこにいるあいだ、彼女あての伝言はなかった。`],
+       ["タイピスト室の作業簿、15.52から15.56まで。", `Adam夫人：清書、Z A 1課の秘書室にて。Lüdtke嬢：タイピスト室。Ostrowski嬢：カーボン写し、記録室にて。`],
+       ["連絡係の巡回。", `15.53、Z A 1課の秘書室：第二便、受け取りの署名はAdam夫人。部屋には彼女ひとりだった。受話器を耳に当てたまま署名し、彼が出ていくときもまだ聞いていた。`],
+       ["Adam夫人、尋ねられて。", `「15.52からZ A 1課の秘書室で清書をしていました。そのあいだ、誰あてにも電話はありませんでした。」`],
+       ["Lüdtke嬢、尋ねられて。", `「午後はずっとタイピスト室にいました。うちの電話は三時半を過ぎてから一度も鳴っていません。」`],
+       ["守衛の車両記録簿。", `15.57：下書き、省外へ。`]],
+     blanks: [
+       "15.53にZ A 1課の秘書室で電話に出たのは誰か？",
+       "この件の書類のうち一枚は、書いた者が嘘と知っていたことを述べている。どれか、そして誰が書いたか？"]},
+    {title: "第3部：ファイルのために", papers: [],
+     blanks: [
+       "Pohlmann女史は、財務省から告げられたことに逆らったか？",
+       "Pohlmann女史自身のメモは、彼女が聞いたことに忠実か？"],
+     sentence: "下書きが出ていった理由を一文で：",
+     file: `交換台が二本の電話を取り違えてつないだため、Pohlmann女史は運送会社の「はい」を財務省のものと聞いた。そして15.53に財務省がそれを止めようと折り返してきたとき、Adam夫人は秘書室でひとりその電話を受け、誰にも伝えなかった。`}],
+  locked: "その書類は、前の部が成り立ったときに来ます。",
+  withPart: "この部とともに：", noMore: "これ以上の書類は来ません。この部は手元のものから答えます。",
+  holds: "成り立ちます。", forFile: "ファイルのために：", sign: "この部に署名する",
+  needAll: "まず、すべての空欄に答えが必要です。", needSentence: "まず、ファイル用の一文を書いてください。",
+  notYet: "まだ成り立ちません。この部の答えの一つ以上が、書類と交換台の示すものと違います。",
+  card: [`Pohlmann女史は翌朝休暇に入り、ファイル用の覚え書きは彼女が戻る前に書き直された。`,
+         `Sarahあての電話は結局かかってこなかった。彼女は五時に、守衛の前を通って帰った。守衛は、静かな午後だったと言った。`],
+  reset: "報告書を最初からやり直す", confirm: "報告書を最初からやり直しますか？署名したものは消えます。"};
+})(),
+
+zh: (() => {
+  const W = {qGo: "还按约定进行吗？", qOn: "还照我们说好的办吗？",
+             yGo: "是的，按约定。", yOn: "是的，我们等着呢。",
+             nGo: "假期之前不行。新年之前什么都不再接收了。",
+             nOn: "等他回来再说。任何东西都不许出部里。",
+             letter: "不，要等他回来。"};
+  const N = {station: "波恩总站快件托运处", archive: "中间档案库",
+             fm: "财政部", carrier: "Spedition Rhein运输公司", stw: "波恩市公用事业局"};
+  return {W, N,
+  title: "总机旁的一个下午", kicker: "番外 · 故事之后 · 免费",
+  date: "1972年12月21日，星期四，波恩的一个部",
+  back: "← Ministry of Secrets",
+  intro: [
+    `四点钟，一份本该留在部里的草稿离开了部里：给财政部的调级名单，15.57装上了通信员的车。Z A 1科秘书室的Pohlmann女士亲自把它送下楼交给通信员。当晚写的卷宗备忘说，财政部曾在电话里对她说“${W.nOn}”，而她照样把它送了出去。她的圣诞假明天一早开始。`,
+    `那天下午，Sarah坐在一楼总机室敞开的门边的椅子上，等一个始终没有打来的、找她的电话，面前是接线员的交换台，上面挂着钟。她并不知道自己在看什么。现在她知道了：除了她，没有别人看见；而且这个部里没有人会记下插头插在哪里。`,
+    `<b>问题就是最后的报告：请根据文件和Sarah看到的情况，回答报告的每一部分。</b>`],
+  rulesHead: "这个部里的电话是怎么用的",
+  rules: [
+    `屋与屋之间的电话直接拨号。没有人看见，也什么都不记。`,
+    `各办公室的电话不能往外拨。拿起听筒，请总机的接线员接要找的人。`,
+    `如果她马上接通对方，就直接转过去。如果没有，她就说会回电：她听着的时候，一个插头插进这个分机的插孔，然后又拔出来。`,
+    `她拨的对方一接电话，她就告诉对方是本部哪个部门打来的，请对方稍等。就在那一刻，她按自己座位上方的钟填写通话单：时间、要电话的分机、要找的人。然后她回电给那个分机，把两边接通。`,
+    `外面打来的电话从外线进来；她接起来，接到对方要找的分机上。这种电话不填通话单。`,
+    `<b>一根塞绳两头各有一个插头。</b>两个插头都插上，两个插孔就接通了。外线上的人，只要那条线上插着插头，就一直留在线上。`],
+  sawHead: "Sarah看到的",
+  sawNote: `交换台：14 打字室，23 档案室，31 收发室，41 Z A 1科秘书室；A1到A4是出部的外线。请一个插头一个插头地走过这个下午。`,
+  aria: {board: "交换台", prev: "退回一个插头", next: "前进一个插头", tick: "这个下午，一个插头一个插头"},
+  short: {"14": "打字室", "23": "档案室", "31": "收发室", "41": "秘书室", out: "外线"},
+  cord: c => `塞绳${c}`,
+  mv: {one: (c, j) => `塞绳${c}，一个插头插进${j}`, other: (c, j) => `塞绳${c}，另一个插头插进${j}`,
+       again: c => `塞绳${c}，又拔了出来`, both: c => `塞绳${c}，两个插头都拔出`},
+  empty: "交换台上什么都没插；Ohlig太太刚在台前坐下。",
+  of: (n, all) => `${n} / ${all}`,
+  list: "整个下午的清单", th: ["时间", "她看到的"],
+  papersHead: "当晚卷宗里的文件",
+  papers0: [
+    ["Pohlmann女士的电话记录本，她的笔迹。", `“15.52。财政部。问：${W.qOn}答：${W.yOn}”下面，同一笔迹，后来写的：“再没有别的消息。”`],
+    ["Perlbach先生的电话记录，收发室。", `“15.44。${N.station}。问：${W.qGo}答：${W.yGo}”`],
+    ["通信员的登记簿。", `15.45：Perlbach先生亲自把包裹送下楼去。`],
+    ["Simon先生的电话记录，档案室。", `“15.45。中间档案库。问：${W.qGo}答：${W.nGo}”`],
+    ["通信员的登记簿。", `15.46：Simon先生让人把推车上的东西卸了下来。`],
+    ["Simon先生的电话记录，档案室。", `“15.50。${N.carrier}。问：${W.qOn}答：${W.nOn}”`],
+    ["通信员的登记簿。", `15.51：Simon先生：运输公司不用来了。`],
+    ["财政部，第二天早上的来函。", `当天下午他们为了稳妥又往部里打了一次电话，点名找Pohlmann女士，并对接电话的人说：“${W.letter}”`],
+    ["总机的值班表。", `15.39起在交换台：文书科的Ohlig太太。平时的接线员看医生去了。`],
+    ["草稿的封面。", `这是调级名单。Adam太太的职位也在上面：如果名单在圣诞节前送到财政部，从新年起升一级。`],
+    ["休假登记簿。", `Pohlmann女士，明天起。如果草稿被扣下，她今晚走之前本会再做一遍。`],
+    ["总机下午的通话单，按分机归档，Ohlig太太的笔迹。",
+     `15.39 · 分机14 · 要找：${N.stw}<br>15.42 · 分机23 · 要找：${N.archive}<br>15.48 · 分机23 · 要找：${N.carrier}<br>15.42 · 分机31 · 要找：${N.station}<br>15.48 · 分机41 · 要找：${N.fm}`]],
+  reportHead: "报告",
+  reportNote: "给卷宗用，分三部分。前一部分成立后，才发下一部分的文件。",
+  parties: [N.station, N.archive, N.fm, N.carrier, N.stw],
+  people: ["Pohlmann女士", "Adam太太", "Lüdtke小姐", "Ostrowski小姐", "Simon先生", "Perlbach先生", "Ohlig太太", "没有人"],
+  falsePapers: ["Pohlmann女士的电话记录本（Pohlmann女士）", "Perlbach先生的记录（Perlbach先生）",
+    "Simon先生的记录（Simon先生）", "财政部的来函（财政部）",
+    "通话单（Ohlig太太）", "Adam太太的陈述（Adam太太）",
+    "Lüdtke小姐的陈述（Lüdtke小姐）", "食堂登记簿（食堂）"],
+  yesno: ["是", "否"],
+  parts: [
+    {title: "第一部分：电话",
+     papers: [
+       ["波恩总站，快件托运柜台的日志。", `“部里来电（他们的总机报了部门）。${W.qGo}我们说：${W.nGo}15.45挂断。”`],
+       ["中间档案库的电话登记簿。", `“15.43，部里，由他们的总机接过来，报了部门：${W.qGo}${W.yGo}15.44挂断。”`],
+       ["财政部留存的一张便条，科长亲笔。", `“另一个部来电；他们的总机报了部门。问：${W.qOn}我告诉他们：${W.nOn}15.50挂断。”`],
+       ["Spedition Rhein运输公司：调度员的登记簿。", `“部里，部门由他们的总机报出。${W.qOn}回答：${W.yOn}15.52线路结束。”`]],
+     blanks: [
+       "15.43接到档案室电话上、15.45结束的那通电话：线上是谁？",
+       "15.43接到收发室电话上、15.44结束的那通电话：线上是谁？",
+       "15.49接到档案室电话上、15.50结束的那通电话：线上是谁？",
+       "15.49接到Z A 1科秘书室、15.52结束的那通电话：线上是谁？"]},
+    {title: "第二部分：秘书室",
+     papers: [
+       ["门房的登记簿。", `Pohlmann女士，在传达室：15.52。`],
+       ["收发室的登记簿。", `Pohlmann女士，在收发室柜台：15.53，由她交来草稿，装通信员的车。`],
+       ["食堂登记簿。", `Pohlmann女士：15.55到15.56。她在那里时，没有给她的口信。`],
+       ["打字室的工作簿，15.52到15.56。", `Adam太太：誊清，在Z A 1科秘书室。Lüdtke小姐：打字室。Ostrowski小姐：复写副本，在档案室。`],
+       ["通信员的巡回记录。", `15.53，Z A 1科秘书室：第二批邮件，由Adam太太签收，屋里只有她一个人。她签字时把电话听筒贴在耳边，他离开时她还在听。`],
+       ["Adam太太，被问到时。", `“我从15.52起在Z A 1科秘书室誊清。我在那里的时候，没有任何人的电话。”`],
+       ["Lüdtke小姐，被问到时。", `“我整个下午都在打字室。三点半以后我们的电话再没响过。”`],
+       ["门房的车辆登记簿。", `15.57：草稿，出部。`]],
+     blanks: [
+       "15.53在Z A 1科秘书室接电话的是谁？",
+       "这个案子里有一份文件，写的人明知其中所说不实。是哪一份，谁写的？"]},
+    {title: "第三部分：归档", papers: [],
+     blanks: [
+       "Pohlmann女士是否违背了财政部对她说的话？",
+       "Pohlmann女士自己的记录是否如实记下了她听到的话？"],
+     sentence: "用一句话说明草稿为什么被送出：",
+     file: `总机把两通电话接错了，于是Pohlmann女士把运输公司的“是”当成了财政部的；而当财政部15.53回电要拦下它时，Adam太太独自在秘书室接了这个电话，没有告诉任何人。`}],
+  locked: "前一部分成立后，这一部分的文件才会来。",
+  withPart: "随这一部分而来：", noMore: "不会再有文件了。这一部分根据手头已有的来回答。",
+  holds: "成立。", forFile: "归档：", sign: "签署这一部分",
+  needAll: "每个空都要先填上答案。", needSentence: "请先写下归档的那句话。",
+  notYet: "还不成立：这一部分有一个或几个答案，与文件和交换台所显示的不符。",
+  card: [`Pohlmann女士第二天一早休假去了，卷宗备忘在她回来之前重写了一遍。`,
+         `找Sarah的电话始终没有来。她五点钟回家，经过门房，门房说这是个安静的下午。`],
+  reset: "重新开始写报告", confirm: "要重新开始写报告吗？已签署的内容将被忘掉。"};
+})()
+};
+
+/* ------------------------------------------------------- which language */
+function pickLanguage() {
+  let v = null;
+  try { v = new URLSearchParams(location.search).get("lang"); } catch (e) {}
+  if (TEXT[v]) { try { localStorage.setItem("pool.lang", v); } catch (e) {} return v; }
+  try { v = localStorage.getItem("pool.lang"); } catch (e) { v = null; }
+  if (TEXT[v]) return v;
+  try {
+    for (const w of navigator.languages || [navigator.language || "en"]) {
+      const s = String(w).toLowerCase().split("-")[0];
+      if (TEXT[s]) return s;
+    }
+  } catch (e) {}
+  return "en";
+}
+const LANG = pickLanguage();
+const T = TEXT[LANG];
+document.documentElement.lang = LANG;
+document.title = T.title;
+
+const $ = id => document.getElementById(id);
+const set = (id, html) => { $(id).innerHTML = html; };
+set("back", T.back); set("kicker", T.kicker); set("title", T.title); set("date", T.date);
+set("intro", T.intro.map(p => `<p>${p}</p>`).join(""));
+set("rulesHead", T.rulesHead); set("rules", T.rules.map(r => `<li>${r}</li>`).join(""));
+set("sawHead", T.sawHead); set("sawNote", T.sawNote);
+$("board").setAttribute("aria-label", T.aria.board);
+$("prev").setAttribute("aria-label", T.aria.prev);
+$("next").setAttribute("aria-label", T.aria.next);
+$("tick").setAttribute("aria-label", T.aria.tick);
+set("listSummary", T.list); set("papersHead", T.papersHead);
+set("reportHead", T.reportHead); set("reportNote", T.reportNote);
+set("card", T.card.map(p => `<p>${p}</p>`).join(""));
+$("reset").textContent = T.reset;
+
+/* ---------------------------------------------------------- the board */
+/* the plugs of every cord BEFORE tick k (0-based) */
+function stateAt(k) {
+  const s = {};
+  for (let i = 0; i < k; i++) {
+    const [, cord, move, jack] = TICKS[i];
+    if (move === "in") (s[cord] = s[cord] || []).push(jack); else delete s[cord];
+  }
+  return s;
+}
+function describe(k) {
+  const [t, cord, move, jack] = TICKS[k];
+  const had = stateAt(k)[cord] || [];
+  if (move === "out") return [t, had.length > 1 ? T.mv.both(cord) : T.mv.again(cord)];
+  return [t, had.length ? T.mv.other(cord, jack) : T.mv.one(cord, jack)];
+}
+const COLOURS = {1: "#8A2B2B", 2: "#1E6B2F", 3: "#2B4F8A", 4: "#8A6A1E"};
+function drawBoard(n) {
+  const x = j => 40 + JACKS.indexOf(j) * 80, y = 70;
+  const s = stateAt(n);
+  let g = `<rect x="8" y="14" width="624" height="96" fill="var(--paper)" stroke="var(--rule)"/>`;
+  g += `<line x1="344" y1="20" x2="344" y2="104" stroke="var(--hair)" stroke-dasharray="3 3"/>`;
+  for (const j of JACKS) {
+    g += `<text x="${x(j)}" y="40" text-anchor="middle" font-size="15" fill="var(--ink)">${j}</text>`;
+    g += `<circle cx="${x(j)}" cy="${y}" r="10" fill="var(--wash)" stroke="var(--ink)" stroke-width="2"/>`;
+    g += `<text x="${x(j)}" y="100" text-anchor="middle" font-size="10" fill="var(--faint)">${T.short[j] || T.short.out}</text>`;
+  }
+  for (const c of [1, 2, 3, 4]) {
+    const plugs = s[c] || [], col = COLOURS[c], rest = 60 + (c - 1) * 160;
+    g += `<text x="${rest + 40}" y="222" text-anchor="middle" font-size="12" fill="${col}">${T.cord(c)}</text>`;
+    if (!plugs.length) {
+      g += `<path d="M ${rest + 22} 196 q 18 -24 36 0" fill="none" stroke="${col}" stroke-width="4"/>`;
+      continue;
+    }
+    if (plugs.length === 1) {
+      const px = x(plugs[0]);
+      g += `<path d="M ${px} ${y + 10} C ${px} 160, ${rest + 40} 170, ${rest + 40} 200" fill="none" stroke="${col}" stroke-width="4"/>`;
+      g += `<circle cx="${px}" cy="${y}" r="6" fill="${col}"/>`;
+    } else {
+      const [a, b] = plugs.map(x), mid = (a + b) / 2, sag = 120 + Math.abs(b - a) / 6;
+      g += `<path d="M ${a} ${y + 10} Q ${mid} ${y + sag} ${b} ${y + 10}" fill="none" stroke="${col}" stroke-width="4"/>`;
+      g += `<circle cx="${a}" cy="${y}" r="6" fill="${col}"/><circle cx="${b}" cy="${y}" r="6" fill="${col}"/>`;
+    }
+  }
+  $("board").innerHTML = g;
+  if (n === 0) set("now", `<span class="t">15.38</span> · ${T.empty}`);
+  else {
+    const [t, what] = describe(n - 1);
+    set("now", `<span class="t">${t}</span> · ${what} <span class="faint">(${T.of(n, TICKS.length)})</span>`);
+  }
+}
+const slider = $("tick");
+slider.oninput = () => drawBoard(+slider.value);
+$("prev").onclick = () => { slider.value = Math.max(0, +slider.value - 1); drawBoard(+slider.value); };
+$("next").onclick = () => { slider.value = Math.min(TICKS.length, +slider.value + 1); drawBoard(+slider.value); };
+set("ticks", `<tr><th></th><th>${T.th[0]}</th><th>${T.th[1]}</th></tr>` +
+  TICKS.map((_, k) => { const [t, w] = describe(k); return `<tr><td>${k + 1}</td><td>${t}</td><td>${w}</td></tr>`; }).join(""));
+drawBoard(0);
+
+/* ------------------------------------------------------------ the papers */
+const P = ([title, body]) => `<div class="paper"><b>${title}</b>${body}</div>`;
+set("papers0", T.papers0.map(P).join(""));
+
+/* ------------------------------------------------------------ the report */
+const OPTIONS = [[T.parties, T.parties, T.parties, T.parties], [T.people, T.falsePapers], [T.yesno, T.yesno]];
+
+/* what this browser has signed: kept with the browser, and forgiven if it
+   cannot be. The answers are indices, the same in every language. */
+const KEY = "bonus.exchange";
+const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } };
+const save = s => { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} };
+let STATE = load();
+const held = i => !!(STATE.held || {})[i];
+
+function drawParts() {
+  const box = $("parts");
+  box.innerHTML = "";
+  T.parts.forEach((part, i) => {
+    const open = i === 0 || held(i - 1);
+    const d = document.createElement("section");
+    d.className = "report" + (open ? "" : " locked");
+    let h = `<h3>${part.title}</h3>`;
+    if (!open) { d.innerHTML = h + `<p class="faint">${T.locked}</p>`; box.appendChild(d); return; }
+    if (part.papers.length) h += `<p class="faint">${T.withPart}</p>` + part.papers.map(P).join("");
+    else h += `<p class="faint">${T.noMore}</p>`;
+    const picked = (STATE.picked || {})[i] || [];
+    part.blanks.forEach((q, b) => {
+      h += `<label for="b${i}_${b}">${q}</label><select id="b${i}_${b}"${held(i) ? " disabled" : ""}>` +
+        `<option value="">…</option>` + OPTIONS[i][b].map((o, k) =>
+          `<option value="${k}"${String(picked[b]) === String(k) ? " selected" : ""}>${o}</option>`).join("") + `</select>`;
+    });
+    if (part.sentence) h += `<label for="s${i}">${part.sentence}</label><textarea id="s${i}">${
+      (STATE.sentence || "").replace(/</g, "&lt;")}</textarea>`;
+    h += held(i) ? `<div class="verdict ok">${T.holds}</div>` +
+                   (part.file ? `<p><b>${T.forFile}</b> ${part.file}</p>` : "")
+                 : `<button data-part="${i}">${T.sign}</button><div class="verdict" id="v${i}"></div>`;
+    d.innerHTML = h;
+    box.appendChild(d);
+  });
+  box.querySelectorAll("button[data-part]").forEach(b => b.onclick = () => sign(+b.dataset.part));
+  $("card").hidden = !held(T.parts.length - 1);
+}
+function sign(i) {
+  const part = T.parts[i];
+  const got = part.blanks.map((_, b) => $(`b${i}_${b}`).value);
+  STATE.picked = Object.assign({}, STATE.picked, {[i]: got});
+  if (part.sentence) STATE.sentence = $(`s${i}`).value;
+  const v = $(`v${i}`);
+  const no = msg => { v.className = "verdict no"; v.textContent = msg; save(STATE); };
+  if (got.some(x => x === "")) return no(T.needAll);
+  if (part.sentence && !(STATE.sentence || "").trim()) return no(T.needSentence);
+  if (!ANSWERS[i].every((a, b) => +got[b] === a)) return no(T.notYet);
+  STATE.held = Object.assign({}, STATE.held, {[i]: true});
+  save(STATE);
+  drawParts();
+}
+$("reset").onclick = () => {
+  if (confirm(T.confirm)) { STATE = {}; save(STATE); drawParts(); }
+};
+drawParts();
+</script>
+</body>
+</html>

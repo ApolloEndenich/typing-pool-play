@@ -151,15 +151,29 @@ async function boot() {
       (c.german ? ` <i class="de">${esc(c.german)}</i>` : "") +
       `<small>${esc(c.stated)}${open ? "" : " · " + shutNow(c)}</small></button>`;
   };
+  /* THE BONUS (the user, 3 November 2026: "after chapter 11, for free, as
+     bonus, and a page"): An Afternoon at the Exchange, a page of its own
+     (bonus.html), after the story and never shut. In all seven languages
+     since 3 November 2026: the page keeps its own words per language and is
+     told which one by ?lang=. */
+  const bonus = () =>
+    `<div class="season"><h3>${tx("Bonus")} <span>${tx("after the story")}</span></h3>` +
+      `<div class="seasoncases"><button data-bonus>` +
+      `<span class="num">+</span>${esc(tx("An Afternoon at the Exchange"))}` +
+      `<small>21.12.1972 · ${tx("free")}</small></button></div></div>`;
   INDEX = index;
   DRAWCASES = () => {
     $("cases").innerHTML = SEASONS.map(([name, years, has]) => {
       const cs = index.filter(c => has(yearOf(c)));
       return cs.length ? `<div class="season"><h3>${name} <span>${years}</span></h3>` +
         `<div class="seasoncases">${cs.map(button).join("")}</div></div>` : "";
-    }).join("") + passForm();
+    }).join("") + bonus() + passForm();
     $("cases").querySelectorAll("button[data-id]:not([disabled])").forEach(b =>
       b.onclick = () => load(b.dataset.id));
+    $("cases").querySelectorAll("button[data-bonus]:not([disabled])").forEach(b =>
+      b.onclick = () => {
+        location.href = "bonus.html?lang=" + encodeURIComponent(typeof LANG === "undefined" ? "en" : LANG);
+      });
     if (CASE) $("cases").querySelectorAll("button[data-id]").forEach(b =>
       b.classList.toggle("on", b.dataset.id === CASE.id));
     bindPassForm();
