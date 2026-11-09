@@ -191,7 +191,7 @@
   "front.manual": "Spielanleitung",
   "front.3": "Jedes Kapitel ist ein Fall für sich. Nichts zu installieren und kein Konto; Ihr Stand bleibt in diesem Browser gespeichert.",
   "front.foot": "Sarah Wessen und Kommissar Mauser stammen aus den Kriminalromanen von Gudrun Leyendecker und werden mit ihrer Erlaubnis verwendet.",
-  "front.links": "<a href=\"../index.html\">The Typing Pool, das tägliche Rätsel</a> · <a href=\"../books.html\">Die Romane von Gudrun Leyendecker</a>",
+  "front.links": "<a href=\"../pool.html\">The Typing Pool, das tägliche Rätsel</a> · <a href=\"../books.html\">Die Romane von Gudrun Leyendecker</a>",
   "readnote": "Sie lesen die ganze Akte. <button type=\"button\" id=\"backtowalk\">Stattdessen durch das Haus gehen</button>",
   "theatreclose": "← zum Plan",
   "tonotebook": "Notizbuch und Bericht <span class=\"fresh\" id=\"freshroom\"></span>",

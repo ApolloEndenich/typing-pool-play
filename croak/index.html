@@ -1,0 +1,1455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; font: 14px system-ui, sans-serif; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<script data-goatcounter="https://typingpoolgame.goatcounter.com/count"
+        data-goatcounter-settings='{"allow_frame": true}'
+        async src="//gc.zgo.at/count.js"></script>
+<title>Trick or Croak</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Halloween on Gourd Lane. Somebody hands out a frog sweet under somebody else's pumpkin. Find out whose hand it was.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@600;800&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600&display=swap">
+</head>
+<body>
+<style>
+/* Layout: first the lane at night as a title card. Once you knock, the lane fills the screen: the six stand small on the street and the clues (the night in order, the sentence you fill in) scroll through the sky above them. Single dark look, by choice: it is night on Gourd Lane. */
+:root {
+  --night: #140c1f;
+  --dusk: #22153a;
+  --panel: #1b1129;
+  --pumpkin: #f08a24;
+  --glow: #ffcf5a;
+  --frog: #6fd85e;
+  --ink: #efe6f7;
+  --muted: #a99bbd;
+  --line: #3a2a52;
+  --paper: #f3ead8;
+  --paper-ink: #2a1d36;
+  --display: "Grenze Gotisch", "Palatino Linotype", Georgia, serif;
+  --body: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--night); color: var(--ink); font-family: var(--body); font-size: 1rem; line-height: 1.5; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--night); }
+.wrap {
+  max-width: 54rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 1rem 3rem;
+  display: flex; flex-direction: column; gap: 2rem;
+}
+h1, h2 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h2 { font-weight: 600; font-size: 1.9rem; line-height: 1.05; color: var(--pumpkin); }
+p { margin: 0; }
+section { display: flex; flex-direction: column; gap: .9rem; }
+.muted { color: var(--muted); }
+button {
+  font: 600 1rem var(--body); color: var(--night); background: var(--glow);
+  border: 0; border-radius: 999px; padding: .6rem 1.2rem; cursor: pointer;
+}
+button.quiet { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+button:disabled { opacity: .45; cursor: default; }
+button:focus-visible, select:focus-visible, .ev:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* the lane */
+.lane { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--dusk); }
+.lane canvas { display: block; width: 100%; aspect-ratio: 2 / 1; max-width: 100%; }
+.title {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: flex-start;
+  gap: .5rem; padding: 4% 5%;
+  background: linear-gradient(180deg, rgb(20 12 31 / .55), rgb(20 12 31 / 0) 70%);
+}
+.title h1 {
+  font-weight: 800; font-size: clamp(2.4rem, 9vw, 4.6rem); line-height: .9; color: var(--pumpkin);
+  text-shadow: 0 0 .45em rgb(255 160 40 / .35), 0 2px 0 #140c1f;
+}
+.title p { color: var(--ink); max-width: 22rem; font-size: clamp(.85rem, 2.4vw, 1rem); text-shadow: 0 1px 2px #140c1f; }
+.sound {
+  position: fixed; z-index: 30; font-size: .8rem; padding: .35rem .8rem; background: rgb(20 12 31 / .7); color: var(--ink); border: 1px solid var(--line);
+  top: calc(10px + env(safe-area-inset-top, 0px)); right: max(10px, env(safe-area-inset-right, 0px));
+}
+.head {
+  max-width: 54rem; margin: 0 auto; padding-top: 1rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sky .wrap { padding-top: 2rem; }
+.walkers { display: none; }
+
+/* on the street: the lane is the whole screen, the clues drift in the sky above the six */
+body.street { overflow: hidden; }
+.street .head { position: fixed; inset: 0; max-width: none; padding: 0; z-index: 0; }
+.street .lane { position: absolute; inset: 0; border: 0; border-radius: 0; }
+.street .lane canvas { width: 100%; height: 100%; aspect-ratio: auto; }
+.street .sky {
+  position: fixed; inset: 0 0 var(--ground, 110px) 0; z-index: 1; overflow-y: auto; overscroll-behavior: contain;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 2.2rem, #000 calc(100% - 2.6rem), transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 2.2rem, #000 calc(100% - 2.6rem), transparent);
+}
+.street .sky .wrap { padding-block: 3.4rem 4rem; }
+/* before you knock: the title card, how the lane works, and the knock */
+body:not(.street) .wrap > :not(.how):not(.go):not(footer) { display: none; }
+.go { display: flex; flex-direction: column; align-items: flex-start; gap: .5rem; }
+.go button { font-size: 1.2rem; padding: .8rem 1.7rem; box-shadow: 0 0 1.4rem rgb(255 207 90 / .35); }
+.street .go { display: none; }
+.street .wrap > section, .street footer, .street .nights button {
+  background: rgb(24 14 38 / .74); border: 1px solid rgb(90 66 124 / .55); border-radius: 14px;
+  -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px);
+}
+.street .wrap > section, .street footer { padding: 1rem; }
+.street .story { max-width: none; }
+.street .solved { border-color: var(--frog); }
+.street .ev { background: rgb(20 12 31 / .6); }
+.street .ev.tub { background: transparent; }
+.street .walkers { display: block; position: fixed; left: 0; right: 0; bottom: 0; height: var(--ground, 110px); z-index: 2; pointer-events: none; }
+.walkers button {
+  position: absolute; bottom: 0; pointer-events: auto; background: transparent; border: 0; border-radius: 10px; padding: 0 0 3px;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: center; color: var(--ink);
+}
+.walkers span {
+  font-size: .68rem; font-weight: 600; line-height: 1.35; padding: 0 .4rem; border-radius: 999px;
+  background: rgb(20 12 31 / .8); border: 1px solid transparent; white-space: nowrap;
+}
+.walkers button:hover span, .walkers button:focus-visible span { border-color: var(--glow); }
+.walkers button:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
+.walkers button[data-m="suspect"] span { background: var(--pumpkin); color: var(--night); }
+.walkers button[data-m="cleared"] span { color: var(--muted); text-decoration: line-through; }
+
+/* which night */
+.nights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+.nights button { text-align: left; border-radius: 12px; padding: .6rem .9rem; background: var(--panel); color: var(--ink); border: 1px solid var(--line); display: flex; flex-direction: column; gap: .1rem; }
+.nights button b { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.1; }
+.nights button span { font-weight: 400; font-size: .85rem; color: var(--muted); }
+.nights button[aria-pressed="true"] { border-color: var(--glow); box-shadow: 0 0 0 1px var(--glow) inset; }
+
+
+.story { display: flex; flex-direction: column; gap: .6rem; max-width: 40rem; }
+.story .croak { font-family: var(--display); font-size: 1.6rem; color: var(--frog); }
+
+ol.rules { margin: 0; padding-left: 1.3rem; display: flex; flex-direction: column; gap: .35rem; max-width: 42rem; }
+ol.rules b { color: var(--glow); font-weight: 600; }
+
+/* the six */
+.six { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .9rem; }
+.who { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: .7rem; display: flex; flex-direction: column; gap: .45rem; min-width: 0; }
+.who .pics { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; }
+.who canvas { width: 100%; aspect-ratio: 9 / 7; max-width: 100%; display: block; border-radius: 8px; background: var(--dusk); }
+.who .row { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+.who b { font-family: var(--display); font-weight: 600; font-size: 1.45rem; line-height: 1; }
+.who small { color: var(--muted); font-size: .82rem; line-height: 1.35; }
+.mark { font-size: .78rem; padding: .2rem .6rem; background: transparent; color: var(--muted); border: 1px solid var(--line); flex: none; }
+.mark[data-m="cleared"] { text-decoration: line-through; }
+.mark[data-m="suspect"] { color: var(--night); background: var(--pumpkin); border-color: var(--pumpkin); }
+.who[data-m="cleared"] canvas { opacity: .45; }
+
+/* the night */
+ol.night { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .55rem; }
+.ev { display: grid; grid-template-columns: 3.4rem auto minmax(0, 1fr); gap: .75rem; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: .55rem .75rem; cursor: pointer; }
+.ev:hover { border-color: var(--glow); }
+.ev time { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--glow); }
+.ev time small { display: block; font-weight: 400; font-size: .7rem; color: var(--muted); }
+.ev .pics { display: flex; gap: .3rem; align-items: center; }
+.ev canvas { display: block; border-radius: 6px; background: var(--dusk); }
+.ev canvas.peep { width: 4.2rem; height: 3.3rem; }
+.ev canvas.treat { width: 2rem; height: 2rem; background: transparent; }
+.ev canvas.face { width: 2.6rem; height: 2.2rem; }
+.ev p { min-width: 0; }
+.chip { display: inline-block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; padding: .05rem .45rem; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); vertical-align: .1em; }
+.ev.tub { background: transparent; border-style: dashed; }
+.ev.frog { border-color: var(--frog); box-shadow: 0 0 0 1px var(--frog) inset; }
+.ev.frog .say { color: var(--frog); font-weight: 600; }
+
+/* the answer */
+.answer { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; display: flex; flex-direction: column; gap: .9rem; }
+.sentence { font-size: 1.15rem; line-height: 2.3; max-width: 44rem; }
+select {
+  font: 600 1rem var(--body); color: var(--ink); background: var(--dusk); border: 1px solid var(--line);
+  border-radius: 8px; padding: .2rem .4rem; max-width: 100%;
+}
+.actions { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+.verdict { font-weight: 600; min-height: 1.5em; }
+.verdict.no { color: var(--glow); }
+.verdict.yes { color: var(--frog); }
+.hints { display: flex; flex-direction: column; gap: .4rem; margin: 0; padding-left: 1.2rem; color: var(--muted); }
+.solved { border: 1px solid var(--frog); border-radius: 14px; padding: 1rem; display: flex; flex-direction: column; gap: .7rem; }
+.solved h2 { color: var(--frog); }
+.share { font-family: ui-monospace, Consolas, monospace; font-size: .9rem; background: var(--dusk); border-radius: 8px; padding: .6rem .8rem; white-space: pre-wrap; }
+footer { color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); padding-top: 1rem; display: flex; flex-direction: column; gap: .3rem; }
+footer a { color: var(--glow); }
+
+/* a photo */
+.photo {
+  position: fixed; inset: 0; z-index: 50; background: rgb(10 6 18 / .84);
+  display: flex; align-items: center; justify-content: center;
+  padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.frame {
+  background: var(--paper); color: var(--paper-ink); width: 100%; max-width: min(36rem, 100%);
+  padding: 12px 12px 14px; border-radius: 4px; box-shadow: 0 18px 40px rgb(0 0 0 / .5);
+  display: flex; flex-direction: column; gap: .45rem; transform: rotate(-.8deg);
+}
+.frame canvas { display: block; width: 100%; aspect-ratio: 4 / 3; max-width: 100%; background: var(--dusk); }
+.frame .cap { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.1; }
+.frame .truth { font-size: .95rem; }
+.frame .actions { justify-content: flex-end; }
+.frame button.quiet { color: var(--paper-ink); border-color: #cbbd9f; }
+.frame button:focus-visible { outline-color: var(--paper-ink); }
+
+@media (max-width: 640px) {
+  .six { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nights { grid-template-columns: 1fr; }
+  .ev { grid-template-columns: 3rem minmax(0, 1fr); }
+  .ev .pics { grid-column: 2; }
+  .ev p { grid-column: 1 / -1; }
+  .title p { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .frame { transform: none; } }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<script type="application/json" id="case">
+{
+  "zombies": [
+    { "name": "Mortimer", "face": "crooked grin", "hem": "torn hem",           "treat": "liquorice bat" },
+    { "name": "Bonesby",  "face": "star eyes",    "hem": "one bare bony foot", "treat": "liquorice bat" },
+    { "name": "Grizelda", "face": "three teeth",  "hem": "muddy hem",          "treat": "toffee skull" },
+    { "name": "Moldwin",  "face": "zigzag mouth", "hem": "trailing bandage",   "treat": "toffee skull" },
+    { "name": "Ghoulia",  "face": "wink",         "hem": "singed hem",         "treat": "marzipan mouse" },
+    { "name": "Rotbert",  "face": "droopy frown", "hem": "patched hem",        "treat": "marzipan mouse" }
+  ],
+  "nights": [
+    {
+      "id": "n1", "title": "Paul croaks", "tricks": "one",
+      "events": [
+        { "kind": "tub",  "time": "18:10", "faces": ["crooked grin", "star eyes", "droopy frown"] },
+        { "kind": "saw",  "time": "18:15", "child": "Anton", "height": "tall",  "saw": "crooked grin", "treat": "liquorice bat" },
+        { "kind": "tub",  "time": "18:20", "faces": ["wink", "zigzag mouth", "three teeth"] },
+        { "kind": "saw",  "time": "18:25", "child": "Lotte", "height": "small", "saw": "muddy hem", "treat": "toffee skull" },
+        { "kind": "tub",  "time": "18:30", "faces": ["crooked grin", "wink", "star eyes"] },
+        { "kind": "saw",  "time": "18:35", "child": "Anna",  "height": "tall",  "saw": "crooked grin", "treat": "marzipan mouse" },
+        { "kind": "frog", "time": "18:40", "child": "Paul",  "height": "tall",  "saw": "crooked grin" },
+        { "kind": "saw",  "time": "18:45", "child": "Jonas", "height": "tall",  "saw": "wink", "treat": "liquorice bat" },
+        { "kind": "tub",  "time": "18:50", "faces": ["droopy frown", "crooked grin", "three teeth"] },
+        { "kind": "saw",  "time": "18:55", "child": "Mia",   "height": "small", "saw": "singed hem", "treat": "marzipan mouse" },
+        { "kind": "tub",  "time": "19:00", "faces": ["wink", "zigzag mouth"] },
+        { "kind": "saw",  "time": "19:05", "child": "Ella",  "height": "small", "saw": "patched hem", "treat": "marzipan mouse" }
+      ],
+      "answer": { "giver": "Ghoulia", "pumpkin": "Mortimer", "tricks": [ { "kind": "pumpkins", "tub": "18:30", "with": "Mortimer" } ] }
+    },
+    {
+      "id": "n2", "title": "Felix croaks", "tricks": "both",
+      "events": [
+        { "kind": "saw",  "time": "18:00", "child": "Greta",  "height": "tall",  "saw": "crooked grin", "treat": "liquorice bat" },
+        { "kind": "saw",  "time": "18:05", "child": "Emil",   "height": "tall",  "saw": "droopy frown", "treat": "marzipan mouse" },
+        { "kind": "tub",  "time": "18:10", "faces": ["zigzag mouth", "star eyes", "wink"] },
+        { "kind": "saw",  "time": "18:15", "child": "Max",    "height": "tall",  "saw": "wink", "treat": "marzipan mouse" },
+        { "kind": "tub",  "time": "18:20", "faces": ["crooked grin", "three teeth", "droopy frown"] },
+        { "kind": "saw",  "time": "18:25", "child": "Ida",    "height": "small", "saw": "muddy hem", "treat": "toffee skull" },
+        { "kind": "tub",  "time": "18:30", "faces": ["droopy frown", "zigzag mouth", "crooked grin"] },
+        { "kind": "saw",  "time": "18:35", "child": "Hannah", "height": "tall",  "saw": "droopy frown", "treat": "liquorice bat" },
+        { "kind": "frog", "time": "18:40", "child": "Felix",  "height": "tall",  "saw": "droopy frown" },
+        { "kind": "saw",  "time": "18:45", "child": "Karl",   "height": "small", "saw": "patched hem", "treat": "marzipan mouse" },
+        { "kind": "tub",  "time": "18:50", "faces": ["star eyes", "droopy frown", "three teeth"] },
+        { "kind": "saw",  "time": "18:55", "child": "Leni",   "height": "small", "saw": "torn hem", "treat": "liquorice bat" },
+        { "kind": "tub",  "time": "19:00", "faces": ["wink", "zigzag mouth"] },
+        { "kind": "saw",  "time": "19:05", "child": "Ben",    "height": "tall",  "saw": "zigzag mouth", "treat": "marzipan mouse" },
+        { "kind": "saw",  "time": "19:10", "child": "Nora",   "height": "small", "saw": "trailing bandage", "treat": "liquorice bat" }
+      ],
+      "answer": { "giver": "Moldwin", "pumpkin": "Rotbert", "tricks": [
+        { "kind": "pumpkins", "tub": "18:30", "with": "Rotbert" },
+        { "kind": "bags", "tub": "18:10", "with": "Bonesby" } ] }
+    },
+    {
+      "id": "n3", "title": "Theo croaks", "tricks": "two",
+      "events": [
+        { "kind": "saw",  "time": "18:00", "child": "Oskar",  "height": "small", "saw": "torn hem", "treat": "liquorice bat" },
+        { "kind": "saw",  "time": "18:05", "child": "Clara",  "height": "small", "saw": "patched hem", "treat": "marzipan mouse" },
+        { "kind": "tub",  "time": "18:10", "faces": ["three teeth", "star eyes", "droopy frown"] },
+        { "kind": "saw",  "time": "18:15", "child": "Moritz", "height": "tall",  "saw": "crooked grin", "treat": "liquorice bat" },
+        { "kind": "tub",  "time": "18:20", "faces": ["crooked grin", "zigzag mouth", "wink"] },
+        { "kind": "saw",  "time": "18:25", "child": "Lina",   "height": "small", "saw": "muddy hem", "treat": "toffee skull" },
+        { "kind": "tub",  "time": "18:30", "faces": ["star eyes", "wink", "zigzag mouth"] },
+        { "kind": "saw",  "time": "18:35", "child": "Frieda", "height": "small", "saw": "one bare bony foot", "treat": "liquorice bat" },
+        { "kind": "frog", "time": "18:40", "child": "Theo",   "height": "tall",  "saw": "wink" },
+        { "kind": "saw",  "time": "18:45", "child": "Jakob",  "height": "tall",  "saw": "wink", "treat": "toffee skull" },
+        { "kind": "tub",  "time": "18:50", "faces": ["three teeth", "wink", "crooked grin"] },
+        { "kind": "saw",  "time": "18:55", "child": "Marie",  "height": "tall",  "saw": "star eyes", "treat": "marzipan mouse" },
+        { "kind": "tub",  "time": "19:00", "faces": ["droopy frown", "star eyes"] },
+        { "kind": "saw",  "time": "19:05", "child": "Henri",  "height": "tall",  "saw": "zigzag mouth", "treat": "toffee skull" },
+        { "kind": "tub",  "time": "19:10", "faces": ["zigzag mouth", "three teeth"] },
+        { "kind": "saw",  "time": "19:20", "child": "Paula",  "height": "tall",  "saw": "three teeth", "treat": "liquorice bat" }
+      ],
+      "answer": { "giver": "Grizelda", "pumpkin": "Ghoulia", "tricks": [
+        { "kind": "pumpkins", "tub": "18:10", "with": "Bonesby" },
+        { "kind": "pumpkins", "tub": "18:30", "with": "Ghoulia" } ] }
+    }
+  ]
+}
+</script>
+
+<div class="head">
+  <div class="lane" id="lanebox">
+    <canvas id="lane" aria-label="Gourd Lane at night: six zombies in purple robes with pumpkin heads stand in front of the houses, the full moon above, Widow Krall's apple tub at the end of the lane"></canvas>
+    <div class="title" id="title">
+      <h1>Trick or Croak</h1>
+      <p>Halloween on Gourd Lane.<br>One sweet, one croak, six pumpkins.</p>
+    </div>
+  </div>
+</div>
+<button type="button" class="sound" id="sound" aria-pressed="true">Sound on</button>
+<div class="walkers" id="walkers" aria-label="The six zombies on the lane: tap one to look closer"></div>
+
+<main class="sky" id="sky">
+<div class="wrap">
+
+  <div class="nights" role="group" aria-label="Which night">
+    <button type="button" id="pick-n1" data-night="0" aria-pressed="true"><b>Fun · Paul croaks</b><span>One trick. Start here.</span></button>
+    <button type="button" id="pick-n2" data-night="1" aria-pressed="false"><b>Spooky · Felix croaks</b><span>A year later. A pumpkin trick and a bag trick.</span></button>
+    <button type="button" id="pick-n3" data-night="2" aria-pressed="false"><b>Scary · Theo croaks</b><span>Two tricks, and nobody knows of which kind.</span></button>
+  </div>
+
+  <section class="story" id="story"></section>
+
+  <section class="how">
+    <h2>How Gourd Lane works</h2>
+    <ol class="rules">
+      <li><b>Every child tells the truth</b> about what was at their eye level. Tall children see pumpkins. Small children see hems. Every child knows which treat they got.</li>
+      <li><b>Pumpkins and bags come off only at Widow Krall's apple tub.</b> You can't bob for apples with a pumpkin on, so each zombie sets its pumpkin on its own fence post, carved face turned toward Widow Krall's house, and its bag beside it. Widow Krall watches from upstairs: she sees pumpkins, never hems.</li>
+      <li><b>A zombie can't see its own pumpkin.</b> From the lane, every pumpkin on a post shows the same round orange back, so each zombie takes whatever is on its own post, and once it's on, it can't see the face. Nobody looks in a bag either. Only a naughty zombie sneaks round the posts to peek at the faces.</li>
+      <li id="rule-tricks"></li>
+      <li><b>Two zombies hand out each kind of treat from their bags.</b> A hem always names its zombie: robes never come off.</li>
+    </ol>
+  </section>
+
+  <div class="go">
+    <button type="button" id="start">Knock on Gourd Lane</button>
+    <p class="muted">The whole lane comes out, and the night begins. Tap any zombie on the street to look closer.</p>
+  </div>
+
+  <section>
+    <h2>The six</h2>
+    <p class="muted">How they set out at six o'clock, each in its own pumpkin with its own bag. Tap a label to mark a zombie cleared or suspect.</p>
+    <div class="six" id="six"></div>
+  </section>
+
+  <section>
+    <h2>The night</h2>
+    <p class="muted" id="night-note">Tap any moment to see it from that child's eye level, or from Widow Krall's window.</p>
+    <ol class="night" id="night"></ol>
+  </section>
+
+  <section class="answer" id="answer">
+    <h2>Whose hand was it?</h2>
+    <p class="sentence" id="sentence"></p>
+    <div class="actions">
+      <button type="button" id="accuse">Accuse</button>
+      <button type="button" class="quiet" id="hint">Hint</button>
+      <span class="verdict" id="verdict" aria-live="polite"></span>
+    </div>
+    <ol class="hints" id="hints" hidden></ol>
+  </section>
+
+  <section class="solved" id="solved" hidden>
+    <h2 id="solved-h"></h2>
+    <div id="solved-text"></div>
+    <div class="share" id="share"></div>
+    <div class="actions">
+      <button type="button" id="secret">See what nobody saw</button>
+      <button type="button" class="quiet" id="copy">Copy result</button>
+      <button type="button" class="quiet" id="again">Start this night over</button>
+      <span class="muted" id="copied" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <footer>
+    <p>Made in 72 hours for All Tools Allowed #3, theme TRICK.</p>
+    <p>Idea and art direction: Christine. Everything is drawn and every sound is made in code; no image generator and no AI audio were used. Built with Claude Code.</p>
+    <p>From the makers of <a href="https://typingpoolgame.com/pool.html">The Typing Pool</a>, <a href="https://typingpoolgame.com/story/">Ministry of Secrets</a>, <a href="https://typingpoolgame.com/pier7/">Pier 7</a>, <a href="https://typingpoolgame.com/circuit/">Circuit Ghost</a> and <a href="https://typingpoolgame.com/october/">October Theorem</a>. All of them are free at <a href="https://typingpoolgame.com/">typingpoolgame.com</a>.</p>
+  </footer>
+</div>
+</main>
+
+<div class="photo" id="photo" hidden role="dialog" aria-modal="true" aria-labelledby="photo-cap">
+  <div class="frame">
+    <canvas id="photo-c" role="img" aria-label=""></canvas>
+    <p class="cap" id="photo-cap"></p>
+    <p class="truth" id="photo-truth"></p>
+    <div class="actions">
+      <button type="button" class="quiet" id="photo-prev">Earlier</button>
+      <button type="button" class="quiet" id="photo-next">Later</button>
+      <button type="button" id="photo-close">Close</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TAU = Math.PI * 2;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const INK = '#1c0f26', SKIN = '#93b07c', SKIN_D = '#5f7a4e', BONE = '#ebe4cf';
+const DATA = JSON.parse(document.getElementById('case').textContent);
+const ZS = DATA.zombies;
+const PRINT = { 'liquorice bat': 'bat', 'toffee skull': 'skull', 'marzipan mouse': 'mouse' };
+const PLURAL = { 'liquorice bat': 'liquorice bats', 'toffee skull': 'toffee skulls', 'marzipan mouse': 'marzipan mice' };
+const A = s => /^[aeiou]/.test(s) ? 'an ' + s : 'a ' + s;
+const sel = id => document.getElementById(id);
+const byName = n => ZS.find(z => z.name === n);
+const ownerOf = face => ZS.find(z => z.face === face);
+
+/* ---------- the zombie (approved by the art director) ---------- */
+const HEM_PLAIN = [[22,136],[26,139],[30,136],[34,139],[39,136],[44,139],[49,136],[54,139],[59,136],[64,139],[69,136],[74,139],[78,136]];
+const HEM_TORN  = [[22,136],[26,139],[30,136],[35,122],[39,137],[44,139],[49,136],[54,139],[59,136],[64,139],[69,136],[74,139],[78,136]];
+function robePath(ctx, hem) {
+  ctx.beginPath(); ctx.moveTo(38, 59); ctx.quadraticCurveTo(30, 61, 29, 74); ctx.lineTo(22, 136);
+  hem.forEach(([x, y]) => ctx.lineTo(x, y));
+  ctx.lineTo(71, 74); ctx.quadraticCurveTo(70, 61, 62, 59); ctx.closePath();
+}
+function drawPrint(ctx, kind) {
+  ctx.fillStyle = '#20141f'; ctx.strokeStyle = '#20141f';
+  if (kind === 'bat') {
+    ctx.beginPath(); ctx.moveTo(0, 15); ctx.quadraticCurveTo(-3, 13, -8, 15); ctx.quadraticCurveTo(-6, 17, -7, 20);
+    ctx.quadraticCurveTo(-4, 18.5, -2, 21); ctx.lineTo(0, 19); ctx.lineTo(2, 21); ctx.quadraticCurveTo(4, 18.5, 7, 20);
+    ctx.quadraticCurveTo(6, 17, 8, 15); ctx.quadraticCurveTo(3, 13, 0, 15); ctx.closePath(); ctx.fill();
+  } else if (kind === 'skull') {
+    ctx.beginPath(); ctx.arc(0, 16.5, 4.6, Math.PI, 0); ctx.lineTo(3, 21); ctx.lineTo(-3, 21); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#b8865a'; [-1.8, 1.8].forEach(dx => { ctx.beginPath(); ctx.arc(dx, 17, 1.2, 0, TAU); ctx.fill(); });
+  } else {
+    ctx.beginPath(); ctx.moveTo(-5.6, 19.6); ctx.quadraticCurveTo(-3, 14.6, 1.6, 15); ctx.quadraticCurveTo(6.2, 15.6, 5.8, 21); ctx.lineTo(-3.8, 21.2); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.arc(-1, 15.4, 2, 0, TAU); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(5.6, 20.4); ctx.quadraticCurveTo(8.6, 19.6, 7.8, 16.6); ctx.lineWidth = .9; ctx.stroke();
+    ctx.fillStyle = '#b8865a'; ctx.beginPath(); ctx.arc(-3, 18, .55, 0, TAU); ctx.fill();
+  }
+}
+function carveFace(ctx, face, hx, hy) {
+  const P = pts => { ctx.beginPath(); pts.forEach(([x, y], i) => i ? ctx.lineTo(hx + x, hy + y) : ctx.moveTo(hx + x, hy + y)); ctx.closePath(); ctx.fill(); ctx.stroke(); };
+  const star = (cx, cy, R, r) => { const pts = []; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, k = i % 2 ? r : R; pts.push([cx + Math.cos(a) * k, cy + Math.sin(a) * k]); } P(pts); };
+  const nose = () => P([[-1.6, 1.5], [1.6, 1.5], [0, -1.6]]);
+  if (face === 'crooked grin') {
+    P([[-12, -3], [-4, -4], [-8.5, -11]]); P([[4, -6], [11, -7.5], [8.5, -12.5]]); nose();
+    ctx.save(); ctx.translate(hx, hy + 8); ctx.rotate(-.14); ctx.translate(-hx, -hy - 8);
+    ctx.beginPath(); ctx.moveTo(hx - 13, hy + 3);
+    ctx.lineTo(hx - 2, hy + 7.5); ctx.lineTo(hx - 2, hy + 10.5); ctx.lineTo(hx + 1.5, hy + 10.5); ctx.lineTo(hx + 1.5, hy + 8);
+    ctx.lineTo(hx + 13, hy + 7); ctx.quadraticCurveTo(hx + 4, hy + 17, hx - 5, hy + 13);
+    ctx.lineTo(hx - 5, hy + 11); ctx.lineTo(hx - 7.5, hy + 11); ctx.lineTo(hx - 7.5, hy + 12);
+    ctx.quadraticCurveTo(hx - 12, hy + 9, hx - 13, hy + 3); ctx.closePath(); ctx.fill(); ctx.stroke();
+    ctx.restore();
+  } else if (face === 'three teeth') {
+    P([[-12, -4], [-4, -4], [-8, -11]]); P([[4, -4], [12, -4], [8, -11]]); nose();
+    ctx.beginPath(); ctx.moveTo(hx - 14, hy + 3);
+    [[-7, 5], [-7, 8.5], [-4, 8.5], [-4, 5.6], [-1.5, 6], [-1.5, 9.5], [1.5, 9.5], [1.5, 6], [4, 5.6], [4, 8.5], [7, 8.5], [7, 5], [14, 3]]
+      .forEach(([x, y]) => ctx.lineTo(hx + x, hy + y));
+    ctx.quadraticCurveTo(hx, hy + 21, hx - 14, hy + 3); ctx.closePath(); ctx.fill(); ctx.stroke();
+  } else if (face === 'star eyes') {
+    star(-8, -6, 5.5, 2.3); star(8, -6, 5.5, 2.3); nose();
+    ctx.beginPath(); ctx.moveTo(hx - 8, hy + 5); ctx.quadraticCurveTo(hx, hy + 9, hx + 8, hy + 5);
+    ctx.quadraticCurveTo(hx, hy + 15, hx - 8, hy + 5); ctx.closePath(); ctx.fill(); ctx.stroke();
+  } else if (face === 'zigzag mouth') {
+    P([[-13, -9], [-4, -5], [-11, -3]]); P([[13, -9], [4, -5], [11, -3]]); nose();
+    P([[-14, 4], [-9.5, 7.5], [-5, 4], [0, 7.5], [5, 4], [9.5, 7.5], [14, 4], [10, 12], [5, 8.5], [0, 12.5], [-5, 8.5], [-10, 12]]);
+  } else if (face === 'wink') {
+    P([[-12, -3], [-4, -3], [-8, -11]]);
+    ctx.beginPath(); ctx.moveTo(hx + 3.5, hy - 6); ctx.quadraticCurveTo(hx + 8, hy - 11, hx + 12.5, hy - 6);
+    ctx.quadraticCurveTo(hx + 8, hy - 8, hx + 3.5, hy - 6); ctx.closePath(); ctx.fill(); ctx.stroke();
+    nose();
+    ctx.beginPath(); ctx.moveTo(hx - 11, hy + 4); ctx.quadraticCurveTo(hx, hy + 10, hx + 12, hy + 2);
+    ctx.quadraticCurveTo(hx + 3, hy + 17, hx - 11, hy + 4); ctx.closePath(); ctx.fill(); ctx.stroke();
+  } else if (face === 'droopy frown') {
+    P([[-13, -2], [-4, -8], [-5, -2]]); P([[13, -2], [4, -8], [5, -2]]); nose();
+    ctx.beginPath(); ctx.moveTo(hx - 10, hy + 12); ctx.quadraticCurveTo(hx, hy + 1, hx + 10, hy + 12);
+    ctx.quadraticCurveTo(hx, hy + 6.5, hx - 10, hy + 12); ctx.closePath(); ctx.fill(); ctx.stroke();
+  }
+}
+function drawPumpkin(ctx, face, hx, hy, tt, dim) {
+  const fillLine = (fill, w) => { ctx.fillStyle = fill; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = w; ctx.stroke(); };
+  const pg = ctx.createRadialGradient(hx - 6, hy - 6, 3, hx, hy, 26);
+  pg.addColorStop(0, '#ffb55a'); pg.addColorStop(.6, '#f08a24'); pg.addColorStop(1, '#b8540e');
+  [[-12, 11, 17], [12, 11, 17], [-5, 10, 18], [5, 10, 18], [0, 8, 18.5]].forEach(([dx, rx, ry]) => {
+    ctx.beginPath(); ctx.ellipse(hx + dx, hy, rx, ry, 0, 0, TAU); fillLine(pg, 1.5);
+  });
+  ctx.beginPath(); ctx.moveTo(hx - 2, hy - 17); ctx.quadraticCurveTo(hx - 3, hy - 24, hx + 3, hy - 26);
+  ctx.lineTo(hx + 5.5, hy - 23.5); ctx.quadraticCurveTo(hx + 1.5, hy - 21.5, hx + 2.2, hy - 17); ctx.closePath();
+  fillLine('#5d7a2e', 1.5);
+  const fl = reduce ? 1 : .82 + .18 * Math.sin(tt * 13) * Math.sin(tt * 7.3);
+  ctx.save();
+  ctx.shadowColor = '#ffae30'; ctx.shadowBlur = 14 * fl * (dim || 1);
+  ctx.fillStyle = `rgb(255 ${Math.round(190 + 40 * fl)} 90)`;
+  ctx.strokeStyle = '#6b2c06'; ctx.lineWidth = 1.1;
+  carveFace(ctx, face, hx, hy);
+  ctx.restore();
+}
+function drawBag(ctx, print) {
+  ctx.beginPath(); ctx.moveTo(-3, 0); ctx.quadraticCurveTo(1, 4, 0, 6); ctx.moveTo(4, 0); ctx.quadraticCurveTo(2, 4, 0, 6);
+  ctx.strokeStyle = '#7a5434'; ctx.lineWidth = 1.4; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-9, 6); ctx.lineTo(10, 6); ctx.lineTo(12, 28); ctx.lineTo(-11, 28); ctx.closePath();
+  ctx.fillStyle = '#b8865a'; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = 1.6; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-9.3, 9.5); ctx.lineTo(10.3, 9.5); ctx.strokeStyle = '#7a5434'; ctx.lineWidth = 1.2; ctx.stroke();
+  drawPrint(ctx, print);
+}
+
+/* A zombie in a 100 x 150 box, feet on y = 145.
+   o: { lift 0..1, headDX, headDY, face, print, glowScale, hold: a treat in the reaching hand, noHead, noBag, lean } */
+function drawZombie(ctx, z, t, o = {}) {
+  const L = o.lift || 0, tt = t + (z.seed || 0);
+  const sway = (reduce ? 0 : Math.sin(tt * 1.3) * .022) + (o.lean || 0);
+  const bob = reduce ? 0 : Math.sin(tt * 2.6) * .8;
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const fillLine = (fill, w = 1.8) => { ctx.fillStyle = fill; ctx.fill(); ctx.strokeStyle = INK; ctx.lineWidth = w; ctx.stroke(); };
+
+  ctx.beginPath(); ctx.ellipse(50, 146, 31, 4, 0, 0, TAU); ctx.fillStyle = 'rgba(0,0,0,.4)'; ctx.fill();
+  if (z.hem === 'trailing bandage') {
+    const w = reduce ? 0 : Math.sin(tt * 2) * 1;
+    ctx.beginPath(); ctx.moveTo(60, 137); ctx.quadraticCurveTo(74, 147 + w, 86, 143); ctx.quadraticCurveTo(92, 141, 97, 145 + w * .5);
+    ctx.strokeStyle = INK; ctx.lineWidth = 4.6; ctx.stroke(); ctx.strokeStyle = BONE; ctx.lineWidth = 3; ctx.stroke();
+    ctx.strokeStyle = '#b9ae90'; ctx.lineWidth = .7;
+    [[72, 143.5], [80, 144.6], [89, 142.6]].forEach(([x, y]) => { ctx.beginPath(); ctx.moveTo(x, y - 1.3); ctx.lineTo(x + 1, y + 1.3); ctx.stroke(); });
+  }
+  ctx.save();
+  ctx.translate(50, 145); ctx.rotate(sway); ctx.translate(-50, -145);
+
+  if (z.hem === 'torn hem') { ctx.beginPath(); ctx.roundRect(32, 118, 7, 22, 3); fillLine(SKIN, 1.4); }
+  [[40, 1], [61, -1]].forEach(([x, d], i) => {
+    if (z.hem === 'one bare bony foot' && i === 0) {
+      ctx.beginPath(); ctx.ellipse(x + 3, 141.5, 3.6, 2.6, 0, 0, TAU); fillLine(BONE, 1.3);
+      [-5, -2, 1].forEach((dx, k) => { ctx.beginPath(); ctx.ellipse(x + dx, 139.5 + k * .3, 1.2, 3, -.2, 0, TAU); fillLine(BONE, 1); });
+      return;
+    }
+    ctx.beginPath(); ctx.ellipse(x, 141, 8, 4, 0, 0, TAU); fillLine(SKIN, 1.6);
+    [-4, 0, 4].forEach(dx => { ctx.beginPath(); ctx.arc(x + dx + d * 2, 138.6, 1.6, 0, TAU); fillLine(SKIN, 1); });
+  });
+
+  const hem = z.hem === 'torn hem' ? HEM_TORN : HEM_PLAIN;
+  robePath(ctx, hem);
+  const rg = ctx.createLinearGradient(0, 60, 0, 140); rg.addColorStop(0, '#7a42b3'); rg.addColorStop(1, '#3e1c62');
+  fillLine(rg, 2);
+  ctx.save(); robePath(ctx, hem); ctx.clip();
+  if (z.hem === 'muddy hem') {
+    ctx.fillStyle = 'rgb(107 74 43 / .9)';
+    [[30, 133, 6, 3.4], [44, 135, 4.5, 2.6], [61, 134, 6.5, 3.4], [73, 132, 3.6, 2.4], [52, 137, 4, 2]].forEach(([x, y, a, b]) => { ctx.beginPath(); ctx.ellipse(x, y, a, b, .2, 0, TAU); ctx.fill(); });
+    [[33, 129], [63, 130]].forEach(([x, y]) => { ctx.beginPath(); ctx.ellipse(x, y, 1, 2.4, 0, 0, TAU); ctx.fill(); });
+  } else if (z.hem === 'singed hem') {
+    const gr = ctx.createLinearGradient(0, 128, 0, 139); gr.addColorStop(0, 'rgb(20 8 12 / 0)'); gr.addColorStop(1, 'rgb(20 8 12 / .95)');
+    ctx.fillStyle = gr; ctx.fillRect(15, 126, 70, 16);
+  } else if (z.hem === 'patched hem') {
+    ctx.save(); ctx.translate(62, 128); ctx.rotate(.12);
+    ctx.beginPath(); ctx.rect(-6, -6, 12, 11); ctx.fillStyle = '#c08a3e'; ctx.fill();
+    ctx.strokeStyle = '#8a5e22'; ctx.lineWidth = .8; [-2, 2].forEach(d => { ctx.beginPath(); ctx.moveTo(-6, d); ctx.lineTo(6, d); ctx.stroke(); });
+    ctx.setLineDash([1.4, 1.2]); ctx.strokeStyle = INK; ctx.lineWidth = .8; ctx.strokeRect(-5.2, -5.2, 10.4, 9.4); ctx.setLineDash([]);
+    ctx.restore();
+  }
+  ctx.restore();
+  if (z.hem === 'singed hem') {
+    const e = reduce ? 1 : .6 + .4 * Math.sin(tt * 9);
+    ctx.fillStyle = `rgb(255 122 42 / ${e})`;
+    [[27, 137], [41, 137.5], [57, 137], [70, 136.5]].forEach(([x, y]) => { ctx.beginPath(); ctx.arc(x, y, .9, 0, TAU); ctx.fill(); });
+  }
+  ctx.strokeStyle = '#2c1247'; ctx.lineWidth = 1.2;
+  [[44, 84, 40, 133], [57, 84, 61, 133], [50, 96, 50, 134]].forEach(([a, b, c, d]) => { ctx.beginPath(); ctx.moveTo(a, b); ctx.quadraticCurveTo((a + c) / 2 + 1.5, (b + d) / 2, c, d); ctx.stroke(); });
+  ctx.beginPath(); ctx.moveTo(30.5, 88); ctx.quadraticCurveTo(50, 92, 69.5, 88);
+  ctx.strokeStyle = INK; ctx.lineWidth = 3.6; ctx.stroke(); ctx.strokeStyle = '#c9a46a'; ctx.lineWidth = 2; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(45, 90.5); ctx.quadraticCurveTo(43, 98, 45, 104); ctx.strokeStyle = '#c9a46a'; ctx.stroke();
+
+  const reach = reduce ? 0 : Math.sin(tt * 1.7) * 1.2;
+  ctx.beginPath(); ctx.moveTo(31, 63); ctx.quadraticCurveTo(18, 68, 9, 78 + reach); ctx.lineTo(16, 89 + reach); ctx.quadraticCurveTo(26, 81, 36, 80); ctx.closePath();
+  fillLine('#6a35a0', 1.8);
+  ctx.beginPath(); ctx.ellipse(10.5, 86 + reach, 5, 4.2, -.5, 0, TAU); fillLine(SKIN, 1.5);
+  [[-3, 0], [0, .4], [3, .9]].forEach(([dx, k], i) => {
+    const sw = reduce ? 0 : Math.sin(tt * 3 + i) * .8;
+    ctx.beginPath(); ctx.moveTo(9 + dx, 89 + reach); ctx.lineTo(8 + dx + sw, 95 + reach + k);
+    ctx.strokeStyle = INK; ctx.lineWidth = 3.4; ctx.stroke(); ctx.strokeStyle = SKIN; ctx.lineWidth = 1.8; ctx.stroke();
+  });
+  if (o.hold) { ctx.save(); ctx.translate(9 - 5.5, 93 + reach - 5.5); ctx.scale(.55, .55); drawTreat(ctx, o.hold, true); ctx.restore(); }
+
+  ctx.beginPath(); ctx.moveTo(69, 63); ctx.quadraticCurveTo(80, 79, 84, 97); ctx.lineTo(76, 100); ctx.quadraticCurveTo(72, 85, 66, 80); ctx.closePath();
+  fillLine('#6a35a0', 1.8);
+  ctx.save(); ctx.translate(80, 101); ctx.rotate(reduce ? 0 : Math.sin(tt * 2.6 + 1) * .04);
+  if (!o.noBag) drawBag(ctx, o.print || PRINT[z.treat]);
+  ctx.beginPath(); ctx.ellipse(-4, 2, 4.6, 3.8, .4, 0, TAU); fillLine(SKIN, 1.5);
+  ctx.restore();
+
+  ctx.beginPath(); ctx.roundRect(44.5, 49, 11, 13, 3); fillLine(SKIN, 1.6);
+  ctx.beginPath(); ctx.ellipse(50, 49.5, 5.5, 2, 0, 0, TAU); fillLine(SKIN_D, 1.2);
+  ctx.strokeStyle = INK; ctx.lineWidth = .9;
+  [53, 57].forEach(y => { ctx.beginPath(); ctx.moveTo(45.5, y); ctx.lineTo(54.5, y); ctx.stroke();
+    [47, 50, 53].forEach(x => { ctx.beginPath(); ctx.moveTo(x, y - 1.4); ctx.lineTo(x, y + 1.4); ctx.stroke(); }); });
+  ctx.beginPath(); ctx.moveTo(37, 60); ctx.quadraticCurveTo(50, 67, 63, 60); ctx.quadraticCurveTo(50, 63, 37, 60);
+  ctx.strokeStyle = INK; ctx.lineWidth = 2.2; ctx.stroke();
+
+  if (!o.noHead) {
+    const hx = 50 + (o.headDX || 0), hy = 36 + bob - L * 24 + (o.headDY || 0);
+    ctx.save();
+    ctx.translate(hx, hy + 16); ctx.rotate((reduce ? 0 : Math.sin(tt * 7) * .05) * L); ctx.translate(-hx, -hy - 16);
+    drawPumpkin(ctx, o.face || z.face, hx, hy, tt, o.glowScale);
+    ctx.restore();
+  }
+
+  ctx.restore();
+}
+
+/* a treat in a 20 x 20 box; plate: on its paper wrapper, so a dark sweet shows on a dark night */
+function drawTreat(ctx, treat, plate) {
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (plate) {
+    ctx.beginPath(); ctx.arc(10, 10, 9.6, 0, TAU); ctx.fillStyle = '#efe3c6'; ctx.fill();
+    ctx.strokeStyle = '#9a8158'; ctx.lineWidth = .9; ctx.stroke();
+  }
+  if (treat === 'frog sweet') {
+    ctx.beginPath(); ctx.ellipse(10, 11.5, 7.5, 6.5, 0, 0, TAU); ctx.fillStyle = '#5ccc4a'; ctx.fill(); ctx.strokeStyle = '#1f4a18'; ctx.lineWidth = 1.2; ctx.stroke();
+    [[6.6, 6.6], [13.4, 6.6]].forEach(([x, y]) => { ctx.beginPath(); ctx.arc(x, y, 2.4, 0, TAU); ctx.fillStyle = '#5ccc4a'; ctx.fill(); ctx.stroke(); ctx.beginPath(); ctx.arc(x, y, 1, 0, TAU); ctx.fillStyle = '#122a0e'; ctx.fill(); });
+    ctx.beginPath(); ctx.arc(10, 12, 3.4, .2 * Math.PI, .8 * Math.PI); ctx.strokeStyle = '#1f4a18'; ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(7, 9.5, 1.6, .9, -.5, 0, TAU); ctx.fillStyle = 'rgb(255 255 255 / .5)'; ctx.fill();
+    return;
+  }
+  ctx.save(); ctx.translate(10, -7); ctx.scale(1.05, 1.05);
+  if (treat === 'liquorice bat') { drawPrint(ctx, 'bat'); ctx.fillStyle = '#5a4a66'; ctx.beginPath(); ctx.arc(-1.2, 16, .6, 0, TAU); ctx.arc(1.2, 16, .6, 0, TAU); ctx.fill(); }
+  else if (treat === 'toffee skull') {
+    ctx.beginPath(); ctx.arc(0, 16, 6, Math.PI, 0); ctx.lineTo(4, 22); ctx.lineTo(-4, 22); ctx.closePath();
+    ctx.fillStyle = '#d99a3e'; ctx.fill(); ctx.strokeStyle = '#6b4310'; ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = '#6b4310'; [-2.3, 2.3].forEach(dx => { ctx.beginPath(); ctx.arc(dx, 16.5, 1.5, 0, TAU); ctx.fill(); });
+    [-2, 0, 2].forEach(dx => { ctx.fillRect(dx - .3, 20, .6, 2); });
+  } else if (treat === 'marzipan mouse') {
+    const pink = '#f2a7b8', line = '#8a3f52';
+    ctx.lineWidth = .9; ctx.strokeStyle = line;
+    ctx.beginPath(); ctx.moveTo(7.6, 20.4); ctx.quadraticCurveTo(10.6, 19.4, 9.4, 15.8); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(-6, 19.4); ctx.quadraticCurveTo(-3, 13, 2.4, 13.6); ctx.quadraticCurveTo(8.2, 14.4, 7.8, 21);
+    ctx.lineTo(-4, 21.2); ctx.quadraticCurveTo(-5.8, 21, -6, 19.4); ctx.closePath();
+    ctx.fillStyle = pink; ctx.fill(); ctx.lineWidth = 1; ctx.stroke();
+    ctx.beginPath(); ctx.ellipse(1.6, 15.4, 2.6, .8, -.15, 0, TAU); ctx.fillStyle = 'rgb(255 255 255 / .45)'; ctx.fill();
+    ctx.beginPath(); ctx.arc(-.6, 14.4, 2.6, 0, TAU); ctx.fillStyle = '#f7c0cd'; ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.arc(-.5, 14.6, 1.3, 0, TAU); ctx.fillStyle = '#e57f98'; ctx.fill();
+    ctx.beginPath(); ctx.arc(-3.3, 17.4, .75, 0, TAU); ctx.fillStyle = '#3a1820'; ctx.fill();
+    ctx.beginPath(); ctx.arc(-6.1, 19.3, .9, 0, TAU); ctx.fillStyle = '#c2405e'; ctx.fill();
+    ctx.strokeStyle = 'rgb(90 40 52 / .7)'; ctx.lineWidth = .3;
+    [[-8.6, 17.9], [-8.9, 19.6], [-8.5, 21.2]].forEach(([x, y]) => { ctx.beginPath(); ctx.moveTo(-5.4, 19.5); ctx.lineTo(x, y); ctx.stroke(); });
+  }
+  ctx.restore();
+}
+
+/* ---------- small static pictures ---------- */
+const VIEW_FACE = [14, 6, 72, 54], VIEW_HEM = [10, 106, 94, 46];
+let statics = [];
+function paint(canvas, vb, fn, bgFn) {
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  if (!w || !h) return;
+  canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+  const ctx = canvas.getContext('2d');
+  const [x0, y0, vw, vh] = vb, s = Math.min(canvas.width / vw, canvas.height / vh);
+  ctx.setTransform(s, 0, 0, s, (canvas.width - vw * s) / 2 - x0 * s, (canvas.height - vh * s) / 2 - y0 * s);
+  if (bgFn) bgFn(ctx);
+  fn(ctx);
+}
+function peepBg(ctx) {
+  const g = ctx.createLinearGradient(0, 0, 0, 150); g.addColorStop(0, '#24163a'); g.addColorStop(1, '#3d2348');
+  ctx.fillStyle = g; ctx.fillRect(-80, -80, 260, 320);
+  ctx.fillStyle = '#1a1224'; ctx.fillRect(-80, 141, 260, 40);
+}
+function canvasEl(cls, label) { const c = document.createElement('canvas'); if (cls) c.className = cls; c.setAttribute('role', 'img'); c.setAttribute('aria-label', label); return c; }
+function facePic(c, face) { statics.push(() => paint(c, VIEW_FACE, ctx => drawZombie(ctx, { face, hem: 'plain', treat: 'liquorice bat' }, .4), peepBg)); }
+function hemPic(c, hem, treat) { statics.push(() => paint(c, VIEW_HEM, ctx => drawZombie(ctx, { face: 'wink', hem, treat }, .4), peepBg)); }
+function treatPic(c, treat) { statics.push(() => paint(c, [0, 0, 20, 20], ctx => drawTreat(ctx, treat, true))); }
+function paintStatics() { statics.forEach(f => f()); }
+
+/* ---------- state, one per night ---------- */
+const fresh = () => ({ tries: 0, hints: 0, solved: false, marks: {}, picks: {} });
+let store = { active: 0, nights: {} };
+try { store = Object.assign(store, JSON.parse(localStorage.getItem('croak.v2') || '{}')); } catch (e) {}
+DATA.nights.forEach(n => { store.nights[n.id] = Object.assign(fresh(), store.nights[n.id] || {}); });
+function save() { try { localStorage.setItem('croak.v2', JSON.stringify(store)); } catch (e) {} }
+let NI = Math.min(store.active || 0, DATA.nights.length - 1);
+const N = () => DATA.nights[NI];
+const ST = () => store.nights[N().id];
+
+/* ---------- the words of each night ---------- */
+const TRICK = kind => N().answer.tricks.find(t => t.kind === kind);
+const TEXT = {
+  n1: {
+    victim: 'Paul', door: 159,
+    story: `<h2>Thank y— CROAK</h2>
+      <p>At twenty to seven, your big brother Paul took a sweet from the zombie with the <b>crooked grin</b>, ate it, and tried to say thank you.</p>
+      <p class="croak">CROAK.</p>
+      <p>His tongue is green and he can't stop. Everyone on Gourd Lane saw the crooked grin, and the crooked grin is Mortimer's. Mortimer says it wasn't him. One of the six is naughty, and a naughty zombie plays tricks. You're small, so you look at hems. Maybe you're the only one who can find out <b>whose hand</b> it really was.</p>`,
+    rule: `<b>One zombie is naughty.</b> It kept one frog sweet up its sleeve, not in its bag. To get someone else blamed, it may have played one trick at the tub: swapped its pumpkin with another zombie's, or its bag. Nobody else swaps anything.`,
+    fields: [
+      { id: 'giver', opts: ZS.map(z => z.name), truth: () => N().answer.giver },
+      { id: 'pumpkin', opts: ZS.map(z => z.name), truth: () => N().answer.pumpkin },
+      { id: 'kind', opts: ['pumpkins', 'bags'], truth: () => N().answer.tricks[0].kind },
+      { id: 'tub', opts: 'tubs', truth: () => N().answer.tricks[0].tub },
+    ],
+    sentence: S => `${S('giver')} gave Paul the frog sweet, wearing ${S('pumpkin')}'s pumpkin. It swapped ${S('kind')} at the tub at ${S('tub')}.`,
+    hints: [
+      'Follow the crooked grin through the night. What did it hand out before 18:30, and what after?',
+      'Marzipan mice come out of Ghoulia\'s and Rotbert\'s bags. Which of them was at the tub at 18:30, next to the crooked grin? Then ask: did the pumpkins move, or the bags? Only the small children can tell you.',
+      'Mia saw Ghoulia\'s singed hem hand out a marzipan mouse at 18:55, so Ghoulia still had its own bag. The bags never moved. So who was wearing the crooked grin at 18:40?',
+    ],
+    solvedH: 'Ghoulia did it.',
+    solved: `<p>At 18:30, while Mortimer had its face in the apple tub, Ghoulia sneaked round the posts, put on Mortimer's crooked grin and left its own wink on Mortimer's post. Mortimer came up and took the pumpkin from its own post. From behind, every pumpkin looks the same, and a zombie can't see the one it's wearing, so Mortimer never knew. At 18:40 Ghoulia took the frog sweet from up its sleeve and handed it to Paul, with Mortimer's face and Ghoulia's own hand.</p>
+      <p><b>A pumpkin can lie. A hem can't: robes never come off.</b></p>`,
+  },
+  n2: {
+    victim: 'Felix', door: 40,
+    story: `<h2>Not again. CROAK</h2>
+      <p>A year later, Halloween on Gourd Lane again. At twenty to seven, Felix from the blue door took a sweet from the zombie with the <b>droopy frown</b>.</p>
+      <p class="croak">CROAK.</p>
+      <p>Green tongue, the lot. The droopy frown is Rotbert's, and Rotbert says it wasn't. This year the naughty one was busier: <b>two tricks</b> at the tub, one with pumpkins and one with bags. So this time even the treats can point at the wrong zombie.</p>`,
+    rule: `<b>One zombie is naughty, and tonight it played two tricks.</b> It kept one frog sweet up its sleeve. At the tub it swapped its pumpkin with one zombie, and at the tub it swapped its bag with one zombie: perhaps the same one, perhaps not, perhaps at the same tub, perhaps not. Nobody else swaps anything.`,
+    fields: [
+      { id: 'giver', opts: ZS.map(z => z.name), truth: () => N().answer.giver },
+      { id: 'pumpkin', opts: ZS.map(z => z.name), truth: () => N().answer.pumpkin },
+      { id: 'ptub', opts: 'tubs', truth: () => TRICK('pumpkins').tub },
+      { id: 'bwith', opts: ZS.map(z => z.name), truth: () => TRICK('bags').with },
+      { id: 'btub', opts: 'tubs', truth: () => TRICK('bags').tub },
+    ],
+    sentence: S => `${S('giver')} gave Felix the frog sweet, wearing ${S('pumpkin')}'s pumpkin. It swapped pumpkins at the tub at ${S('ptub')}, and swapped bags with ${S('bwith')} at the tub at ${S('btub')}.`,
+    hints: [
+      'Start with what the droopy frown handed out: a marzipan mouse at 18:05, a liquorice bat at 18:35. Whoever wore it at 18:35 was carrying liquorice. Was that the pumpkin moving, the bag moving, or both?',
+      'Leni saw Mortimer\'s torn hem hand out liquorice at 18:55, so Mortimer kept its own bag. And at 19:05 the zigzag mouth gave a marzipan mouse. Whose pumpkin is the zigzag mouth, and whose bag is marzipan?',
+      'The zigzag mouth (Moldwin\'s) ended up on Rotbert, so Moldwin and Rotbert swapped pumpkins at 18:30. Moldwin, in the droopy frown, was carrying liquorice: the only liquorice bag it could have taken before 18:35 is Bonesby\'s, at 18:10.',
+    ],
+    solvedH: 'Moldwin did it, twice.',
+    solved: `<p>At 18:10, with Bonesby and Ghoulia bobbing, Moldwin swapped its bag of toffee skulls for Bonesby's liquorice bats. At 18:30, while Rotbert had its face in the water, Moldwin put on Rotbert's droopy frown and left its own zigzag mouth on Rotbert's post. At 18:40 it gave Felix the frog sweet from up its sleeve, with Rotbert's face and Bonesby's bag. Rotbert spent the rest of the night in Moldwin's zigzag mouth, handing out its own marzipan mice, and never knew.</p>
+      <p><b>One trick to borrow a face, one to borrow a bag. Only the hems never lie.</b></p>`,
+  },
+  n3: {
+    victim: 'Theo', door: 302,
+    story: `<h2>Three years running. CROAK</h2>
+      <p>Halloween on Gourd Lane, the third year. At twenty to seven, Theo from the purple door took a sweet from the zombie with the <b>wink</b>.</p>
+      <p class="croak">CROAK.</p>
+      <p>The wink is Ghoulia's, and everyone remembers what Ghoulia did two years ago. Ghoulia says it has given up tricks. Tonight the naughty one played <b>two tricks</b> at the tub, and nobody knows of which kind: pumpkins, bags, or one of each.</p>`,
+    rule: `<b>One zombie is naughty, and tonight it played two tricks.</b> It kept one frog sweet up its sleeve. Each trick swapped either its pumpkin or its bag with another zombie at the tub; two tricks at the same trip to the tub are one of each. Nobody else swaps anything.`,
+    fields: [
+      { id: 'giver', opts: ZS.map(z => z.name), truth: () => N().answer.giver },
+      { id: 'pumpkin', opts: ZS.map(z => z.name), truth: () => N().answer.pumpkin },
+      { id: 'k1', opts: ['pumpkins', 'bags'], truth: () => sortedTricks()[0].kind },
+      { id: 'w1', opts: ZS.map(z => z.name), truth: () => sortedTricks()[0].with },
+      { id: 't1', opts: 'tubs', truth: () => sortedTricks()[0].tub },
+      { id: 'k2', opts: ['pumpkins', 'bags'], truth: () => sortedTricks()[1].kind },
+      { id: 'w2', opts: ZS.map(z => z.name), truth: () => sortedTricks()[1].with },
+      { id: 't2', opts: 'tubs', truth: () => sortedTricks()[1].tub },
+    ],
+    sentence: S => `${S('giver')} gave Theo the frog sweet, wearing ${S('pumpkin')}'s pumpkin. First it swapped ${S('k1')} with ${S('w1')} at the tub at ${S('t1')}. Then it swapped ${S('k2')} with ${S('w2')} at the tub at ${S('t2')}.`,
+    hints: [
+      'Theo saw the wink. At 18:45 the wink handed Jakob a toffee skull, and toffee comes only out of Grizelda\'s and Moldwin\'s bags. So at 18:45 the wink was on a toffee zombie, or a toffee bag was in the wink\'s hand.',
+      'Follow Grizelda\'s three teeth to the end of the night: at 19:20 they handed Paula a liquorice bat. Frieda saw Bonesby\'s bony foot hand out liquorice at 18:35, so Bonesby kept its own bag. When could the three teeth have gone onto a liquorice zombie?',
+      'At 18:10 Grizelda and Bonesby were at the tub together: Grizelda took the star eyes and left the three teeth for Bonesby. At 18:30 the star eyes met the wink. Marie saw the star eyes hand out a marzipan mouse at 18:55: Ghoulia, with its own bag, under Bonesby\'s star eyes.',
+    ],
+    solvedH: 'Grizelda did it. Ghoulia really has given up tricks.',
+    solved: `<p>At 18:10, with Bonesby and Rotbert bobbing, Grizelda put on Bonesby's star eyes and left its own three teeth on Bonesby's post. At 18:30 it did it again, and traded the star eyes for Ghoulia's wink. So by 18:40 Grizelda had worn three faces in half an hour, and the frog sweet came out of Grizelda's sleeve under Ghoulia's wink. Bonesby spent the night in Grizelda's teeth and Ghoulia in Bonesby's stars, and neither ever knew.</p>
+      <p><b>A pumpkin can travel all over Gourd Lane. A hem stays home.</b></p>`,
+  },
+};
+const sortedTricks = () => N().answer.tricks.slice().sort((a, b) => a.tub < b.tub ? -1 : a.tub > b.tub ? 1 : a.kind === 'pumpkins' ? -1 : 1);
+const T = () => TEXT[N().id];
+const tubTimes = () => N().events.filter(e => e.kind === 'tub').map(e => e.time);
+
+/* What was really there at a moment (used only after solving, and for the reveal): the night's tricks, in order. */
+function stateAt(time, inclusive) {
+  const heads = {}, bags = {};
+  ZS.forEach(z => { heads[z.name] = z.face; bags[z.name] = z.treat; });
+  const g = N().answer.giver;
+  N().answer.tricks.slice().sort((a, b) => a.tub < b.tub ? -1 : 1).forEach(tr => {
+    if (tr.tub < time || (inclusive && tr.tub === time)) {
+      const d = tr.kind === 'pumpkins' ? heads : bags; [d[g], d[tr.with]] = [d[tr.with], d[g]];
+    }
+  });
+  return { heads, bags };
+}
+// whose bag a zombie is carrying at a moment
+function bagOwnerAt(name, time) {
+  const g = N().answer.giver, tr = N().answer.tricks.find(t => t.kind === 'bags' && t.tub < time);
+  if (!tr) return name;
+  return name === g ? tr.with : name === tr.with ? g : name;
+}
+
+/* ---------- the six ---------- */
+const sixEl = sel('six');
+const MARKS = ['not sure', 'cleared', 'suspect'];
+const setMarks = {};
+ZS.forEach(z => {
+  const el = document.createElement('div'); el.className = 'who';
+  const pics = document.createElement('div'); pics.className = 'pics';
+  const f2 = canvasEl('', `${z.name}'s pumpkin: ${z.face}`), h2 = canvasEl('', `${z.name}'s hem: ${z.hem}`);
+  pics.append(f2, h2); facePic(f2, z.face); hemPic(h2, z.hem, z.treat);
+  const row = document.createElement('div'); row.className = 'row';
+  const name = document.createElement('b'); name.textContent = z.name;
+  const mark = document.createElement('button'); mark.type = 'button'; mark.className = 'mark'; mark.id = 'mark-' + z.name;
+  setMarks[z.name] = m => { mark.dataset.m = m; el.dataset.m = m; mark.textContent = m; mark.setAttribute('aria-label', `${z.name}: ${m}. Tap to change.`); };
+  mark.addEventListener('click', () => { const m = MARKS[(MARKS.indexOf(mark.dataset.m) + 1) % 3]; ST().marks[z.name] = m; save(); setMarks[z.name](m); });
+  row.append(name, mark);
+  const info = document.createElement('small');
+  info.innerHTML = `pumpkin: ${z.face}<br>hem: ${z.hem}<br>treats: ${PLURAL[z.treat]}`;
+  el.append(pics, row, info);
+  sixEl.appendChild(el);
+});
+
+/* ---------- render the active night ---------- */
+const nightEl = sel('night');
+let MOMENTS = [];
+function renderNight() {
+  const n = N(), st = ST(), tx = T();
+  document.querySelectorAll('.nights button').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.night === NI)));
+  sel('story').innerHTML = tx.story;
+  sel('rule-tricks').innerHTML = tx.rule;
+  ZS.forEach(z => setMarks[z.name](st.marks[z.name] || 'not sure'));
+
+  statics = statics.filter(f => !f.night);
+  nightEl.innerHTML = ''; MOMENTS = [];
+  n.events.forEach(ev => {
+    const li = document.createElement('li'); li.className = 'ev'; li.tabIndex = 0; li.setAttribute('role', 'button');
+    const idx = MOMENTS.length; MOMENTS.push({ ev });
+    if (ev.kind === 'tub') n.answer.tricks.filter(t => t.tub === ev.time).forEach(tr => MOMENTS.push({ secret: tr, ev }));
+    const tm = document.createElement('time'); tm.innerHTML = `${ev.time}<small>photo</small>`;
+    const pics = document.createElement('div'); pics.className = 'pics';
+    const p = document.createElement('p');
+    const push = f => { f.night = true; statics.push(f); };
+    if (ev.kind === 'tub') {
+      li.classList.add('tub');
+      ev.faces.forEach(face => { const c = canvasEl('face', face); pics.appendChild(c); push(() => paint(c, VIEW_FACE, ctx => drawZombie(ctx, { face, hem: 'plain', treat: 'liquorice bat' }, .4), peepBg)); });
+      p.innerHTML = `<span class="chip">tub</span> ${ev.faces.length === 2 ? 'Two' : 'Three'} zombies come to Widow Krall's tub. From her window she sees only their pumpkins: ${ev.faces.map(f => `<b>${f}</b>`).join(', ')}.`;
+    } else {
+      const tall = ev.height === 'tall', treat = ev.kind === 'frog' ? 'frog sweet' : ev.treat;
+      const peep = canvasEl('peep', ev.saw); pics.appendChild(peep);
+      if (tall) push(() => paint(peep, VIEW_FACE, ctx => drawZombie(ctx, { face: ev.saw, hem: 'plain', treat: 'liquorice bat' }, .4), peepBg));
+      else push(() => paint(peep, VIEW_HEM, ctx => drawZombie(ctx, { face: 'wink', hem: ev.saw, treat: ev.treat }, .4), peepBg));
+      const tc = canvasEl('treat', treat); pics.appendChild(tc); push(() => paint(tc, [0, 0, 20, 20], ctx => drawTreat(ctx, treat, true)));
+      if (ev.kind === 'frog') {
+        li.classList.add('frog');
+        p.innerHTML = `<span class="chip">${ev.height}</span> <b>${ev.child}</b> saw the <b>${ev.saw}</b> and got a green sweet. <span class="say">Thank y— CROAK.</span>`;
+      } else {
+        p.innerHTML = `<span class="chip">${ev.height}</span> <b>${ev.child}</b> saw ${tall ? 'the' : 'a'} <b>${ev.saw}</b> and got ${A(ev.treat)}.`;
+      }
+    }
+    li.setAttribute('aria-label', `${ev.time}: ${p.textContent} Tap for the photo.`);
+    const go = () => openPhotos(momentScenes(), momentScenes().findIndex(m => m.at === idx));
+    li.addEventListener('click', go);
+    li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+    li.append(tm, pics, p);
+    nightEl.appendChild(li);
+  });
+
+  const S = id => `<select id="a-${id}" aria-label="${id}"></select>`;
+  sel('sentence').innerHTML = tx.sentence(S);
+  tx.fields.forEach(f => {
+    const s = sel('a-' + f.id), opts = f.opts === 'tubs' ? tubTimes() : f.opts;
+    s.innerHTML = '<option value="" disabled selected>…</option>' + opts.map(v => `<option value="${v}">${v}</option>`).join('');
+    if (st.picks[f.id]) s.value = st.picks[f.id];
+    s.addEventListener('change', () => { ST().picks[f.id] = s.value; save(); });
+  });
+  sel('verdict').textContent = st.solved ? 'Solved.' : ''; sel('verdict').className = 'verdict' + (st.solved ? ' yes' : '');
+  showHints();
+  sel('solved').hidden = !st.solved;
+  if (st.solved) { sel('solved-h').textContent = tx.solvedH; sel('solved-text').innerHTML = tx.solved; sel('share').textContent = shareText(); }
+  reveal = st.solved ? { start: -1e9 } : null;
+  paintStatics();
+}
+function setNight(i) { NI = i; store.active = i; save(); renderNight(); }
+document.querySelectorAll('.nights button').forEach(b => b.addEventListener('click', () => setNight(+b.dataset.night)));
+
+function showHints() {
+  const ol = sel('hints'), hs = T().hints, st = ST(); ol.innerHTML = '';
+  hs.slice(0, st.hints).forEach(h => { const li = document.createElement('li'); li.textContent = h; ol.appendChild(li); });
+  ol.hidden = st.hints === 0;
+  sel('hint').textContent = st.hints >= hs.length ? 'No more hints' : st.hints ? 'Another hint' : 'Hint';
+  sel('hint').disabled = st.hints >= hs.length;
+}
+sel('hint').addEventListener('click', () => { if (ST().hints < T().hints.length) { ST().hints++; save(); showHints(); } });
+
+sel('accuse').addEventListener('click', () => {
+  const st = ST(), fields = T().fields, v = sel('verdict');
+  const picks = fields.map(f => sel('a-' + f.id).value);
+  if (picks.some(x => !x)) { v.className = 'verdict no'; v.textContent = `Fill in all ${fields.length} blanks first.`; return; }
+  st.tries++;
+  const wrong = fields.filter((f, i) => picks[i] !== f.truth()).length;
+  if (wrong) {
+    v.className = 'verdict no';
+    v.textContent = `${wrong} of ${fields.length} blanks ${wrong === 1 ? 'is' : 'are'} wrong. ${T().victim} croaks again.`;
+    croak(1);
+  } else {
+    st.solved = true;
+    v.className = 'verdict yes'; v.textContent = 'That\'s it.';
+    sel('solved-h').textContent = T().solvedH; sel('solved-text').innerHTML = T().solved; sel('share').textContent = shareText();
+    sel('solved').hidden = false;
+    reveal = { start: performance.now() };
+    rattle(); setTimeout(rattle, reduce ? 0 : 3400); setTimeout(cheer, reduce ? 0 : 3700);
+    if (!street) document.querySelector('.lane').scrollIntoView({ block: 'start' });
+  }
+  save();
+});
+function shareText() {
+  const st = ST();
+  return `Trick or Croak, ${['Fun', 'Spooky', 'Scary'][NI] || 'Night ' + (NI + 1)}: ${N().title}\nSolved in ${st.tries} ${st.tries === 1 ? 'try' : 'tries'}, ${st.hints} ${st.hints === 1 ? 'hint' : 'hints'}.`;
+}
+sel('copy').addEventListener('click', () => {
+  const t = shareText();
+  const done = () => { sel('copied').textContent = 'Copied.'; };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(sel('share')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); sel('copied').textContent = 'Selected. Copy it from here.'; };
+  try { navigator.clipboard.writeText(t).then(done, fallback); } catch (e) { fallback(); }
+});
+sel('again').addEventListener('click', () => { store.nights[N().id] = fresh(); save(); renderNight(); sel('answer').scrollIntoView({ block: 'start' }); });
+sel('secret').addEventListener('click', () => { rattle(); const ms = momentScenes(); openPhotos(ms, ms.findIndex(m => m.secret)); });
+
+/* ---------- sound: all made here with the browser's audio engine ---------- */
+let ac = null, master = null, nightBed = null, soundOn = true;
+try { soundOn = localStorage.getItem('croak.sound') !== 'off'; } catch (e) {}
+const soundBtn = sel('sound');
+function setSound(on) {
+  soundOn = on; soundBtn.textContent = on ? 'Sound on' : 'Sound off'; soundBtn.setAttribute('aria-pressed', String(on));
+  try { localStorage.setItem('croak.sound', on ? 'on' : 'off'); } catch (e) {}
+  if (ac && master) master.gain.setTargetAtTime(on ? 1 : 0, ac.currentTime, .08);
+  if (on && sel('title').hidden) startNight();
+}
+soundBtn.addEventListener('click', () => setSound(!soundOn));
+function audio() {
+  if (!soundOn) return null;
+  try {
+    if (!ac) { ac = new (window.AudioContext || window.webkitAudioContext)(); master = ac.createGain(); master.connect(ac.destination); }
+    if (ac.state === 'suspended') ac.resume();
+    return ac;
+  } catch (e) { return null; }
+}
+setSound(soundOn);
+// A croak: one fast train of little pulses that droops at the end (higher and shorter, by order of the art director).
+function croak(n = 2) {
+  const a = audio(); if (!a) return;
+  for (let k = 0; k < n; k++) {
+    const t0 = a.currentTime + .05 + k * .34, step = .02, Np = 9, t1 = t0 + Np * step;
+    const o = a.createOscillator(), low = a.createOscillator(), bp = a.createBiquadFilter(), g = a.createGain();
+    o.type = 'triangle'; low.type = 'sine';
+    o.frequency.setValueAtTime(400, t0); o.frequency.linearRampToValueAtTime(440, t0 + .05); o.frequency.linearRampToValueAtTime(290, t1);
+    low.frequency.setValueAtTime(200, t0); low.frequency.linearRampToValueAtTime(150, t1);
+    bp.type = 'bandpass'; bp.frequency.value = 1150; bp.Q.value = 1.5;
+    g.gain.setValueAtTime(0, t0);
+    const pulse = (ti, amp) => { g.gain.setValueAtTime(0, ti); g.gain.linearRampToValueAtTime(amp, ti + .003); g.gain.linearRampToValueAtTime(0, ti + .013); };
+    for (let i = 0; i < Np; i++) pulse(t0 + i * step, .5 * (i < 2 || i > Np - 3 ? .6 : 1));
+    o.connect(bp).connect(g); low.connect(g); g.connect(master);
+    o.start(t0); low.start(t0); o.stop(t1 + .1); low.stop(t1 + .1);
+  }
+}
+function cheer() {
+  const a = audio(); if (!a) return;
+  [392, 494, 587, 784].forEach((hz, i) => {
+    const t0 = a.currentTime + i * .12, o = a.createOscillator(), g = a.createGain();
+    o.type = 'triangle'; o.frequency.value = hz;
+    g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(.18, t0 + .02); g.gain.exponentialRampToValueAtTime(.001, t0 + .5);
+    o.connect(g).connect(master); o.start(t0); o.stop(t0 + .55);
+  });
+}
+function noiseBuffer(a, secs, brown) {
+  const len = Math.floor(a.sampleRate * secs), buf = a.createBuffer(1, len, a.sampleRate), d = buf.getChannelData(0);
+  let last = 0;
+  for (let i = 0; i < len; i++) { const w = Math.random() * 2 - 1; if (brown) { last = (last + .02 * w) / 1.02; d[i] = last * 3.5; } else d[i] = w; }
+  return buf;
+}
+// A pumpkin coming off its neck: a hollow knock and a little dry rattle of seeds.
+function rattle() {
+  const a = audio(); if (!a) return;
+  const t0 = a.currentTime + .02;
+  const o = a.createOscillator(), og = a.createGain();
+  o.type = 'sine'; o.frequency.setValueAtTime(190, t0); o.frequency.exponentialRampToValueAtTime(110, t0 + .14);
+  og.gain.setValueAtTime(.3, t0); og.gain.exponentialRampToValueAtTime(.001, t0 + .16);
+  o.connect(og).connect(master); o.start(t0); o.stop(t0 + .18);
+  const src = a.createBufferSource(), bp = a.createBiquadFilter(), g = a.createGain();
+  src.buffer = noiseBuffer(a, .5, false); bp.type = 'bandpass'; bp.frequency.value = 2400; bp.Q.value = 2.5;
+  g.gain.setValueAtTime(0, t0);
+  for (let i = 0; i < 7; i++) { const ti = t0 + .05 + i * (.03 + Math.random() * .02); g.gain.setValueAtTime(0, ti); g.gain.linearRampToValueAtTime(.22 * (1 - i / 8), ti + .003); g.gain.exponentialRampToValueAtTime(.001, ti + .025); }
+  src.connect(bp).connect(g).connect(master); src.start(t0); src.stop(t0 + .5);
+}
+// The night bed: wind in the hedges, an owl now and then, a slow music box. All very quiet.
+function startNight() {
+  const a = audio(); if (!a || nightBed) return;
+  nightBed = {};
+  const wind = a.createBufferSource(); wind.buffer = noiseBuffer(a, 6, true); wind.loop = true;
+  const wbp = a.createBiquadFilter(); wbp.type = 'bandpass'; wbp.frequency.value = 380; wbp.Q.value = .6;
+  const wg = a.createGain(); wg.gain.value = .045;
+  const gust = a.createOscillator(), gg = a.createGain(); gust.frequency.value = .07; gg.gain.value = .03; gust.connect(gg).connect(wg.gain);
+  const sweep = a.createOscillator(), sg = a.createGain(); sweep.frequency.value = .045; sg.gain.value = 140; sweep.connect(sg).connect(wbp.frequency);
+  wind.connect(wbp).connect(wg).connect(master); wind.start(); gust.start(); sweep.start();
+  const box = a.createGain(); box.gain.value = .5; box.connect(master);
+  const note = (midi, t0) => {
+    const f = 440 * 2 ** ((midi - 69) / 12);
+    [[1, .05], [2, .018], [4.02, .008]].forEach(([k, v]) => {
+      const o = a.createOscillator(), g = a.createGain();
+      o.type = 'sine'; o.frequency.value = f * k;
+      g.gain.setValueAtTime(0, t0); g.gain.linearRampToValueAtTime(v, t0 + .006); g.gain.exponentialRampToValueAtTime(.0005, t0 + 1.6 / k);
+      o.connect(g).connect(box); o.start(t0); o.stop(t0 + 1.7);
+    });
+  };
+  // A minor, slow, a little crooked: [midi note, beats], 0 is a rest
+  const tune = [[69,1],[72,1],[76,2],[74,1],[72,1],[71,2],[69,1],[67,1],[69,3],[0,1],
+                [64,1],[67,1],[69,2],[72,1],[71,1],[68,2],[69,4],[0,4]];
+  const beat = .48;
+  let next = a.currentTime + 1.2, idx = 0;
+  nightBed.timer = setInterval(() => {
+    while (next < a.currentTime + 1) { const [m, b] = tune[idx % tune.length]; if (m) note(m, next); next += b * beat; idx++; }
+  }, 250);
+  const owl = () => {
+    const t0 = a.currentTime + .05;
+    [[0, .22], [.36, .5]].forEach(([dt, len]) => {
+      const o = a.createOscillator(), lp = a.createBiquadFilter(), g = a.createGain(), ts = t0 + dt;
+      o.type = 'sine'; o.frequency.setValueAtTime(400, ts); o.frequency.linearRampToValueAtTime(372, ts + len);
+      lp.type = 'lowpass'; lp.frequency.value = 900;
+      g.gain.setValueAtTime(0, ts); g.gain.linearRampToValueAtTime(.04, ts + .05); g.gain.setValueAtTime(.04, ts + len - .08); g.gain.linearRampToValueAtTime(0, ts + len);
+      o.connect(lp).connect(g).connect(master); o.start(ts); o.stop(ts + len + .05);
+    });
+    nightBed.owl = setTimeout(owl, 18000 + Math.random() * 22000);
+  };
+  nightBed.owl = setTimeout(owl, 6000);
+}
+document.addEventListener('pointerdown', () => { if (sel('title').hidden) startNight(); });
+
+/* ---------- the lane: moon, clouds, bats, six zombies, the tub ---------- */
+// The title card shows a short stretch of the lane (400 by 200 units). Once you knock, the lane
+// becomes the whole screen: zoomed out, the six small on the street, the clues drifting in the sky.
+const lane = sel('lane'), skyEl = sel('sky'), walkersEl = sel('walkers');
+const ZSCALE = .6, ZH = 145 * ZSCALE, ROAD = 24;
+// [left, width, roof, door colour, how much lower the eaves sit]
+const HOUSES = [[0, 64, 22, '#3c6a8a', 0], [60, 58, 18, '#8a3c3c', 8], [124, 70, 26, '#3c8a52', 0], [200, 60, 20, '#8a6a3c', 8], [266, 72, 24, '#5a3c8a', 0]];
+// apples in the tub, as fractions of its rim (back row first, so the front row overlaps it)
+const APPLES = [[-.62, -.5, '#c0322a'], [-.2, -.65, '#8fb53a'], [.22, -.55, '#c0322a'], [.6, -.45, '#d9a02a'],
+  [-.82, .05, '#a8281f'], [-.42, .15, '#c0322a'], [0, .05, '#d9a02a'], [.4, .2, '#c0322a'], [.8, .05, '#8fb53a']];
+const CLOUD_PUFFS = [[0, 0, 13], [14, -5, 11], [28, 0, 12], [12, 6, 10], [-12, 4, 8], [40, 5, 7]];
+const LANE = {
+  W: 400, H: 200, ground: 184, krall: 348, houses: HOUSES, zx: ZS.map((_, i) => 38 + i * 56),
+  moon: { x: 318, y: 46, r: 21 }, batY: [20, 80], batS: 1,
+  stars: [[20, 14], [48, 34], [84, 10], [110, 52], [150, 22], [186, 40], [214, 12], [248, 30], [372, 20], [390, 64], [268, 70], [16, 66]],
+  clouds: [{ x: 120, y: 40, s: 1.1, v: 5.2 }, { x: 330, y: 58, s: .9, v: 6.5 }, { x: -60, y: 26, s: 1.3, v: 4.1 }],
+};
+let L = LANE, street = null;
+let bats = [], nextBats = 4, moonDim = 0, last = 0, reveal = null, bubble = null;
+
+// The whole screen as a lane: zombies about as tall as a thumb, the houses to the same scale, the rest sky.
+function streetLayout(vw, vh) {
+  const s = Math.min(Math.min(80, Math.max(60, vh * .09)) / ZH, vw / (6 * 50 + 90));
+  const W = vw / s, H = vh / s, ground = H - ROAD, krall = W - 56;
+  const houses = [];
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  // the same five houses down the whole lane, each a little lower or higher, roofed a little differently
+  for (let off = 0; off < krall; off += 344) HOUSES.forEach(([x, w, roof, door, low]) => {
+    if (x + off + w <= krall - 6) houses.push(off ? [x + off, w, roof * (.7 + rnd() * .6), door, Math.round(rnd() * 4) * 5 - 4] : [x, w, roof, door, low]);
+  });
+  const lo = 34, hi = krall - 26, gap = Math.min(150, (hi - lo) / 5), x0 = lo + (hi - lo - 5 * gap) / 2;
+  const stars = Array.from({ length: Math.round(W * H / 2600) }, () => [rnd() * W, rnd() * (ground - 130)]);
+  const clouds = Array.from({ length: Math.max(3, Math.round(W / 260)) }, (_, i) => ({ x: (i + rnd() * .6) * W / Math.max(3, Math.round(W / 260)), y: H * (.08 + rnd() * .42), s: 1.3 + rnd() * .7, v: 4 + rnd() * 4 }));
+  const old = street && street.L;
+  return {
+    s, vw, vh,
+    L: {
+      W, H, ground, krall, houses, zx: ZS.map((_, i) => x0 + i * gap),
+      // the moon right of the clues on a wide screen, so they never cover it
+      moon: { x: W - (vw > 1000 ? Math.min(150, (vw - 864) / 4) : 70) / s, y: H * .15, r: Math.min(40, Math.max(26, H * .045)) },
+      batY: [H * .08, H * .6], batS: 1.4, stars,
+      clouds: old && old.W === W ? old.clouds : clouds,
+    },
+  };
+}
+
+function cloudCover() {
+  const M = L.moon; let hit = 0, n = 0;
+  for (let a = 0; a < 12; a++) for (const rr of [.3, .8]) {
+    n++;
+    const px = M.x + Math.cos(a / 12 * TAU) * M.r * rr, py = M.y + Math.sin(a / 12 * TAU) * M.r * rr;
+    if (L.clouds.some(c => CLOUD_PUFFS.some(([dx, dy, r]) => (px - c.x - dx * c.s) ** 2 + (py - c.y - dy * c.s) ** 2 < (r * c.s) ** 2))) hit++;
+  }
+  return hit / n;
+}
+function drawBat(ctx, b, t) {
+  const flap = Math.sin(t * 16 + b.ph), s = b.s;
+  ctx.save(); ctx.translate(b.x, b.y); ctx.scale(s * b.dir, s);
+  ctx.fillStyle = '#0d0714';
+  ctx.beginPath(); ctx.ellipse(0, 0, 1.6, 2.2, 0, 0, TAU); ctx.fill();
+  [-1, 1].forEach(sd => {
+    const tipY = -3 * flap;
+    ctx.beginPath(); ctx.moveTo(0, -.5);
+    ctx.quadraticCurveTo(sd * 3, -2 + tipY * .6, sd * 7, tipY);
+    ctx.quadraticCurveTo(sd * 5.5, 1 + tipY * .3, sd * 4.5, 1.5 + tipY * .2);
+    ctx.quadraticCurveTo(sd * 3, .6, sd * 2.2, 1.8);
+    ctx.quadraticCurveTo(sd * 1.4, .8, 0, 1);
+    ctx.closePath(); ctx.fill();
+  });
+  ctx.beginPath(); ctx.moveTo(-1, -1.8); ctx.lineTo(-.6, -3); ctx.lineTo(-.2, -2); ctx.moveTo(1, -1.8); ctx.lineTo(.6, -3); ctx.lineTo(.2, -2); ctx.fill();
+  ctx.restore();
+}
+// where each zombie stands right now: on the street they walk out to their places after you knock
+function zxNow() {
+  if (!street || !street.walk || reduce) return L.zx;
+  const p = Math.min(1, (performance.now() - street.walk) / 2200), e = (1 - Math.cos(p * Math.PI)) / 2;
+  if (p >= 1) street.walk = 0;
+  const mid = (L.zx[0] + L.zx[5]) / 2;
+  return L.zx.map((x, i) => (mid + (i - 2.5) * 56) * (1 - e) + x * e);
+}
+function drawLane(ctx, t, dt) {
+  const { W, H, ground: G, krall: K, moon: M } = L;
+  const sky = ctx.createLinearGradient(0, 0, 0, H);
+  sky.addColorStop(0, '#120a24'); sky.addColorStop(.55, '#2e1a48'); sky.addColorStop(1, '#55294a');
+  ctx.fillStyle = sky; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = 'rgb(255 255 255 / .55)';
+  L.stars.forEach(([x, y], i) => {
+    const tw = reduce ? 1 : .5 + .5 * Math.sin(t * 1.3 + i * 2.1);
+    ctx.globalAlpha = .35 + .5 * tw; ctx.fillRect(x, y, .9, .9);
+  });
+  ctx.globalAlpha = 1;
+  drawMoon(ctx, M.x, M.y, M.r, 1 - moonDim * .8);
+
+  if (!reduce) {
+    nextBats -= dt;
+    if (nextBats <= 0) {
+      const dir = Math.random() < .5 ? 1 : -1, n = 1 + Math.floor(Math.random() * 3), y0 = L.batY[0] + Math.random() * (L.batY[1] - L.batY[0]);
+      for (let i = 0; i < n; i++) bats.push({ x: dir > 0 ? -10 - i * 14 : W + 10 + i * 14, y0: y0 + i * 6 - 6, y: 0, v: (55 + Math.random() * 30) * dir * L.batS, dir, ph: Math.random() * 6, s: (.9 + Math.random() * .6) * L.batS, w: Math.random() * 6 });
+      nextBats = 7 + Math.random() * 12;
+    }
+    bats.forEach(b => { b.x += b.v * dt; b.y = b.y0 + Math.sin(b.x * .045 + b.w) * 7; });
+    bats = bats.filter(b => b.x > -40 && b.x < W + 40);
+    bats.forEach(b => drawBat(ctx, b, t));
+  }
+
+  L.clouds.forEach(c => {
+    if (!reduce) { c.x += c.v * dt; if (c.x > W + 60 * c.s) c.x = -60 * c.s; }
+    ctx.fillStyle = 'rgb(58 44 88 / .92)';
+    ctx.beginPath(); CLOUD_PUFFS.forEach(([dx, dy, r]) => { ctx.moveTo(c.x + dx * c.s + r * c.s, c.y + dy * c.s); ctx.arc(c.x + dx * c.s, c.y + dy * c.s, r * c.s, 0, TAU); }); ctx.fill();
+    ctx.fillStyle = 'rgb(150 130 190 / .25)';
+    ctx.beginPath(); CLOUD_PUFFS.slice(0, 3).forEach(([dx, dy, r]) => { ctx.moveTo(c.x + dx * c.s + r * c.s * .8, c.y + (dy - 3) * c.s); ctx.arc(c.x + dx * c.s, c.y + (dy - 3) * c.s, r * c.s * .8, Math.PI, 0); }); ctx.fill();
+  });
+  moonDim += (cloudCover() - moonDim) * Math.min(1, dt * 1.5);
+
+  L.houses.forEach(([x, w, roof, door, low], i) => {
+    const top = G - 76 + low;
+    ctx.fillStyle = '#1f1430';
+    ctx.beginPath(); ctx.moveTo(x, G); ctx.lineTo(x, top); ctx.lineTo(x + w / 2, top - roof); ctx.lineTo(x + w, top); ctx.lineTo(x + w, G); ctx.closePath(); ctx.fill();
+    ctx.fillStyle = '#2a1c3e'; ctx.fillRect(x + w * .72, top - roof * .7, 5, 12);
+    const lit = reduce ? 1 : .82 + .18 * Math.sin(t * 1.7 + i * 3);
+    ctx.fillStyle = `rgb(243 181 74 / ${lit})`;
+    ctx.fillRect(x + w * .14, top + 9, 8, 9); ctx.fillRect(x + w * .86 - 8, top + 9, 8, 9);
+    ctx.fillStyle = 'rgb(31 20 48 / .8)'; ctx.fillRect(x + w * .14 + 3.6, top + 9, .8, 9); ctx.fillRect(x + w * .86 - 4.4, top + 9, .8, 9);
+    ctx.fillStyle = door; ctx.fillRect(x + w / 2 - 5, top + 34, 10, G - top - 34);
+    ctx.fillStyle = '#ffd36a'; ctx.beginPath(); ctx.arc(x + w / 2 + 3, top + 48, .8, 0, TAU); ctx.fill();
+  });
+  // Widow Krall's house, her lit window and her face in it, at the end of the lane
+  ctx.fillStyle = '#1b1029'; ctx.fillRect(K, G - 88, W - K, 88);
+  ctx.beginPath(); ctx.moveTo(K - 4, G - 88); ctx.lineTo(K + 26, G - 114); ctx.lineTo(K + 56, G - 88); ctx.fill();
+  ctx.fillStyle = `rgb(243 181 74 / ${reduce ? .9 : .75 + .25 * Math.sin(t * .9)})`; ctx.fillRect(K + 18, G - 80, 12, 12);
+  ctx.fillStyle = '#1b1029'; ctx.fillRect(K + 23.4, G - 80, 1.2, 12); ctx.fillRect(K + 18, G - 74.6, 12, 1.2);
+  ctx.fillStyle = '#e8dcc6'; ctx.beginPath(); ctx.arc(K + 24, G - 75, 2.4, 0, TAU); ctx.fill();
+
+  ctx.fillStyle = '#170f22'; ctx.fillRect(0, G - 2, W, H - G + 2);
+  ctx.fillStyle = '#251a36'; ctx.beginPath(); ctx.ellipse(W / 2, G + 10, W * .62, 9, 0, 0, TAU); ctx.fill();
+  ctx.fillStyle = '#5b3a22'; ctx.beginPath(); ctx.moveTo(K + 12, G - 8); ctx.lineTo(K + 44, G - 8); ctx.lineTo(K + 41, G + 8); ctx.lineTo(K + 15, G + 8); ctx.closePath(); ctx.fill();
+  ctx.strokeStyle = '#2b1a0e'; ctx.lineWidth = 1; [G - 4, G + 3].forEach(y => { ctx.beginPath(); ctx.moveTo(K + 13, y); ctx.lineTo(K + 43, y); ctx.stroke(); });
+  ctx.fillStyle = '#2c3e66'; ctx.beginPath(); ctx.ellipse(K + 28, G - 8, 16, 3, 0, 0, TAU); ctx.fill();
+  APPLES.forEach(([dx, dy, c], i) => {
+    const x = K + 28 + dx * 16, y = G - 8 + dy * 3, bobA = reduce ? 0 : Math.sin(t * 2 + i * 1.3) * .4;
+    ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y + bobA, 2.2, 0, TAU); ctx.fill();
+    ctx.fillStyle = '#4a6a20'; ctx.fillRect(x - .2, y + bobA - 3.4, .5, 1.4);
+  });
+
+  ctx.fillStyle = `rgb(8 4 18 / ${.32 * moonDim})`; ctx.fillRect(0, 0, W, H);
+
+  // the six; on the reveal every pumpkin flies from its owner to the neck it ended up on
+  let m = 0, Lr = 0;
+  const end = reveal ? stateAt('99:99').heads : null, zx = zxNow(), marks = street ? ST().marks : {};
+  if (reveal) {
+    const p = Math.min(1, (performance.now() - reveal.start) / 4200);
+    Lr = p < .2 ? p / .2 : p < .8 ? 1 : 1 - (p - .8) / .2;
+    m = p < .2 ? 0 : p < .8 ? (1 - Math.cos((p - .2) / .6 * Math.PI)) / 2 : 1;
+  }
+  ZS.forEach((z, i) => {
+    const seeded = Object.assign({ seed: i * 1.37 }, z);
+    ctx.save(); ctx.translate(zx[i] - 50 * ZSCALE, G + 2 - ZH); ctx.scale(ZSCALE, ZSCALE);
+    if (marks[z.name] === 'cleared' && !reveal) ctx.globalAlpha = .4;
+    let o = {};
+    if (end && end[z.name] !== z.face) {
+      const j = ZS.indexOf(ownerOf(end[z.name]));
+      o = { face: end[z.name], lift: Lr, headDX: (zx[j] - zx[i]) / ZSCALE * (1 - m), headDY: -Math.sin(Math.PI * m) * 40 };
+    }
+    drawZombie(ctx, seeded, t, o);
+    ctx.restore();
+  });
+  ctx.fillStyle = `rgb(8 4 18 / ${.14 * moonDim})`; ctx.fillRect(0, 0, W, H);
+
+  if (bubble) {
+    const age = (performance.now() - bubble.start) / 1000;
+    if (age > 3.2) bubble = null;
+    else {
+      const a = age < .2 ? age / .2 : age > 2.4 ? 1 - (age - 2.4) / .8 : 1;
+      ctx.save(); ctx.globalAlpha = Math.max(0, a);
+      ctx.font = '800 22px "Grenze Gotisch", Georgia, serif'; ctx.textAlign = 'center';
+      ctx.fillStyle = '#6fd85e'; ctx.strokeStyle = '#0d1a0a'; ctx.lineWidth = 3;
+      const y = G - 80 - age * 6, x = T().door + (reduce ? 0 : Math.sin(age * 9) * 1.5);
+      ctx.strokeText('CROAK!', x, y); ctx.fillText('CROAK!', x, y);
+      ctx.restore();
+    }
+  }
+}
+
+// The six on the street are buttons too: an invisible one over each zombie, its name on the road.
+const walkBtns = {};
+ZS.forEach((z, i) => {
+  const b = document.createElement('button'); b.type = 'button';
+  b.setAttribute('aria-label', `${z.name}: ${z.face}, ${z.hem}, ${PLURAL[z.treat]}. Tap to look closer.`);
+  const s = document.createElement('span'); s.textContent = z.name; b.appendChild(s);
+  b.addEventListener('click', () => openPhotos(zombieScenes(), i));
+  walkersEl.appendChild(b); walkBtns[z.name] = b;
+});
+function placeWalkers() {
+  const s = street.s, zx = zxNow();
+  document.documentElement.style.setProperty('--ground', Math.round((ROAD + ZH + 6) * s) + 'px');
+  ZS.forEach((z, i) => {
+    const b = walkBtns[z.name];
+    b.style.left = ((zx[i] - 24) * s) + 'px'; b.style.width = (48 * s) + 'px'; b.style.height = ((ROAD + ZH) * s) + 'px';
+    b.dataset.m = ST().marks[z.name] || 'not sure';
+  });
+}
+// wheel turns over the street still scroll the sky
+[lane, walkersEl].forEach(el => el.addEventListener('wheel', e => { if (street) skyEl.scrollBy(0, e.deltaY); }, { passive: true }));
+
+function laneFrame(ms) {
+  const t = ms / 1000, dt = Math.min(.1, last ? t - last : 0); last = t;
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  const w = lane.clientWidth, h = lane.clientHeight;
+  if (w && h) {
+    if (lane.width !== Math.round(w * dpr) || lane.height !== Math.round(h * dpr)) { lane.width = Math.round(w * dpr); lane.height = Math.round(h * dpr); }
+    const ctx = lane.getContext('2d');
+    if (street) {
+      if (street.vw !== w || street.vh !== h) { const walk = street.walk; street = Object.assign(streetLayout(w, h), { walk }); L = street.L; }
+      ctx.setTransform(street.s * dpr, 0, 0, street.s * dpr, 0, 0);
+      placeWalkers();
+    } else {
+      const s = Math.min(lane.width / LANE.W, lane.height / LANE.H);
+      ctx.setTransform(s, 0, 0, s, (lane.width - LANE.W * s) / 2, (lane.height - LANE.H * s) / 2);
+    }
+    drawLane(ctx, t, dt);
+  }
+  requestAnimationFrame(laneFrame);
+}
+function enterStreet(walk) {
+  sel('title').hidden = true;
+  document.body.classList.add('street');
+  const w = lane.clientWidth || innerWidth, h = lane.clientHeight || innerHeight;
+  street = Object.assign(streetLayout(w, h), { walk: walk ? performance.now() : 0 });
+  L = street.L; bats = [];
+  skyEl.scrollTop = 0;
+  // the pictures in the clues were hidden behind the knock, so they have no size yet
+  requestAnimationFrame(paintStatics);
+}
+sel('start').addEventListener('click', () => {
+  window.scrollTo(0, 0);
+  enterStreet(true);
+  bubble = { start: performance.now() };
+  croak(2);
+  startNight();
+});
+
+/* ---------- photos ---------- */
+// the full moon with its craters; halo 0..1 is how strongly it glows
+function drawMoon(ctx, x, y, r, halo) {
+  if (halo) {
+    const g = ctx.createRadialGradient(x, y, r * .8, x, y, r * 3.2);
+    g.addColorStop(0, `rgb(255 240 200 / ${.28 * halo})`); g.addColorStop(1, 'rgb(255 240 200 / 0)');
+    ctx.fillStyle = g; ctx.fillRect(x - r * 3.3, y - r * 3.3, r * 6.6, r * 6.6);
+  }
+  ctx.fillStyle = '#f5ebcb'; ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
+  ctx.fillStyle = '#e3d5ab';
+  const k = r / 21;
+  [[-7, -5, 4.5], [6, 4, 3.4], [8, -8, 2.2], [-4, 9, 2.8], [-12, 3, 1.8], [12, -1, 1.5]].forEach(([dx, dy, cr]) => { ctx.beginPath(); ctx.arc(x + dx * k, y + dy * k, cr * k, 0, TAU); ctx.fill(); });
+}
+function nightBg(ctx) {
+  const g = ctx.createLinearGradient(0, -70, 0, 180); g.addColorStop(0, '#1a1030'); g.addColorStop(1, '#45284f');
+  ctx.fillStyle = g; ctx.fillRect(-100, -100, 500, 400);
+}
+function hedge(ctx, x0, x1, top, bottom, seed) {
+  ctx.fillStyle = '#1d3322';
+  ctx.beginPath(); ctx.moveTo(x0, bottom); ctx.lineTo(x0, top);
+  for (let x = x0, i = 0; x <= x1; x += 9, i++) ctx.quadraticCurveTo(x + 4.5, top - 5 - ((i * 7 + seed) % 4), x + 9, top);
+  ctx.lineTo(x1, bottom); ctx.closePath(); ctx.fill();
+  ctx.fillStyle = '#2a4a30';
+  for (let x = x0 + 6, i = 0; x < x1; x += 13, i++) { ctx.beginPath(); ctx.arc(x, top + 6 + (i % 3) * 5, 3.2, 0, TAU); ctx.fill(); }
+}
+// At a door, from the doorway at the child's eye level. Before solving it draws only what the child saw.
+function doorScene(ev, idx) {
+  const tall = ev.height === 'tall';
+  const treat = ev.kind === 'frog' ? 'frog sweet' : ev.treat;
+  const vb = tall ? [-34, -8, 150, 112.5] : [-34, 62, 150, 112.5];
+  const seen = tall ? { face: ev.saw, hem: 'plain', treat: 'liquorice bat' } : { face: 'wink', hem: ev.saw, treat: ev.treat };
+  return {
+    at: idx, vb,
+    draw(ctx, t) {
+      nightBg(ctx);
+      hedge(ctx, -40, 130, 96, 160, 3);
+      ctx.fillStyle = '#170f22'; ctx.fillRect(-60, 141, 240, 60);
+      drawZombie(ctx, Object.assign({ seed: idx * .9 }, seen), t, { hold: treat, print: PRINT[ev.treat] || 'bat' });
+      const lg = ctx.createRadialGradient(-34, 30, 6, -34, 30, 150);
+      lg.addColorStop(0, 'rgb(255 196 110 / .3)'); lg.addColorStop(1, 'rgb(255 196 110 / 0)');
+      ctx.fillStyle = lg; ctx.fillRect(-60, -60, 240, 300);
+      ctx.fillStyle = '#5a3b24'; ctx.fillRect(vb[0], vb[1], 7, vb[3]); ctx.fillRect(vb[0] + vb[2] - 7, vb[1], 7, vb[3]);
+      ctx.fillStyle = 'rgb(255 210 140 / .35)'; ctx.fillRect(vb[0] + 6, vb[1], 1.2, vb[3]); ctx.fillRect(vb[0] + vb[2] - 7, vb[1], 1.2, vb[3]);
+      if (ev.kind === 'frog') {
+        ctx.save(); ctx.font = '800 15px "Grenze Gotisch", Georgia, serif'; ctx.textAlign = 'center';
+        ctx.fillStyle = '#6fd85e'; ctx.strokeStyle = '#0d1a0a'; ctx.lineWidth = 2.6;
+        ctx.strokeText('CROAK!', 62, tall ? 92 : 160); ctx.fillText('CROAK!', 62, tall ? 92 : 160); ctx.restore();
+      }
+    },
+    cap: `${ev.time} · what ${ev.child} saw (${ev.height})`,
+    seen: ev.kind === 'frog' ? `The ${ev.saw}, and a green sweet.` : `${tall ? 'The' : 'A'} ${ev.saw}, and ${A(ev.treat)}.`,
+    truth() {
+      const { heads, bags } = stateAt(ev.time);
+      const body = tall ? ZS.find(z => heads[z.name] === ev.saw) : ZS.find(z => z.hem === ev.saw);
+      const own = n => n === body.name ? 'its own' : `${n}'s`;
+      const faceOwner = ownerOf(heads[body.name]).name;
+      if (ev.kind === 'frog') return `Really there: ${body.name}, in ${own(faceOwner)} pumpkin, with the frog sweet from up its sleeve.`;
+      return `Really there: ${body.name}, in ${own(faceOwner)} pumpkin, with ${own(bagOwnerAt(body.name, ev.time))} bag.`;
+    },
+  };
+}
+// At the tub, from Widow Krall's window: the hedge hides everything below the pumpkins.
+function tubScene(ev, idx) {
+  const xs = ev.faces.length === 3 ? [48, 100, 152] : [70, 130];
+  const vb = [14, 46, 172, 129];
+  return {
+    at: idx, vb,
+    draw(ctx, t) {
+      nightBg(ctx);
+      drawMoon(ctx, 166, 58, 9, .8);
+      ev.faces.forEach((f, i) => {
+        ctx.save(); ctx.translate(xs[i] - 31, 150 - 145 * .62); ctx.scale(.62, .62);
+        drawZombie(ctx, { face: f, hem: 'plain', treat: 'liquorice bat', seed: idx + i * 1.9 }, t, {});
+        ctx.restore();
+      });
+      hedge(ctx, -5, 205, 97, 180, 1);
+      const [x0, y0, w, h] = vb, fw = 6;
+      ctx.fillStyle = '#3a2618';
+      ctx.fillRect(x0, y0, w, fw); ctx.fillRect(x0, y0 + h - fw, w, fw); ctx.fillRect(x0, y0, fw, h); ctx.fillRect(x0 + w - fw, y0, fw, h);
+      ctx.fillRect(x0 + w / 2 - 1.5, y0, 3, h); ctx.fillRect(x0, y0 + h * .42, w, 3);
+      ctx.fillStyle = 'rgb(120 28 40 / .75)';
+      ctx.beginPath(); ctx.moveTo(x0 + fw, y0 + fw); ctx.lineTo(x0 + 34, y0 + fw); ctx.quadraticCurveTo(x0 + 18, y0 + 50, x0 + fw, y0 + 100); ctx.closePath(); ctx.fill();
+    },
+    cap: `${ev.time} · from Widow Krall's window`,
+    seen: `${ev.faces.length === 2 ? 'Two' : 'Three'} pumpkins over the hedge: ${ev.faces.join(', ')}.`,
+    truth() {
+      const { heads } = stateAt(ev.time);
+      return 'Really there: ' + ev.faces.map(f => `the ${f} on ${ZS.find(z => heads[z.name] === f).name}`).join(', ') + '.';
+    },
+  };
+}
+// The moment nobody saw: one trick at one tub.
+function secretScene(ev, tr, idx) {
+  const g = byName(N().answer.giver), partner = byName(tr.with);
+  const before = stateAt(ev.time), after = stateAt(ev.time, true);
+  const here = ev.faces.map(f => ZS.find(z => before.heads[z.name] === f));
+  const others = here.filter(z => z !== g);
+  const pk = tr.kind === 'pumpkins';
+  return {
+    at: idx, secret: true, vb: [0, -40, 300, 225],
+    draw(ctx, t) {
+      nightBg(ctx);
+      drawMoon(ctx, 40, -8, 15, .8);
+      hedge(ctx, -5, 305, 92, 140, 2);
+      ctx.fillStyle = '#170f22'; ctx.fillRect(0, 140, 300, 60);
+      // the posts: every pumpkin that is off, except the one the naughty one is putting on
+      const posts = here.map(z => before.heads[z.name]).filter(f => !(pk && f === before.heads[partner.name]));
+      posts.forEach((f, i) => {
+        const x = 128 + i * 22;
+        ctx.fillStyle = '#4a3020'; ctx.fillRect(x - 2.5, 98, 5, 44);
+        ctx.save(); ctx.translate(x, 86); ctx.scale(.5, .5); drawPumpkin(ctx, f, 0, 0, t); ctx.restore();
+      });
+      if (!pk) { ctx.save(); ctx.translate(176 + posts.length * 4, 118); ctx.scale(.8, .8); drawBag(ctx, PRINT[before.bags[g.name]]); ctx.restore(); }
+      ctx.fillStyle = '#5b3a22'; ctx.beginPath(); ctx.moveTo(126, 124); ctx.lineTo(174, 124); ctx.lineTo(170, 146); ctx.lineTo(130, 146); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#2c3e66'; ctx.beginPath(); ctx.ellipse(150, 124, 24, 4, 0, 0, TAU); ctx.fill();
+      APPLES.forEach(([dx, dy, c]) => { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(150 + dx * 22, 124 + dy * 4, 2.8, 0, TAU); ctx.fill(); });
+      const at = (z, x, o) => { ctx.save(); ctx.translate(x - 35, 146 - 145 * .7); ctx.scale(.7, .7); drawZombie(ctx, Object.assign({ seed: ZS.indexOf(z) * 1.37 }, z), t, o); ctx.restore(); };
+      const spots = [[98, .42], [202, -.42]];
+      others.forEach((z, i) => at(z, spots[i][0], { noHead: true, lean: spots[i][1], print: PRINT[before.bags[z.name]], noBag: !pk && z === partner }));
+      if (pk) at(g, 262, { face: before.heads[partner.name], lift: .55 + (reduce ? 0 : Math.sin(t * 2) * .05), print: PRINT[before.bags[g.name]] });
+      else at(g, 262, { noHead: true, print: PRINT[after.bags[g.name]] });
+    },
+    cap: `${ev.time} · what nobody saw`,
+    seen: pk
+      ? `${others.map(z => z.name).join(' and ')} ${others.length === 1 ? 'has its face' : 'have their faces'} in the water. ${g.name} sneaks round the posts to see the faces. It leaves ${before.heads[g.name] === g.face ? 'its own ' + g.face : `the ${before.heads[g.name]} it was wearing (${ownerOf(before.heads[g.name]).name}'s)`} on ${partner.name}'s post and puts on ${partner.name}'s ${before.heads[partner.name]}. When ${partner.name} comes up, it takes the pumpkin from its own post. From behind they all look the same, so it never knows.`
+      : `${others.map(z => z.name).join(' and ')} have their faces in the water. ${g.name} picks up ${partner.name}'s bag of ${PLURAL[before.bags[partner.name]]} and leaves its own ${PLURAL[before.bags[g.name]]} in its place. Nobody looks in a bag.`,
+    truth: () => '',
+  };
+}
+function momentScenes() {
+  const solved = ST().solved, out = [];
+  MOMENTS.forEach((m, idx) => {
+    if (m.secret) { if (solved) out.push(secretScene(m.ev, m.secret, idx)); }
+    else out.push(m.ev.kind === 'tub' ? tubScene(m.ev, idx) : doorScene(m.ev, idx));
+  });
+  return out;
+}
+function zombieScenes() {
+  return ZS.map(z => ({
+    vb: [-50, 0, 200, 150],
+    draw(ctx, t) {
+      nightBg(ctx);
+      ctx.fillStyle = '#2a1c3e'; ctx.fillRect(66, 6, 64, 140);
+      ctx.fillStyle = '#4a3a66'; ctx.fillRect(72, 12, 52, 134);
+      ctx.fillStyle = 'rgb(255 196 110 / .5)'; ctx.beginPath(); ctx.arc(80, 18, 3, 0, TAU); ctx.fill();
+      ctx.fillStyle = '#170f22'; ctx.fillRect(-60, 141, 240, 40);
+      drawZombie(ctx, Object.assign({ seed: ZS.indexOf(z) * 1.37 }, z), t, {});
+    },
+    cap: z.name,
+    seen: `Pumpkin: ${z.face}. Hem: ${z.hem}. Treats: ${PLURAL[z.treat]}.`,
+    truth: () => '',
+  }));
+}
+
+let photoList = [], photoAt = -1, photoRaf = 0, photoBack = null;
+const photoEl = sel('photo'), photoC = sel('photo-c');
+function openPhotos(list, i) {
+  if (photoEl.hidden) photoBack = document.activeElement;
+  photoList = list;
+  photoAt = Math.max(0, Math.min(list.length - 1, i));
+  const sc = list[photoAt];
+  const truth = sc.truth && ST().solved ? sc.truth() : '';
+  sel('photo-cap').textContent = sc.cap;
+  sel('photo-truth').textContent = sc.seen + (truth ? ' ' + truth : '');
+  photoC.setAttribute('aria-label', sc.cap + '. ' + sel('photo-truth').textContent);
+  sel('photo-prev').disabled = photoAt === 0; sel('photo-next').disabled = photoAt === list.length - 1;
+  const people = !sc.vb || sc.at === undefined;
+  sel('photo-prev').textContent = people ? 'Previous' : 'Earlier'; sel('photo-next').textContent = people ? 'Next' : 'Later';
+  photoEl.hidden = false;
+  cancelAnimationFrame(photoRaf);
+  const loop = ms => {
+    const dpr = Math.min(2, window.devicePixelRatio || 1), w = photoC.clientWidth, h = photoC.clientHeight;
+    if (w && h) {
+      if (photoC.width !== Math.round(w * dpr)) { photoC.width = Math.round(w * dpr); photoC.height = Math.round(h * dpr); }
+      const ctx = photoC.getContext('2d'), [x0, y0, vw, vh] = sc.vb, s = Math.max(photoC.width / vw, photoC.height / vh);
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, photoC.width, photoC.height);
+      ctx.setTransform(s, 0, 0, s, (photoC.width - vw * s) / 2 - x0 * s, (photoC.height - vh * s) / 2 - y0 * s);
+      sc.draw(ctx, ms / 1000);
+    }
+    if (!photoEl.hidden && !reduce) photoRaf = requestAnimationFrame(loop);
+  };
+  photoRaf = requestAnimationFrame(loop);
+  sel('photo-close').focus();
+}
+function closePhoto() { photoEl.hidden = true; cancelAnimationFrame(photoRaf); if (photoBack && photoBack.focus) photoBack.focus(); }
+sel('photo-close').addEventListener('click', closePhoto);
+sel('photo-prev').addEventListener('click', () => openPhotos(photoList, photoAt - 1));
+sel('photo-next').addEventListener('click', () => openPhotos(photoList, photoAt + 1));
+photoEl.addEventListener('click', e => { if (e.target === photoEl) closePhoto(); });
+document.addEventListener('keydown', e => {
+  if (photoEl.hidden) return;
+  if (e.key === 'Escape') closePhoto();
+  else if (e.key === 'ArrowLeft') openPhotos(photoList, photoAt - 1);
+  else if (e.key === 'ArrowRight') openPhotos(photoList, photoAt + 1);
+});
+
+/* ---------- go ---------- */
+let rt = 0;
+window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(paintStatics, 120); });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(paintStatics);
+renderNight();
+if (DATA.nights.some(n => store.nights[n.id].solved)) enterStreet(false);
+requestAnimationFrame(laneFrame);
+</script>
+
+</body>
+</html>

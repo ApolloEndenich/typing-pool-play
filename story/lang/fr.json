@@ -189,7 +189,7 @@
   "front.manual": "Comment jouer",
   "front.3": "Chaque chapitre est une affaire à part entière. Rien à installer, aucun compte ; votre progression est conservée dans ce navigateur.",
   "front.foot": "Sarah Wessen et le Kommissar Mauser viennent des romans policiers de Gudrun Leyendecker et sont utilisés avec sa permission.",
-  "front.links": "<a href=\"../index.html\">The Typing Pool, l'énigme du jour</a> · <a href=\"../books.html\">Les romans de Gudrun Leyendecker</a>",
+  "front.links": "<a href=\"../pool.html\">The Typing Pool, l'énigme du jour</a> · <a href=\"../books.html\">Les romans de Gudrun Leyendecker</a>",
   "readnote": "Vous lisez le dossier entier. <button type=\"button\" id=\"backtowalk\">Parcourir plutôt la maison</button>",
   "theatreclose": "← le plan",
   "tonotebook": "Carnet et rapport <span class=\"fresh\" id=\"freshroom\"></span>",

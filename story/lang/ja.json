@@ -192,7 +192,7 @@
   "front.manual": "遊び方",
   "front.3": "どの章もそれだけで一つの事件です。インストールもアカウントも不要。進み具合はこのブラウザに保存されます。",
   "front.foot": "Sarah WessenとMauser警部はGudrun Leyendeckerの推理小説の登場人物で、作者の許可を得て使用しています。",
-  "front.links": "<a href=\"../index.html\">The Typing Pool、今日のパズル</a> · <a href=\"../books.html\">Gudrun Leyendeckerの小説</a>",
+  "front.links": "<a href=\"../pool.html\">The Typing Pool、今日のパズル</a> · <a href=\"../books.html\">Gudrun Leyendeckerの小説</a>",
   "readnote": "ファイル全体を読んでいます。<button type=\"button\" id=\"backtowalk\">代わりに庁舎を歩く</button>",
   "theatreclose": "← 見取り図",
   "tonotebook": "手帳と報告書 <span class=\"fresh\" id=\"freshroom\"></span>",

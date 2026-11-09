@@ -192,7 +192,7 @@
   "front.manual": "玩法",
   "front.3": "每一章都是一桩独立的案子。无需安装，无需账号；进度保存在这个浏览器里。",
   "front.foot": "Sarah Wessen和Mauser探长出自Gudrun Leyendecker的侦探小说，经她许可使用。",
-  "front.links": "<a href=\"../index.html\">The Typing Pool，每日谜题</a> · <a href=\"../books.html\">Gudrun Leyendecker的小说</a>",
+  "front.links": "<a href=\"../pool.html\">The Typing Pool，每日谜题</a> · <a href=\"../books.html\">Gudrun Leyendecker的小说</a>",
   "readnote": "您正在阅读整份卷宗。<button type=\"button\" id=\"backtowalk\">改为在大楼里走访</button>",
   "theatreclose": "← 平面图",
   "tonotebook": "笔记本与报告 <span class=\"fresh\" id=\"freshroom\"></span>",
