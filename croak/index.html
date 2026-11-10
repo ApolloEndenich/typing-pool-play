@@ -126,7 +126,7 @@ body:not(.street) .wrap > :not(.how):not(.go):not(footer) { display: none; }
 .walkers button[data-m="cleared"] span { color: var(--muted); text-decoration: line-through; }
 
 /* which night */
-.nights { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+.nights { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .6rem; }
 .nights button { text-align: left; border-radius: 12px; padding: .6rem .9rem; background: var(--panel); color: var(--ink); border: 1px solid var(--line); display: flex; flex-direction: column; gap: .1rem; }
 .nights button b { font-family: var(--display); font-weight: 600; font-size: 1.35rem; line-height: 1.1; }
 .nights button span { font-weight: 400; font-size: .85rem; color: var(--muted); }
@@ -229,6 +229,32 @@ footer a { color: var(--glow); }
   ],
   "nights": [
     {
+      "id": "e1", "title": "Otto croaks", "tricks": "one",
+      "events": [
+        { "kind": "tub",  "time": "18:10", "faces": ["star eyes", "three teeth"] },
+        { "kind": "saw",  "time": "18:15", "child": "Finn",  "height": "tall",  "saw": "star eyes", "treat": "liquorice bat" },
+        { "kind": "tub",  "time": "18:20", "faces": ["droopy frown", "star eyes"] },
+        { "kind": "saw",  "time": "18:25", "child": "Emma",  "height": "small", "saw": "muddy hem", "treat": "toffee skull" },
+        { "kind": "frog", "time": "18:30", "child": "Otto",  "height": "tall",  "saw": "star eyes" },
+        { "kind": "saw",  "time": "18:35", "child": "Mila",  "height": "small", "saw": "one bare bony foot", "treat": "liquorice bat" },
+        { "kind": "saw",  "time": "18:40", "child": "Noah",  "height": "tall",  "saw": "droopy frown", "treat": "liquorice bat" }
+      ],
+      "answer": { "giver": "Rotbert", "pumpkin": "Bonesby", "tricks": [ { "kind": "pumpkins", "tub": "18:20", "with": "Bonesby" } ] }
+    },
+    {
+      "id": "e2", "title": "Lisa croaks", "tricks": "one",
+      "events": [
+        { "kind": "tub",  "time": "18:10", "faces": ["three teeth", "wink", "zigzag mouth"] },
+        { "kind": "saw",  "time": "18:15", "child": "Tim",    "height": "small", "saw": "trailing bandage", "treat": "toffee skull" },
+        { "kind": "saw",  "time": "18:25", "child": "Sophie", "height": "tall",  "saw": "three teeth", "treat": "marzipan mouse" },
+        { "kind": "frog", "time": "18:30", "child": "Lisa",   "height": "tall",  "saw": "three teeth" },
+        { "kind": "saw",  "time": "18:35", "child": "Luis",   "height": "small", "saw": "singed hem", "treat": "toffee skull" },
+        { "kind": "tub",  "time": "18:40", "faces": ["crooked grin", "star eyes"] },
+        { "kind": "saw",  "time": "18:45", "child": "Lea",    "height": "tall",  "saw": "crooked grin", "treat": "liquorice bat" }
+      ],
+      "answer": { "giver": "Grizelda", "pumpkin": "Grizelda", "tricks": [ { "kind": "bags", "tub": "18:10", "with": "Ghoulia" } ] }
+    },
+    {
       "id": "n1", "title": "Paul croaks", "tricks": "one",
       "events": [
         { "kind": "tub",  "time": "18:10", "faces": ["crooked grin", "star eyes", "droopy frown"] },
@@ -313,9 +339,11 @@ footer a { color: var(--glow); }
 <div class="wrap">
 
   <div class="nights" role="group" aria-label="Which night">
-    <button type="button" id="pick-n1" data-night="0" aria-pressed="true"><b>Fun · Paul croaks</b><span>One trick. Start here.</span></button>
-    <button type="button" id="pick-n2" data-night="1" aria-pressed="false"><b>Spooky · Felix croaks</b><span>A year later. A pumpkin trick and a bag trick.</span></button>
-    <button type="button" id="pick-n3" data-night="2" aria-pressed="false"><b>Scary · Theo croaks</b><span>Two tricks, and nobody knows of which kind.</span></button>
+    <button type="button" id="pick-e1" data-night="0" aria-pressed="true"><b>Easy · Otto croaks</b><span>Widow Krall remembers. A short night. Start here.</span></button>
+    <button type="button" id="pick-e2" data-night="1" aria-pressed="false"><b>Easy · Lisa croaks</b><span>Widow Krall remembers again. A short night.</span></button>
+    <button type="button" id="pick-n1" data-night="2" aria-pressed="false"><b>Fun · Paul croaks</b><span>One trick, on a long night.</span></button>
+    <button type="button" id="pick-n2" data-night="3" aria-pressed="false"><b>Spooky · Felix croaks</b><span>A year later. A pumpkin trick and a bag trick.</span></button>
+    <button type="button" id="pick-n3" data-night="4" aria-pressed="false"><b>Scary · Theo croaks</b><span>Two tricks, and nobody knows of which kind.</span></button>
   </div>
 
   <section class="story" id="story"></section>
@@ -670,20 +698,59 @@ const ST = () => store.nights[N().id];
 
 /* ---------- the words of each night ---------- */
 const TRICK = kind => N().answer.tricks.find(t => t.kind === kind);
+const ONE_RULE = `<b>One zombie is naughty.</b> It kept one frog sweet up its sleeve, not in its bag. To get someone else blamed, it may have played one trick at the tub: swapped its pumpkin with another zombie's, or its bag. Nobody else swaps anything.`;
+const ONE_FIELDS = [
+  { id: 'giver', opts: ZS.map(z => z.name), truth: () => N().answer.giver },
+  { id: 'pumpkin', opts: ZS.map(z => z.name), truth: () => N().answer.pumpkin },
+  { id: 'kind', opts: ['pumpkins', 'bags'], truth: () => N().answer.tricks[0].kind },
+  { id: 'tub', opts: 'tubs', truth: () => N().answer.tricks[0].tub },
+];
 const TEXT = {
+  /* The two easy nights (9 November 2026, after the jam; its one rater said "the story
+     goes a bit long"). Widow Krall's memories from long ago, so Paul's night stays
+     the first croak you saw yourself: zombies never get any older. */
+  e1: {
+    victim: 'Otto', door: 89,
+    story: `<h2>Widow Krall remembers. CROAK</h2>
+      <p>Widow Krall has watched her apple tub for fifty Halloweens. Zombies never get any older, and neither do their tricks. "Long before you were born," she says, "little Otto from the red door took a sweet from the zombie with the <b>star eyes</b>."</p>
+      <p class="croak">CROAK.</p>
+      <p>"The star eyes are Bonesby's, and the whole lane blamed Bonesby. But from my window I only ever see pumpkins. You're small: you see hems. Tell me who it really was."</p>`,
+    rule: ONE_RULE,
+    fields: ONE_FIELDS,
+    sentence: S => `${S('giver')} gave Otto the frog sweet, wearing ${S('pumpkin')}'s pumpkin. It swapped ${S('kind')} at the tub at ${S('tub')}.`,
+    hints: [
+      'At 18:40 Noah saw the droopy frown hand out a liquorice bat. The droopy frown is Rotbert\'s, and Rotbert carries marzipan. When was the droopy frown at the tub, and who was there with it?',
+      'Mila saw Bonesby\'s bony foot hand out a liquorice bat at 18:35, so Bonesby still had its own bag. The bags never moved. So who was wearing the star eyes at 18:30?',
+    ],
+    solvedH: 'Rotbert did it.',
+    solved: `<p>At 18:20, while Bonesby had its face in the apple tub, Rotbert sneaked round the posts, put on Bonesby's star eyes and left its own droopy frown on Bonesby's post. Bonesby took the pumpkin from its own post and never knew. At 18:30 Rotbert handed Otto the frog sweet from up its sleeve, under Bonesby's stars.</p>
+      <p><b>"All these years I blamed Bonesby," says Widow Krall. "I should have looked at the hems."</b></p>`,
+  },
+  e2: {
+    victim: 'Lisa', door: 230,
+    story: `<h2>Widow Krall remembers again. CROAK</h2>
+      <p>"Another Halloween, long ago," says Widow Krall. "Lisa from the brown door took a sweet from the zombie with the <b>three teeth</b>."</p>
+      <p class="croak">CROAK.</p>
+      <p>"The three teeth are Grizelda's, and Grizelda said it wasn't. That night the treats were all wrong as well. Was it a pumpkin trick, or a bag trick?"</p>`,
+    rule: ONE_RULE,
+    fields: ONE_FIELDS,
+    sentence: S => `${S('giver')} gave Lisa the frog sweet, wearing ${S('pumpkin')}'s pumpkin. It swapped ${S('kind')} at the tub at ${S('tub')}.`,
+    hints: [
+      'At 18:25 Sophie saw the three teeth hand out a marzipan mouse, and Grizelda carries toffee. Marzipan comes out of Ghoulia\'s and Rotbert\'s bags. Which of them was at the tub with the three teeth?',
+      'Pumpkins or bags? At 18:35 Luis saw Ghoulia\'s singed hem hand out a toffee skull, so Ghoulia was carrying Grizelda\'s bag. So whose face was under the three teeth at 18:30?',
+    ],
+    solvedH: 'Grizelda did it, in its own pumpkin.',
+    solved: `<p>At 18:10 Grizelda swapped its bag of toffee skulls for Ghoulia's marzipan mice. When the three teeth handed out marzipan, everyone thought the pumpkins had moved, and blamed Ghoulia. But the pumpkins never moved: Grizelda kept its own three teeth, and at 18:30 it handed Lisa the frog sweet from up its sleeve.</p>
+      <p><b>A treat can lie too. Only the hems never do.</b></p>`,
+  },
   n1: {
     victim: 'Paul', door: 159,
     story: `<h2>Thank y— CROAK</h2>
       <p>At twenty to seven, your big brother Paul took a sweet from the zombie with the <b>crooked grin</b>, ate it, and tried to say thank you.</p>
       <p class="croak">CROAK.</p>
       <p>His tongue is green and he can't stop. Everyone on Gourd Lane saw the crooked grin, and the crooked grin is Mortimer's. Mortimer says it wasn't him. One of the six is naughty, and a naughty zombie plays tricks. You're small, so you look at hems. Maybe you're the only one who can find out <b>whose hand</b> it really was.</p>`,
-    rule: `<b>One zombie is naughty.</b> It kept one frog sweet up its sleeve, not in its bag. To get someone else blamed, it may have played one trick at the tub: swapped its pumpkin with another zombie's, or its bag. Nobody else swaps anything.`,
-    fields: [
-      { id: 'giver', opts: ZS.map(z => z.name), truth: () => N().answer.giver },
-      { id: 'pumpkin', opts: ZS.map(z => z.name), truth: () => N().answer.pumpkin },
-      { id: 'kind', opts: ['pumpkins', 'bags'], truth: () => N().answer.tricks[0].kind },
-      { id: 'tub', opts: 'tubs', truth: () => N().answer.tricks[0].tub },
-    ],
+    rule: ONE_RULE,
+    fields: ONE_FIELDS,
     sentence: S => `${S('giver')} gave Paul the frog sweet, wearing ${S('pumpkin')}'s pumpkin. It swapped ${S('kind')} at the tub at ${S('tub')}.`,
     hints: [
       'Follow the crooked grin through the night. What did it hand out before 18:30, and what after?',
@@ -885,7 +952,7 @@ sel('accuse').addEventListener('click', () => {
 });
 function shareText() {
   const st = ST();
-  return `Trick or Croak, ${['Fun', 'Spooky', 'Scary'][NI] || 'Night ' + (NI + 1)}: ${N().title}\nSolved in ${st.tries} ${st.tries === 1 ? 'try' : 'tries'}, ${st.hints} ${st.hints === 1 ? 'hint' : 'hints'}.`;
+  return `Trick or Croak, ${['Easy', 'Easy', 'Fun', 'Spooky', 'Scary'][NI] || 'Night ' + (NI + 1)}: ${N().title}\nSolved in ${st.tries} ${st.tries === 1 ? 'try' : 'tries'}, ${st.hints} ${st.hints === 1 ? 'hint' : 'hints'}.`;
 }
 sel('copy').addEventListener('click', () => {
   const t = shareText();
