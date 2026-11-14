@@ -166,6 +166,7 @@ canvas { display: block; max-width: 100%; margin: 0 auto; touch-action: none; }
       <button class="hbtn" id="hintBtn" type="button">Hint<span class="kh"> (H)</span></button>
       <button class="hbtn" id="levelsBtn" type="button">Levels<span class="kh"> (L)</span></button>
       <button class="hbtn" id="pauseBtn" type="button">Pause<span class="kh"> (P)</span></button>
+      <button class="hbtn" id="fullBtn" type="button" hidden>Full screen</button>
       <button class="hbtn" id="restartBtn" type="button">Restart<span class="kh"> (R)</span></button>
     </div>
   </header>
@@ -8913,9 +8914,26 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
     cine.gate = false; document.getElementById('cinegate').hidden = true; document.getElementById('cineskip').hidden = false;
     cine.t0 = performance.now(); cine.scene = 1;
   }
-  function passCineGate(full) {
-    (full ? document.documentElement.requestFullscreen().catch(function () {}) : Promise.resolve()).then(function () { setTimeout(runCine, 150); });
+  // full screen where the browser allows it (iPhone Safari has no requestFullscreen for pages: there the gate just plays on)
+  function goFull() {
+    var el = document.documentElement, f = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!f) return Promise.resolve();
+    try { return Promise.resolve(f.call(el)).catch(function () {}); } catch (err) { return Promise.resolve(); }
   }
+  function passCineGate(full) {
+    (full ? goFull() : Promise.resolve()).then(function () { setTimeout(runCine, 150); });
+  }
+  // the Full screen button in the header (touch devices whose browser allows it): in and out
+  (function () {
+    var b = document.getElementById('fullBtn'), el = document.documentElement;
+    if (!TOUCH || !(el.requestFullscreen || el.webkitRequestFullscreen)) return;
+    b.hidden = false;
+    b.addEventListener('click', function () {
+      b.blur();
+      if (document.fullscreenElement || document.webkitFullscreenElement) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      else goFull();
+    });
+  })();
   document.getElementById('cineFull').addEventListener('click', function (e) { e.stopPropagation(); passCineGate(true); });
   document.getElementById('cineHere').addEventListener('click', function (e) { e.stopPropagation(); passCineGate(false); });
   document.getElementById('cine').addEventListener('click', function () { if (cine.on && !cine.gate) endCine(); });
