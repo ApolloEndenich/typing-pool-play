@@ -111,12 +111,14 @@ canvas { display: block; max-width: 100%; margin: 0 auto; touch-action: none; }
 .pad button { padding: 0; font-size: 18px; background: var(--line); color: var(--fg); touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 .pad .sw { background: var(--copper); color: var(--bg); font-size: 13px; }
 .pad .zp { background: var(--ghost); color: var(--bg); font-size: 13px; }
-.dpad { display: grid; grid-template-columns: repeat(3, var(--pc)); grid-template-rows: repeat(3, var(--pc)); gap: 4px; }
-.dpad .u { grid-area: 1 / 2; } .dpad .l { grid-area: 2 / 1; } .dpad .r { grid-area: 2 / 3; } .dpad .d { grid-area: 3 / 2; }
+/* a compact cross: left and right side by side, up and down centred above and below them (two buttons wide) */
+.dpad { display: grid; grid-template-columns: repeat(2, var(--pc)); grid-template-rows: repeat(3, var(--pc)); gap: 4px; }
+.dpad .u, .dpad .d { grid-column: 1 / span 2; justify-self: center; width: var(--pc); }
+.dpad .u { grid-row: 1; } .dpad .l { grid-area: 2 / 1; } .dpad .r { grid-area: 2 / 2; } .dpad .d { grid-row: 3; }
 .acts { display: flex; flex-direction: column; gap: 10px; justify-content: flex-end; }
-.acts button { width: 92px; height: 56px; }
+.acts button { width: var(--aw); height: 56px; font-size: 12px; letter-spacing: 0.02em; }
 @media (pointer: coarse) {
-  :root { --pc: 54px; }
+  :root { --pc: 54px; --aw: 66px; }
   .pad { display: flex; position: fixed; z-index: 15; left: 0; right: 0; bottom: 0; justify-content: space-between; align-items: flex-end; pointer-events: none;
     padding: 8px max(14px, env(safe-area-inset-right, 0px)) max(10px, env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px)); }
   .pad > * { pointer-events: auto; }
@@ -129,7 +131,7 @@ canvas { display: block; max-width: 100%; margin: 0 auto; touch-action: none; }
 @media (pointer: coarse) and (orientation: landscape) {
   :root { --pc: 48px; }
   .pad { background: none; }
-  body { padding-bottom: 10px; padding-left: calc(3 * var(--pc) + 8px + max(14px, env(safe-area-inset-left, 0px)) + 10px); padding-right: calc(92px + max(14px, env(safe-area-inset-right, 0px)) + 10px); }
+  body { padding-bottom: 10px; padding-left: calc(2 * var(--pc) + 4px + max(14px, env(safe-area-inset-left, 0px)) + 10px); padding-right: calc(var(--aw) + max(14px, env(safe-area-inset-right, 0px)) + 10px); }
 }
 @media (pointer: coarse) and (orientation: portrait) {
   .pad { background: linear-gradient(to top, var(--bg) calc(100% - 10px), transparent); }
