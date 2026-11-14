@@ -104,11 +104,37 @@ canvas { display: block; max-width: 100%; margin: 0 auto; touch-action: none; }
 .charge.low i { background: var(--alarm); }
 .keys { font-size: 12px; color: var(--muted); line-height: 1.7; }
 .keys kbd { font-family: var(--mono); border: 1px solid var(--line); border-radius: 3px; padding: 0 5px; color: var(--fg); }
-.pad { display: none; grid-template-columns: repeat(3, 58px); grid-template-rows: repeat(2, 48px); gap: 6px; justify-content: center; }
-.pad button { padding: 0; font-size: 18px; background: var(--line); color: var(--fg); }
+/* the touch pad (phones, tablets): fixed under the thumbs, so the board and the pad are on screen together.
+   Portrait: a bar along the bottom (cross left, SWITCH and ZAP right) and the board sized above it (fit() leaves its height).
+   Landscape: the cross bottom left, SWITCH and ZAP bottom right, in side margins the board leaves free. */
+.pad { display: none; }
+.pad button { padding: 0; font-size: 18px; background: var(--line); color: var(--fg); touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
 .pad .sw { background: var(--copper); color: var(--bg); font-size: 13px; }
 .pad .zp { background: var(--ghost); color: var(--bg); font-size: 13px; }
-@media (pointer: coarse) { .pad { display: grid; } }
+.dpad { display: grid; grid-template-columns: repeat(3, var(--pc)); grid-template-rows: repeat(3, var(--pc)); gap: 4px; }
+.dpad .u { grid-area: 1 / 2; } .dpad .l { grid-area: 2 / 1; } .dpad .r { grid-area: 2 / 3; } .dpad .d { grid-area: 3 / 2; }
+.acts { display: flex; flex-direction: column; gap: 10px; justify-content: flex-end; }
+.acts button { width: 92px; height: 56px; }
+@media (pointer: coarse) {
+  :root { --pc: 54px; }
+  .pad { display: flex; position: fixed; z-index: 15; left: 0; right: 0; bottom: 0; justify-content: space-between; align-items: flex-end; pointer-events: none;
+    padding: 8px max(14px, env(safe-area-inset-right, 0px)) max(10px, env(safe-area-inset-bottom, 0px)) max(14px, env(safe-area-inset-left, 0px)); }
+  .pad > * { pointer-events: auto; }
+  .keys, .kh { display: none; }
+  body { padding-bottom: calc(3 * var(--pc) + 40px); }
+  header h1 { font-size: 18px; }
+  header .meters { gap: 4px 12px; font-size: 13px; }
+  .hbtn { padding: 6px 10px; font-size: 12px; }
+}
+@media (pointer: coarse) and (orientation: landscape) {
+  :root { --pc: 48px; }
+  .pad { background: none; }
+  body { padding-bottom: 10px; padding-left: calc(3 * var(--pc) + 8px + max(14px, env(safe-area-inset-left, 0px)) + 10px); padding-right: calc(92px + max(14px, env(safe-area-inset-right, 0px)) + 10px); }
+}
+@media (pointer: coarse) and (orientation: portrait) {
+  .pad { background: linear-gradient(to top, var(--bg) calc(100% - 10px), transparent); }
+}
+@media (pointer: coarse) and (max-height: 500px) { header h1 { display: none; } }
 /* the intro: captioned scenes over the whole window */
 #cine { position: fixed; inset: 0; z-index: 40; background: #05070a; display: flex; align-items: center; justify-content: center; cursor: pointer; }
 #cine canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -134,9 +160,11 @@ canvas { display: block; max-width: 100%; margin: 0 auto; touch-action: none; }
       <div class="meter" id="best">Best –</div>
       <div class="meter" id="min">Min –</div>
       <div class="meter" id="rec">Record –</div>
-      <button class="hbtn" id="scoresBtn" type="button">Scores (K)</button>
-      <button class="hbtn" id="hintBtn" type="button">Hint (H)</button>
-      <button class="hbtn" id="levelsBtn" type="button">Levels (L)</button>
+      <button class="hbtn" id="scoresBtn" type="button">Scores<span class="kh"> (K)</span></button>
+      <button class="hbtn" id="hintBtn" type="button">Hint<span class="kh"> (H)</span></button>
+      <button class="hbtn" id="levelsBtn" type="button">Levels<span class="kh"> (L)</span></button>
+      <button class="hbtn" id="pauseBtn" type="button">Pause<span class="kh"> (P)</span></button>
+      <button class="hbtn" id="restartBtn" type="button">Restart<span class="kh"> (R)</span></button>
     </div>
   </header>
   <div id="cine" hidden><canvas id="cinecv"></canvas><p id="cinecap"></p><p id="cineskip">Any key, click or tap skips</p>
@@ -159,8 +187,8 @@ canvas { display: block; max-width: 100%; margin: 0 auto; touch-action: none; }
   </div>
   <div class="brief"><b id="bname"></b><p id="btext"></p></div>
   <div class="pad" id="pad">
-    <button type="button" class="zp" data-a="6">ZAP</button><button type="button" data-a="1" aria-label="Up">▲</button><button type="button" class="sw" data-a="5">SWITCH</button>
-    <button type="button" data-a="4" aria-label="Left">◀</button><button type="button" data-a="3" aria-label="Down">▼</button><button type="button" data-a="2" aria-label="Right">▶</button>
+    <div class="dpad"><button type="button" class="u" data-a="1" aria-label="Up">▲</button><button type="button" class="l" data-a="4" aria-label="Left">◀</button><button type="button" class="r" data-a="2" aria-label="Right">▶</button><button type="button" class="d" data-a="3" aria-label="Down">▼</button></div>
+    <div class="acts"><button type="button" class="sw" data-a="5">SWITCH</button><button type="button" class="zp" data-a="6">ZAP</button></div>
   </div>
   <div class="keys" id="keys">
     <kbd>←↑→↓</kbd> or <kbd>WASD</kbd> glide along wires (hold) · <kbd>E</kbd> switch the machine you're on · <kbd>Space</kbd> zap (from B094) · <kbd>P</kbd> pause (3 per floor, +5 ticks) · <kbd>H</kbd> hint · <kbd>K</kbd> scores · <kbd>R</kbd> restart · <kbd>L</kbd> levels · <kbd>M</kbd> whole floor
@@ -7446,7 +7474,8 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
 (function () {
   var vw = document.getElementById('vw'), vx = vw.getContext('2d');
   var cv = document.createElement('canvas'), cx = cv.getContext('2d');
-  var BW = 1, BH = 1, RS = 1, MIN_TILE = 34, view = { k: 1, rw: 0, rh: 0, camX: 0, camY: 0, overview: false, snap: true };
+  var BW = 1, BH = 1, RS = 1, MIN_TILE = 34, view = { k: 1, rw: 0, rh: 0, camX: 0, camY: 0, overview: false, snap: true, panX: 0, panY: 0, dragging: false };
+  var TOUCH = window.matchMedia('(pointer: coarse)').matches, PORTRAIT_PAD = window.matchMedia('(pointer: coarse) and (orientation: portrait)');
   var bg = document.createElement('canvas'), bx = bg.getContext('2d');
   var lt = document.createElement('canvas'), lx = lt.getContext('2d');
   // SUB is the length of one sub-tick in ms: the game's tempo. The rules count only sub-ticks, so changing it changes no floor,
@@ -7624,7 +7653,10 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
   // squares never get smaller than MIN_TILE css pixels: a floor that doesn't fit scrolls with the spark (M shows all of it)
   function fit() {
     var head = document.querySelector('header'), wrap = document.querySelector('.wrap');
-    var availW = wrap.clientWidth, availH = Math.max(160, window.innerHeight - head.offsetHeight - 34);
+    // on a phone held upright the touch pad is a bar along the bottom: the board fits above it
+    var padH = PORTRAIT_PAD.matches ? document.getElementById('pad').offsetHeight : 0;
+    var availW = wrap.clientWidth, availH = Math.max(160, window.innerHeight - head.offsetHeight - 34 - padH);
+    view.panX = view.panY = 0;
     var kFit = Math.min(availW / BW, availH / BH);
     var k = Math.max(0.2, view.overview ? kFit : Math.max(kFit, MIN_TILE / TS));
     var w = Math.min(availW, BW * k), h = Math.min(availH, BH * k);
@@ -7637,9 +7669,12 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
   }
   function present(now, dt) {
     var fx = g2 ? (g.sx + g2.sx) / 2 : g.sx, fy = g2 ? (g.sy + g2.sy) / 2 : g.sy;
-    var tx = Math.max(0, Math.min(BW - view.rw, fx * TS + TS / 2 - view.rw / 2));
-    var ty = Math.max(0, Math.min(BH - view.rh, fy * TS + TS / 2 - view.rh / 2));
-    if (view.snap) { view.camX = tx; view.camY = ty; view.snap = false; }
+    var tx0 = Math.max(0, Math.min(BW - view.rw, fx * TS + TS / 2 - view.rw / 2));
+    var ty0 = Math.max(0, Math.min(BH - view.rh, fy * TS + TS / 2 - view.rh / 2));
+    // a finger (or mouse) dragged over the board looks around: panX/Y shift the view off the spark until its next move
+    var tx = Math.max(0, Math.min(BW - view.rw, tx0 + view.panX)), ty = Math.max(0, Math.min(BH - view.rh, ty0 + view.panY));
+    view.panX = tx - tx0; view.panY = ty - ty0;
+    if (view.snap || view.dragging) { view.camX = tx; view.camY = ty; view.snap = false; }
     else { var kk = 1 - Math.exp(-dt / 160); view.camX += (tx - view.camX) * kk; view.camY += (ty - view.camY) * kk; }
     vx.setTransform(1, 0, 0, 1, 0, 0); vx.clearRect(0, 0, vw.width, vw.height);
     vx.drawImage(cv, Math.round(view.camX * RS), Math.round(view.camY * RS), vw.width, vw.height, 0, 0, vw.width, vw.height);
@@ -7653,7 +7688,9 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
     });
     if (more.some(Boolean) || view.overview) {
       vx.font = '600 12px ' + MONO; vx.textAlign = 'right'; vx.fillStyle = 'rgba(217,223,232,0.7)';
-      vx.fillText(view.overview ? 'M: back to close view' : 'M: whole floor', view.rw - 10, view.rh - 10);
+      // on touch the hint sits top right, clear of the Ready banner
+      if (TOUCH) vx.fillText(view.overview ? 'Tap: back to close view' : 'Tap: whole floor · drag: look around', view.rw - 10, 18);
+      else vx.fillText(view.overview ? 'M: back to close view' : 'M: whole floor', view.rw - 10, view.rh - 10);
     }
     if (replay && !CLEAN) {
       vx.font = '600 14px ' + MONO; vx.textAlign = 'center';
@@ -7664,7 +7701,8 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
     if (mode === 'ready' && !CLEAN) {
       vx.font = '600 14px ' + MONO; vx.textAlign = 'center';
       var rd = s.two ? 'Ready · the floor starts with either player\'s first key' : 'Ready · the floor starts with your first key (Enter: start by waiting)', rw3 = vx.measureText(rd).width + 26;
-      if (rw3 > view.rw - 16) { rd = 'Ready · your first key starts'; rw3 = vx.measureText(rd).width + 26; }
+      if (TOUCH && !s.two) { rd = 'Ready · the floor starts with your first tap on the pad'; rw3 = vx.measureText(rd).width + 26; }
+      if (rw3 > view.rw - 16) { rd = TOUCH ? 'Ready · your first tap starts' : 'Ready · your first key starts'; rw3 = vx.measureText(rd).width + 26; }
       vx.fillStyle = 'rgba(11,14,19,0.9)'; rr(vx, view.rw / 2 - rw3 / 2, view.rh - 44, rw3, 30, 6); vx.fill();
       vx.strokeStyle = C.ghost; vx.lineWidth = 1.5; vx.stroke(); vx.fillStyle = C.fg; vx.fillText(rd, view.rw / 2, view.rh - 24);
     }
@@ -7677,6 +7715,8 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
     }
   }
   window.addEventListener('resize', function () { fit(); });
+  // the header grows or shrinks as its meters change (and wraps on a phone): the board keeps fitting under it
+  if (window.ResizeObserver) { var headH = 0; new ResizeObserver(function () { var h = document.querySelector('header').offsetHeight; if (h !== headH) { headH = h; fit(); } }).observe(document.querySelector('header')); }
   function hud() {
     var html = '', running = s.machines.filter(function (m) { return m.on; }).map(function (m) { return m.type; });
     for (var i = 0; i < s.cap; i++) html += '<i class="' + (i < running.length ? 'on' : '') + '"></i>';
@@ -7981,9 +8021,15 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
   document.getElementById('ovb2').addEventListener('click', openSelect);
   document.getElementById('ovb4').addEventListener('click', function () { mode = 'menu'; load(progress(true)); });
   document.getElementById('ovb6').addEventListener('click', function () { location.href = 'editor.html'; });
+  // P or the Pause button in the header: 3 pauses per floor, each adds PAUSE_COST ticks
+  function togglePause() {
+      if (mode === 'play' && pauses > 0 && !replay) { pauses--; penalty += PAUSE_COST; runMoves += 'p'; hud(); mode = 'paused'; overlay('Paused', 'Plan your next move. A pause adds ' + PAUSE_COST + ' ticks to your time. ' + pauses + ' pause' + (pauses === 1 ? '' : 's') + ' left on this floor.', 'Resume (P)'); offerReplay(); showBoard(false); }
+      else if (mode === 'paused') { hideOverlay(); mode = 'play'; }
+  }
   document.addEventListener('keydown', function (e) {
     if (cine.on) { if (!cine.gate) { e.preventDefault(); endCine(); } return; }
     if (e.target && e.target.tagName === 'INPUT') { if (e.code === 'Enter' || e.code === 'NumpadEnter') { e.preventDefault(); submitRun(); } else if (e.code === 'Escape') e.target.blur(); return; }
+    if (e.code in keymap || KEY2[e.code]) view.panX = view.panY = 0;
     if (e.key && e.key.length === 1) {
       typed = (typed + e.key.toLowerCase()).slice(-9);
       if (typed === 'blueshirt') {
@@ -8021,10 +8067,7 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
     if (e.code === 'Escape' && mode === 'scores') { e.preventDefault(); closeScores(); return; }
     if (e.code === 'KeyH') { e.preventDefault(); if (mode === 'play' || mode === 'ready') openHint(); else if (mode === 'hint' || mode === 'hintshown') getReady(); return; }
     if (e.code === 'Escape' && (mode === 'hint' || mode === 'hintshown')) { e.preventDefault(); getReady(); return; }
-    if (e.code === 'KeyP') {
-      if (mode === 'play' && pauses > 0 && !replay) { pauses--; penalty += PAUSE_COST; runMoves += 'p'; hud(); mode = 'paused'; overlay('Paused', 'Plan your next move. A pause adds ' + PAUSE_COST + ' ticks to your time. ' + pauses + ' pause' + (pauses === 1 ? '' : 's') + ' left on this floor.', 'Resume (P)'); offerReplay(); showBoard(false); }
-      else if (mode === 'paused') { hideOverlay(); mode = 'play'; }
-    }
+    if (e.code === 'KeyP') togglePause();
   });
   document.addEventListener('keyup', function (e) {
     if (s && s.two && KEY2[e.code]) { var j = heldStack2.indexOf(KEY2[e.code]); if (j >= 0) heldStack2.splice(j, 1); held2 = heldStack2.length ? heldStack2[heldStack2.length - 1] : 0; return; }
@@ -8033,9 +8076,38 @@ if (typeof module !== 'undefined') module.exports = LEVELS;
   window.addEventListener('blur', function () { heldStack = []; held = 0; heldStack2 = []; held2 = 0; });
   document.querySelectorAll('#pad button').forEach(function (b) {
     var a = +b.getAttribute('data-a');
-    b.addEventListener('pointerdown', function (e) { e.preventDefault(); if (mode === 'ready') go(); if (mode !== 'play') { act(); return; } if (a >= 5) queued = a; else { held = a; queued = a; } });
+    b.addEventListener('pointerdown', function (e) { e.preventDefault(); if (a < 5) view.panX = view.panY = 0; if (mode === 'ready') go(); if (mode !== 'play') { act(); return; } if (a >= 5) queued = a; else { held = a; queued = a; } });
     ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) { b.addEventListener(ev, function () { if (a < 5 && held === a) held = 0; }); });
   });
+  document.getElementById('pauseBtn').addEventListener('click', function (e) { e.currentTarget.blur(); togglePause(); });
+  // Restart in the header (as R), far from the touch pad so a thumb can't hit it by mistake
+  document.getElementById('restartBtn').addEventListener('click', function (e) {
+    e.currentTarget.blur();
+    if (mode !== 'play' && mode !== 'ready' && mode !== 'paused' && mode !== 'over') return;
+    load(li, true); getReady();
+  });
+  // the board: drag to look around the floor, tap (touch) for the whole floor and back
+  (function () {
+    var d = null;
+    vw.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      d = { id: e.pointerId, x: e.clientX, y: e.clientY, px: view.panX, py: view.panY, moved: false };
+      try { vw.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    vw.addEventListener('pointermove', function (e) {
+      if (!d || e.pointerId !== d.id) return;
+      var dx = e.clientX - d.x, dy = e.clientY - d.y;
+      if (!d.moved && dx * dx + dy * dy < 100) return;
+      d.moved = true; view.dragging = true;
+      view.panX = d.px - dx / view.k; view.panY = d.py - dy / view.k;
+    });
+    function end(e) {
+      if (!d || e.pointerId !== d.id) return;
+      if (!d.moved && e.type === 'pointerup' && e.pointerType !== 'mouse') { view.overview = !view.overview; fit(); }
+      d = null; view.dragging = false;
+    }
+    vw.addEventListener('pointerup', end); vw.addEventListener('pointercancel', end);
+  })();
 
   // ---------- the static plant: steel wall panels, diamond-plate floors, copper conduits ----------
   function rr(c, x, y, w, h, r) { c.beginPath(); c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r); c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r); c.arcTo(x, y, x + w, y, r); c.closePath(); }
